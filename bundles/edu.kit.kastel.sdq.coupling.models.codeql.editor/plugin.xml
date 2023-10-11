@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated codeql -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlModelWizardID"
+            name="%_UI_CodeqlModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CodeqlModelFile.gif">
+         <description>%_UI_CodeqlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated codeql -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlEditorID"
+            name="%_UI_CodeqlEditor_label"
+            icon="icons/full/obj16/CodeqlModelFile.gif"
+            extensions="codeql"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated codeql -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.codeql.code.presentation.CodeModelWizardID"
+            name="%_UI_CodeModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.code.presentation.CodeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CodeModelFile.gif">
+         <description>%_UI_CodeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated codeql -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.codeql.code.presentation.CodeEditorID"
+            name="%_UI_CodeEditor_label"
+            icon="icons/full/obj16/CodeModelFile.gif"
+            extensions="code"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.code.presentation.CodeEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.codeql.code.presentation.CodeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated codeql -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation.TainttrackingModelWizardID"
+            name="%_UI_TainttrackingModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation.TainttrackingModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TainttrackingModelFile.gif">
+         <description>%_UI_TainttrackingModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated codeql -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation.TainttrackingEditorID"
+            name="%_UI_TainttrackingEditor_label"
+            icon="icons/full/obj16/TainttrackingModelFile.gif"
+            extensions="tainttracking"
+            class="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation.TainttrackingEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation.TainttrackingActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

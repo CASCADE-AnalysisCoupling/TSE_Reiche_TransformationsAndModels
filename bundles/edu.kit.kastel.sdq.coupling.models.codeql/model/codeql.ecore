@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeql" nsURI="http://www.example.org/codeql" nsPrefix="codeql">
+  <eClassifiers xsi:type="ecore:EClass" name="CodeQLRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="codeRoot" lowerBound="1"
+        eType="#//code/CodeRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowRoot" lowerBound="1"
+        eType="#//tainttracking/DataFlowRoot"/>
+  </eClassifiers>
+  <eSubpackages name="code" nsURI="http://www.example.org/codeql/code" nsPrefix="code">
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity #//code/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
+          eType="#//code/Method" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+          eType="#//code/Field" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//code/Parameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returns" eType="#//code/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+          eType="#//code/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//code/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//code/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitiveTypeName" lowerBound="1"
+          eType="#//code/PrimitiveTypeNames"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeNames">
+      <eLiterals name="float" literal="float"/>
+      <eLiterals name="int" value="2"/>
+      <eLiterals name="boolean" value="3"/>
+      <eLiterals name="string" value="4"/>
+      <eLiterals name="date" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MethodAccess" eSuperTypes="#//code/Expression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessingMethod" lowerBound="1"
+          eType="#//code/Method"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableAccess" abstract="true" eSuperTypes="#//code/Expression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldAccess" eSuperTypes="#//code/VariableAccess"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//code/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CodeRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//code/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+          eType="#//code/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//code/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//code/Type"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="tainttracking" nsURI="http://www.example.org/codeql/tainttracking"
+      nsPrefix="tainttracking">
+    <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionNode" eSuperTypes="#//tainttracking/Node">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="#//code/Expression"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterNode" eSuperTypes="#//tainttracking/Node">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="#//code/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataFlowRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+          eType="#//tainttracking/Node"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+          eType="#//tainttracking/Configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="appliedSecurityLevel"
+          upperBound="-1" eType="#//tainttracking/SecurityLevel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevelAnnotations"
+          upperBound="-1" eType="#//tainttracking/SecurityLevelAnnotation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allowedFlows" upperBound="-1"
+          eType="#//tainttracking/AllowedFlow" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelAnnotation" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
+          eType="#//tainttracking/SecurityLevel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterAnnotation" eSuperTypes="#//tainttracking/SecurityLevelAnnotation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="#//code/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllowedFlow" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
+          eType="#//tainttracking/SecurityLevel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//tainttracking/SecurityLevel"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

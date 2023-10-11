@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Codeqlgenerator
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator
+Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator,
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates,
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.codeqlgenerator
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0"

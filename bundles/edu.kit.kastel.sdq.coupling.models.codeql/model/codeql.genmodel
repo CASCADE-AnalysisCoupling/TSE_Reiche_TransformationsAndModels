@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.models.codeql/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.models.codeql.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.models.codeql.editor/src-gen" modelPluginID="edu.kit.kastel.sdq.coupling.models.codeql"
+    modelName="Codeql" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" usedGenPackages="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>codeql.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Codeql" basePackage="edu.kit.kastel.sdq.coupling.models" disposableProviderFactory="true"
+      ecorePackage="codeql.ecore#/">
+    <genClasses ecoreClass="codeql.ecore#//CodeQLRoot">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeql.ecore#//CodeQLRoot/codeRoot"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeql.ecore#//CodeQLRoot/dataFlowRoot"/>
+    </genClasses>
+    <nestedGenPackages prefix="Code" basePackage="edu.kit.kastel.sdq.coupling.models.codeql"
+        disposableProviderFactory="true" ecorePackage="codeql.ecore#//code">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="codeql.ecore#//code/PrimitiveTypeNames">
+        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/float"/>
+        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/int"/>
+        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/boolean"/>
+        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/string"/>
+        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/date"/>
+      </genEnums>
+      <genClasses ecoreClass="codeql.ecore#//code/Class">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Class/methods"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Class/fields"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//code/Method">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Method/parameters"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//code/Method/returns"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Method/expressions"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//code/Parameter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//code/Parameter/type"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="codeql.ecore#//code/Type"/>
+      <genClasses ecoreClass="codeql.ecore#//code/PrimitiveType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeql.ecore#//code/PrimitiveType/primitiveTypeName"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="codeql.ecore#//code/Expression"/>
+      <genClasses ecoreClass="codeql.ecore#//code/MethodAccess">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//code/MethodAccess/accessingMethod"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="codeql.ecore#//code/VariableAccess"/>
+      <genClasses ecoreClass="codeql.ecore#//code/FieldAccess"/>
+      <genClasses ecoreClass="codeql.ecore#//code/Field">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//code/Field/type"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//code/CodeRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/CodeRoot/types"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/CodeRoot/expressions"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//code/CollectionType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//code/CollectionType/type"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Tainttracking" basePackage="edu.kit.kastel.sdq.coupling.models.codeql"
+        disposableProviderFactory="true" ecorePackage="codeql.ecore#//tainttracking">
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/Node"/>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/ExpressionNode">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ExpressionNode/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/ParameterNode">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ParameterNode/parameter"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/SecurityLevel"/>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/DataFlowRoot">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/DataFlowRoot/nodes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/DataFlowRoot/configurations"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/Configuration">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/appliedSecurityLevel"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/securityLevelAnnotations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/allowedFlows"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/SecurityLevelAnnotation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/SecurityLevelAnnotation/securityLevel"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/ParameterAnnotation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ParameterAnnotation/parameter"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/AllowedFlow">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/AllowedFlow/from"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/AllowedFlow/to"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
