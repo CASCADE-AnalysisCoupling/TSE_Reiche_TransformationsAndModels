@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotati
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLQueryTemplate
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils.CodeQLGeneratorUtils
+import com.sun.java.accessibility.util.internal.LabelTranslator
 
 class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val String HAS_LABEL_CHECK_NAME = "hasLabel";
@@ -15,6 +16,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val  String MODULE_NAME = "MyTaintFlow";
 	public static val  String CONFIG_NAME = "MyFlowConfiguration";
 	public static val String ID = "labeledtaint";
+	public static val String LABEL_TYPE_NAME = "SecurityLevel"
 	val CodeQLQueryTemplate query;
 	
 	val Configuration config;
@@ -46,9 +48,21 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 '''
 	
 	protected override generateAllowedFlows() '''
-		predicate isAllowedFlow(DataFlow::Node source, DataFlow::Node sink){
-			«FOR allowedFlow : config.allowedFlows SEPARATOR "or \n"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
+		«generateallowedFlowsSecurityLevel»
+		
+		«generateIsFlowAllowedNodes»
+	'''
+	
+	private def String generateallowedFlowsSecurityLevel()'''
+		predicate allowedFlows(«LABEL_TYPE_NAME» source, «LABEL_TYPE_NAME» sink){
+			«FOR allowedFlow : config.allowedFlows SEPARATOR " or"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
 		}
+	'''
+	
+	private def String generateIsFlowAllowedNodes()'''
+		predicate isFlowAllowed(DataFlow::Node source, DataFlow::Node sink){
+	    	allowedFlows(getLabel(source), getLabel(sink))
+		}   
 	'''
 
 	
@@ -69,9 +83,9 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	'''
 	
 	protected override generateSecurityLevels() '''
-		newtype SecurityLevel = 
-		«FOR level : config.appliedSecurityLevel SEPARATOR "or "»
-			«level.entityName.toFirstUpper»()
+		newtype «LABEL_TYPE_NAME» = 
+		«FOR level : config.appliedSecurityLevel SEPARATOR " or"»
+			«level.name.toFirstUpper»()
 		«ENDFOR»
 		or None()
 	'''
@@ -92,8 +106,8 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	'''
 	
 	protected def String generateLabelingFunction()'''
-		SecurityLevel «LABEL_FUNCTION_NAME»(DataFlow::Node node){
-			«FOR annotation : config.securityLevelAnnotations SEPARATOR "\n or \n"»
+		«LABEL_TYPE_NAME» «LABEL_FUNCTION_NAME»(DataFlow::Node node){
+			«FOR annotation : config.securityLevelAnnotations SEPARATOR " or"»
 				«generateSingleLabelling(annotation)»
 			«ENDFOR»
 			or result = None()
@@ -102,16 +116,16 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	
 	
 	private def String singleAllowedFlow(AllowedFlow flow)'''
-		getLabel(source) = «flow.from.entityName.toFirstUpper»() and getLabel(sink) = «flow.to.entityName.toFirstUpper»()
+		source = «flow.from.name.toFirstUpper»() and sink = «flow.to.name.toFirstUpper»()
 	'''
 	
 	private def String generateSingleLabelling(SecurityLevelAnnotation anno){
 		
 		if(anno instanceof ParameterAnnotation){
-		val levelString = anno.securityLevel.entityName
-		val className = CodeQLGeneratorUtils.getClassForParameter(root, anno.parameter).entityName
-		val methodName = CodeQLGeneratorUtils.getMethodContainingParameter(root, anno.parameter).entityName
-		val parameterName = anno.parameter.entityName;
+		val levelString = anno.securityLevel.name
+		val className = CodeQLGeneratorUtils.getClassForParameter(root, anno.parameter).name
+		val methodName = CodeQLGeneratorUtils.getMethodContainingParameter(root, anno.parameter).name
+		val parameterName = anno.parameter.name;
 			return generateSingleLabelling(className, methodName, parameterName, levelString)
 		}
 		
@@ -125,9 +139,34 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	override protected generateMetaData() '''
 	/**
 	* @kind path-problem
-	* @problem.severity warnining
+	* @problem.severity warning
 	* @id «ID»
 	*/
+	'''
+	
+	override protected generatePackageImports() '''
+	import java
+	import semmle.code.java.dataflow.TaintTracking
+	'''
+	
+	override protected generateLevelToStringFunction() '''
+	«generateLevelToString»
+	
+	«generateNodeToLevelString»
+	'''
+	
+	private def String generateLevelToString() '''
+	string getLevelAsString(«LABEL_TYPE_NAME» level){
+			«FOR level : config.appliedSecurityLevel SEPARATOR " or"»
+				level = «level.name.toFirstUpper»() and result = "«level.name.toFirstUpper»"
+			«ENDFOR»
+		}
+	'''
+	
+	private def String generateNodeToLevelString()'''
+		string getNodeLevelAsString(DataFlow::Node node){
+	    	result = getLevelAsString(getLabel(node))
+		}
 	'''
 	
 }

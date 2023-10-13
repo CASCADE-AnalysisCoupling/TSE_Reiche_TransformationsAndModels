@@ -20,14 +20,14 @@ public class CodeQLGeneratorUtils {
     edu.kit.kastel.sdq.coupling.models.codeql.code.Class clazz = IterableExtensions.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>findFirst(classes, _function);
     return clazz;
   }
-
+  
   public static Method getMethodContainingParameter(final Collection<Method> methods, final Parameter toSearch) {
     final Function1<Method, Boolean> _function = (Method m) -> {
       return Boolean.valueOf(m.getParameters().contains(toSearch));
     };
     return IterableExtensions.<Method>findFirst(methods, _function);
   }
-
+  
   public static Method getMethodContainingParameter(final CodeRoot root, final Parameter p) {
     List<edu.kit.kastel.sdq.coupling.models.codeql.code.Class> classes = IterableExtensions.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>toList(Iterables.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>filter(root.getTypes(), edu.kit.kastel.sdq.coupling.models.codeql.code.Class.class));
     for (final edu.kit.kastel.sdq.coupling.models.codeql.code.Class clazz : classes) {

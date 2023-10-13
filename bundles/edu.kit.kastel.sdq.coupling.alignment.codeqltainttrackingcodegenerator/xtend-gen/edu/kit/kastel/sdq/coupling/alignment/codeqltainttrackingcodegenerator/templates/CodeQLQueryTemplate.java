@@ -10,21 +10,20 @@ public abstract class CodeQLQueryTemplate {
     String _generateFromClause = this.generateFromClause();
     _builder.append(_generateFromClause);
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
     _builder.append("where ");
     String _generateWhereClause = this.generateWhereClause();
-    _builder.append(_generateWhereClause, "\t\t");
+    _builder.append(_generateWhereClause);
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
     _builder.append("select ");
     String _generateSelectClause = this.generateSelectClause();
-    _builder.append(_generateSelectClause, "\t\t");
+    _builder.append(_generateSelectClause);
+    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   protected abstract String generateSelectClause();
-
+  
   protected abstract String generateWhereClause();
-
+  
   protected abstract String generateFromClause();
 }

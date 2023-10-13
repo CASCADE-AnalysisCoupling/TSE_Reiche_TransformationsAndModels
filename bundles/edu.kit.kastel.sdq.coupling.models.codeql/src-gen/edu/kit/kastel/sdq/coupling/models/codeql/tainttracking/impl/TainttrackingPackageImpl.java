@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -479,11 +479,12 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		expressionNodeEClass.getESuperTypes().add(this.getNode());
 		parameterNodeEClass.getESuperTypes().add(this.getNode());
 		securityLevelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
-		securityLevelAnnotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		configurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
+		securityLevelAnnotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 		parameterAnnotationEClass.getESuperTypes().add(this.getSecurityLevelAnnotation());
-		allowedFlowEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		allowedFlowEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(expressionNodeEClass, ExpressionNode.class, "ExpressionNode", !IS_ABSTRACT, !IS_INTERFACE,

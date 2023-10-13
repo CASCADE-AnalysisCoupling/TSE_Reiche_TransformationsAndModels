@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.kit.kastel.sdq.coupling.models.identifier/src-gen"
+    creationIcons="false" editDirectory="/org.kit.kastel.sdq.coupling.models.identifier.edit/src-gen"
+    editorDirectory="/org.kit.kastel.sdq.coupling.models.identifier.editor/src-gen"
+    modelPluginID="org.kit.kastel.sdq.coupling.models.identifier" modelName="Identifier"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
+    importOrganizing="true">
+  <foreignModel>identifier.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Identifier" basePackage="org.kit.kastel.sdq.coupling.models"
+      disposableProviderFactory="true" ecorePackage="identifier.ecore#/">
+    <genClasses ecoreClass="identifier.ecore#//IdentifiedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute identifier.ecore#//IdentifiedElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="identifier.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute identifier.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="identifier.ecore#//Entity"/>
+  </genPackages>
+</genmodel:GenModel>

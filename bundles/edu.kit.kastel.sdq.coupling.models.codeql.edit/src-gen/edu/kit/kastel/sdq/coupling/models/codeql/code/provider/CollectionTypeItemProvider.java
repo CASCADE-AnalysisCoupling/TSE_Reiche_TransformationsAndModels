@@ -91,7 +91,7 @@ public class CollectionTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CollectionType) object).getId();
+		String label = ((CollectionType) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_CollectionType_type")
 				: getString("_UI_CollectionType_type") + " " + label;
 	}

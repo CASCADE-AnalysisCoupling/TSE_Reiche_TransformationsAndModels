@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+import org.kit.kastel.sdq.coupling.models.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->

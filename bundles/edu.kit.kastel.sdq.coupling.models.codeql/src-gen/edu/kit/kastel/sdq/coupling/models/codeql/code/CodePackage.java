@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +17,6 @@ import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -60,6 +59,43 @@ public interface CodePackage extends EPackage {
 	CodePackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.code.impl.CodePackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.TypeImpl <em>Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.code.impl.TypeImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.code.impl.CodePackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ID = IdentifierPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__NAME = IdentifierPackage.ENTITY__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.ClassImpl <em>Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,16 +112,16 @@ public interface CodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ID = IdentifierPackage.ENTITY__ID;
+	int CLASS__ID = TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
+	int CLASS__NAME = TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -94,7 +130,7 @@ public interface CodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__METHODS = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
+	int CLASS__METHODS = TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -103,7 +139,7 @@ public interface CodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__FIELDS = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
+	int CLASS__FIELDS = TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -112,16 +148,7 @@ public interface CodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Class</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
+	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.MethodImpl <em>Method</em>}' class.
@@ -143,13 +170,13 @@ public interface CodePackage extends EPackage {
 	int METHOD__ID = IdentifierPackage.ENTITY__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
+	int METHOD__NAME = IdentifierPackage.ENTITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -188,15 +215,6 @@ public interface CodePackage extends EPackage {
 	int METHOD_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Method</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,13 +234,13 @@ public interface CodePackage extends EPackage {
 	int PARAMETER__ID = IdentifierPackage.ENTITY__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
+	int PARAMETER__NAME = IdentifierPackage.ENTITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -241,61 +259,6 @@ public interface CodePackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.TypeImpl <em>Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.code.impl.TypeImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.code.impl.CodePackageImpl#getType()
-	 * @generated
-	 */
-	int TYPE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__ID = IdentifierPackage.ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
@@ -317,13 +280,13 @@ public interface CodePackage extends EPackage {
 	int PRIMITIVE_TYPE__ID = TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__ENTITY_NAME = TYPE__ENTITY_NAME;
+	int PRIMITIVE_TYPE__NAME = TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Primitive Type Name</b></em>' attribute.
@@ -344,15 +307,6 @@ public interface CodePackage extends EPackage {
 	int PRIMITIVE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Primitive Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.ExpressionImpl <em>Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,15 +324,6 @@ public interface CodePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPRESSION_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.MethodAccessImpl <em>Method Access</em>}' class.
@@ -409,15 +354,6 @@ public interface CodePackage extends EPackage {
 	int METHOD_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Method Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.VariableAccessImpl <em>Variable Access</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,15 +371,6 @@ public interface CodePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Variable Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_ACCESS_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.FieldAccessImpl <em>Field Access</em>}' class.
@@ -465,15 +392,6 @@ public interface CodePackage extends EPackage {
 	int FIELD_ACCESS_FEATURE_COUNT = VARIABLE_ACCESS_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Field Access</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_ACCESS_OPERATION_COUNT = VARIABLE_ACCESS_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.FieldImpl <em>Field</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -493,13 +411,13 @@ public interface CodePackage extends EPackage {
 	int FIELD__ID = IdentifierPackage.ENTITY__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__ENTITY_NAME = IdentifierPackage.ENTITY__ENTITY_NAME;
+	int FIELD__NAME = IdentifierPackage.ENTITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -518,15 +436,6 @@ public interface CodePackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.CodeRootImpl <em>Root</em>}' class.
@@ -566,15 +475,6 @@ public interface CodePackage extends EPackage {
 	int CODE_ROOT_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_ROOT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,13 +494,13 @@ public interface CodePackage extends EPackage {
 	int COLLECTION_TYPE__ID = TYPE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_TYPE__ENTITY_NAME = TYPE__ENTITY_NAME;
+	int COLLECTION_TYPE__NAME = TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -619,15 +519,6 @@ public interface CodePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLLECTION_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Collection Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLLECTION_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.code.PrimitiveTypeNames <em>Primitive Type Names</em>}' enum.
@@ -916,7 +807,6 @@ public interface CodePackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

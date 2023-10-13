@@ -8,7 +8,6 @@ Bundle-ClassPath: .
 Bundle-Activator: edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: edu.kit.kastel.sdq.coupling.models.codeql.code.presentation,
  edu.kit.kastel.sdq.coupling.models.codeql.presentation,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation
@@ -18,5 +17,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- tools.mdsd.modelingfoundations.identifier.edit;visibility:=reexport
+ org.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -4,7 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.codeql.code;
 
 import org.eclipse.emf.common.util.EList;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->

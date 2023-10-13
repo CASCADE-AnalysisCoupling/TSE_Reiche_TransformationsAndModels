@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -567,8 +567,8 @@ public class CodePackageImpl extends EPackageImpl implements CodePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		classEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		classEClass.getESuperTypes().add(this.getType());
+		classEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		methodEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		parameterEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		typeEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
@@ -579,7 +579,7 @@ public class CodePackageImpl extends EPackageImpl implements CodePackage {
 		fieldEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		collectionTypeEClass.getESuperTypes().add(this.getType());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(classEClass, edu.kit.kastel.sdq.coupling.models.codeql.code.Class.class, "Class", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClass_Methods(), this.getMethod(), null, "methods", null, 0, -1,

@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
-import tools.mdsd.modelingfoundations.identifier.Identifier;
-import tools.mdsd.modelingfoundations.identifier.NamedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,7 +89,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(class_);
 			if (result == null)
-				result = caseIdentifier(class_);
+				result = caseIdentifiedElement(class_);
 			if (result == null)
 				result = caseNamedElement(class_);
 			if (result == null)
@@ -102,7 +102,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(method);
 			if (result == null)
-				result = caseIdentifier(method);
+				result = caseIdentifiedElement(method);
 			if (result == null)
 				result = caseNamedElement(method);
 			if (result == null)
@@ -115,7 +115,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(parameter);
 			if (result == null)
-				result = caseIdentifier(parameter);
+				result = caseIdentifiedElement(parameter);
 			if (result == null)
 				result = caseNamedElement(parameter);
 			if (result == null)
@@ -128,7 +128,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(type);
 			if (result == null)
-				result = caseIdentifier(type);
+				result = caseIdentifiedElement(type);
 			if (result == null)
 				result = caseNamedElement(type);
 			if (result == null)
@@ -143,7 +143,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(primitiveType);
 			if (result == null)
-				result = caseIdentifier(primitiveType);
+				result = caseIdentifiedElement(primitiveType);
 			if (result == null)
 				result = caseNamedElement(primitiveType);
 			if (result == null)
@@ -192,7 +192,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(field);
 			if (result == null)
-				result = caseIdentifier(field);
+				result = caseIdentifiedElement(field);
 			if (result == null)
 				result = caseNamedElement(field);
 			if (result == null)
@@ -214,7 +214,7 @@ public class CodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(collectionType);
 			if (result == null)
-				result = caseIdentifier(collectionType);
+				result = caseIdentifiedElement(collectionType);
 			if (result == null)
 				result = caseNamedElement(collectionType);
 			if (result == null)
@@ -407,17 +407,17 @@ public class CodeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Identified Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Identified Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdentifier(Identifier object) {
+	public T caseIdentifiedElement(IdentifiedElement object) {
 		return null;
 	}
 

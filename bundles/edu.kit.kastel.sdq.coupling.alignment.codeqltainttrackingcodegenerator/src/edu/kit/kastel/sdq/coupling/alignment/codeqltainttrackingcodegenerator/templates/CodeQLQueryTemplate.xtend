@@ -2,11 +2,13 @@ package edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.t
 
 abstract class CodeQLQueryTemplate {
 	
-	def String generate() {
-		return '''from «generateFromClause»
-		where «generateWhereClause»
-		select «generateSelectClause»'''
-	}
+	def String generate() 
+'''
+from «generateFromClause»
+where «generateWhereClause»
+select «generateSelectClause»
+'''
+	
 	
 	protected def String generateSelectClause()
 	

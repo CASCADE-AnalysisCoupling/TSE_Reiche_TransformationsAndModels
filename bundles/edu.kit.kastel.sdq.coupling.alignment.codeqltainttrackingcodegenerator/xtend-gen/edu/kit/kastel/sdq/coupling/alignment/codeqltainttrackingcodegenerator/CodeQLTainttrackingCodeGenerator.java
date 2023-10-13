@@ -1,5 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator;
 
+import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingQueryCodeGenerator;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLQueryTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils.CodeQLGeneratorUtils;
@@ -16,28 +17,30 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 @SuppressWarnings("all")
 public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate {
   public static final String HAS_LABEL_CHECK_NAME = "hasLabel";
-
+  
   public static final String LABEL_FUNCTION_NAME = "getLabel";
-
+  
   public static final String MODULE_NAME = "MyTaintFlow";
-
+  
   public static final String CONFIG_NAME = "MyFlowConfiguration";
-
+  
   public static final String ID = "labeledtaint";
-
+  
+  public static final String LABEL_TYPE_NAME = "SecurityLevel";
+  
   private final CodeQLQueryTemplate query;
-
+  
   private final Configuration config;
-
+  
   private final CodeRoot root;
-
+  
   public CodeQLTainttrackingCodeGenerator(final CodeRoot root, final Configuration config) {
     this.config = config;
     this.root = root;
     CodeQLTainttrackingQueryCodeGenerator _codeQLTainttrackingQueryCodeGenerator = new CodeQLTainttrackingQueryCodeGenerator();
     this.query = _codeQLTainttrackingQueryCodeGenerator;
   }
-
+  
   @Override
   protected String generateInformationFlowModuleUsage() {
     StringConcatenation _builder = new StringConcatenation();
@@ -53,7 +56,7 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateConfiguration() {
     StringConcatenation _builder = new StringConcatenation();
@@ -90,12 +93,28 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateAllowedFlows() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("predicate isAllowedFlow(DataFlow::Node source, DataFlow::Node sink){");
+    String _generateallowedFlowsSecurityLevel = this.generateallowedFlowsSecurityLevel();
+    _builder.append(_generateallowedFlowsSecurityLevel);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
+    String _generateIsFlowAllowedNodes = this.generateIsFlowAllowedNodes();
+    _builder.append(_generateIsFlowAllowedNodes);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  private String generateallowedFlowsSecurityLevel() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("predicate allowedFlows(");
+    _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_TYPE_NAME);
+    _builder.append(" source, ");
+    _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_TYPE_NAME);
+    _builder.append(" sink){");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     {
       EList<AllowedFlow> _allowedFlows = this.config.getAllowedFlows();
@@ -104,7 +123,7 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate("or \n", "\t");
+          _builder.appendImmediate(" or", "\t");
         }
         String _singleAllowedFlow = this.singleAllowedFlow(allowedFlow);
         _builder.append(_singleAllowedFlow, "\t");
@@ -115,7 +134,19 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
+  private String generateIsFlowAllowedNodes() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("predicate isFlowAllowed(DataFlow::Node source, DataFlow::Node sink){");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("allowedFlows(getLabel(source), getLabel(sink))");
+    _builder.newLine();
+    _builder.append("}   ");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
   @Override
   protected String generateAvailableLabelCheck() {
     StringConcatenation _builder = new StringConcatenation();
@@ -128,12 +159,12 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateQuery() {
     return this.query.generate();
   }
-
+  
   @Override
   protected String generateLabelFunction() {
     StringConcatenation _builder = new StringConcatenation();
@@ -146,12 +177,14 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateSecurityLevels() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("newtype SecurityLevel = ");
-    _builder.newLine();
+    _builder.append("newtype ");
+    _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_TYPE_NAME);
+    _builder.append(" = ");
+    _builder.newLineIfNotEmpty();
     {
       EList<SecurityLevel> _appliedSecurityLevel = this.config.getAppliedSecurityLevel();
       boolean _hasElements = false;
@@ -159,9 +192,9 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate("or ", "");
+          _builder.appendImmediate(" or", "");
         }
-        String _firstUpper = StringExtensions.toFirstUpper(level.getEntityName());
+        String _firstUpper = StringExtensions.toFirstUpper(level.getName());
         _builder.append(_firstUpper);
         _builder.append("()");
         _builder.newLineIfNotEmpty();
@@ -171,7 +204,7 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
   protected String generateLabellingSupportFunction() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("bindingset[className, methodName, parameterName]");
@@ -208,10 +241,11 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
   protected String generateLabelingFunction() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("SecurityLevel ");
+    _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_TYPE_NAME);
+    _builder.append(" ");
     _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_FUNCTION_NAME);
     _builder.append("(DataFlow::Node node){");
     _builder.newLineIfNotEmpty();
@@ -222,7 +256,7 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate("\n or \n", "\t");
+          _builder.appendImmediate(" or", "\t");
         }
         _builder.append("\t");
         String _generateSingleLabelling = this.generateSingleLabelling(annotation);
@@ -237,31 +271,31 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     return _builder.toString();
   }
-
+  
   private String singleAllowedFlow(final AllowedFlow flow) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("getLabel(source) = ");
-    String _firstUpper = StringExtensions.toFirstUpper(flow.getFrom().getEntityName());
+    _builder.append("source = ");
+    String _firstUpper = StringExtensions.toFirstUpper(flow.getFrom().getName());
     _builder.append(_firstUpper);
-    _builder.append("() and getLabel(sink) = ");
-    String _firstUpper_1 = StringExtensions.toFirstUpper(flow.getTo().getEntityName());
+    _builder.append("() and sink = ");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(flow.getTo().getName());
     _builder.append(_firstUpper_1);
     _builder.append("()");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   private String generateSingleLabelling(final SecurityLevelAnnotation anno) {
     if ((anno instanceof ParameterAnnotation)) {
-      final String levelString = ((ParameterAnnotation)anno).getSecurityLevel().getEntityName();
-      final String className = CodeQLGeneratorUtils.getClassForParameter(this.root, ((ParameterAnnotation)anno).getParameter()).getEntityName();
-      final String methodName = CodeQLGeneratorUtils.getMethodContainingParameter(this.root, ((ParameterAnnotation)anno).getParameter()).getEntityName();
-      final String parameterName = ((ParameterAnnotation)anno).getParameter().getEntityName();
+      final String levelString = ((ParameterAnnotation)anno).getSecurityLevel().getName();
+      final String className = CodeQLGeneratorUtils.getClassForParameter(this.root, ((ParameterAnnotation)anno).getParameter()).getName();
+      final String methodName = CodeQLGeneratorUtils.getMethodContainingParameter(this.root, ((ParameterAnnotation)anno).getParameter()).getName();
+      final String parameterName = ((ParameterAnnotation)anno).getParameter().getName();
       return this.generateSingleLabelling(className, methodName, parameterName, levelString);
     }
     return null;
   }
-
+  
   private String generateSingleLabelling(final String className, final String methodName, final String parameterName, final String label) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("labelParameter(\"");
@@ -277,7 +311,7 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateMetaData() {
     StringConcatenation _builder = new StringConcatenation();
@@ -285,12 +319,79 @@ public class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplat
     _builder.newLine();
     _builder.append("* @kind path-problem");
     _builder.newLine();
-    _builder.append("* @problem.severity warnining");
+    _builder.append("* @problem.severity warning");
     _builder.newLine();
     _builder.append("* @id ");
     _builder.append(CodeQLTainttrackingCodeGenerator.ID);
     _builder.newLineIfNotEmpty();
     _builder.append("*/");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  @Override
+  protected String generatePackageImports() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java");
+    _builder.newLine();
+    _builder.append("import semmle.code.java.dataflow.TaintTracking");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  @Override
+  protected String generateLevelToStringFunction() {
+    StringConcatenation _builder = new StringConcatenation();
+    String _generateLevelToString = this.generateLevelToString();
+    _builder.append(_generateLevelToString);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    String _generateNodeToLevelString = this.generateNodeToLevelString();
+    _builder.append(_generateNodeToLevelString);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  private String generateLevelToString() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("string getLevelAsString(");
+    _builder.append(CodeQLTainttrackingCodeGenerator.LABEL_TYPE_NAME);
+    _builder.append(" level){");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<SecurityLevel> _appliedSecurityLevel = this.config.getAppliedSecurityLevel();
+      boolean _hasElements = false;
+      for(final SecurityLevel level : _appliedSecurityLevel) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(" or", "\t\t");
+        }
+        _builder.append("\t\t");
+        _builder.append("level = ");
+        String _firstUpper = StringExtensions.toFirstUpper(level.getName());
+        _builder.append(_firstUpper, "\t\t");
+        _builder.append("() and result = \"");
+        String _firstUpper_1 = StringExtensions.toFirstUpper(level.getName());
+        _builder.append(_firstUpper_1, "\t\t");
+        _builder.append("\"");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  private String generateNodeToLevelString() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("string getNodeLevelAsString(DataFlow::Node node){");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("result = getLevelAsString(getLabel(node))");
+    _builder.newLine();
+    _builder.append("}");
     _builder.newLine();
     return _builder.toString();
   }

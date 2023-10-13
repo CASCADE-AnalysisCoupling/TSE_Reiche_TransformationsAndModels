@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -93,15 +92,6 @@ public interface CodeqlPackage extends EPackage {
 	int CODE_QL_ROOT_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Code QL Root</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_QL_ROOT_OPERATION_COUNT = 0;
-
-	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot <em>Code QL Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,7 +138,6 @@ public interface CodeqlPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

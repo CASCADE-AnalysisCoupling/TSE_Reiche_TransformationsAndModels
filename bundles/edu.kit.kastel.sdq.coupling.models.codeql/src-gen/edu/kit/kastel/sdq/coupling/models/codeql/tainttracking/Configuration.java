@@ -4,7 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Configuration extends EObject {
+public interface Configuration extends IdentifiedElement {
 	/**
 	 * Returns the value of the '<em><b>Applied Security Level</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel}.

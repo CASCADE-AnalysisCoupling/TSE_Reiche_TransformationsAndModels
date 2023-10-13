@@ -43,31 +43,31 @@ public class CodeQLModelgenerationUtil {
 	
 	public static Class generateClass(String className) {
 		Class clazz = generateClass();
-		clazz.setEntityName(className);
+		clazz.setName(className);
 		return clazz;
 	}
 	
 	public static Method generateMethod(String methodName) {
 		Method method = generateMethod();
-		method.setEntityName(methodName);
+		method.setName(methodName);
 		return method;
 	}
 	
 	public static Parameter generateParameter(String parameterName) {
 		Parameter param = generateParameter();
-		param.setEntityName(parameterName);
+		param.setName(parameterName);
 		return param;
 	}
 	
 	public static Field generateField(String fieldName) {
 		Field field = generateField();
-		field.setEntityName(fieldName);
+		field.setName(fieldName);
 		return field;
 	}
 	
 	public static SecurityLevel generateSecurityLevel(String name) {
 		SecurityLevel level = TainttrackingFactory.eINSTANCE.createSecurityLevel();
-		level.setEntityName(name);
+		level.setName(name);
 		return level;
 	}
 	
@@ -97,7 +97,7 @@ public class CodeQLModelgenerationUtil {
 	public static CollectionType generateCollectionType(Type type) {
 		CollectionType colType = CodeFactory.eINSTANCE.createCollectionType();
 		colType.setType(type);
-		colType.setEntityName(String.format("Collection<<%s>>", type.getEntityName()));
+		colType.setName(String.format("Collection<<%s>>", type.getName()));
 		return colType;
 	}
 	

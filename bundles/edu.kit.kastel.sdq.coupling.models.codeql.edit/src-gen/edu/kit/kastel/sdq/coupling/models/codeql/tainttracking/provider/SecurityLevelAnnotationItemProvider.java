@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import tools.mdsd.modelingfoundations.identifier.provider.IdentifierItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation} object.
@@ -26,7 +26,7 @@ import tools.mdsd.modelingfoundations.identifier.provider.IdentifierItemProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class SecurityLevelAnnotationItemProvider extends IdentifierItemProvider {
+public class SecurityLevelAnnotationItemProvider extends IdentifiedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

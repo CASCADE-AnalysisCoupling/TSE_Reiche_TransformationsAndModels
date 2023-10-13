@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Field} object.
@@ -96,7 +96,7 @@ public class FieldItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field) object).getId();
+		String label = ((Field) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Field_type")
 				: getString("_UI_Field_type") + " " + label;
 	}

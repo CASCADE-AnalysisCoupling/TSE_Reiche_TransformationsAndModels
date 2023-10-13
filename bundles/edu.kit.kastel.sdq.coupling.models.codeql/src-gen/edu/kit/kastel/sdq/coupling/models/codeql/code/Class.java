@@ -4,7 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.codeql.code;
 
 import org.eclipse.emf.common.util.EList;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ import tools.mdsd.modelingfoundations.identifier.Entity;
  * @model
  * @generated
  */
-public interface Class extends Entity, Type {
+public interface Class extends Type, Entity {
 	/**
 	 * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Method}.

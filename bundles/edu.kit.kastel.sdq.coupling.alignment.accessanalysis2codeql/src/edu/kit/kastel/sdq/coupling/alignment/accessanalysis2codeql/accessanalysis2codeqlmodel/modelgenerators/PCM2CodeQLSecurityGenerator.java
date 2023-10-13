@@ -2,13 +2,16 @@ package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalys
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
 import com.google.common.collect.Lists;
@@ -69,8 +72,9 @@ public class PCM2CodeQLSecurityGenerator {
 		
 		for(StereotypeApplication application : informationFlows) {
 			OperationSignature signature = (OperationSignature) application.getAppliedTo();
-			Collection<ParametersAndDataPair> parametersAndDataPairs = StereotypeAPIUtil.getTaggedValues(Lists.newArrayList(application), "parameterAndDataPairs", ParametersAndDataPair.class);
-	
+			Collection<StereotypeApplication> appl = Collections.singletonList(application);
+			Collection<ParametersAndDataPair> parametersAndDataPairs = StereotypeAPIUtil.getTaggedValues(appl, "parametersAndDataPairs", ParametersAndDataPair.class);
+			//Optional<List<ParametersAndDataPair>> StereotypeAPI.<List<ParametersAndDataPair>>getTaggedValueSafe(signature, "parametersAndDataPairs", "ParametersAndDataPair");
 	
 		
 			
@@ -84,21 +88,22 @@ public class PCM2CodeQLSecurityGenerator {
 				
 					if(source.toLowerCase().contains("return")) {
 						
-					} else if (source.toLowerCase().contains("sizeOf")) {
+					} else if (source.toLowerCase().contains("sizeof")) {
 						
 					} else if (source.toLowerCase().contains("call")) {
 						
 					} else {
 						pcmParameter = getParameterIdentification(signature, source);
+						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
+						
+						Parameter param = correspondences.getParameterToParameterCorrespondences().get(pcmParameter);
+						SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
+						ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param, level);
+						
+						annotations.add(annotation);
 					}
 				}
-				Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
-				
-				Parameter param = correspondences.getParameterToParameterCorrespondences().get(pcmParameter);
-				SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
-				ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param, level);
-				
-				annotations.add(annotation);
+			
 			}
 		}
 		
@@ -145,7 +150,7 @@ public class PCM2CodeQLSecurityGenerator {
 	}
 
 	private String combineSecurityLevelNames(Collection<SecurityLevel> securityLevels) {
-		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getEntityName()).collect(Collectors.toList());
+		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getName()).collect(Collectors.toList());
 		
 		return String.join("", securityLevelNames);
 	}
@@ -163,7 +168,7 @@ public class PCM2CodeQLSecurityGenerator {
 	}
 
 	private List<SecurityLevel> sortSecurityLevels(Collection<SecurityLevel> levels){
-		return levels.stream().sorted(Comparator.comparing(SecurityLevel::getEntityName)).collect(Collectors.toList());
+		return levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).collect(Collectors.toList());
 	}
 	
 	private Set<List<SecurityLevel>> generatePowerSetWithSortedLevels(){
@@ -171,7 +176,9 @@ public class PCM2CodeQLSecurityGenerator {
 		Set<List<SecurityLevel>> powerSetWithSortedLevels = new HashSet<List<SecurityLevel>>();
 		
 		for(Set<SecurityLevel> set : powerSetSecurityLevels) {
-			powerSetWithSortedLevels.add(sortSecurityLevels(set));
+			if(!set.isEmpty()) {
+				powerSetWithSortedLevels.add(sortSecurityLevels(set));
+			}
 		}
 		
 		return powerSetWithSortedLevels;
@@ -186,7 +193,7 @@ public class PCM2CodeQLSecurityGenerator {
 		for(SecurityLevel combined : combinedLevels) {
 			String combinedNameOfSeparateLevels = combineSecurityLevelNames(seperateLevels);
 			
-			if(combined.getEntityName().equals(combinedNameOfSeparateLevels)) {
+			if(combined.getName().equals(combinedNameOfSeparateLevels)) {
 				return combined;
 			}
 		}
@@ -200,7 +207,7 @@ public class PCM2CodeQLSecurityGenerator {
 		String combinedDataSetName = String.join("", dataSetsNames);
 		
 		for(SecurityLevel level : securityLevels) {
-			if(level.getEntityName().equals(combinedDataSetName)) {
+			if(level.getName().equals(combinedDataSetName)) {
 				return level;
 			}
 		}
@@ -225,5 +232,4 @@ public class PCM2CodeQLSecurityGenerator {
 	public Correspondences getCorrespondences() {
 		return correspondences;
 	}
-	
 }

@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node} object.
@@ -79,7 +79,7 @@ public class NodeItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Node) object).getId();
+		String label = ((Node) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Node_type")
 				: getString("_UI_Node_type") + " " + label;
 	}

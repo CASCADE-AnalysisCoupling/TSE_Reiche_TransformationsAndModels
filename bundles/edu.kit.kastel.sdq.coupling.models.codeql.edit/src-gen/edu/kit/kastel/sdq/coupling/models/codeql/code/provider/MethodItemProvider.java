@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Method} object.
@@ -132,7 +132,7 @@ public class MethodItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Method) object).getId();
+		String label = ((Method) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Method_type")
 				: getString("_UI_Method_type") + " " + label;
 	}

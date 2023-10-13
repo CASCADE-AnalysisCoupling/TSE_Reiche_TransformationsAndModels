@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.AccessAnalysis2CodeQLHandler"
+            id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.command.runaccessanalysis2codeql"
+            name="Transform Access Analysis to CodeQL">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.AccessAnalysis2CodeQLHandler"
+            commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.handler.accessanalysis2codeql">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="accessAnalysisTransformation"
+               label="Transformation"
+               mnemonic="t">
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.command.runaccessanalysis2codeql"
+                  label="Transform Access Analysis to CodeQL"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

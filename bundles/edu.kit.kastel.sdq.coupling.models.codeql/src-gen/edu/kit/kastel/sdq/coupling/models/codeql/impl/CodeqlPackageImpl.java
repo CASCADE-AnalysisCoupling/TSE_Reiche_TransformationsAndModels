@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -221,7 +221,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 
 		// Add supertypes to classes
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(codeQLRootEClass, CodeQLRoot.class, "CodeQLRoot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCodeQLRoot_CodeRoot(), theCodePackage.getCodeRoot(), null, "codeRoot", null, 1, 1,

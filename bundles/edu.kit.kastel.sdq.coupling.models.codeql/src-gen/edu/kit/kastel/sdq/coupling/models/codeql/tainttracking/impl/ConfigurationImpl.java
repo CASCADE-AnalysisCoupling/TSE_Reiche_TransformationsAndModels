@@ -17,11 +17,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ConfigurationImpl extends MinimalEObjectImpl.Container implements Configuration {
+public class ConfigurationImpl extends IdentifiedElementImpl implements Configuration {
 	/**
 	 * The cached value of the '{@link #getAppliedSecurityLevel() <em>Applied Security Level</em>}' reference list.
 	 * <!-- begin-user-doc -->

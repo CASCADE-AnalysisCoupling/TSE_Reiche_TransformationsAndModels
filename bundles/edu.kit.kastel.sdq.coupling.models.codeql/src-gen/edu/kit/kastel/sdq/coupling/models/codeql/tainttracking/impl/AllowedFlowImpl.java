@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import tools.mdsd.modelingfoundations.identifier.impl.IdentifierImpl;
+import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +29,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.IdentifierImpl;
  *
  * @generated
  */
-public class AllowedFlowImpl extends IdentifierImpl implements AllowedFlow {
+public class AllowedFlowImpl extends IdentifiedElementImpl implements AllowedFlow {
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->

@@ -22,9 +22,9 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
-import tools.mdsd.modelingfoundations.identifier.Identifier;
-import tools.mdsd.modelingfoundations.identifier.NamedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,8 +142,8 @@ public class CodeAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIdentifier(Identifier object) {
-			return createIdentifierAdapter();
+		public Adapter caseIdentifiedElement(IdentifiedElement object) {
+			return createIdentifiedElementAdapter();
 		}
 
 		@Override
@@ -344,27 +344,27 @@ public class CodeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tools.mdsd.modelingfoundations.identifier.Identifier <em>Identifier</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement <em>Identified Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tools.mdsd.modelingfoundations.identifier.Identifier
+	 * @see org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement
 	 * @generated
 	 */
-	public Adapter createIdentifierAdapter() {
+	public Adapter createIdentifiedElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tools.mdsd.modelingfoundations.identifier.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tools.mdsd.modelingfoundations.identifier.NamedElement
+	 * @see org.kit.kastel.sdq.coupling.models.identifier.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -372,13 +372,13 @@ public class CodeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tools.mdsd.modelingfoundations.identifier.Entity <em>Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tools.mdsd.modelingfoundations.identifier.Entity
+	 * @see org.kit.kastel.sdq.coupling.models.identifier.Entity
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {

@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter} object.
@@ -97,7 +97,7 @@ public class ParameterItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter) object).getId();
+		String label = ((Parameter) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Parameter_type")
 				: getString("_UI_Parameter_type") + " " + label;
 	}

@@ -8,24 +8,24 @@
         eType="#//tainttracking/DataFlowRoot"/>
   </eClassifiers>
   <eSubpackages name="code" nsURI="http://www.example.org/codeql/code" nsPrefix="code">
-    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity #//code/Type">
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//code/Type ../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
           eType="#//code/Method" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
           eType="#//code/Field" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//code/Parameter" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returns" eType="#//code/Type"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
           eType="#//code/Expression" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//code/Type"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//code/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="primitiveTypeName" lowerBound="1"
           eType="#//code/PrimitiveTypeNames"/>
@@ -44,7 +44,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableAccess" abstract="true" eSuperTypes="#//code/Expression"/>
     <eClassifiers xsi:type="ecore:EClass" name="FieldAccess" eSuperTypes="#//code/VariableAccess"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//code/Type"/>
     </eClassifiers>
@@ -61,7 +61,7 @@
   </eSubpackages>
   <eSubpackages name="tainttracking" nsURI="http://www.example.org/codeql/tainttracking"
       nsPrefix="tainttracking">
-    <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="ExpressionNode" eSuperTypes="#//tainttracking/Node">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
           eType="#//code/Expression"/>
@@ -70,14 +70,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="#//code/Parameter"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="DataFlowRoot">
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
           eType="#//tainttracking/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
           eType="#//tainttracking/Configuration"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//IdentifiedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedSecurityLevel"
           upperBound="-1" eType="#//tainttracking/SecurityLevel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevelAnnotations"
@@ -85,7 +85,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="allowedFlows" upperBound="-1"
           eType="#//tainttracking/AllowedFlow" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelAnnotation" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelAnnotation" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//IdentifiedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
           eType="#//tainttracking/SecurityLevel"/>
     </eClassifiers>
@@ -93,7 +93,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="#//code/Parameter"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AllowedFlow" eSuperTypes="../../tools.mdsd.modelingfoundations.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="AllowedFlow" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//IdentifiedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
           eType="#//tainttracking/SecurityLevel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//tainttracking/SecurityLevel"/>

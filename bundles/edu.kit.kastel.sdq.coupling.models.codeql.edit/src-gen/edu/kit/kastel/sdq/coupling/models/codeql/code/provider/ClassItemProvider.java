@@ -5,22 +5,16 @@ package edu.kit.kastel.sdq.coupling.models.codeql.code.provider;
 import edu.kit.kastel.sdq.coupling.models.codeql.code.CodeFactory;
 import edu.kit.kastel.sdq.coupling.models.codeql.code.CodePackage;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Class} object.
@@ -28,7 +22,7 @@ import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassItemProvider extends EntityItemProvider {
+public class ClassItemProvider extends TypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -114,7 +108,7 @@ public class ClassItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((edu.kit.kastel.sdq.coupling.models.codeql.code.Class) object).getId();
+		String label = ((edu.kit.kastel.sdq.coupling.models.codeql.code.Class) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Class_type")
 				: getString("_UI_Class_type") + " " + label;
 	}
@@ -155,17 +149,6 @@ public class ClassItemProvider extends EntityItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(CodePackage.Literals.CLASS__FIELDS, CodeFactory.eINSTANCE.createField()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return CodeqlEditPlugin.INSTANCE;
 	}
 
 }

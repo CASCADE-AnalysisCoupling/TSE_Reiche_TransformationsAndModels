@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Class</b></em>'.
@@ -34,7 +32,7 @@ import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
  *
  * @generated
  */
-public class ClassImpl extends EntityImpl implements edu.kit.kastel.sdq.coupling.models.codeql.code.Class {
+public class ClassImpl extends TypeImpl implements edu.kit.kastel.sdq.coupling.models.codeql.code.Class {
 	/**
 	 * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

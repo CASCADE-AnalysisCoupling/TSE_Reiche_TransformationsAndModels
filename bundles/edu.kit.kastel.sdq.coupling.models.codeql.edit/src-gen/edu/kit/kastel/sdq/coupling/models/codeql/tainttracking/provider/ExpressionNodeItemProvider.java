@@ -92,7 +92,7 @@ public class ExpressionNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExpressionNode) object).getId();
+		String label = ((ExpressionNode) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_ExpressionNode_type")
 				: getString("_UI_ExpressionNode_type") + " " + label;
 	}

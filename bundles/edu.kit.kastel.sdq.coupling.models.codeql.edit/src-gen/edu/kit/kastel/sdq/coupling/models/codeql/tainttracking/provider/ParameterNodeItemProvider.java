@@ -91,7 +91,7 @@ public class ParameterNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterNode) object).getId();
+		String label = ((ParameterNode) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_ParameterNode_type")
 				: getString("_UI_ParameterNode_type") + " " + label;
 	}

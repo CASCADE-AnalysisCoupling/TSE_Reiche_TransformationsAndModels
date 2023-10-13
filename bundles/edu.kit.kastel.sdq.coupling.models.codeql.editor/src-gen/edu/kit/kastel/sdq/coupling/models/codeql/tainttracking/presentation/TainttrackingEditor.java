@@ -163,7 +163,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlItemProviderAdap
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import tools.mdsd.modelingfoundations.identifier.provider.IdentifierItemProviderAdapterFactory;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 /**
  * This is an example of a Tainttracking model editor.

@@ -94,7 +94,7 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveType) object).getId();
+		String label = ((PrimitiveType) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_PrimitiveType_type")
 				: getString("_UI_PrimitiveType_type") + " " + label;
 	}

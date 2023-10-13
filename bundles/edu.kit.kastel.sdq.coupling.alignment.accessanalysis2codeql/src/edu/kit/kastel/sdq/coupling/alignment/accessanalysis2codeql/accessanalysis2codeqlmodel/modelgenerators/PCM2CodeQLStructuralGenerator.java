@@ -52,7 +52,7 @@ public class PCM2CodeQLStructuralGenerator {
 			PrimitiveType type = CodeQLModelgenerationUtil.generatePrimitiveType();
 			
 			type.setPrimitiveTypeName(name);
-			type.setEntityName(name.getLiteral());
+			type.setName(name.getLiteral());
 			root.getTypes().add(type);
 		}
 	}
@@ -116,7 +116,7 @@ public class PCM2CodeQLStructuralGenerator {
 					edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter qlParam = CodeQLModelgenerationUtil.generateParameter(paramIdent.getParamerter().getParameterName());
 					
 					qlParam.setType(getQLTypeForPCMDataType(parameter.getDataType__Parameter()));
-					
+					correspondences.getParameterToParameterCorrespondences().put(paramIdent, qlParam);
 					method.getParameters().add(qlParam);
 				}
 			}
@@ -161,9 +161,8 @@ public class PCM2CodeQLStructuralGenerator {
 		if(dataType instanceof PrimitiveDataType) {
 			return getPrimitiveTypeForPCMPrimitiveType((PrimitiveDataType) dataType);
 		} else if (dataType instanceof CompositeDataType) {
-			
 			for(Type clazz : CodeQLResolutionUtil.filterClassesFromTypes(root.getTypes())) {
-				if(clazz.getEntityName().equals(((CompositeDataType)dataType).getEntityName())){
+				if(clazz.getName().equals(((CompositeDataType)dataType).getEntityName())){
 					return clazz;
 				}
 			}

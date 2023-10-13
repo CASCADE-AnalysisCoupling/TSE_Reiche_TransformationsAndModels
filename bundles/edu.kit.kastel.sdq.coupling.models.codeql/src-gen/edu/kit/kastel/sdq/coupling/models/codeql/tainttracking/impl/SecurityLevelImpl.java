@@ -7,7 +7,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPack
 
 import org.eclipse.emf.ecore.EClass;
 
-import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+import org.kit.kastel.sdq.coupling.models.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,6 +2,7 @@ package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
@@ -13,16 +14,20 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 
-public class Models {
+public class AccessAnalysisModels {
 	
 	private static final String REPOSITORY_FILE_ENDING = "repository";
 	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
+	
+	//for testing
+	public static final String REPOSITORY_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/default.repository").toAbsolutePath().toString();
+	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/default.confidentiality").toAbsolutePath().toString();
 	
 	private final Repository repository;
 	private final ProfileApplication profile;
 	private final ConfidentialitySpecification confidentiality;
 	
-	public Models(Repository repository, ProfileApplication profile, ConfidentialitySpecification confidentiality) {
+	public AccessAnalysisModels(Repository repository, ProfileApplication profile, ConfidentialitySpecification confidentiality) {
 		super();
 		this.repository = repository;
 		this.profile = profile;
@@ -42,7 +47,7 @@ public class Models {
 	}
 	
 	
-	public static Models createModelsFromFiles(Collection<IFile> files) {
+	public static AccessAnalysisModels createModelsFromFiles(Collection<IFile> files) {
 		IPath repositoryPath = null;
 		IPath confidentialityPath = null;
 		
@@ -79,10 +84,10 @@ public class Models {
 		ConfidentialitySpecification confidentiality = (ConfidentialitySpecification) resourceConfidentiality
 				.getContents().get(0);
 
-		return new Models(repository, profile, confidentiality);
+		return new AccessAnalysisModels(repository, profile, confidentiality);
 	}
 	
-	public static Models createModelsFromFiles(String repositoryFilePath, String confidentialitySpecFilePath) {
+	public static AccessAnalysisModels createModelsFromFiles(String repositoryFilePath, String confidentialitySpecFilePath) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		URI repositoryUri = URI.createFileURI(Path.of(repositoryFilePath).toAbsolutePath().toString());
@@ -103,6 +108,6 @@ public class Models {
 		ConfidentialitySpecification confidentiality = (ConfidentialitySpecification) resourceConfidentiality
 				.getContents().get(0);
 
-		return new Models(repository, profile, confidentiality);
+		return new AccessAnalysisModels(repository, profile, confidentiality);
 	}
 }

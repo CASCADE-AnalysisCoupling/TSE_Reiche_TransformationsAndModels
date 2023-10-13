@@ -23,7 +23,7 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 		
 		CodeQLRoot root = CodeQLModelgenerationUtil.generateCodeQLRoot();
 		root.setCodeRoot(structuralGenerator.getRoot());
-		
+		root.setDataFlowRoot(securityGenerator.getRoot());
 		
 		return root;
 	}

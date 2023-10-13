@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
-import tools.mdsd.modelingfoundations.identifier.Identifier;
-import tools.mdsd.modelingfoundations.identifier.NamedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(node);
 			if (result == null)
-				result = caseIdentifier(node);
+				result = caseIdentifiedElement(node);
 			if (result == null)
 				result = caseNamedElement(node);
 			if (result == null)
@@ -91,7 +91,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(expressionNode);
 			if (result == null)
-				result = caseIdentifier(expressionNode);
+				result = caseIdentifiedElement(expressionNode);
 			if (result == null)
 				result = caseNamedElement(expressionNode);
 			if (result == null)
@@ -106,7 +106,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(parameterNode);
 			if (result == null)
-				result = caseIdentifier(parameterNode);
+				result = caseIdentifiedElement(parameterNode);
 			if (result == null)
 				result = caseNamedElement(parameterNode);
 			if (result == null)
@@ -119,7 +119,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseEntity(securityLevel);
 			if (result == null)
-				result = caseIdentifier(securityLevel);
+				result = caseIdentifiedElement(securityLevel);
 			if (result == null)
 				result = caseNamedElement(securityLevel);
 			if (result == null)
@@ -137,6 +137,8 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			Configuration configuration = (Configuration) theEObject;
 			T result = caseConfiguration(configuration);
 			if (result == null)
+				result = caseIdentifiedElement(configuration);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -144,7 +146,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			SecurityLevelAnnotation securityLevelAnnotation = (SecurityLevelAnnotation) theEObject;
 			T result = caseSecurityLevelAnnotation(securityLevelAnnotation);
 			if (result == null)
-				result = caseIdentifier(securityLevelAnnotation);
+				result = caseIdentifiedElement(securityLevelAnnotation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -155,7 +157,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseSecurityLevelAnnotation(parameterAnnotation);
 			if (result == null)
-				result = caseIdentifier(parameterAnnotation);
+				result = caseIdentifiedElement(parameterAnnotation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -164,7 +166,7 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			AllowedFlow allowedFlow = (AllowedFlow) theEObject;
 			T result = caseAllowedFlow(allowedFlow);
 			if (result == null)
-				result = caseIdentifier(allowedFlow);
+				result = caseIdentifiedElement(allowedFlow);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -310,17 +312,17 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Identified Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Identified Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdentifier(Identifier object) {
+	public T caseIdentifiedElement(IdentifiedElement object) {
 		return null;
 	}
 

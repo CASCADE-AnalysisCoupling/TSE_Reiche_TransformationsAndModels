@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import tools.mdsd.modelingfoundations.identifier.provider.EntityItemProvider;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.code.Type} object.
@@ -68,7 +68,7 @@ public class TypeItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Type) object).getId();
+		String label = ((Type) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Type_type")
 				: getString("_UI_Type_type") + " " + label;
 	}

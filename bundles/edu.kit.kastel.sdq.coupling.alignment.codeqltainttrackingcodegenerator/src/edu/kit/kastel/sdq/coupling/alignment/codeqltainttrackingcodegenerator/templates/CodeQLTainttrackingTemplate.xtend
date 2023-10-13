@@ -3,14 +3,29 @@ package edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.t
 abstract class CodeQLTainttrackingTemplate {
 	def String generate() '''
 		«generateMetaData»
+		
+		«generatePackageImports()»
+		
 		«generateSecurityLevels()»
+		
 		«generateLabelFunction()»
+		
 		«generateAvailableLabelCheck()»
+		
 		«generateAllowedFlows()»
+		
 		«generateConfiguration()»
+		
 		«generateInformationFlowModuleUsage()»
+		
+		«generateLevelToStringFunction()»
+		
 		«generateQuery()»
 	'''
+	
+	protected def String generateLevelToStringFunction()
+	
+	protected def String generatePackageImports()
 	
 	protected def String generateMetaData()
 	

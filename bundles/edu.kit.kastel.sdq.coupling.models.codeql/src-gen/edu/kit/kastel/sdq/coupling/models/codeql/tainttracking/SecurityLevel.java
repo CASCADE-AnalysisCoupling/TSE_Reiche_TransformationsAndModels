@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
-import tools.mdsd.modelingfoundations.identifier.Entity;
+import org.kit.kastel.sdq.coupling.models.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->

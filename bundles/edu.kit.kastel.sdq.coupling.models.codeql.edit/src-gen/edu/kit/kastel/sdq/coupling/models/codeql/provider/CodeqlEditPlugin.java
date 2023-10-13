@@ -6,7 +6,7 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import tools.mdsd.modelingfoundations.identifier.provider.ModelEditPlugin;
+import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
 
 /**
  * This is the central singleton for the Codeql edit plugin.
@@ -38,7 +38,7 @@ public final class CodeqlEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public CodeqlEditPlugin() {
-		super(new ResourceLocator[] { ModelEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, });
 	}
 
 	/**
