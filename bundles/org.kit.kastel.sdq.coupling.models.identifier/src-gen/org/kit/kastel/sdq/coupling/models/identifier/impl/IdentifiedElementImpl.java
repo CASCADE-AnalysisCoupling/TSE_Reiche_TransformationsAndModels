@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
@@ -53,7 +52,6 @@ public abstract class IdentifiedElementImpl extends MinimalEObjectImpl.Container
 	 */
 	protected IdentifiedElementImpl() {
 		super();
-		id = EcoreUtil.generateUUID();
 	}
 
 	/**

@@ -2,9 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.code.CodeRoot;
-
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getCodeRoot <em>Code Root</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getDataFlowRoot <em>Data Flow Root</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage#getCodeQLRoot()
@@ -27,47 +24,25 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface CodeQLRoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Code Root</b></em>' reference.
+	 * Returns the value of the '<em><b>Tainttracking Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code Root</em>' reference.
-	 * @see #setCodeRoot(CodeRoot)
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage#getCodeQLRoot_CodeRoot()
+	 * @return the value of the '<em>Tainttracking Root</em>' reference.
+	 * @see #setTainttrackingRoot(TainttrackingRoot)
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage#getCodeQLRoot_TainttrackingRoot()
 	 * @model required="true"
 	 * @generated
 	 */
-	CodeRoot getCodeRoot();
+	TainttrackingRoot getTainttrackingRoot();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getCodeRoot <em>Code Root</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code Root</em>' reference.
-	 * @see #getCodeRoot()
+	 * @param value the new value of the '<em>Tainttracking Root</em>' reference.
+	 * @see #getTainttrackingRoot()
 	 * @generated
 	 */
-	void setCodeRoot(CodeRoot value);
-
-	/**
-	 * Returns the value of the '<em><b>Data Flow Root</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Flow Root</em>' reference.
-	 * @see #setDataFlowRoot(DataFlowRoot)
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage#getCodeQLRoot_DataFlowRoot()
-	 * @model required="true"
-	 * @generated
-	 */
-	DataFlowRoot getDataFlowRoot();
-
-	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getDataFlowRoot <em>Data Flow Root</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Flow Root</em>' reference.
-	 * @see #getDataFlowRoot()
-	 * @generated
-	 */
-	void setDataFlowRoot(DataFlowRoot value);
+	void setTainttrackingRoot(TainttrackingRoot value);
 
 } // CodeQLRoot

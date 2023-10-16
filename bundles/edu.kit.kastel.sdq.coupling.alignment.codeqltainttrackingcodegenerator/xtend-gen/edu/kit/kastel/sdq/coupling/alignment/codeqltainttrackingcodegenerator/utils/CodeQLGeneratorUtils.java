@@ -1,43 +1,34 @@
 package edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils;
 
-import com.google.common.collect.Iterables;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.CodeRoot;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Method;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter;
 import java.util.Collection;
-import java.util.List;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class CodeQLGeneratorUtils {
-  public static edu.kit.kastel.sdq.coupling.models.codeql.code.Class getClassForParameter(final CodeRoot root, final Parameter p) {
-    List<edu.kit.kastel.sdq.coupling.models.codeql.code.Class> classes = IterableExtensions.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>toList(Iterables.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>filter(root.getTypes(), edu.kit.kastel.sdq.coupling.models.codeql.code.Class.class));
-    final Function1<edu.kit.kastel.sdq.coupling.models.codeql.code.Class, Boolean> _function = (edu.kit.kastel.sdq.coupling.models.codeql.code.Class c) -> {
-      Method _methodContainingParameter = CodeQLGeneratorUtils.getMethodContainingParameter(c.getMethods(), p);
-      return Boolean.valueOf((_methodContainingParameter != null));
-    };
-    edu.kit.kastel.sdq.coupling.models.codeql.code.Class clazz = IterableExtensions.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>findFirst(classes, _function);
-    return clazz;
+  public static Class getClassForParameter(final /* JavaRoot */Object root, final /* Parameter */Object p) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field methods is undefined for the type Object"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThe method getMethodContainingParameter(Collection<Method>, Parameter) from the type CodeQLGeneratorUtils refers to the missing type Method"
+      + "\ntypes cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\ntoList cannot be resolved"
+      + "\nfindFirst cannot be resolved"
+      + "\n!== cannot be resolved");
   }
-  
-  public static Method getMethodContainingParameter(final Collection<Method> methods, final Parameter toSearch) {
-    final Function1<Method, Boolean> _function = (Method m) -> {
-      return Boolean.valueOf(m.getParameters().contains(toSearch));
-    };
-    return IterableExtensions.<Method>findFirst(methods, _function);
+
+  public static /* Method */Object getMethodContainingParameter(final /* Collection<Method> */Object methods, final /* Parameter */Object toSearch) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nparameters cannot be resolved"
+      + "\ncontains cannot be resolved");
   }
-  
-  public static Method getMethodContainingParameter(final CodeRoot root, final Parameter p) {
-    List<edu.kit.kastel.sdq.coupling.models.codeql.code.Class> classes = IterableExtensions.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>toList(Iterables.<edu.kit.kastel.sdq.coupling.models.codeql.code.Class>filter(root.getTypes(), edu.kit.kastel.sdq.coupling.models.codeql.code.Class.class));
-    for (final edu.kit.kastel.sdq.coupling.models.codeql.code.Class clazz : classes) {
-      {
-        Method method = CodeQLGeneratorUtils.getMethodContainingParameter(clazz.getMethods(), p);
-        if ((method != null)) {
-          return method;
-        }
-      }
-    }
-    return null;
+
+  public static /* Method */Object getMethodContainingParameter(final /* JavaRoot */Object root, final /* Parameter */Object p) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method getMethodContainingParameter(Collection<Method>, Parameter) from the type CodeQLGeneratorUtils refers to the missing type Method"
+      + "\ntypes cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\ntoList cannot be resolved"
+      + "\nmethods cannot be resolved"
+      + "\n!== cannot be resolved");
   }
 }

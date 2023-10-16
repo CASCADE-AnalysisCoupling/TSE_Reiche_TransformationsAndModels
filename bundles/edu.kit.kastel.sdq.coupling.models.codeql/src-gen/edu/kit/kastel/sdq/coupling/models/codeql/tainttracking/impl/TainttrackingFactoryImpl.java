@@ -58,14 +58,12 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 		switch (eClass.getClassifierID()) {
 		case TainttrackingPackage.NODE:
 			return createNode();
-		case TainttrackingPackage.EXPRESSION_NODE:
-			return createExpressionNode();
 		case TainttrackingPackage.PARAMETER_NODE:
 			return createParameterNode();
 		case TainttrackingPackage.SECURITY_LEVEL:
 			return createSecurityLevel();
-		case TainttrackingPackage.DATA_FLOW_ROOT:
-			return createDataFlowRoot();
+		case TainttrackingPackage.TAINTTRACKING_ROOT:
+			return createTainttrackingRoot();
 		case TainttrackingPackage.CONFIGURATION:
 			return createConfiguration();
 		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION:
@@ -96,17 +94,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * @generated
 	 */
 	@Override
-	public ExpressionNode createExpressionNode() {
-		ExpressionNodeImpl expressionNode = new ExpressionNodeImpl();
-		return expressionNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public ParameterNode createParameterNode() {
 		ParameterNodeImpl parameterNode = new ParameterNodeImpl();
 		return parameterNode;
@@ -129,9 +116,9 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * @generated
 	 */
 	@Override
-	public DataFlowRoot createDataFlowRoot() {
-		DataFlowRootImpl dataFlowRoot = new DataFlowRootImpl();
-		return dataFlowRoot;
+	public TainttrackingRoot createTainttrackingRoot() {
+		TainttrackingRootImpl tainttrackingRoot = new TainttrackingRootImpl();
+		return tainttrackingRoot;
 	}
 
 	/**

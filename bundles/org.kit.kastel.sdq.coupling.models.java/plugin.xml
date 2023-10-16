@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated java -->
+      <package
+            uri="http://www.example.org/java"
+            class="org.kit.kastel.sdq.coupling.models.java.JavaPackage"
+            genModel="model/java.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated java -->
+      <package
+            uri="http://www.example.org/java/types"
+            class="org.kit.kastel.sdq.coupling.models.java.types.TypesPackage"
+            genModel="model/java.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated java -->
+      <package
+            uri="http://www.example.org/java/members"
+            class="org.kit.kastel.sdq.coupling.models.java.members.MembersPackage"
+            genModel="model/java.genmodel"/>
+   </extension>
+
+</plugin>

@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map.Entry;
 
+import org.kit.kastel.sdq.coupling.models.java.JavaRoot;
+import org.kit.kastel.sdq.coupling.models.java.Package;
+import org.kit.kastel.sdq.coupling.models.java.members.Field;
+import org.kit.kastel.sdq.coupling.models.java.members.Method;
+import org.kit.kastel.sdq.coupling.models.java.types.CollectionType;
+import org.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
+import org.kit.kastel.sdq.coupling.models.java.types.PrimitiveTypeKinds;
+import org.kit.kastel.sdq.coupling.models.java.types.Type;
+import org.kit.kastel.sdq.coupling.models.java.types.Class;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.CollectionDataType;
 import org.palladiosimulator.pcm.repository.CompositeDataType;
@@ -18,42 +27,43 @@ import org.palladiosimulator.pcm.repository.Repository;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.Correspondences;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.ParameterIdentification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.ProvidedSignature;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.CodeQLModelgenerationUtil;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.CodeQLResolutionUtil;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.JavaModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.PCMResolutionUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Class;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.CodeRoot;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.CollectionType;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Field;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Method;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.PrimitiveType;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.PrimitiveTypeNames;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Type;
+
 
 public class PCM2CodeQLStructuralGenerator {
 	private final Repository repository;
-	private final CodeRoot root;
+	private final JavaRoot root;
 	private final Correspondences correspondences;
+	private final Package classPackages;
+	private final Package dataTypePackage;
+	private final Package interfacePackage;
 	
 	public PCM2CodeQLStructuralGenerator(Correspondences correspondences, Repository repository) {
 		this.correspondences = correspondences;
 		this.repository = repository;
-		this.root = CodeQLModelgenerationUtil.generateCodeRoot();
+		this.root = JavaModelGenerationUtil.generateJavaRoot();
+		this.classPackages = JavaModelGenerationUtil.generatePackage("Classes");
+		this.dataTypePackage = JavaModelGenerationUtil.generatePackage("DataTypes");
+		this.interfacePackage = JavaModelGenerationUtil.generatePackage("Interfaces");
 	}
 	
-	public void generateStructuralModel() {
+	public void generateStructuralModel(String basePackageName) {
+		
 		generatePrimitiveTypes();
 		generateClassesFromCompositeTypes(PCMResolutionUtil.filterCompositeDataTypes(repository.getDataTypes__Repository()));
 		generateClassesFromBasicComponents(PCMResolutionUtil.filterBasicComponents(repository.getComponents__Repository()));
+		
+		Package basePackage = JavaModelGenerationUtil.generatePackage(basePackageName);
+		basePackage.getSubpackage().add(classPackages);
+		basePackage.getSubpackage().add(dataTypePackage);
+		basePackage.getSubpackage().add(interfacePackage);
 	}
 	
 	private void generatePrimitiveTypes(){
-		for(PrimitiveTypeNames name : PrimitiveTypeNames.VALUES) {
-			PrimitiveType type = CodeQLModelgenerationUtil.generatePrimitiveType();
-			
-			type.setPrimitiveTypeName(name);
-			type.setName(name.getLiteral());
-			root.getTypes().add(type);
+		for(PrimitiveTypeKinds name : PrimitiveTypeKinds.VALUES) {
+			PrimitiveType type = JavaModelGenerationUtil.generatePrimitiveType(name.getLiteral(),name);
+			root.getPrimitivetypes().add(type);
 		}
 	}
 	//Assume only one hierarchy level, no composite containment;
@@ -61,17 +71,17 @@ public class PCM2CodeQLStructuralGenerator {
 	
 		//First Pass: Generate Type so we have all classes without filled fields etc but all types are available
 		for(CompositeDataType type : compositeTypes) {
-			Class clazz = CodeQLModelgenerationUtil.generateClass(type.getEntityName());
+			Class clazz = JavaModelGenerationUtil.generateClass(type.getEntityName());
 			correspondences.getClassCompositeTypeCorrespondences().put(type, clazz);
-			root.getTypes().add(clazz);
+			dataTypePackage.getClassorinterface().add(clazz);
 		}
 		
 		//Second Pass: Fill Classes from CompositeDataTypes with Content
 		for(Entry<CompositeDataType, Class> entry : correspondences.getClassCompositeTypeCorrespondences().entrySet()) {
 			for(InnerDeclaration innerDeclaration : entry.getKey().getInnerDeclaration_CompositeDataType()) {
-				Field field = CodeQLModelgenerationUtil.generateField(innerDeclaration.getEntityName());
-				field.setType(getQLTypeForPCMDataType(innerDeclaration.getDatatype_InnerDeclaration()));
-				entry.getValue().getFields().add(field);
+				Field field = JavaModelGenerationUtil.generateField(innerDeclaration.getEntityName());
+				field.setType(getJavaTypeForPCMDataType(innerDeclaration.getDatatype_InnerDeclaration()));
+				entry.getValue().getField().add(field);
 			}
 		}
 	}
@@ -80,10 +90,10 @@ public class PCM2CodeQLStructuralGenerator {
 		Collection<Class> generatedClasses = new ArrayList<Class>();
 		
 		for (BasicComponent component : components) {
-			Class clazz = CodeQLModelgenerationUtil.generateClass(component.getEntityName());
+			Class clazz = JavaModelGenerationUtil.generateClass(component.getEntityName());
 			correspondences.getClassComponentCorrespondences().put(component, clazz);
 			generatedClasses.add(clazz);
-			root.getTypes().add(clazz);
+			classPackages.getClassorinterface().add(clazz);
 			generateAndAddProvidedMethodsForClass(clazz);
 		}
 		
@@ -104,20 +114,20 @@ public class PCM2CodeQLStructuralGenerator {
 			for(OperationSignature signature : role.getProvidedInterface__OperationProvidedRole().getSignatures__OperationInterface()) {
 				
 				ProvidedSignature sig = new ProvidedSignature(role, signature);
-				Method method = CodeQLModelgenerationUtil.generateMethod(signature.getEntityName());
+				Method method = JavaModelGenerationUtil.generateMethod(signature.getEntityName());
 				correspondences.getMethodProvidedSignatureCorrespondences().put(sig, method);
 				
-				clazz.getMethods().add(method);
+				clazz.getMethod().add(method);
 				
 				
 				for(Parameter parameter : signature.getParameters__OperationSignature()) {
 					ParameterIdentification paramIdent = new ParameterIdentification(sig, parameter);
 					
-					edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter qlParam = CodeQLModelgenerationUtil.generateParameter(paramIdent.getParamerter().getParameterName());
+					org.kit.kastel.sdq.coupling.models.java.members.Parameter qlParam = JavaModelGenerationUtil.generateParameter(paramIdent.getParamerter().getParameterName());
 					
-					qlParam.setType(getQLTypeForPCMDataType(parameter.getDataType__Parameter()));
+					qlParam.setType(getJavaTypeForPCMDataType(parameter.getDataType__Parameter()));
 					correspondences.getParameterToParameterCorrespondences().put(paramIdent, qlParam);
-					method.getParameters().add(qlParam);
+					method.getParameter().add(qlParam);
 				}
 			}
 		}
@@ -148,8 +158,8 @@ public class PCM2CodeQLStructuralGenerator {
 	}
 	
 	private PrimitiveType getPrimitiveTypeWithLiteralName(String name) {
-		for(PrimitiveType type : CodeQLResolutionUtil.filterPrimitiveTypes(root.getTypes())) {
-			if(type.getPrimitiveTypeName().getLiteral().equals(name)) {
+		for(PrimitiveType type : root.getPrimitivetypes()) {
+			if(type.getKind().getLiteral().equals(name)) {
 				return type;
 			}
 		}
@@ -157,11 +167,11 @@ public class PCM2CodeQLStructuralGenerator {
 		return null;
 	}
 	
-	private Type getQLTypeForPCMDataType(DataType dataType) {
+	private Type getJavaTypeForPCMDataType(DataType dataType) {
 		if(dataType instanceof PrimitiveDataType) {
 			return getPrimitiveTypeForPCMPrimitiveType((PrimitiveDataType) dataType);
 		} else if (dataType instanceof CompositeDataType) {
-			for(Type clazz : CodeQLResolutionUtil.filterClassesFromTypes(root.getTypes())) {
+			for(Type clazz : dataTypePackage.getClassorinterface()) {
 				if(clazz.getName().equals(((CompositeDataType)dataType).getEntityName())){
 					return clazz;
 				}
@@ -173,20 +183,20 @@ public class PCM2CodeQLStructuralGenerator {
 	}
 	
 	private CollectionType getOrCreateCollectionTypeFromPCMCollectionType(CollectionDataType type) {
-		Collection<CollectionType> availableTypes = CodeQLResolutionUtil.filterCollectionType(root.getTypes());
+		Collection<CollectionType> availableTypes = root.getCollectiontypes();
 		
 		for(CollectionType available : availableTypes) {
-			if(available.getType().equals(getQLTypeForPCMDataType(type.getInnerType_CollectionDataType()))) {
+			if(available.getType().equals(getJavaTypeForPCMDataType(type.getInnerType_CollectionDataType()))) {
 				return available;
 			}
 		}
 		
-		CollectionType newType = CodeQLModelgenerationUtil.generateCollectionType(getQLTypeForPCMDataType(type.getInnerType_CollectionDataType()));
-		root.getTypes().add(newType);
+		CollectionType newType = JavaModelGenerationUtil.generateCollectionType(getJavaTypeForPCMDataType(type.getInnerType_CollectionDataType()));
+		root.getCollectiontypes().add(newType);
 		return newType;
 	}
 
-	public CodeRoot getRoot() {
+	public JavaRoot getRoot() {
 		return root;
 	}
 

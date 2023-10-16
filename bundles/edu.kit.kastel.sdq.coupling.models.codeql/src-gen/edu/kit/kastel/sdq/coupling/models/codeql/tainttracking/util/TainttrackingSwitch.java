@@ -83,21 +83,6 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TainttrackingPackage.EXPRESSION_NODE: {
-			ExpressionNode expressionNode = (ExpressionNode) theEObject;
-			T result = caseExpressionNode(expressionNode);
-			if (result == null)
-				result = caseNode(expressionNode);
-			if (result == null)
-				result = caseEntity(expressionNode);
-			if (result == null)
-				result = caseIdentifiedElement(expressionNode);
-			if (result == null)
-				result = caseNamedElement(expressionNode);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case TainttrackingPackage.PARAMETER_NODE: {
 			ParameterNode parameterNode = (ParameterNode) theEObject;
 			T result = caseParameterNode(parameterNode);
@@ -126,9 +111,9 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case TainttrackingPackage.DATA_FLOW_ROOT: {
-			DataFlowRoot dataFlowRoot = (DataFlowRoot) theEObject;
-			T result = caseDataFlowRoot(dataFlowRoot);
+		case TainttrackingPackage.TAINTTRACKING_ROOT: {
+			TainttrackingRoot tainttrackingRoot = (TainttrackingRoot) theEObject;
+			T result = caseTainttrackingRoot(tainttrackingRoot);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -192,21 +177,6 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Expression Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Expression Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExpressionNode(ExpressionNode object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Parameter Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -237,17 +207,17 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Flow Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Flow Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDataFlowRoot(DataFlowRoot object) {
+	public T caseTainttrackingRoot(TainttrackingRoot object) {
 		return null;
 	}
 

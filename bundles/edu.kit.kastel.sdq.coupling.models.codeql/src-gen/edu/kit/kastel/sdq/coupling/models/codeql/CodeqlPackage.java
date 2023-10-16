@@ -65,22 +65,13 @@ public interface CodeqlPackage extends EPackage {
 	int CODE_QL_ROOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Code Root</b></em>' reference.
+	 * The feature id for the '<em><b>Tainttracking Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QL_ROOT__CODE_ROOT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Data Flow Root</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_QL_ROOT__DATA_FLOW_ROOT = 1;
+	int CODE_QL_ROOT__TAINTTRACKING_ROOT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Code QL Root</em>' class.
@@ -89,7 +80,7 @@ public interface CodeqlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QL_ROOT_FEATURE_COUNT = 2;
+	int CODE_QL_ROOT_FEATURE_COUNT = 1;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot <em>Code QL Root</em>}'.
@@ -102,26 +93,15 @@ public interface CodeqlPackage extends EPackage {
 	EClass getCodeQLRoot();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getCodeRoot <em>Code Root</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code Root</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getCodeRoot()
+	 * @return the meta object for the reference '<em>Tainttracking Root</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot()
 	 * @see #getCodeQLRoot()
 	 * @generated
 	 */
-	EReference getCodeQLRoot_CodeRoot();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getDataFlowRoot <em>Data Flow Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Flow Root</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getDataFlowRoot()
-	 * @see #getCodeQLRoot()
-	 * @generated
-	 */
-	EReference getCodeQLRoot_DataFlowRoot();
+	EReference getCodeQLRoot_TainttrackingRoot();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -156,20 +136,12 @@ public interface CodeqlPackage extends EPackage {
 		EClass CODE_QL_ROOT = eINSTANCE.getCodeQLRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Code Root</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Tainttracking Root</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CODE_QL_ROOT__CODE_ROOT = eINSTANCE.getCodeQLRoot_CodeRoot();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Flow Root</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CODE_QL_ROOT__DATA_FLOW_ROOT = eINSTANCE.getCodeQLRoot_DataFlowRoot();
+		EReference CODE_QL_ROOT__TAINTTRACKING_ROOT = eINSTANCE.getCodeQLRoot_TainttrackingRoot();
 
 	}
 

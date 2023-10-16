@@ -50,40 +50,24 @@ public class CodeQLRootItemProvider extends ItemProviderAdapter implements IEdit
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCodeRootPropertyDescriptor(object);
-			addDataFlowRootPropertyDescriptor(object);
+			addTainttrackingRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Code Root feature.
+	 * This adds a property descriptor for the Tainttracking Root feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodeRootPropertyDescriptor(Object object) {
+	protected void addTainttrackingRootPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_CodeQLRoot_codeRoot_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_CodeQLRoot_codeRoot_feature",
+						getResourceLocator(), getString("_UI_CodeQLRoot_tainttrackingRoot_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CodeQLRoot_tainttrackingRoot_feature",
 								"_UI_CodeQLRoot_type"),
-						CodeqlPackage.Literals.CODE_QL_ROOT__CODE_ROOT, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Flow Root feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataFlowRootPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_CodeQLRoot_dataFlowRoot_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_CodeQLRoot_dataFlowRoot_feature",
-								"_UI_CodeQLRoot_type"),
-						CodeqlPackage.Literals.CODE_QL_ROOT__DATA_FLOW_ROOT, true, false, true, null, null, null));
+						CodeqlPackage.Literals.CODE_QL_ROOT__TAINTTRACKING_ROOT, true, false, true, null, null, null));
 	}
 
 	/**

@@ -3,12 +3,11 @@ package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalys
 import java.util.HashMap;
 import java.util.Map;
 
+import org.kit.kastel.sdq.coupling.models.java.members.Method;
+import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import org.kit.kastel.sdq.coupling.models.java.types.Class;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.CompositeDataType;
-
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Class;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Method;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter;
 
 public class Correspondences {
 	private final Map<BasicComponent, Class> classComponentCorrespondences;

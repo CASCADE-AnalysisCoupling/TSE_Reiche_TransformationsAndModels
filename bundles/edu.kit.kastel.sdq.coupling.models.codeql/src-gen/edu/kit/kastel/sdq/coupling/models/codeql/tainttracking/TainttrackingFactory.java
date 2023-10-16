@@ -32,15 +32,6 @@ public interface TainttrackingFactory extends EFactory {
 	Node createNode();
 
 	/**
-	 * Returns a new object of class '<em>Expression Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression Node</em>'.
-	 * @generated
-	 */
-	ExpressionNode createExpressionNode();
-
-	/**
 	 * Returns a new object of class '<em>Parameter Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,13 +50,13 @@ public interface TainttrackingFactory extends EFactory {
 	SecurityLevel createSecurityLevel();
 
 	/**
-	 * Returns a new object of class '<em>Data Flow Root</em>'.
+	 * Returns a new object of class '<em>Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Flow Root</em>'.
+	 * @return a new object of class '<em>Root</em>'.
 	 * @generated
 	 */
-	DataFlowRoot createDataFlowRoot();
+	TainttrackingRoot createTainttrackingRoot();
 
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.

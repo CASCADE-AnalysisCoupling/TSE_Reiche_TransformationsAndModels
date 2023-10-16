@@ -96,29 +96,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExpressionNodeItemProvider expressionNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExpressionNodeAdapter() {
-		if (expressionNodeItemProvider == null) {
-			expressionNodeItemProvider = new ExpressionNodeItemProvider(this);
-		}
-
-		return expressionNodeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,26 +142,26 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataFlowRootItemProvider dataFlowRootItemProvider;
+	protected TainttrackingRootItemProvider tainttrackingRootItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDataFlowRootAdapter() {
-		if (dataFlowRootItemProvider == null) {
-			dataFlowRootItemProvider = new DataFlowRootItemProvider(this);
+	public Adapter createTainttrackingRootAdapter() {
+		if (tainttrackingRootItemProvider == null) {
+			tainttrackingRootItemProvider = new TainttrackingRootItemProvider(this);
 		}
 
-		return dataFlowRootItemProvider;
+		return tainttrackingRootItemProvider;
 	}
 
 	/**
@@ -386,14 +363,12 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	public void dispose() {
 		if (nodeItemProvider != null)
 			nodeItemProvider.dispose();
-		if (expressionNodeItemProvider != null)
-			expressionNodeItemProvider.dispose();
 		if (parameterNodeItemProvider != null)
 			parameterNodeItemProvider.dispose();
 		if (securityLevelItemProvider != null)
 			securityLevelItemProvider.dispose();
-		if (dataFlowRootItemProvider != null)
-			dataFlowRootItemProvider.dispose();
+		if (tainttrackingRootItemProvider != null)
+			tainttrackingRootItemProvider.dispose();
 		if (configurationItemProvider != null)
 			configurationItemProvider.dispose();
 		if (securityLevelAnnotationItemProvider != null)

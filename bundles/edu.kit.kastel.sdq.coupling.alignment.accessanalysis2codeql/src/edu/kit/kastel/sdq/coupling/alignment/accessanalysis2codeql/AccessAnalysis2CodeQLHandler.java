@@ -34,8 +34,8 @@ public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 		ProfileApplication profile = models.getProfile();
 		ConfidentialitySpecification spec = models.getConfidentiality();
 		AccessAnalysis2CodeQLModelsGenerator modelsGenerator = new AccessAnalysis2CodeQLModelsGenerator();
-		CodeQLRoot root = modelsGenerator.generateCodeQLModels(correspondences, repo, profile, spec);
-		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(root.getCodeRoot(), root.getDataFlowRoot().getConfigurations().get(0));
+		modelsGenerator.generateCodeQLModels(correspondences, repo, profile, spec);
+		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getConfigurations().get(0));
 		
 		
 		String tainttrackingContent = tainttrackingCodeGenerator.generate();

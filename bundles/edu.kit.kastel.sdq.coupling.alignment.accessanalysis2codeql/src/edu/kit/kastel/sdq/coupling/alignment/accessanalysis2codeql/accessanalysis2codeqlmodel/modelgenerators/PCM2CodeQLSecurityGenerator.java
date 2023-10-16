@@ -6,15 +6,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
-import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
@@ -25,19 +23,18 @@ import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysi
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.ParameterIdentification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.AccessAnalysisResolutionUtil;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.CodeQLModelgenerationUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 public class PCM2CodeQLSecurityGenerator {
 
 
 
-	private final DataFlowRoot root;
+	private final TainttrackingRoot root;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final Correspondences correspondences;
 	
@@ -225,7 +222,7 @@ public class PCM2CodeQLSecurityGenerator {
 		return null;
 	}
 
-	public DataFlowRoot getRoot() {
+	public TainttrackingRoot getRoot() {
 		return root;
 	}
 

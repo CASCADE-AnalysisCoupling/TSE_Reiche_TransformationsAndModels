@@ -95,52 +95,6 @@ public interface TainttrackingPackage extends EPackage {
 	int NODE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ExpressionNodeImpl <em>Expression Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ExpressionNodeImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getExpressionNode()
-	 * @generated
-	 */
-	int EXPRESSION_NODE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_NODE__ID = NODE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_NODE__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_NODE__EXPRESSION = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Expression Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl <em>Parameter Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,7 +102,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterNode()
 	 * @generated
 	 */
-	int PARAMETER_NODE = 2;
+	int PARAMETER_NODE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -194,7 +148,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getSecurityLevel()
 	 * @generated
 	 */
-	int SECURITY_LEVEL = 3;
+	int SECURITY_LEVEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -224,14 +178,14 @@ public interface TainttrackingPackage extends EPackage {
 	int SECURITY_LEVEL_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.DataFlowRootImpl <em>Data Flow Root</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl <em>Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.DataFlowRootImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getDataFlowRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getTainttrackingRoot()
 	 * @generated
 	 */
-	int DATA_FLOW_ROOT = 4;
+	int TAINTTRACKING_ROOT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
@@ -240,7 +194,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FLOW_ROOT__NODES = 0;
+	int TAINTTRACKING_ROOT__NODES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Configurations</b></em>' reference list.
@@ -249,16 +203,16 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FLOW_ROOT__CONFIGURATIONS = 1;
+	int TAINTTRACKING_ROOT__CONFIGURATIONS = 1;
 
 	/**
-	 * The number of structural features of the '<em>Data Flow Root</em>' class.
+	 * The number of structural features of the '<em>Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FLOW_ROOT_FEATURE_COUNT = 2;
+	int TAINTTRACKING_ROOT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -268,7 +222,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 5;
+	int CONFIGURATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -323,7 +277,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getSecurityLevelAnnotation()
 	 * @generated
 	 */
-	int SECURITY_LEVEL_ANNOTATION = 6;
+	int SECURITY_LEVEL_ANNOTATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -360,7 +314,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterAnnotation()
 	 * @generated
 	 */
-	int PARAMETER_ANNOTATION = 7;
+	int PARAMETER_ANNOTATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -406,7 +360,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getAllowedFlow()
 	 * @generated
 	 */
-	int ALLOWED_FLOW = 8;
+	int ALLOWED_FLOW = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -455,27 +409,6 @@ public interface TainttrackingPackage extends EPackage {
 	EClass getNode();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode <em>Expression Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Expression Node</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode
-	 * @generated
-	 */
-	EClass getExpressionNode();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expression</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ExpressionNode#getExpression()
-	 * @see #getExpressionNode()
-	 * @generated
-	 */
-	EReference getExpressionNode_Expression();
-
-	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode <em>Parameter Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,36 +440,36 @@ public interface TainttrackingPackage extends EPackage {
 	EClass getSecurityLevel();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot <em>Data Flow Root</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Flow Root</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot
+	 * @return the meta object for class '<em>Root</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot
 	 * @generated
 	 */
-	EClass getDataFlowRoot();
+	EClass getTainttrackingRoot();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot#getNodes <em>Nodes</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes <em>Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Nodes</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot#getNodes()
-	 * @see #getDataFlowRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes()
+	 * @see #getTainttrackingRoot()
 	 * @generated
 	 */
-	EReference getDataFlowRoot_Nodes();
+	EReference getTainttrackingRoot_Nodes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot#getConfigurations <em>Configurations</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations <em>Configurations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Configurations</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.DataFlowRoot#getConfigurations()
-	 * @see #getDataFlowRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations()
+	 * @see #getTainttrackingRoot()
 	 * @generated
 	 */
-	EReference getDataFlowRoot_Configurations();
+	EReference getTainttrackingRoot_Configurations();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration <em>Configuration</em>}'.
@@ -688,24 +621,6 @@ public interface TainttrackingPackage extends EPackage {
 		EClass NODE = eINSTANCE.getNode();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ExpressionNodeImpl <em>Expression Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ExpressionNodeImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getExpressionNode()
-		 * @generated
-		 */
-		EClass EXPRESSION_NODE = eINSTANCE.getExpressionNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPRESSION_NODE__EXPRESSION = eINSTANCE.getExpressionNode_Expression();
-
-		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl <em>Parameter Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -734,14 +649,14 @@ public interface TainttrackingPackage extends EPackage {
 		EClass SECURITY_LEVEL = eINSTANCE.getSecurityLevel();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.DataFlowRootImpl <em>Data Flow Root</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl <em>Root</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.DataFlowRootImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getDataFlowRoot()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getTainttrackingRoot()
 		 * @generated
 		 */
-		EClass DATA_FLOW_ROOT = eINSTANCE.getDataFlowRoot();
+		EClass TAINTTRACKING_ROOT = eINSTANCE.getTainttrackingRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Nodes</b></em>' reference list feature.
@@ -749,7 +664,7 @@ public interface TainttrackingPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DATA_FLOW_ROOT__NODES = eINSTANCE.getDataFlowRoot_Nodes();
+		EReference TAINTTRACKING_ROOT__NODES = eINSTANCE.getTainttrackingRoot_Nodes();
 
 		/**
 		 * The meta object literal for the '<em><b>Configurations</b></em>' reference list feature.
@@ -757,7 +672,7 @@ public interface TainttrackingPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DATA_FLOW_ROOT__CONFIGURATIONS = eINSTANCE.getDataFlowRoot_Configurations();
+		EReference TAINTTRACKING_ROOT__CONFIGURATIONS = eINSTANCE.getTainttrackingRoot_Configurations();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl <em>Configuration</em>}' class.

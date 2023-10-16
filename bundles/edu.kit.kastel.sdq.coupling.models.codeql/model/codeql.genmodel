@@ -6,80 +6,28 @@
     editorDirectory="/edu.kit.kastel.sdq.coupling.models.codeql.editor/src-gen" modelPluginID="edu.kit.kastel.sdq.coupling.models.codeql"
     modelName="Codeql" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0"
-    copyrightFields="false" usedGenPackages="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier"
+    copyrightFields="false" usedGenPackages="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier ../../org.kit.kastel.sdq.coupling.models.java/model/java.genmodel#//java"
     importOrganizing="true">
   <foreignModel>codeql.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Codeql" basePackage="edu.kit.kastel.sdq.coupling.models" disposableProviderFactory="true"
       ecorePackage="codeql.ecore#/">
     <genClasses ecoreClass="codeql.ecore#//CodeQLRoot">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeql.ecore#//CodeQLRoot/codeRoot"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeql.ecore#//CodeQLRoot/dataFlowRoot"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeql.ecore#//CodeQLRoot/tainttrackingRoot"/>
     </genClasses>
-    <nestedGenPackages prefix="Code" basePackage="edu.kit.kastel.sdq.coupling.models.codeql"
-        disposableProviderFactory="true" ecorePackage="codeql.ecore#//code">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="codeql.ecore#//code/PrimitiveTypeNames">
-        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/float"/>
-        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/int"/>
-        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/boolean"/>
-        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/string"/>
-        <genEnumLiterals ecoreEnumLiteral="codeql.ecore#//code/PrimitiveTypeNames/date"/>
-      </genEnums>
-      <genClasses ecoreClass="codeql.ecore#//code/Class">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Class/methods"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Class/fields"/>
-      </genClasses>
-      <genClasses ecoreClass="codeql.ecore#//code/Method">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Method/parameters"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//code/Method/returns"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/Method/expressions"/>
-      </genClasses>
-      <genClasses ecoreClass="codeql.ecore#//code/Parameter">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//code/Parameter/type"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="codeql.ecore#//code/Type"/>
-      <genClasses ecoreClass="codeql.ecore#//code/PrimitiveType">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeql.ecore#//code/PrimitiveType/primitiveTypeName"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="codeql.ecore#//code/Expression"/>
-      <genClasses ecoreClass="codeql.ecore#//code/MethodAccess">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//code/MethodAccess/accessingMethod"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="codeql.ecore#//code/VariableAccess"/>
-      <genClasses ecoreClass="codeql.ecore#//code/FieldAccess"/>
-      <genClasses ecoreClass="codeql.ecore#//code/Field">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//code/Field/type"/>
-      </genClasses>
-      <genClasses ecoreClass="codeql.ecore#//code/CodeRoot">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/CodeRoot/types"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//code/CodeRoot/expressions"/>
-      </genClasses>
-      <genClasses ecoreClass="codeql.ecore#//code/CollectionType">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//code/CollectionType/type"/>
-      </genClasses>
-    </nestedGenPackages>
     <nestedGenPackages prefix="Tainttracking" basePackage="edu.kit.kastel.sdq.coupling.models.codeql"
         disposableProviderFactory="true" ecorePackage="codeql.ecore#//tainttracking">
       <genClasses ecoreClass="codeql.ecore#//tainttracking/Node"/>
-      <genClasses ecoreClass="codeql.ecore#//tainttracking/ExpressionNode">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ExpressionNode/expression"/>
-      </genClasses>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/ParameterNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ParameterNode/parameter"/>
       </genClasses>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/SecurityLevel"/>
-      <genClasses ecoreClass="codeql.ecore#//tainttracking/DataFlowRoot">
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/TainttrackingRoot">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/DataFlowRoot/nodes"/>
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/TainttrackingRoot/nodes"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/DataFlowRoot/configurations"/>
+            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/TainttrackingRoot/configurations"/>
       </genClasses>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/Configuration">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

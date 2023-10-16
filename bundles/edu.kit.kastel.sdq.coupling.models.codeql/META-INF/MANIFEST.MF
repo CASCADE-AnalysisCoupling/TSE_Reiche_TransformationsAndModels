@@ -19,6 +19,7 @@ Export-Package: edu.kit.kastel.sdq.coupling.models.codeql,
  edu.kit.kastel.sdq.coupling.models.codeql.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
- org.kit.kastel.sdq.coupling.models.identifier;visibility:=reexport
+ org.kit.kastel.sdq.coupling.models.identifier;visibility:=reexport,
+ org.kit.kastel.sdq.coupling.models.java;visibility:=reexport
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy

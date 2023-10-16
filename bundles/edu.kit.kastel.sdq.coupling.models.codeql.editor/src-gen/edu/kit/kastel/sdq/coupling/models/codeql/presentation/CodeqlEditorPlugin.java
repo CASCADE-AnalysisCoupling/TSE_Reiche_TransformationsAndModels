@@ -10,6 +10,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
 
+import org.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
+
 /**
  * This is the central singleton for the Codeql editor plugin.
  * <!-- begin-user-doc -->
@@ -40,7 +42,7 @@ public final class CodeqlEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public CodeqlEditorPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, });
 	}
 
 	/**

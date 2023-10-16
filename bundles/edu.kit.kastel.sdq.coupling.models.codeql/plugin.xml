@@ -17,14 +17,6 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated codeql -->
       <package
-            uri="http://www.example.org/codeql/code"
-            class="edu.kit.kastel.sdq.coupling.models.codeql.code.CodePackage"
-            genModel="model/codeql.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated codeql -->
-      <package
             uri="http://www.example.org/codeql/tainttracking"
             class="edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage"
             genModel="model/codeql.genmodel"/>

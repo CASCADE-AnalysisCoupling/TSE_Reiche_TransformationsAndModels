@@ -8,12 +8,13 @@ Bundle-ClassPath: .
 Bundle-Activator: edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: edu.kit.kastel.sdq.coupling.models.codeql.code.provider,
- edu.kit.kastel.sdq.coupling.models.codeql.provider,
+Export-Package: edu.kit.kastel.sdq.coupling.models.codeql.provider,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider
 Require-Bundle: org.eclipse.core.runtime,
  edu.kit.kastel.sdq.coupling.models.codeql;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.kit.kastel.sdq.coupling.models.identifier;visibility:=reexport,
- org.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport
+ org.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport,
+ org.kit.kastel.sdq.coupling.models.java;visibility:=reexport,
+ org.kit.kastel.sdq.coupling.models.java.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

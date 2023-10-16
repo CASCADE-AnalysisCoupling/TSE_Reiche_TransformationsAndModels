@@ -2,8 +2,6 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.code.Parameter;
-
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
@@ -13,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 /**
  * <!-- begin-user-doc -->
