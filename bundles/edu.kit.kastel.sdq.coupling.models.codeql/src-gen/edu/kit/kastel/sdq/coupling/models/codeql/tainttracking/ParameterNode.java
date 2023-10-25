@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
-import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 /**
  * <!-- begin-user-doc -->

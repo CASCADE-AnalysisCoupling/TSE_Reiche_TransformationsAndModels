@@ -1,18 +1,18 @@
 package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils;
 
-import org.kit.kastel.sdq.coupling.models.java.JavaFactory;
-import org.kit.kastel.sdq.coupling.models.java.JavaRoot;
-import org.kit.kastel.sdq.coupling.models.java.Package;
-import org.kit.kastel.sdq.coupling.models.java.members.Field;
-import org.kit.kastel.sdq.coupling.models.java.members.MembersFactory;
-import org.kit.kastel.sdq.coupling.models.java.members.Method;
-import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import org.kit.kastel.sdq.coupling.models.java.types.TypesFactory;
-import org.kit.kastel.sdq.coupling.models.java.types.Class;
-import org.kit.kastel.sdq.coupling.models.java.types.CollectionType;
-import org.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
-import org.kit.kastel.sdq.coupling.models.java.types.PrimitiveTypeKinds;
-import org.kit.kastel.sdq.coupling.models.java.types.Type;
+import edu.kit.kastel.sdq.coupling.models.java.JavaFactory;
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
+import edu.kit.kastel.sdq.coupling.models.java.Package;
+import edu.kit.kastel.sdq.coupling.models.java.members.Field;
+import edu.kit.kastel.sdq.coupling.models.java.members.MembersFactory;
+import edu.kit.kastel.sdq.coupling.models.java.members.Method;
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.types.TypesFactory;
+import edu.kit.kastel.sdq.coupling.models.java.types.Class;
+import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
+import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
+import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveTypeKinds;
+import edu.kit.kastel.sdq.coupling.models.java.types.Type;
 
 public class JavaModelGenerationUtil {
 	
@@ -80,7 +80,7 @@ public class JavaModelGenerationUtil {
 	public static CollectionType generateCollectionType(Type type) {
 		CollectionType colType = TypesFactory.eINSTANCE.createCollectionType();
 		colType.setType(type);
-		type.setName(String.format("Collection<<%s>>", type.getName()));
+		colType.setName(String.format("Collection<%s>", type.getName()));
 		return colType;
 	}
 	

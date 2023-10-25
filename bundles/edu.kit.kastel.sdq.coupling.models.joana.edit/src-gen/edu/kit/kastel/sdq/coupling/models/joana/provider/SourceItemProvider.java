@@ -2,8 +2,6 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
-import edu.kit.kastel.sdq.coupling.models.joana.Source;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -18,7 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SourceItemProvider extends AnnotationItemProvider {
+public class SourceItemProvider extends InformationFlowAnnotationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,9 +71,7 @@ public class SourceItemProvider extends AnnotationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Source) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_Source_type")
-				: getString("_UI_Source_type") + " " + label;
+		return getString("_UI_Source_type");
 	}
 
 	/**

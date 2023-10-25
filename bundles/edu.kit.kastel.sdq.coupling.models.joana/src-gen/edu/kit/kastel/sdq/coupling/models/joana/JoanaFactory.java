@@ -31,13 +31,13 @@ public interface JoanaFactory extends EFactory {
 	JOANARoot createJOANARoot();
 
 	/**
-	 * Returns a new object of class '<em>Annotation</em>'.
+	 * Returns a new object of class '<em>Information Flow Annotation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Annotation</em>'.
+	 * @return a new object of class '<em>Information Flow Annotation</em>'.
 	 * @generated
 	 */
-	Annotation createAnnotation();
+	InformationFlowAnnotation createInformationFlowAnnotation();
 
 	/**
 	 * Returns a new object of class '<em>Entry Point</em>'.
@@ -101,6 +101,15 @@ public interface JoanaFactory extends EFactory {
 	 * @generated
 	 */
 	ParametertIdentifying createParametertIdentifying();
+
+	/**
+	 * Returns a new object of class '<em>Method Identifying</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Identifying</em>'.
+	 * @generated
+	 */
+	MethodIdentifying createMethodIdentifying();
 
 	/**
 	 * Returns the package supported by this factory.

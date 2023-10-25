@@ -12,5 +12,5 @@ package edu.kit.kastel.sdq.coupling.models.joana;
  * @model
  * @generated
  */
-public interface Source extends Annotation {
+public interface Source extends InformationFlowAnnotation {
 } // Source

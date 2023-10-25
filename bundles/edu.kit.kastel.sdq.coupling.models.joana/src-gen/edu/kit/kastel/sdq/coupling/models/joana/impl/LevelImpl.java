@@ -2,12 +2,12 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.impl;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.impl.EntityImpl;
+
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.kit.kastel.sdq.coupling.models.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->

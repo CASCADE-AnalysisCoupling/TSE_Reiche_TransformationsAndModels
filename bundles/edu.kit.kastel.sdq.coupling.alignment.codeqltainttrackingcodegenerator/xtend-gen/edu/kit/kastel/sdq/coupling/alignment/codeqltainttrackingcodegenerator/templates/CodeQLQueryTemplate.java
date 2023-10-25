@@ -20,10 +20,10 @@ public abstract class CodeQLQueryTemplate {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   protected abstract String generateSelectClause();
-
+  
   protected abstract String generateWhereClause();
-
+  
   protected abstract String generateFromClause();
 }

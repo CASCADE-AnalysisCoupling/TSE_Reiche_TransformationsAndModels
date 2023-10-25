@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/org.kit.kastel.sdq.coupling.models.java/src-gen"
-    creationIcons="false" editDirectory="/org.kit.kastel.sdq.coupling.models.java.edit/src-gen"
-    editorDirectory="/org.kit.kastel.sdq.coupling.models.java.editor/src-gen" modelPluginID="org.kit.kastel.sdq.coupling.models.java"
-    modelName="Java" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0"
-    copyrightFields="false" usedGenPackages="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.models.java/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.models.java.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.models.java.editor/src-gen" modelPluginID="edu.kit.kastel.sdq.coupling.models.java"
+    modelName="Java" editPluginClass="edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin"
+    editorPluginClass="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    testSuiteClass="edu.kit.kastel.sdq.coupling.models.java.tests.JavaAllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="11.0" copyrightFields="false" editPluginID="edu.kit.kastel.sdq.coupling.models.java.edit"
+    editorPluginID="edu.kit.kastel.sdq.coupling.models.java.editor" usedGenPackages="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier"
     operationReflection="true" importOrganizing="true">
   <foreignModel>java.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Java" basePackage="org.kit.kastel.sdq.coupling.models" disposableProviderFactory="true"
+  <genPackages prefix="Java" basePackage="edu.kit.kastel.sdq.coupling.models" disposableProviderFactory="true"
       ecorePackage="java.ecore#/">
     <genClasses ecoreClass="java.ecore#//JavaRoot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference java.ecore#//JavaRoot/primitivetypes"/>
@@ -21,7 +24,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Package/subpackage"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference java.ecore#//Package/classorinterface"/>
     </genClasses>
-    <nestedGenPackages prefix="Types" basePackage="org.kit.kastel.sdq.coupling.models.java"
+    <nestedGenPackages prefix="Types" basePackage="edu.kit.kastel.sdq.coupling.models.java"
         disposableProviderFactory="true" ecorePackage="java.ecore#//types">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="java.ecore#//types/PrimitiveTypeKinds">
         <genEnumLiterals ecoreEnumLiteral="java.ecore#//types/PrimitiveTypeKinds/BOOLEAN"/>
@@ -56,7 +59,7 @@
             ecoreFeature="ecore:EReference java.ecore#//types/TypedElement/type"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Members" basePackage="org.kit.kastel.sdq.coupling.models.java"
+    <nestedGenPackages prefix="Members" basePackage="edu.kit.kastel.sdq.coupling.models.java"
         disposableProviderFactory="true" ecorePackage="java.ecore#//members">
       <genClasses ecoreClass="java.ecore#//members/Field"/>
       <genClasses ecoreClass="java.ecore#//members/Method">

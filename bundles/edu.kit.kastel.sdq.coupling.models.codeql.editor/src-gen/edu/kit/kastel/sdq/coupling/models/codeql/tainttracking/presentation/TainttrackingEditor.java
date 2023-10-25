@@ -159,15 +159,15 @@ import edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlEditorPlugin
 
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlItemProviderAdapterFactory;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
+
+import edu.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
+
+import edu.kit.kastel.sdq.coupling.models.java.provider.JavaItemProviderAdapterFactory;
+
+import edu.kit.kastel.sdq.coupling.models.java.types.provider.TypesItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
-
-import org.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
-
-import org.kit.kastel.sdq.coupling.models.java.provider.JavaItemProviderAdapterFactory;
-
-import org.kit.kastel.sdq.coupling.models.java.types.provider.TypesItemProviderAdapterFactory;
 
 /**
  * This is an example of a Tainttracking model editor.

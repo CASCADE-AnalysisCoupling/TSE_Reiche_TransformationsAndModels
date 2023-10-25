@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.AccessAnalysis2JOANAHandler"
+            id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.command.runaccessanalysis2joana"
+            name="Transform Access Analysis to JOANA Code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.AccessAnalysis2JOANAHandler"
+            commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.handler.accessanalysis2joana">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="accessAnalysisTransformation"
+               label="Transformation"
+               mnemonic="t">
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.command.runaccessanalysis2joana"
+                  label="Transform Access Analysis to JOANA"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

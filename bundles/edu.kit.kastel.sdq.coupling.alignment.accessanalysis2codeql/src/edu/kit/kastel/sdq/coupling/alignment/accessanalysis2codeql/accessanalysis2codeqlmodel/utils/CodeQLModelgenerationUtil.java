@@ -1,7 +1,7 @@
 package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils;
 
 
-import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeqlFactory;

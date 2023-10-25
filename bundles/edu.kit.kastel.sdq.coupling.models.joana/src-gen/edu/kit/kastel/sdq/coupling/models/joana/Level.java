@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana;
 
-import org.kit.kastel.sdq.coupling.models.identifier.Entity;
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->

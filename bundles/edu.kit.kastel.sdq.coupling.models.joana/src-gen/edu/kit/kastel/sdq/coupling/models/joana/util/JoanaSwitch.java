@@ -2,16 +2,16 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.util;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import edu.kit.kastel.sdq.coupling.models.identifier.NamedElement;
+
 import edu.kit.kastel.sdq.coupling.models.joana.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.kit.kastel.sdq.coupling.models.identifier.Entity;
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
-import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,11 +77,9 @@ public class JoanaSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanaPackage.ANNOTATION: {
-			Annotation annotation = (Annotation) theEObject;
-			T result = caseAnnotation(annotation);
-			if (result == null)
-				result = caseIdentifiedElement(annotation);
+		case JoanaPackage.INFORMATION_FLOW_ANNOTATION: {
+			InformationFlowAnnotation informationFlowAnnotation = (InformationFlowAnnotation) theEObject;
+			T result = caseInformationFlowAnnotation(informationFlowAnnotation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -90,6 +88,8 @@ public class JoanaSwitch<T> extends Switch<T> {
 			EntryPoint entryPoint = (EntryPoint) theEObject;
 			T result = caseEntryPoint(entryPoint);
 			if (result == null)
+				result = caseIdentifiedElement(entryPoint);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -97,9 +97,7 @@ public class JoanaSwitch<T> extends Switch<T> {
 			Source source = (Source) theEObject;
 			T result = caseSource(source);
 			if (result == null)
-				result = caseAnnotation(source);
-			if (result == null)
-				result = caseIdentifiedElement(source);
+				result = caseInformationFlowAnnotation(source);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -108,9 +106,7 @@ public class JoanaSwitch<T> extends Switch<T> {
 			Sink sink = (Sink) theEObject;
 			T result = caseSink(sink);
 			if (result == null)
-				result = caseAnnotation(sink);
-			if (result == null)
-				result = caseIdentifiedElement(sink);
+				result = caseInformationFlowAnnotation(sink);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -158,6 +154,15 @@ public class JoanaSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case JoanaPackage.METHOD_IDENTIFYING: {
+			MethodIdentifying methodIdentifying = (MethodIdentifying) theEObject;
+			T result = caseMethodIdentifying(methodIdentifying);
+			if (result == null)
+				result = caseSystemElementIdentifying(methodIdentifying);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -179,17 +184,17 @@ public class JoanaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Information Flow Annotation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Information Flow Annotation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAnnotation(Annotation object) {
+	public T caseInformationFlowAnnotation(InformationFlowAnnotation object) {
 		return null;
 	}
 
@@ -310,6 +315,21 @@ public class JoanaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParametertIdentifying(ParametertIdentifying object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Identifying</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Identifying</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodIdentifying(MethodIdentifying object) {
 		return null;
 	}
 

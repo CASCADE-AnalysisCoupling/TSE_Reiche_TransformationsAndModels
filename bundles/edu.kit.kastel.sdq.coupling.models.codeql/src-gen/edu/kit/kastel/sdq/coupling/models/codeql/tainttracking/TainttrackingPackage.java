@@ -2,11 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -280,22 +280,13 @@ public interface TainttrackingPackage extends EPackage {
 	int SECURITY_LEVEL_ANNOTATION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_LEVEL_ANNOTATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
-
-	/**
 	 * The feature id for the '<em><b>Security Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
+	int SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL = 0;
 
 	/**
 	 * The number of structural features of the '<em>Security Level Annotation</em>' class.
@@ -304,7 +295,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+	int SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterAnnotationImpl <em>Parameter Annotation</em>}' class.
@@ -315,15 +306,6 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER_ANNOTATION = 6;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_ANNOTATION__ID = SECURITY_LEVEL_ANNOTATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Security Level</b></em>' reference.
@@ -363,22 +345,13 @@ public interface TainttrackingPackage extends EPackage {
 	int ALLOWED_FLOW = 7;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALLOWED_FLOW__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
-
-	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_FLOW__FROM = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
+	int ALLOWED_FLOW__FROM = 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -387,7 +360,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_FLOW__TO = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+	int ALLOWED_FLOW__TO = 1;
 
 	/**
 	 * The number of structural features of the '<em>Allowed Flow</em>' class.
@@ -396,7 +369,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOWED_FLOW_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+	int ALLOWED_FLOW_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node <em>Node</em>}'.

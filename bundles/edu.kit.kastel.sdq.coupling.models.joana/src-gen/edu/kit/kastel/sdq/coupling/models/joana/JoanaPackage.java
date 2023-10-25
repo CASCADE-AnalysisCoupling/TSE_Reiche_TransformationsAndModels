@@ -2,11 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,13 +68,13 @@ public interface JoanaPackage extends EPackage {
 	int JOANA_ROOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Entrypoint</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOANA_ROOT__ANNOTATIONS = 0;
+	int JOANA_ROOT__ENTRYPOINT = 0;
 
 	/**
 	 * The number of structural features of the '<em>JOANA Root</em>' class.
@@ -95,41 +95,50 @@ public interface JoanaPackage extends EPackage {
 	int JOANA_ROOT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.AnnotationImpl <em>Annotation</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.InformationFlowAnnotationImpl <em>Information Flow Annotation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.AnnotationImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getAnnotation()
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.InformationFlowAnnotationImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getInformationFlowAnnotation()
 	 * @generated
 	 */
-	int ANNOTATION = 1;
+	int INFORMATION_FLOW_ANNOTATION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+	int INFORMATION_FLOW_ANNOTATION__LEVEL = 0;
 
 	/**
-	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * The feature id for the '<em><b>System Element Identification</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
+	int INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION = 1;
 
 	/**
-	 * The number of operations of the '<em>Annotation</em>' class.
+	 * The number of structural features of the '<em>Information Flow Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
+	int INFORMATION_FLOW_ANNOTATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Information Flow Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFORMATION_FLOW_ANNOTATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.EntryPointImpl <em>Entry Point</em>}' class.
@@ -142,22 +151,49 @@ public interface JoanaPackage extends EPackage {
 	int ENTRY_POINT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' reference list.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT__LEVEL = 0;
+	int ENTRY_POINT__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Annotation</b></em>' reference list.
+	 * The feature id for the '<em><b>Level</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT__ANNOTATION = 1;
+	int ENTRY_POINT__LEVEL = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__ANNOTATION = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Lattice</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__LATTICE = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Method Identification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__METHOD_IDENTIFICATION = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Entry Point</em>' class.
@@ -166,7 +202,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_FEATURE_COUNT = 2;
+	int ENTRY_POINT_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Entry Point</em>' class.
@@ -175,7 +211,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_OPERATION_COUNT = 0;
+	int ENTRY_POINT_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.SourceImpl <em>Source</em>}' class.
@@ -188,13 +224,22 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__ID = ANNOTATION__ID;
+	int SOURCE__LEVEL = INFORMATION_FLOW_ANNOTATION__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>System Element Identification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__SYSTEM_ELEMENT_IDENTIFICATION = INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -203,7 +248,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 0;
+	int SOURCE_FEATURE_COUNT = INFORMATION_FLOW_ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -212,7 +257,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
+	int SOURCE_OPERATION_COUNT = INFORMATION_FLOW_ANNOTATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.SinkImpl <em>Sink</em>}' class.
@@ -225,13 +270,22 @@ public interface JoanaPackage extends EPackage {
 	int SINK = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINK__ID = ANNOTATION__ID;
+	int SINK__LEVEL = INFORMATION_FLOW_ANNOTATION__LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>System Element Identification</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__SYSTEM_ELEMENT_IDENTIFICATION = INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Sink</em>' class.
@@ -240,7 +294,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINK_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 0;
+	int SINK_FEATURE_COUNT = INFORMATION_FLOW_ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Sink</em>' class.
@@ -249,7 +303,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINK_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
+	int SINK_OPERATION_COUNT = INFORMATION_FLOW_ANNOTATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.LevelImpl <em>Level</em>}' class.
@@ -419,13 +473,22 @@ public interface JoanaPackage extends EPackage {
 	int PARAMETERT_IDENTIFYING = 9;
 
 	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERT_IDENTIFYING__PARAMETER = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Parametert Identifying</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETERT_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 0;
+	int PARAMETERT_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parametert Identifying</em>' class.
@@ -435,6 +498,43 @@ public interface JoanaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETERT_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFYING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.MethodIdentifyingImpl <em>Method Identifying</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.MethodIdentifyingImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getMethodIdentifying()
+	 * @generated
+	 */
+	int METHOD_IDENTIFYING = 10;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_IDENTIFYING__METHOD = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Method Identifying</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Method Identifying</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFYING_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot <em>JOANA Root</em>}'.
@@ -447,25 +547,47 @@ public interface JoanaPackage extends EPackage {
 	EClass getJOANARoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getAnnotations <em>Annotations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getEntrypoint <em>Entrypoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Annotations</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getAnnotations()
+	 * @return the meta object for the containment reference list '<em>Entrypoint</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getEntrypoint()
 	 * @see #getJOANARoot()
 	 * @generated
 	 */
-	EReference getJOANARoot_Annotations();
+	EReference getJOANARoot_Entrypoint();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.Annotation <em>Annotation</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation <em>Information Flow Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Annotation</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.Annotation
+	 * @return the meta object for class '<em>Information Flow Annotation</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation
 	 * @generated
 	 */
-	EClass getAnnotation();
+	EClass getInformationFlowAnnotation();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Level</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation#getLevel()
+	 * @see #getInformationFlowAnnotation()
+	 * @generated
+	 */
+	EReference getInformationFlowAnnotation_Level();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation#getSystemElementIdentification <em>System Element Identification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>System Element Identification</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation#getSystemElementIdentification()
+	 * @see #getInformationFlowAnnotation()
+	 * @generated
+	 */
+	EReference getInformationFlowAnnotation_SystemElementIdentification();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint <em>Entry Point</em>}'.
@@ -478,10 +600,10 @@ public interface JoanaPackage extends EPackage {
 	EClass getEntryPoint();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getLevel <em>Level</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getLevel <em>Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Level</em>'.
+	 * @return the meta object for the containment reference list '<em>Level</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getLevel()
 	 * @see #getEntryPoint()
 	 * @generated
@@ -489,15 +611,37 @@ public interface JoanaPackage extends EPackage {
 	EReference getEntryPoint_Level();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getAnnotation <em>Annotation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getAnnotation <em>Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Annotation</em>'.
+	 * @return the meta object for the containment reference list '<em>Annotation</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getAnnotation()
 	 * @see #getEntryPoint()
 	 * @generated
 	 */
 	EReference getEntryPoint_Annotation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getLattice <em>Lattice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Lattice</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getLattice()
+	 * @see #getEntryPoint()
+	 * @generated
+	 */
+	EReference getEntryPoint_Lattice();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getMethodIdentification <em>Method Identification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Method Identification</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.EntryPoint#getMethodIdentification()
+	 * @see #getEntryPoint()
+	 * @generated
+	 */
+	EReference getEntryPoint_MethodIdentification();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.Source <em>Source</em>}'.
@@ -603,6 +747,38 @@ public interface JoanaPackage extends EPackage {
 	EClass getParametertIdentifying();
 
 	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying#getParameter()
+	 * @see #getParametertIdentifying()
+	 * @generated
+	 */
+	EReference getParametertIdentifying_Parameter();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying <em>Method Identifying</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Identifying</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying
+	 * @generated
+	 */
+	EClass getMethodIdentifying();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Method</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying#getMethod()
+	 * @see #getMethodIdentifying()
+	 * @generated
+	 */
+	EReference getMethodIdentifying_Method();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,22 +812,39 @@ public interface JoanaPackage extends EPackage {
 		EClass JOANA_ROOT = eINSTANCE.getJOANARoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Entrypoint</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOANA_ROOT__ANNOTATIONS = eINSTANCE.getJOANARoot_Annotations();
+		EReference JOANA_ROOT__ENTRYPOINT = eINSTANCE.getJOANARoot_Entrypoint();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.AnnotationImpl <em>Annotation</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.InformationFlowAnnotationImpl <em>Information Flow Annotation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.AnnotationImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getAnnotation()
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.InformationFlowAnnotationImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getInformationFlowAnnotation()
 		 * @generated
 		 */
-		EClass ANNOTATION = eINSTANCE.getAnnotation();
+		EClass INFORMATION_FLOW_ANNOTATION = eINSTANCE.getInformationFlowAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFORMATION_FLOW_ANNOTATION__LEVEL = eINSTANCE.getInformationFlowAnnotation_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>System Element Identification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION = eINSTANCE
+				.getInformationFlowAnnotation_SystemElementIdentification();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.EntryPointImpl <em>Entry Point</em>}' class.
@@ -664,7 +857,7 @@ public interface JoanaPackage extends EPackage {
 		EClass ENTRY_POINT = eINSTANCE.getEntryPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Level</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -672,12 +865,28 @@ public interface JoanaPackage extends EPackage {
 		EReference ENTRY_POINT__LEVEL = eINSTANCE.getEntryPoint_Level();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotation</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ENTRY_POINT__ANNOTATION = eINSTANCE.getEntryPoint_Annotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Lattice</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY_POINT__LATTICE = eINSTANCE.getEntryPoint_Lattice();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Identification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY_POINT__METHOD_IDENTIFICATION = eINSTANCE.getEntryPoint_MethodIdentification();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.SourceImpl <em>Source</em>}' class.
@@ -772,6 +981,32 @@ public interface JoanaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETERT_IDENTIFYING = eINSTANCE.getParametertIdentifying();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERT_IDENTIFYING__PARAMETER = eINSTANCE.getParametertIdentifying_Parameter();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.MethodIdentifyingImpl <em>Method Identifying</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.MethodIdentifyingImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getMethodIdentifying()
+		 * @generated
+		 */
+		EClass METHOD_IDENTIFYING = eINSTANCE.getMethodIdentifying();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_IDENTIFYING__METHOD = eINSTANCE.getMethodIdentifying_Method();
 
 	}
 

@@ -2,9 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
-import org.eclipse.emf.common.util.EList;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

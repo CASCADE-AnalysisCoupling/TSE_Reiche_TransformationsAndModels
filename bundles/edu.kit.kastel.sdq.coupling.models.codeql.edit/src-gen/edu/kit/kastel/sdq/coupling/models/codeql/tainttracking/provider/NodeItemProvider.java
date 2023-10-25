@@ -6,6 +6,8 @@ import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -15,8 +17,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node} object.

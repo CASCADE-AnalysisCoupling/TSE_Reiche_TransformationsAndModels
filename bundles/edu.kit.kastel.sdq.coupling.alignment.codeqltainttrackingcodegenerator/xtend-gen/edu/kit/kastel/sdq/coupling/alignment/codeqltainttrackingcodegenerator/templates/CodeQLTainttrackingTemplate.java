@@ -47,24 +47,24 @@ public abstract class CodeQLTainttrackingTemplate {
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   protected abstract String generateLevelToStringFunction();
-
+  
   protected abstract String generatePackageImports();
-
+  
   protected abstract String generateMetaData();
-
+  
   protected abstract String generateAvailableLabelCheck();
-
+  
   protected abstract String generateInformationFlowModuleUsage();
-
+  
   protected abstract String generateConfiguration();
-
+  
   protected abstract String generateAllowedFlows();
-
+  
   protected abstract String generateLabelFunction();
-
+  
   protected abstract String generateSecurityLevels();
-
+  
   protected abstract String generateQuery();
 }

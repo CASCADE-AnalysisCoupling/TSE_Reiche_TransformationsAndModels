@@ -2,6 +2,10 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.util;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import edu.kit.kastel.sdq.coupling.models.identifier.NamedElement;
+
 import edu.kit.kastel.sdq.coupling.models.joana.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -10,10 +14,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.kit.kastel.sdq.coupling.models.identifier.Entity;
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
-import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAnnotation(Annotation object) {
-			return createAnnotationAdapter();
+		public Adapter caseInformationFlowAnnotation(InformationFlowAnnotation object) {
+			return createInformationFlowAnnotationAdapter();
 		}
 
 		@Override
@@ -118,6 +118,11 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseParametertIdentifying(ParametertIdentifying object) {
 			return createParametertIdentifyingAdapter();
+		}
+
+		@Override
+		public Adapter caseMethodIdentifying(MethodIdentifying object) {
+			return createMethodIdentifyingAdapter();
 		}
 
 		@Override
@@ -169,16 +174,16 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joana.Annotation <em>Annotation</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation <em>Information Flow Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.Annotation
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation
 	 * @generated
 	 */
-	public Adapter createAnnotationAdapter() {
+	public Adapter createInformationFlowAnnotationAdapter() {
 		return null;
 	}
 
@@ -295,13 +300,27 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement <em>Identified Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying <em>Method Identifying</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying
+	 * @generated
+	 */
+	public Adapter createMethodIdentifyingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement <em>Identified Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement
 	 * @generated
 	 */
 	public Adapter createIdentifiedElementAdapter() {
@@ -309,13 +328,13 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.NamedElement
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -323,13 +342,13 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.Entity <em>Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.Entity
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.Entity
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {

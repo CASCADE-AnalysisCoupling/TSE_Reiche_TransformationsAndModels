@@ -6,9 +6,8 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnno
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLQueryTemplate
-import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils.CodeQLGeneratorUtils
-import com.sun.java.accessibility.util.internal.LabelTranslator
-import org.kit.kastel.sdq.coupling.models.java.JavaRoot
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot
+import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.JavaResolutionUtil
 
 class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val String HAS_LABEL_CHECK_NAME = "hasLabel";
@@ -123,8 +122,8 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 		
 		if(anno instanceof ParameterAnnotation){
 		val levelString = anno.securityLevel.name
-		val className = CodeQLGeneratorUtils.getClassForParameter(root, anno.parameter).name
-		val methodName = CodeQLGeneratorUtils.getMethodContainingParameter(root, anno.parameter).name
+		val className = JavaResolutionUtil.getClassForParameter(root, anno.parameter).name
+		val methodName = JavaResolutionUtil.getMethodContainingParameter(root, anno.parameter).name
 		val parameterName = anno.parameter.name;
 			return generateSingleLabelling(className, methodName, parameterName, levelString)
 		}

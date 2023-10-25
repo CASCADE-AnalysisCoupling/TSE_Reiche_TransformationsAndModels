@@ -57,8 +57,8 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 		switch (eClass.getClassifierID()) {
 		case JoanaPackage.JOANA_ROOT:
 			return createJOANARoot();
-		case JoanaPackage.ANNOTATION:
-			return createAnnotation();
+		case JoanaPackage.INFORMATION_FLOW_ANNOTATION:
+			return createInformationFlowAnnotation();
 		case JoanaPackage.ENTRY_POINT:
 			return createEntryPoint();
 		case JoanaPackage.SOURCE:
@@ -73,6 +73,8 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 			return createLattice();
 		case JoanaPackage.PARAMETERT_IDENTIFYING:
 			return createParametertIdentifying();
+		case JoanaPackage.METHOD_IDENTIFYING:
+			return createMethodIdentifying();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -95,9 +97,9 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * @generated
 	 */
 	@Override
-	public Annotation createAnnotation() {
-		AnnotationImpl annotation = new AnnotationImpl();
-		return annotation;
+	public InformationFlowAnnotation createInformationFlowAnnotation() {
+		InformationFlowAnnotationImpl informationFlowAnnotation = new InformationFlowAnnotationImpl();
+		return informationFlowAnnotation;
 	}
 
 	/**
@@ -175,6 +177,17 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	public ParametertIdentifying createParametertIdentifying() {
 		ParametertIdentifyingImpl parametertIdentifying = new ParametertIdentifyingImpl();
 		return parametertIdentifying;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MethodIdentifying createMethodIdentifying() {
+		MethodIdentifyingImpl methodIdentifying = new MethodIdentifyingImpl();
+		return methodIdentifying;
 	}
 
 	/**

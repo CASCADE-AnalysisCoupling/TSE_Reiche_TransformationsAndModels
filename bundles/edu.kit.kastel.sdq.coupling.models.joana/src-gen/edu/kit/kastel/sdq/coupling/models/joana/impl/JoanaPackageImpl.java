@@ -2,14 +2,21 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.impl;
 
-import edu.kit.kastel.sdq.coupling.models.joana.Annotation;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
+
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 import edu.kit.kastel.sdq.coupling.models.joana.Lattice;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MayFlow;
+import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
@@ -20,8 +27,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +47,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass annotationEClass = null;
+	private EClass informationFlowAnnotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,6 +106,13 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	private EClass parametertIdentifyingEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodIdentifyingEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -152,6 +164,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		JavaPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJoanaPackage.createPackageContents();
@@ -183,7 +196,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getJOANARoot_Annotations() {
+	public EReference getJOANARoot_Entrypoint() {
 		return (EReference) joanaRootEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -193,8 +206,28 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getAnnotation() {
-		return annotationEClass;
+	public EClass getInformationFlowAnnotation() {
+		return informationFlowAnnotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getInformationFlowAnnotation_Level() {
+		return (EReference) informationFlowAnnotationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getInformationFlowAnnotation_SystemElementIdentification() {
+		return (EReference) informationFlowAnnotationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -225,6 +258,26 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	@Override
 	public EReference getEntryPoint_Annotation() {
 		return (EReference) entryPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEntryPoint_Lattice() {
+		return (EReference) entryPointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEntryPoint_MethodIdentification() {
+		return (EReference) entryPointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -333,6 +386,36 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getParametertIdentifying_Parameter() {
+		return (EReference) parametertIdentifyingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMethodIdentifying() {
+		return methodIdentifyingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMethodIdentifying_Method() {
+		return (EReference) methodIdentifyingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JoanaFactory getJoanaFactory() {
 		return (JoanaFactory) getEFactoryInstance();
 	}
@@ -358,13 +441,17 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		// Create classes and their features
 		joanaRootEClass = createEClass(JOANA_ROOT);
-		createEReference(joanaRootEClass, JOANA_ROOT__ANNOTATIONS);
+		createEReference(joanaRootEClass, JOANA_ROOT__ENTRYPOINT);
 
-		annotationEClass = createEClass(ANNOTATION);
+		informationFlowAnnotationEClass = createEClass(INFORMATION_FLOW_ANNOTATION);
+		createEReference(informationFlowAnnotationEClass, INFORMATION_FLOW_ANNOTATION__LEVEL);
+		createEReference(informationFlowAnnotationEClass, INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION);
 
 		entryPointEClass = createEClass(ENTRY_POINT);
 		createEReference(entryPointEClass, ENTRY_POINT__LEVEL);
 		createEReference(entryPointEClass, ENTRY_POINT__ANNOTATION);
+		createEReference(entryPointEClass, ENTRY_POINT__LATTICE);
+		createEReference(entryPointEClass, ENTRY_POINT__METHOD_IDENTIFICATION);
 
 		sourceEClass = createEClass(SOURCE);
 
@@ -382,6 +469,10 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		systemElementIdentifyingEClass = createEClass(SYSTEM_ELEMENT_IDENTIFYING);
 
 		parametertIdentifyingEClass = createEClass(PARAMETERT_IDENTIFYING);
+		createEReference(parametertIdentifyingEClass, PARAMETERT_IDENTIFYING__PARAMETER);
+
+		methodIdentifyingEClass = createEClass(METHOD_IDENTIFYING);
+		createEReference(methodIdentifyingEClass, METHOD_IDENTIFYING__METHOD);
 	}
 
 	/**
@@ -411,36 +502,52 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		// Obtain other dependent packages
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
 				.getEPackage(IdentifierPackage.eNS_URI);
+		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
+				.getEPackage(MembersPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		annotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
-		sourceEClass.getESuperTypes().add(this.getAnnotation());
-		sinkEClass.getESuperTypes().add(this.getAnnotation());
+		entryPointEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
+		sourceEClass.getESuperTypes().add(this.getInformationFlowAnnotation());
+		sinkEClass.getESuperTypes().add(this.getInformationFlowAnnotation());
 		levelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		parametertIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifying());
+		methodIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifying());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(joanaRootEClass, JOANARoot.class, "JOANARoot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJOANARoot_Annotations(), this.getAnnotation(), null, "annotations", null, 1, -1,
+		initEReference(getJOANARoot_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, -1,
 				JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(informationFlowAnnotationEClass, InformationFlowAnnotation.class, "InformationFlowAnnotation",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInformationFlowAnnotation_Level(), this.getLevel(), null, "level", null, 0, 1,
+				InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInformationFlowAnnotation_SystemElementIdentification(), this.getSystemElementIdentifying(),
+				null, "systemElementIdentification", null, 1, 1, InformationFlowAnnotation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPoint_Level(), this.getLevel(), null, "level", null, 0, -1, EntryPoint.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_Annotation(), this.getAnnotation(), null, "annotation", null, 0, -1,
-				EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getEntryPoint_Annotation(), this.getInformationFlowAnnotation(), null, "annotation", null, 0, -1,
+				EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, EntryPoint.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_MethodIdentification(), this.getMethodIdentifying(), null, "methodIdentification",
+				null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -466,6 +573,15 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		initEClass(parametertIdentifyingEClass, ParametertIdentifying.class, "ParametertIdentifying", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParametertIdentifying_Parameter(), theMembersPackage.getParameter(), null, "Parameter", null,
+				1, 1, ParametertIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(methodIdentifyingEClass, MethodIdentifying.class, "MethodIdentifying", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMethodIdentifying_Method(), theMembersPackage.getMethod(), null, "method", null, 1, 1,
+				MethodIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

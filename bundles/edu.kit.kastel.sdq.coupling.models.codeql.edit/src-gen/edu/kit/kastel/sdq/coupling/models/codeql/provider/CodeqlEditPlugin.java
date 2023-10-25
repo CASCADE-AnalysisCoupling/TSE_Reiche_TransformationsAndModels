@@ -2,13 +2,13 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.provider;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
+
+import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
-
-import org.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
 
 /**
  * This is the central singleton for the Codeql edit plugin.

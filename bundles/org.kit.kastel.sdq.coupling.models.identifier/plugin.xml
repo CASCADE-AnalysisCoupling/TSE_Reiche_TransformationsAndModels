@@ -10,7 +10,7 @@
       <!-- @generated identifier -->
       <package
             uri="http://www.example.org/identifier"
-            class="org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage"
+            class="edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage"
             genModel="model/identifier.genmodel"/>
    </extension>
 

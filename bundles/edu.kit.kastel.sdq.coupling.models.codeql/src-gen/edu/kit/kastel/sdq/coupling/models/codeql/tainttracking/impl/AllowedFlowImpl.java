@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
  *
  * @generated
  */
-public class AllowedFlowImpl extends IdentifiedElementImpl implements AllowedFlow {
+public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements AllowedFlow {
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->

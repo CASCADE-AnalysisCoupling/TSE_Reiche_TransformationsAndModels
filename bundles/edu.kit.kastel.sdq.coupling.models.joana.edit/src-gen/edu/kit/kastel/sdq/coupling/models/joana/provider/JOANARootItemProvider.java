@@ -70,7 +70,7 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JoanaPackage.Literals.JOANA_ROOT__ANNOTATIONS);
+			childrenFeatures.add(JoanaPackage.Literals.JOANA_ROOT__ENTRYPOINT);
 		}
 		return childrenFeatures;
 	}
@@ -132,7 +132,7 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JOANARoot.class)) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -150,14 +150,8 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.JOANA_ROOT__ANNOTATIONS,
-				JoanaFactory.eINSTANCE.createAnnotation()));
-
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.JOANA_ROOT__ANNOTATIONS,
-				JoanaFactory.eINSTANCE.createSource()));
-
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.JOANA_ROOT__ANNOTATIONS,
-				JoanaFactory.eINSTANCE.createSink()));
+		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.JOANA_ROOT__ENTRYPOINT,
+				JoanaFactory.eINSTANCE.createEntryPoint()));
 	}
 
 	/**

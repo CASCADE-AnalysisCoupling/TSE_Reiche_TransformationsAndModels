@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
         eType="#//Package" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subpackage" upperBound="-1"
         eType="#//Package" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classorinterface" upperBound="-1"
@@ -38,7 +38,7 @@
       <eLiterals name="STRING" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//types/Type #//types/TypedElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//types/ClassOrInterfaceType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
           eType="#//members/Field"/>
@@ -52,12 +52,12 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="members" nsURI="http://www.example.org/java/members" nsPrefix="members">
-    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity #//types/TypedElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//types/TypedElement ../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="returntype" eType="#//types/Type"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
           eType="#//members/Parameter" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity #//types/TypedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity #//types/TypedElement"/>
   </eSubpackages>
 </ecore:EPackage>

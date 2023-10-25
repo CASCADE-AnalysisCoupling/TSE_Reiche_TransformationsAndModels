@@ -16,6 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- org.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport,
- org.kit.kastel.sdq.coupling.models.java.edit;visibility:=reexport
+ edu.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport,
+ edu.kit.kastel.sdq.coupling.models.java.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

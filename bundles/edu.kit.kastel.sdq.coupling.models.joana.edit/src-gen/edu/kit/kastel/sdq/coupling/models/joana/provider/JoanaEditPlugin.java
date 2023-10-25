@@ -2,11 +2,13 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
+
+import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
 
 /**
  * This is the central singleton for the Joana edit plugin.
@@ -38,7 +40,7 @@ public final class JoanaEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public JoanaEditPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, });
 	}
 
 	/**

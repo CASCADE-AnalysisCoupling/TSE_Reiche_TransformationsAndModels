@@ -5,6 +5,12 @@
     <semanticResources>joana.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
     <semanticResources>platform:/resource/org.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.kit.kastel.sdq.coupling.models.java/model/java.ecore</semanticResources>
+    <semanticResources>platform:/resource/org.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_4KL28GwaEe6ZO9cFbvG1iA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_4LTRQGwaEe6ZO9cFbvG1iA" name="joana" repPath="#_4LA9YGwaEe6ZO9cFbvG1iA" changeId="7023581c-a339-41df-adde-8a0db0d80ec3">

@@ -10,6 +10,13 @@ public class FileOutput {
 		FileWriter writer = null;
 		File path = new File(file.generateFullAbsolutePath());
 		try {
+			path.getParentFile().mkdirs();
+			path.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
 			writer = new FileWriter(path);
 			writer.write(file.getContent());
 		} catch (IOException e) {

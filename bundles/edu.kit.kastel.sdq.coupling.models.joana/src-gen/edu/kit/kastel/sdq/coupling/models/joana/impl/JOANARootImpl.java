@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.impl;
 
-import edu.kit.kastel.sdq.coupling.models.joana.Annotation;
+import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 
@@ -28,21 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.joana.impl.JOANARootImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.joana.impl.JOANARootImpl#getEntrypoint <em>Entrypoint</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANARoot {
 	/**
-	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
+	 * The cached value of the '{@link #getEntrypoint() <em>Entrypoint</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnnotations()
+	 * @see #getEntrypoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Annotation> annotations;
+	protected EList<EntryPoint> entrypoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,12 +69,12 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	 * @generated
 	 */
 	@Override
-	public EList<Annotation> getAnnotations() {
-		if (annotations == null) {
-			annotations = new EObjectContainmentEList<Annotation>(Annotation.class, this,
-					JoanaPackage.JOANA_ROOT__ANNOTATIONS);
+	public EList<EntryPoint> getEntrypoint() {
+		if (entrypoint == null) {
+			entrypoint = new EObjectContainmentEList<EntryPoint>(EntryPoint.class, this,
+					JoanaPackage.JOANA_ROOT__ENTRYPOINT);
 		}
-		return annotations;
+		return entrypoint;
 	}
 
 	/**
@@ -85,8 +85,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
-			return ((InternalEList<?>) getAnnotations()).basicRemove(otherEnd, msgs);
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+			return ((InternalEList<?>) getEntrypoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -99,8 +99,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
-			return getAnnotations();
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+			return getEntrypoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,9 +114,9 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
-			getAnnotations().clear();
-			getAnnotations().addAll((Collection<? extends Annotation>) newValue);
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+			getEntrypoint().clear();
+			getEntrypoint().addAll((Collection<? extends EntryPoint>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,8 +130,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
-			getAnnotations().clear();
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+			getEntrypoint().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -145,8 +145,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ANNOTATIONS:
-			return annotations != null && !annotations.isEmpty();
+		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+			return entrypoint != null && !entrypoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

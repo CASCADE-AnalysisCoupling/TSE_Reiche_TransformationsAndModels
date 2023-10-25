@@ -10,15 +10,15 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPack
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
-
-import org.kit.kastel.sdq.coupling.models.java.JavaPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
+
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
 import java.util.Collection;
@@ -13,8 +15,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.Level} object.

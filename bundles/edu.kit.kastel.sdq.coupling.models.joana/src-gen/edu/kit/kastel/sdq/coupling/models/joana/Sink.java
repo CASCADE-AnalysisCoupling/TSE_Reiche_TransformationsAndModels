@@ -12,5 +12,5 @@ package edu.kit.kastel.sdq.coupling.models.joana;
  * @model
  * @generated
  */
-public interface Sink extends Annotation {
+public interface Sink extends InformationFlowAnnotation {
 } // Sink

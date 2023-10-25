@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated java -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaModelWizardID"
+            name="%_UI_JavaModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaModelFile.gif">
+         <description>%_UI_JavaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated java -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaEditorID"
+            name="%_UI_JavaEditor_label"
+            icon="icons/full/obj16/JavaModelFile.gif"
+            extensions="java"
+            class="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.java.presentation.JavaActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated java -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.java.types.presentation.TypesModelWizardID"
+            name="%_UI_TypesModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.java.types.presentation.TypesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypesModelFile.gif">
+         <description>%_UI_TypesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated java -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.java.types.presentation.TypesEditorID"
+            name="%_UI_TypesEditor_label"
+            icon="icons/full/obj16/TypesModelFile.gif"
+            extensions="types"
+            class="edu.kit.kastel.sdq.coupling.models.java.types.presentation.TypesEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.java.types.presentation.TypesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated java -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.java.members.presentation.MembersModelWizardID"
+            name="%_UI_MembersModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.java.members.presentation.MembersModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MembersModelFile.gif">
+         <description>%_UI_MembersModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated java -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.java.members.presentation.MembersEditorID"
+            name="%_UI_MembersEditor_label"
+            icon="icons/full/obj16/MembersModelFile.gif"
+            extensions="members"
+            class="edu.kit.kastel.sdq.coupling.models.java.members.presentation.MembersEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.java.members.presentation.MembersActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

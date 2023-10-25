@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.kit.kastel.sdq.coupling.models.identifier;singleton:=true
-Automatic-Module-Name: org.kit.kastel.sdq.coupling.models.identifier
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.models.identifier;singleton:=true
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.models.identifier
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: org.kit.kastel.sdq.coupling.models.identifier,
- org.kit.kastel.sdq.coupling.models.identifier.impl,
- org.kit.kastel.sdq.coupling.models.identifier.util
+Export-Package: edu.kit.kastel.sdq.coupling.models.identifier,
+ edu.kit.kastel.sdq.coupling.models.identifier.impl,
+ edu.kit.kastel.sdq.coupling.models.identifier.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime
 Eclipse-LazyStart: true

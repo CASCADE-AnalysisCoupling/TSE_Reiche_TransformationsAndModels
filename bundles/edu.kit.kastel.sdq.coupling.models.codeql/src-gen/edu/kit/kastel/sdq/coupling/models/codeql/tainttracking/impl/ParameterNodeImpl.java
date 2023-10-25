@@ -5,14 +5,14 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 /**
  * <!-- begin-user-doc -->

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot#getEntrypoint <em>Entrypoint</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage#getJOANARoot()
@@ -24,15 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface JOANARoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joana.Annotation}.
+	 * Returns the value of the '<em><b>Entrypoint</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotations</em>' containment reference list.
-	 * @see edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage#getJOANARoot_Annotations()
+	 * @return the value of the '<em>Entrypoint</em>' containment reference list.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage#getJOANARoot_Entrypoint()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Annotation> getAnnotations();
+	EList<EntryPoint> getEntrypoint();
 
 } // JOANARoot

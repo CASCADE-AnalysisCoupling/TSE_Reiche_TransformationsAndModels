@@ -17,17 +17,17 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingFact
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
-
-import org.kit.kastel.sdq.coupling.models.java.JavaPackage;
-
-import org.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -444,9 +444,7 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		parameterNodeEClass.getESuperTypes().add(this.getNode());
 		securityLevelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		configurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
-		securityLevelAnnotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 		parameterAnnotationEClass.getESuperTypes().add(this.getSecurityLevelAnnotation());
-		allowedFlowEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

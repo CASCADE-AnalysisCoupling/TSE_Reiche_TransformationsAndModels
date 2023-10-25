@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SinkImpl extends AnnotationImpl implements Sink {
+public class SinkImpl extends InformationFlowAnnotationImpl implements Sink {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

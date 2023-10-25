@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
  *
  * @generated
  */
-public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implements SecurityLevelAnnotation {
+public class SecurityLevelAnnotationImpl extends MinimalEObjectImpl.Container implements SecurityLevelAnnotation {
 	/**
 	 * The cached value of the '{@link #getSecurityLevel() <em>Security Level</em>}' reference.
 	 * <!-- begin-user-doc -->

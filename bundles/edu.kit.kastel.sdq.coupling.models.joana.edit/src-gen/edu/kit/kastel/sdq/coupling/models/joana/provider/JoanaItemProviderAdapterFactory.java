@@ -96,26 +96,26 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.Annotation} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AnnotationItemProvider annotationItemProvider;
+	protected InformationFlowAnnotationItemProvider informationFlowAnnotationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.Annotation}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAnnotationAdapter() {
-		if (annotationItemProvider == null) {
-			annotationItemProvider = new AnnotationItemProvider(this);
+	public Adapter createInformationFlowAnnotationAdapter() {
+		if (informationFlowAnnotationItemProvider == null) {
+			informationFlowAnnotationItemProvider = new InformationFlowAnnotationItemProvider(this);
 		}
 
-		return annotationItemProvider;
+		return informationFlowAnnotationItemProvider;
 	}
 
 	/**
@@ -280,6 +280,29 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodIdentifyingItemProvider methodIdentifyingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodIdentifyingAdapter() {
+		if (methodIdentifyingItemProvider == null) {
+			methodIdentifyingItemProvider = new MethodIdentifyingItemProvider(this);
+		}
+
+		return methodIdentifyingItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,8 +409,8 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	public void dispose() {
 		if (joanaRootItemProvider != null)
 			joanaRootItemProvider.dispose();
-		if (annotationItemProvider != null)
-			annotationItemProvider.dispose();
+		if (informationFlowAnnotationItemProvider != null)
+			informationFlowAnnotationItemProvider.dispose();
 		if (entryPointItemProvider != null)
 			entryPointItemProvider.dispose();
 		if (sourceItemProvider != null)
@@ -402,6 +425,8 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 			latticeItemProvider.dispose();
 		if (parametertIdentifyingItemProvider != null)
 			parametertIdentifyingItemProvider.dispose();
+		if (methodIdentifyingItemProvider != null)
+			methodIdentifyingItemProvider.dispose();
 	}
 
 }

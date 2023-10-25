@@ -8,6 +8,8 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingFactory;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -21,8 +23,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration} object.

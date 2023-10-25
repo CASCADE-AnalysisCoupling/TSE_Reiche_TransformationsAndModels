@@ -4,16 +4,16 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.util;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.*;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import edu.kit.kastel.sdq.coupling.models.identifier.NamedElement;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.kit.kastel.sdq.coupling.models.identifier.Entity;
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
-import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -257,13 +257,13 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement <em>Identified Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement <em>Identified Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement
 	 * @generated
 	 */
 	public Adapter createIdentifiedElementAdapter() {
@@ -271,13 +271,13 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.NamedElement
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -285,13 +285,13 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.kit.kastel.sdq.coupling.models.identifier.Entity <em>Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.identifier.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.kit.kastel.sdq.coupling.models.identifier.Entity
+	 * @see edu.kit.kastel.sdq.coupling.models.identifier.Entity
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {

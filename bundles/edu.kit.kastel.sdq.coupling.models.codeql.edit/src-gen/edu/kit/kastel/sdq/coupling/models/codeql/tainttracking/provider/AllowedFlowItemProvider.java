@@ -4,7 +4,6 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
 import java.util.Collection;
@@ -16,9 +15,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow} object.
@@ -26,7 +29,8 @@ import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementI
  * <!-- end-user-doc -->
  * @generated
  */
-public class AllowedFlowItemProvider extends IdentifiedElementItemProvider {
+public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -113,9 +117,7 @@ public class AllowedFlowItemProvider extends IdentifiedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AllowedFlow) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_AllowedFlow_type")
-				: getString("_UI_AllowedFlow_type") + " " + label;
+		return getString("_UI_AllowedFlow_type");
 	}
 
 	/**

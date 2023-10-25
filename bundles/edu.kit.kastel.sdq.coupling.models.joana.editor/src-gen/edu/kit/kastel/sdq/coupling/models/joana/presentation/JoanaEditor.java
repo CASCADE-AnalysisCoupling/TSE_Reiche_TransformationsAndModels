@@ -155,9 +155,15 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import edu.kit.kastel.sdq.coupling.models.joana.provider.JoanaItemProviderAdapterFactory;
 
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
 
-import org.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
+import edu.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
+
+import edu.kit.kastel.sdq.coupling.models.java.provider.JavaItemProviderAdapterFactory;
+
+import edu.kit.kastel.sdq.coupling.models.java.types.provider.TypesItemProviderAdapterFactory;
+
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
  * This is an example of a Joana model editor.
@@ -690,6 +696,9 @@ public class JoanaEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JoanaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MembersItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

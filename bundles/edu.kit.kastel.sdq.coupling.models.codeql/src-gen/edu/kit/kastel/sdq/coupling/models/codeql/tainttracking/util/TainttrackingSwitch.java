@@ -4,14 +4,14 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.util;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.*;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
+import edu.kit.kastel.sdq.coupling.models.identifier.NamedElement;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.kit.kastel.sdq.coupling.models.identifier.Entity;
-import org.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
-import org.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,8 +131,6 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			SecurityLevelAnnotation securityLevelAnnotation = (SecurityLevelAnnotation) theEObject;
 			T result = caseSecurityLevelAnnotation(securityLevelAnnotation);
 			if (result == null)
-				result = caseIdentifiedElement(securityLevelAnnotation);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -142,16 +140,12 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseSecurityLevelAnnotation(parameterAnnotation);
 			if (result == null)
-				result = caseIdentifiedElement(parameterAnnotation);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case TainttrackingPackage.ALLOWED_FLOW: {
 			AllowedFlow allowedFlow = (AllowedFlow) theEObject;
 			T result = caseAllowedFlow(allowedFlow);
-			if (result == null)
-				result = caseIdentifiedElement(allowedFlow);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
