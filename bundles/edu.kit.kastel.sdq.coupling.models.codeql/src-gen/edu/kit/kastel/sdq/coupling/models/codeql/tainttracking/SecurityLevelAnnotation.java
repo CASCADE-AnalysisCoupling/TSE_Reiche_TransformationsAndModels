@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SecurityLevelAnnotation extends EObject {
+public interface SecurityLevelAnnotation extends IdentifiedElement {
 	/**
 	 * Returns the value of the '<em><b>Security Level</b></em>' reference.
 	 * <!-- begin-user-doc -->

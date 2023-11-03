@@ -6,13 +6,14 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class SecurityLevelAnnotationImpl extends MinimalEObjectImpl.Container implements SecurityLevelAnnotation {
+public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implements SecurityLevelAnnotation {
 	/**
 	 * The cached value of the '{@link #getSecurityLevel() <em>Security Level</em>}' reference.
 	 * <!-- begin-user-doc -->

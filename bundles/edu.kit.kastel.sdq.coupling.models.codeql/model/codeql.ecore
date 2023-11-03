@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeql" nsURI="http://www.example.org/codeql" nsPrefix="codeql">
   <eClassifiers xsi:type="ecore:EClass" name="CodeQLRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tainttrackingRoot" lowerBound="1"
-        eType="#//tainttracking/TainttrackingRoot"/>
+        eType="#//tainttracking/TainttrackingRoot" containment="true"/>
   </eClassifiers>
   <eSubpackages name="tainttracking" nsURI="http://www.example.org/codeql/tainttracking"
       nsPrefix="tainttracking">
@@ -15,13 +15,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="TainttrackingRoot">
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
-          eType="#//tainttracking/Node"/>
+          eType="#//tainttracking/Node" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-          eType="#//tainttracking/Configuration"/>
+          eType="#//tainttracking/Configuration" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//IdentifiedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="appliedSecurityLevel"
-          upperBound="-1" eType="#//tainttracking/SecurityLevel"/>
+          upperBound="-1" eType="#//tainttracking/SecurityLevel" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevelAnnotations"
           upperBound="-1" eType="#//tainttracking/SecurityLevelAnnotation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allowedFlows" upperBound="-1"

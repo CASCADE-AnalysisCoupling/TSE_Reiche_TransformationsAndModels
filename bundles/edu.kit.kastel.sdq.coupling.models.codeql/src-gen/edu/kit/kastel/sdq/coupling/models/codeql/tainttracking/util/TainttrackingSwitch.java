@@ -131,6 +131,8 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			SecurityLevelAnnotation securityLevelAnnotation = (SecurityLevelAnnotation) theEObject;
 			T result = caseSecurityLevelAnnotation(securityLevelAnnotation);
 			if (result == null)
+				result = caseIdentifiedElement(securityLevelAnnotation);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -139,6 +141,8 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 			T result = caseParameterAnnotation(parameterAnnotation);
 			if (result == null)
 				result = caseSecurityLevelAnnotation(parameterAnnotation);
+			if (result == null)
+				result = caseIdentifiedElement(parameterAnnotation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

@@ -188,7 +188,7 @@ public interface TainttrackingPackage extends EPackage {
 	int TAINTTRACKING_ROOT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -197,7 +197,7 @@ public interface TainttrackingPackage extends EPackage {
 	int TAINTTRACKING_ROOT__NODES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Configurations</b></em>' reference list.
+	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -234,7 +234,7 @@ public interface TainttrackingPackage extends EPackage {
 	int CONFIGURATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Applied Security Level</b></em>' reference list.
+	 * The feature id for the '<em><b>Applied Security Level</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -280,13 +280,22 @@ public interface TainttrackingPackage extends EPackage {
 	int SECURITY_LEVEL_ANNOTATION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_LEVEL_ANNOTATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Security Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL = 0;
+	int SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Security Level Annotation</em>' class.
@@ -295,7 +304,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT = 1;
+	int SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterAnnotationImpl <em>Parameter Annotation</em>}' class.
@@ -306,6 +315,15 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER_ANNOTATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_ANNOTATION__ID = SECURITY_LEVEL_ANNOTATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Security Level</b></em>' reference.
@@ -423,10 +441,10 @@ public interface TainttrackingPackage extends EPackage {
 	EClass getTainttrackingRoot();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes <em>Nodes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes <em>Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Nodes</em>'.
+	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes()
 	 * @see #getTainttrackingRoot()
 	 * @generated
@@ -434,10 +452,10 @@ public interface TainttrackingPackage extends EPackage {
 	EReference getTainttrackingRoot_Nodes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations <em>Configurations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations <em>Configurations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Configurations</em>'.
+	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations()
 	 * @see #getTainttrackingRoot()
 	 * @generated
@@ -455,10 +473,10 @@ public interface TainttrackingPackage extends EPackage {
 	EClass getConfiguration();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAppliedSecurityLevel <em>Applied Security Level</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAppliedSecurityLevel <em>Applied Security Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applied Security Level</em>'.
+	 * @return the meta object for the containment reference list '<em>Applied Security Level</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAppliedSecurityLevel()
 	 * @see #getConfiguration()
 	 * @generated
@@ -632,7 +650,7 @@ public interface TainttrackingPackage extends EPackage {
 		EClass TAINTTRACKING_ROOT = eINSTANCE.getTainttrackingRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Nodes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -640,7 +658,7 @@ public interface TainttrackingPackage extends EPackage {
 		EReference TAINTTRACKING_ROOT__NODES = eINSTANCE.getTainttrackingRoot_Nodes();
 
 		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -658,7 +676,7 @@ public interface TainttrackingPackage extends EPackage {
 		EClass CONFIGURATION = eINSTANCE.getConfiguration();
 
 		/**
-		 * The meta object literal for the '<em><b>Applied Security Level</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Applied Security Level</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

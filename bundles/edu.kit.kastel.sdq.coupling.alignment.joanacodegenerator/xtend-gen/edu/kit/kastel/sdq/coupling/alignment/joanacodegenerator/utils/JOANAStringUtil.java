@@ -12,26 +12,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class JOANAStringUtil {
-  public static String toCurlyArray(final Collection<String> strings) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      boolean _hasElements = false;
-      for(final String string : strings) {
-        if (!_hasElements) {
-          _hasElements = true;
-          _builder.append("{");
-        } else {
-          _builder.appendImmediate(",", "");
-        }
-        _builder.append(string);
-      }
-      if (_hasElements) {
-        _builder.append("}");
-      }
-    }
-    return _builder.toString();
-  }
-  
   public static String generateTags(final Collection<String> tags) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -50,9 +30,21 @@ public class JOANAStringUtil {
   
   public static String FlowAnnotation_generateTagsEntry(final Collection<String> tags) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("tags = ");
-    String _curlyArray = JOANAStringUtil.toCurlyArray(tags);
-    _builder.append(_curlyArray);
+    _builder.append("tags = {");
+    {
+      boolean _hasElements = false;
+      for(final String tag : tags) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        _builder.append("\"");
+        _builder.append(tag);
+        _builder.append("\"");
+      }
+    }
+    _builder.append("}");
     return _builder.toString();
   }
   
@@ -100,12 +92,12 @@ public class JOANAStringUtil {
     return _builder.toString();
   }
   
-  public static String FlowAnnotation_generateSourcesAnnotation(final Map<Level, Collection<String>> levelToTagsMappings) {
+  public static String FlowAnnotation_generateSourcesAnnotation(final Map<String, Collection<String>> levelToTagsMappings) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      Set<Map.Entry<Level, Collection<String>>> _entrySet = levelToTagsMappings.entrySet();
+      Set<Map.Entry<String, Collection<String>>> _entrySet = levelToTagsMappings.entrySet();
       boolean _hasElements = false;
-      for(final Map.Entry<Level, Collection<String>> entry : _entrySet) {
+      for(final Map.Entry<String, Collection<String>> entry : _entrySet) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
@@ -119,24 +111,24 @@ public class JOANAStringUtil {
     return _builder.toString();
   }
   
-  public static String FlowAnnotation_generateSourceAnnotation(final Level level, final Collection<String> tags) {
+  public static String FlowAnnotation_generateSourceAnnotation(final String level, final Collection<String> tags) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@Source(");
     String _FlowAnnotation_generateTagsEntry = JOANAStringUtil.FlowAnnotation_generateTagsEntry(tags);
     _builder.append(_FlowAnnotation_generateTagsEntry);
     _builder.append(", ");
-    String _FlowAnnotation_generateLevelEntry = JOANAStringUtil.FlowAnnotation_generateLevelEntry(level.getName());
+    String _FlowAnnotation_generateLevelEntry = JOANAStringUtil.FlowAnnotation_generateLevelEntry(level);
     _builder.append(_FlowAnnotation_generateLevelEntry);
     _builder.append(")");
     return _builder.toString();
   }
   
-  public static String FlowAnnotation_generateSinkAnnotation(final Map<Level, Collection<String>> levelToTagsMappings) {
+  public static String FlowAnnotation_generateSinkAnnotation(final Map<String, Collection<String>> levelToTagsMappings) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      Set<Map.Entry<Level, Collection<String>>> _entrySet = levelToTagsMappings.entrySet();
+      Set<Map.Entry<String, Collection<String>>> _entrySet = levelToTagsMappings.entrySet();
       boolean _hasElements = false;
-      for(final Map.Entry<Level, Collection<String>> entry : _entrySet) {
+      for(final Map.Entry<String, Collection<String>> entry : _entrySet) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
@@ -150,13 +142,13 @@ public class JOANAStringUtil {
     return _builder.toString();
   }
   
-  public static String FlowAnnotation_generateSinkAnnotation(final Level level, final Collection<String> tags) {
+  public static String FlowAnnotation_generateSinkAnnotation(final String level, final Collection<String> tags) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@Sink(");
     String _FlowAnnotation_generateTagsEntry = JOANAStringUtil.FlowAnnotation_generateTagsEntry(tags);
     _builder.append(_FlowAnnotation_generateTagsEntry);
     _builder.append(", ");
-    String _FlowAnnotation_generateLevelEntry = JOANAStringUtil.FlowAnnotation_generateLevelEntry(level.getName());
+    String _FlowAnnotation_generateLevelEntry = JOANAStringUtil.FlowAnnotation_generateLevelEntry(level);
     _builder.append(_FlowAnnotation_generateLevelEntry);
     _builder.append(")");
     return _builder.toString();
@@ -209,7 +201,7 @@ public class JOANAStringUtil {
     _builder.append("tag = \"");
     String _id = entryPoint.getId();
     _builder.append(_id, "\t");
-    _builder.append("\"");
+    _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     String _EntryPoint_generateLevelsEntry = JOANAStringUtil.EntryPoint_generateLevelsEntry(entryPoint.getLevel());

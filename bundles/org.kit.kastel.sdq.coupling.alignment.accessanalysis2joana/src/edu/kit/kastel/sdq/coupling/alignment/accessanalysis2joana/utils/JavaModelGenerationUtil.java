@@ -10,6 +10,7 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.java.types.TypesFactory;
 import edu.kit.kastel.sdq.coupling.models.java.types.Class;
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
+import edu.kit.kastel.sdq.coupling.models.java.types.Interface;
 import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
 import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveTypeKinds;
 import edu.kit.kastel.sdq.coupling.models.java.types.Type;
@@ -82,6 +83,12 @@ public class JavaModelGenerationUtil {
 		colType.setType(type);
 		colType.setName(String.format("Collection<%s>", type.getName()));
 		return colType;
+	}
+
+	public static Interface generateInterface(String entityName) {
+		Interface interf = TypesFactory.eINSTANCE.createInterface();
+		interf.setName(entityName);
+		return interf;
 	}
 	
 }

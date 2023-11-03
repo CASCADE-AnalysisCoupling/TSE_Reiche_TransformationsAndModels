@@ -2,6 +2,7 @@ package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerato
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map.Entry;
 
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.PCMResolutionUtil;
@@ -12,40 +13,50 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.types.Class;
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
+import edu.kit.kastel.sdq.coupling.models.java.types.Interface;
 import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
 import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveTypeKinds;
 import edu.kit.kastel.sdq.coupling.models.java.types.Type;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.BasicComponent2Class;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.CompositeDataType2Class;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
+
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.CollectionDataType;
 import org.palladiosimulator.pcm.repository.CompositeDataType;
 import org.palladiosimulator.pcm.repository.DataType;
 import org.palladiosimulator.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Parameter;
 import org.palladiosimulator.pcm.repository.PrimitiveDataType;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.Correspondences;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.ParameterIdentification;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.ProvidedSignature;
+
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.JavaModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.PCMJavaCorrespondenceModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.PCMJavaCorrespondenceResolutionUtils;
 
 
 public class AccessAnalysis2JOANAStructuralGenerator {
 
 	private final Repository repository;
 	private final JavaRoot root;
-	private final Correspondences correspondences;
+	private final PCMJavaCorrespondenceRoot correspondences;
 	private final Package classPackages;
 	private final Package dataTypePackage;
 	private final Package interfacePackage;
 	
-	public AccessAnalysis2JOANAStructuralGenerator(Correspondences correspondences, Repository repository) {
+	public AccessAnalysis2JOANAStructuralGenerator(PCMJavaCorrespondenceRoot correspondences, Repository repository) {
 		this.correspondences = correspondences;
 		this.repository = repository;
 		this.root = JavaModelGenerationUtil.generateJavaRoot();
-		this.classPackages = JavaModelGenerationUtil.generatePackage("Classes");
+		this.classPackages = JavaModelGenerationUtil.generatePackage("Components");
 		this.dataTypePackage = JavaModelGenerationUtil.generatePackage("DataTypes");
 		this.interfacePackage = JavaModelGenerationUtil.generatePackage("Interfaces");
 	}
@@ -77,16 +88,17 @@ public class AccessAnalysis2JOANAStructuralGenerator {
 		//First Pass: Generate Type so we have all classes without filled fields etc but all types are available
 		for(CompositeDataType type : compositeTypes) {
 			Class clazz = JavaModelGenerationUtil.generateClass(type.getEntityName());
-			correspondences.getClassCompositeTypeCorrespondences().put(type, clazz);
+			CompositeDataType2Class datatype2class = PCMJavaCorrespondenceModelGenerationUtil.generateCompositeDataType2Class(type, clazz);
+			correspondences.getCompositedatatype2class().add(datatype2class);
 			dataTypePackage.getClassorinterface().add(clazz);
 		}
 		
 		//Second Pass: Fill Classes from CompositeDataTypes with Content
-		for(Entry<CompositeDataType, Class> entry : correspondences.getClassCompositeTypeCorrespondences().entrySet()) {
-			for(InnerDeclaration innerDeclaration : entry.getKey().getInnerDeclaration_CompositeDataType()) {
+		for(CompositeDataType2Class datatype2classCorrespondence : correspondences.getCompositedatatype2class()) {
+			for(InnerDeclaration innerDeclaration : datatype2classCorrespondence.getCompositeDataType().getInnerDeclaration_CompositeDataType()) {
 				Field field = JavaModelGenerationUtil.generateField(innerDeclaration.getEntityName());
 				field.setType(getJavaTypeForPCMDataType(innerDeclaration.getDatatype_InnerDeclaration()));
-				entry.getValue().getField().add(field);
+				datatype2classCorrespondence.getJavaClass().getField().add(field);
 			}
 		}
 	}
@@ -96,7 +108,8 @@ public class AccessAnalysis2JOANAStructuralGenerator {
 		
 		for (BasicComponent component : components) {
 			Class clazz = JavaModelGenerationUtil.generateClass(component.getEntityName());
-			correspondences.getClassComponentCorrespondences().put(component, clazz);
+			BasicComponent2Class component2ClassCorrespondence = PCMJavaCorrespondenceModelGenerationUtil.generateBasicComponent2Class(component, clazz);
+			correspondences.getBasiccomponent2class().add(component2ClassCorrespondence);
 			generatedClasses.add(clazz);
 			classPackages.getClassorinterface().add(clazz);
 			generateAndAddProvidedMethodsForClass(clazz);
@@ -105,33 +118,60 @@ public class AccessAnalysis2JOANAStructuralGenerator {
 		return generatedClasses;
 	}
 	
+	private Collection<Interface> generateInterfacesFromInterfaces(Collection<OperationInterface> interfaces){
+		Collection<Interface> generatedInterfaces = new HashSet<Interface>();
+		
+		for(OperationInterface interf : interfaces) {
+			Interface generatedInterface = JavaModelGenerationUtil.generateInterface(interf.getEntityName());
+			//interfacePackage.getClassorinterface().add(generatedInterface);
+			generatedInterfaces.add(generatedInterface);
+			for(OperationSignature sig : interf.getSignatures__OperationInterface()) {
+				Method generatedMethod = JavaModelGenerationUtil.generateMethod(sig.getEntityName());
+				generatedInterface.getMethod().add(generatedMethod);
+				
+				for(Parameter param : sig.getParameters__OperationSignature()) {
+					edu.kit.kastel.sdq.coupling.models.java.members.Parameter javaParam = JavaModelGenerationUtil.generateParameter(param.getParameterName());
+					javaParam.setType(getJavaTypeForPCMDataType(param.getDataType__Parameter()));
+					//correspondences.getParameterToParameterCorrespondences().put(param, javaParam);
+					generatedMethod.getParameter().add(javaParam);
+				}
+			}
+		}
+		
+		return generatedInterfaces;
+		
+	}
+	
 	private void generateAndAddProvidedMethodsForClass(Class clazz){
 		
 		BasicComponent component = null;
 		
-		for(Entry<BasicComponent, Class> entry : correspondences.getClassComponentCorrespondences().entrySet()) {
-			if(entry.getValue().equals(clazz)) {
-				component = entry.getKey();
+		for(BasicComponent2Class component2class : correspondences.getBasiccomponent2class()) {
+			if(component2class.getJavaClass().equals(clazz)) {
+				component = component2class.getComponent();
 			}
 		}
 		
 		for(OperationProvidedRole role : PCMResolutionUtil.getOperationProvidedRolesForComponent(component)) {
 			for(OperationSignature signature : role.getProvidedInterface__OperationProvidedRole().getSignatures__OperationInterface()) {
 				
-				ProvidedSignature sig = new ProvidedSignature(role, signature);
+				ProvidedSignature sig = PCMJavaCorrespondenceModelGenerationUtil.generateProvidedSignature(role, signature);
 				Method method = JavaModelGenerationUtil.generateMethod(signature.getEntityName());
-				correspondences.getMethodProvidedSignatureCorrespondences().put(sig, method);
+				ProvidedOperationSignature2JavaMethod sig2Method = PCMJavaCorrespondenceModelGenerationUtil.generateProvidedOperationSignature2JavaMethod(sig, method);
+				correspondences.getProvidedoperationsignature2javamethod().add(sig2Method);
 				
 				clazz.getMethod().add(method);
 				
 				
 				for(Parameter parameter : signature.getParameters__OperationSignature()) {
-					ParameterIdentification paramIdent = new ParameterIdentification(sig, parameter);
+					ProvidedParameterIdentification paramIdent = PCMJavaCorrespondenceModelGenerationUtil.generateProvidedParameterIdentification(sig, parameter);
 					
-					edu.kit.kastel.sdq.coupling.models.java.members.Parameter javaParam = JavaModelGenerationUtil.generateParameter(paramIdent.getParamerter().getParameterName());
+					edu.kit.kastel.sdq.coupling.models.java.members.Parameter javaParam = JavaModelGenerationUtil.generateParameter(paramIdent.getParameter().getParameterName());
 					
 					javaParam.setType(getJavaTypeForPCMDataType(parameter.getDataType__Parameter()));
-					correspondences.getParameterToParameterCorrespondences().put(paramIdent, javaParam);
+					PCMParameter2JavaParameter paramcorrespondence = PCMJavaCorrespondenceModelGenerationUtil.generatePcmParameter2JavaParameter(paramIdent, javaParam);
+					
+					correspondences.getPcmparameter2javaparameter().add(paramcorrespondence);
 					method.getParameter().add(javaParam);
 				}
 			}
@@ -206,7 +246,7 @@ public class AccessAnalysis2JOANAStructuralGenerator {
 		return root;
 	}
 
-	public Correspondences getCorrespondences() {
+	public PCMJavaCorrespondenceRoot getCorrespondences() {
 		return correspondences;
 	}
 	

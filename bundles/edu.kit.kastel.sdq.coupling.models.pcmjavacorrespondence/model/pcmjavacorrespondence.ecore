@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcmjavacorrespondence" nsURI="http://www.example.org/pcmjavacorrespondence"
+    nsPrefix="pcmjavacorrespondence">
+  <eClassifiers xsi:type="ecore:EClass" name="PCMJavaCorrespondenceRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basiccomponent2class" upperBound="-1"
+        eType="#//BasicComponent2Class" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationInterface2interface"
+        upperBound="-1" eType="#//OperationInterface2Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compositedatatype2class"
+        upperBound="-1" eType="#//CompositeDataType2Class" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedoperationsignature2javamethod"
+        upperBound="-1" eType="#//ProvidedOperationSignature2JavaMethod" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter2javaparameter"
+        upperBound="-1" eType="#//PCMParameter2JavaParameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicComponent2Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/BasicComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaClass" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//types/Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationInterface2Interface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmInterface" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaInterface" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//types/Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeDataType2Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CompositeDataType" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/CompositeDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaClass" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//types/Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedOperationSignature2JavaMethod">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmMethod" lowerBound="1"
+        eType="#//ProvidedSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaMethod" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Method"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedSignature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedSignature" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedParameterIdentification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedSignature" lowerBound="1"
+        eType="#//ProvidedSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMParameter2JavaParameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmParameterIdentification"
+        lowerBound="1" eType="#//ProvidedParameterIdentification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaParameter" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>
+  </eClassifiers>
+</ecore:EPackage>

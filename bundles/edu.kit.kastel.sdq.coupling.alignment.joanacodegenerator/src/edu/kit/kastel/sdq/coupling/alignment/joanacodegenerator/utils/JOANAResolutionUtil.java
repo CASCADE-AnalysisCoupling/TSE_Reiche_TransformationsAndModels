@@ -60,16 +60,16 @@ public class JOANAResolutionUtil {
 				&& ((ParametertIdentifying) annotation.getSystemElementIdentification()).getParameter().equals(p));
 	}
 	
-	public static Map<Level, Collection<String>> generateLevelTagsMappingsForAnnotations(JOANARoot root, Collection<InformationFlowAnnotation> annotations){
-		Map<Level, Collection<String>> levelToTagsMappings = new HashMap<Level, Collection<String>>();
+	public static Map<String, Collection<String>> generateLevelTagsMappingsForAnnotations(JOANARoot root, Collection<InformationFlowAnnotation> annotations){
+		Map<String, Collection<String>> levelToTagsMappings = new HashMap<String, Collection<String>>();
 		
 		for(InformationFlowAnnotation annotation : annotations) {
-			if(!levelToTagsMappings.containsKey(annotation.getLevel())) {
+			if(!levelToTagsMappings.containsKey(annotation.getLevel().getName())) {
 				Collection<String> tags = new HashSet<String>();
-				levelToTagsMappings.put(annotation.getLevel(), tags);
+				levelToTagsMappings.put(annotation.getLevel().getName(), tags);
 			}
 			
-			levelToTagsMappings.get(annotation.getLevel()).add(getEntryPointForAnnotation(root, annotation).getId());
+			levelToTagsMappings.get(annotation.getLevel().getName()).add(getEntryPointForAnnotation(root, annotation).getId());
 		}
 		
 		return levelToTagsMappings;

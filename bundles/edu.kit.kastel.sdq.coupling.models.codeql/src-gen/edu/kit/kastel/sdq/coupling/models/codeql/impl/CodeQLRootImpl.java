@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements CodeQLRoot {
 	/**
-	 * The cached value of the '{@link #getTainttrackingRoot() <em>Tainttracking Root</em>}' reference.
+	 * The cached value of the '{@link #getTainttrackingRoot() <em>Tainttracking Root</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTainttrackingRoot()
@@ -65,15 +66,6 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	 */
 	@Override
 	public TainttrackingRoot getTainttrackingRoot() {
-		if (tainttrackingRoot != null && tainttrackingRoot.eIsProxy()) {
-			InternalEObject oldTainttrackingRoot = (InternalEObject) tainttrackingRoot;
-			tainttrackingRoot = (TainttrackingRoot) eResolveProxy(oldTainttrackingRoot);
-			if (tainttrackingRoot != oldTainttrackingRoot) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, oldTainttrackingRoot, tainttrackingRoot));
-			}
-		}
 		return tainttrackingRoot;
 	}
 
@@ -82,8 +74,18 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TainttrackingRoot basicGetTainttrackingRoot() {
-		return tainttrackingRoot;
+	public NotificationChain basicSetTainttrackingRoot(TainttrackingRoot newTainttrackingRoot, NotificationChain msgs) {
+		TainttrackingRoot oldTainttrackingRoot = tainttrackingRoot;
+		tainttrackingRoot = newTainttrackingRoot;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, oldTainttrackingRoot, newTainttrackingRoot);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -93,11 +95,34 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	 */
 	@Override
 	public void setTainttrackingRoot(TainttrackingRoot newTainttrackingRoot) {
-		TainttrackingRoot oldTainttrackingRoot = tainttrackingRoot;
-		tainttrackingRoot = newTainttrackingRoot;
-		if (eNotificationRequired())
+		if (newTainttrackingRoot != tainttrackingRoot) {
+			NotificationChain msgs = null;
+			if (tainttrackingRoot != null)
+				msgs = ((InternalEObject) tainttrackingRoot).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
+			if (newTainttrackingRoot != null)
+				msgs = ((InternalEObject) newTainttrackingRoot).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
+			msgs = basicSetTainttrackingRoot(newTainttrackingRoot, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT,
-					oldTainttrackingRoot, tainttrackingRoot));
+					newTainttrackingRoot, newTainttrackingRoot));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+			return basicSetTainttrackingRoot(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -109,9 +134,7 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			if (resolve)
-				return getTainttrackingRoot();
-			return basicGetTainttrackingRoot();
+			return getTainttrackingRoot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

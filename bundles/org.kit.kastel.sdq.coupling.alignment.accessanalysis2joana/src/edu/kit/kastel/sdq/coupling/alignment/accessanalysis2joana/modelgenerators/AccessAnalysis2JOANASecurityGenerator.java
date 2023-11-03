@@ -21,11 +21,9 @@ import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.Stere
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.Correspondences;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.ParameterIdentification;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.elementidentifications.ProvidedSignature;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.AccessAnalysisResolutionUtil;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.JOANAModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.PCMJavaCorrespondenceResolutionUtils;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
@@ -36,14 +34,18 @@ import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
 
 public class AccessAnalysis2JOANASecurityGenerator {
 
-	private final Correspondences correspondences;
+	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final JOANARoot root;
 
-	public AccessAnalysis2JOANASecurityGenerator(Correspondences correspondences,
+	public AccessAnalysis2JOANASecurityGenerator(PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification accessAnalysisSpec) {
 		super();
 		this.correspondences = correspondences;
@@ -68,9 +70,9 @@ public class AccessAnalysis2JOANASecurityGenerator {
 			if(stereotypedObject instanceof OperationSignature) {
 				OperationSignature stereotypedSig = (OperationSignature) stereotypedObject;
 				
-				for(ProvidedSignature provsig : correspondences.getMethodProvidedSignatureCorrespondences().keySet()) {
-					if(provsig.getSignature().equals(stereotypedSig)) {
-						entrypoints.add(generateConfiguration_EntryPoint(provsig, application));
+				for(ProvidedOperationSignature2JavaMethod provsig : correspondences.getProvidedoperationsignature2javamethod()) {
+					if(provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
+						entrypoints.add(generateConfiguration_EntryPoint(provsig.getPcmMethod(), application));
 					}
 				}
 			}	
@@ -88,7 +90,7 @@ public class AccessAnalysis2JOANASecurityGenerator {
 		entrypoint.getLevel().addAll(levels);
 		entrypoint.setLattice(lattice);
 		MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
-		method.setMethod(correspondences.getMethodProvidedSignatureCorrespondences().get(targetMethod));
+		method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
 		entrypoint.setMethodIdentification(method);
 
 		
@@ -119,15 +121,15 @@ public class AccessAnalysis2JOANASecurityGenerator {
 					} else if (paramsource.toLowerCase().contains("call")) {
 
 					} else {
-						ParameterIdentification pcmParameter = getParameterIdentification(stereotypedSignature, paramsource);
+						ProvidedParameterIdentification pcmParameter = getParameterIdentification(stereotypedSignature, paramsource);
 						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil
 								.filterDataSets(pair.getDataTargets());
 
-						Parameter param = correspondences.getParameterToParameterCorrespondences().get(pcmParameter);
+						Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 						Level level = getLevelForDataSets(dataSets, entrypoint.getLevel());
 						ParametertIdentifying paramIdent = JOANAModelGenerationUtil.generateParameterIdentifying(param);
 
-						if (stereotype.getAppliedTo().equals(targetMethod.getSignature())) {
+						if (stereotype.getAppliedTo().equals(targetMethod.getProvidedSignature())) {
 
 							Source source = JOANAModelGenerationUtil.generateSource(level, paramIdent);
 							entrypoint.getAnnotation().add(source);
@@ -259,13 +261,12 @@ public class AccessAnalysis2JOANASecurityGenerator {
 		return null;
 	}
 
-	private ParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ParameterIdentification> generatedParameterIdentifications = correspondences
-				.getParameterToParameterCorrespondences().keySet();
+	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
+		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondences);
 
-		for (ParameterIdentification identification : generatedParameterIdentifications) {
-			if (identification.getSignature().getSignature().equals(signature)
-					&& identification.getParamerter().getParameterName().equals(name)) {
+		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
+			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
+					&& identification.getParameter().getParameterName().equals(name)) {
 				return identification;
 			}
 		}

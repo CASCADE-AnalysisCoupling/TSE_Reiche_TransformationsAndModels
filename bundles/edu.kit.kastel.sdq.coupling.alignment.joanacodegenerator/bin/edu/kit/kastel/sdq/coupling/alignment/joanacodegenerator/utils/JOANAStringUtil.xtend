@@ -9,16 +9,13 @@ import java.util.Map
 
 class JOANAStringUtil {
 
-	public static def String toCurlyArray(Collection<String> strings){
-		return '''«FOR string : strings BEFORE '{' SEPARATOR ',' AFTER '}'»«string»«ENDFOR»'''
-	}
-	
+
 	public static def String generateTags(Collection<String> tags){
 		return '''«FOR tag: tags SEPARATOR ','»«tag»«ENDFOR»'''
 	}
 	
 	public static def String FlowAnnotation_generateTagsEntry(Collection<String> tags){
-		return '''tags = «toCurlyArray(tags)»'''
+		return '''tags = {«FOR tag : tags SEPARATOR ", "»"«tag»"«ENDFOR»}'''
 	}
 	
 	public static def String EntryPoint_generateTagEntry(String tag){
@@ -36,21 +33,21 @@ class JOANAStringUtil {
 		«FOR level : levels SEPARATOR ''', «System.lineSeparator»'''»"«level.name»"«ENDFOR»
 	}'''
 	
-	public static def String FlowAnnotation_generateSourcesAnnotation(Map<Level, Collection<String>> levelToTagsMappings)'''
+	public static def String FlowAnnotation_generateSourcesAnnotation(Map<String, Collection<String>> levelToTagsMappings)'''
 		«FOR entry : levelToTagsMappings.entrySet SEPARATOR " "»«FlowAnnotation_generateSourceAnnotation(entry.key, entry.value)»«ENDFOR»
 	'''
 	
-	public static def String FlowAnnotation_generateSourceAnnotation(Level level, Collection<String> tags)
-	'''@Source(«FlowAnnotation_generateTagsEntry(tags)», «FlowAnnotation_generateLevelEntry(level.name)»)'''
+	public static def String FlowAnnotation_generateSourceAnnotation(String level, Collection<String> tags)
+	'''@Source(«FlowAnnotation_generateTagsEntry(tags)», «FlowAnnotation_generateLevelEntry(level)»)'''
 	
 	
 	
-	public static def String FlowAnnotation_generateSinkAnnotation(Map<Level, Collection<String>> levelToTagsMappings)'''
+	public static def String FlowAnnotation_generateSinkAnnotation(Map<String, Collection<String>> levelToTagsMappings)'''
 	«FOR entry : levelToTagsMappings.entrySet SEPARATOR " "»«FlowAnnotation_generateSinkAnnotation(entry.key, entry.value)»«ENDFOR»
 	'''
 	
-	public static def String FlowAnnotation_generateSinkAnnotation(Level level, Collection<String> tags)
-	'''@Sink(«FlowAnnotation_generateTagsEntry(tags)», «FlowAnnotation_generateLevelEntry(level.name)»)'''
+	public static def String FlowAnnotation_generateSinkAnnotation(String level, Collection<String> tags)
+	'''@Sink(«FlowAnnotation_generateTagsEntry(tags)», «FlowAnnotation_generateLevelEntry(level)»)'''
 	
 	
 	public static def String EntryPoint_generateMayFlow(MayFlow mayflow){
@@ -64,7 +61,7 @@ class JOANAStringUtil {
 	
 	public static def String EntryPoint_generateEntryPoint(EntryPoint entryPoint)'''
 	@EntryPoint(
-		tag = "«entryPoint.id»"
+		tag = "«entryPoint.id»",
 		«EntryPoint_generateLevelsEntry(entryPoint.level)» 
 		«EntryPoint_generateLattice(entryPoint.lattice)»
 	)

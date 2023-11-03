@@ -17,7 +17,7 @@ public class FileOutput {
 			e1.printStackTrace();
 		}
 		try {
-			writer = new FileWriter(path);
+			writer = new FileWriter(path, false);
 			writer.write(file.getContent());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

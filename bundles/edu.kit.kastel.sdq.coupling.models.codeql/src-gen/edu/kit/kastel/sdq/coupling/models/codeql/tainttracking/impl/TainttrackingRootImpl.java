@@ -9,13 +9,17 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implements TainttrackingRoot {
 	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' reference list.
+	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNodes()
@@ -43,7 +47,7 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<Node> nodes;
 
 	/**
-	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' reference list.
+	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigurations()
@@ -79,7 +83,7 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public EList<Node> getNodes() {
 		if (nodes == null) {
-			nodes = new EObjectResolvingEList<Node>(Node.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__NODES);
+			nodes = new EObjectContainmentEList<Node>(Node.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__NODES);
 		}
 		return nodes;
 	}
@@ -92,10 +96,26 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public EList<Configuration> getConfigurations() {
 		if (configurations == null) {
-			configurations = new EObjectResolvingEList<Configuration>(Configuration.class, this,
+			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this,
 					TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS);
 		}
 		return configurations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
+		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+			return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

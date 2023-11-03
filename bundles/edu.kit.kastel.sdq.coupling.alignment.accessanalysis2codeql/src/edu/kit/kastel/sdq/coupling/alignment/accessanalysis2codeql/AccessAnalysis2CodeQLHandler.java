@@ -9,13 +9,14 @@ import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.Correspondences;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators.AccessAnalysis2CodeQLModelsGenerator;
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileOutput;
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate;
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 
 public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 
@@ -27,8 +28,8 @@ public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
-		Correspondences correspondences = new Correspondences();
-		AccessAnalysisModels models = AccessAnalysisModels.createModelsFromFiles(AccessAnalysisModels.REPOSITORY_PATH, AccessAnalysisModels.CONFIDENTIALITY_SPECIFICATION_PATH);
+		PCMJavaCorrespondenceRoot correspondences = PcmjavacorrespondenceFactory.eINSTANCE.createPCMJavaCorrespondenceRoot();
+		InputModels models = InputModels.createModelsFromFiles(InputModels.REPOSITORY_PATH, InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
 		
 		Repository repo = models.getRepository();
 		ProfileApplication profile = models.getProfile();
@@ -37,12 +38,14 @@ public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 		modelsGenerator.generateCodeQLModels(correspondences, repo, profile, spec);
 		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getConfigurations().get(0));
 		
+		OutputModels outputModels = new OutputModels(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot(), correspondences);
 		
 		String tainttrackingContent = tainttrackingCodeGenerator.generate();
 		
 		FileToGenerate fileToGenerate = new FileToGenerate(tainttrackingContent, FOLDER_PATH, FILE_NAME, FILE_ENDING);
 		
 		FileOutput.writeToFile(fileToGenerate);
+		outputModels.writeToFiles();
 		return true;
 	}
 	

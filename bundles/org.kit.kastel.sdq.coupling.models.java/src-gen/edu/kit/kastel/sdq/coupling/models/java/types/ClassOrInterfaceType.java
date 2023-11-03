@@ -24,13 +24,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ClassOrInterfaceType extends ReferenceType {
 	/**
-	 * Returns the value of the '<em><b>Method</b></em>' reference list.
+	 * Returns the value of the '<em><b>Method</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.java.members.Method}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Method</em>' reference list.
+	 * @return the value of the '<em>Method</em>' containment reference list.
 	 * @see edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage#getClassOrInterfaceType_Method()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Method> getMethod();

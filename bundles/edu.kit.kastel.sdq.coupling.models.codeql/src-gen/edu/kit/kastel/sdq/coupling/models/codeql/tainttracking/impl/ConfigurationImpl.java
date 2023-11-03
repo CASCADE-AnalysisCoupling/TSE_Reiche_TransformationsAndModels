@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -40,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ConfigurationImpl extends IdentifiedElementImpl implements Configuration {
 	/**
-	 * The cached value of the '{@link #getAppliedSecurityLevel() <em>Applied Security Level</em>}' reference list.
+	 * The cached value of the '{@link #getAppliedSecurityLevel() <em>Applied Security Level</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAppliedSecurityLevel()
@@ -96,7 +95,7 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public EList<SecurityLevel> getAppliedSecurityLevel() {
 		if (appliedSecurityLevel == null) {
-			appliedSecurityLevel = new EObjectResolvingEList<SecurityLevel>(SecurityLevel.class, this,
+			appliedSecurityLevel = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this,
 					TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL);
 		}
 		return appliedSecurityLevel;
@@ -139,6 +138,8 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+			return ((InternalEList<?>) getAppliedSecurityLevel()).basicRemove(otherEnd, msgs);
 		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
 			return ((InternalEList<?>) getSecurityLevelAnnotations()).basicRemove(otherEnd, msgs);
 		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:

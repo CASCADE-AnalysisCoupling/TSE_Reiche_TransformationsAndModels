@@ -25,13 +25,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Class extends ClassOrInterfaceType {
 	/**
-	 * Returns the value of the '<em><b>Field</b></em>' reference list.
+	 * Returns the value of the '<em><b>Field</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.java.members.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Field</em>' reference list.
+	 * @return the value of the '<em>Field</em>' containment reference list.
 	 * @see edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage#getClass_Field()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Field> getField();

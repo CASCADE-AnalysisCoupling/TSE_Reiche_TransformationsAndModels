@@ -20,7 +20,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ClassOrInterfaceType" abstract="true"
         eSuperTypes="#//types/ReferenceType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="method" upperBound="-1"
-          eType="#//members/Method"/>
+          eType="#//members/Method" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
@@ -41,7 +41,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//types/ClassOrInterfaceType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
-          eType="#//members/Field"/>
+          eType="#//members/Field" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
           eType="#//types/Interface"/>
     </eClassifiers>

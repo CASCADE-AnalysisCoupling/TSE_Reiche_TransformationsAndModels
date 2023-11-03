@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.te
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLQueryTemplate
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.JavaResolutionUtil
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel
 
 class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val String HAS_LABEL_CHECK_NAME = "hasLabel";
@@ -16,6 +17,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val  String CONFIG_NAME = "MyFlowConfiguration";
 	public static val String ID = "labeledtaint";
 	public static val String LABEL_TYPE_NAME = "SecurityLevel"
+	private static val String SUBLEVEL_DELIMINATOR = ";";
 	val CodeQLQueryTemplate query;
 	
 	val Configuration config;
@@ -55,12 +57,14 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generateallowedFlowsSecurityLevel()'''
 		predicate allowedFlows(«LABEL_TYPE_NAME» source, «LABEL_TYPE_NAME» sink){
 			«FOR allowedFlow : config.allowedFlows SEPARATOR " or"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
+			or exists(SecurityLevel l | allowedFlows(source, l) and allowedFlows(l, sink)) 
+			or none()
 		}
 	'''
 	
 	private def String generateIsFlowAllowedNodes()'''
 		predicate isFlowAllowed(DataFlow::Node source, DataFlow::Node sink){
-	    	allowedFlows(getLabel(source), getLabel(sink))
+		   allowedFlows(getLabel(source), getLabel(sink))
 		}   
 	'''
 
@@ -84,7 +88,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	protected override generateSecurityLevels() '''
 		newtype «LABEL_TYPE_NAME» = 
 		«FOR level : config.appliedSecurityLevel SEPARATOR " or"»
-			«level.name.toFirstUpper»()
+			«level.name.replace(";", "").toFirstUpper»()
 		«ENDFOR»
 		or None()
 	'''
@@ -115,7 +119,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	
 	
 	private def String singleAllowedFlow(AllowedFlow flow)'''
-		source = «flow.from.name.toFirstUpper»() and sink = «flow.to.name.toFirstUpper»()
+		source = «generateSecurityLevelType(flow.from)» and sink = «generateSecurityLevelType(flow.to)»
 	'''
 	
 	private def String generateSingleLabelling(SecurityLevelAnnotation anno){
@@ -125,14 +129,14 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 		val className = JavaResolutionUtil.getClassForParameter(root, anno.parameter).name
 		val methodName = JavaResolutionUtil.getMethodContainingParameter(root, anno.parameter).name
 		val parameterName = anno.parameter.name;
-			return generateSingleLabelling(className, methodName, parameterName, levelString)
+			return generateSingleLabelling(className, methodName, parameterName, anno.securityLevel)
 		}
 		
 		return null
 	}
 	
-	private def String generateSingleLabelling(String className, String methodName, String parameterName, String label)'''
-		labelParameter("«className»", "«methodName»", "«parameterName»", node) and result = «label.toFirstUpper»() 
+	private def String generateSingleLabelling(String className, String methodName, String parameterName, SecurityLevel label)'''
+		labelParameter("«className»", "«methodName»", "«parameterName»", node) and result = «generateSecurityLevelType(label)» 
 	'''
 	
 	override protected generateMetaData() '''
@@ -157,7 +161,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generateLevelToString() '''
 	string getLevelAsString(«LABEL_TYPE_NAME» level){
 			«FOR level : config.appliedSecurityLevel SEPARATOR " or"»
-				level = «level.name.toFirstUpper»() and result = "«level.name.toFirstUpper»"
+				level = «generateSecurityLevelType(level)» and result = "«level.name.toFirstUpper»"
 			«ENDFOR»
 		}
 	'''
@@ -168,4 +172,5 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 		}
 	'''
 	
+	private def String generateSecurityLevelType(SecurityLevel level)'''«level.name.replace(SUBLEVEL_DELIMINATOR, "").toFirstUpper»()'''
 }

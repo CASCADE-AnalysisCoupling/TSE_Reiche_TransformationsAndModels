@@ -9,11 +9,16 @@ import edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kastel.sdq.coupling.models.java.types.Class {
 	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' reference list.
+	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getField()
@@ -77,7 +82,7 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public EList<Field> getField() {
 		if (field == null) {
-			field = new EObjectResolvingEList<Field>(Field.class, this, TypesPackage.CLASS__FIELD);
+			field = new EObjectContainmentEList<Field>(Field.class, this, TypesPackage.CLASS__FIELD);
 		}
 		return field;
 	}
@@ -93,6 +98,20 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 			implements_ = new EObjectResolvingEList<Interface>(Interface.class, this, TypesPackage.CLASS__IMPLEMENTS);
 		}
 		return implements_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case TypesPackage.CLASS__FIELD:
+			return ((InternalEList<?>) getField()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

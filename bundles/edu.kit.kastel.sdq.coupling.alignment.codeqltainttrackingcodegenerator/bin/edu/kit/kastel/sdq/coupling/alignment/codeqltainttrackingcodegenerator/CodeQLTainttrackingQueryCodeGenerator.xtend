@@ -15,5 +15,16 @@ class CodeQLTainttrackingQueryCodeGenerator extends CodeQLQueryTemplate{
 	def String generateHasLabelCheck(String element) '''«CodeQLTainttrackingCodeGenerator.HAS_LABEL_CHECK_NAME»(«element»)'''
 	def String generateNotAllowedFlow() '''not isFlowAllowed(«SOURCE_NAME».getNode(), «SINK_NAME».getNode())'''
 	def String generateFlowPath() '''«CodeQLTainttrackingCodeGenerator.MODULE_NAME»::flowPath(«SOURCE_NAME», «SINK_NAME»)'''
-	def String generateMessage() '''"Illegal flow: ($@, " +  getNodeLevelAsString(«SOURCE_NAME».getNode()) + ")" + " -> ($@, " + getNodeLevelAsString(«SINK_NAME».getNode()) + ")", «SOURCE_NAME», «SOURCE_NAME».getNode().toString(), «SINK_NAME», «SINK_NAME».getNode().toString()'''
+	def String generateMessage() '''"(" 
+	+ «SOURCE_NAME».getNode().getEnclosingCallable().getDeclaringType().getPackage() + "." 
+	+ «SOURCE_NAME».getNode().getEnclosingCallable().getDeclaringType().getName() + "::" 
+	+ «SOURCE_NAME».getNode().getEnclosingCallable().getSourceDeclaration()+ ":" 
+	+ «SOURCE_NAME».getNode().asParameter().getName() + "," 
+	+  getNodeLevelAsString(«SOURCE_NAME».getNode()) + ")" 
+	+ " -> (" +
+	«SINK_NAME».getNode().getEnclosingCallable().getDeclaringType().getPackage() + "." 
+	+ «SINK_NAME».getNode().getEnclosingCallable().getDeclaringType().getName() + "::" 
+	+ «SINK_NAME».getNode().getEnclosingCallable().getName() + ":" 
+	+ «SINK_NAME».getNode().asParameter().getName() + "," 
+	+ getNodeLevelAsString(«SINK_NAME».getNode()) + ")"'''
 }

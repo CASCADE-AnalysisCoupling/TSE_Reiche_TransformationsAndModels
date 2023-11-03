@@ -26,13 +26,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Configuration extends IdentifiedElement {
 	/**
-	 * Returns the value of the '<em><b>Applied Security Level</b></em>' reference list.
+	 * Returns the value of the '<em><b>Applied Security Level</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Applied Security Level</em>' reference list.
+	 * @return the value of the '<em>Applied Security Level</em>' containment reference list.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getConfiguration_AppliedSecurityLevel()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<SecurityLevel> getAppliedSecurityLevel();

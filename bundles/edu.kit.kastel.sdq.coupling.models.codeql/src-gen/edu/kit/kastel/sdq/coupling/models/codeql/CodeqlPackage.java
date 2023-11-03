@@ -65,7 +65,7 @@ public interface CodeqlPackage extends EPackage {
 	int CODE_QL_ROOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Tainttracking Root</b></em>' reference.
+	 * The feature id for the '<em><b>Tainttracking Root</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -93,10 +93,10 @@ public interface CodeqlPackage extends EPackage {
 	EClass getCodeQLRoot();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Tainttracking Root</em>'.
+	 * @return the meta object for the containment reference '<em>Tainttracking Root</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot()
 	 * @see #getCodeQLRoot()
 	 * @generated
@@ -136,7 +136,7 @@ public interface CodeqlPackage extends EPackage {
 		EClass CODE_QL_ROOT = eINSTANCE.getCodeQLRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Tainttracking Root</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Tainttracking Root</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

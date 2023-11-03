@@ -25,25 +25,25 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TainttrackingRoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Nodes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nodes</em>' reference list.
+	 * @return the value of the '<em>Nodes</em>' containment reference list.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot_Nodes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Node> getNodes();
 
 	/**
-	 * Returns the value of the '<em><b>Configurations</b></em>' reference list.
+	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Configurations</em>' reference list.
+	 * @return the value of the '<em>Configurations</em>' containment reference list.
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot_Configurations()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Configuration> getConfigurations();

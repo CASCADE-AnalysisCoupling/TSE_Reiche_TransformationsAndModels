@@ -7,7 +7,6 @@ import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
 import java.util.Collection;
@@ -42,13 +41,12 @@ public class JOANAMethodCodeGenerator extends MethodGenerationTemplate {
       return ((InformationFlowAnnotation) sink);
     };
     final List<InformationFlowAnnotation> annotSinks = IterableExtensions.<InformationFlowAnnotation>toList(IterableExtensions.<Sink, InformationFlowAnnotation>map(sinks, _function_1));
-    final Map<Level, Collection<String>> levelToTagMappingsForSources = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSources);
-    final Map<Level, Collection<String>> levelToTagMappingsForSinks = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSinks);
+    final Map<String, Collection<String>> levelToTagMappingsForSources = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSources);
+    final Map<String, Collection<String>> levelToTagMappingsForSinks = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSinks);
     final String generatedSourceAnnotations = JOANAStringUtil.FlowAnnotation_generateSourcesAnnotation(levelToTagMappingsForSources);
     final String generatedSinkAnnotations = JOANAStringUtil.FlowAnnotation_generateSinkAnnotation(levelToTagMappingsForSinks);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(generatedSourceAnnotations);
-    _builder.append(" ");
     _builder.append(generatedSinkAnnotations);
     return _builder.toString();
   }

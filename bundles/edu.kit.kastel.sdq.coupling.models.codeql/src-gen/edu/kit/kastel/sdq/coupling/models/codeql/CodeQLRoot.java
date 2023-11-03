@@ -24,22 +24,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface CodeQLRoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Tainttracking Root</b></em>' reference.
+	 * Returns the value of the '<em><b>Tainttracking Root</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tainttracking Root</em>' reference.
+	 * @return the value of the '<em>Tainttracking Root</em>' containment reference.
 	 * @see #setTainttrackingRoot(TainttrackingRoot)
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage#getCodeQLRoot_TainttrackingRoot()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	TainttrackingRoot getTainttrackingRoot();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot#getTainttrackingRoot <em>Tainttracking Root</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tainttracking Root</em>' reference.
+	 * @param value the new value of the '<em>Tainttracking Root</em>' containment reference.
 	 * @see #getTainttrackingRoot()
 	 * @generated
 	 */

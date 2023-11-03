@@ -4,7 +4,10 @@ package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
+
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,13 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation} object.
@@ -29,8 +26,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SecurityLevelAnnotationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class SecurityLevelAnnotationItemProvider extends IdentifiedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -102,7 +98,9 @@ public class SecurityLevelAnnotationItemProvider extends ItemProviderAdapter imp
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SecurityLevelAnnotation_type");
+		String label = ((SecurityLevelAnnotation) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_SecurityLevelAnnotation_type")
+				: getString("_UI_SecurityLevelAnnotation_type") + " " + label;
 	}
 
 	/**

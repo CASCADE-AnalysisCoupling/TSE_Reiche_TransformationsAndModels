@@ -444,6 +444,7 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		parameterNodeEClass.getESuperTypes().add(this.getNode());
 		securityLevelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		configurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
+		securityLevelAnnotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 		parameterAnnotationEClass.getESuperTypes().add(this.getSecurityLevelAnnotation());
 
 		// Initialize classes and features; add operations and parameters
@@ -461,17 +462,17 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		initEClass(tainttrackingRootEClass, TainttrackingRoot.class, "TainttrackingRoot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTainttrackingRoot_Nodes(), this.getNode(), null, "nodes", null, 0, -1,
-				TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTainttrackingRoot_Configurations(), this.getConfiguration(), null, "configurations", null, 0,
-				-1, TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				-1, TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfiguration_AppliedSecurityLevel(), this.getSecurityLevel(), null, "appliedSecurityLevel",
-				null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_SecurityLevelAnnotations(), this.getSecurityLevelAnnotation(), null,
 				"securityLevelAnnotations", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

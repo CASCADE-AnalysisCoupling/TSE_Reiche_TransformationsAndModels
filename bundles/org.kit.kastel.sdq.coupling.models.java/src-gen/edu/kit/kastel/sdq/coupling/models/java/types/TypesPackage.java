@@ -180,7 +180,7 @@ public interface TypesPackage extends EPackage {
 	int CLASS_OR_INTERFACE_TYPE__NAME = REFERENCE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' reference list.
+	 * The feature id for the '<em><b>Method</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -345,7 +345,7 @@ public interface TypesPackage extends EPackage {
 	int CLASS__NAME = CLASS_OR_INTERFACE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' reference list.
+	 * The feature id for the '<em><b>Method</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -354,7 +354,7 @@ public interface TypesPackage extends EPackage {
 	int CLASS__METHOD = CLASS_OR_INTERFACE_TYPE__METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Field</b></em>' reference list.
+	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -418,7 +418,7 @@ public interface TypesPackage extends EPackage {
 	int INTERFACE__NAME = CLASS_OR_INTERFACE_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' reference list.
+	 * The feature id for the '<em><b>Method</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -512,10 +512,10 @@ public interface TypesPackage extends EPackage {
 	EClass getClassOrInterfaceType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType#getMethod <em>Method</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Method</em>'.
+	 * @return the meta object for the containment reference list '<em>Method</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType#getMethod()
 	 * @see #getClassOrInterfaceType()
 	 * @generated
@@ -574,10 +574,10 @@ public interface TypesPackage extends EPackage {
 	EClass getClass_();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.sdq.coupling.models.java.types.Class#getField <em>Field</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.java.types.Class#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Field</em>'.
+	 * @return the meta object for the containment reference list '<em>Field</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.java.types.Class#getField()
 	 * @see #getClass_()
 	 * @generated
@@ -680,7 +680,7 @@ public interface TypesPackage extends EPackage {
 		EClass CLASS_OR_INTERFACE_TYPE = eINSTANCE.getClassOrInterfaceType();
 
 		/**
-		 * The meta object literal for the '<em><b>Method</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Method</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -736,7 +736,7 @@ public interface TypesPackage extends EPackage {
 		EClass CLASS = eINSTANCE.getClass_();
 
 		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Field</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

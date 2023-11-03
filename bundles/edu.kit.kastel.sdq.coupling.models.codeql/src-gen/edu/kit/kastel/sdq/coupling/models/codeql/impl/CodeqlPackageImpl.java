@@ -206,7 +206,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCodeQLRoot_TainttrackingRoot(), theTainttrackingPackage.getTainttrackingRoot(), null,
 				"tainttrackingRoot", null, 1, 1, CodeQLRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

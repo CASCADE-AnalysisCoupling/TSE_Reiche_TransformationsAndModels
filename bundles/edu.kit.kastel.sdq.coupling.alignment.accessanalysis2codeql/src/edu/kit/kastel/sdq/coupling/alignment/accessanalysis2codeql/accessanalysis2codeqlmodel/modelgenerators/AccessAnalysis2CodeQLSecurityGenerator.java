@@ -10,6 +10,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
+
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
@@ -19,10 +22,9 @@ import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.Stere
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.Correspondences;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications.ParameterIdentification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.AccessAnalysisResolutionUtil;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.CodeQLModelgenerationUtil;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.PCMJavaCorrespondenceResolutionUtils;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
@@ -36,10 +38,11 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 
 	private final TainttrackingRoot root;
 	private final ConfidentialitySpecification accessAnalysisSpec;
-	private final Correspondences correspondences;
+	private final PCMJavaCorrespondenceRoot correspondences;
+	private static final String SUBLEVEL_DELIMINATOR = ";";
 	
 	public AccessAnalysis2CodeQLSecurityGenerator(ConfidentialitySpecification accessAnalysisSpec,
-			Correspondences correspondences) {
+			PCMJavaCorrespondenceRoot correspondences) {
 		super();
 		this.root = CodeQLModelgenerationUtil.generateDataFlowRoot();
 		this.accessAnalysisSpec = accessAnalysisSpec;
@@ -79,7 +82,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 			//if not, build collectors
 			for(ParametersAndDataPair pair : parametersAndDataPairs) {
 
-				ParameterIdentification pcmParameter = null;
+				ProvidedParameterIdentification pcmParameter = null;
 				Collection<String> sources = pair.getParameterSources();
 				for(String source : sources) {
 				
@@ -93,7 +96,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 						pcmParameter = getParameterIdentification(signature, source);
 						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
 						
-						Parameter param = correspondences.getParameterToParameterCorrespondences().get(pcmParameter);
+						Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 						SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
 						ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param, level);
 						
@@ -149,7 +152,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 	private String combineSecurityLevelNames(Collection<SecurityLevel> securityLevels) {
 		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getName()).collect(Collectors.toList());
 		
-		return String.join("", securityLevelNames);
+		return String.join(SUBLEVEL_DELIMINATOR, securityLevelNames);
 	}
 
 	private Set<Set<SecurityLevel>> generatePowerSetOfSecurityLevels() {
@@ -201,7 +204,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 	private SecurityLevel getSecurityLevelForDataSets(Collection<DataSet> datasets, Collection<SecurityLevel> securityLevels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName)).collect(Collectors.toList());
 		List<String> dataSetsNames = sortedDataSets.stream().map(dataset -> dataset.getName()).collect(Collectors.toList());
-		String combinedDataSetName = String.join("", dataSetsNames);
+		String combinedDataSetName = String.join(SUBLEVEL_DELIMINATOR, dataSetsNames);
 		
 		for(SecurityLevel level : securityLevels) {
 			if(level.getName().equals(combinedDataSetName)) {
@@ -211,11 +214,12 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		return null;
 	}
 	
-	private ParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ParameterIdentification> generatedParameterIdentifications = correspondences.getParameterToParameterCorrespondences().keySet();
-		
-		for(ParameterIdentification identification : generatedParameterIdentifications) {
-			if(identification.getSignature().getSignature().equals(signature) && identification.getParamerter().getParameterName().equals(name)) {
+	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
+		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondences);
+
+		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
+			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
+					&& identification.getParameter().getParameterName().equals(name)) {
 				return identification;
 			}
 		}
@@ -226,7 +230,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		return root;
 	}
 
-	public Correspondences getCorrespondences() {
+	public  PCMJavaCorrespondenceRoot getCorrespondences() {
 		return correspondences;
 	}
 }

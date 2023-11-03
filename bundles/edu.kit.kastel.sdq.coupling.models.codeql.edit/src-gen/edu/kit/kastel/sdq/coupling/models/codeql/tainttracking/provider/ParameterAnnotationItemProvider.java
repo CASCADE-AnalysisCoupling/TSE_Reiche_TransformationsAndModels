@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
 import java.util.Collection;
@@ -90,7 +91,9 @@ public class ParameterAnnotationItemProvider extends SecurityLevelAnnotationItem
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ParameterAnnotation_type");
+		String label = ((ParameterAnnotation) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_ParameterAnnotation_type")
+				: getString("_UI_ParameterAnnotation_type") + " " + label;
 	}
 
 	/**

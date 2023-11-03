@@ -19,11 +19,11 @@ Require-Bundle: org.palladiosimulator.pcm,
  org.eclipse.core.resources,
  org.eclipse.ui,
  edu.kit.kastel.sdq.coupling.models.java,
- edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator
+ edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator,
+ edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0"
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql,
- edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.elementidentifications,
  edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators,
  edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils,
  edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils
