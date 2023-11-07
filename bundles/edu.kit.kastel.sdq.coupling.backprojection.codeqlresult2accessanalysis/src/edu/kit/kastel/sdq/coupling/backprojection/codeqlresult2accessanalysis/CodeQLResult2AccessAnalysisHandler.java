@@ -1,38 +1,38 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.InputModels;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.resultingspec.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.scar.SourceCodeAnalysisResult;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.outputformatreader.CodeQLSarifReader;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.resultingspecificationresultion.NaivePowerSetLatticeResultingSpecificationExtractor;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.resultingspecificationresultion.ResultingSpecificationExtractor;
 
-public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler{
-
-	private final String CODEQL_RESULT_FILE_PATH = Paths.get("/home/frederik/CodingLocation/CodeQL/java/output.sarif").toAbsolutePath().toString();
+public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+
+		InputModels input = InputModels.createModelsFromFiles(InputModels.JAVA_MODEL_PATH,
+				InputModels.CODEQL_MODEL_PATH, 
+				InputModels.PCMJAVACORRESPONDENCE_MODE_PATH,
+				InputModels.CODEQL_RESULT_FILE_PATH, 
+				InputModels.REPOSITORY_PATH,
+				InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
+
+		CodeQLSarifReader sarifReader = new CodeQLSarifReader(input.getTainttrackingRoot(), input.getJavaRoot());
+		SourceCodeAnalysisResult scar = sarifReader.interpretCodeQLSarif(input.getCodeQLResult());
+		ResultingSpecificationExtractor extractor = new NaivePowerSetLatticeResultingSpecificationExtractor(
+				input.getTainttrackingRoot().getConfigurations().get(0));
+		ResultingSpecification resultingSpecification = extractor.calculateResultingSpecification(scar);
+		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));
 		
-		String codeQLSarifContent = "";
-		try {
-			codeQLSarifContent = Files.readString(Paths.get(CODEQL_RESULT_FILE_PATH));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		CodeQLSarifReader sarifReader = new CodeQLSarifReader();
-		SourceCodeAnalysisResult scar = sarifReader.interpretCodeQLSarif(codeQLSarifContent);
-		
-		
+		backprojector.project(resultingSpecification);
+		input.updateConfidentialityModel(InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
 		return true;
 	}
-	
-	
-	
+
 }

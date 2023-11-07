@@ -16,10 +16,11 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 
 	private JavaRoot javaRoot;
 	private TainttrackingRoot tainttrackingRoot;
+	private static final String BASE_PACKAGE_NAME = "travelplannerpcm";
 	
 	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec) {
 		
-		AccessAnalysis2CodeQLStructuralGenerator structuralGenerator = new AccessAnalysis2CodeQLStructuralGenerator(correspondences, repo, "GeneratedFromPCM");
+		AccessAnalysis2CodeQLStructuralGenerator structuralGenerator = new AccessAnalysis2CodeQLStructuralGenerator(correspondences, repo, BASE_PACKAGE_NAME);
 		structuralGenerator.generateStructuralModel();
 		
 		AccessAnalysis2CodeQLSecurityGenerator securityGenerator = new AccessAnalysis2CodeQLSecurityGenerator(spec, correspondences);	

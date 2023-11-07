@@ -278,7 +278,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 	int PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD = 4;
 
 	/**
-	 * The feature id for the '<em><b>Pcm Method</b></em>' reference.
+	 * The feature id for the '<em><b>Pcm Method</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -623,10 +623,10 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 	EClass getProvidedOperationSignature2JavaMethod();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod#getPcmMethod <em>Pcm Method</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod#getPcmMethod <em>Pcm Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pcm Method</em>'.
+	 * @return the meta object for the containment reference '<em>Pcm Method</em>'.
 	 * @see edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod#getPcmMethod()
 	 * @see #getProvidedOperationSignature2JavaMethod()
 	 * @generated
@@ -910,7 +910,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		EClass PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD = eINSTANCE.getProvidedOperationSignature2JavaMethod();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcm Method</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Pcm Method</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

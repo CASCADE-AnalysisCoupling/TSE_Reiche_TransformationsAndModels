@@ -6,7 +6,7 @@
       <command
             defaultHandler="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.AccessAnalysis2JOANAHandler"
             id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.command.runaccessanalysis2joana"
-            name="Transform Access Analysis to JOANA Code">
+            name="Alignment: Transform Access Analysis to JOANA Code">
       </command>
    </extension>
    <extension
@@ -27,7 +27,7 @@
                mnemonic="t">
             <command
                   commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.command.runaccessanalysis2joana"
-                  label="Transform Access Analysis to JOANA"
+                  label="Alignment: Transform Access Analysis to JOANA"
                   style="push">
             </command>
          </menu>

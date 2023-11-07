@@ -1,16 +1,23 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.resultingspec;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 public class ResultingSpecification {
-	private final Collection<ResultingSpecEntry> resultingEntries = new ArrayList<ResultingSpecEntry>();
+	private final Set<ResultingSpecEntry> resultingEntries = new HashSet<ResultingSpecEntry>();
 	
-	public Collection<ResultingSpecEntry> getEntries(){
+	public Set<ResultingSpecEntry> getEntries(){
 		return resultingEntries;
 	}
 	
 	public void addEntry(ResultingSpecEntry entry) {
 		resultingEntries.add(entry);
+	}
+	
+	public Optional<ResultingSpecEntry> getResultingSpecEntryForTargetIfExisting(Parameter target){
+		return resultingEntries.stream().filter(existingSpecEntry -> existingSpecEntry.getSystemElement().equals(target)).findFirst();
 	}
 }

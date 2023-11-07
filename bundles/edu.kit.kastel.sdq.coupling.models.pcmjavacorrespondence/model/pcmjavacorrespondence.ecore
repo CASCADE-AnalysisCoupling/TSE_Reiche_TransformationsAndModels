@@ -34,7 +34,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedOperationSignature2JavaMethod">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcmMethod" lowerBound="1"
-        eType="#//ProvidedSignature"/>
+        eType="#//ProvidedSignature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="javaMethod" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Method"/>
   </eClassifiers>

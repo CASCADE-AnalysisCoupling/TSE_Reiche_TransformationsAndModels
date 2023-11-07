@@ -5,7 +5,7 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 public class ResultingSpecEntry {
 	
-	private final SecurityLevel securityProperty;
+	private SecurityLevel securityProperty;
 	private final Parameter systemElement;
 	
 	public ResultingSpecEntry(SecurityLevel securityProperty, Parameter systemElement) {
@@ -20,5 +20,9 @@ public class ResultingSpecEntry {
 
 	public Parameter getSystemElement() {
 		return systemElement;
+	}
+	
+	public void setSecurityProperty(SecurityLevel securityProperty) {
+		this.securityProperty = securityProperty;
 	}
 }

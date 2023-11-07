@@ -1,5 +1,7 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.outputformatreader;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -23,9 +25,15 @@ import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 public class CodeQLSarifReader {
 
 
-	private TainttrackingRoot tainttrackingRoot;
-	private JavaRoot javaRoot;
-	
+	private final TainttrackingRoot tainttrackingRoot;
+	private final JavaRoot javaRoot;
+
+	public CodeQLSarifReader(TainttrackingRoot tainttrackingRoot, JavaRoot javaRoot) {
+		super();
+		this.tainttrackingRoot = tainttrackingRoot;
+		this.javaRoot = javaRoot;
+	}
+
 	public SourceCodeAnalysisResult interpretCodeQLSarif(String content) {
 		
 		SourceCodeAnalysisResult localResult = new SourceCodeAnalysisResult();
@@ -40,37 +48,50 @@ public class CodeQLSarifReader {
 			
 			for(int resultIndex = 0; resultIndex < results.size(); resultIndex++) {
 				JsonObject result = results.get(resultIndex).getAsJsonObject();
-				localResult.getResultEntries().add(parseResult(result));
+
+				localResult.getResultEntries().addAll(parseResult(result));
 			}
 		}
 		
 		return localResult;
 	}
 	
-	private ResultEntry parseResult(JsonObject result) {
+	//Create collection, as there may be multiple illegal flows in one result (reason unclear)
+	private Collection<ResultEntry> parseResult(JsonObject result) {
+		Collection<ResultEntry> resultEntries = new ArrayList<ResultEntry>();
+		
 		String resultText = result.getAsJsonObject("message").get("text").getAsString();
+		String[] multipleFlows = resultText.split(System.lineSeparator());
 		
-		String[] sourceSinkSplit = resultText.split(" -> ");
+		for(int i = 0; i < multipleFlows.length; i++) {
+			String singleFlow = multipleFlows[i];
+			String[] sourceSinkSplit = singleFlow.split(" -> ");
+			
+			String source = sourceSinkSplit[0].strip();
+			String sink = sourceSinkSplit[1].strip();
+			
+			source = source.replaceAll("\\(", "").replaceAll("\\)", "");
+			sink = sink.replaceAll("\\(", "").replaceAll("\\)", "");
+			
+			String[] sourceParamLevelSplit = source.split(",");
+			String[] sinkParamLevelSplit = sink.split(",");
+			
+			Parameter sourceParameter = resolveParameter(sourceParamLevelSplit[0].strip());
+			SecurityLevel sourceSecurityLevel = resolveSecurityLevel(sourceParamLevelSplit[1].strip());
+			
+			Parameter sinkParameter = resolveParameter(sinkParamLevelSplit[0].strip());
+			SecurityLevel sinkSecurityLevel = resolveSecurityLevel(sinkParamLevelSplit[1].strip());
+			
+			ResultEntryElement sourceEntryElement = new ResultEntryElement(sourceParameter, sourceSecurityLevel);
+			ResultEntryElement sinkEntryElement = new ResultEntryElement(sinkParameter, sinkSecurityLevel);
+			
+			resultEntries.add(new ResultEntry(sourceEntryElement, sinkEntryElement));
+		}
 		
-		String source = sourceSinkSplit[0].strip();
-		String sink = sourceSinkSplit[1].strip();
 		
-		source = source.replaceAll("(|)", "");
-		sink = sink.replaceAll("(|)", "");
 		
-		String[] sourceParamLevelSplit = source.split(",");
-		String[] sinkParamLevelSplit = sink.split(",");
 		
-		Parameter sourceParameter = resolveParameter(sourceParamLevelSplit[0].strip());
-		SecurityLevel sourceSecurityLevel = resolveSecurityLevel(sourceParamLevelSplit[1].strip());
-		
-		Parameter sinkParameter = resolveParameter(sinkParamLevelSplit[0].strip());
-		SecurityLevel sinkSecurityLevel = resolveSecurityLevel(sinkParamLevelSplit[1].strip());
-		
-		ResultEntryElement sourceEntryElement = new ResultEntryElement(sourceParameter, sourceSecurityLevel);
-		ResultEntryElement sinkEntryElement = new ResultEntryElement(sinkParameter, sinkSecurityLevel);
-		
-		return new ResultEntry(sourceEntryElement, sinkEntryElement);
+		return resultEntries;
 	}
 
 	private SecurityLevel resolveSecurityLevel(String levelName) {
@@ -85,7 +106,7 @@ public class CodeQLSarifReader {
 
 	private Parameter resolveParameter(String parameterIdentification) {
 		String[] classMethodSplit = parameterIdentification.split("::");
-		String[] pathToClassSplit = classMethodSplit[0].split(".");
+		String[] pathToClassSplit = classMethodSplit[0].split("\\.");
 		
 		int classNameLoc = pathToClassSplit.length -  1;
 		
@@ -96,10 +117,23 @@ public class CodeQLSarifReader {
 			pathComponents.add(pathToClassSplit[i]);
 		}
 		
-		Class clazz = findClassRecursive(javaRoot.getPackage(), pathToClassSplit[classNameLoc], pathComponents);
+		
+		
+		Class clazz = findClassRecursive(pathToClassSplit[classNameLoc], pathComponents);
 		
 		Method methodToFind = clazz.getMethod().stream().filter(method -> method.getName().equals(methodParameterSplit[0])).findFirst().get();
 		return methodToFind.getParameter().stream().filter(param -> param.getName().equals(methodParameterSplit[1])).findFirst().get();
+	}
+	
+	private Class findClassRecursive(String className, Queue<String> pathComponents) {
+		
+		String rootPackageName = pathComponents.remove(); 
+		
+		if(javaRoot.getPackage().getName().equals(rootPackageName)) {
+			return findClassRecursive(javaRoot.getPackage(), className, pathComponents);
+		}
+		
+		return null;
 	}
 	
 	private Class findClassRecursive(Package currentPackage, String className, Queue<String> pathComponents) {

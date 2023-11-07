@@ -25,22 +25,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ProvidedOperationSignature2JavaMethod extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Pcm Method</b></em>' reference.
+	 * Returns the value of the '<em><b>Pcm Method</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcm Method</em>' reference.
+	 * @return the value of the '<em>Pcm Method</em>' containment reference.
 	 * @see #setPcmMethod(ProvidedSignature)
 	 * @see edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage#getProvidedOperationSignature2JavaMethod_PcmMethod()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	ProvidedSignature getPcmMethod();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod#getPcmMethod <em>Pcm Method</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod#getPcmMethod <em>Pcm Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pcm Method</em>' reference.
+	 * @param value the new value of the '<em>Pcm Method</em>' containment reference.
 	 * @see #getPcmMethod()
 	 * @generated
 	 */

@@ -44,13 +44,17 @@ public class AccessAnalysis2CodeQLStructuralGenerator {
 	private final Package dataTypePackage;
 	private final Package interfacePackage;
 
+	private static final String COMPONENT_PACKAGE_NAME = "components";
+	private static final String DATATYPES_PACKAGE_NAME = "datatypes";
+	private static final String INTERFACES_PACKAGE_NAME = "interfaces";
+	
 	public AccessAnalysis2CodeQLStructuralGenerator(PCMJavaCorrespondenceRoot correspondences, Repository repository, String basePackageName) {
 		this.correspondences = correspondences;
 		this.repository = repository;
 		this.root = JavaModelGenerationUtil.generateJavaRoot();
-		this.classPackages = JavaModelGenerationUtil.generatePackage("Classes");
-		this.dataTypePackage = JavaModelGenerationUtil.generatePackage("DataTypes");
-		this.interfacePackage = JavaModelGenerationUtil.generatePackage("Interfaces");
+		this.classPackages = JavaModelGenerationUtil.generatePackage(COMPONENT_PACKAGE_NAME);
+		this.dataTypePackage = JavaModelGenerationUtil.generatePackage(DATATYPES_PACKAGE_NAME);
+		this.interfacePackage = JavaModelGenerationUtil.generatePackage(INTERFACES_PACKAGE_NAME);
 
 		Package basePackage = JavaModelGenerationUtil.generatePackage(basePackageName);
 		basePackage.getSubpackage().add(classPackages);

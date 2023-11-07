@@ -575,7 +575,7 @@ public class PcmjavacorrespondencePackageImpl extends EPackageImpl implements Pc
 				"ProvidedOperationSignature2JavaMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedOperationSignature2JavaMethod_PcmMethod(), this.getProvidedSignature(), null,
 				"pcmMethod", null, 1, 1, ProvidedOperationSignature2JavaMethod.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProvidedOperationSignature2JavaMethod_JavaMethod(), theMembersPackage.getMethod(), null,
 				"javaMethod", null, 1, 1, ProvidedOperationSignature2JavaMethod.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6,7 +6,7 @@
       <command
             defaultHandler="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.AccessAnalysis2CodeQLHandler"
             id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.command.runaccessanalysis2codeql"
-            name="Transform Access Analysis to CodeQL">
+            name="Alignment: Transform Access Analysis to CodeQL">
       </command>
    </extension>
    <extension
@@ -27,7 +27,7 @@
                mnemonic="t">
             <command
                   commandId="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.command.runaccessanalysis2codeql"
-                  label="Transform Access Analysis to CodeQL"
+                  label="Alignment: Transform Access Analysis to CodeQL"
                   style="push">
             </command>
          </menu>

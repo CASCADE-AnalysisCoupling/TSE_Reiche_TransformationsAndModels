@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Codeqlresult2accessanalysis
-Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis
 Bundle-RequiredExecutionEnvironment: JavaSE-15
@@ -9,4 +9,9 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
  com.google.gson;bundle-version="2.8.2",
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",
- org.eclipse.ui;bundle-version="3.118.100"
+ org.eclipse.ui;bundle-version="3.118.100",
+ edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
+ edu.kit.kastel.scbs.confidentialitymm;bundle-version="1.1.0",
+ edu.kit.kastel.scbs.pcmconfidentialityprofile;bundle-version="1.1.0",
+ edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
+ org.modelversioning.emfprofile

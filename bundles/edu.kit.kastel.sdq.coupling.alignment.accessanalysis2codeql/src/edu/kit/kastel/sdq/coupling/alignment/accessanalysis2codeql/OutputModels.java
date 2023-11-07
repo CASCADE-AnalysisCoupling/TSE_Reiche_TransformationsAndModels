@@ -13,12 +13,13 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
+
 public class OutputModels {
 	private static final String CODEQL_MODEL_FILE_ENDING = "codeql";
 	private static final String JAVA_MODEL_FILE_ENDING = "java";
 	private static final String JAVA_MODEL_NAME = "coupling_java";
 	private static final String CODEQL_MODEL_NAME = "coupling_tainttracking";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
 	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
 	
 	private final JavaRoot javaRoot;
@@ -76,6 +77,7 @@ public class OutputModels {
 		try {
 			javaResource.save(null);
 			codeqlResource.save(null);
+			resourcePCMJavaCorrespondence.save(null);
 			//resourcePCMJavaCorrespondence.save(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

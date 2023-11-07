@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQLResult2AccessAnalysisHandler"
+            id="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojection"
+            name="Backprojection: CodeQL to Access Analysis">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQLResult2AccessAnalysisHandler"
+            commandId="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojectionhandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="accessAnalysisTransformation"
+               label="Transformation"
+               mnemonic="t">
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojection"
+                  label="Backprojection: CodeQL to Access Analysis"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
