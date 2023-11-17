@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Joanaresult2accessanalysis
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
+ edu.kit.kastel.sdq.coupling.models.joana;bundle-version="0.1.0",
+ edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
+ edu.kit.kastel.sdq.coupling.models.java,
+ org.modelversioning.emfprofile,
+ edu.kit.kastel.scbs.confidentialitymm,
+ edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0"
+Bundle-ClassPath: libs/snakeyaml-2.2.jar,
+ .

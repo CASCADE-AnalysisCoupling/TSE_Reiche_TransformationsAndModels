@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Codeqlresult2extendeddataflowanalysis
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
+ edu.kit.kastel.sdq.coupling.models.codeql,
+ edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence,
+ org.palladiosimulator.pcm,
+ edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension,
+ org.eclipse.core.commands,
+ com.google.gson
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis
+Bundle-RequiredExecutionEnvironment: JavaSE-17
