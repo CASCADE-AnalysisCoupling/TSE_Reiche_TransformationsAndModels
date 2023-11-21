@@ -3,11 +3,10 @@ package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators;
 import com.google.common.collect.Iterables;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.ClassOrInterfaceTypeGenerationTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate;
-import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.JavaResolutionUtil;
-import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators.JOANAMethodCodeGenerator;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
 import edu.kit.kastel.sdq.coupling.models.java.types.Interface;
@@ -23,21 +22,21 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate {
   private final JavaRoot javaRoot;
-  
+
   private final MethodGenerationTemplate methodGenerator;
-  
+
   public JOANAClassOrInterfaceTypeCodeGenerator(final JavaRoot javaRoot, final JOANARoot joanaRoot) {
     this.javaRoot = javaRoot;
     JOANAMethodCodeGenerator _jOANAMethodCodeGenerator = new JOANAMethodCodeGenerator(javaRoot, joanaRoot);
     this.methodGenerator = _jOANAMethodCodeGenerator;
   }
-  
+
   @Override
   protected String generatePackageDeclaration() {
     final List<edu.kit.kastel.sdq.coupling.models.java.Package> packagePath = JavaResolutionUtil.getPackagePathToClassOrInterface(this.javaRoot, this.currentClassOrInterface);
     return JavaResolutionUtil.createFullyQualifiedPath(packagePath, this.currentClassOrInterface);
   }
-  
+
   @Override
   protected String generateImports() {
     String collectionImport = "";
@@ -74,7 +73,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   @Override
   protected String generateDeclaration() {
     if ((this.currentClassOrInterface instanceof Interface)) {
@@ -86,7 +85,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return "";
   }
-  
+
   private String generateInterfaceDeclaration(final Interface interf) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public interface ");
@@ -94,7 +93,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.append(_name);
     return _builder.toString();
   }
-  
+
   private String generateClassDeclaration(final edu.kit.kastel.sdq.coupling.models.java.types.Class clazz) {
     final ArrayList<ClassOrInterfaceType> extendsRelations = new ArrayList<ClassOrInterfaceType>();
     StringConcatenation _builder = new StringConcatenation();
@@ -132,7 +131,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return _builder.toString();
   }
-  
+
   @Override
   protected String generateConstructors() {
     if ((this.currentClassOrInterface instanceof Interface)) {
@@ -156,7 +155,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.newLine();
     return _builder.toString();
   }
-  
+
   private String generateConstructorParameters(final edu.kit.kastel.sdq.coupling.models.java.types.Class clazz) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -177,7 +176,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return _builder.toString();
   }
-  
+
   private String generateConstructorBody(final edu.kit.kastel.sdq.coupling.models.java.types.Class clazz) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -202,7 +201,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-  
+
   @Override
   protected String generateFields() {
     if ((this.currentClassOrInterface instanceof Interface)) {
@@ -226,7 +225,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return _builder.toString();
   }
-  
+
   @Override
   protected String generateMethods() {
     StringConcatenation _builder = new StringConcatenation();
@@ -246,7 +245,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return _builder.toString();
   }
-  
+
   private String generateField(final Field field) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public ");
@@ -258,7 +257,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.append(";");
     return _builder.toString();
   }
-  
+
   private String generateMethod(final Method method) {
     this.methodGenerator.setCurrentMethod(method);
     return this.methodGenerator.generate();

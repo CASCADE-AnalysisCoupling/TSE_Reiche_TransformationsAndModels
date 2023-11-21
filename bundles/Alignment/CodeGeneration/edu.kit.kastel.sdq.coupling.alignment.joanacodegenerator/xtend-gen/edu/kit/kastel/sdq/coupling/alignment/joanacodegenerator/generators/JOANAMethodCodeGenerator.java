@@ -1,7 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators;
 
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate;
-import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils.JOANAResolutionUtil;
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils.JOANAStringUtil;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
@@ -9,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -19,16 +19,16 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class JOANAMethodCodeGenerator extends MethodGenerationTemplate {
   private final JOANARoot joanaRoot;
-  
+
   public JOANAMethodCodeGenerator(final JavaRoot javaRoot, final JOANARoot joanaRoot) {
     this.joanaRoot = joanaRoot;
   }
-  
+
   @Override
   protected String generateAnnotationsAndComments() {
     return JOANAStringUtil.EntryPoint_generateEntryPoints(JOANAResolutionUtil.getEntryPointsForMethod(this.joanaRoot, this.currentMethod));
   }
-  
+
   @Override
   protected String generateAnnotations(final Parameter parameter) {
     final Collection<Source> sources = JOANAResolutionUtil.getSourcesForParameter(this.joanaRoot, parameter);

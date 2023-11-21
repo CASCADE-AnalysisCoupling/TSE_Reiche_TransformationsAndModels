@@ -1,4 +1,4 @@
-package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils;
+package edu.kit.kastel.sdq.coupling.models.joana.supporting.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,11 +30,11 @@ public class JOANAResolutionUtil {
 	}
 
 	public static Collection<Source> getSourcesForParameter(JOANARoot joanaRoot, Parameter parameter){
-		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(annot -> annot instanceof Source).map(annot -> (Source) annot).collect(Collectors.toList());
+		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Source.class::isInstance).map(Source.class::cast).collect(Collectors.toList());
 	}
 	
 	public static Collection<Sink> getSinksForParameter(JOANARoot joanaRoot, Parameter parameter){
-		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(annot -> annot instanceof Sink).map(annot -> (Sink) annot).collect(Collectors.toList());
+		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Sink.class::isInstance).map(Sink.class::cast).collect(Collectors.toList());
 	}
 
 	public static EntryPoint getEntryPointForAnnotation(JOANARoot joanaRoot,

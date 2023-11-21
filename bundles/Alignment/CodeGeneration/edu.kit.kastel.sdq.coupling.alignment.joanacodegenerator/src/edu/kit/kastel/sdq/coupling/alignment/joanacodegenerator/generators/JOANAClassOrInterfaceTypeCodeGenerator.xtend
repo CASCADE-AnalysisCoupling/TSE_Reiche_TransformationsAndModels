@@ -1,7 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators
 
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot
-import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
 import java.util.ArrayList
 import edu.kit.kastel.sdq.coupling.models.java.types.Class
 import edu.kit.kastel.sdq.coupling.models.java.types.Interface
@@ -11,7 +10,8 @@ import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.ClassOrInterfaceTypeGenerationTemplate
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate
-import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.JavaResolutionUtil
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil
+import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
 
 class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate{
 	

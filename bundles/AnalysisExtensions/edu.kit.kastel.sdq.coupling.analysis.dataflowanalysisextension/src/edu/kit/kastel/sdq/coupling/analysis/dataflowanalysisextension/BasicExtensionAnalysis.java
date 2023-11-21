@@ -27,7 +27,6 @@ import org.palladiosimulator.dataflow.confidentiality.analysis.core.StandalonePC
 import org.palladiosimulator.dataflow.confidentiality.analysis.entity.pcm.seff.SEFFActionSequenceElement;
 import org.palladiosimulator.dataflow.confidentiality.analysis.entity.sequence.AbstractActionSequenceElement;
 import org.palladiosimulator.dataflow.confidentiality.analysis.entity.sequence.ActionSequence;
-import org.palladiosimulator.dataflow.confidentiality.analysis.testmodels.Activator;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristicType;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal;
@@ -41,7 +40,7 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 import org.palladiosimulator.pcm.seff.StartAction;
 
-import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.Configuration;
+import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterCharacteristicAnnotation;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterIdentification;
 
@@ -79,7 +78,7 @@ public class BasicExtensionAnalysis {
 
 		List<ActionSequence> propagationResult = travelPlannerAnalysis.evaluateDataFlows(actionSequences);
 
-		Configuration config = (Configuration) resourceExtensionModel.getContents().get(0);
+		ExtensionRoot config = (ExtensionRoot) resourceExtensionModel.getContents().get(0);
 
 		for (ActionSequence actionSequence : propagationResult) {
 			List<AbstractActionSequenceElement<?>> violations = travelPlannerAnalysis.queryDataFlow(actionSequence,
@@ -90,7 +89,7 @@ public class BasicExtensionAnalysis {
 		}
 	}
 
-	private boolean extensionCondition(AbstractActionSequenceElement<?> node, Configuration config,
+	private boolean extensionCondition(AbstractActionSequenceElement<?> node, ExtensionRoot extensionRoot,
 			StandalonePCMDataFlowConfidentialityAnalysis analysis) {
 
 		boolean annotationsFit = false;
@@ -103,12 +102,12 @@ public class BasicExtensionAnalysis {
 
 				// Determines, whether annotated parameter characteristics violate annotated
 				// resource characteristics
-				annotationsFit = nodeCharacteristicsAndParameterCharacteristicsViolated(seffNode, config, analysis);
+				annotationsFit = nodeCharacteristicsAndParameterCharacteristicsViolated(seffNode, extensionRoot, analysis);
 
 				// Determines, whether propagated data characteristics violate the annotated
 				// parameter characteristics
 				propagationCharacteristicsAndParameterAnnotationsFit = propagationResultsAndParameterAnnotationsViolated(
-						seffNode, config, analysis);
+						seffNode, extensionRoot, analysis);
 
 				// Determines whether propagated data characteristics and calculated node
 				// characteristics fit;
@@ -161,11 +160,11 @@ public class BasicExtensionAnalysis {
 	}
 
 	private boolean propagationResultsAndParameterAnnotationsViolated(SEFFActionSequenceElement<?> seffNode,
-			Configuration config, StandalonePCMDataFlowConfidentialityAnalysis analysis) {
+			ExtensionRoot extensionRoot, StandalonePCMDataFlowConfidentialityAnalysis analysis) {
 
 		Collection<ProvidedParameterIdentification> seffProvidedParameterIdentificatons = getAllAnnotatedParametersForSeff(
-				seffNode, config, analysis);
-		Collection<ProvidedParameterCharacteristicAnnotation> seffParameterAnnotations = config
+				seffNode, extensionRoot, analysis);
+		Collection<ProvidedParameterCharacteristicAnnotation> seffParameterAnnotations = extensionRoot
 				.getParameterAnnotations().stream()
 				.filter(annotation -> seffProvidedParameterIdentificatons.contains(annotation.getProvidedParameter()))
 				.toList();
@@ -190,14 +189,14 @@ public class BasicExtensionAnalysis {
 	}
 
 	private boolean nodeCharacteristicsAndParameterCharacteristicsViolated(SEFFActionSequenceElement<?> seffNode,
-			Configuration config, StandalonePCMDataFlowConfidentialityAnalysis analysis) {
+			ExtensionRoot extensionRoot, StandalonePCMDataFlowConfidentialityAnalysis analysis) {
 
 		Map<EnumCharacteristicType, Collection<Literal>> mappedNodeCharacteristics = calculateCharacteristicTypeLiteralMappingFromCharacteristicValues(
 				seffNode.getAllNodeCharacteristics());
 
 		Collection<ProvidedParameterIdentification> providedParameters = getAllAnnotatedParametersForSeff(seffNode,
-				config, analysis);
-		Collection<ProvidedParameterCharacteristicAnnotation> parameterAnnotations = config.getParameterAnnotations()
+				extensionRoot, analysis);
+		Collection<ProvidedParameterCharacteristicAnnotation> parameterAnnotations = extensionRoot.getParameterAnnotations()
 				.stream().filter(annotation -> providedParameters.contains(annotation.getProvidedParameter())).toList();
 
 		return characteristicsLiteralsViolateParameterAnnotations(parameterAnnotations, mappedNodeCharacteristics);
@@ -306,7 +305,7 @@ public class BasicExtensionAnalysis {
 	}
 
 	private Collection<ProvidedParameterIdentification> getAllAnnotatedParametersForSeff(
-			SEFFActionSequenceElement<?> seffNode, Configuration config,
+			SEFFActionSequenceElement<?> seffNode, ExtensionRoot extensionRoot,
 			StandalonePCMDataFlowConfidentialityAnalysis analysis) {
 
 		Collection<ProvidedParameterIdentification> providedParameters = new HashSet<ProvidedParameterIdentification>();
@@ -336,7 +335,7 @@ public class BasicExtensionAnalysis {
 						OperationSignature seffOpSig = (OperationSignature) targetSeffSignature;
 
 						for (OperationProvidedRole provRole : possibleProvidedRoles) {
-							for (ProvidedParameterIdentification paramIdent : config
+							for (ProvidedParameterIdentification paramIdent : extensionRoot
 									.getProvidedParameterIdentification()) {
 								if (provRole.getId().equals(paramIdent.getProvidedOperation().getProvidedRole().getId())
 										&& provRole.getProvidedInterface__OperationProvidedRole()

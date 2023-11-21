@@ -73,12 +73,10 @@ public class OutputModels {
 		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(PCMJAVACORRESPONDENCE_MODE_PATH));
 		resourcePCMJavaCorrespondence.getContents().add(correspondenceRoot);
 		
-		// TODO: FIX MODEL CREATION AS IT DOES NOT OUTPUT ALL MODELS!!!
 		try {
 			javaResource.save(null);
 			codeqlResource.save(null);
 			resourcePCMJavaCorrespondence.save(null);
-			//resourcePCMJavaCorrespondence.save(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

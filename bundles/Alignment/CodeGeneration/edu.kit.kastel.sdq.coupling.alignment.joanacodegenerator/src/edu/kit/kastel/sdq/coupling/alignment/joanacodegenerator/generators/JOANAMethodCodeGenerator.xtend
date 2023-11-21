@@ -4,10 +4,10 @@ import edu.kit.kastel.sdq.coupling.models.java.JavaRoot
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
 
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils.JOANAStringUtil
-import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils.JOANAResolutionUtil
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil
 
 class JOANAMethodCodeGenerator extends MethodGenerationTemplate{
 	

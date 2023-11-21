@@ -14,6 +14,9 @@ Require-Bundle: org.palladiosimulator.dataflow.confidentiality.analysis;bundle-v
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.palladiosimulator.pcm
+ org.palladiosimulator.pcm,
+ org.eclipse.core.commands,
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator,
+ edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql
 Bundle-RequiredExecutionEnvironment: JavaSE-17
