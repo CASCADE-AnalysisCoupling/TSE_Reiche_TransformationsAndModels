@@ -14,17 +14,17 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 public class OutputModels {
 	private static final String JOANA_MODEL_FILE_ENDING = "joana";
 	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String JAVA_MODEL_NAME = "coupling_java";
-	private static final String JOANA_MODEL_NAME = "coupling_joana";
+	private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
+	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
 	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
 	
 	private final JavaRoot javaRoot;
 	private final JOANARoot joanaRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
 	
 	//for testing
-	private static final String MODEL_BASE_FOLDER_PATH = Paths.get("/home/frederik/Arbeitsplatz/eclipse/accessanalysis/runtime-EclipseApplication/joanaTestModel").toAbsolutePath().toString(); 
+	private static final String MODEL_BASE_FOLDER_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis").toAbsolutePath().toString(); 
 	public static final String JAVA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String JOANA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH,PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();

@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 
 import org.palladiosimulator.pcm.repository.Parameter;
 
@@ -23,7 +23,7 @@ import org.palladiosimulator.pcm.repository.Parameter;
  * @model
  * @generated
  */
-public interface ProvidedParameterIdentification extends EObject {
+public interface ProvidedParameterIdentification extends IdentifiedElement {
 	/**
 	 * Returns the value of the '<em><b>Provided Operation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -23,15 +23,19 @@ public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler {
 				InputModels.REPOSITORY_PATH,
 				InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
 
+		//Input -> SCAR 
 		CodeQLSarifReader sarifReader = new CodeQLSarifReader(input.getTainttrackingRoot(), input.getJavaRoot());
 		SourceCodeAnalysisResult scar = sarifReader.interpretCodeQLSarif(input.getCodeQLResult());
+		//Resolution: SCAR -> ResultingSpecification
 		ResultingSpecificationExtractor extractor = new NaivePowerSetLatticeResultingSpecificationExtractor(
 				input.getTainttrackingRoot().getConfigurations().get(0));
 		ResultingSpecification resultingSpecification = extractor.calculateResultingSpecification(scar);
-		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));
 		
+		//BackProjection ResultingSpecification -> AAM
+		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));
 		backprojector.project(resultingSpecification);
 		input.updateConfidentialityModel(InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
+		
 		return true;
 	}
 

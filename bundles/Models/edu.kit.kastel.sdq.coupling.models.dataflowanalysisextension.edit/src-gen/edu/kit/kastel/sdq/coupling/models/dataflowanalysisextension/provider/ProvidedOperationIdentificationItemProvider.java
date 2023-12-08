@@ -3,6 +3,9 @@
 package edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.provider;
 
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.DataflowanalysisextensionPackage;
+import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedOperationIdentification;
+
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,13 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedOperationIdentification} object.
@@ -27,9 +24,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedOperationIdentificationItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class ProvidedOperationIdentificationItemProvider extends IdentifiedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -120,7 +115,9 @@ public class ProvidedOperationIdentificationItemProvider extends ItemProviderAda
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ProvidedOperationIdentification_type");
+		String label = ((ProvidedOperationIdentification) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_ProvidedOperationIdentification_type")
+				: getString("_UI_ProvidedOperationIdentification_type") + " " + label;
 	}
 
 	/**

@@ -6,6 +6,8 @@ import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.Dataflowanal
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedOperationIdentification;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterIdentification;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.palladiosimulator.pcm.repository.Parameter;
 
@@ -31,7 +32,7 @@ import org.palladiosimulator.pcm.repository.Parameter;
  *
  * @generated
  */
-public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Container
+public class ProvidedParameterIdentificationImpl extends IdentifiedElementImpl
 		implements ProvidedParameterIdentification {
 	/**
 	 * The cached value of the '{@link #getProvidedOperation() <em>Provided Operation</em>}' containment reference.

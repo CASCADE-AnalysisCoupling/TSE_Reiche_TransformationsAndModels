@@ -12,31 +12,32 @@ import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templa
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil
 
 class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate{
 	
-	
-	
-	private final JavaRoot javaRoot;
 	private final MethodGenerationTemplate methodGenerator;
+	private JOANARoot joanaRoot;
 
 	new (JavaRoot javaRoot, JOANARoot joanaRoot){
 		this.javaRoot = javaRoot;
+		this.joanaRoot = joanaRoot;
 		this.methodGenerator = new JOANAMethodCodeGenerator(javaRoot, joanaRoot);
-	}
-	
-	override protected generatePackageDeclaration() {
-		val packagePath = JavaResolutionUtil.getPackagePathToClassOrInterface(javaRoot, currentClassOrInterface);
-		return JavaResolutionUtil.createFullyQualifiedPath(packagePath, currentClassOrInterface);
 	}
 	
 	override protected generateImports() {
 		
 		var collectionImport = "";
-		val joanaUIImports = "import edu.kit.joana.ui.annotations.*;"
+		
+		var joanaUIImports = "";
+		
+		if(currentClassOrInterface instanceof Class && JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(currentClassOrInterface, joanaRoot)){
+			joanaUIImports = "import edu.kit.joana.ui.annotations.*;";	
+		}
+		
 		
 		val types = JavaResolutionUtil.getAllNonPrimitiveTypes(currentClassOrInterface);
-		
+		//TODO: Make this dependent on whether class or interface really has annotations
 		if(!types.filter(CollectionType).empty){
 			collectionImport = "import java.util.Collection;";
 		}
@@ -50,60 +51,16 @@ class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerat
 			«FOR classOrInterfaceType : classOrInterfaceTypes SEPARATOR System.lineSeparator»import «JavaResolutionUtil.createFullyQualifiedPath(javaRoot, classOrInterfaceType)»;«ENDFOR»
 		'''
 	}
-	override protected generateDeclaration() {
-
-		if(currentClassOrInterface instanceof Interface){
-			return generateInterfaceDeclaration(currentClassOrInterface as Interface);
-		} else if (currentClassOrInterface instanceof Class){
-			return generateClassDeclaration(currentClassOrInterface as Class);
-		}
-		
-		return "";
-	}
-	
-	private def String generateInterfaceDeclaration(Interface interf)'''public interface «interf.name»'''
-	
-	private def String generateClassDeclaration(Class clazz){
-		val extendsRelations = new ArrayList<ClassOrInterfaceType>();
-		return '''public class «clazz.name»«IF extendsRelations.size > 0» extends «extendsRelations.get(0).name»«ENDIF»«IF clazz.implements.size > 0» implements «FOR interf : clazz.implements SEPARATOR "' "»«interf.name»«ENDFOR»«ENDIF»''';
-	}
-	
-	override protected generateConstructors() {
-		if(currentClassOrInterface instanceof Interface){
-			return "";
-		}
-		
-		val clazz = currentClassOrInterface as Class;
-		
-		return '''
-		public «currentClassOrInterface.name»(«generateConstructorParameters(clazz)»){
-			«generateConstructorBody(clazz)»
-		}
-		'''
-	}
-	
-	private def String generateConstructorParameters(Class clazz)'''«FOR field : clazz.field SEPARATOR ", "»«field.type.name» «field.name»«ENDFOR»'''
-	
-	private def String generateConstructorBody(Class clazz)'''
-	«FOR field : clazz.field SEPARATOR System.lineSeparator»this.«field.name» = «field.name»;«ENDFOR»
-	'''	
-	override protected generateFields() {
-		if (currentClassOrInterface instanceof Interface){
-			return ""
-		}
-		
-		val castedClass = currentClassOrInterface as Class;
-		return '''«FOR field : castedClass.field SEPARATOR System.lineSeparator»«generateField(field)»«ENDFOR»'''
-	}
 	
 	override protected generateMethods() {
-		return '''«FOR method : currentClassOrInterface.method SEPARATOR System.lineSeparator»«generateMethod(method)»«ENDFOR»'''
+		return '''«FOR method : currentClassOrInterface.method SEPARATOR System.lineSeparator»«generateMethod(method, currentClassOrInterface)»«ENDFOR»'''
 	}
 	
-	private def String generateField(Field field) '''public «field.type.name» «field.name»;'''
 	
-	private def String generateMethod(Method method) {
+	
+	private def String generateMethod(Method method, ClassOrInterfaceType parent) {
 		methodGenerator.currentMethod = method;
+		methodGenerator.parent = parent;
 		
 		return methodGenerator.generate();
 	}

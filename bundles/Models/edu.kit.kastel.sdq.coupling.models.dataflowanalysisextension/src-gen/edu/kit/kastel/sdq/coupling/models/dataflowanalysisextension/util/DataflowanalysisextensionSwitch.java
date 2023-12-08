@@ -72,12 +72,16 @@ public class DataflowanalysisextensionSwitch<T> extends Switch<T> {
 			ProvidedOperationIdentification providedOperationIdentification = (ProvidedOperationIdentification) theEObject;
 			T result = caseProvidedOperationIdentification(providedOperationIdentification);
 			if (result == null)
+				result = caseIdentifiedElement(providedOperationIdentification);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case DataflowanalysisextensionPackage.PROVIDED_PARAMETER_IDENTIFICATION: {
 			ProvidedParameterIdentification providedParameterIdentification = (ProvidedParameterIdentification) theEObject;
 			T result = caseProvidedParameterIdentification(providedParameterIdentification);
+			if (result == null)
+				result = caseIdentifiedElement(providedParameterIdentification);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

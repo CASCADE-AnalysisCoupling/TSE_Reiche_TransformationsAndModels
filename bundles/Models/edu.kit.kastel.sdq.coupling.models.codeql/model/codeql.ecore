@@ -41,4 +41,32 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//tainttracking/SecurityLevel"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="sourcecodeanalysisresult" nsURI="http://www.example.org/codeql/sourcecodeanalysisresult"
+      nsPrefix="sourcecodeanalysisresult">
+    <eClassifiers xsi:type="ecore:EClass" name="SourceCodeAnalysisResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resultEntries" upperBound="-1"
+          eType="#//sourcecodeanalysisresult/ResultEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResultEntry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//sourcecodeanalysisresult/ResultEntryElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sink" lowerBound="1"
+          eType="#//sourcecodeanalysisresult/ResultEntryElement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResultEntryElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
+          eType="#//tainttracking/SecurityLevel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resultingspecification" nsURI="http://www.example.org/codeql/resultingspecification"
+      nsPrefix="resultingspecification">
+    <eClassifiers xsi:type="ecore:EClass" name="ResultingSpecification">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resultingSpecificationEntries"
+          lowerBound="1" upperBound="-1" eType="#//resultingspecification/ResultingSpecificationEntry"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResultingSpecificationEntry"/>
+  </eSubpackages>
 </ecore:EPackage>

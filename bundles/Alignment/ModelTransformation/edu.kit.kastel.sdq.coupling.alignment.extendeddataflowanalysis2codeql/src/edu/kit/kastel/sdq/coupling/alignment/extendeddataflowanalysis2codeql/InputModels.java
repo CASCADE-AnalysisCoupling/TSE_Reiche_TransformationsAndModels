@@ -7,8 +7,7 @@ import java.nio.file.Paths;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataDictionary;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterized;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
@@ -33,9 +32,9 @@ public class InputModels {
 	public static final String DATA_DICTIONARY_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, DATA_DICTIONARY_FILE_NAME, DATA_DICTIONARY_FILE_ENDING)).toAbsolutePath().toString();
 	private final Repository repository;
 	private final ExtensionRoot extensionRoot;
-	private final DataDictionaryCharacterized dictionary;
+	private final PCMDataDictionary dictionary;
 	
-	public InputModels(Repository repository, ExtensionRoot extensionRoot, DataDictionaryCharacterized dictionary) {
+	public InputModels(Repository repository, ExtensionRoot extensionRoot, PCMDataDictionary dictionary) {
 		super();
 		this.repository = repository;
 		this.extensionRoot = extensionRoot;
@@ -50,7 +49,7 @@ public class InputModels {
 		return extensionRoot;
 	}
 	
-	public DataDictionaryCharacterized getDataDictionary() {
+	public PCMDataDictionary getDataDictionary() {
 		return dictionary;
 	}
 	
@@ -75,7 +74,8 @@ public class InputModels {
 
 		Repository repository = (Repository) resourceRepository.getContents().get(0);
 		ExtensionRoot extensionRoot = (ExtensionRoot) resourceExtension.getContents().get(0);
-		DataDictionaryCharacterized dataDictionary = (DataDictionaryCharacterized) resourceDataDictionary.getContents().get(0);
+		
+		PCMDataDictionary dataDictionary = (PCMDataDictionary) resourceDataDictionary.getContents().get(0);
 
 		return new InputModels(repository, extensionRoot, dataDictionary);
 	}

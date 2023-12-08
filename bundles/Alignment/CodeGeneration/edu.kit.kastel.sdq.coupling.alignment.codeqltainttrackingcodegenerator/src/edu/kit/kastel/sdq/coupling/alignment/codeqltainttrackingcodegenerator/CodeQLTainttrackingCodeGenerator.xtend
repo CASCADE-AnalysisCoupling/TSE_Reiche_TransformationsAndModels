@@ -18,6 +18,8 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val String ID = "labeledtaint";
 	public static val String LABEL_TYPE_NAME = "SecurityLevel"
 	private static val String SUBLEVEL_DELIMINATOR = ";";
+	public static val String PRINT_RESULT_NAME = "printResult";
+	public static val String CONSIDER_NOT_EQUAL_ELEMENTS = "notEqualElements";
 	val CodeQLQueryTemplate query;
 	
 	val Configuration config;
@@ -57,6 +59,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generateallowedFlowsSecurityLevel()'''
 		predicate allowedFlows(«LABEL_TYPE_NAME» source, «LABEL_TYPE_NAME» sink){
 			«FOR allowedFlow : config.allowedFlows SEPARATOR " or"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
+			or getLevelAsString(source) = getLevelAsString(sink) 
 			or exists(SecurityLevel l | allowedFlows(source, l) and allowedFlows(l, sink)) 
 			or none()
 		}
@@ -94,18 +97,34 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	'''
 	
 	protected def String generateLabellingSupportFunction()'''
-		bindingset[className, methodName, parameterName]
-		predicate labelParameter(string className, string methodName, string parameterName, DataFlow::Node node){
-		    
-		    exists (Class c, Method m, Parameter p | 
-		        c.contains(m) and 
-		        c.hasName(className) and 
-		        m.contains(p) and 
-		        m.hasName(methodName) and 
-		        p.hasName(parameterName) 
-		        and p = node.asParameter()
-		    ) 
-		}
+	«generateLabelingSupportFunctionForParameter»
+	
+	«generateLabelingSupportFunctionForField»
+	'''
+	
+	private def String generateLabelingSupportFunctionForParameter()'''
+			predicate labelParameter(string className, string methodName, string parameterName, DataFlow::Node node){
+			    
+			    exists (Class c, Method m, Parameter p | 
+			        c.contains(m) and 
+			        c.hasName(className) and 
+			        m.contains(p) and 
+			        m.hasName(methodName) and 
+			        p.hasName(parameterName) 
+			        and p = node.asParameter()
+			    ) 
+			}
+	'''
+	
+	private def String generateLabelingSupportFunctionForField()'''
+			predicate labelField(string className, string fieldName, DataFlow::Node node){
+				exists(Class c, Field f  | 
+					c.hasName(className) and 
+					c.contains(f) and
+					f.hasName(fieldName) and 
+					node.asExpr().(FieldAccess).getField() = f
+				)
+			}
 	'''
 	
 	protected def String generateLabelingFunction()'''
@@ -173,4 +192,59 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	'''
 	
 	private def String generateSecurityLevelType(SecurityLevel level)'''«level.name.replace(SUBLEVEL_DELIMINATOR, "").toFirstUpper»()'''
+	
+	override protected String generateFunctionCatchingEquality() '''
+	predicate «CONSIDER_NOT_EQUAL_ELEMENTS»(DataFlow::Node node1, DataFlow::Node node2){
+	    node1.getEnclosingCallable().getDeclaringType().getPackage() != node2.getEnclosingCallable().getDeclaringType().getPackage() 
+	    or
+	    node1.getEnclosingCallable().getDeclaringType().getName() != node2.getEnclosingCallable().getDeclaringType().getName() 
+	    or 
+	    node1.asExpr().(FieldAccess).getField().getName() != node2.asExpr().(FieldAccess).getField().getName()
+	    or 
+	    node1.getEnclosingCallable().getName() != node2.getEnclosingCallable().getName()
+	    or node1.asParameter().getName() != node2.asParameter().getName()
+	}
+	'''
+	
+	override protected String generateResultPrinting() '''
+	«generatePrintResult»
+	
+	«generatePrintResultForNode»
+	
+	«generatePrintResultForParameter»
+	
+	«generatePrintResultForField»
+	'''
+	
+	private def String generatePrintResult() '''
+	string «PRINT_RESULT_NAME»(«MODULE_NAME»::PathNode source, «MODULE_NAME»::PathNode sink){
+	    result = "(" + «PRINT_RESULT_NAME»(source.getNode()) +"," + getNodeLevelAsString(source.getNode()) + ")" + "-> (" + «PRINT_RESULT_NAME»(sink.getNode()) + "," + getNodeLevelAsString(sink.getNode()) +")"
+	}
+	'''
+	
+	private def String generatePrintResultForParameter()'''
+	string printParameter(DataFlow::Node node){
+	    result = node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
+	    + node.getEnclosingCallable().getDeclaringType().getName() + "::" 
+	    + node.getEnclosingCallable().getName() + ":" 
+	    + node.asParameter().getName() 
+	}
+	'''
+	
+	private def String generatePrintResultForField()'''
+	string printField(DataFlow::Node node){
+	    result = 
+	    node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
+	    + node.getEnclosingCallable().getDeclaringType().getName() + "!" 
+	    + node.asExpr().(FieldAccess).getField().getName()
+	}
+	'''
+	
+	private def String generatePrintResultForNode()'''
+	string «PRINT_RESULT_NAME»(DataFlow::Node node){
+	    result = printField(node) or
+	    result = printParameter(node)
+	}
+	'''
+	
 }

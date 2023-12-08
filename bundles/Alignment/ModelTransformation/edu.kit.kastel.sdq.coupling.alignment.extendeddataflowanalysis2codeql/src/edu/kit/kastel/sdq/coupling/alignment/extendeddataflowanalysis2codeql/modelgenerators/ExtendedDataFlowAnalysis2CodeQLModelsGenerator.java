@@ -4,6 +4,7 @@ import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 import org.modelversioning.emfprofileapplication.ProfileApplication;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataDictionary;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterized;
 import org.palladiosimulator.pcm.repository.Repository;
@@ -19,7 +20,7 @@ public class ExtendedDataFlowAnalysis2CodeQLModelsGenerator {
 	private TainttrackingRoot tainttrackingRoot;
 	private static final String BASE_PACKAGE_NAME = "travelplannerpcm";
 	
-	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ExtensionRoot extensionRoot, DataDictionaryCharacterized dictionary) {
+	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ExtensionRoot extensionRoot, PCMDataDictionary dictionary) {
 		
 		ExtendedDataFlowAnalysis2CodeQLStructuralGenerator structuralGenerator = new ExtendedDataFlowAnalysis2CodeQLStructuralGenerator(correspondences, repo, BASE_PACKAGE_NAME);
 		structuralGenerator.generateStructuralModel();

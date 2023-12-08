@@ -1,6 +1,7 @@
 package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators;
 
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.OutputModels;
+import edu.kit.kastel.sdq.coupling.alignment.pcm2java.PCM2JavaStructuralGenerator;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
@@ -14,10 +15,10 @@ public class AccessAnalysis2JOANAModelGenerator {
 	private JavaRoot javaRoot;
 	private JOANARoot joanaRoot;
 	//TODO: This should be configuratble
-	private final String BASE_PACKAGE_NAME = "travelplannerpcm";
+	private final String BASE_PACKAGE_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner";
 	
 	public OutputModels generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec) {
-		AccessAnalysis2JOANAStructuralGenerator structuralGenerator = new AccessAnalysis2JOANAStructuralGenerator(correspondences, repo);
+		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
 		structuralGenerator.generateStructuralModel(BASE_PACKAGE_NAME);
 		
 		AccessAnalysis2JOANASecurityGenerator securityGenerator = new AccessAnalysis2JOANASecurityGenerator(correspondences, spec);

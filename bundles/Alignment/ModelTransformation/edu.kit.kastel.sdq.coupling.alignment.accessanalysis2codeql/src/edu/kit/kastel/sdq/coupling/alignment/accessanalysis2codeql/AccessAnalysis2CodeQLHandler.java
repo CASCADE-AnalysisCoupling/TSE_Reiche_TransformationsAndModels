@@ -46,6 +46,7 @@ public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 		
 		FileOutput.writeToFile(fileToGenerate);
 		outputModels.writeToFiles();
+		System.out.print("Done Alignment: Access Analysis 2 CodeQL");
 		return true;
 	}
 	

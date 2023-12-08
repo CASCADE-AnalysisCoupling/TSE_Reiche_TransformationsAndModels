@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 
 
-import org.palladiosimulator.pcm.repository.BasicComponent;
-import org.palladiosimulator.pcm.repository.OperationInterface;
-import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis.models.ResultingSpecEntry;
@@ -17,9 +17,11 @@ import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowa
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterCharacteristicAnnotation;
+import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
 public class Backprojector implements Backproject{
 	
@@ -27,72 +29,69 @@ public class Backprojector implements Backproject{
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ExtensionRoot extensionRoot;
 	private final Configuration config;
+	private final PCMDataDictionary dictionary;
 	
 	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ExtensionRoot extensionRoot, Configuration config) {
+			ExtensionRoot extensionRoot, Configuration config, PCMDataDictionary dictionary) {
 		super();
 		this.repository = repository;
 		this.correspondences = correspondences;
 		this.extensionRoot = extensionRoot;
 		this.config = config;
+		this.dictionary = dictionary;
 	}
 
 	@Override
 	public void project(ResultingSpecification resultingSpec) {
 		for(ResultingSpecEntry resultingSpecEntry : resultingSpec.getEntries()) {
+						
+			//Resolve System Element
+			PCMParameter2JavaParameter parameterCorrespondence = PCMJavaCorrespondenceResolutionUtils.getParameterCorrespondence(correspondences,resultingSpecEntry.getSystemElement());
+
+			// Assumption: One annotation for one system element. If multiple: find the one with the corresponding security property - value pair. 
+			ProvidedParameterCharacteristicAnnotation annot = extensionRoot.getParameterAnnotations().stream().filter(potentialAnnot -> areProvidedParameterIdentificationsEqual(potentialAnnot.getProvidedParameter(), parameterCorrespondence.getPcmParameterIdentification())).findFirst().get();
 			
-			PCMParameter2JavaParameter parameterCorrespondence = getParameterCorrespondence(resultingSpecEntry.getSystemElement());
-			OperationSignature targetOperationSignature = parameterCorrespondence.getPcmParameterIdentification().getProvidedSignature().getProvidedSignature();
-			
-			Collection<StereotypeApplication> appliedStereotypes = profileApplication.getStereotypeApplications(targetOperationSignature);
-			Collection<StereotypeApplication> appliedInformationFlowStereotypes = filterInformationFlowApplications(appliedStereotypes);
-			
-			for(StereotypeApplication informationFlowApplication : appliedInformationFlowStereotypes) {
-				Collection<StereotypeApplication> appl = Collections.singletonList(informationFlowApplication);
-				Collection<ParametersAndDataPair> parametersAndDataPairs = StereotypeAPIUtil.getTaggedValues(appl, "parametersAndDataPairs", ParametersAndDataPair.class);
+			for(EnumCharacteristic characteristic : annot.getCharacteristics()) {
+				//Normally, check with additional info, if types assigned to securityLevel is equal, best with correspondence models. --> Resolve Security Property and fitting annotation
+				Collection<Literal> resolvedLiterals = resolveLiteralsForLevel(resultingSpecEntry.getSecurityProperty(), characteristic.getEnumCharacteristicType().getType().getLiterals());
 				
-				for(ParametersAndDataPair parameterAndDataPair : parametersAndDataPairs) {
-					if(parameterAndDataPair.getParameterSources().contains(parameterCorrespondence.getPcmParameterIdentification().getParameter().getParameterName())) {
-						Collection<DataSet> resolvedDataSets = resolveDataSetsForLevel(resultingSpecEntry.getSecurityProperty());
-						//Assumption: for each annotation exists its own parameter and datapair. 
-						//If not valid, the security level of other interfaces would change due to a flow to only one parameter:
-						// Solution: create individual parameterAndDataPair to replace existing entry
-						parameterAndDataPair.getDataTargets().clear();
-						parameterAndDataPair.getDataTargets().addAll(resolvedDataSets);
-					}
+				if(!resolvedLiterals.isEmpty()) {
+					characteristic.getValues().clear();
+					characteristic.getValues().addAll(resolvedLiterals);
 				}
 			}
 		}
 	}
+	
+	private boolean areProvidedParameterIdentificationsEqual(ProvidedParameterIdentification extensionProvidedParameterIdent, edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification correspondenceIdentification){
+			//ID AND STRING Based
+		//		return extensionProvidedParameterIdent.getProvidedOperation().getOperationSignature().getId().equals(correspondenceIdentification.getProvidedSignature().getProvidedSignature().getId()) && 
+//			 extensionProvidedParameterIdent.getProvidedOperation().getProvidedRole().getId().equals(correspondenceIdentification.getProvidedSignature().getProvidedRole().getId())  &&
+//			 extensionProvidedParameterIdent.getParameter().getParameterName().equals(correspondenceIdentification.getParameter().getParameterName());
+		
+		// Object Based
+		return extensionProvidedParameterIdent.getProvidedOperation().getOperationSignature().equals(correspondenceIdentification.getProvidedSignature().getProvidedSignature()) && 
+				 extensionProvidedParameterIdent.getProvidedOperation().getProvidedRole().equals(correspondenceIdentification.getProvidedSignature().getProvidedRole())  &&
+				 extensionProvidedParameterIdent.getParameter().equals(correspondenceIdentification.getParameter());
+	}
 
-	private Collection<DataSet> resolveDataSetsForLevel(SecurityLevel securityProperty) {
-		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
+	private Collection<Literal> resolveLiteralsForLevel(SecurityLevel securityProperty, Collection<Literal> literalsForFittingAnnotation) {
+		Collection<Literal> resolvedLiterals = new HashSet<Literal>();
 		
 		Collection<SecurityLevel> basicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(securityProperty, config);
-		
+		Collection<Literal> resolvedLiteralsByStream = literalsForFittingAnnotation.stream().filter( literal -> basicLevels.stream().anyMatch(level -> level.getName().equals(literal.getName()))).toList();
 	
 		for(SecurityLevel basicLevel : basicLevels) {
-			//this could be replaced by correspondence relationships between dataset and basic levels ( 1 - 1) 
-			//or datasets and all levels (m - 1)
-			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream().filter(ident -> ident instanceof DataSet).map(ident -> (DataSet) ident).collect(Collectors.toList());
+			//this could be replaced by correspondence relationships between the levels of an enum and basic levels
+
 			
-			for(DataSet dataSet : dataSets) {
-				if(dataSet.getName().equals(basicLevel.getName())) {
-					resolvedDataSets.add(dataSet);
+			for(Literal literal : literalsForFittingAnnotation) {
+				if(literal.getName().equals(basicLevel.getName())) {
+					resolvedLiterals.add(literal);
 				}
 			}
 		}
 		
-		return resolvedDataSets;
+		return resolvedLiterals;
 	}
-
-	private PCMParameter2JavaParameter getParameterCorrespondence(Parameter parameter) {
-		return correspondences.getPcmparameter2javaparameter().stream().filter(corr -> corr.getJavaParameter().equals(parameter)).findFirst().get();
-	}
-	
-	private static Collection<StereotypeApplication> filterInformationFlowApplications(Collection<StereotypeApplication> applications){
-		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow")).collect(Collectors.toList()); 
-	}
-	
-	
 }

@@ -342,10 +342,10 @@ public class DataflowanalysisextensionPackageImpl extends EPackageImpl implement
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
-				.getEPackage(RepositoryPackage.eNS_URI);
 		edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage theIdentifierPackage_1 = (edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage) EPackage.Registry.INSTANCE
 				.getEPackage(edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+				.getEPackage(RepositoryPackage.eNS_URI);
 		DataDictionaryCharacterizedPackage theDataDictionaryCharacterizedPackage = (DataDictionaryCharacterizedPackage) EPackage.Registry.INSTANCE
 				.getEPackage(DataDictionaryCharacterizedPackage.eNS_URI);
 
@@ -354,6 +354,8 @@ public class DataflowanalysisextensionPackageImpl extends EPackageImpl implement
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		providedOperationIdentificationEClass.getESuperTypes().add(theIdentifierPackage_1.getIdentifiedElement());
+		providedParameterIdentificationEClass.getESuperTypes().add(theIdentifierPackage_1.getIdentifiedElement());
 		providedParameterCharacteristicAnnotationEClass.getESuperTypes()
 				.add(theIdentifierPackage_1.getIdentifiedElement());
 		providedParameterCharacteristicAnnotationEClass.getESuperTypes().add(this.getCharacteristicsAnnotation());

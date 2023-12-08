@@ -5,13 +5,14 @@ package edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.impl;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.DataflowanalysisextensionPackage;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedOperationIdentification;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.impl.IdentifiedElementImpl;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
@@ -30,7 +31,7 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  *
  * @generated
  */
-public class ProvidedOperationIdentificationImpl extends MinimalEObjectImpl.Container
+public class ProvidedOperationIdentificationImpl extends IdentifiedElementImpl
 		implements ProvidedOperationIdentification {
 	/**
 	 * The cached value of the '{@link #getProvidedRole() <em>Provided Role</em>}' reference.

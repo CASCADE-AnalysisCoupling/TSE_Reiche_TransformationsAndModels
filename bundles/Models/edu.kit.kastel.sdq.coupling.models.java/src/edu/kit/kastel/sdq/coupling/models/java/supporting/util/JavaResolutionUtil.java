@@ -115,9 +115,13 @@ public class JavaResolutionUtil {
 	
 	
 	public static String createFullyQualifiedPath(Collection<Package> packagePath, ClassOrInterfaceType typeOrInterface){
-		String packageQualifier = packagePath.stream().map(Package::getName).collect(Collectors.joining("."));
+		String packageQualifier = creatyFullPackagePathFromParts(packagePath);
 		
-		return String.format("package %s.%s", packageQualifier, typeOrInterface.getName());
+		return String.format("%s.%s", packageQualifier, typeOrInterface.getName());
+	}
+	
+	public static String creatyFullPackagePathFromParts(Collection<Package> packagePath) {
+		return packagePath.stream().map(Package::getName).collect(Collectors.joining("."));
 	}
 	
 	public static String createFullyQualifiedPath(JavaRoot root, ClassOrInterfaceType typeOrInterface) {

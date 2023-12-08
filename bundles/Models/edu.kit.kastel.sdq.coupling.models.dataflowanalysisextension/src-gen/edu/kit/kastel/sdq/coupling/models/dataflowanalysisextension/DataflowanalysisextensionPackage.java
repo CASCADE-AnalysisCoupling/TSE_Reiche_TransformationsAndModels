@@ -69,13 +69,22 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	int PROVIDED_OPERATION_IDENTIFICATION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_OPERATION_IDENTIFICATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Provided Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_OPERATION_IDENTIFICATION__PROVIDED_ROLE = 0;
+	int PROVIDED_OPERATION_IDENTIFICATION__PROVIDED_ROLE = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operation Signature</b></em>' reference.
@@ -84,7 +93,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_OPERATION_IDENTIFICATION__OPERATION_SIGNATURE = 1;
+	int PROVIDED_OPERATION_IDENTIFICATION__OPERATION_SIGNATURE = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Provided Operation Identification</em>' class.
@@ -93,7 +102,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_OPERATION_IDENTIFICATION_FEATURE_COUNT = 2;
+	int PROVIDED_OPERATION_IDENTIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Provided Operation Identification</em>' class.
@@ -102,7 +111,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_OPERATION_IDENTIFICATION_OPERATION_COUNT = 0;
+	int PROVIDED_OPERATION_IDENTIFICATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.impl.ProvidedParameterIdentificationImpl <em>Provided Parameter Identification</em>}' class.
@@ -115,13 +124,22 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	int PROVIDED_PARAMETER_IDENTIFICATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_PARAMETER_IDENTIFICATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Provided Operation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_OPERATION = 0;
+	int PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_OPERATION = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameter</b></em>' reference.
@@ -130,7 +148,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER = 1;
+	int PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Provided Parameter Identification</em>' class.
@@ -139,7 +157,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_PARAMETER_IDENTIFICATION_FEATURE_COUNT = 2;
+	int PROVIDED_PARAMETER_IDENTIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Provided Parameter Identification</em>' class.
@@ -148,7 +166,7 @@ public interface DataflowanalysisextensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_PARAMETER_IDENTIFICATION_OPERATION_COUNT = 0;
+	int PROVIDED_PARAMETER_IDENTIFICATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.impl.ProvidedParameterCharacteristicAnnotationImpl <em>Provided Parameter Characteristic Annotation</em>}' class.

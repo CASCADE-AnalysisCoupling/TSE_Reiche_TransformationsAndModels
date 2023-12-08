@@ -7,13 +7,15 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-
+import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
+import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
@@ -73,5 +75,30 @@ public class JOANAResolutionUtil {
 		}
 		
 		return levelToTagsMappings;
+	}
+	
+	public static boolean isClassOrInterfaceTargetedByJoana(ClassOrInterfaceType coi, JOANARoot root) {
+		for(EntryPoint entryPoint : root.getEntrypoint()) {
+			for(InformationFlowAnnotation annotation :entryPoint.getAnnotation()) {
+				
+				if(annotation.getSystemElementIdentification() instanceof MethodIdentifying) {
+					MethodIdentifying identifying = (MethodIdentifying) annotation.getSystemElementIdentification();
+					if(coi.getMethod().contains(identifying)) {
+						return true;
+					}
+				}
+				
+				if(annotation.getSystemElementIdentification() instanceof ParametertIdentifying) {
+					ParametertIdentifying identifying = (ParametertIdentifying) annotation.getSystemElementIdentification();
+					
+					if(coi.getMethod().stream().filter(method -> method.getParameter().contains(identifying.getParameter())).findAny().isPresent()) {
+						return true;
+					}
+				}
+			}
+		}
+			
+			
+		return false;
 	}
 }

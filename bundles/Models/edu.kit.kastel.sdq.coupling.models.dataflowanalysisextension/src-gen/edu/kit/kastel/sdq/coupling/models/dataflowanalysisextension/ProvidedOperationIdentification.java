@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
@@ -24,7 +24,7 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  * @model
  * @generated
  */
-public interface ProvidedOperationIdentification extends EObject {
+public interface ProvidedOperationIdentification extends IdentifiedElement {
 	/**
 	 * Returns the value of the '<em><b>Provided Role</b></em>' reference.
 	 * <!-- begin-user-doc -->

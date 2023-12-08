@@ -4,10 +4,14 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.palladiosimulator.pcm.repository.BasicComponent;
+import org.palladiosimulator.pcm.repository.OperationInterface;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.types.Interface;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.OperationInterface2Interface;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
 
@@ -30,5 +34,13 @@ public class PCMJavaCorrespondenceResolutionUtils {
 	
 	public static Collection<BasicComponent> BasicComponent2JavaClass_getBasicComponents(PCMJavaCorrespondenceRoot root){
 		return root.getBasiccomponent2class().stream().map(entry -> entry.getComponent()).collect(Collectors.toList());
+	}
+	
+	public static PCMParameter2JavaParameter getParameterCorrespondence(PCMJavaCorrespondenceRoot root, Parameter parameter) {
+		return root.getPcmparameter2javaparameter().stream().filter(corr -> corr.getJavaParameter().equals(parameter)).findFirst().get();
+	}
+	
+	public static OperationInterface2Interface getOperationInterface2InterfaceCorrespondence(PCMJavaCorrespondenceRoot root, OperationInterface interf) {
+		return root.getOperationInterface2interface().stream().filter(corr -> corr.getPcmInterface().equals(interf)).findFirst().get();
 	}
 }

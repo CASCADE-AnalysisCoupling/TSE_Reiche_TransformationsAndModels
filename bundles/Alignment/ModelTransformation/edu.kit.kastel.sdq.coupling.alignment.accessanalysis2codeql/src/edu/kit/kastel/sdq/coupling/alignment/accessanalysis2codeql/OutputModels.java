@@ -17,10 +17,10 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 public class OutputModels {
 	private static final String CODEQL_MODEL_FILE_ENDING = "codeql";
 	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String JAVA_MODEL_NAME = "coupling_java";
-	private static final String CODEQL_MODEL_NAME = "coupling_tainttracking";
+	private static final String JAVA_MODEL_NAME = "codeqljava4accessanalysis";
+	private static final String CODEQL_MODEL_NAME = "codeql4accessanalysis";
 	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "codeqljava4accessanalysis";
 	
 	private final JavaRoot javaRoot;
 	private final TainttrackingRoot tainttrackingRoot;

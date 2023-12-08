@@ -22,8 +22,6 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.AccessAnalysisResolutionUtil;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.JOANAModelGenerationUtil;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.PCMJavaCorrespondenceResolutionUtils;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
@@ -34,10 +32,12 @@ import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
 public class AccessAnalysis2JOANASecurityGenerator {
 
@@ -77,7 +77,10 @@ public class AccessAnalysis2JOANASecurityGenerator {
 					if(provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
 						//TODO: Check why there is two times the same operationsignature
 						EntryPoint entryPoint = generateConfiguration_EntryPoint(provsig.getPcmMethod(), application);
-						entrypoints.add(entryPoint);
+						
+						if(entryPoint.getId() != null) {
+							entrypoints.add(entryPoint);
+						}
 					}
 				}
 			}	
@@ -95,8 +98,6 @@ public class AccessAnalysis2JOANASecurityGenerator {
 		EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
 		entrypoint.getLevel().addAll(levels);
 		entrypoint.setLattice(lattice);
-		entrypoint.setId(tagCounter.toString());
-		tagCounter++;
 		MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
 		method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
 		entrypoint.setMethodIdentification(method);
@@ -149,6 +150,13 @@ public class AccessAnalysis2JOANASecurityGenerator {
 					}
 				}
 			}
+		}
+		
+		if(entrypoint.getAnnotation().isEmpty()) {
+			entrypoint.setId(null);
+		} else {
+			entrypoint.setId(tagCounter.toString());
+			tagCounter++;
 		}
 		
 		return entrypoint;

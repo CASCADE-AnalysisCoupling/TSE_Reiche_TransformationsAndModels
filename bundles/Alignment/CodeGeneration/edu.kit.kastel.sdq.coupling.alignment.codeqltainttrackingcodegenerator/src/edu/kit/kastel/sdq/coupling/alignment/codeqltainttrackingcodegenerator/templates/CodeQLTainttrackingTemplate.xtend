@@ -20,8 +20,16 @@ abstract class CodeQLTainttrackingTemplate {
 		
 		«generateLevelToStringFunction()»
 		
+		«generateResultPrinting()»
+		
+		«generateFunctionCatchingEquality()»
+		
 		«generateQuery()»
 	'''
+	
+	protected def String generateFunctionCatchingEquality()
+	
+	protected def String generateResultPrinting()
 	
 	protected def String generateLevelToStringFunction()
 	

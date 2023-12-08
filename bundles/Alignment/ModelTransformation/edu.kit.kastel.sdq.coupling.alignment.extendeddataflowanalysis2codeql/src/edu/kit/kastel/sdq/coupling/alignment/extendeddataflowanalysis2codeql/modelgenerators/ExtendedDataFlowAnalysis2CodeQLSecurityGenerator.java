@@ -14,6 +14,7 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParamete
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterized;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Enumeration;
@@ -37,11 +38,11 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	private final TainttrackingRoot root;
 	private final ExtensionRoot extensionRoot;
 	private final PCMJavaCorrespondenceRoot correspondences;
-	private final DataDictionaryCharacterized dictionary;
+	private final PCMDataDictionary dictionary;
 	private static final String SUBLEVEL_DELIMITER = ";";
 
 	public ExtendedDataFlowAnalysis2CodeQLSecurityGenerator(ExtensionRoot extensionRoot,
-			PCMJavaCorrespondenceRoot correspondences, DataDictionaryCharacterized dictionary) {
+			PCMJavaCorrespondenceRoot correspondences, PCMDataDictionary dictionary) {
 		super();
 		this.root = CodeQLModelgenerationUtil.generateDataFlowRoot();
 		this.extensionRoot = extensionRoot;
@@ -143,7 +144,7 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		 * levels has to be provided if multiple Enumerations exist (work of Felix?) -
 		 * however, not necessary for TSE Eval.
 		 */
-		Enumeration targetEnum = dictionary.getEnumerations().get(0);
+		Enumeration targetEnum = dictionary.getCharacteristicEnumerations().get(0);
 
 		// initial set
 		for (Literal literal : targetEnum.getLiterals()) {

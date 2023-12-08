@@ -20,8 +20,13 @@ public class InputModels {
 	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
 	
 	//for testing
-	public static final String REPOSITORY_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/default.repository").toAbsolutePath().toString();
-	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/default.confidentiality").toAbsolutePath().toString();
+	private static final String REPOSITORY_MODEL_NAME = "default";
+	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME= "default";
+	private static final String PATH_PATTERN = "%s/%s.%s";
+	
+	private static final String BASE_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis").toAbsolutePath().toString();
+	public static final String REPOSITORY_PATH = Paths.get(String.format(PATH_PATTERN, BASE_PATH, REPOSITORY_MODEL_NAME, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get(String.format(PATH_PATTERN, BASE_PATH, CONFIDENTIALITY_SPEC_MODEL_NAME, CONFIDENTIALITY_SPECIFICATION_FILE_ENDING)).toAbsolutePath().toString();
 	
 	private final Repository repository;
 	private final ProfileApplication profile;

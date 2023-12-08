@@ -2,14 +2,17 @@ package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util
 
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Parameter;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.types.Class;
+import edu.kit.kastel.sdq.coupling.models.java.types.Interface;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.BasicComponent2Class;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.CompositeDataType2Class;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.OperationInterface2Interface;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
@@ -56,6 +59,15 @@ public class PCMJavaCorrespondenceModelGenerationUtil {
 		CompositeDataType2Class correspondence = PcmjavacorrespondenceFactory.eINSTANCE.createCompositeDataType2Class();
 		correspondence.setCompositeDataType(datatype);
 		correspondence.setJavaClass(clazz);
+		return correspondence;
+	}
+
+	public static OperationInterface2Interface generateOperationInterface2Interface(OperationInterface pcmOperationInterface,
+			Interface javaInterface) {
+		OperationInterface2Interface correspondence = PcmjavacorrespondenceFactory.eINSTANCE.createOperationInterface2Interface();
+		correspondence.setJavaInterface(javaInterface);
+		correspondence.setPcmInterface(pcmOperationInterface);
+		
 		return correspondence;
 	}
 }
