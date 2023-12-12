@@ -7,14 +7,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
@@ -83,7 +81,7 @@ public class JOANAResolutionUtil {
 				
 				if(annotation.getSystemElementIdentification() instanceof MethodIdentifying) {
 					MethodIdentifying identifying = (MethodIdentifying) annotation.getSystemElementIdentification();
-					if(coi.getMethod().contains(identifying)) {
+					if(coi.getMethod().contains(identifying.getMethod())) {
 						return true;
 					}
 				}
