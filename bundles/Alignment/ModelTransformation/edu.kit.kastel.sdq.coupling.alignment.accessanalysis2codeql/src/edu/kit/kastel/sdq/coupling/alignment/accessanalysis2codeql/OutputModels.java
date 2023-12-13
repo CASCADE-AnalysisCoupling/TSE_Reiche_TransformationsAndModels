@@ -27,9 +27,10 @@ public class OutputModels {
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
 	
 	//for testing
-	public static final String JAVA_MODEL_PATH = Paths.get(String.format("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/%s.%s", JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String CODEQL_MODEL_PATH = Paths.get(String.format("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/%s.%s", CODEQL_MODEL_NAME, CODEQL_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/ArchitecturalModels/AccessAnalysis/edu.kit.kastel.scbs.iflowexampleUnadapted/%s.%s", PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	private static final String TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis";
+	public static final String JAVA_MODEL_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String CODEQL_MODEL_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, CODEQL_MODEL_NAME, CODEQL_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 			
 	public OutputModels(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot) {
 		this.javaRoot = javaRoot;

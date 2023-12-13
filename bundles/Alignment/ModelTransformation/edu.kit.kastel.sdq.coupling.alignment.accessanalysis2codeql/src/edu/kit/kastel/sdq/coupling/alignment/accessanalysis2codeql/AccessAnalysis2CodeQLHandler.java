@@ -21,8 +21,9 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 public class AccessAnalysis2CodeQLHandler extends AbstractHandler{
 
 	private final String FILE_ENDING = "ql";
-	private final String FOLDER_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/CodeQLQuery").toAbsolutePath().toString();
 	private final String FILE_NAME = "AccessAnalysisLabeledTaintTracking";
+	private final String FOLDER_PATH = Paths.get(String.format("%s/%s/CodeQLQuery/", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH)).toAbsolutePath().toString();
+
 
 
 	@Override

@@ -19,16 +19,16 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class JOANAMethodCodeGenerator extends MethodGenerationTemplate {
   private final JOANARoot joanaRoot;
-  
+
   public JOANAMethodCodeGenerator(final JavaRoot javaRoot, final JOANARoot joanaRoot) {
     this.joanaRoot = joanaRoot;
   }
-  
+
   @Override
   protected String generateAnnotationsAndComments() {
     return JOANAStringUtil.EntryPoint_generateEntryPoints(JOANAResolutionUtil.getEntryPointsForMethod(this.joanaRoot, this.currentMethod));
   }
-  
+
   @Override
   protected String generateAnnotations(final Parameter parameter) {
     final Collection<Source> sources = JOANAResolutionUtil.getSourcesForParameter(this.joanaRoot, parameter);
