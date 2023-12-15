@@ -30,7 +30,8 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 
 public class AccessAnalysis2JOANAHandler extends AbstractHandler{
 	private static final String JAVA_CODE_FILE_ENDING = "java";
-	private static final String JAVA_CODE_BASE_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis/").toAbsolutePath().toString();
+	private static final String JOANA_EVAL_CODE_FOLDER_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis";
+	private static final String JAVA_CODE_BASE_PATH = Paths.get(String.format("%s/%s/Code/%s/", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, JOANA_EVAL_CODE_FOLDER_NAME)).toAbsolutePath().toString();
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";
 	private static final String ENTRY_POINT_ID_FILE_ENDING = "txt";
 	@Override

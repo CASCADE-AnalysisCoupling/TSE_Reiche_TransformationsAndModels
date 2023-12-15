@@ -17,3 +17,4 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.kit.kastel.sdq.coupling.models.java;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.java.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11

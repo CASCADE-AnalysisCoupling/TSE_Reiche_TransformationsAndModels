@@ -1,11 +1,10 @@
 package edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution;
 
-import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,63 +12,64 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
+import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.filehandling.FileToGenerate;
 
-public class JoanaExecutionHandler extends AbstractHandler {
+public class JoanaExecution{
 
-	private final static String JAVA8_RUNTIME_PATH = Path.of("/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java")
-			.toAbsolutePath().toString();
-	private final static String JAVA8_COMPILER_PATH = Path.of("/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/javac")
-			.toAbsolutePath().toString();
-	private final static String ACCESS_ANALYSIS_TRAVELPLANNER_PROJECT_PATH_JOANA = Path.of(
-			"/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Code/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis")
-			.toAbsolutePath().toString();
-	private final static String ACCESS_ANALYSIS_TRAVELPLANNER_PATH_BASE_PACKAGE_PATH = Path
-			.of(String.format("%s/%s", ACCESS_ANALYSIS_TRAVELPLANNER_PROJECT_PATH_JOANA,
-					"/src/edu/kit/kastel/sdq/coupling/casestudy/travelplanner"))
-			.toAbsolutePath().toString();
-	private final static String JOANA_PATH = Path
-			.of("/home/frederik/Arbeitsplatz/git/tools/joana/dist/joana.ui.ifc.wala.cli.jar").toAbsolutePath()
-			.toString();
-	private final static String ENTRY_POINT_IDS_FILE_PATH = Path
-			.of(String.format("%s/%s", ACCESS_ANALYSIS_TRAVELPLANNER_PROJECT_PATH_JOANA, "/entryPointIDs.txt"))
-			.toAbsolutePath().toString();
-	private final static String OUTPUT_DIRECTORY = Path.of(
-			"/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/SCAR/JOANA")
-			.toAbsolutePath().toString();
 	private final static String RUN_TEMPLATE = "run %s --out=%s/%s";
 	private final static String ENABLE_INTERFACE_FLOWS = "sdgOptions enableUninitializedFieldTypes";
 	private final static String CLASS_PATH_TEMPLATE = "classPath %s";
 	private final static String OUTPUT_FILE_NAME_TEMPLATE = "output%s.txt";
 	private static String tmpDirectoryLocation = "";
-	private final static String OUTPUT_NAME = "joanaResult";
 	private final static String FLOW_FOUND_INDICATOR = "found_flows: true";
 
-	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public static void main(String[] args) {
 		
-		executeJOANA(ACCESS_ANALYSIS_TRAVELPLANNER_PATH_BASE_PACKAGE_PATH, ENTRY_POINT_IDS_FILE_PATH, OUTPUT_DIRECTORY, JAVA8_COMPILER_PATH, JAVA8_RUNTIME_PATH, JOANA_PATH);
-	
-		return true;
+		//ARGS: MAKE CLI, now static for eval:
+		// [0]: Base ProjectPath
+		// [0]: Source Code base package path
+		// [1]: Path to EntryPoints
+		// [2]: Output Directory
+		// [3]: Java-Compiler Path
+		// [4]: Java-Runtime Path
+		// [5]: JOANA CLI Path
+		
+		
+		
+		String analysisProjectPath = Path.of(args[0]).toAbsolutePath().toString();
+		String joanaSourceCodeBasePackagePath = Path.of(args[1]).toAbsolutePath().toString();
+		String entryPointsFilePath = Path.of(args[2]).toAbsolutePath().toString();
+		String outputFilePath = Path.of(args[3]).toAbsolutePath().toString();
+		String javaCompilerPath = Path.of(args[4]).toAbsolutePath().toString();
+		String javaRuntimePath = Path.of(args[5]).toAbsolutePath().toString();
+		String joanaCLIPath = Path.of(args[6]).toAbsolutePath().toString();
+		
+		executeJOANA(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath, javaCompilerPath, javaRuntimePath, joanaCLIPath);
 	}
 	
-	private void executeJOANA(String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputDirectoryLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
-		compileJOANACode(projectCodeBasePackageLocation);
+	private static void executeJOANA(String projectLocation, String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
+		compileJOANACode(projectCodeBasePackageLocation, javaCompilerLocation, joanaJarLocation);
 
 		Collection<String> entryPointIDs = getEntryPointIDs(Path.of(entryPointIDsFileLocation).toFile());
-		executeJOANA(entryPointIDs, javaRuntimeLocation, joanaJarLocation);
+		executeJOANA(projectLocation, entryPointIDs, javaRuntimeLocation, joanaJarLocation);
 
 		String combinedResult = combineResults(entryPointIDs, tmpDirectoryLocation);
 		
-		FileToGenerate file = new FileToGenerate(combinedResult, outputDirectoryLocation, OUTPUT_NAME, "txt");
+		FileToGenerate file = new FileToGenerate(combinedResult, outputFileLocation);
 		file.write();
+		
+		//Cleanup after collecting results
+		try {
+			deleteClassFilesRecursively(Path.of(projectCodeBasePackageLocation).toAbsolutePath().toFile());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Done");
 		Path.of(tmpDirectoryLocation).toFile().delete();
 	}
 
-	private static void executeJOANA(Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
+	private static void executeJOANA(String pathToProjectForAnalysis, Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
 
 		try {
 			Path tmp = Files.createTempDirectory("joanaResults");
@@ -81,13 +81,13 @@ public class JoanaExecutionHandler extends AbstractHandler {
 		}
 
 		for (String entryPointID : entryPointIDs) {
-
+			System.out.println("Execting JOANA for EntryPoint " + entryPointID);
 			List<String> executionCommand = new ArrayList<String>();
 
 			executionCommand.add(javaRuntimeLocation);
 			executionCommand.add("-jar");
 			executionCommand.add(joanaJarLocation);
-			executionCommand.add(String.format(CLASS_PATH_TEMPLATE, ACCESS_ANALYSIS_TRAVELPLANNER_PROJECT_PATH_JOANA));
+			executionCommand.add(String.format(CLASS_PATH_TEMPLATE, pathToProjectForAnalysis));
 			executionCommand.add(ENABLE_INTERFACE_FLOWS);
 
 			String outputFileName = String.format(OUTPUT_FILE_NAME_TEMPLATE, entryPointID);
@@ -100,6 +100,7 @@ public class JoanaExecutionHandler extends AbstractHandler {
 			try {
 				Process pr = processBuilder.start();
 				pr.waitFor();
+				System.out.println("Ended Execution");
 			} catch (IOException | InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -174,7 +175,7 @@ public class JoanaExecutionHandler extends AbstractHandler {
 
 	}
 
-	private static void compileJOANACode(String baseDirectoryLocation) {
+	private static void compileJOANACode(String baseDirectoryLocation, String javaCompilerPath, String joanaCLIPath) {
 
 		File baseDirectory = Path.of(baseDirectoryLocation).toFile();
 
@@ -191,9 +192,9 @@ public class JoanaExecutionHandler extends AbstractHandler {
 
 		List<String> buildCommand = new ArrayList<String>();
 
-		buildCommand.add(JAVA8_COMPILER_PATH);
+		buildCommand.add(javaCompilerPath);
 		buildCommand.add("-cp");
-		buildCommand.add(JOANA_PATH);
+		buildCommand.add(joanaCLIPath);
 		buildCommand.addAll(javaFilePaths);
 
 		ProcessBuilder processBuilder = new ProcessBuilder();
@@ -205,6 +206,8 @@ public class JoanaExecutionHandler extends AbstractHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("Compiled Project");
 	}
 
 	private static void deleteClassFilesRecursively(File baseDirectory) throws IOException {

@@ -218,7 +218,17 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	
 	private def String generatePrintResult() '''
 	string «PRINT_RESULT_NAME»(«MODULE_NAME»::PathNode source, «MODULE_NAME»::PathNode sink){
-	    result = "(" + «PRINT_RESULT_NAME»(source.getNode()) +"," + getNodeLevelAsString(source.getNode()) + ")" + "-> (" + «PRINT_RESULT_NAME»(sink.getNode()) + "," + getNodeLevelAsString(sink.getNode()) +")"
+	    result = 
+	    "(" 
+	    + «PRINT_RESULT_NAME»(source.getNode()) 
+	    +"," 
+	    + getNodeLevelAsString(source.getNode()) 
+	    + ")" 
+	    + "-> (" 
+	    + «PRINT_RESULT_NAME»(sink.getNode()) 
+	    + "," 
+	    + getNodeLevelAsString(sink.getNode()) 
+	    +")"
 	}
 	'''
 	
