@@ -39,16 +39,14 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignatur
 public class IterativeAccessAnalysis2JOANASecurityGenerator {
 
 	private final PCMJavaCorrespondenceRoot correspondences;
-	// private final ConfidentialitySpecification accessAnalysisSpec;
 	private final JOANARoot root;
-	private final LevelHandler<String> levelHandler;
+	private LevelHandler<String> levelHandler;
 	private HashMap<String, Level> levelInstancesRegistry;
 
 	public IterativeAccessAnalysis2JOANASecurityGenerator(PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification accessAnalysisSpec) {
 		super();
 		this.correspondences = correspondences;
-		// this.accessAnalysisSpec = accessAnalysisSpec;
 		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
 		this.levelHandler = new LevelHandler<String>();
 		this.levelInstancesRegistry = new HashMap<String, Level>();
@@ -79,15 +77,6 @@ public class IterativeAccessAnalysis2JOANASecurityGenerator {
 				}
 			}
 		}
-
-		// Execute TransitiveReduction Algorithm and get Lattice as a result
-		Lattice lattice = createResultingLatticeByTransitiveReduction();
-
-		// Add Lattice and all occurring levels to each entrypoint
-		entrypoints.forEach(e -> {
-			e.setLattice(lattice);
-			e.getLevel().addAll(levelInstancesRegistry.values());
-		});
 
 		return entrypoints;
 	}
@@ -155,8 +144,23 @@ public class IterativeAccessAnalysis2JOANASecurityGenerator {
 			}
 		}
 
+		// Execute TransitiveReduction Algorithm and get Lattice as a result
+		Lattice lattice = createResultingLatticeByTransitiveReduction();
+
+		// Add Lattice and all occurring levels to the entrypoint
+		entrypoint.setLattice(lattice);
+		entrypoint.getLevel().addAll(levelInstancesRegistry.values());
+
+		// Reset the Handler and Registry for the next Entrpoint
+		this.resetLevelHandlerAndLevelInstancesRegistry();
+
 		return entrypoint;
 
+	}
+
+	private void resetLevelHandlerAndLevelInstancesRegistry() {
+		this.levelHandler = new LevelHandler<String>();
+		this.levelInstancesRegistry = new HashMap<String, Level>();
 	}
 
 	/**
@@ -185,10 +189,10 @@ public class IterativeAccessAnalysis2JOANASecurityGenerator {
 	private String combineLevelNames(Collection<String> securityLevels) {
 		List<String> list = new ArrayList<String>(securityLevels);
 		Collections.sort(list);
-		
-		// TODO force camelcase?
-		list = list.stream().map(e -> (e.substring(0, 1).toUpperCase() + e.substring(1).toLowerCase()))
-				.collect(Collectors.toList());
+
+		// next line forces camelcase if not out commented
+//		list = list.stream().map(e -> (e.substring(0, 1).toUpperCase() + e.substring(1).toLowerCase()))
+//				.collect(Collectors.toList());
 
 		return String.join("", list);
 	}
