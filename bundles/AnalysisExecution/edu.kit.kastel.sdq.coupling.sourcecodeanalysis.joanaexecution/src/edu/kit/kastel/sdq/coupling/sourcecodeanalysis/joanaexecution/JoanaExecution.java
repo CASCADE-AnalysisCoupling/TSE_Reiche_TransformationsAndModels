@@ -44,10 +44,10 @@ public class JoanaExecution{
 		String javaRuntimePath = Path.of(args[5]).toAbsolutePath().toString();
 		String joanaCLIPath = Path.of(args[6]).toAbsolutePath().toString();
 		
-		executeJOANA(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath, javaCompilerPath, javaRuntimePath, joanaCLIPath);
+		execute(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath, javaCompilerPath, javaRuntimePath, joanaCLIPath);
 	}
 	
-	private static void executeJOANA(String projectLocation, String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
+	private static void execute(String projectLocation, String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
 		compileJOANACode(projectCodeBasePackageLocation, javaCompilerLocation, joanaJarLocation);
 
 		Collection<String> entryPointIDs = getEntryPointIDs(Path.of(entryPointIDsFileLocation).toFile());
@@ -69,7 +69,7 @@ public class JoanaExecution{
 		Path.of(tmpDirectoryLocation).toFile().delete();
 	}
 
-	private static void executeJOANA(String pathToProjectForAnalysis, Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
+	private static void executeJOANA(String projectLocation, Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
 
 		try {
 			Path tmp = Files.createTempDirectory("joanaResults");
@@ -81,13 +81,13 @@ public class JoanaExecution{
 		}
 
 		for (String entryPointID : entryPointIDs) {
-			System.out.println("Execting JOANA for EntryPoint " + entryPointID);
+			System.out.println("Executing JOANA for EntryPoint " + entryPointID);
 			List<String> executionCommand = new ArrayList<String>();
 
 			executionCommand.add(javaRuntimeLocation);
 			executionCommand.add("-jar");
 			executionCommand.add(joanaJarLocation);
-			executionCommand.add(String.format(CLASS_PATH_TEMPLATE, pathToProjectForAnalysis));
+			executionCommand.add(String.format(CLASS_PATH_TEMPLATE, projectLocation));
 			executionCommand.add(ENABLE_INTERFACE_FLOWS);
 
 			String outputFileName = String.format(OUTPUT_FILE_NAME_TEMPLATE, entryPointID);
@@ -100,7 +100,6 @@ public class JoanaExecution{
 			try {
 				Process pr = processBuilder.start();
 				pr.waitFor();
-				System.out.println("Ended Execution");
 			} catch (IOException | InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
