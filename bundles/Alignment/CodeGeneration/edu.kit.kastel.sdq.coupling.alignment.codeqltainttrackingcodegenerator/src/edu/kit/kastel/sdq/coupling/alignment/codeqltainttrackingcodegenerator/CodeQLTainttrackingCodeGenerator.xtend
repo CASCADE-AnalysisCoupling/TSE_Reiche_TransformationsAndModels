@@ -235,18 +235,19 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generatePrintResultForParameter()'''
 	string printParameter(DataFlow::Node node){
 	    result = node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
-	    + node.getEnclosingCallable().getDeclaringType().getName() + "::" 
-	    + node.getEnclosingCallable().getName() + ":" 
-	    + node.asParameter().getName() 
+	        + node.getEnclosingCallable().getDeclaringType().getName() + "::" 
+	        + node.getEnclosingCallable().getName() + "(" 
+	        + node.asParameter().getName() + ":"
+	    	+ node.asParameter().getType().getName() + ")" 
 	}
 	'''
 	
 	private def String generatePrintResultForField()'''
 	string printField(DataFlow::Node node){
-	    result = 
-	    node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
-	    + node.getEnclosingCallable().getDeclaringType().getName() + "!" 
-	    + node.asExpr().(FieldAccess).getField().getName()
+	     result = node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
+	        + node.getEnclosingCallable().getDeclaringType().getName() + "!" 
+	        + node.asExpr().(FieldAccess).getField().getName() + ":" 
+	    	+ node.asExpr().(FieldAccess).getField().getType().getName()
 	}
 	'''
 	

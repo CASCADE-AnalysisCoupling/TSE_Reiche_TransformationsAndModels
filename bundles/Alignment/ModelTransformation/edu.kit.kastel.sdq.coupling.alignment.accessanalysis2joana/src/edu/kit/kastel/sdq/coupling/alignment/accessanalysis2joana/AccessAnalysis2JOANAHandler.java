@@ -17,11 +17,8 @@ import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import com.google.common.collect.Lists;
-
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators.AccessAnalysis2JOANAModelGenerator;
-import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileOutput;
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators.JOANAClassOrInterfaceTypeCodeGenerator;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
