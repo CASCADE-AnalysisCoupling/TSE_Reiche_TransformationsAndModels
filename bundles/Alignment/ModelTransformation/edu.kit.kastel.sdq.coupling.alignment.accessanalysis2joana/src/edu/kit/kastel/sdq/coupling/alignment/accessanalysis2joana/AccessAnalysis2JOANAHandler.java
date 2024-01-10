@@ -31,22 +31,22 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 public class AccessAnalysis2JOANAHandler extends AbstractHandler{
 	private static final String JAVA_CODE_FILE_ENDING = "java";
 	private static final String JOANA_EVAL_CODE_FOLDER_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis";
-	private static final String JAVA_CODE_BASE_PATH = Paths.get(String.format("%s/%s/Code/%s/", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, JOANA_EVAL_CODE_FOLDER_NAME)).toAbsolutePath().toString();
+	//private static final String JAVA_CODE_BASE_PATH = Paths.get(String.format("%s/%s/Code/%s/", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, JOANA_EVAL_CODE_FOLDER_NAME)).toAbsolutePath().toString();
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";
 	private static final String ENTRY_POINT_ID_FILE_ENDING = "txt";
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		PCMJavaCorrespondenceRoot correspondences = PcmjavacorrespondenceFactory.eINSTANCE.createPCMJavaCorrespondenceRoot();
-		InputModels models = InputModels.createModelsFromFiles(InputModels.REPOSITORY_PATH, InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
-		Repository repo = models.getRepository();
-		ProfileApplication profile = models.getProfile();
-		ConfidentialitySpecification spec = models.getConfidentiality();
-		
-		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator();
-		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, profile, spec);
-		output.writeModelsToFiles();
-		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
-		generateAndPrintEntryPointIDFile(modelGenerator);
+//		PCMJavaCorrespondenceRoot correspondences = PcmjavacorrespondenceFactory.eINSTANCE.createPCMJavaCorrespondenceRoot();
+//		InputModels models = InputModels.createModelsFromFiles(InputModels.REPOSITORY_PATH, InputModels.CONFIDENTIALITY_SPECIFICATION_PATH);
+//		Repository repo = models.getRepository();
+//		ProfileApplication profile = models.getProfile();
+//		ConfidentialitySpecification spec = models.getConfidentiality();
+//		
+//		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator();
+//		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, profile, spec);
+//		output.writeModelsToFiles();
+//		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
+//		generateAndPrintEntryPointIDFile(modelGenerator);
 		
 		return true;
 	}
@@ -76,17 +76,17 @@ public class AccessAnalysis2JOANAHandler extends AbstractHandler{
 			}
 			
 			String[] pathPartsGettable = realPathParts.toArray(new String[0]);
-			String path = Paths.get(JAVA_CODE_BASE_PATH, pathPartsGettable).toAbsolutePath().toString();
-			
-			FileToGenerate file = new FileToGenerate(content, path, type.getName(), JAVA_CODE_FILE_ENDING);
-			file.write();
+//			String path = Paths.get(JAVA_CODE_BASE_PATH, pathPartsGettable).toAbsolutePath().toString();
+//			
+//			FileToGenerate file = new FileToGenerate(content, path, type.getName(), JAVA_CODE_FILE_ENDING);
+//			file.write();
 		}
 	}
 	
 	private void generateAndPrintEntryPointIDFile(AccessAnalysis2JOANAModelGenerator modelGenerator) {
 		String entryPointIDFileContent = modelGenerator.generateEntryPointIDsAsString();
 		
-		FileToGenerate file = new FileToGenerate(entryPointIDFileContent, JAVA_CODE_BASE_PATH, ENTRY_POINT_ID_FILE_NAME, ENTRY_POINT_ID_FILE_ENDING);
-		file.write();
+//		FileToGenerate file = new FileToGenerate(entryPointIDFileContent, JAVA_CODE_BASE_PATH, ENTRY_POINT_ID_FILE_NAME, ENTRY_POINT_ID_FILE_ENDING);
+//		file.write();
 	}
 }
