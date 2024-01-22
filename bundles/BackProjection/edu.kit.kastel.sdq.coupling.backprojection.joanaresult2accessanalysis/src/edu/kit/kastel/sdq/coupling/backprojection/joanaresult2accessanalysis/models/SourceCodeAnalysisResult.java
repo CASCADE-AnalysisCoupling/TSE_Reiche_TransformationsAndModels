@@ -12,14 +12,11 @@ public class SourceCodeAnalysisResult {
 	}
 	
 	public void addResultEntry(ResultEntry entry) {
-		//TODO: Circumventing creating an hash value for now, not nice and against Set idea, but well...
-//		for(ResultEntry existing : resultEntries) {
-//			if(existing.equals(entry)) {
-//				return;
-//			}
-//		}
-		
 		resultEntries.add(entry);
 	}
 	
+	
+	public void print() {
+		resultEntries.forEach(entry -> {System.out.println(entry.toString());});
+	}
 }

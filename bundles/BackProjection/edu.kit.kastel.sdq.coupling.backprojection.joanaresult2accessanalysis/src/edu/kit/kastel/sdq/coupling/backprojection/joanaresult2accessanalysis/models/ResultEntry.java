@@ -2,26 +2,25 @@ package edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.mo
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
 public class ResultEntry {
 
-	private final ResultEntryElement source;
-	private final ResultEntryElement sink;
+	private final ResultEntryElement<?> source;
+	private final ResultEntryElement<?> sink;
 	private final EntryPoint entryPoint;
 
-	public ResultEntry(ResultEntryElement source, ResultEntryElement sink, EntryPoint entryPoint) {
+	public ResultEntry(ResultEntryElement<?> source, ResultEntryElement<?> sink, EntryPoint entryPoint) {
 		super();
 		this.source = source;
 		this.sink = sink;
 		this.entryPoint = entryPoint;
 	}
 
-	public ResultEntryElement getSource() {
+	public ResultEntryElement<?> getSource() {
 		return source;
 	}
 
-	public ResultEntryElement getSink() {
+	public ResultEntryElement<?> getSink() {
 		return sink;
 	}
 
@@ -57,6 +56,11 @@ public class ResultEntry {
 		return this.source.equals(toCompareResultEntry.getSource()) && this.sink.equals(toCompareResultEntry.getSink())
 				&& this.entryPoint.equals(toCompareResultEntry.getEntryPoint());
 
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("(%s -> %s), %s", source.toString(), sink.toString(), entryPoint.getId());
 	}
 
 }

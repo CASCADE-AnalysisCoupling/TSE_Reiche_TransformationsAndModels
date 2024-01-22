@@ -8,10 +8,10 @@ import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.mod
 import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models.ResultingSpecEntry;
 import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.utils.BackprojectionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 
 /* 
  * This extractor is based on the original idea of the thesis 
@@ -29,11 +29,10 @@ public class NaivePowerSetLatticeResultingSpecificationExtractor extends Resulti
 		super();
 	}
 
-	@Override
 	protected Level combine(Level source, Level sink) {
 
-		Collection<Level> sourceBasicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(source, entryPoint);
-		Collection<Level> sinkBasicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(sink, entryPoint);
+		Collection<Level> sourceBasicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(source, entryPoint);
+		Collection<Level> sinkBasicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(sink, entryPoint);
 
 		Set<Level> combinedLevels = new HashSet<Level>();
 
@@ -44,44 +43,57 @@ public class NaivePowerSetLatticeResultingSpecificationExtractor extends Resulti
 			combinedLevels.add(level);
 		});
 
-		return findLevelFromSetOfBasicLevels(combinedLevels);
+		return JOANAResolutionUtil.findLevelFromSetOfBasicLevels(combinedLevels, entryPoint);
 
 	}
 
-	@Override
-	protected ResultingSpecEntry combine(ResultEntry resultEntry) {
+
+	private boolean isResultEntryValitWRTAccessAnalysis(ResultEntry resultEntry) {
+		Collection<Level> sourceBasicLevels = JOANAResolutionUtil.resolveBasicLevels(resultEntry.getSource().getSecurityProperty(), entryPoint);
+		Collection<Level> sinkBasicLevels = JOANAResolutionUtil.resolveBasicLevels(resultEntry.getSink().getSecurityProperty(), entryPoint);
+		
+		return !containsAny(sourceBasicLevels, sinkBasicLevels);
+	}
 	
-		Parameter targetParameter = resultEntry.getSink().getSystemElement();
-		ResultingSpecEntry resultingSpecEntry = resultingSpecification
-				.getResultingSpecEntryForTargetIfExisting(targetParameter).orElse(null);
-
-		Level newLevel;
-		if (resultingSpecEntry == null) {
-			newLevel = combine(resultEntry.getSource().getSecurityProperty(),
-					resultEntry.getSink().getSecurityProperty());
-
-			return new ResultingSpecEntry(targetParameter, newLevel, resultEntry.getEntryPoint());
-
-		} else {
-			newLevel = combine(resultEntry.getSource().getSecurityProperty(), resultingSpecEntry.getSecurityProperty());
-
-			resultingSpecEntry.setSecurityProperty(newLevel);
-			return resultingSpecEntry;
-
-		}
+	public static <T> boolean containsAny(Collection<T> ifContaining, Collection<T> testAgainst) {
+		for(T elementToTest : testAgainst) {
+			if(ifContaining.contains(elementToTest)) {
+				return true;
+			}
+		} 
+		
+		return false;
 	}
+
 
 	@Override
 	public ResultingSpecification calculateResultingSpecification(SourceCodeAnalysisResult scar) {
-	
-		this.resultingSpecification = new ResultingSpecification();
-		//Ignore Different EntryPoints due to powerset approach, otherwise, handling of different entrypoints and level necessary;
-		for (ResultEntry resultEntry : scar.getResultEntries()) {
-			this.setEntryPoint(resultEntry.getEntryPoint());
-			ResultingSpecEntry entry = combine(resultEntry);
-			resultingSpecification.addEntry(entry);
+		for(ResultEntry resultEntry : scar.getResultEntries()) {
+			if(isResultEntryValitWRTAccessAnalysis(resultEntry)) {
+				ResultingSpecEntry entry = combine(resultEntry);
+				resultingSpecification.addEntry(entry);
+			}
 		}
-
+		
 		return resultingSpecification;
+	}
+	
+	private ResultingSpecEntry combine(ResultEntry resultEntry) {
+		Parameter targetParameter = null;
+		if(resultEntry.getSink().getSystemElement() instanceof Parameter) {
+			targetParameter = (Parameter)resultEntry.getSink().getSystemElement();
+		}
+		
+		ResultingSpecEntry resultingSpecEntry = resultingSpecification.getResultingSpecEntryForTargetIfExisting(targetParameter).orElse(null);
+		
+		Level newLevel;
+		if(resultingSpecEntry == null) {
+			newLevel = combine(resultEntry.getSource().getSecurityProperty(), resultEntry.getSink().getSecurityProperty());
+			return new ResultingSpecEntry(targetParameter, newLevel, entryPoint);
+		} else {
+			newLevel = combine(resultEntry.getSource().getSecurityProperty(), resultingSpecEntry.getSecurityProperty());
+			resultingSpecEntry.setSecurityProperty(newLevel);
+			return resultingSpecEntry;
+		}
 	}
 }

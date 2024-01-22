@@ -1,10 +1,13 @@
 package edu.kit.kastel.sdq.coupling.models.joana.supporting.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
@@ -13,6 +16,7 @@ import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
+import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
@@ -98,5 +102,57 @@ public class JOANAResolutionUtil {
 			
 			
 		return false;
+	}
+	
+	public static Level lookupLevel(String levelName, EntryPoint entryPoint) {
+		return entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName))
+				.findFirst().get();
+	}
+	
+	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint) {
+		Collection<Level> basicLevels = new HashSet<Level>();
+
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(";"));
+
+		splitLevelBasicLevelNames.forEach(name -> {
+			basicLevels.add(lookupLevel(name, entryPoint));
+		});
+
+		return basicLevels;
+	}
+
+	public static  Level findLevelFromSetOfBasicLevels(Collection<Level> levels, EntryPoint entryPoint) {
+		
+		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(Level::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
+		Optional<Level> calculatedLevel = entryPoint.getLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
+		return calculatedLevel.get();
+	}
+	
+	public static Collection<Level> resolveBasicLevels(Level level, EntryPoint entryPoint) {
+		Collection<Level> basicSecurityLevels = new HashSet<Level>();
+
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(";"));
+
+		splitLevelBasicLevelNames.forEach(name -> {
+			basicSecurityLevels.add(lookupLevel(name, entryPoint));
+		});
+
+		return basicSecurityLevels;
+	}
+	
+	public static Collection<Level> resolveBasicLevels(String levelName, EntryPoint entryPoint) {
+		Collection<Level> basicSecurityLevels = new HashSet<Level>();
+
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(levelName.split(";"));
+
+		splitLevelBasicLevelNames.forEach(name -> {
+			basicSecurityLevels.add(lookupLevel(name, entryPoint));
+		});
+
+		return basicSecurityLevels;
+	}
+	
+	public static EntryPoint getEntryPointByTag(String tag, JOANARoot root) {
+		return root.getEntrypoint().stream().filter(ep -> ep.getId().equals(tag.toString())).findFirst().get();
 	}
 }

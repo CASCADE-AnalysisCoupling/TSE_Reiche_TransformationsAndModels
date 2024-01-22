@@ -20,6 +20,13 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private static val String SUBLEVEL_DELIMINATOR = ";";
 	public static val String PRINT_RESULT_NAME = "printResult";
 	public static val String CONSIDER_NOT_EQUAL_ELEMENTS = "notEqualElements";
+	public static val String CLASS_FIELD_DELIMITER = "!";
+	public static val String SYSTEMELEMENT_TYPE_DELIMITER = ":";
+	public static val String METHOD_PARAMETER_DELIMITER = ".";
+	public static val String CLASS_METHOD_DELIMITER = "::";
+	public static val String SOURCE_SINK_DELIMITER = "->";
+	public static val String SYSTEMELEMENT_SECURITYELEMENT_DELIMITER = ",";
+	
 	val CodeQLQueryTemplate query;
 	
 	val Configuration config;
@@ -221,12 +228,12 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	    result = 
 	    "(" 
 	    + «PRINT_RESULT_NAME»(source.getNode()) 
-	    +"," 
+	    +"«SYSTEMELEMENT_SECURITYELEMENT_DELIMITER»" 
 	    + getNodeLevelAsString(source.getNode()) 
 	    + ")" 
-	    + "-> (" 
+	    + "«SOURCE_SINK_DELIMITER» (" 
 	    + «PRINT_RESULT_NAME»(sink.getNode()) 
-	    + "," 
+	    + "«SYSTEMELEMENT_SECURITYELEMENT_DELIMITER»" 
 	    + getNodeLevelAsString(sink.getNode()) 
 	    +")"
 	}
@@ -235,18 +242,19 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generatePrintResultForParameter()'''
 	string printParameter(DataFlow::Node node){
 	    result = node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
-	        + node.getEnclosingCallable().getDeclaringType().getName() + "::" 
-	        + node.getEnclosingCallable().getName() + "(" 
-	        + node.asParameter().getName() + ":"
-	    	+ node.asParameter().getType().getName() + ")" 
+	        + node.getEnclosingCallable().getDeclaringType().getName() + "«CLASS_METHOD_DELIMITER»" 
+	        + node.getEnclosingCallable().getName()
+	        + "«METHOD_PARAMETER_DELIMITER»"
+	        + node.asParameter().getName() + "«SYSTEMELEMENT_TYPE_DELIMITER»"
+	    	+ node.asParameter().getType().getName()
 	}
 	'''
 	
 	private def String generatePrintResultForField()'''
 	string printField(DataFlow::Node node){
 	     result = node.getEnclosingCallable().getDeclaringType().getPackage() + "." 
-	        + node.getEnclosingCallable().getDeclaringType().getName() + "!" 
-	        + node.asExpr().(FieldAccess).getField().getName() + ":" 
+	        + node.getEnclosingCallable().getDeclaringType().getName() + "«CLASS_FIELD_DELIMITER»" 
+	        + node.asExpr().(FieldAccess).getField().getName() + "«SYSTEMELEMENT_TYPE_DELIMITER»" 
 	    	+ node.asExpr().(FieldAccess).getField().getType().getName()
 	}
 	'''

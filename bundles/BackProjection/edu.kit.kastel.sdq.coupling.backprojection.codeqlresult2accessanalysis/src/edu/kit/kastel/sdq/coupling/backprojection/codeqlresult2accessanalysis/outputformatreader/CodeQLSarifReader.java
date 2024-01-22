@@ -3,6 +3,7 @@ package edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.o
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.Queue;
 
 import com.google.gson.JsonArray;
@@ -10,17 +11,23 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultEntry;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultEntryElement;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.utils.Tuple;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.Package;
+import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.types.Class;
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
+
 
 public class CodeQLSarifReader {
 
@@ -56,7 +63,7 @@ public class CodeQLSarifReader {
 		return localResult;
 	}
 	
-	//Create collection, as there may be multiple illegal flows in one result (reason unclear)
+	//Return collection, as there may be multiple illegal flows in one result (reason unclear)
 	private Collection<ResultEntry> parseResult(JsonObject result) {
 		Collection<ResultEntry> resultEntries = new ArrayList<ResultEntry>();
 		
@@ -65,33 +72,88 @@ public class CodeQLSarifReader {
 		
 		for(int i = 0; i < multipleFlows.length; i++) {
 			String singleFlow = multipleFlows[i];
-			String[] sourceSinkSplit = singleFlow.split(" -> ");
+			Tuple<String, String> sourceSinkSplit = splitAndCleanSourceAndSinks(singleFlow);
 			
-			String source = sourceSinkSplit[0].strip();
-			String sink = sourceSinkSplit[1].strip();
-			
-			source = source.replaceAll("\\(", "").replaceAll("\\)", "");
-			sink = sink.replaceAll("\\(", "").replaceAll("\\)", "");
-			
-			String[] sourceParamLevelSplit = source.split(",");
-			String[] sinkParamLevelSplit = sink.split(",");
-			
-			Parameter sourceParameter = resolveParameter(sourceParamLevelSplit[0].strip());
-			SecurityLevel sourceSecurityLevel = resolveSecurityLevel(sourceParamLevelSplit[1].strip());
-			
-			Parameter sinkParameter = resolveParameter(sinkParamLevelSplit[0].strip());
-			SecurityLevel sinkSecurityLevel = resolveSecurityLevel(sinkParamLevelSplit[1].strip());
-			
-			ResultEntryElement sourceEntryElement = new ResultEntryElement(sourceParameter, sourceSecurityLevel);
-			ResultEntryElement sinkEntryElement = new ResultEntryElement(sinkParameter, sinkSecurityLevel);
-			
-			resultEntries.add(new ResultEntry(sourceEntryElement, sinkEntryElement));
+			String source = sourceSinkSplit.getFirst();
+			String sink = sourceSinkSplit.getSecond();
+		
+			resultEntries.add(calculateResultEntryForSourceAndSinkRepresentation(source, sink));
 		}
 		
-		
-		
-		
 		return resultEntries;
+	}
+	
+	private ResultEntry calculateResultEntryForSourceAndSinkRepresentation(String sourceRepresentation, String sinkRepresentation) {
+		Tuple<String, String> sourceSystemElementLevelSplit = splitandCleanSourceSinkInSystemElementIdentificationAndSecurityLevel(sourceRepresentation);
+		Tuple<String, String> sinkSystemElementLevelSplit = splitandCleanSourceSinkInSystemElementIdentificationAndSecurityLevel(sinkRepresentation);
+		
+		ResultEntryElement<?> sourceEntryElement = null;
+		ResultEntryElement<?> sinkEntryElement = null;
+		
+		SecurityLevel sourceSecurityLevel = resolveSecurityLevel(sourceSystemElementLevelSplit.getSecond());
+		SecurityLevel sinkSecurityLevel = resolveSecurityLevel(sinkSystemElementLevelSplit.getSecond());
+		
+		if(isFieldIdentification(sourceSystemElementLevelSplit.getFirst())) {
+			Field sourceField = resolveField(sourceSystemElementLevelSplit.getFirst());
+			sourceEntryElement = new ResultEntryElement<Field>(sourceField, sourceSecurityLevel);
+		} else {
+			Parameter sourceParameter = resolveParameter(sourceSystemElementLevelSplit.getFirst());
+			sourceEntryElement = new ResultEntryElement<Parameter>(sourceParameter, sourceSecurityLevel);
+		}
+		
+		if(isFieldIdentification(sinkSystemElementLevelSplit.getFirst())) {
+			Field sinkField = resolveField(sinkSystemElementLevelSplit.getFirst());
+			sinkEntryElement = new ResultEntryElement<Field>(sinkField, sinkSecurityLevel);
+			
+		} else {
+			Parameter sinkParameter = resolveParameter(sinkSystemElementLevelSplit.getFirst());
+			sinkEntryElement = new ResultEntryElement<Parameter>(sinkParameter, sinkSecurityLevel);
+		}
+		
+		return new ResultEntry(sourceEntryElement, sinkEntryElement);
+	}
+	
+	private boolean isFieldIdentification(String systemElementRepresentation) {
+		return systemElementRepresentation.contains(CodeQLTainttrackingCodeGenerator.CLASS_FIELD_DELIMITER);
+	}
+	
+	private Field resolveField(String fieldIdentification){
+		Tuple<String, String> classAndField = splitClassAndFieldIdentification(fieldIdentification);
+		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(classAndField.getFirst(), javaRoot);
+		
+		Tuple<String, String> fieldNameAndType = splitSystemElementAndType(classAndField.getSecond());
+		
+		
+		//Workaround for Eval: Working with java model and source code requires consistency between them
+		//	which is not given right now due to manual additions in Code but not in model. 
+		//Could be performed automatically, for instance with Vitruv
+		//For now, just generate field if not present and add it to Java model in memory
+		Optional<Field> potentialField = clazz.getField().stream().filter(field -> field.getName().equals(fieldNameAndType.getFirst()) && field.getType().getName().equals(fieldNameAndType.getSecond())).findFirst();
+		
+		if(potentialField.isPresent()) {
+			return potentialField.get();
+		} else {
+			Field newField = JavaModelGenerationUtil.generateField(fieldNameAndType.getFirst(), fieldNameAndType.getSecond(), javaRoot);
+			clazz.getField().add(newField);
+			return newField;
+		}
+	}
+	
+	private Tuple<String, String> splitAndCleanSourceAndSinks(String singleFlow) {
+		String[] sourceSinkSplit = singleFlow.split(CodeQLTainttrackingCodeGenerator.SOURCE_SINK_DELIMITER);
+		
+		String source = sourceSinkSplit[0].strip();
+		String sink = sourceSinkSplit[1].strip();
+		
+		source = source.replaceAll("\\(", "").replaceAll("\\)", "");
+		sink = sink.replaceAll("\\(", "").replaceAll("\\)", "");
+		
+		return new Tuple<String, String>(source, sink);
+	}
+	
+	private Tuple<String, String> splitandCleanSourceSinkInSystemElementIdentificationAndSecurityLevel(String sourceSink){
+		String[] split = sourceSink.split(CodeQLTainttrackingCodeGenerator.SYSTEMELEMENT_SECURITYELEMENT_DELIMITER);
+		return new Tuple<String, String>(split[0].strip(), split[1].strip());
 	}
 
 	private SecurityLevel resolveSecurityLevel(String levelName) {
@@ -105,62 +167,40 @@ public class CodeQLSarifReader {
 	}
 
 	private Parameter resolveParameter(String parameterIdentification) {
-		String[] classMethodSplit = parameterIdentification.split("::");
-		String[] pathToClassSplit = classMethodSplit[0].split("\\.");
+		Tuple<String,String> classMethodSplit = splitClassAndParameterIdentification(parameterIdentification);
 		
-		int classNameLoc = pathToClassSplit.length -  1;
-		
-		String[] methodParameterSplit = classMethodSplit[1].split(":");
-		
-		Queue<String> pathComponents = new LinkedList<String>();
-		for(int i = 0; i < pathToClassSplit.length - 1; i++) {
-			pathComponents.add(pathToClassSplit[i]);
-		}
+		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(classMethodSplit.getFirst(), javaRoot);
 		
 		
+		Tuple<String, Tuple<String,String>> methodNameAndParameterAndType = resolveMethodNameAndParameterNameAndParameterType(classMethodSplit.getSecond());
 		
-		Class clazz = findClassRecursive(pathToClassSplit[classNameLoc], pathComponents);
-		
-		Method methodToFind = clazz.getMethod().stream().filter(method -> method.getName().equals(methodParameterSplit[0])).findFirst().get();
-		return methodToFind.getParameter().stream().filter(param -> param.getName().equals(methodParameterSplit[1])).findFirst().get();
+		return JavaResolutionUtil.resolveParameterWithTypeForClass(clazz, methodNameAndParameterAndType.getFirst(), methodNameAndParameterAndType.getSecond().getFirst(), methodNameAndParameterAndType.getSecond().getSecond());
 	}
 	
-	
-	
-	private Class findClassRecursive(String className, Queue<String> pathComponents) {
-		
-		String rootPackageName = pathComponents.remove(); 
-		
-		if(javaRoot.getPackage().getName().equals(rootPackageName)) {
-			return findClassRecursive(javaRoot.getPackage(), className, pathComponents);
-		}
-		
-		return null;
+	private Tuple<String, String> splitClassAndParameterIdentification(String parameterIdentfication){
+		String[] split = parameterIdentfication.split(CodeQLTainttrackingCodeGenerator.CLASS_METHOD_DELIMITER);
+		return new Tuple<String, String>(split[0], split[1]);
 	}
 	
-	private Class findClassRecursive(Package currentPackage, String className, Queue<String> pathComponents) {
-		
-		Class clazz = null;
-		
-		for(ClassOrInterfaceType coit : currentPackage.getClassorinterface()) {
-			if(coit instanceof Class && coit.getName().equals(className) && pathComponents.isEmpty()) {
-				return (Class)coit;
-			}
-		}
-		
-		String nextSubpackageName = pathComponents.remove();
-		
-		for(Package subPackage : currentPackage.getSubpackage()) {
-			
-			if(subPackage.getName().equals(nextSubpackageName)) {
-				clazz = findClassRecursive(subPackage, className, pathComponents);
-				if(clazz != null) {
-					return clazz;
-				}
-			}
-		}
-		
-		return clazz;
+	private Tuple<String, String> splitClassAndFieldIdentification(String fieldIdentification){
+		String[] split = fieldIdentification.split(CodeQLTainttrackingCodeGenerator.CLASS_FIELD_DELIMITER);
+		return new Tuple<String, String>(split[0], split[1]);
+	}
+	
 
+	private Tuple<String, Tuple<String,String>> resolveMethodNameAndParameterNameAndParameterType(String systemElementIdentifiyingAndType){
+		String[] split = systemElementIdentifiyingAndType.split(prependSlashesForRegex(CodeQLTainttrackingCodeGenerator.METHOD_PARAMETER_DELIMITER));
+		Tuple<String, String> parameterAndType = splitSystemElementAndType(split[1]);
+		return new Tuple<String, Tuple<String,String>>(split[0], parameterAndType);
+	}
+	
+	private Tuple<String, String> splitSystemElementAndType(String systemElementTypeDescription){
+		String[] split = systemElementTypeDescription.split(CodeQLTainttrackingCodeGenerator.SYSTEMELEMENT_TYPE_DELIMITER);
+		
+		return new Tuple<String, String>(split[0], split[1]);
+	}
+	
+	private String prependSlashesForRegex(String target) {
+		return String.format("\\%s", target);
 	}
 }

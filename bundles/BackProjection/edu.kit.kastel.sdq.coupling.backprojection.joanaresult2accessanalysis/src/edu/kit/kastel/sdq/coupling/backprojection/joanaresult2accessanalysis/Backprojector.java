@@ -2,14 +2,14 @@ package edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
-import org.palladiosimulator.pcm.repository.BasicComponent;
-import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Repository;
 
@@ -19,24 +19,25 @@ import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models.ResultingSpecEntry;
 import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.utils.BackprojectionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.utils.CollectionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.utils.Tuple;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
 
 public class Backprojector implements Backproject{
 	
-	private final Repository repository;
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ConfidentialitySpecification confidentialitySpec;
 	private final ProfileApplication profileApplication;
 	
+	
 	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
 		super();
-		this.repository = repository;
 		this.correspondences = correspondences;
 		this.confidentialitySpec = confidentialitySpec;
 		this.profileApplication = profileApplication;
@@ -44,9 +45,11 @@ public class Backprojector implements Backproject{
 
 	@Override
 	public void project(ResultingSpecification resultingSpec) {
-		for(ResultingSpecEntry resultingSpecEntry : resultingSpec.getEntries()) {
-			
-			PCMParameter2JavaParameter parameterCorrespondence = getParameterCorrespondence(resultingSpecEntry.getSystemElement());
+		
+		HashMap<Parameter, Set<ResultingSpecEntry>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(resultingSpec);
+		
+		for(Entry<Parameter, Set<ResultingSpecEntry>> assignment : specEntryParameterAssignments.entrySet()) {
+			PCMParameter2JavaParameter parameterCorrespondence = getParameterCorrespondence(assignment.getKey());
 			OperationSignature targetOperationSignature = parameterCorrespondence.getPcmParameterIdentification().getProvidedSignature().getProvidedSignature();
 			
 			Collection<StereotypeApplication> appliedStereotypes = profileApplication.getStereotypeApplications(targetOperationSignature);
@@ -58,12 +61,28 @@ public class Backprojector implements Backproject{
 				
 				for(ParametersAndDataPair parameterAndDataPair : parametersAndDataPairs) {
 					if(parameterAndDataPair.getParameterSources().contains(parameterCorrespondence.getPcmParameterIdentification().getParameter().getParameterName())) {
-						Collection<DataSet> resolvedDataSets = resolveDataSetsForLevel(resultingSpecEntry.getSecurityProperty(), resultingSpecEntry.getEntryPoint());
+
 						//Assumption: for each annotation exists its own parameter and datapair. 
 						//If not valid, the security level of other interfaces would change due to a flow to only one parameter:
 						// Solution: create individual parameterAndDataPair to replace existing entry
+						
+						//For the Case Study we make two assumptions: 
+						//1.) We have the knowledge that every entryPoint maps to the same annotated architectural model ==> Omit Backtracking of Configurations, i.e., entry points.
+						//2.) We know that the configurations contain currently only powerset lattices and datasets are defined separately ==> With 1.) omit check whether level exists in entrypoint.
+						//If these assumptions do not hold: Implement respective checks
+						
+						Collection<DataSet> originalDataSets = parameterAndDataPair.getDataTargets().stream().filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toSet());
+						
 						parameterAndDataPair.getDataTargets().clear();
-						parameterAndDataPair.getDataTargets().addAll(resolvedDataSets);
+						
+						for(ResultingSpecEntry entry : assignment.getValue()) {
+							
+							Collection<DataSet> dataSets = resolveDataSetsForLevel(entry.getSecurityProperty(), entry.getEntryPoint());
+							
+							if(isSecurityLevelValidWRTAccessAnalysis(originalDataSets, dataSets)) {
+								parameterAndDataPair.getDataTargets().addAll(dataSets);
+							}
+						}
 					}
 				}
 			}
@@ -73,13 +92,13 @@ public class Backprojector implements Backproject{
 	private Collection<DataSet> resolveDataSetsForLevel(Level securityProperty, EntryPoint entryPoint) {
 		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
 		
-		Collection<Level> basicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(securityProperty, entryPoint);
+		Collection<Level> basicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(securityProperty, entryPoint);
 		
 	
 		for(Level basicLevel : basicLevels) {
 			//this could be replaced by correspondence relationships between dataset and basic levels ( 1 - 1) 
 			//or datasets and all levels (m - 1)
-			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream().filter(ident -> ident instanceof DataSet).map(ident -> (DataSet) ident).collect(Collectors.toList());
+			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream().filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toList());
 			
 			for(DataSet dataSet : dataSets) {
 				if(dataSet.getName().equals(basicLevel.getName())) {
@@ -99,5 +118,46 @@ public class Backprojector implements Backproject{
 		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow")).collect(Collectors.toList()); 
 	}
 	
+	//For the Case Study we make two assumptions: 
+	//1.) We have the knowledge that every entryPoint maps to the same annotated architectural model ==> Omit Backtracking of Configurations, i.e., entry points.
+	//2.) We know that the configurations contain currently only powerset lattices and datasets are defined separately ==> With 1.) omit check whether level exists in entrypoint.
+	//If these assumptions do not hold: Implement respective checks
+	private HashMap<Parameter, Set<DataSet>> calculateDataSetsForParametersImplicitlyMapConfiguration(ResultingSpecification resultingSpec) {
+		
+		HashMap<Parameter, Set<DataSet>> parameterDataSetAssignments = new HashMap<Parameter, Set<DataSet>>();
+		
+		for(ResultingSpecEntry entry : resultingSpec.getEntries()) {
+			Collection<DataSet> dataSets = resolveDataSetsForLevel(entry.getSecurityProperty(), entry.getEntryPoint());
+			
+			if(!parameterDataSetAssignments.containsKey(entry.getSystemElement())) {
+				Set<DataSet> dataSetsForParameter = new HashSet<DataSet>();
+				parameterDataSetAssignments.put(entry.getSystemElement(), dataSetsForParameter);
+			}
+			
+			parameterDataSetAssignments.get(entry.getSystemElement()).addAll(dataSets);
+		}
+		
+		return parameterDataSetAssignments;
+	}
 	
+	private HashMap<Parameter, Set<ResultingSpecEntry>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(ResultingSpecification resultingSpec) {
+		
+		HashMap<Parameter, Set<ResultingSpecEntry>> parameterSpecEntryAssignments = new HashMap<Parameter, Set<ResultingSpecEntry>>();
+		
+		for(ResultingSpecEntry entry : resultingSpec.getEntries()) {
+			if(!parameterSpecEntryAssignments.containsKey(entry.getSystemElement())) {
+				Set<ResultingSpecEntry> specEntriesForParameter = new HashSet<ResultingSpecEntry>();
+				parameterSpecEntryAssignments.put(entry.getSystemElement(), specEntriesForParameter);
+			}
+			
+			parameterSpecEntryAssignments.get(entry.getSystemElement()).add(entry);
+		}
+		
+		return parameterSpecEntryAssignments;
+	}
+	
+	private boolean isSecurityLevelValidWRTAccessAnalysis(Collection<DataSet> originalSet, Collection<DataSet> dataSetsForSecurityLevel) {
+		return !(dataSetsForSecurityLevel.size() >= originalSet.size()
+				&& CollectionUtil.containsAny(dataSetsForSecurityLevel, originalSet));
+	}
 }

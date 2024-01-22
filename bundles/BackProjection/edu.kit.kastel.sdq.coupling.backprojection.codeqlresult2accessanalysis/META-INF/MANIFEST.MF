@@ -14,4 +14,5 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  edu.kit.kastel.scbs.confidentialitymm;bundle-version="1.1.0",
  edu.kit.kastel.scbs.pcmconfidentialityprofile;bundle-version="1.1.0",
  edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
- org.modelversioning.emfprofile
+ org.modelversioning.emfprofile,
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator;bundle-version="1.0.0"

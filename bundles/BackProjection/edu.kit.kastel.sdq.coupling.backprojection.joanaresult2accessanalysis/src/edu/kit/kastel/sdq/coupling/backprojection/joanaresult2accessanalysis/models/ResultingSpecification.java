@@ -22,4 +22,10 @@ public class ResultingSpecification {
 	public Optional<ResultingSpecEntry> getResultingSpecEntryForTargetIfExisting(Parameter target){
 		return resultingSpecEntries.stream().filter(existingSpecEntry -> existingSpecEntry.getSystemElement().equals(target)).findFirst();
 	}
+	
+	public void print() {
+		for(ResultingSpecEntry entry : resultingSpecEntries) {
+			System.out.println(entry.toString());
+		}
+	}
 }

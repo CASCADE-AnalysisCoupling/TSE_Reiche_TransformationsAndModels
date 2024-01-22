@@ -5,11 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
-import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
-import org.palladiosimulator.pcm.repository.BasicComponent;
-import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Repository;
 
@@ -19,7 +16,7 @@ import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultingSpecEntry;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.utils.BackprojectionUtil;
+import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
@@ -75,7 +72,7 @@ public class Backprojector implements Backproject{
 	private Collection<DataSet> resolveDataSetsForLevel(SecurityLevel securityProperty) {
 		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
 		
-		Collection<SecurityLevel> basicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(securityProperty, config);
+		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config);
 		
 	
 		for(SecurityLevel basicLevel : basicLevels) {

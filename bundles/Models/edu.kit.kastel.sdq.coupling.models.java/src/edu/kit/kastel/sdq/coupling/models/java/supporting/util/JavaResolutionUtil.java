@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.Package;
+import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
@@ -204,4 +208,96 @@ public class JavaResolutionUtil {
 	  	
 	  	return allClasses.stream().filter(clazz -> clazz.getMethod().contains(method)).findFirst().get();
 	}
+	
+	public static Type getTypeByName(JavaRoot javaRoot, String typeName) {
+		
+		return collectAllTypes(javaRoot).stream().filter(type -> type.getName().equals(typeName)).findFirst().get();
+		
+	}
+	
+	private static Collection<Type> collectAllTypes(JavaRoot javaRoot){
+		Collection<Type> allTypes = new HashSet<Type>();
+		allTypes.addAll(javaRoot.getPrimitivetypes());
+		allTypes.addAll(javaRoot.getCollectiontypes());
+		allTypes.addAll(getAllClassOrInterfaceTypes(javaRoot));
+		
+		return allTypes;
+	}
+	
+	public static Field getFieldOfClassByName(String fieldName, Class clazz) {
+		return clazz.getField().stream().filter(field -> field.getName().equals(fieldName)).findAny().get();
+	}
+	
+	public static Class findClassRecursive(String className, Queue<String> pathComponents, JavaRoot javaRoot) {
+		
+		
+		String javaRootPackageName = javaRoot.getPackage().getName();
+		String[] javaRootPackageParts = javaRootPackageName.split("\\.");
+		
+		//Tests if rootPackage in java model is same as provided by CodeQL
+		//Allows the definition of a basepackage in the model which is actually not the root
+		for(int i = 0; i < javaRootPackageParts.length; i++) {
+			if(!javaRootPackageParts[i].equals(pathComponents.remove())) {
+				return null;
+			}
+		}
+		
+		return findClassRecursive(javaRoot.getPackage(), className, pathComponents);
+	}
+	
+	private static Class findClassRecursive(Package currentPackage, String className, Queue<String> pathComponents) {
+		
+		Class clazz = null;
+		
+		for(ClassOrInterfaceType coit : currentPackage.getClassorinterface()) {
+			if(coit instanceof Class && coit.getName().equals(className) && pathComponents.isEmpty()) {
+				return (Class)coit;
+			}
+		}
+		
+		String nextSubpackageName = pathComponents.remove();
+		
+		for(Package subPackage : currentPackage.getSubpackage()) {
+			
+			if(subPackage.getName().equals(nextSubpackageName)) {
+				clazz = findClassRecursive(subPackage, className, pathComponents);
+				if(clazz != null) {
+					return clazz;
+				}
+			}
+		}
+		
+		return clazz;
+	}
+	
+	public static Class findClassByFullyQualifiedPath(String fullyQualifiedClassPath, JavaRoot javaRoot){
+		String[] pathToClassSplit = fullyQualifiedClassPath.split("\\.");
+		int classNameLoc = pathToClassSplit.length -  1;
+		Queue<String> pathComponents = new LinkedList<String>();
+		for(int i = 0; i < pathToClassSplit.length - 1; i++) {
+			pathComponents.add(pathToClassSplit[i]);
+		}
+		return JavaResolutionUtil.findClassRecursive(pathToClassSplit[classNameLoc], pathComponents, javaRoot);
+		
+	}
+	
+	public static Parameter resolveParameterWithTypeForClass(Class clazz, String methodName, String parameterName, String parameterType) {
+		for(Method method : clazz.getMethod()) {
+			if(method.getName().equals(methodName)) {
+				for(Parameter param : method.getParameter()) {
+					if(param.getName().equals(parameterName) && param.getType().getName().equals(parameterType)) {
+						return param;
+					}
+				}
+		
+			}
+		} 
+		
+		return null;
+	}
+	
+	public static Method resolveMethodFromClassByName(Class clazz, String methodName) {
+		return clazz.getMethod().stream().filter(method -> method.getName().equals(methodName)).findFirst().get();
+	}
+
 }

@@ -1,20 +1,20 @@
 package edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.models;
 
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.identifier.Entity;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
-public class ResultEntryElement {
+public class ResultEntryElement<T extends Entity> {
 
-	private final Parameter systemElement;
+	private final T systemElement;
 	private final Level securityProperty;
 
-	public ResultEntryElement(Parameter systemElement, Level securityProperty) {
+	public ResultEntryElement(T systemElement, Level securityProperty) {
 		super();
 		this.systemElement = systemElement;
 		this.securityProperty = securityProperty;
 	}
 
-	public Parameter getSystemElement() {
+	public T getSystemElement() {
 		return systemElement;
 	}
 
@@ -45,8 +45,13 @@ public class ResultEntryElement {
 			return true;
 		}
 
-		ResultEntryElement casted = (ResultEntryElement) toCompare;
+		ResultEntryElement<?> casted = (ResultEntryElement<?>) toCompare;
 
 		return this.systemElement.equals(casted.systemElement) && this.securityProperty.equals(casted.securityProperty);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("(%s,%s)", systemElement.getName(), securityProperty.getName());
 	}
 }

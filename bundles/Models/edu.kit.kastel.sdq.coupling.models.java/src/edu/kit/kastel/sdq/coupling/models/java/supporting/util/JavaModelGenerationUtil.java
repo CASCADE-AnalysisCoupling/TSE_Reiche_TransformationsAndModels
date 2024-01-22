@@ -92,4 +92,15 @@ public class JavaModelGenerationUtil {
 		return interf;
 	}
 	
+	public static Field generateField(String fieldName, Type type) {
+		Field field = generateField(fieldName);
+		field.setType(type);
+		return field;
+	}
+	
+	public static Field generateField(String fieldName, String typeName, JavaRoot javaRoot) {
+		Type type = JavaResolutionUtil.getTypeByName(javaRoot, typeName);
+		return generateField(fieldName, type);
+	}
+	
 }

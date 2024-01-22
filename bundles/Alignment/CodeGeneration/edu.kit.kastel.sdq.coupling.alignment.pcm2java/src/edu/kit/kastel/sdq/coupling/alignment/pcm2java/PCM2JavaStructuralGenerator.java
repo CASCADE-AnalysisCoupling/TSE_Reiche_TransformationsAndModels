@@ -84,6 +84,7 @@ public class PCM2JavaStructuralGenerator {
 			root.getPrimitivetypes().add(type);
 		}
 	}
+	//TC1
 	//Assume only one hierarchy level, no composite containment;
 	private void generateClassesFromCompositeTypes(Collection<CompositeDataType> compositeTypes) {
 	
@@ -105,6 +106,7 @@ public class PCM2JavaStructuralGenerator {
 		}
 	}
 	
+	//TC1
 	private Collection<Class> generateClassesFromBasicComponents(Collection<BasicComponent> components) {
 		Collection<Class> generatedClasses = new ArrayList<Class>();
 		
@@ -128,6 +130,7 @@ public class PCM2JavaStructuralGenerator {
 		return generatedClasses;
 	}
 	
+	//TC1
 	private Collection<Interface> generateInterfacesFromInterfaces(Collection<OperationInterface> interfaces){
 		Collection<Interface> generatedInterfaces = new HashSet<Interface>();
 		
@@ -191,6 +194,7 @@ public class PCM2JavaStructuralGenerator {
 		}
 	}
 	
+	//TC1
 	private Method generateMethodForOperationSignature(OperationSignature signature) {
 		
 		Method method = JavaModelGenerationUtil.generateMethod(getOperationSignatureMethodName(signature));
@@ -198,6 +202,8 @@ public class PCM2JavaStructuralGenerator {
 		return method;
 	}
 	
+	
+	//TC1
 	private PrimitiveType getPrimitiveTypeForPCMPrimitiveType(PrimitiveDataType type) {
 		
 		PrimitiveType primitiveType = null;
@@ -248,6 +254,7 @@ public class PCM2JavaStructuralGenerator {
 		return null;
 	}
 	
+	//TC1
 	private CollectionType getOrCreateCollectionTypeFromPCMCollectionType(CollectionDataType type) {
 		Collection<CollectionType> availableTypes = root.getCollectiontypes();
 		

@@ -33,4 +33,9 @@ public class ResultingSpecEntry {
 	public EntryPoint getEntryPoint() {
 		return entryPoint;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("(%s:%s,%s,%s)", systemElement.getName(), systemElement.getType().getName(), securityProperty.getName(), entryPoint.getId());
+	}
 }
