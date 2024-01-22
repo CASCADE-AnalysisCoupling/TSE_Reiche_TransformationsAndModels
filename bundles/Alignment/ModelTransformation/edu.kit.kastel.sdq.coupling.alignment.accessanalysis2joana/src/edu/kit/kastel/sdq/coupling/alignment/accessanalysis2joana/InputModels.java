@@ -24,7 +24,7 @@ public class InputModels {
 	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME= "default";
 	private static final String PATH_PATTERN = "%s/%s.%s";
 	
-	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies").toAbsolutePath().toString();
+	public static final String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/modeling-2020-12/Repos").toAbsolutePath().toString();
 	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
 	public static final String TRAVELPLANNER_PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis";
 	private static final String BASE_PATH = Paths.get(String.format("%s/%s/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVELPLANNER_PCM_MODEL_BASE_PATH)).toAbsolutePath().toString();
