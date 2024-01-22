@@ -2,9 +2,7 @@ package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collection;
-import org.eclipse.core.runtime.IPath;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -15,21 +13,11 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 
 public class InputModels {
 	
-	private static final String REPOSITORY_FILE_ENDING = "repository";
-	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
-	
-	//for testing
-	
-	private static final String REPOSITORY_MODEL_NAME = "default";
-	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME= "default";
-	private static final String PATH_PATTERN = "%s/%s.%s";
-	
-	public static final String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/modeling-2020-12/Repos").toAbsolutePath().toString();
-	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
-	public static final String TRAVELPLANNER_PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis";
-	private static final String BASE_PATH = Paths.get(String.format("%s/%s/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVELPLANNER_PCM_MODEL_BASE_PATH)).toAbsolutePath().toString();
-	public static final String REPOSITORY_PATH = Paths.get(String.format(PATH_PATTERN, BASE_PATH, REPOSITORY_MODEL_NAME, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get(String.format(PATH_PATTERN, BASE_PATH, CONFIDENTIALITY_SPEC_MODEL_NAME, CONFIDENTIALITY_SPECIFICATION_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String REPOSITORY_FILE_ENDING = "repository";
+	public static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
+	public static final String REPOSITORY_MODEL_NAME = "default";
+	public static final String CONFIDENTIALITY_SPEC_MODEL_NAME= "default";
+	public static final String PATH_PATTERN = "%s/%s.%s";
 	
 	private final Repository repository;
 	private final ProfileApplication profile;

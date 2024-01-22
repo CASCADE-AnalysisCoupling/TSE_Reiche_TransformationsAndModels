@@ -23,12 +23,16 @@ public class Models {
 	
 	//Input Model File Endings
 	
-	private static final String JOANA_MODEL_FILE_ENDING = "joana";
-	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
-	private static final String REPOSITORY_FILE_ENDING = "repository";
-	private static final String JOANA_RESULT_FILE_ENDING = "txt";
+	public static final String JOANA_MODEL_FILE_ENDING = "joana";
+	public static final String JAVA_MODEL_FILE_ENDING = "java";
+	public static final String JAVA_MODEL_NAME = "coupling_java";
+	public static final String JOANA_MODEL_NAME = "coupling_joana";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
+	public static final String REPOSITORY_FILE_ENDING = "repository";
+	public static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
+	public static final String JOANA_RESULT_FILE_NAME = "joanaResult";
+	public static final String JOANA_RESULT_FILE_ENDING = "txt";
 	
 
 

@@ -12,14 +12,12 @@ import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class AccessAnalysis2JOANAModelGenerator {
-	private JavaRoot javaRoot;
-	private JOANARoot joanaRoot;
-	//TODO: This should be configuratble
-	private final String BASE_PACKAGE_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner";
+	protected JavaRoot javaRoot;
+	protected JOANARoot joanaRoot;
 	
-	public OutputModels generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec) {
+	public OutputModels generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec, String basePackageName) {
 		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
-		structuralGenerator.generateStructuralModel(BASE_PACKAGE_NAME);
+		structuralGenerator.generateStructuralModel(basePackageName);
 		
 		AccessAnalysis2JOANASecurityGenerator securityGenerator = new AccessAnalysis2JOANASecurityGenerator(correspondences, spec);
 		joanaRoot = securityGenerator.generateJOANASpecification(repositoryProfileApplication);
