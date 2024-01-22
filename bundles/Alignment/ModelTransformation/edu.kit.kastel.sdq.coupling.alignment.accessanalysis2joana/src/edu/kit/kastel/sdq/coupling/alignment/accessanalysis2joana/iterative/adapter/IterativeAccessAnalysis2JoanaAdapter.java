@@ -1,13 +1,18 @@
-package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.adapter;
+package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative.adapter;
 
-import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
+import edu.kit.kastel.sdq.analysiscouplingframework.iterative.IterativeExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.NotOKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.AccessAnalysis2JOANAHandler;
+import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 
-public class AccessAnalysis2JoanaAdapter implements ExecutableProcessingStepAdapter {
-	
+public class IterativeAccessAnalysis2JoanaAdapter extends IterativeExecutableProcessingStepAdapter{
+
+	public IterativeAccessAnalysis2JoanaAdapter(PartitionerBlackboard blackboard) {
+		super(blackboard);
+	}
+
 	/**
 	 * args[0]: OK message, <br>
 	 * args[1]: NotOK message, <br>
@@ -32,4 +37,5 @@ public class AccessAnalysis2JoanaAdapter implements ExecutableProcessingStepAdap
 		
 		return result;
 	}
+
 }

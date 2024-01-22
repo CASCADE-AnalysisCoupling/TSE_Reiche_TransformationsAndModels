@@ -1,7 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -12,22 +11,16 @@ import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class OutputModels {
-//	private static final String JOANA_MODEL_FILE_ENDING = "joana";
-//	private static final String JAVA_MODEL_FILE_ENDING = "java";
-//	private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
-//	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
-//	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-//	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
+	public static final String JOANA_MODEL_FILE_ENDING = "joana";
+	public static final String JAVA_MODEL_FILE_ENDING = "java";
+	public static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
+	public static final String JOANA_MODEL_NAME = "joana4accessanalysis";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
 	
 	private final JavaRoot javaRoot;
 	private final JOANARoot joanaRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
-	
-//	//for testing
-//	private static final String TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis";
-//	public static final String JAVA_MODEL_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-//	public static final String JOANA_MODEL_PATH = Paths.get(String.format("%s/%s/Modes/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-//	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	
 	public OutputModels(JavaRoot javaRoot, JOANARoot joanaRoot, PCMJavaCorrespondenceRoot correspondenceRoot) {
 		this.javaRoot = javaRoot;

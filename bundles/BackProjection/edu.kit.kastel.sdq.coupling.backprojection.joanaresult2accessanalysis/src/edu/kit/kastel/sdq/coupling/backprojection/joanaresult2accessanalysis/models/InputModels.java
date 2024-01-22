@@ -18,16 +18,16 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 
 public class InputModels {
 	
-	private static final String JOANA_MODEL_FILE_ENDING = "joana";
-	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String JAVA_MODEL_NAME = "coupling_java";
-	private static final String JOANA_MODEL_NAME = "coupling_joana";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
-	private static final String REPOSITORY_FILE_ENDING = "repository";
-	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
-	private static final String JOANA_RESULT_FILE_NAME = "joanaResult";
-	private static final String JOANA_RESULT_FILE_ENDING = "txt";
+	public static final String JOANA_MODEL_FILE_ENDING = "joana";
+	public static final String JAVA_MODEL_FILE_ENDING = "java";
+	public static final String JAVA_MODEL_NAME = "coupling_java";
+	public static final String JOANA_MODEL_NAME = "coupling_joana";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
+	public static final String REPOSITORY_FILE_ENDING = "repository";
+	public static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
+	public static final String JOANA_RESULT_FILE_NAME = "joanaResult";
+	public static final String JOANA_RESULT_FILE_ENDING = "txt";
 	
 	
 	private final JavaRoot javaRoot;
@@ -39,14 +39,14 @@ public class InputModels {
 	private final ConfidentialitySpecification confidentiality;
 	
 	//for testing
-	private static final String MODEL_BASE_FOLDER_PATH = Paths.get("/home/frederik/Arbeitsplatz/eclipse/accessanalysis/runtime-EclipseApplication/joanaTestModel").toAbsolutePath().toString(); 
-	public static final String JAVA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String JOANA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH,PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String JOANA_RESULT_FILE_PATH = Paths.get(String.format("/home/frederik/CodingLocation/TravelPlannerHaering/%s.%s", JOANA_RESULT_FILE_NAME, JOANA_RESULT_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String REPOSITORY_PATH = Paths.get(String.format("%s/default.%s", MODEL_BASE_FOLDER_PATH, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get(String.format("%s/default.%s", MODEL_BASE_FOLDER_PATH, CONFIDENTIALITY_SPECIFICATION_FILE_ENDING)).toAbsolutePath().toString();
-	
+//	private static final String MODEL_BASE_FOLDER_PATH = Paths.get("/home/frederik/Arbeitsplatz/eclipse/accessanalysis/runtime-EclipseApplication/joanaTestModel").toAbsolutePath().toString(); 
+//	public static final String JAVA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+//	public static final String JOANA_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+//	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s.%s", MODEL_BASE_FOLDER_PATH,PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+//	public static final String JOANA_RESULT_FILE_PATH = Paths.get(String.format("/home/frederik/CodingLocation/TravelPlannerHaering/%s.%s", JOANA_RESULT_FILE_NAME, JOANA_RESULT_FILE_ENDING)).toAbsolutePath().toString();
+//	public static final String REPOSITORY_PATH = Paths.get(String.format("%s/default.%s", MODEL_BASE_FOLDER_PATH, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
+//	public static final String CONFIDENTIALITY_SPECIFICATION_PATH = Paths.get(String.format("%s/default.%s", MODEL_BASE_FOLDER_PATH, CONFIDENTIALITY_SPECIFICATION_FILE_ENDING)).toAbsolutePath().toString();
+//	
 	public InputModels(JavaRoot javaRoot, JOANARoot joanaRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
 			String joanaResult, Repository repository, ProfileApplication profile,
 			ConfidentialitySpecification confidentiality) {
