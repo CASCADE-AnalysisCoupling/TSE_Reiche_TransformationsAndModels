@@ -41,7 +41,6 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
  org.modelversioning.emfprofile,
  edu.kit.kastel.scbs.confidentialitymm,
  edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
- edu.kit.ipd.sdq.commons.util.java
  ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0"
 Bundle-ClassPath: libs/snakeyaml-2.2.jar,
  .

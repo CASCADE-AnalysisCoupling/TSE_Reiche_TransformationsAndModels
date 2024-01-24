@@ -49,7 +49,7 @@ public class AccessAnalysis2JOANAHandler extends AbstractHandler{
 	
 	// For Testing
 		private final static String JOANA_EVAL_CODE_FOLDER_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4accessanalysis";
-		private final static String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/eclipse-modeling-2023-03-R-win32-x86_64/RepoNew").toAbsolutePath().toString();
+		private final static String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/modeling-2020-12/Repos").toAbsolutePath().toString();
 		private final static String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
 		private final static String PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.accessanalysis";
 		private final static String JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis";
@@ -69,7 +69,7 @@ public class AccessAnalysis2JOANAHandler extends AbstractHandler{
 		String confidentialitySpecificationPath = Paths.get(String.format(InputModels.PATH_PATTERN, basePath,InputModels.CONFIDENTIALITY_SPEC_MODEL_NAME, InputModels.CONFIDENTIALITY_SPECIFICATION_FILE_ENDING)).toAbsolutePath().toString();
 
 		String javaModelPath = Paths.get(String.format("%s/%s/Models/%s/%s.%s", userSpecificRepoPath, evalRepoSpecificPath,joanaModelsBasefolder, OutputModels.JAVA_MODEL_NAME, OutputModels.JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-		String joanaModelPath = Paths.get(String.format("%s/%s/Modes/%s/%s.%s", userSpecificRepoPath, evalRepoSpecificPath,joanaModelsBasefolder, OutputModels.JOANA_MODEL_NAME, OutputModels.JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+		String joanaModelPath = Paths.get(String.format("%s/%s/Models/%s/%s.%s", userSpecificRepoPath, evalRepoSpecificPath,joanaModelsBasefolder, OutputModels.JOANA_MODEL_NAME, OutputModels.JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 		String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format("%s/%s/Models/%s/%s.%s",userSpecificRepoPath, evalRepoSpecificPath, joanaModelsBasefolder, OutputModels.PCMJAVACORRESPONDENCE_MODEL_NAME, OutputModels.PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 
 		String javaCodeBasePath = Paths.get(String.format("%s/%s/Code/%s/", userSpecificRepoPath, evalRepoSpecificPath, joanaEvalCodeFolderName)).toAbsolutePath().toString();

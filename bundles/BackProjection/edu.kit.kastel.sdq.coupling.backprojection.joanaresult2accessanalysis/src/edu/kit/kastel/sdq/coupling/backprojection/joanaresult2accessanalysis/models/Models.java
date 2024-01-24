@@ -25,13 +25,13 @@ public class Models {
 	
 	public static final String JOANA_MODEL_FILE_ENDING = "joana";
 	public static final String JAVA_MODEL_FILE_ENDING = "java";
-	public static final String JAVA_MODEL_NAME = "coupling_java";
-	public static final String JOANA_MODEL_NAME = "coupling_joana";
+	public static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
+	public static final String JOANA_MODEL_NAME = "joana4accessanalysis";
 	public static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	public static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
+	public static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
 	public static final String REPOSITORY_FILE_ENDING = "repository";
 	public static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
-	public static final String JOANA_RESULT_FILE_NAME = "joanaResult";
+	public static final String JOANA_RESULT_FILE_NAME = "AccessAnalysisResult";
 	public static final String JOANA_RESULT_FILE_ENDING = "txt";
 	
 
@@ -48,18 +48,18 @@ public class Models {
 	
 	//Input Models Names For Testing
 	
-	private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
-	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
-	private static final String JOANA_RESULT_FILE_NAME = "AccessAnalysisResult";
-	private static final String REPOSITORY_MODEL_NAME = "default";
-	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME = "default";
+	//private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
+	//private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
+	//private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
+	//private static final String JOANA_RESULT_FILE_NAME = "AccessAnalysisResult";
+	public static final String REPOSITORY_MODEL_NAME = "default";
+	public static final String CONFIDENTIALITY_SPEC_MODEL_NAME = "default";
 	
 	//Paths for testing
-	private static final String ARCHITECUTRAL_MODEL_ORIGIN_SAVE_DIRECTORY_ENDING = ".origin";
+	public static final String ARCHITECUTRAL_MODEL_ORIGIN_SAVE_DIRECTORY_ENDING = ".origin";
 
 	
-	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies")
+	public static final String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/modeling-2020-12/Repos")
 			.toAbsolutePath().toString();
 	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
 	private static final String MODEL_FILE_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
