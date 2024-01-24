@@ -10,7 +10,6 @@ import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
 import edu.kit.kastel.sdq.coupling.models.java.types.Type;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -34,7 +33,8 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
   protected String generateImports() {
     String collectionImport = "";
     String joanaUIImports = "";
-    if (((this.currentClassOrInterface instanceof edu.kit.kastel.sdq.coupling.models.java.types.Class) && JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(this.currentClassOrInterface, this.joanaRoot))) {
+    final boolean targetedByJOANA = true;
+    if (((this.currentClassOrInterface instanceof edu.kit.kastel.sdq.coupling.models.java.types.Class) && targetedByJOANA)) {
       joanaUIImports = "import edu.kit.joana.ui.annotations.*;";
     }
     final Collection<Type> types = JavaResolutionUtil.getAllNonPrimitiveTypes(this.currentClassOrInterface);

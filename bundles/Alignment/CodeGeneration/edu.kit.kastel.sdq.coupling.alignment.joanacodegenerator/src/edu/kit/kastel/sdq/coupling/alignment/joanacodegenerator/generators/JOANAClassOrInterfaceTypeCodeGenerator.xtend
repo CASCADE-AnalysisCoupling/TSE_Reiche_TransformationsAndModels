@@ -31,7 +31,11 @@ class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerat
 		
 		var joanaUIImports = "";
 		
-		if(currentClassOrInterface instanceof Class && JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(currentClassOrInterface, joanaRoot)){
+		//TODO: Make this dependent on whether class or interface really has annotations
+		//val targetedByJOANA = JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(currentClassOrInterface, joanaRoot);
+		val targetedByJOANA = true;
+		
+		if(currentClassOrInterface instanceof Class && targetedByJOANA){
 			joanaUIImports = "import edu.kit.joana.ui.annotations.*;";	
 		}
 		
