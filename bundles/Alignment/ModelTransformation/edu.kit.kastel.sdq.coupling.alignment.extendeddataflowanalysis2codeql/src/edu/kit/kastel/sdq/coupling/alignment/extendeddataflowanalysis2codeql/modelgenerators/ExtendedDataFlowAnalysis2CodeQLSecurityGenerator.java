@@ -24,6 +24,7 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
 import com.google.common.collect.Sets;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
@@ -40,7 +41,9 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final PCMDataDictionary dictionary;
 	private static final String SUBLEVEL_DELIMITER = ";";
-
+	private static final boolean HIGH_CONJUNCTIVE = false;
+	
+	
 	public ExtendedDataFlowAnalysis2CodeQLSecurityGenerator(ExtensionRoot extensionRoot,
 			PCMJavaCorrespondenceRoot correspondences, PCMDataDictionary dictionary) {
 		super();
@@ -78,7 +81,7 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 			//elements from which the security levels are calculated from.
 			for (EnumCharacteristic characteristic : annotation.getCharacteristics()) {
 
-				ProvidedParameterIdentification pcmParameter = getParameterIdentification(signature,
+				ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature,
 						annotation.getProvidedParameter().getParameter().getParameterName());
 				Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 				SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);
@@ -99,7 +102,7 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
 		for (List<SecurityLevel> securityLevelNames : securityLevelPowerSet) {
 
-			String securityLevelName = combineSecurityLevelNames(securityLevelNames);
+			String securityLevelName =  CodeQLLabeledTaintFlowUtil.combineSecurityLevelNames(SUBLEVEL_DELIMITER, securityLevelNames);
 			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(securityLevelName);
 
 			securityLevels.add(level);
@@ -108,6 +111,10 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		return securityLevels;
 	}
 
+	/* 
+	 * TODO The current lattice is a superset lattice. However, it would also be possible to use the allowed flows specified in the data flow analysis
+	 * as information source.  
+	 */
 	private Collection<AllowedFlow> generateAllowedFlows(Collection<SecurityLevel> availableLevels) {
 
 		Collection<AllowedFlow> allowedFlows = new ArrayList<AllowedFlow>();
@@ -116,9 +123,9 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		for (List<SecurityLevel> potentiallyFrom : securityLevelPowerSet) {
 			for (List<SecurityLevel> potentiallyTo : securityLevelPowerSet) {
 
-				if (allowedFlowCondition(potentiallyFrom, potentiallyTo)) {
-					SecurityLevel from = findCombinedLevelForSeperateLevels(potentiallyFrom, availableLevels);
-					SecurityLevel to = findCombinedLevelForSeperateLevels(potentiallyTo, availableLevels);
+				if (CodeQLLabeledTaintFlowUtil.allowedFlowConditionConjunctive(HIGH_CONJUNCTIVE, potentiallyFrom, potentiallyTo)) {
+					SecurityLevel from = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER, potentiallyFrom, availableLevels);
+					SecurityLevel to = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER, potentiallyTo, availableLevels);
 
 					AllowedFlow allowed = CodeQLModelgenerationUtil.generateAllowedFlow(from, to);
 					allowedFlows.add(allowed);
@@ -128,20 +135,15 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		return allowedFlows;
 	}
 
-	private String combineSecurityLevelNames(Collection<SecurityLevel> securityLevels) {
-		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getName())
-				.collect(Collectors.toList());
-
-		return String.join(SUBLEVEL_DELIMITER, securityLevelNames);
-	}
 
 	private Set<Set<SecurityLevel>> generatePowerSetOfSecurityLevels() {
 		Set<SecurityLevel> basicLevels = new HashSet<SecurityLevel>();
 
 		/*
 		 * TODO: This is fitted that only one enumeration exists (e.g., in
-		 * Travelplanner). Remark that a generation of a fitting lattice and joined
-		 * levels has to be provided if multiple Enumerations exist (work of Felix?) -
+		 * Travelplanner). 
+		 * Remark: Generation of a fitting lattice and joined
+		 * levels has to be provided if multiple Enumerations exist -
 		 * however, not necessary for TSE Eval.
 		 */
 		Enumeration targetEnum = dictionary.getCharacteristicEnumerations().get(0);
@@ -155,40 +157,17 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		return Sets.powerSet(basicLevels);
 	}
 
-	private List<SecurityLevel> sortSecurityLevels(Collection<SecurityLevel> levels) {
-		return levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).collect(Collectors.toList());
-	}
-
 	private Set<List<SecurityLevel>> generatePowerSetWithSortedLevels() {
 		Set<Set<SecurityLevel>> powerSetSecurityLevels = generatePowerSetOfSecurityLevels();
 		Set<List<SecurityLevel>> powerSetWithSortedLevels = new HashSet<List<SecurityLevel>>();
 
 		for (Set<SecurityLevel> set : powerSetSecurityLevels) {
 			if (!set.isEmpty()) {
-				powerSetWithSortedLevels.add(sortSecurityLevels(set));
+				powerSetWithSortedLevels.add(CodeQLLabeledTaintFlowUtil.sortSecurityLevels(set));
 			}
 		}
 
 		return powerSetWithSortedLevels;
-	}
-
-	// Allowed Flow Condition according to Häring
-	private boolean allowedFlowCondition(Collection<SecurityLevel> potentiallyFrom,
-			Collection<SecurityLevel> potentiallyTo) {
-		return potentiallyFrom.size() == potentiallyTo.size() + 1 && potentiallyFrom.containsAll(potentiallyTo);
-	}
-
-	private SecurityLevel findCombinedLevelForSeperateLevels(Collection<SecurityLevel> seperateLevels,
-			Collection<SecurityLevel> combinedLevels) {
-		for (SecurityLevel combined : combinedLevels) {
-			String combinedNameOfSeparateLevels = combineSecurityLevelNames(seperateLevels);
-
-			if (combined.getName().equals(combinedNameOfSeparateLevels)) {
-				return combined;
-			}
-		}
-
-		return null;
 	}
 
 	private SecurityLevel getSecurityLevelForLiterals(Collection<Literal> literals,
@@ -202,19 +181,6 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		for (SecurityLevel level : securityLevels) {
 			if (level.getName().equals(combinedDataSetName)) {
 				return level;
-			}
-		}
-		return null;
-	}
-
-	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils
-				.getProvidedParameters(correspondences);
-
-		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
-			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
-					&& identification.getParameter().getParameterName().equals(name)) {
-				return identification;
 			}
 		}
 		return null;

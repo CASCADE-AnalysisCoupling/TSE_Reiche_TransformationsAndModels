@@ -15,4 +15,6 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  edu.kit.kastel.scbs.pcmconfidentialityprofile;bundle-version="1.1.0",
  edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
  org.modelversioning.emfprofile,
- edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator;bundle-version="1.0.0"
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator;bundle-version="1.0.0",
+ edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification;bundle-version="1.0.0"

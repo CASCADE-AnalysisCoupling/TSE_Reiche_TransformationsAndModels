@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Codeqlscar2resultingspecification
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification
+Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution
+Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql,
+ edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlscar2resultingspecification2
+Bundle-RequiredExecutionEnvironment: JavaSE-15

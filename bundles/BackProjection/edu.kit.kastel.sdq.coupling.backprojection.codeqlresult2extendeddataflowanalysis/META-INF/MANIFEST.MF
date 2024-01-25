@@ -10,6 +10,8 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension,
  org.eclipse.core.commands,
  com.google.gson,
- org.palladiosimulator.dataflow.confidentiality.pcm.dddsl;bundle-version="5.1.0"
+ org.palladiosimulator.dataflow.confidentiality.pcm.dddsl;bundle-version="5.1.0",
+ edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-15

@@ -11,9 +11,9 @@ import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCha
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis.util.BackprojectionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
+import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
@@ -30,6 +30,8 @@ public class Backprojector implements Backproject{
 	private final ExtensionRoot extensionRoot;
 	private final Configuration config;
 	private final PCMDataDictionary dictionary;
+	private static final String DELIMITER = ";";
+	
 	
 	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
 			ExtensionRoot extensionRoot, Configuration config, PCMDataDictionary dictionary) {
@@ -78,8 +80,8 @@ public class Backprojector implements Backproject{
 	private Collection<Literal> resolveLiteralsForLevel(SecurityLevel securityProperty, Collection<Literal> literalsForFittingAnnotation) {
 		Collection<Literal> resolvedLiterals = new HashSet<Literal>();
 		
-		Collection<SecurityLevel> basicLevels = BackprojectionUtil.splitLevelIntoBasicLevels(securityProperty, config);
-		Collection<Literal> resolvedLiteralsByStream = literalsForFittingAnnotation.stream().filter( literal -> basicLevels.stream().anyMatch(level -> level.getName().equals(literal.getName()))).toList();
+		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config, DELIMITER);
+		resolvedLiterals = literalsForFittingAnnotation.stream().filter( literal -> basicLevels.stream().anyMatch(level -> level.getName().equals(literal.getName()))).toList();
 	
 		for(SecurityLevel basicLevel : basicLevels) {
 			//this could be replaced by correspondence relationships between the levels of an enum and basic levels

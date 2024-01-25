@@ -14,7 +14,7 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 
 	private JavaRoot javaRoot;
 	private TainttrackingRoot tainttrackingRoot;
-	private static final String BASE_PACKAGE_NAME = "travelplannerpcm";
+	private static final String BASE_PACKAGE_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner";
 	
 	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec) {
 		

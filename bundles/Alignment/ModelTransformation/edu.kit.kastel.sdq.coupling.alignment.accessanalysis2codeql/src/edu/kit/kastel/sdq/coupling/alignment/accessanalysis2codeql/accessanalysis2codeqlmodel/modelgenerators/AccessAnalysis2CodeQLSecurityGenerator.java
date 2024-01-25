@@ -25,6 +25,7 @@ import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.AccessAnalysisResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
@@ -40,6 +41,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private static final String SUBLEVEL_DELIMITER = ";";
+	private static final boolean HIGH_CONJUNCTIVE = false;
 	
 	public AccessAnalysis2CodeQLSecurityGenerator(ConfidentialitySpecification accessAnalysisSpec,
 			PCMJavaCorrespondenceRoot correspondences) {
@@ -93,7 +95,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 					} else if (source.toLowerCase().contains("call")) {
 						
 					} else {
-						pcmParameter = getParameterIdentification(signature, source);
+						pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature, source);
 						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
 						
 						Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
@@ -120,7 +122,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		
 		for(List<SecurityLevel> securityLevelNames : securityLevelPowerSet) {
 			
-			String securityLevelName = combineSecurityLevelNames(securityLevelNames);
+			String securityLevelName = CodeQLLabeledTaintFlowUtil.combineSecurityLevelNames(SUBLEVEL_DELIMITER, securityLevelNames);
 			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(securityLevelName);
 			
 			securityLevels.add(level);
@@ -137,9 +139,9 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		for(List<SecurityLevel> potentiallyFrom : securityLevelPowerSet) {
 			for(List<SecurityLevel> potentiallyTo: securityLevelPowerSet) {
 				
-				if(allowedFlowCondition(potentiallyFrom, potentiallyTo)) {
-					SecurityLevel from = findCombinedLevelForSeperateLevels(potentiallyFrom, availableLevels);
-					SecurityLevel to = findCombinedLevelForSeperateLevels(potentiallyTo, availableLevels);
+				if(CodeQLLabeledTaintFlowUtil.allowedFlowConditionConjunctive(HIGH_CONJUNCTIVE, potentiallyFrom, potentiallyTo)) {
+					SecurityLevel from = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER,potentiallyFrom, availableLevels);
+					SecurityLevel to = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER, potentiallyTo, availableLevels);
 					
 					AllowedFlow allowed = CodeQLModelgenerationUtil.generateAllowedFlow(from, to);
 					allowedFlows.add(allowed);
@@ -149,11 +151,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		return allowedFlows;
 	}
 
-	private String combineSecurityLevelNames(Collection<SecurityLevel> securityLevels) {
-		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getName()).collect(Collectors.toList());
-		
-		return String.join(SUBLEVEL_DELIMITER, securityLevelNames);
-	}
+
 
 	private Set<Set<SecurityLevel>> generatePowerSetOfSecurityLevels() {
 		Set<SecurityLevel> basicLevels = new HashSet<SecurityLevel>();
@@ -166,10 +164,6 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 
 		return Sets.powerSet(basicLevels);
 	}
-
-	private List<SecurityLevel> sortSecurityLevels(Collection<SecurityLevel> levels){
-		return levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).collect(Collectors.toList());
-	}
 	
 	private Set<List<SecurityLevel>> generatePowerSetWithSortedLevels(){
 		Set<Set<SecurityLevel>> powerSetSecurityLevels = generatePowerSetOfSecurityLevels();
@@ -177,30 +171,14 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		
 		for(Set<SecurityLevel> set : powerSetSecurityLevels) {
 			if(!set.isEmpty()) {
-				powerSetWithSortedLevels.add(sortSecurityLevels(set));
+				powerSetWithSortedLevels.add(CodeQLLabeledTaintFlowUtil.sortSecurityLevels(set));
 			}
 		}
 		
 		return powerSetWithSortedLevels;
 	}
 	
-	//Allowed Flow Condition according to Häring
-	private boolean allowedFlowCondition(Collection<SecurityLevel> potentiallyFrom, Collection<SecurityLevel> potentiallyTo) {
-		return potentiallyFrom.size() == potentiallyTo.size() + 1 && potentiallyFrom.containsAll(potentiallyTo);	
-	}
-	
-	private SecurityLevel findCombinedLevelForSeperateLevels(Collection<SecurityLevel> seperateLevels, Collection<SecurityLevel> combinedLevels) {
-		for(SecurityLevel combined : combinedLevels) {
-			String combinedNameOfSeparateLevels = combineSecurityLevelNames(seperateLevels);
-			
-			if(combined.getName().equals(combinedNameOfSeparateLevels)) {
-				return combined;
-			}
-		}
-		
-		return null;
-	}
-	
+
 	private SecurityLevel getSecurityLevelForDataSets(Collection<DataSet> datasets, Collection<SecurityLevel> securityLevels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName)).collect(Collectors.toList());
 		List<String> dataSetsNames = sortedDataSets.stream().map(dataset -> dataset.getName()).collect(Collectors.toList());
@@ -213,18 +191,6 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		}
 		return null;
 	}
-	
-	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondences);
-
-		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
-			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
-					&& identification.getParameter().getParameterName().equals(name)) {
-				return identification;
-			}
-		}
-		return null;
-	}
 
 	public TainttrackingRoot getRoot() {
 		return root;
@@ -233,4 +199,6 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 	public  PCMJavaCorrespondenceRoot getCorrespondences() {
 		return correspondences;
 	}
+	
+	
 }

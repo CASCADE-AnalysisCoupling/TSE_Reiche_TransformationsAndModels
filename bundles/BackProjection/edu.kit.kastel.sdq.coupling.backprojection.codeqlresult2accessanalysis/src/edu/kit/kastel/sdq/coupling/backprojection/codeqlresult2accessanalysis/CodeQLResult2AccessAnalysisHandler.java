@@ -5,12 +5,13 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.Models;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.outputformatreader.CodeQLSarifReader;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.resultingspecificationresultion.AccessAnalysisFittetPowerSetResultingSpecificationExtractor;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.resultingspecificationresultion.NaivePowerSetLatticeResultingSpecificationExtractor;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.resultingspecificationresultion.ResultingSpecificationExtractor;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.model.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.scarparser.CodeQLSarifOutput2SCARParser;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.CodeQLResultingSpecificationExtractor;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.AccessAnalysisFittetPowerSetResultingSpecificationExtractor;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationExtractor;
+
 
 public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler {
 
@@ -24,13 +25,13 @@ public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler {
 				Models.REPOSITORY_MODEL_PATH,
 				Models.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH);
 
-		//Input -> SCAR 
-		CodeQLSarifReader sarifReader = new CodeQLSarifReader(input.getTainttrackingRoot(), input.getJavaRoot());
-		SourceCodeAnalysisResult scar = sarifReader.interpretCodeQLSarif(input.getCodeQLResult());
-		//Resolution: SCAR -> ResultingSpecification
-		ResultingSpecificationExtractor extractor = new AccessAnalysisFittetPowerSetResultingSpecificationExtractor(
-				input.getTainttrackingRoot().getConfigurations().get(0));
-		ResultingSpecification resultingSpecification = extractor.calculateResultingSpecification(scar);
+		//Input -> ResultingSpecification
+		
+		CodeQLResultingSpecificationExtractor extractor = new CodeQLResultingSpecificationExtractor(new AccessAnalysisFittetPowerSetResultingSpecificationExtractor(null));
+		ResultingSpecification resultingSpecification = extractor.extract(input.getTainttrackingRoot(), input.getJavaRoot(), input.getCodeQLResult());
+		
+		
+		
 		
 		//BackProjection ResultingSpecification -> AAM
 		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));

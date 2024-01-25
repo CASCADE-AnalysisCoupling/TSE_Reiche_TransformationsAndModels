@@ -14,14 +14,15 @@ import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.Stere
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.models.ResultingSpecification;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
 public class Backprojector implements Backproject{
 	
@@ -30,6 +31,7 @@ public class Backprojector implements Backproject{
 	private final ConfidentialitySpecification confidentialitySpec;
 	private final ProfileApplication profileApplication;
 	private final Configuration config;
+	private static final String DELIMITER = ";";
 	
 	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication, Configuration config) {
@@ -45,7 +47,7 @@ public class Backprojector implements Backproject{
 	public void project(ResultingSpecification resultingSpec) {
 		for(ResultingSpecEntry resultingSpecEntry : resultingSpec.getEntries()) {
 			
-			PCMParameter2JavaParameter parameterCorrespondence = getParameterCorrespondence(resultingSpecEntry.getSystemElement());
+			PCMParameter2JavaParameter parameterCorrespondence = PCMJavaCorrespondenceResolutionUtils.getParameterCorrespondence(correspondences,resultingSpecEntry.getSystemElement());
 			OperationSignature targetOperationSignature = parameterCorrespondence.getPcmParameterIdentification().getProvidedSignature().getProvidedSignature();
 			
 			Collection<StereotypeApplication> appliedStereotypes = profileApplication.getStereotypeApplications(targetOperationSignature);
@@ -72,7 +74,7 @@ public class Backprojector implements Backproject{
 	private Collection<DataSet> resolveDataSetsForLevel(SecurityLevel securityProperty) {
 		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
 		
-		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config);
+		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config, DELIMITER);
 		
 	
 		for(SecurityLevel basicLevel : basicLevels) {
@@ -90,10 +92,6 @@ public class Backprojector implements Backproject{
 		return resolvedDataSets;
 	}
 
-	private PCMParameter2JavaParameter getParameterCorrespondence(Parameter parameter) {
-		return correspondences.getPcmparameter2javaparameter().stream().filter(corr -> corr.getJavaParameter().equals(parameter)).findFirst().get();
-	}
-	
 	private static Collection<StereotypeApplication> filterInformationFlowApplications(Collection<StereotypeApplication> applications){
 		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow")).collect(Collectors.toList()); 
 	}
