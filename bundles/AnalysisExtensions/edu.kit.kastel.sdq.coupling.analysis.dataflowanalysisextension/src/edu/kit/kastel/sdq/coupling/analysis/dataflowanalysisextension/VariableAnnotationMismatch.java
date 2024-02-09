@@ -1,9 +1,10 @@
 package edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension;
 
-import org.palladiosimulator.dataflow.confidentiality.analysis.characteristics.CharacteristicValue;
 
-import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterCharacteristicAnnotation;
+import org.dataflowanalysis.analysis.core.CharacteristicValue;
 
-public record VariableAnnotationMismatch(CharacteristicValue charValue, ProvidedParameterCharacteristicAnnotation annotation) {
+import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
+
+public record VariableAnnotationMismatch(CharacteristicValue charValue, ParameterAnnotations annotation) {
 
 }

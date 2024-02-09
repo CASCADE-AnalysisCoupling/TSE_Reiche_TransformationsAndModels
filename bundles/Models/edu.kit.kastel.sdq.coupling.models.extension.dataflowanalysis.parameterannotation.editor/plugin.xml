@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated parameterannotation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.presentation.ParameterannotationModelWizardID"
+            name="%_UI_ParameterannotationModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.presentation.ParameterannotationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ParameterannotationModelFile.gif">
+         <description>%_UI_ParameterannotationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated parameterannotation -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.presentation.ParameterannotationEditorID"
+            name="%_UI_ParameterannotationEditor_label"
+            icon="icons/full/obj16/ParameterannotationModelFile.gif"
+            extensions="parameterannotation"
+            class="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.presentation.ParameterannotationEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.presentation.ParameterannotationActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
