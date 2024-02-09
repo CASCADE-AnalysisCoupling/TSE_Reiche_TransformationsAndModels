@@ -5,6 +5,7 @@ import edu.kit.kastel.sdq.analysiscouplingframework.results.NotOKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.AccessAnalysis2JOANAHandler;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative.IterativeAccessAnalysis2JOANAHandler;
 import edu.kit.kastel.sdq.partitioner.blackboard.PartitionerBlackboard;
 
 public class IterativeAccessAnalysis2JoanaAdapter extends IterativeExecutableProcessingStepAdapter{
@@ -29,7 +30,8 @@ public class IterativeAccessAnalysis2JoanaAdapter extends IterativeExecutablePro
 		Result result = new OKResult(args[0]);
 		
 		try {
-			AccessAnalysis2JOANAHandler handler = new AccessAnalysis2JOANAHandler();
+			AccessAnalysis2JOANAHandler handler = new IterativeAccessAnalysis2JOANAHandler(super.blackboard);
+			//AccessAnalysis2JOANAHandler handler = new AccessAnalysis2JOANAHandler();
 			handler.generate(args[2], args[3], args[4], args[5], args[6], args[7]);
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());
