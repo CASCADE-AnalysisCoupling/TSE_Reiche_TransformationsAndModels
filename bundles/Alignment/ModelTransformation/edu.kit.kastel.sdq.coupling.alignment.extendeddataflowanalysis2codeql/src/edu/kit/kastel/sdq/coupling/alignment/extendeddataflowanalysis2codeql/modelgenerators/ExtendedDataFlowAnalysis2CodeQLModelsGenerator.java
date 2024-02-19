@@ -3,16 +3,12 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.mo
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
-import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
-import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataDictionary;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterized;
+import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.alignment.pcm2java.PCM2JavaStructuralGenerator;
-import edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
-import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
+import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 
 
 public class ExtendedDataFlowAnalysis2CodeQLModelsGenerator {
@@ -21,7 +17,7 @@ public class ExtendedDataFlowAnalysis2CodeQLModelsGenerator {
 	private TainttrackingRoot tainttrackingRoot;
 	private static final String BASE_PACKAGE_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner";
 	
-	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ExtensionRoot extensionRoot, PCMDataDictionary dictionary) {
+	public void generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ParameterAnnotations extensionRoot, PCMDataDictionary dictionary) {
 		
 		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
 		structuralGenerator.generateStructuralModel(BASE_PACKAGE_NAME);

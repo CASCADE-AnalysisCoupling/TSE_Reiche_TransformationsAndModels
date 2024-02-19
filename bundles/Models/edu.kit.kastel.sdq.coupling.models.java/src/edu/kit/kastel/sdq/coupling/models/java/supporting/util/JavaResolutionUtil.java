@@ -299,5 +299,7 @@ public class JavaResolutionUtil {
 	public static Method resolveMethodFromClassByName(Class clazz, String methodName) {
 		return clazz.getMethod().stream().filter(method -> method.getName().equals(methodName)).findFirst().get();
 	}
+	
+	
 
 }

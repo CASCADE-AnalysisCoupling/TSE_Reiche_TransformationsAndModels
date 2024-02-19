@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationInterface;
+import org.palladiosimulator.pcm.repository.OperationSignature;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
@@ -41,5 +42,17 @@ public class PCMJavaCorrespondenceResolutionUtils {
 	
 	public static OperationInterface2Interface getOperationInterface2InterfaceCorrespondence(PCMJavaCorrespondenceRoot root, OperationInterface interf) {
 		return root.getOperationInterface2interface().stream().filter(corr -> corr.getPcmInterface().equals(interf)).findFirst().get();
+	}
+	
+	public static ProvidedParameterIdentification getParameterIdentification(PCMJavaCorrespondenceRoot correspondenceRoot, OperationSignature signature, String name) {
+		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondenceRoot);
+
+		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
+			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
+					&& identification.getParameter().getParameterName().equals(name)) {
+				return identification;
+			}
+		}
+		return null;
 	}
 }

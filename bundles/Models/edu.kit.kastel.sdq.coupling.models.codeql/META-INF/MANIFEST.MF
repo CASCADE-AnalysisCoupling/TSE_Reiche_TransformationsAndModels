@@ -11,6 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: edu.kit.kastel.sdq.coupling.models.codeql,
  edu.kit.kastel.sdq.coupling.models.codeql.impl,
  edu.kit.kastel.sdq.coupling.models.codeql.supporting.util,
+ edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.util,

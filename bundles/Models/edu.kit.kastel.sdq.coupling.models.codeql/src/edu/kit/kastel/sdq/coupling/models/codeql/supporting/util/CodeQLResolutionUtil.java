@@ -16,10 +16,10 @@ public class CodeQLResolutionUtil {
 				.findFirst().get();
 	}
 	
-	public static Collection<SecurityLevel> resolveBasicLevels(SecurityLevel level, Configuration config) {
+	public static Collection<SecurityLevel> resolveBasicLevels(SecurityLevel level, Configuration config, String delimiter) {
 		Collection<SecurityLevel> basicSecurityLevels = new HashSet<SecurityLevel>();
 
-		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(";"));
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(delimiter));
 
 		splitLevelBasicLevelNames.forEach(name -> {
 			basicSecurityLevels.add(CodeQLResolutionUtil.lookupLevel(name, config));
@@ -33,5 +33,20 @@ public class CodeQLResolutionUtil {
 		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
 		Optional<SecurityLevel> calculatedLevel = config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
 		return calculatedLevel.get();
+	}
+	
+	public static boolean containsSecurityLevelWithSubname(SecurityLevel level, Configuration config, String delimiter) {
+		Collection<SecurityLevel> existingBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(level, config, delimiter);
+
+		for (SecurityLevel toCheck : existingBasicLevels) {
+			for (SecurityLevel checkAgainst : existingBasicLevels) {
+				if (toCheck.getName().equals(checkAgainst.getName())) {
+					continue;
+				} else if (toCheck.getName().contains(checkAgainst.getName())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

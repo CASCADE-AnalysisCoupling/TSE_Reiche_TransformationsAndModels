@@ -3,12 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Extendeddataflowanalysis2codeql
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.palladiosimulator.dataflow.confidentiality.analysis;bundle-version="1.0.0",
- edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
+Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.identifier;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
- edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
@@ -19,6 +17,9 @@ Require-Bundle: org.palladiosimulator.dataflow.confidentiality.analysis;bundle-v
  edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator,
  edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils,
  org.eclipse.ui;bundle-version="3.201.200",
- edu.kit.kastel.sdq.coupling.alignment.pcm2java
+ edu.kit.kastel.sdq.coupling.alignment.pcm2java,
+ edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
+ org.dataflowanalysis.dfd.datadictionary;bundle-version="0.1.0",
+ org.dataflowanalysis.pcm.extension.model
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql
 Bundle-RequiredExecutionEnvironment: JavaSE-17

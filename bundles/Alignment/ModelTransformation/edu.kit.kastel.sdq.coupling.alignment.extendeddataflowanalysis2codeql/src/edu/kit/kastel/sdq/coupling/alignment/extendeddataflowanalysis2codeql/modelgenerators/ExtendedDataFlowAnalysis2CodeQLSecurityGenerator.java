@@ -13,12 +13,10 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.dictionary.PCMDataDictionary;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterized;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Enumeration;
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal;
+import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
+import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Enumeration;
+import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
+import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
 import com.google.common.collect.Sets;
@@ -30,21 +28,21 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotati
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
-import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ExtensionRoot;
-import edu.kit.kastel.sdq.coupling.models.dataflowanalysisextension.ProvidedParameterCharacteristicAnnotation;
+import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
 	private final TainttrackingRoot root;
-	private final ExtensionRoot extensionRoot;
+	private final ParameterAnnotations extensionRoot;
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final PCMDataDictionary dictionary;
 	private static final String SUBLEVEL_DELIMITER = ";";
 	private static final boolean HIGH_CONJUNCTIVE = false;
 	
 	
-	public ExtendedDataFlowAnalysis2CodeQLSecurityGenerator(ExtensionRoot extensionRoot,
+	public ExtendedDataFlowAnalysis2CodeQLSecurityGenerator(ParameterAnnotations extensionRoot,
 			PCMJavaCorrespondenceRoot correspondences, PCMDataDictionary dictionary) {
 		super();
 		this.root = CodeQLModelgenerationUtil.generateDataFlowRoot();
@@ -73,24 +71,33 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
 		Collection<SecurityLevelAnnotation> annotations = new ArrayList<SecurityLevelAnnotation>();
 
-		for (ProvidedParameterCharacteristicAnnotation annotation : extensionRoot.getParameterAnnotations()) {
-			OperationSignature signature = (OperationSignature) annotation.getProvidedParameter().getProvidedOperation()
-					.getOperationSignature();
+		for(edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation annotation : extensionRoot.getAnnotations()) {
+			
+			if(annotation.getParameterIdentification() instanceof ProvidedParameterIdentification) {
+				ProvidedParameterIdentification provParam = (ProvidedParameterIdentification) annotation.getParameterIdentification();
+				OperationSignature signature = (OperationSignature) provParam.getProvidedSignature().getProvidedSignature();
+				
 
-			//Assume for test purposes that only one characteristic is annotated which contains the 
-			//elements from which the security levels are calculated from.
-			for (EnumCharacteristic characteristic : annotation.getCharacteristics()) {
+				//Assume for eval purposes that only one characteristic is annotated which contains the 
+				//elements from which the security levels are calculated from.
+				for (EnumCharacteristic characteristic : annotation.getCharacteristics()) {
 
-				ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature,
-						annotation.getProvidedParameter().getParameter().getParameterName());
-				Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
-				SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);
-				ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param,
-						level);
+					ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature,
+							provParam.getParameter().getParameterName());
+					Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
+					SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);
+					ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param,
+							level);
 
-				annotations.add(codeqlAnnotation);
-			}
+					annotations.add(codeqlAnnotation);
+				}
+			} 
+			
+			//TODO: Add Case when General Identification is used.
+			
+			
 		}
+	
 		return annotations;
 	}
 
