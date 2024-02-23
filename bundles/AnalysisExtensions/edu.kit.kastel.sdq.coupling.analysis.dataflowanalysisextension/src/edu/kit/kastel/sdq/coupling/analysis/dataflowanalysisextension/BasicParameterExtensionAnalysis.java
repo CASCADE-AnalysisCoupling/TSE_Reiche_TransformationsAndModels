@@ -46,13 +46,13 @@ import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameteran
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ProvidedOperationParameterIdentification;
 
 public class BasicParameterExtensionAnalysis {
-	public static String TEST_MODEL_PROJECT_NAME = "org.palladiosimulator.dataflow.confidentiality.analysis.testmodels";
+	public static String MODEL_PROJECT_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extension.dataflowanalysis.parameterannotation/models";
 	
-	private static final String BASE_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extension.dataflowanalysis.parameterannotation/models").toAbsolutePath().toString(); 
-	private static final String USAGE_MODEL_PATH = Paths.get(BASE_PATH, "newUsageModel.usagemodel").toAbsolutePath().toString();
-	private static final String ALLOCATION_MODEL_PATH = Paths.get(BASE_PATH, "default.allocation").toAbsolutePath().toString();
-	private static final String NODECHARACTERISTICS_MODEL_PATH = Paths.get(BASE_PATH, "default.nodecharacteristics").toAbsolutePath().toString();
-	private static final String PARAMETER_ANNOTATION_EXTENSION_MODEL_PATH = Paths.get(BASE_PATH, "My.parameterannotation").toAbsolutePath().toString();
+	private static final String BASE_PATH = Paths.get("/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models").toAbsolutePath().toString(); 
+	private static final String USAGE_MODEL_PATH = Paths.get(BASE_PATH, "travelplanner.usagemodel").toAbsolutePath().toString();
+	private static final String ALLOCATION_MODEL_PATH = Paths.get(BASE_PATH, "travelplanner.allocation").toAbsolutePath().toString();
+	private static final String NODECHARACTERISTICS_MODEL_PATH = Paths.get(BASE_PATH, "travelplanner.nodecharacteristics").toAbsolutePath().toString();
+	private static final String PARAMETER_ANNOTATION_EXTENSION_MODEL_PATH = Paths.get(BASE_PATH, "travelplanner.parameterannotation").toAbsolutePath().toString();
 	
 	@Test
 	public void basicExtensionAnalysisTest() {
@@ -62,7 +62,7 @@ public class BasicParameterExtensionAnalysis {
 		final var extensionModelURI = URI.createFileURI(PARAMETER_ANNOTATION_EXTENSION_MODEL_PATH);
 
 		PCMDataFlowConfidentialityAnalysis travelPlannerAnalysis = new PCMDataFlowConfidentialityAnalysisBuilder()
-				.standalone().modelProjectName(TEST_MODEL_PROJECT_NAME).usePluginActivator(Activator.class)
+				.standalone().modelProjectName(MODEL_PROJECT_NAME).usePluginActivator(Activator.class)
 				.useCustomResourceProvider(new ParameterAnnotationExtensionResourceProvider(usageModelURI,
 						allocationURI, nodeCharacteristicsURI, extensionModelURI))
 				.build();
@@ -192,9 +192,6 @@ public class BasicParameterExtensionAnalysis {
 
 		Collection<ParameterAnnotation> parameterAnnotationsForSeff = getAllParameterAnnotationsForSeff(
 				seffNode, parameterAnnotations, analysis);
-		// Collection<ParameterAnnotation> annotations =
-		// parameterAnnotations.getAnnotations().stream().filter(annotation ->
-		// providedParameters.contains(annotation.getParameterIdentification())).toList();
 
 		return characteristicsLiteralsViolateParameterAnnotations("Annotations Deployed On Node", parameterAnnotationsForSeff, mappedNodeCharacteristics);
 

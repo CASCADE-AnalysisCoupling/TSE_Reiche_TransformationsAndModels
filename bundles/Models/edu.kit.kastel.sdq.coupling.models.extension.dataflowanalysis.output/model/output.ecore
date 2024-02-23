@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="output" nsURI="http://www.example.org/output" nsPrefix="output">
+  <eClassifiers xsi:type="ecore:EClass" name="Output">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
+        eType="#//Result" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowToParameterResult" eSuperTypes="#//Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterAnnotation" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.ecore#//ParameterAnnotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowVariable" lowerBound="1"
+        eType="#//DataFlowVariable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowToResourceResult" eSuperTypes="#//Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAnnotation" lowerBound="1"
+        eType="ecore:EClass ../../org.dataflowanalysis.pcm.extension.nodecharacteristics/model/nodeCharacteristics.ecore#//ResourceAssignee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataFlowVariable" lowerBound="1"
+        eType="#//DataFlowVariable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterOnResourceResult" eSuperTypes="#//Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterAnnotation" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.ecore#//ParameterAnnotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAnnotation" lowerBound="1"
+        eType="ecore:EClass ../../org.dataflowanalysis.pcm.extension.nodecharacteristics/model/nodeCharacteristics.ecore#//ResourceAssignee"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFlowVariable" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="characteristicValues" upperBound="-1"
+        eType="#//CharacteristicValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacteristicValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+</ecore:EPackage>

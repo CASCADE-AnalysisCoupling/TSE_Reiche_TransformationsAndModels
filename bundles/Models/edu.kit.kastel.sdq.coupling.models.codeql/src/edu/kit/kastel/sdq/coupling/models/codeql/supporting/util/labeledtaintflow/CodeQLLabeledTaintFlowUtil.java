@@ -19,7 +19,7 @@ public class CodeQLLabeledTaintFlowUtil {
 		}
 	}
 	
-	//Allowed Flow Condition when "AB" requires rights for "A" and "B" 
+		//Allowed Flow Condition when "AB" requires rights for "A" and "B" 
 		private static boolean allowedFlowWhenHighConjuntive(Collection<SecurityLevel> potentiallyFrom, Collection<SecurityLevel> potentiallyTo) {
 			return potentiallyFrom.size() +1 == potentiallyTo.size() && potentiallyTo.containsAll(potentiallyFrom);
 		}

@@ -109,10 +109,10 @@ public class JOANAResolutionUtil {
 				.findFirst().get();
 	}
 	
-	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint) {
+	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {
 		Collection<Level> basicLevels = new HashSet<Level>();
 
-		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(";"));
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(sublevelDelimiter));
 
 		splitLevelBasicLevelNames.forEach(name -> {
 			basicLevels.add(lookupLevel(name, entryPoint));
@@ -120,7 +120,7 @@ public class JOANAResolutionUtil {
 
 		return basicLevels;
 	}
-
+	
 	public static  Level findLevelFromSetOfBasicLevels(Collection<Level> levels, EntryPoint entryPoint) {
 		
 		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(Level::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
@@ -128,10 +128,10 @@ public class JOANAResolutionUtil {
 		return calculatedLevel.get();
 	}
 	
-	public static Collection<Level> resolveBasicLevels(Level level, EntryPoint entryPoint) {
+	public static Collection<Level> resolveBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {
 		Collection<Level> basicSecurityLevels = new HashSet<Level>();
 
-		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(";"));
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(sublevelDelimiter));
 
 		splitLevelBasicLevelNames.forEach(name -> {
 			basicSecurityLevels.add(lookupLevel(name, entryPoint));
@@ -140,10 +140,10 @@ public class JOANAResolutionUtil {
 		return basicSecurityLevels;
 	}
 	
-	public static Collection<Level> resolveBasicLevels(String levelName, EntryPoint entryPoint) {
+	public static Collection<Level> resolveBasicLevels(String levelName, EntryPoint entryPoint, String sublevelDelimiter) {
 		Collection<Level> basicSecurityLevels = new HashSet<Level>();
 
-		Collection<String> splitLevelBasicLevelNames = Arrays.asList(levelName.split(";"));
+		Collection<String> splitLevelBasicLevelNames = Arrays.asList(levelName.split(sublevelDelimiter));
 
 		splitLevelBasicLevelNames.forEach(name -> {
 			basicSecurityLevels.add(lookupLevel(name, entryPoint));
@@ -154,5 +154,18 @@ public class JOANAResolutionUtil {
 	
 	public static EntryPoint getEntryPointByTag(String tag, JOANARoot root) {
 		return root.getEntrypoint().stream().filter(ep -> ep.getId().equals(tag.toString())).findFirst().get();
+	}
+	
+	public static Level findCombinedLevelForSeperateLevels(Collection<Level> seperateLevels,
+			Collection<Level> combinedLevels, String sublevelDelimiter) {
+		for (Level combined : combinedLevels) {
+			String combinedNameOfSeparateLevels = JOANANamingUtil.combineLevelNames(seperateLevels, sublevelDelimiter);
+
+			if (combined.getName().equals(combinedNameOfSeparateLevels)) {
+				return combined;
+			}
+		}
+
+		return null;
 	}
 }
