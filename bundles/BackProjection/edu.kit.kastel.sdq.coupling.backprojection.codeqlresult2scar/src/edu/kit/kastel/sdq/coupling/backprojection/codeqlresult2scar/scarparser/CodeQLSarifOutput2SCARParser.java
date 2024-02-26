@@ -108,7 +108,7 @@ public class CodeQLSarifOutput2SCARParser {
 			sinkEntryElement = new ResultEntryElement<Parameter>(sinkParameter, sinkSecurityLevel);
 		}
 		
-		return new ResultEntry(sourceEntryElement, sinkEntryElement);
+		return new ResultEntry(sourceEntryElement, sinkEntryElement, tainttrackingRoot.getConfigurations().get(0));
 	}
 	
 	private boolean isFieldIdentification(String systemElementRepresentation) {

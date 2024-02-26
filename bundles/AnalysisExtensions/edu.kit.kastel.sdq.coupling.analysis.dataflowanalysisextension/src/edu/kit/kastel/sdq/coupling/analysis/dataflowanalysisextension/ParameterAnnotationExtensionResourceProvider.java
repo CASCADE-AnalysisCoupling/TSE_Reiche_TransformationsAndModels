@@ -23,7 +23,6 @@ public class ParameterAnnotationExtensionResourceProvider extends PCMURIResource
 	@Override
 	public void loadRequiredResources() {
 
-		
 		super.loadRequiredResources();
 		this.parameterAnnotations = (ParameterAnnotations) this.loadModelContent(parameterAnnotationExtensionRootURI);
 		

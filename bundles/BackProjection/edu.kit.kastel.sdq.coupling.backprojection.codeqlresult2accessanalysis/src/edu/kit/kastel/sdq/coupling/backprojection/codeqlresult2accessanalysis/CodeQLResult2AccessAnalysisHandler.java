@@ -23,7 +23,8 @@ public class CodeQLResult2AccessAnalysisHandler extends AbstractHandler {
 				Models.PCMJAVACORRESPONDENCE_MODE_PATH,
 				Models.CODEQL_RESULT_FILE_PATH, 
 				Models.REPOSITORY_MODEL_PATH,
-				Models.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH);
+				Models.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH,
+				Models.ORIGIN_BACKUP_PATH);
 
 		//Input -> ResultingSpecification
 		

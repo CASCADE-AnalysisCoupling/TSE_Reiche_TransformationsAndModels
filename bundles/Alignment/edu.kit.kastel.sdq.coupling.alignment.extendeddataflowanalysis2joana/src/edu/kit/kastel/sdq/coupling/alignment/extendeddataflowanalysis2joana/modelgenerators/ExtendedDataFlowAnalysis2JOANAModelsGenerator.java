@@ -3,7 +3,10 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.mod
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.Repository;
 
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.ExtendedDataFlowAnalysis2JOANAHandler;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.OutputModels;
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.JPMailPaths;
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.TravelPlannerPaths;
 import edu.kit.kastel.sdq.coupling.alignment.pcm2java.PCM2JavaStructuralGenerator;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -21,7 +24,15 @@ public class ExtendedDataFlowAnalysis2JOANAModelsGenerator {
 		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
 		structuralGenerator.generateStructuralModel(basePackageName);
 		
-		ExtendedDataFlowAnalysis2JOANASecurityGenerator securityGenerator = new ExtendedDataFlowAnalysis2JOANASecurityGenerator4HighLow(extensionRoot, correspondences, dictionary);	
+		ExtendedDataFlowAnalysis2JOANASecurityGenerator securityGenerator = null;
+		
+		if(ExtendedDataFlowAnalysis2JOANAHandler.CASE_STUDY.equals(JPMailPaths.CASE_STUDY_NAME)) {
+			securityGenerator = new ExtendedDataFlowAnalysis2JOANASecurityGenerator4HighLow(extensionRoot, correspondences, dictionary);	
+		} else if(ExtendedDataFlowAnalysis2JOANAHandler.CASE_STUDY.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
+			securityGenerator = new ExtendedDataFlowAnalysis2JOANASecurityGenerator4FullDynamicLevels(extensionRoot, correspondences, dictionary);	
+		}
+			
+		
 		joanaRoot = securityGenerator.generateJOANASpecification();
 		javaRoot = structuralGenerator.getRoot();
 		return new OutputModels(javaRoot, joanaRoot, correspondences);

@@ -16,26 +16,6 @@ import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameteran
 
 public class InputModels {
 
-
-	private static final String REPOSITORY_FILE_ENDING = "repository";
-	private static final String PARAMETER_ANNOTATION_MODEL_FILE_ENDING = "parameterannotation";
-	private static final String DATA_DICTIONARY_FILE_ENDING = "pddc";
-
-	private static final String REPOSITORY_FILE_NAME = "travelplanner";
-	private static final String PARAMETER_ANNOTATION_MODEL_NAME = "travelplanner";
-	private static final String DATA_DICTIONARY_FILE_NAME = "travelplanner";
-	private static final String PATH_PATTERN = "%s/%s.%s";
-	
-	
-	//for testing
-
-	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies").toAbsolutePath().toString();
-	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
-	public static final String TRAVELPLANNER_PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/";
-	private static final String MODELS_BASE_PATH = Paths.get(String.format("%s/%s/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVELPLANNER_PCM_MODEL_BASE_PATH)).toAbsolutePath().toString();
-	public static final String REPOSITORY_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, REPOSITORY_FILE_NAME, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PARAMETER_ANNOTATION_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, PARAMETER_ANNOTATION_MODEL_NAME , PARAMETER_ANNOTATION_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String DATA_DICTIONARY_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, DATA_DICTIONARY_FILE_NAME, DATA_DICTIONARY_FILE_ENDING)).toAbsolutePath().toString();
 	private final Repository repository;
 	private final ParameterAnnotations parameterAnnotations;
 	private final PCMDataDictionary dictionary;

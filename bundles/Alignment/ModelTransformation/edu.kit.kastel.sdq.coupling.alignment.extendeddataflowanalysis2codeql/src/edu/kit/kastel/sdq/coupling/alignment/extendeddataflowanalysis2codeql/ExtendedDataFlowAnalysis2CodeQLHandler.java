@@ -1,44 +1,56 @@
 package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql;
 
-import java.nio.file.Paths;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.testpaths.JPMailPaths;
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.testpaths.TravelPlannerPaths;
 
-import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
-import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
-import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate;
-import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.modelgenerators.ExtendedDataFlowAnalysis2CodeQLModelsGenerator;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 
-public class ExtendedDataFlowAnalysis2CodeQLHandler extends AbstractHandler{
-	private final String FILE_ENDING = "ql";
-	private final String FOLDER_PATH = Paths.get(String.format("%s/%s/CodeQLQuery/ExtendedDataFlowAnalysis/", InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH)).toAbsolutePath().toString();
-	private final String FILE_NAME = "CodeQLLabeledTainttracking4ExtendedDataflowAnalysis";
+public class ExtendedDataFlowAnalysis2CodeQLHandler extends AbstractHandler {
 
-	
-	
+	public static final String CASE_STUDY = JPMailPaths.CASE_STUDY_NAME;
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
-		PCMJavaCorrespondenceRoot correspondences = PcmjavacorrespondenceFactory.eINSTANCE.createPCMJavaCorrespondenceRoot();
-		InputModels models = InputModels.createModelsFromFiles(InputModels.REPOSITORY_PATH, InputModels.PARAMETER_ANNOTATION_MODEL_PATH, InputModels.DATA_DICTIONARY_MODEL_PATH);
-		
 
-		ExtendedDataFlowAnalysis2CodeQLModelsGenerator modelsGenerator = new ExtendedDataFlowAnalysis2CodeQLModelsGenerator();
-		modelsGenerator.generateCodeQLModels(correspondences, models.getRepository(), models.getExtensionRoot(), models.getDataDictionary());
-		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getConfigurations().get(0));
+	
 		
-		OutputModels outputModels = new OutputModels(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot(), correspondences);
-		
-		String tainttrackingContent = tainttrackingCodeGenerator.generate();
-		
-		FileToGenerate fileToGenerate = new FileToGenerate(tainttrackingContent, FOLDER_PATH, FILE_NAME, FILE_ENDING);
-		fileToGenerate.write();
+		String repositoryPath = "";
+		String parameterAnnotationModelPath = "";
+		String datadictionaryModelPath = "";
+		String codeBasePackageName = "";
+		String javaModelPath = "";
+		String codeQLModelPath = "";
+		String correspondenceModelPath = "";
+		String codeQLQueryFolderPath = "";
 
-		outputModels.writeToFiles();
+		if (CASE_STUDY.equals(JPMailPaths.CASE_STUDY_NAME)) {
+			repositoryPath = JPMailPaths.REPOSITORY_PATH;
+			parameterAnnotationModelPath = JPMailPaths.PARAMETER_ANNOTATION_MODEL_PATH;
+			datadictionaryModelPath = JPMailPaths.DATA_DICTIONARY_MODEL_PATH;
+			codeBasePackageName = JPMailPaths.CODE_BASE_PACKAGE_NAME;
+			javaModelPath = JPMailPaths.JAVA_MODEL_PATH;
+			codeQLModelPath = JPMailPaths.CODEQL_MODEL_PATH;
+			correspondenceModelPath = JPMailPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
+			codeQLQueryFolderPath = JPMailPaths.CODEQL_QUERY_FOLDER_PATH;
+
+		} else if (CASE_STUDY.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
+			repositoryPath = TravelPlannerPaths.REPOSITORY_PATH;
+			parameterAnnotationModelPath = TravelPlannerPaths.PARAMETER_ANNOTATION_MODEL_PATH;
+			datadictionaryModelPath = TravelPlannerPaths.DATA_DICTIONARY_MODEL_PATH;
+			codeBasePackageName = TravelPlannerPaths.CODE_BASE_PACKAGE_NAME;
+			javaModelPath = TravelPlannerPaths.JAVA_MODEL_PATH;
+			codeQLModelPath = TravelPlannerPaths.CODEQL_MODEL_PATH;
+			correspondenceModelPath = TravelPlannerPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
+			codeQLQueryFolderPath = TravelPlannerPaths.CODEQL_QUERY_FOLDER_PATH;
+		}
+
+		ExtendedDataFlowAnalysis2CodeQLAlignment alignment = new ExtendedDataFlowAnalysis2CodeQLAlignment(repositoryPath, parameterAnnotationModelPath, datadictionaryModelPath, codeBasePackageName, javaModelPath, codeQLModelPath, correspondenceModelPath, codeQLQueryFolderPath);
+		alignment.performAlignment();
+
 		return true;
 	}
+
 }

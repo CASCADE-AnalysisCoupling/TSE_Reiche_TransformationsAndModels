@@ -16,13 +16,13 @@ abstract class CodeQLTainttrackingTemplate {
 		
 		«generateConfiguration()»
 		
-		«generateInformationFlowModuleUsage()»
-		
 		«generateLevelToStringFunction()»
 		
 		«generateResultPrinting()»
 		
 		«generateFunctionCatchingEquality()»
+		
+		«generateInformationFlowModuleUsage()»
 		
 		«generateQuery()»
 	'''

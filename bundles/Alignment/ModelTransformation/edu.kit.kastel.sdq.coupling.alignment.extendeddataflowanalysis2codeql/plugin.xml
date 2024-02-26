@@ -22,9 +22,9 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="accessAnalysisTransformation"
-               label="Transformation"
-               mnemonic="t">
+               id="coupling"
+               label="Coupling"
+               mnemonic="c">
             <command
                   commandId="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.runextendeddataflowanalysis2codeql"
                   label="Alignment: Extended Dataflow Analysis to CodeQL"

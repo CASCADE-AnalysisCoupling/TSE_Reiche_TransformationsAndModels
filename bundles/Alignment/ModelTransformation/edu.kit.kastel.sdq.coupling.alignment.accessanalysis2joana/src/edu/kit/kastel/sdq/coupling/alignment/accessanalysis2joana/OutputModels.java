@@ -46,7 +46,6 @@ public class OutputModels {
 		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(PCMJAVACORRESPONDENCE_MODE_PATH));
 		resourcePCMJavaCorrespondence.getContents().add(correspondenceRoot);
 		
-		// TODO: FIX MODEL CREATION AS IT DOES NOT OUTPUT ALL MODELS!!!
 		try {
 			javaResource.save(null);
 			joanaResource.save(null);

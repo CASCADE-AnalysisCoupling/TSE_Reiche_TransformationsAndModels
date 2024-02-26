@@ -76,12 +76,11 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 			OperationSignature signature = (OperationSignature) application.getAppliedTo();
 			Collection<StereotypeApplication> appl = Collections.singletonList(application);
 			Collection<ParametersAndDataPair> parametersAndDataPairs = StereotypeAPIUtil.getTaggedValues(appl, "parametersAndDataPairs", ParametersAndDataPair.class);
-			//Optional<List<ParametersAndDataPair>> StereotypeAPI.<List<ParametersAndDataPair>>getTaggedValueSafe(signature, "parametersAndDataPairs", "ParametersAndDataPair");
 	
 		
 			
 			//for now, assume that no parameter or return is annotated more than once for evaluation pruposes
-			//if not, build collectors
+			//implementation for all provided roles in alignment extendeddataflowanalysis2codeql
 			for(ParametersAndDataPair pair : parametersAndDataPairs) {
 
 				ProvidedParameterIdentification pcmParameter = null;

@@ -54,8 +54,6 @@ public class Models {
 			.toAbsolutePath().toString();
 	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
 	
-	private static final String ARCHITECUTRAL_MODEL_ORIGIN_SAVE_DIRECTORY_ENDING = ".origin";
-	
 	private static final String MODEL_FILE_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
 	private static final String SCAR_PATH_TEMPLATE = "%s/%s/SCAR/CodeQL/%s.%s";
 	private static final String TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis";
@@ -86,7 +84,9 @@ public class Models {
 					TRAVELPLANNER_ACCESS_ANALYSIS_PROJECT_NAME, CONFIDENTIALITY_SPEC_MODEL_NAME,
 					CONFIDENTIALITY_SPECIFICATION_FILE_ENDING))
 			.toAbsolutePath().toString();
-
+	
+	public static final String ORIGIN_BACKUP_PATH = Paths.get(String.format("%s/%s/Models/%s%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVELPLANNER_ACCESS_ANALYSIS_PROJECT_FOLDER, ".origin")).toAbsolutePath().toString();
+		
 	public Models(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
 			String codeQLResult, Repository repository, ProfileApplication profile,
 			ConfidentialitySpecification confidentiality) {
@@ -101,7 +101,7 @@ public class Models {
 	}
 
 	public static Models createModelsFromFiles(String javaFilePath, String codeqlFilePath,
-			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath, String confidentialitySpecFilePath) {
+			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath, String confidentialitySpecFilePath, String originBackupDirectoryPath) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		
@@ -109,10 +109,19 @@ public class Models {
 		String originalDirectoryName = originalDirectory.getName();
 		String originalDirectoryParentPath = originalDirectory.getParentFile().getAbsolutePath();
 		
-		File originalBackupDirectory = Paths.get(originalDirectoryParentPath, originalDirectoryName + ARCHITECUTRAL_MODEL_ORIGIN_SAVE_DIRECTORY_ENDING).toAbsolutePath()
-				.toFile();
+		File originalBackupDirectory = Paths.get(originBackupDirectoryPath).toAbsolutePath().toFile();
 		
-		copyAllFilesBetweenDirectories(originalDirectory, originalBackupDirectory);
+		if (!originalBackupDirectory.exists()) {
+			try {
+				Files.createDirectory(originalBackupDirectory.toPath());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			copyAllFilesBetweenDirectories(originalDirectory, originalBackupDirectory);
+		}
+		
 		
 
 		URI repositoryJava = URI.createFileURI(Path.of(javaFilePath).toAbsolutePath().toString());
@@ -210,14 +219,6 @@ public class Models {
 	}
 
 	private static void copyAllFilesBetweenDirectories(File fromDirectory, File toDirectory) {
-		if (!toDirectory.exists()) {
-			try {
-				Files.createDirectory(toDirectory.toPath());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 		
 		try (Stream<Path> stream = Files.walk(fromDirectory.toPath(), 1)) {
 			stream.map(path -> path.toFile()).forEach(fromFile -> {

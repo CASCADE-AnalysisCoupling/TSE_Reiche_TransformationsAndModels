@@ -5,8 +5,7 @@ Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana;
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.kit.kastel.sdq.coupling.alignment.accessanalysis2joana
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Require-Bundle: org.palladiosimulator.pcm,
- edu.kit.kastel.scbs.confidentialitymm,
+Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  org.modelversioning.emfprofile,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,

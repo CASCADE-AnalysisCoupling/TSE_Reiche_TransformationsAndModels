@@ -13,21 +13,17 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
+public class ConjunctivePowersetLatticeResultingSpecificationExtractor extends ResultingSpecificationExtractor{
 
-/* 
- * This extractor is based on the original idea of the thesis 
- *  "Enabling the Information Transfer between Architecture and Source Code for Security Analysis"
-*/
-public class NaivePowerSetLatticeResultingSpecificationExtractor extends ResultingSpecificationExtractor {
+	private ResultingSpecification resultingSpecification;
 	
-	public NaivePowerSetLatticeResultingSpecificationExtractor(Configuration config) {
+	
+	public ConjunctivePowersetLatticeResultingSpecificationExtractor(Configuration config) {
 		super(config);
-		this.resultingSpecification = new ResultingSpecification();
 	}
 
-
 	protected SecurityLevel combine(SecurityLevel source, SecurityLevel sink) {
-	
+		
 		Collection<SecurityLevel> sourceBasicLevels =  CodeQLResolutionUtil.resolveBasicLevels(source, config, DELIMITER);
 		Collection<SecurityLevel> sinkBasicLevels =  CodeQLResolutionUtil.resolveBasicLevels(sink, config, DELIMITER);
 		
@@ -44,33 +40,13 @@ public class NaivePowerSetLatticeResultingSpecificationExtractor extends Resulti
 	public ResultingSpecification calculateResultingSpecification(SourceCodeAnalysisResult scar) {
 		
 		for(ResultEntry resultEntry : scar.getResultEntries()) {
-			if(isResultEntryValitWRTAccessAnalysis(resultEntry)) {
 				ResultingSpecEntry entry = combine(resultEntry);
 				resultingSpecification.addEntry(entry);
 			}
-		}
 		
+
 		return resultingSpecification;
 	}
-	
-	private boolean isResultEntryValitWRTAccessAnalysis(ResultEntry resultEntry) {
-		Collection<SecurityLevel> sourceBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(resultEntry.getSource().getSecurityProperty(), config, DELIMITER);
-		Collection<SecurityLevel> sinkBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(resultEntry.getSink().getSecurityProperty(), config, DELIMITER);
-		
-		return !containsAny(sourceBasicLevels, sinkBasicLevels);
-	}
-
-	
-	public static <T> boolean containsAny(Collection<T> ifContaining, Collection<T> testAgainst) {
-		for(T elementToTest : testAgainst) {
-			if(ifContaining.contains(elementToTest)) {
-				return true;
-			}
-		} 
-		
-		return false;
-	}
-
 
 	private ResultingSpecEntry combine(ResultEntry resultEntry) {
 		Parameter targetParameter = null;
@@ -90,4 +66,5 @@ public class NaivePowerSetLatticeResultingSpecificationExtractor extends Resulti
 			return resultingSpecEntry;
 		}
 	}
+
 }

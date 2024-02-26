@@ -15,5 +15,6 @@ Export-Package: edu.kit.kastel.sdq.coupling.models.joana,
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  edu.kit.kastel.sdq.coupling.models.identifier;visibility:=reexport,
- edu.kit.kastel.sdq.coupling.models.java;visibility:=reexport
+ edu.kit.kastel.sdq.coupling.models.java;visibility:=reexport,
+ com.google.guava;bundle-version="30.1.0"
 Bundle-ActivationPolicy: lazy
