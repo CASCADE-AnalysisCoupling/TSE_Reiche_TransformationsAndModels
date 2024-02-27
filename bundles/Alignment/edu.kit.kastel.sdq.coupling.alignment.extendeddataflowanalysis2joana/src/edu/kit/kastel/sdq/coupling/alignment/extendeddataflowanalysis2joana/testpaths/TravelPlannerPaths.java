@@ -22,8 +22,8 @@ public class TravelPlannerPaths {
 
 	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies").toAbsolutePath().toString();
 	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
-	public static final String TRAVELPLANNER_PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/";
-	private static final String MODELS_BASE_PATH = Paths.get(String.format("%s/%s/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVELPLANNER_PCM_MODEL_BASE_PATH)).toAbsolutePath().toString();
+	public static final String PCM_MODEL_BASE_PATH = "Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/";
+	private static final String MODELS_BASE_PATH = Paths.get(String.format("%s/%s/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, PCM_MODEL_BASE_PATH)).toAbsolutePath().toString();
 	public static final String REPOSITORY_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, REPOSITORY_FILE_NAME, REPOSITORY_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String PARAMETER_ANNOTATION_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, PARAMETER_ANNOTATION_MODEL_NAME , PARAMETER_ANNOTATION_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String DATA_DICTIONARY_MODEL_PATH = Paths.get(String.format("%s/%s.%s", MODELS_BASE_PATH, DATA_DICTIONARY_FILE_NAME, DATA_DICTIONARY_FILE_ENDING)).toAbsolutePath().toString();
@@ -37,10 +37,10 @@ public class TravelPlannerPaths {
 	
 	//for testing
 	private static final String MODEL_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
-	private static final String TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4extendeddataflowanalysis";
-	public static final String JAVA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String JOANA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	private static final String JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4extendeddataflowanalysis";
+	public static final String JAVA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String JOANA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String JAVA_CODE_FILE_ENDING = "java";
 	private static final String JOANA_EVAL_CODE_FOLDER_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.code.joana4extendeddataflowanalysis";
 	public static final String JAVA_CODE_BASE_PATH = Paths.get(String.format("%s/%s/Code/%s/", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_EVAL_CODE_FOLDER_NAME)).toAbsolutePath().toString();

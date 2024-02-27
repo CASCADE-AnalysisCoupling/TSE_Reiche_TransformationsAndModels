@@ -29,7 +29,7 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 	
 	public ExtendedDataFlowAnalysis2JOANAAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath) {
+			String joanaModelPath, String correspondenceModelPath, String caseStudy) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -39,6 +39,7 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		this.javaModelPath = javaModelPath;
 		this.joanaModelPath = joanaModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
+		ExtendedDataFlowAnalysis2JOANAAlignment.caseStudy = caseStudy;
 	}
 
 	private final String repositoryPath;
@@ -49,6 +50,7 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 	private final String javaModelPath;
 	private final String joanaModelPath;
 	private final String correspondenceModelPath;
+	public static String caseStudy;
 	
 	private static final String JAVA_CODE_FILE_ENDING = "java";
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";

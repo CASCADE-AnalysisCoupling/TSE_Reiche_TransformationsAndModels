@@ -33,15 +33,15 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnno
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
-public class AccessAnalysis2CodeQLSecurityGenerator {
+public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 
 
 
 	private final TainttrackingRoot root;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final PCMJavaCorrespondenceRoot correspondences;
-	private static final String SUBLEVEL_DELIMITER = ";";
-	private static final boolean HIGH_CONJUNCTIVE = false;
+	protected static final String SUBLEVEL_DELIMITER = ";";
+	
 	
 	public AccessAnalysis2CodeQLSecurityGenerator(ConfidentialitySpecification accessAnalysisSpec,
 			PCMJavaCorrespondenceRoot correspondences) {
@@ -54,11 +54,12 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 	public void generateCodeQLConfiguration(Collection<StereotypeApplication> steretypeApplications) {
 		Configuration config = CodeQLModelgenerationUtil.generateConfiguration();
 		
-		Collection<SecurityLevel> appliedSecurityLevels = generateSecurityLevels();
-		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(appliedSecurityLevels);
+		Collection<SecurityLevel> appliedSecurityLevels = generateSecurityLevels(AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
+		config.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
+		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(config);
 		Collection<SecurityLevelAnnotation> annotations = generateSecurityLevelAnnotations(steretypeApplications, appliedSecurityLevels);
 		
-		config.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
+		
 		config.getAllowedFlows().addAll(allowedFlows);
 		config.getSecurityLevelAnnotations().addAll(annotations);
 		
@@ -111,72 +112,11 @@ public class AccessAnalysis2CodeQLSecurityGenerator {
 		return annotations;
 	}
 	
-	private Collection<SecurityLevel> generateSecurityLevels() {
-		
-		
-		Set<List<SecurityLevel>> securityLevelPowerSet = generatePowerSetWithSortedLevels();
-		
-		
-		Collection<SecurityLevel> securityLevels = new HashSet<SecurityLevel>();
-		
-		for(List<SecurityLevel> securityLevelNames : securityLevelPowerSet) {
-			
-			String securityLevelName = CodeQLLabeledTaintFlowUtil.combineSecurityLevelNames(SUBLEVEL_DELIMITER, securityLevelNames);
-			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(securityLevelName);
-			
-			securityLevels.add(level);
-		}
-		
-		return securityLevels;
-	}
-
-	private Collection<AllowedFlow> generateAllowedFlows(Collection<SecurityLevel> availableLevels) {
-
-		Collection<AllowedFlow> allowedFlows = new ArrayList<AllowedFlow>();
-		Set<List<SecurityLevel>> securityLevelPowerSet = generatePowerSetWithSortedLevels();
-		
-		for(List<SecurityLevel> potentiallyFrom : securityLevelPowerSet) {
-			for(List<SecurityLevel> potentiallyTo: securityLevelPowerSet) {
-				
-				if(CodeQLLabeledTaintFlowUtil.allowedFlowConditionConjunctive(HIGH_CONJUNCTIVE, potentiallyFrom, potentiallyTo)) {
-					SecurityLevel from = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER,potentiallyFrom, availableLevels);
-					SecurityLevel to = CodeQLLabeledTaintFlowUtil.findCombinedLevelForSeperateLevels(SUBLEVEL_DELIMITER, potentiallyTo, availableLevels);
-					
-					AllowedFlow allowed = CodeQLModelgenerationUtil.generateAllowedFlow(from, to);
-					allowedFlows.add(allowed);
-				}
-			}
-		}
-		return allowedFlows;
-	}
-
-
-
-	private Set<Set<SecurityLevel>> generatePowerSetOfSecurityLevels() {
-		Set<SecurityLevel> basicLevels = new HashSet<SecurityLevel>();
-
-		// initial set
-		for (DataSet dataSet : AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier())) {
-			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(dataSet.getName());
-			basicLevels.add(level);
-		}
-
-		return Sets.powerSet(basicLevels);
-	}
 	
-	private Set<List<SecurityLevel>> generatePowerSetWithSortedLevels(){
-		Set<Set<SecurityLevel>> powerSetSecurityLevels = generatePowerSetOfSecurityLevels();
-		Set<List<SecurityLevel>> powerSetWithSortedLevels = new HashSet<List<SecurityLevel>>();
-		
-		for(Set<SecurityLevel> set : powerSetSecurityLevels) {
-			if(!set.isEmpty()) {
-				powerSetWithSortedLevels.add(CodeQLLabeledTaintFlowUtil.sortSecurityLevels(set));
-			}
-		}
-		
-		return powerSetWithSortedLevels;
-	}
-	
+	protected abstract Collection<SecurityLevel> generateSecurityLevels(Collection<DataSet> dataSets);
+
+	protected abstract Collection<AllowedFlow> generateAllowedFlows(Configuration config);
+
 
 	private SecurityLevel getSecurityLevelForDataSets(Collection<DataSet> datasets, Collection<SecurityLevel> securityLevels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName)).collect(Collectors.toList());

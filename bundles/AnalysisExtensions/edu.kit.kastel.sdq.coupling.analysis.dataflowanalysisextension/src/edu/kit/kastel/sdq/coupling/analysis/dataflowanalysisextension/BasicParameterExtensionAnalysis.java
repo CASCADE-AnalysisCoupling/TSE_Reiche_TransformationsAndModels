@@ -17,6 +17,7 @@ import org.dataflowanalysis.analysis.core.DataFlowVariable;
 import org.dataflowanalysis.analysis.pcm.PCMDataFlowConfidentialityAnalysis;
 import org.dataflowanalysis.analysis.pcm.PCMDataFlowConfidentialityAnalysisBuilder;
 import org.dataflowanalysis.analysis.pcm.core.seff.SEFFActionSequenceElement;
+import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristicType;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.eclipse.emf.common.util.URI;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ public class BasicParameterExtensionAnalysis {
 	
 
 	private AllowedConditionsProvider allowedConditionsProvider;
-	private static String CASE_STUDY = TravelPlannerPaths.CASE_STUDY;
+	private static String CASE_STUDY = JPMailPaths.CASE_STUDY;
 	
 	
 	@Test
@@ -160,7 +161,7 @@ public class BasicParameterExtensionAnalysis {
 			// Assume only one characteristic (data levels) annotated with parameter
 			// annotations, when resolved, use characteristics instead.
 			List<Literal> parameterLiterals = annot.getCharacteristics().get(0).getValues();
-
+	
 			if (!allowedConditionsProvider.isParameterAllocationOnNodeAllowed(parameterLiterals, nodeCharacteristics)) {
 
 				

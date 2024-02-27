@@ -3,7 +3,8 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.mod
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.ExtendedDataFlowAnalysis2JOANAHandler;
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.ExtendedDataFlowAnalysis2JOANA4TravelPlannerHandler;
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.ExtendedDataFlowAnalysis2JOANAAlignment;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.OutputModels;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.JPMailPaths;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.TravelPlannerPaths;
@@ -18,17 +19,17 @@ public class ExtendedDataFlowAnalysis2JOANAModelsGenerator {
 	private JavaRoot javaRoot;
 	private JOANARoot joanaRoot;
 
-	
 	public OutputModels generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ParameterAnnotations extensionRoot, PCMDataDictionary dictionary, String basePackageName) {
 		
 		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
 		structuralGenerator.generateStructuralModel(basePackageName);
 		
-		ExtendedDataFlowAnalysis2JOANASecurityGenerator securityGenerator = null;
 		
-		if(ExtendedDataFlowAnalysis2JOANAHandler.CASE_STUDY.equals(JPMailPaths.CASE_STUDY_NAME)) {
+		ExtendedDataFlowAnalysis2JOANASecurityGenerator securityGenerator = null;
+		//TODO Should be handled by injection/dynamic binding, same as paths
+		if(ExtendedDataFlowAnalysis2JOANAAlignment.caseStudy.equals(JPMailPaths.CASE_STUDY_NAME)) {
 			securityGenerator = new ExtendedDataFlowAnalysis2JOANASecurityGenerator4HighLow(extensionRoot, correspondences, dictionary);	
-		} else if(ExtendedDataFlowAnalysis2JOANAHandler.CASE_STUDY.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
+		} else if(ExtendedDataFlowAnalysis2JOANAAlignment.caseStudy.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
 			securityGenerator = new ExtendedDataFlowAnalysis2JOANASecurityGenerator4FullDynamicLevels(extensionRoot, correspondences, dictionary);	
 		}
 			

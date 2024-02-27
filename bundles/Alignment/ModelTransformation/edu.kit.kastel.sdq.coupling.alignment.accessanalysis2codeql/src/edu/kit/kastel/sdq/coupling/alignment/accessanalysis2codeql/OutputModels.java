@@ -15,23 +15,10 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 
 
 public class OutputModels {
-	private static final String CODEQL_MODEL_FILE_ENDING = "codeql";
-	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String JAVA_MODEL_NAME = "codeqljava4accessanalysis";
-	private static final String CODEQL_MODEL_NAME = "codeql4accessanalysis";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "codeqljava4accessanalysis";
 	
 	private final JavaRoot javaRoot;
 	private final TainttrackingRoot tainttrackingRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
-	
-	//for testing
-	private static final String MODEL_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
-	private static final String TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.codeql4accessanalysis";
-	public static final String JAVA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String CODEQL_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, CODEQL_MODEL_NAME, CODEQL_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_CODEQL_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 			
 	public OutputModels(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot) {
 		this.javaRoot = javaRoot;
@@ -65,14 +52,15 @@ public class OutputModels {
 		return new OutputModels(java, tainttracking, pcmJavaCorrespondenceRoot);
 	}
 	
-	public void writeToFiles() {
-		Resource javaResource = new XMLResourceImpl(URI.createFileURI(JAVA_MODEL_PATH));
+	
+	public void writeToFiles(String javaModelPath, String codeQLModelPath, String correspondencePath) {
+		Resource javaResource = new XMLResourceImpl(URI.createFileURI(javaModelPath));
 		javaResource.getContents().add(javaRoot);
 		
-		Resource codeqlResource = new XMLResourceImpl(URI.createFileURI(CODEQL_MODEL_PATH));
+		Resource codeqlResource = new XMLResourceImpl(URI.createFileURI(codeQLModelPath));
 		codeqlResource.getContents().add(tainttrackingRoot);
 		
-		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(PCMJAVACORRESPONDENCE_MODE_PATH));
+		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(correspondencePath));
 		resourcePCMJavaCorrespondence.getContents().add(correspondenceRoot);
 		
 		try {

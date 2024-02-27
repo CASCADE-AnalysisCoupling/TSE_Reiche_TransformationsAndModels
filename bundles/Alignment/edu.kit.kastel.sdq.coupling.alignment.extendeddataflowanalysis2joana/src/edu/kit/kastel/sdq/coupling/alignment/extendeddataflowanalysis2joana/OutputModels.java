@@ -1,8 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana;
 
 import java.io.IOException;
-import java.nio.file.Paths;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;

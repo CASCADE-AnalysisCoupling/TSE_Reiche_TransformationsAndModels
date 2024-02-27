@@ -189,15 +189,6 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 
 	protected abstract Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint);
 
-	
-
-	
-
-
-
-	
-
-
 
 	protected Level getLevelForLiterals(Collection<Literal> literals, Collection<Level> levels) {
 		Collection<Literal> sortedLiterals = literals.stream().sorted(Comparator.comparing(Literal::getName))

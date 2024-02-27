@@ -20,13 +20,14 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 	private final String codeQLModelPath;
 	private final String correspondenceModelPath;
 	private final String codeQLQueryFolderPath;
+	public static String caseStudy;
 
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
-	private static final String CODEQL_QUERY_FILE_NAME = "CodeQLLabeledTainttracking4ExtendedDataflowAnalysis";
+	private static final String CODEQL_QUERY_FILE_NAME = "CodeQLLabeledTaintTracking4ExtendedDataflowAnalysis";
 	
 	public ExtendedDataFlowAnalysis2CodeQLAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String codeBasePackageName, String javaModelPath,
-			String codeQLModelPath, String correspondenceModelPath, String codeQLQueryFolderPath) {
+			String codeQLModelPath, String correspondenceModelPath, String codeQLQueryFolderPath, String caseStudy) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -36,6 +37,7 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		this.codeQLModelPath = codeQLModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
 		this.codeQLQueryFolderPath = codeQLQueryFolderPath;
+		ExtendedDataFlowAnalysis2CodeQLAlignment.caseStudy = caseStudy;
 	}
 
 	
