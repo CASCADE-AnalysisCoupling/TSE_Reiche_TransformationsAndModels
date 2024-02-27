@@ -66,7 +66,6 @@ public class BasicParameterExtensionAnalysis {
 
 		analysis.setLoggerLevel(Level.TRACE); // Set desired logger level. Level.TRACE provides additional
 															// propagation Information
-		analysis.initializeAnalysis();
 
 		List<ActionSequence> actionSequences = analysis.findAllSequences();
 
@@ -129,10 +128,15 @@ public class BasicParameterExtensionAnalysis {
 					List<Literal> parameterLiterals = annotation.getCharacteristics().get(0).getValues();
 					
 					if(!allowedConditionsProvider.isDataFlowToParameterAllowed(dfVar.getAllCharacteristics(), parameterLiterals)) {
-						printLiteralRelations("Propagated Values and Annotated Values mismatch", dfVar.variableName(),
-								dfVar.getAllCharacteristics().stream().map(CharacteristicValue::getValueName)
-										.collect(Collectors.toList()),
-								parameterLiterals.stream().map(Literal::getName).collect(Collectors.toList()));
+						
+						
+						String unifiedParameterLevel = parameterLiterals.stream().map(Literal::getName).sorted().collect(Collectors.joining(";"));
+						String unifiedDataLevel = dfVar.getAllCharacteristics().stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
+
+						System.out.println(
+								String.format("Illegal: %s (Data: %s) ->  %s (Node: %s)", unifiedDataLevel, dfVar.variableName(), unifiedParameterLevel, annotation.getParameterIdentification().getParameter()));
+						
+						
 						return false;
 					}
 				}
@@ -159,11 +163,14 @@ public class BasicParameterExtensionAnalysis {
 
 			if (!allowedConditionsProvider.isParameterAllocationOnNodeAllowed(parameterLiterals, nodeCharacteristics)) {
 
-				printLiteralRelations("Annotations Unallowed Deployed On Node", seffNode.getElement().getEntityName(),
-						parameterLiterals.stream().map(Literal::getName).collect(Collectors.toList()),
-						nodeCharacteristics.stream().map(CharacteristicValue::getValueName)
-								.collect(Collectors.toList()));
+				
+				String unifiedDataLiteralNames = parameterLiterals.stream().map(Literal::getName).sorted().collect(Collectors.joining(";"));
+				String unifiedCheckAgainstNames = nodeCharacteristics.stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 
+				System.out.println(
+						String.format("Illegal: %s (Parameter: %s) ->  %s (Node: %s)", unifiedDataLiteralNames, annot.getParameterIdentification().getParameter().getParameterName(), unifiedCheckAgainstNames, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
+				
+			
 				return false;
 			}
 
@@ -173,14 +180,7 @@ public class BasicParameterExtensionAnalysis {
 	}
 
 
-	private void printLiteralRelations(String checkPurpose, String causingEntity, Collection<String> check, Collection<String> checkAgainst) {
-		String unifiedDataLiteralNames = check.stream().sorted().collect(Collectors.joining(";"));
-		String unifiedCheckAgainstNames = checkAgainst.stream().sorted().collect(Collectors.joining(";"));
 
-		System.out.println(
-				String.format("%s:: Causing Entity: %s; levels: %s ->  %s", checkPurpose, causingEntity, unifiedDataLiteralNames, unifiedCheckAgainstNames));
-
-	}
 
 	private Collection<ParameterAnnotation> getAllParameterAnnotationsForSeff(SEFFActionSequenceElement<?> seffNode,
 			ParameterAnnotations parameterAnnotations, PCMDataFlowConfidentialityAnalysis analysis) {

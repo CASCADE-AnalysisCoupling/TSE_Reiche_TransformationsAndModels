@@ -53,4 +53,39 @@ public abstract class AllowedConditionsProvider {
 		
 		return true;
 	}
+	
+	protected boolean containsAnyLiteral(Collection<CharacteristicValue> ifContaining, Collection<Literal> testAgainst) {
+		for (Literal elementToTest : testAgainst) {
+			if (ifContaining.stream().map(CharacteristicValue::getValueName).anyMatch(valueToCheck -> valueToCheck.equals(elementToTest.getName()))) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+	protected boolean valuesAndLiteralsAreEqual(Collection<CharacteristicValue> ifContaining, Collection<Literal> testAgainst) {
+		if(ifContaining.size() != testAgainst.size()) {
+			return false;
+		}
+		
+		boolean found = false;
+		
+		for(CharacteristicValue characteristicValue : ifContaining) {
+			 for(Literal literal : testAgainst) {
+				 if(characteristicValue.getValueName().equals(literal.getName())) {
+					 found = true;
+					 break;
+				 }
+			 }
+			 
+			 if(!found) {
+				 return false;
+			 }
+			 
+			 found = false;
+		}
+		
+		return true;
+	}
 }
