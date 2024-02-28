@@ -39,12 +39,12 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParamete
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
 
-public class AccessAnalysis2JOANASecurityGenerator {
+public abstract class AccessAnalysis2JOANASecurityGenerator {
 
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final JOANARoot root;
-	private static final String SUBLEVEL_DELIMITER = ";";
+	protected static final String SUBLEVEL_DELIMITER = ";";
 	//TODO: Do this for ease of debug. Later just generate file with entrypoint IDs to execute JOANA
 	private Integer tagCounter = 0;
 
@@ -89,14 +89,14 @@ public class AccessAnalysis2JOANASecurityGenerator {
 		return entrypoints;
 	}
 
-
 	private EntryPoint generateConfiguration_EntryPoint(ProvidedSignature targetMethod, ProfileApplication application) {
-		Collection<Level> levels = generateLevels();
-		Collection<MayFlow> mayflows = generateMayFlows(levels);
-		Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
-		lattice.getMayFlow().addAll(mayflows);
+		Collection<Level> levels = generateLevels(AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
+	
 		EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
 		entrypoint.getLevel().addAll(levels);
+		Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
+		Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
+		lattice.getMayFlow().addAll(mayflows);
 		entrypoint.setLattice(lattice);
 		MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
 		method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
@@ -171,96 +171,11 @@ public class AccessAnalysis2JOANASecurityGenerator {
 		return parametersAndDataPairs;
 	}
 
-	private Collection<Level> generateLevels() {
+	protected abstract Collection<Level> generateLevels(Collection<DataSet> dataSets);
 
-		Set<List<Level>> securityLevelPowerSet = generatePowerSetWithSortedLevels();
+	protected abstract Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint);
+	
 
-		Collection<Level> securityLevels = new HashSet<Level>();
-
-		for (List<Level> securityLevelNames : securityLevelPowerSet) {
-
-			String securityLevelName = combineLevelNames(securityLevelNames);
-			Level level = JOANAModelGenerationUtil.generateLevel(securityLevelName);
-
-			securityLevels.add(level);
-		}
-
-		return securityLevels;
-	}
-
-	private Collection<MayFlow> generateMayFlows(Collection<Level> availableLevels) {
-
-		Collection<MayFlow> allowedFlows = new ArrayList<MayFlow>();
-		Set<List<Level>> securityLevelPowerSet = generatePowerSetWithSortedLevels();
-
-		for (List<Level> potentiallyFrom : securityLevelPowerSet) {
-			for (List<Level> potentiallyTo : securityLevelPowerSet) {
-
-				if (allowedFlowCondition(potentiallyFrom, potentiallyTo)) {
-					Level from = findCombinedLevelForSeperateLevels(potentiallyFrom, availableLevels);
-					Level to = findCombinedLevelForSeperateLevels(potentiallyTo, availableLevels);
-
-					MayFlow allowed = JOANAModelGenerationUtil.generateMayFlow(from, to);
-					allowedFlows.add(allowed);
-				}
-			}
-		}
-		return allowedFlows;
-	}
-
-	private String combineLevelNames(Collection<Level> securityLevels) {
-		List<String> securityLevelNames = securityLevels.stream().map(securityLevel -> securityLevel.getName())
-				.collect(Collectors.toList());
-
-		return String.join(SUBLEVEL_DELIMITER, securityLevelNames);
-	}
-
-	private Set<Set<Level>> generatePowerSetOfLevels() {
-		Set<Level> basicLevels = new HashSet<Level>();
-
-		// initial set
-		for (DataSet dataSet : AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier())) {
-			Level level = JOANAModelGenerationUtil.generateLevel(dataSet.getName());
-			basicLevels.add(level);
-		}
-
-		return Sets.powerSet(basicLevels);
-	}
-
-	private List<Level> sortLevels(Collection<Level> levels) {
-		return levels.stream().sorted(Comparator.comparing(Level::getName)).collect(Collectors.toList());
-	}
-
-	private Set<List<Level>> generatePowerSetWithSortedLevels() {
-		Set<Set<Level>> powerSetLevels = generatePowerSetOfLevels();
-		Set<List<Level>> powerSetWithSortedLevels = new HashSet<List<Level>>();
-
-		for (Set<Level> set : powerSetLevels) {
-			if (!set.isEmpty()) {
-				powerSetWithSortedLevels.add(sortLevels(set));
-			}
-		}
-
-		return powerSetWithSortedLevels;
-	}
-
-	// Allowed Flow Condition according to H�ring
-	private boolean allowedFlowCondition(Collection<Level> potentiallyFrom, Collection<Level> potentiallyTo) {
-		return potentiallyFrom.size() == potentiallyTo.size() + 1 && potentiallyFrom.containsAll(potentiallyTo);
-	}
-
-	private Level findCombinedLevelForSeperateLevels(Collection<Level> seperateLevels,
-			Collection<Level> combinedLevels) {
-		for (Level combined : combinedLevels) {
-			String combinedNameOfSeparateLevels = combineLevelNames(seperateLevels);
-
-			if (combined.getName().equals(combinedNameOfSeparateLevels)) {
-				return combined;
-			}
-		}
-
-		return null;
-	}
 
 	private Level getLevelForDataSets(Collection<DataSet> datasets, Collection<Level> levels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName))

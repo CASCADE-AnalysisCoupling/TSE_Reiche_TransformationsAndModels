@@ -12,23 +12,10 @@ import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class OutputModels {
-	private static final String JOANA_MODEL_FILE_ENDING = "joana";
-	private static final String JAVA_MODEL_FILE_ENDING = "java";
-	private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
-	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
-	
+
 	private final JavaRoot javaRoot;
 	private final JOANARoot joanaRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
-	
-	//for testing
-	private static final String MODEL_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
-	private static final String TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.joana4accessanalysis";
-	public static final String JAVA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String JOANA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
-	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, InputModels.USER_SPECIFIC_REPO_PATH, InputModels.EVAL_REPO_SPECIFIC_PATH, TRAVEL_PLANNER_JOANA_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	
 	public OutputModels(JavaRoot javaRoot, JOANARoot joanaRoot, PCMJavaCorrespondenceRoot correspondenceRoot) {
 		this.javaRoot = javaRoot;
@@ -36,14 +23,15 @@ public class OutputModels {
 		this.correspondenceRoot = correspondenceRoot;
 	}
 	
-	public void writeModelsToFiles() {
-		Resource javaResource = new XMLResourceImpl(URI.createFileURI(JAVA_MODEL_PATH));
+	
+	public void writeModelsToFiles(String javaModelPath, String joanaModelPath, String correspondenceModelPath) {
+		Resource javaResource = new XMLResourceImpl(URI.createFileURI(javaModelPath));
 		javaResource.getContents().add(javaRoot);
 		
-		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(JOANA_MODEL_PATH));
+		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(joanaModelPath));
 		joanaResource.getContents().add(joanaRoot);
 		
-		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(PCMJAVACORRESPONDENCE_MODE_PATH));
+		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(correspondenceModelPath));
 		resourcePCMJavaCorrespondence.getContents().add(correspondenceRoot);
 		
 		try {
@@ -56,7 +44,6 @@ public class OutputModels {
 			e.printStackTrace();
 		}
 	}
-	
 	
 
 	public JavaRoot getJavaRoot() {

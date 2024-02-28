@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Codeqlresult2accessanalysis
-Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis;singleton:=true
+Bundle-Name: Codeql2accessanalysis
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis
 Bundle-RequiredExecutionEnvironment: JavaSE-15

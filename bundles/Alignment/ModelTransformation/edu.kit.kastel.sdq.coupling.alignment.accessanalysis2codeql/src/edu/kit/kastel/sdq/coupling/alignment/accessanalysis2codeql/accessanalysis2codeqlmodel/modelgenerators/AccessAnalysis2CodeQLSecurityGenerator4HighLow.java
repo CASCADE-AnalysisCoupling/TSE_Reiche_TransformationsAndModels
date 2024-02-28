@@ -15,9 +15,6 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 
 public class AccessAnalysis2CodeQLSecurityGenerator4HighLow extends AccessAnalysis2CodeQLSecurityGenerator{
 
-
-
-
 	private static final String lowLevelName = "low";
 	private static final String highLevelName = "high";
 

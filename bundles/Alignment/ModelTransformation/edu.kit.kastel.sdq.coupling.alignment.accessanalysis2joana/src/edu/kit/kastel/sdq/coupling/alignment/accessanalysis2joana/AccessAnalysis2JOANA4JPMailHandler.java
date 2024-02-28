@@ -10,19 +10,20 @@ import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.testpaths.JPMa
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.testpaths.TravelPlannerPaths;
 
 
-public class AccessAnalysis2JOANA4TravelPlannerHandler extends AbstractHandler{
+public class AccessAnalysis2JOANA4JPMailHandler extends AbstractHandler{
 
+	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-
-		String repositoryPath = TravelPlannerPaths.REPOSITORY_PATH;
-		String confidentialityModelPath = TravelPlannerPaths.CONFIDENTIALITY_SPECIFICATION_PATH;
-		String javaCodeBasePath = TravelPlannerPaths.JAVA_CODE_BASE_PATH;
-		String codeBasePackageName = TravelPlannerPaths.CODE_BASE_PACKAGE_NAME;
-		String javaModelPath = TravelPlannerPaths.JAVA_MODEL_PATH;
-		String joanaModelPath = TravelPlannerPaths.JOANA_MODEL_PATH;
-		String correspondenceModelPath = TravelPlannerPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
+	
 		
+		String repositoryPath = JPMailPaths.REPOSITORY_PATH;
+		String confidentialityModelPath = JPMailPaths.CONFIDENTIALITY_SPECIFICATION_PATH;
+		String javaCodeBasePath = JPMailPaths.JAVA_CODE_BASE_PATH;
+		String codeBasePackageName = JPMailPaths.CODE_BASE_PACKAGE_NAME;
+		String javaModelPath = JPMailPaths.JAVA_MODEL_PATH;
+		String joanaModelPath = JPMailPaths.JOANA_MODEL_PATH;
+		String correspondenceModelPath = JPMailPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
 
 		AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(repositoryPath, confidentialityModelPath, javaCodeBasePath, codeBasePackageName, javaModelPath, joanaModelPath, correspondenceModelPath, TravelPlannerPaths.CASE_STUDY_NAME);
 

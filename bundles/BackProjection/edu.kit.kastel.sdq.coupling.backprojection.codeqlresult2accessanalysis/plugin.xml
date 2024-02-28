@@ -4,16 +4,25 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQLResult2AccessAnalysisHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojection"
-            name="Backprojection: CodeQL to Access Analysis">
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
+            id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
+            name="Backprojection: CodeQL to Access Analysis (TravelPlanner)">
+      </command>
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
+            id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
+            name="Backprojection: CodeQL to Access Analysis (JPMail)">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQLResult2AccessAnalysisHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojectionhandler">
+            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
+            commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4travelplanner">
+      </handler>
+      <handler
+            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
+            commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4jpmail">
       </handler>
    </extension>
    <extension
@@ -22,12 +31,17 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="accessAnalysisTransformation"
-               label="Transformation"
-               mnemonic="t">
+               id="coupling"
+               label="Coupling"
+               mnemonic="c">
             <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.backprojection"
-                  label="Backprojection: CodeQL to Access Analysis"
+                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
+                  label="Backprojection: CodeQL to Access Analysis (TravelPlanner)"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
+                  label="Backprojection: CodeQL to Access Analysis (JPMail)"
                   style="push">
             </command>
          </menu>
