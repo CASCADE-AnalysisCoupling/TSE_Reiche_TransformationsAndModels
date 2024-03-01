@@ -19,21 +19,22 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
-public class AccessAnalysisFittetPowerSetResultingSpecificationExtractor extends ResultingSpecificationExtractor {
+public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSpecificationResolution {
 
 	private Map<Tuple<Parameter, SecurityLevel>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
 	
-	public AccessAnalysisFittetPowerSetResultingSpecificationExtractor(Configuration config) {
+	public ResultingSpecificationResolution4AccessAnalysis(Configuration config) {
 		super(config);
 	}
-
-
-
 
 	private ResultingSpecEntry combine(Tuple<Parameter, SecurityLevel> originalSink, Collection<ResultEntry> resultEntries) {
 		
 
 		List<ResultEntry> relevantResultEntries = resultEntries.stream().filter(entry -> isResultEntryValidWRTAccessAnalysis(entry)).collect(Collectors.toList());
+		
+		if(!sameConfiguration(relevantResultEntries)) {
+			throw new RuntimeException("Somehow not all entries do not have the same configuration");
+		}
 		
 		if(relevantResultEntries.size() == 0) {
 			return null;
@@ -48,9 +49,12 @@ public class AccessAnalysisFittetPowerSetResultingSpecificationExtractor extends
 		
 		
 		
-		return new ResultingSpecEntry(CodeQLResolutionUtil.findLevelFromSetOfBasicLevels(unifiedLevels, relevantResultEntries.get(0).getConfig()), originalSink.getFirst());
+		return new ResultingSpecEntry(CodeQLResolutionUtil.findLevelFromSetOfBasicLevels(unifiedLevels, relevantResultEntries.get(0).getConfig()), originalSink.getFirst(), relevantResultEntries.get(0).getConfig());
 	}
-	
+
+
+
+
 	private boolean isResultEntryValidWRTAccessAnalysis(ResultEntry resultEntry) {
 		Collection<SecurityLevel> sourceBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(resultEntry.getSource().getSecurityProperty(), resultEntry.getConfig(), DELIMITER);
 		Collection<SecurityLevel> sinkBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(resultEntry.getSink().getSecurityProperty(), resultEntry.getConfig(), DELIMITER);

@@ -13,53 +13,56 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
-public class ConjunctivePowersetLatticeResultingSpecificationExtractor extends ResultingSpecificationExtractor{
+public class ResultingSpecificationResolution4ConjunctivePowerset extends ResultingSpecificationResolution {
 
-	private ResultingSpecification resultingSpecification;
-	
-	
-	public ConjunctivePowersetLatticeResultingSpecificationExtractor(Configuration config) {
+	public ResultingSpecificationResolution4ConjunctivePowerset(Configuration config) {
 		super(config);
 	}
 
 	protected SecurityLevel combine(SecurityLevel source, SecurityLevel sink) {
-		
-		Collection<SecurityLevel> sourceBasicLevels =  CodeQLResolutionUtil.resolveBasicLevels(source, config, DELIMITER);
-		Collection<SecurityLevel> sinkBasicLevels =  CodeQLResolutionUtil.resolveBasicLevels(sink, config, DELIMITER);
-		
+
+		Collection<SecurityLevel> sourceBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(source, config,
+				DELIMITER);
+		Collection<SecurityLevel> sinkBasicLevels = CodeQLResolutionUtil.resolveBasicLevels(sink, config, DELIMITER);
+
 		Set<SecurityLevel> combinedLevels = new HashSet<SecurityLevel>();
-		
-		sourceBasicLevels.stream().forEach(level -> {combinedLevels.add(level);});
-		sinkBasicLevels.stream().forEach(level -> {combinedLevels.add(level);});
-		
+
+		sourceBasicLevels.stream().forEach(level -> {
+			combinedLevels.add(level);
+		});
+		sinkBasicLevels.stream().forEach(level -> {
+			combinedLevels.add(level);
+		});
+
 		return CodeQLResolutionUtil.findLevelFromSetOfBasicLevels(combinedLevels, config);
-	
+
 	}
 
 	@Override
 	public ResultingSpecification calculateResultingSpecification(SourceCodeAnalysisResult scar) {
-		
-		for(ResultEntry resultEntry : scar.getResultEntries()) {
-				ResultingSpecEntry entry = combine(resultEntry);
-				resultingSpecification.addEntry(entry);
-			}
-		
+
+		scar.getResultEntries().forEach(resultEntry -> {
+			ResultingSpecEntry resultingEntry = combine(resultEntry);
+			resultingSpecification.addEntry(resultingEntry);
+		});
 
 		return resultingSpecification;
 	}
 
 	private ResultingSpecEntry combine(ResultEntry resultEntry) {
 		Parameter targetParameter = null;
-		if(resultEntry.getSink().getSystemElement() instanceof Parameter) {
-			targetParameter = (Parameter)resultEntry.getSink().getSystemElement();
+		if (resultEntry.getSink().getSystemElement() instanceof Parameter) {
+			targetParameter = (Parameter) resultEntry.getSink().getSystemElement();
 		}
-		
-		ResultingSpecEntry resultingSpecEntry = resultingSpecification.getResultingSpecEntryForTargetIfExisting(targetParameter).orElse(null);
-		
+
+		ResultingSpecEntry resultingSpecEntry = resultingSpecification
+				.getResultingSpecEntryForTargetIfExisting(targetParameter).orElse(null);
+
 		SecurityLevel newLevel;
-		if(resultingSpecEntry == null) {
-			newLevel = combine(resultEntry.getSource().getSecurityProperty(), resultEntry.getSink().getSecurityProperty());
-			return new ResultingSpecEntry(newLevel, targetParameter);
+		if (resultingSpecEntry == null) {
+			newLevel = combine(resultEntry.getSource().getSecurityProperty(),
+					resultEntry.getSink().getSecurityProperty());
+			return new ResultingSpecEntry(newLevel, targetParameter, resultEntry.getConfig());
 		} else {
 			newLevel = combine(resultEntry.getSource().getSecurityProperty(), resultingSpecEntry.getSecurityProperty());
 			resultingSpecEntry.setSecurityProperty(newLevel);

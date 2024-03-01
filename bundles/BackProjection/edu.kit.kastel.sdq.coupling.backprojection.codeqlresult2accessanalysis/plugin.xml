@@ -4,24 +4,24 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
             id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
-            name="Backprojection: CodeQL to Access Analysis (TravelPlanner)">
+            name="Result Integration: CodeQL to Access Analysis (TravelPlanner)">
       </command>
       <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
             id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
-            name="Backprojection: CodeQL to Access Analysis (JPMail)">
+            name="Result Integration: CodeQL to Access Analysis (JPMail)">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
+            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
             commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4travelplanner">
       </handler>
       <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
+            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
             commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4jpmail">
       </handler>
    </extension>
@@ -36,12 +36,12 @@
                mnemonic="c">
             <command
                   commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
-                  label="Backprojection: CodeQL to Access Analysis (TravelPlanner)"
+                  label="Result Integration: CodeQL to Access Analysis (TravelPlanner)"
                   style="push">
             </command>
             <command
                   commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
-                  label="Backprojection: CodeQL to Access Analysis (JPMail)"
+                  label="ResultIntegration: CodeQL to Access Analysis (JPMail)"
                   style="push">
             </command>
          </menu>

@@ -4,16 +4,25 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.JoanaResult2AccessAnalysisHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.command.backprojectionCommand"
-            name="Backprojection: JOANA to Access Analysis">
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.Joana2AccessAnalysis4TravelPlannerHandler"
+            id="edu.kit.kastel.sdq.coupling.backprojection.command.joanaresult2accessanalysis4travelplanner"
+            name="Result Integration: JOANA to Access Analysis (TravelPlanner)">
+      </command>
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.Joana2AccessAnalysis4JPMailHandler"
+            id="edu.kit.kastel.sdq.coupling.backprojection.command.joanaresult2accessanalysis4jpmail"
+            name="Result Integration: JOANA to Access Analysis (JPMail)">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.JoanaResult2AccessAnalysisHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.handlers.backprojectionhandler">
+            class="edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.Joana2AccessAnalysis4TravelPlannerHandler"
+            commandId="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.handlers.joanaresult2accessanalysis4travelplanner">
+      </handler>
+      <handler
+            class="edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.Joana2AccessAnalysis4JPMailHandler"
+            commandId="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.handlers.joanaresult2accessanalysis4jpmail">
       </handler>
    </extension>
    <extension
@@ -22,12 +31,17 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="accessAnalysisTransformation"
-               label="Transformation"
-               mnemonic="t">
+               id="coupling"
+               label="Coupling"
+               mnemonic="c">
             <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis.command.backprojectionCommand"
-                  label="Backprojection: JOANA to Access Analysis"
+                  commandId="edu.kit.kastel.sdq.coupling.backprojection.command.joanaresult2accessanalysis4travelplanner"
+                  label="Result Integration: JOANA to Access Analysis (TravelPlanner)"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.backprojection.command.joanaresult2accessanalysis4jpmail"
+                  label="Result Integration: JOANA to Access Analysis (JPMail)"
                   style="push">
             </command>
          </menu>
