@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.JOANATravelPlannerHandler"
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.joanatravelplanner"
+            name="Interpret JOANA TravelPlanner Access Analysis Result">
+      </command>
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.JOANAJPMailHandler"
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.joanajpmail"
+            name="Interpret JOANA JPMail Access Analysis Result">
+      </command>
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.CodeQLTravelPlannerHandler"
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.codeqltravelplanner"
+            name="Interpret CodeQL TravelPlanner Access Analysis Result">
+      </command>
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.CodeQLJPMailHandler"
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.codeqljpmail"
+            name="Interpret CodeQL JPMail Access Analysis Result">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.JOANATravelPlannerHandler"
+            commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.joanatravelplanner">
+      </handler>
+      <handler
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.JOANAJPMailHandler"
+            commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.joanajpmail">
+      </handler>
+      <handler
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.CodeQLTravelPlannerHandler"
+            commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.codeqltravelplanner">
+      </handler>
+      <handler
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.CodeQLJPMailHandler"
+            commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers.codeqljpmail">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="interpretation"
+               label="Interpretation"
+               mnemonic="i">
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.joanatravelplanner"
+                  label="Interpret JOANA TravelPlanner Access Analysis Result"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.joanajpmail"
+                  label="Interpret JOANA JPMail Access Analysis Result"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.codeqltravelplanner"
+                  label="Interpret CodeQL TravelPlanner Access Analysis Result"
+                  style="push">
+            </command>
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.commands.codeqljpmail"
+                  label="Interpret CodeQL JPMail Access Analysis Result"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

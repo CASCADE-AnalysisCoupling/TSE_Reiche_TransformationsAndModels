@@ -13,57 +13,58 @@ import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templa
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil
+import edu.kit.kastel.sdq.coupling.models.joana.Source
 
-class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate{
-	
+class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate {
+
 	private final MethodGenerationTemplate methodGenerator;
 	private JOANARoot joanaRoot;
 
-	new (JavaRoot javaRoot, JOANARoot joanaRoot){
+	new(JavaRoot javaRoot, JOANARoot joanaRoot) {
 		this.javaRoot = javaRoot;
 		this.joanaRoot = joanaRoot;
 		this.methodGenerator = new JOANAMethodCodeGenerator(javaRoot, joanaRoot);
 	}
-	
+
 	override protected generateImports() {
-		
+
 		var collectionImport = "";
-		
+
 		var joanaUIImports = "";
-		
-		//TODO: Make this dependent on whether class or interface really has annotations
-		//val targetedByJOANA = JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(currentClassOrInterface, joanaRoot);
-		val targetedByJOANA = true;
-		
-		if(currentClassOrInterface instanceof Class && targetedByJOANA){
-			joanaUIImports = "import edu.kit.joana.ui.annotations.*;";	
+
+		val entryPointsWithSourceAnnotations = joanaRoot.entrypoint.filter [ ep |
+			super.currentClassOrInterface.method.contains(ep.methodIdentification.method)
+		].filter[ep|ep.annotation.size != 0].filter[ep|ep.annotation.exists[an|an instanceof Source]]
+
+		val targetedByJOANA = !entryPointsWithSourceAnnotations.isEmpty;
+
+		if (currentClassOrInterface instanceof Class && targetedByJOANA) {
+			joanaUIImports = "import edu.kit.joana.ui.annotations.*;";
 		}
-		
+
 		val types = JavaResolutionUtil.getAllNonPrimitiveTypes(currentClassOrInterface);
-		if(!types.filter(CollectionType).empty){
+		if (!types.filter(CollectionType).empty) {
 			collectionImport = "import java.util.Collection;";
 		}
-		
-		//Not nice, but aside from primitive types and collection types, only ClassOrInterfaceTypes, i.e., Reference Types exist
+
+		// Not nice, but aside from primitive types and collection types, only ClassOrInterfaceTypes, i.e., Reference Types exist
 		val classOrInterfaceTypes = types.filter(ClassOrInterfaceType).toList;
-		
+
 		return '''
 			«joanaUIImports» 
 			«collectionImport» 
 			«FOR classOrInterfaceType : classOrInterfaceTypes SEPARATOR System.lineSeparator»import «JavaResolutionUtil.createFullyQualifiedPath(javaRoot, classOrInterfaceType)»;«ENDFOR»
 		'''
 	}
-	
+
 	override protected generateMethods() {
 		return '''«FOR method : currentClassOrInterface.method SEPARATOR System.lineSeparator»«generateMethod(method, currentClassOrInterface)»«ENDFOR»'''
 	}
-	
-	
-	
+
 	private def String generateMethod(Method method, ClassOrInterfaceType parent) {
 		methodGenerator.currentMethod = method;
 		methodGenerator.parent = parent;
-		
+
 		return methodGenerator.generate();
 	}
 }

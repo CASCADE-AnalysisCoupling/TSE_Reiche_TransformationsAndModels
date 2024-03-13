@@ -13,7 +13,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 public class CodeQLResolutionUtil {
 	public static SecurityLevel lookupLevel(String levelName, Configuration config) {
 		return config.getAppliedSecurityLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName))
-				.findFirst().get();
+				.findFirst().orElseThrow(() -> new RuntimeException(String.format("Level %s not in Configuration %s", levelName, config.getId())));
 	}
 	
 	public static Collection<SecurityLevel> resolveBasicLevels(SecurityLevel level, Configuration config, String delimiter) {
@@ -32,7 +32,7 @@ public class CodeQLResolutionUtil {
 		
 		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
 		Optional<SecurityLevel> calculatedLevel = config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
-		return calculatedLevel.get();
+		return calculatedLevel.orElseThrow(() -> new RuntimeException(String.format("Level %s not in Configuration %s", levelNameToSearch, config.getId())));
 	}
 	
 	public static boolean containsSecurityLevelWithSubname(SecurityLevel level, Configuration config, String delimiter) {

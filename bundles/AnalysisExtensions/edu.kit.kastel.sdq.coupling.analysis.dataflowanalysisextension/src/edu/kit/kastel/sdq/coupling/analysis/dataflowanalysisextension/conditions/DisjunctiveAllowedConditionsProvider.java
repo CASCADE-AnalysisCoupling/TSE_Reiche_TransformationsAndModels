@@ -11,7 +11,7 @@ public class DisjunctiveAllowedConditionsProvider extends AllowedConditionsProvi
 	public boolean isDataFlowToNodeAllowed(Collection<CharacteristicValue> dataValues,
 			Collection<CharacteristicValue> nodeValues) {
 		return nodeValues.isEmpty() || dataValues.isEmpty()
-				|| dataValues.size() <= nodeValues.size() && containsAll(nodeValues, dataValues);
+				|| containsAny(nodeValues, dataValues);
 	}
 
 	@Override
@@ -27,6 +27,7 @@ public class DisjunctiveAllowedConditionsProvider extends AllowedConditionsProvi
 			Collection<Literal> parameterValues) {
 		return dataValues.isEmpty() || parameterValues.isEmpty()
 				|| valuesAndLiteralsAreEqual(dataValues, parameterValues);
+				//|| literalsContainAny(parameterValues, dataValues);
 	}
 
 }

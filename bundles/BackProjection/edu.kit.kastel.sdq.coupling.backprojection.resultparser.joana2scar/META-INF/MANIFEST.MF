@@ -30,3 +30,5 @@ Export-Package: edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2sc
  org.yaml.snakeyaml.util
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.joana
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar
+Bundle-ClassPath: libs/snakeyaml-2.2.jar,
+ .

@@ -6,12 +6,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Repository;
 
@@ -34,6 +36,7 @@ import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
@@ -45,7 +48,8 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final JOANARoot root;
 	protected static final String SUBLEVEL_DELIMITER = ";";
-	//TODO: Do this for ease of debug. Later just generate file with entrypoint IDs to execute JOANA
+	// TODO: Do this for ease of debug. Later just generate file with entrypoint IDs
+	// to execute JOANA
 	private Integer tagCounter = 0;
 
 	public AccessAnalysis2JOANASecurityGenerator(PCMJavaCorrespondenceRoot correspondences,
@@ -57,110 +61,153 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	}
 
 	public JOANARoot generateJOANASpecification(ProfileApplication application) {
-			root.getEntrypoint().addAll(generateConfigurations_EntryPoints(application));
-			return root;
+		root.getEntrypoint().addAll(generateConfigurations_EntryPoints(application));
+		return root;
 	}
-	
+
 	private Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application) {
 		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 		Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
 		Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
 				.filterInformationFlowApplications(stereotypeApplications);
 
-		for(StereotypeApplication informationflowStereo : informationFlows) {
+		for (StereotypeApplication informationflowStereo : informationFlows) {
 			Object stereotypedObject = informationflowStereo.getAppliedTo();
-			
-			if(stereotypedObject instanceof OperationSignature) {
+
+			if (stereotypedObject instanceof OperationSignature) {
 				OperationSignature stereotypedSig = (OperationSignature) stereotypedObject;
-				
-				for(ProvidedOperationSignature2JavaMethod provsig : correspondences.getProvidedoperationsignature2javamethod()) {
-					if(provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
-						//TODO: Check why there is two times the same operationsignature
-						EntryPoint entryPoint = generateConfiguration_EntryPoint(provsig.getPcmMethod(), application);
-						
-						if(entryPoint.getId() != null) {
-							entrypoints.add(entryPoint);
-						}
+
+				for (ProvidedOperationSignature2JavaMethod provsig : correspondences
+						.getProvidedoperationsignature2javamethod()) {
+					if (provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
+
+						entrypoints.addAll(generateConfigurations_EntryPoint(provsig.getPcmMethod(), application));
 					}
 				}
-			}	
+			}
 		}
-		
+
 		return entrypoints;
 	}
 
-	private EntryPoint generateConfiguration_EntryPoint(ProvidedSignature targetMethod, ProfileApplication application) {
-		Collection<Level> levels = generateLevels(AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
-	
-		EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
-		entrypoint.getLevel().addAll(levels);
-		Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
-		Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
-		lattice.getMayFlow().addAll(mayflows);
-		entrypoint.setLattice(lattice);
-		MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
-		method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
-		entrypoint.setMethodIdentification(method);
+	private Collection<EntryPoint> generateConfigurations_EntryPoint(ProvidedSignature targetMethod,
+			ProfileApplication application) {
 
-		
-		Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
-		Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
-				.filterInformationFlowApplications(stereotypeApplications);
-		
-		for (StereotypeApplication stereotype : informationFlows) {
-			Object stereotypedObject = stereotype.getAppliedTo();
-			OperationSignature stereotypedSignature = null;
-			if (stereotypedObject instanceof OperationSignature) {
-				stereotypedSignature = (OperationSignature) stereotypedObject;
-			} else {
-				continue;
-			}
+		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 
-			Collection<ParametersAndDataPair> paramtersanddatapairs = getParametersAndDataPairsForStereotype(
-					stereotype);
+		for (org.palladiosimulator.pcm.repository.Parameter parameter : targetMethod.getProvidedSignature()
+				.getParameters__OperationSignature()) {
+			Collection<Level> levels = generateLevels(
+					AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
+			EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
+			entrypoint.getLevel().addAll(levels);
+			Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
+			Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
+			lattice.getMayFlow().addAll(mayflows);
+			entrypoint.setLattice(lattice);
+			MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
+			method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
+			entrypoint.setMethodIdentification(method);
 
-			for (ParametersAndDataPair pair : paramtersanddatapairs) {
-				Collection<String> paramsources = pair.getParameterSources();
-				for (String paramsource : paramsources) {
+			Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
+			Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
+					.filterInformationFlowApplications(stereotypeApplications);
 
-					if (paramsource.toLowerCase().contains("return")) {
+			for (StereotypeApplication stereotype : informationFlows) {
+				Object stereotypedObject = stereotype.getAppliedTo();
+				OperationSignature stereotypedSignature = null;
+				if (stereotypedObject instanceof OperationSignature) {
+					stereotypedSignature = (OperationSignature) stereotypedObject;
+				} else {
+					continue;
+				}
 
-					} else if (paramsource.toLowerCase().contains("sizeof")) {
+				Collection<ParametersAndDataPair> paramtersanddatapairs = getParametersAndDataPairsForStereotype(
+						stereotype);
 
-					} else if (paramsource.toLowerCase().contains("call")) {
+				for (ParametersAndDataPair pair : paramtersanddatapairs) {
 
-					} else {
-						ProvidedParameterIdentification pcmParameter = getParameterIdentification(stereotypedSignature, paramsource);
+					for (String paramsource : filterParametersFromParameterSources(pair.getParameterSources())) {
+
+						ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils
+								.getParameterIdentification(correspondences, targetMethod.getProvidedRole(),
+										stereotypedSignature, paramsource);
 						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil
 								.filterDataSets(pair.getDataTargets());
-
-						Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 						Level level = getLevelForDataSets(dataSets, entrypoint.getLevel());
-						ParametertIdentifying paramIdent = JOANAModelGenerationUtil.generateParameterIdentifying(param);
 
-						if (stereotype.getAppliedTo().equals(targetMethod.getProvidedSignature())) {
+						Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils
+								.getJavaParameters(correspondences, pcmParameter);
 
-							Source source = JOANAModelGenerationUtil.generateSource(level, paramIdent);
-							entrypoint.getAnnotation().add(source);
+						// Source Case
+						if (param.isPresent()) {
+							ParametertIdentifying paramIdent = JOANAModelGenerationUtil
+									.generateParameterIdentifying(param.get());
+							if (stereotype.getAppliedTo().equals(targetMethod.getProvidedSignature())
+									&& paramsource.equals(parameter.getParameterName())) {
+								Source source = JOANAModelGenerationUtil.generateSource(level, paramIdent);
+								entrypoint.getAnnotation().add(source);
+							} else {
+								// Sink case if available in same provided role but different signature
+								Sink sink = JOANAModelGenerationUtil.generateSink(level, paramIdent);
+								entrypoint.getAnnotation().add(sink);
+							}
+						}
+						// Sink Case if not in same provided role but same signature
 
-						} else {
+						Collection<ProvidedParameterIdentification> potentialPCMParameters = PCMJavaCorrespondenceResolutionUtils
+								.getParameterIdentification(correspondences, stereotypedSignature, paramsource);
+
+						
+						for(ProvidedParameterIdentification pcmParam : potentialPCMParameters) {
+							if(pcmParam.equals(pcmParameter)) {
+								continue;
+							}
+							
+							Optional<Parameter> sinkParam = PCMJavaCorrespondenceResolutionUtils
+									.getJavaParameters(correspondences, pcmParam);
+
+							ParametertIdentifying paramIdent = JOANAModelGenerationUtil
+									.generateParameterIdentifying(sinkParam.get());
 							Sink sink = JOANAModelGenerationUtil.generateSink(level, paramIdent);
 							entrypoint.getAnnotation().add(sink);
 						}
 					}
 				}
+
+			}
+
+			if (!entrypoint.getAnnotation().stream().anyMatch(annotation -> annotation instanceof Source)
+					|| entrypoint.getAnnotation().isEmpty()) {
+				entrypoint.setId(null);
+			} else {
+				entrypoint.setId(tagCounter.toString());
+				tagCounter++;
+				entrypoints.add(entrypoint);
 			}
 		}
-		
-		if(entrypoint.getAnnotation().isEmpty()) {
-			entrypoint.setId(null);
-		} else {
-			entrypoint.setId(tagCounter.toString());
-			tagCounter++;
-		}
-		
-		return entrypoint;
+		return entrypoints;
+	}
 
+	private Collection<String> getParametersOfParameterAndDataPairs(
+			Collection<ParametersAndDataPair> paramtersanddatapairs) {
+		Collection<String> parameters = new HashSet<String>();
+
+		for (ParametersAndDataPair pair : paramtersanddatapairs) {
+			parameters.addAll(pair.getParameterSources().stream()
+					.filter(source -> !source.toLowerCase().contains("return")
+							&& !source.toLowerCase().contains("sizeof") && !source.toLowerCase().contains("call"))
+					.collect(Collectors.toList()));
+		}
+
+		return parameters;
+	}
+
+	private Collection<String> filterParametersFromParameterSources(Collection<String> parameterSources) {
+		return parameterSources
+				.stream().filter(source -> !source.toLowerCase().contains("return")
+						&& !source.toLowerCase().contains("sizeof") && !source.toLowerCase().contains("call"))
+				.collect(Collectors.toList());
 	}
 
 	private Collection<ParametersAndDataPair> getParametersAndDataPairsForStereotype(
@@ -174,8 +221,6 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	protected abstract Collection<Level> generateLevels(Collection<DataSet> dataSets);
 
 	protected abstract Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint);
-	
-
 
 	private Level getLevelForDataSets(Collection<DataSet> datasets, Collection<Level> levels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName))
@@ -193,7 +238,8 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	}
 
 	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondences);
+		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils
+				.getProvidedParameters(correspondences);
 
 		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
 			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)

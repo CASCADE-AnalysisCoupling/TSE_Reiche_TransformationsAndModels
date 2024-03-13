@@ -42,6 +42,16 @@ public abstract class AllowedConditionsProvider {
 
 		return true;
 	}
+	
+	protected boolean containsAny(Collection<CharacteristicValue> toCheck, Collection<CharacteristicValue> against) {
+		for(CharacteristicValue valueAgainst : against) {
+			if(toCheck.stream().anyMatch(valueToCheck -> valueToCheck.equals(valueAgainst))) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 	protected boolean containsAllLiterals(Collection<CharacteristicValue> toCheck, Collection<Literal> against) {
 
@@ -57,6 +67,16 @@ public abstract class AllowedConditionsProvider {
 	protected boolean containsAnyLiteral(Collection<CharacteristicValue> ifContaining, Collection<Literal> testAgainst) {
 		for (Literal elementToTest : testAgainst) {
 			if (ifContaining.stream().map(CharacteristicValue::getValueName).anyMatch(valueToCheck -> valueToCheck.equals(elementToTest.getName()))) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+	protected boolean literalsContainAny(Collection<Literal> ifContaining, Collection<CharacteristicValue> testAgainst) {
+		for (CharacteristicValue elementToTest : testAgainst) {
+			if (ifContaining.stream().anyMatch(valueToCheck -> valueToCheck.getName().equals(elementToTest.getValueName()))) {
 				return true;
 			}
 		}

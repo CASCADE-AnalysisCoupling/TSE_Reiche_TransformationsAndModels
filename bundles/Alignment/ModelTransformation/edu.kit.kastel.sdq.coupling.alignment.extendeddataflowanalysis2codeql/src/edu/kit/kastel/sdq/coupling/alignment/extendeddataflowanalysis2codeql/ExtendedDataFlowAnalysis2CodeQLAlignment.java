@@ -23,7 +23,7 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 	public static String caseStudy;
 
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
-	private static final String CODEQL_QUERY_FILE_NAME = "CodeQLLabeledTaintTracking4ExtendedDataflowAnalysis";
+	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4ExtendedDataflowAnalysis";
 	
 	public ExtendedDataFlowAnalysis2CodeQLAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String codeBasePackageName, String javaModelPath,
@@ -59,6 +59,7 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		fileToGenerate.write();
 
 		outputModels.writeToFiles(javaModelPath, codeQLModelPath, correspondenceModelPath);
-
+		
+		System.out.println("Done Alignment Access Analysis 2 CodeQL");
 	}
 }

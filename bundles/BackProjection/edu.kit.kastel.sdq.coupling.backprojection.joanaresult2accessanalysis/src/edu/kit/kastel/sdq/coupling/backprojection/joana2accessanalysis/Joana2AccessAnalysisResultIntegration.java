@@ -4,9 +4,9 @@ package edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection.BackprojectionFactory;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection.Backprojector;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.models.Models;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.resultingspecificationresolution.ResultingSpecificationResolution;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.resultingspecificationresolution.ResultingSpecificationResolution4AccessAnalysis;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecification;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolution;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolutionFactory;
 import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.model.SourceCodeAnalysisResult;
 import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.parser.JoanaResult2SCARParser;
 
@@ -43,11 +43,10 @@ public class Joana2AccessAnalysisResultIntegration {
 				repositoryModelLocation, confidentialitySpecificationLocation, originBackupLocation);
 		
 		JoanaResult2SCARParser parser = new JoanaResult2SCARParser(input.getJavaRoot(), input.getJoanaRoot());
-		
-		
 		SourceCodeAnalysisResult scar = parser.readJOANAOutput(input.getJoanaResult());
 		
-		ResultingSpecificationResolution extractor = new ResultingSpecificationResolution4AccessAnalysis();
+		
+		ResultingSpecificationResolution extractor = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle);
 		ResultingSpecification resultingSpec = extractor.calculateResultingSpecification(scar);
 		
 		Backprojector backprojector = BackprojectionFactory.create(policyStyle, input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile());
@@ -55,5 +54,6 @@ public class Joana2AccessAnalysisResultIntegration {
 		
 		input.updateConfidentialityModel(confidentialitySpecificationLocation);
 	
+		System.out.println("Result Integration JOANA to Access Analysis Done");
 	}
 }

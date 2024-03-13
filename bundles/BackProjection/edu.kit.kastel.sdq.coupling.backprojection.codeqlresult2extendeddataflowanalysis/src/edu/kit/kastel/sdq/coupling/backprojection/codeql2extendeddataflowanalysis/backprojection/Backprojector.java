@@ -1,9 +1,8 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.stream.Collectors;
+
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;

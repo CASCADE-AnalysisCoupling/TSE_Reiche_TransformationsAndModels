@@ -30,7 +30,7 @@ public class JPMailPaths {
 	private static final String JAVA_MODEL_NAME = "java4extendeddataflowanalysis";
 	private static final String CODEQL_MODEL_NAME = "codeql4extendeddataflowanalysis";
 	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4extendeddataflowanalys";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4extendeddataflowanalysis";
 	
 	
 	//for testing

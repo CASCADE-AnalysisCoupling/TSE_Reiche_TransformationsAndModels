@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Joana2resultingspecification
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification
+Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution,
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util
+Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
+ edu.kit.kastel.sdq.coupling.models.joana,
+ edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification

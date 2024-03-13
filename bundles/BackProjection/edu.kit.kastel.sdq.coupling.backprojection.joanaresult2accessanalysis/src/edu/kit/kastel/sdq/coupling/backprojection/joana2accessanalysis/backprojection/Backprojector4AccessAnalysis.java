@@ -11,8 +11,8 @@ import org.palladiosimulator.pcm.repository.Repository;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.utils.CollectionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.CollectionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
@@ -28,7 +28,7 @@ public class Backprojector4AccessAnalysis extends Backprojector {
 		Collection<DataSet> originalDataSets = parametersAndDataPair.getDataTargets().stream()
 				.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toSet());
 		
-		parametersAndDataPair.getDataTargets().clear();
+		boolean notCleared = true;
 
 		for (ResultingSpecEntry entry : assignment.getValue()) {
 
@@ -36,6 +36,10 @@ public class Backprojector4AccessAnalysis extends Backprojector {
 					entry.getEntryPoint());
 
 			if (isSecurityLevelValidWRTAccessAnalysis(originalDataSets, dataSets)) {
+				if(notCleared) {
+					parametersAndDataPair.getDataTargets().clear();
+					notCleared = false;
+				}
 				
 				parametersAndDataPair.getDataTargets().addAll(dataSets);
 			}

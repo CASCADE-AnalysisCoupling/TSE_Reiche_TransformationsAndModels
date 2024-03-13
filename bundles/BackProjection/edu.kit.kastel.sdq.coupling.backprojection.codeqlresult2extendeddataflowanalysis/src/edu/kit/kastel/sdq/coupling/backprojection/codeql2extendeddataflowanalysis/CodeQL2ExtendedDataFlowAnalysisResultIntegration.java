@@ -1,5 +1,8 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis;
 
+
+import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection.Backprojector;
+import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection.Backproject;
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.models.Models;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.CodeQLResultingSpecificationExtractor;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
@@ -50,5 +53,11 @@ public class CodeQL2ExtendedDataFlowAnalysisResultIntegration {
 		CodeQLResultingSpecificationExtractor extractor = new CodeQLResultingSpecificationExtractor(resolution);
 		
 		ResultingSpecification resultingSpecification = extractor.extract(input.getTainttrackingRoot(), input.getJavaRoot(), input.getCodeQLResult());
+		
+		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getParameterAnnotations(), input.getTainttrackingRoot().getConfigurations().get(0), input.getDataDictionary());
+		backprojector.project(resultingSpecification);
+		input.updateSpecification(parameterAnnotationModelLocation);
+		
+		System.out.println("Result Integration CodeQL to Access Analysis Done");
 	}
 }

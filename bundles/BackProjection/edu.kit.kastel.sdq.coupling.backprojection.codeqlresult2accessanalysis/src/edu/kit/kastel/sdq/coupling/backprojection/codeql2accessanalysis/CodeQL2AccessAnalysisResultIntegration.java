@@ -57,6 +57,8 @@ public class CodeQL2AccessAnalysisResultIntegration {
 		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));
 		backprojector.project(resultingSpecification);
 		input.updateConfidentialityModel(confidentialitySpecificationLocation);
+		
+		System.out.println("Result Integration CodeQL to Access Analysis Done");
 	}
 	
 	

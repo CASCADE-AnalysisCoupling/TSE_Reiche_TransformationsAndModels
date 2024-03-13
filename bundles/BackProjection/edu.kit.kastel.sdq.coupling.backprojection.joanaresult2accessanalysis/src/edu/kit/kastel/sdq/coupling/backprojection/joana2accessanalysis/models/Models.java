@@ -50,10 +50,9 @@ public class Models {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 		
 		File originalDirectory = Path.of(repositoryFilePath).toAbsolutePath().getParent().toFile();
-		String originalDirectoryParentPath = originalDirectory.getParentFile().getAbsolutePath();
 		
 		
-		File originalBackupDirectory = Paths.get(originalDirectoryParentPath, originBackupDirectoryPath).toAbsolutePath()
+		File originalBackupDirectory = Paths.get(originBackupDirectoryPath).toAbsolutePath()
 				.toFile();
 		
 		if (!originalBackupDirectory.exists()) {

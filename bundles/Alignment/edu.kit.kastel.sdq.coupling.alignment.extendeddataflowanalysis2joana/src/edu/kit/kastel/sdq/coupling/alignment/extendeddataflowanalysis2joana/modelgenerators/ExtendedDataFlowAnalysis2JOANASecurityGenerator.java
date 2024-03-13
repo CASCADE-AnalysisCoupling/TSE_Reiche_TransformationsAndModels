@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -120,9 +121,9 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 			
 			for (ProvidedParameterIdentification parameterIdentification : parameterIdentifications) {
 				
-				Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences,
+				Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences,
 						parameterIdentification);
-				ParametertIdentifying paramIdent = JOANAModelGenerationUtil.generateParameterIdentifying(param);
+				ParametertIdentifying paramIdent = JOANAModelGenerationUtil.generateParameterIdentifying(param.get());
 				
 				if (parameterIdentification.equals(targetParameterIdentification)) {
 					Source source = JOANAModelGenerationUtil.generateSource(level, paramIdent);

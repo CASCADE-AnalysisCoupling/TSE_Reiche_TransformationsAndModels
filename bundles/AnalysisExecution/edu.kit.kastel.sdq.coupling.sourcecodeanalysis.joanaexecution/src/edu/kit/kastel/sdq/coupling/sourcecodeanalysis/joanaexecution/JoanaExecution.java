@@ -199,7 +199,7 @@ public class JoanaExecution{
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		processBuilder.command(buildCommand);
 		try {
-			Process pr = processBuilder.start();
+			Process pr = processBuilder.inheritIO().start();
 			pr.waitFor();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block

@@ -95,6 +95,7 @@ public class Models {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		EcoreUtil.resolveAll(resSet);
 
 		JavaRoot java = (JavaRoot) resourceJava.getContents().get(0);
 		TainttrackingRoot tainttracking = (TainttrackingRoot) resourceCodeQL.getContents().get(0);
@@ -114,9 +115,9 @@ public class Models {
 		return new Models(java, tainttracking, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository, parameterAnnotations, dataDictionary);
 	}
 	
-	public void updateExtensionModel(String extensionModelFilePath) {
+	public void updateSpecification(String specificationLocation) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
-		URI extensionUri = URI.createFileURI(Path.of(extensionModelFilePath).toAbsolutePath().toString());
+		URI extensionUri = URI.createFileURI(Path.of(specificationLocation).toAbsolutePath().toString());
 		Resource resourceExtension = resSet.getResource(extensionUri, true);
 		
 		try {

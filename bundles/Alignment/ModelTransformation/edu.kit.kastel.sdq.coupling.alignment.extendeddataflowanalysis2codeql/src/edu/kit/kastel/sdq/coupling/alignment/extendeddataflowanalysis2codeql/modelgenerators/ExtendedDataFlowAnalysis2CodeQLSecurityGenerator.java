@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
@@ -86,9 +87,9 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
 					ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, provParam.getProvidedRole(), signature,
 							provParam.getParameter().getParameterName());
-					Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
+					Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 					SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);
-					ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param,
+					ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param.get(),
 							level);
 
 					annotations.add(codeqlAnnotation);
@@ -103,16 +104,15 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 					
 					for(OperationProvidedRole role : operationProvidedRoles) {
 						if(role.getProvidedInterface__OperationProvidedRole().getSignatures__OperationInterface().contains(generalParameterIdent.getOperationSignature())) {
-							System.out.println(String.format("ParamIdent: %s, %s, %s", role.getEntityName(), generalParameterIdent.getOperationSignature().getEntityName(),generalParameterIdent.getParameter().getParameterName()));
-							
+
 							ProvidedParameterIdentification correspondenceParameterIdent = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, role, generalParameterIdent.getOperationSignature(), generalParameterIdent.getParameter().getParameterName());
 							
-							Parameter javaParam = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, correspondenceParameterIdent);
+							Optional<Parameter> javaParam = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, correspondenceParameterIdent);
 							
 							for (EnumCharacteristic characteristic : annotation.getCharacteristics()) {
 
 								SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);
-								ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(javaParam,
+								ParameterAnnotation codeqlAnnotation = CodeQLModelgenerationUtil.generateParameterAnnotation(javaParam.get(),
 										level);
 
 								annotations.add(codeqlAnnotation);

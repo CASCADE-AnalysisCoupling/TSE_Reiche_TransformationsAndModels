@@ -15,10 +15,10 @@ public class JPMailTestPaths {
 	//for testing
 		private static final String REPOSITORY_MODEL_NAME = "jpmail";
 		private static final String PARAMETER_ANNOTATION_MODEL_NAME = "jpmail";
-		private static final String CODEQL_RESULT_NAME = "codeQLExtendedDataflowAnalysisOutput";
-		private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "coupling_pcmjavacorrespondencemodel";
-		private static final String JAVA_MODEL_NAME = "coupling_java";
-		private static final String CODEQL_MODEL_NAME = "coupling_tainttracking";
+		private static final String CODEQL_RESULT_NAME = "codeQLResult4ExtendedDataFlowAnalysis";
+		private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4extendeddataflowanalysis";
+		private static final String JAVA_MODEL_NAME = "java4extendeddataflowanalysis";
+		private static final String CODEQL_MODEL_NAME = "codeql4extendeddataflowanalysis";
 		private static final String DATA_DICTIONARY_FILE_NAME = "jpmail";
 		
 

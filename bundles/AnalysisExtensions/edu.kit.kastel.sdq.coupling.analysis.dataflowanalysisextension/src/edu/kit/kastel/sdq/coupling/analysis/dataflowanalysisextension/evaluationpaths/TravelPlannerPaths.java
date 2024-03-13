@@ -6,6 +6,7 @@ public class TravelPlannerPaths {
 
 	
 	public static String CASE_STUDY = "TravelPlanner";
+	public static String POLICY_STYLE = "Disjunctive";
 	
 	public static String MODEL_PROJECT_NAME = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow";
 

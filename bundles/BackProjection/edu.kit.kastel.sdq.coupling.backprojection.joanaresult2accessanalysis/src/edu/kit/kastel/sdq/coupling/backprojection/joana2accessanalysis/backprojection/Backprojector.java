@@ -17,8 +17,8 @@ import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.Stere
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.models.ResultingSpecification;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;

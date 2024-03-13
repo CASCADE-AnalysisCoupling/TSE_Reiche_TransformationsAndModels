@@ -10,7 +10,6 @@ public class CodeQL2ExtendedDataFlowAnalysis4TravelPlannerHandler extends Abstra
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-
 		CodeQL2ExtendedDataFlowAnalysisResultIntegration integration = new CodeQL2ExtendedDataFlowAnalysisResultIntegration(
 				TravelPlannerTestPaths.POLICY_STYLE, TravelPlannerTestPaths.JAVA_MODEL_PATH,
 				TravelPlannerTestPaths.CODEQL_MODEL_PATH, TravelPlannerTestPaths.PCMJAVACORRESPONDENCE_MODE_PATH,

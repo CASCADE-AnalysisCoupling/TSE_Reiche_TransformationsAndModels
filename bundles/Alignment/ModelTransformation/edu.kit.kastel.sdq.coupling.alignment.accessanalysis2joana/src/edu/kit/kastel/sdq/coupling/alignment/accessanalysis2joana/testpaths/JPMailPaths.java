@@ -10,7 +10,7 @@ public class JPMailPaths {
 	private static final String JAVA_MODEL_NAME = "java4accessanalysis";
 	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
 	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4accessanalysis";
 	
 	private static final String REPOSITORY_FILE_ENDING = "repository";
 	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
@@ -31,7 +31,7 @@ public class JPMailPaths {
 	
 	//Output
 	private static final String MODEL_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
-	private static final String JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.joana4accessanalysis";
+	private static final String JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.joana4accessanalysis";
 	public static final String JAVA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String JOANA_MODEL_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING)).toAbsolutePath().toString();
 	public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER, PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();

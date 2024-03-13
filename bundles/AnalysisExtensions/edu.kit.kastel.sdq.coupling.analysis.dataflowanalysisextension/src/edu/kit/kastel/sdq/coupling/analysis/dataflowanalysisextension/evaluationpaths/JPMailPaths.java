@@ -4,6 +4,7 @@ import java.nio.file.Paths;
 
 public class JPMailPaths {
 	public static String CASE_STUDY = "JPMail";
+	public static String POLICY_STYLE = "HighLow";
 	
 	public static String MODEL_PROJECT_NAME = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow";
 

@@ -14,12 +14,12 @@ public class JPMailTestPaths {
 	
 	//Input Models Names For Testing
 	
-	private static final String JAVA_MODEL_NAME = "joanajava4accessanalysis";
+	private static final String JAVA_MODEL_NAME = "java4accessanalysis";
 	private static final String JOANA_MODEL_NAME = "joana4accessanalysis";
-	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "joanajava4accessanalysis";
-	private static final String JOANA_RESULT_FILE_NAME = "AccessAnalysisResult";
-	private static final String REPOSITORY_MODEL_NAME = "default";
-	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME = "default";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4accessanalysis";
+	private static final String JOANA_RESULT_FILE_NAME = "joanaResult4AccessAnalysis";
+	private static final String REPOSITORY_MODEL_NAME = "jpmail";
+	private static final String CONFIDENTIALITY_SPEC_MODEL_NAME = "jpmail";
 	
 	//Paths for testing
 	private static final String ARCHITECUTRAL_MODEL_ORIGIN_SAVE_DIRECTORY_ENDING = ".origin";
@@ -61,7 +61,7 @@ public class JPMailTestPaths {
 					CONFIDENTIALITY_SPECIFICATION_FILE_ENDING))
 			.toAbsolutePath().toString();
 		
-	public static final String ORIGIN_BACKUP_PATH = Paths.get(String.format("%s/%s/Models/%s%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, ACCESS_ANALYSIS_PROJECT_FOLDER, ".origin")).toAbsolutePath().toString();
+	public static final String ORIGIN_BACKUP_PATH = Paths.get(String.format("%s/%s/Models/%s.origin", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH,ACCESS_ANALYSIS_PROJECT_NAME)).toAbsolutePath().toString();
 	
 	public static final String POLICY_STYLE = "HighLow";
 }

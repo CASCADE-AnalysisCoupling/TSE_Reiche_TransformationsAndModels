@@ -156,7 +156,7 @@ public class CodeQLSarifOutput2SCARParser {
 
 	private SecurityLevel resolveSecurityLevel(String levelName) {
 		for(SecurityLevel level : tainttrackingRoot.getConfigurations().get(0).getAppliedSecurityLevel()) {
-			if(level.getName().equals(levelName)) {
+			if(level.getName().toLowerCase().equals(levelName.toLowerCase())) {
 				return level;
 			}
 		}

@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -84,7 +85,7 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 			//implementation for all provided roles in alignment extendeddataflowanalysis2codeql
 			for(ParametersAndDataPair pair : parametersAndDataPairs) {
 
-				ProvidedParameterIdentification pcmParameter = null;
+				
 				Collection<String> sources = pair.getParameterSources();
 				for(String source : sources) {
 				
@@ -95,14 +96,17 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 					} else if (source.toLowerCase().contains("call")) {
 						
 					} else {
-						pcmParameter = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature, source);
-						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
+						Collection<ProvidedParameterIdentification> pcmParameters = PCMJavaCorrespondenceResolutionUtils.getParameterIdentification(correspondences, signature, source);
 						
-						Parameter param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
-						SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
-						ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param, level);
-						
-						annotations.add(annotation);
+						for(ProvidedParameterIdentification pcmParameter : pcmParameters) {
+							Collection<DataSet> dataSets = AccessAnalysisResolutionUtil.filterDataSets(pair.getDataTargets());
+							
+							Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
+							SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
+							ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param.get(), level);
+							
+							annotations.add(annotation);
+						}
 					}
 				}
 			

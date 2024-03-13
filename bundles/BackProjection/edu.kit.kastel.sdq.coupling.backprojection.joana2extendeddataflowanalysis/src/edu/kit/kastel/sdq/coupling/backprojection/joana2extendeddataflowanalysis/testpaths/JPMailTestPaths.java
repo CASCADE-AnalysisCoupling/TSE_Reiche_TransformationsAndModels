@@ -1,0 +1,71 @@
+package edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.testpaths;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class JPMailTestPaths {
+	private static final String JOANA_MODEL_FILE_ENDING = "joana";
+	private static final String JAVA_MODEL_FILE_ENDING = "java";
+	private static final String PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING = "pcmjavacorrespondence";
+	private static final String JOANA_RESULT_FILE_ENDING = "txt";
+	private static final String REPOSITORY_FILE_ENDING = "repository";
+	private static final String PARAMETER_ANNOTATION_MODEL_FILE_ENDING = "parameterannotation";
+	private static final String DATA_DICTIONARY_FILE_ENDING = "pddc";
+	
+	//for testing
+		private static final String REPOSITORY_MODEL_NAME = "jpmail";
+		private static final String PARAMETER_ANNOTATION_MODEL_NAME = "jpmail";
+		private static final String JOANA_RESULT_FILE_NAME = "joanaResult4ExtendedDataFlowAnalysis";
+		private static final String PCMJAVACORRESPONDENCE_MODEL_NAME = "pcmjava4extendeddataflowanalysis";
+		private static final String JAVA_MODEL_NAME = "java4extendeddataflowanalysis";
+		private static final String JOANA_MODEL_NAME = "joana4extendeddataflowanalysis";
+		private static final String DATA_DICTIONARY_FILE_NAME = "jpmail";
+		
+
+		private static final String MODEL_FILE_PATH_TEMPLATE = "%s/%s/Models/%s/%s.%s";
+		private static final String SCAR_PATH_TEMPLATE = "%s/%s/SCAR/JOANA/%s.%s";
+		
+		public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies")
+				.toAbsolutePath().toString();
+		public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/JPMail";
+		
+		
+		private static final String JOANA_MODELS_BASEFOLDER = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.joana4extendeddataflowanalysis";
+		
+		public static final String JAVA_MODEL_PATH = Paths
+				.get(String.format(MODEL_FILE_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH,
+						JOANA_MODELS_BASEFOLDER, JAVA_MODEL_NAME, JAVA_MODEL_FILE_ENDING))
+				.toAbsolutePath().toString();
+		public static final String JOANA_MODEL_PATH = Paths
+				.get(String.format(MODEL_FILE_PATH_TEMPLATE, USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH,
+						JOANA_MODELS_BASEFOLDER, JOANA_MODEL_NAME, JOANA_MODEL_FILE_ENDING))
+				.toAbsolutePath().toString();
+		public static final String PCMJAVACORRESPONDENCE_MODE_PATH = Paths.get(String.format(MODEL_FILE_PATH_TEMPLATE,
+				USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_MODELS_BASEFOLDER,
+				PCMJAVACORRESPONDENCE_MODEL_NAME, PCMJAVACORRESPONDENCE_MODEL_FILE_ENDING)).toAbsolutePath().toString();
+		public static final String CODEQL_RESULT_FILE_PATH = Paths.get(String.format(SCAR_PATH_TEMPLATE,
+				USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, JOANA_RESULT_FILE_NAME, JOANA_RESULT_FILE_ENDING))
+				.toAbsolutePath().toString();
+
+		public static final String EXTENDEDDATAFLOW_ANALYSIS_PROJECT_NAME = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow";
+		public static final String EXTENDEDDATAFLOW_ANALYSIS_PROJECT_FOLDER = String.format("%s/%s/Models/%s",
+				USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, EXTENDEDDATAFLOW_ANALYSIS_PROJECT_NAME);
+		public static final String EXTENDEDDATAFLOW_ANALYSIS_MODELS_FOLDER = String.format("%s/models/",
+				EXTENDEDDATAFLOW_ANALYSIS_PROJECT_FOLDER);
+		
+		public static final String REPOSITORY_MODEL_PATH = Paths
+				.get(String.format("%s/%s.%s", EXTENDEDDATAFLOW_ANALYSIS_MODELS_FOLDER, REPOSITORY_MODEL_NAME, REPOSITORY_FILE_ENDING))
+				.toAbsolutePath().toString();
+		
+		
+		public static final String PARAMETER_ANNOTATION_MODEL_PATH = Paths
+				.get(String.format("%s/%s.%s", EXTENDEDDATAFLOW_ANALYSIS_MODELS_FOLDER, PARAMETER_ANNOTATION_MODEL_NAME, PARAMETER_ANNOTATION_MODEL_FILE_ENDING))
+				.toAbsolutePath().toString();
+		public static final String DATA_DICTIONARY_MODEL_PATH = Paths
+				.get(String.format("%s/%s.%s", EXTENDEDDATAFLOW_ANALYSIS_MODELS_FOLDER, DATA_DICTIONARY_FILE_NAME, DATA_DICTIONARY_FILE_ENDING))
+				.toAbsolutePath().toString();
+
+		public static final String ORIGIN_BACKUP_PATH = Paths.get(String.format("%s%s", EXTENDEDDATAFLOW_ANALYSIS_PROJECT_FOLDER, ".origin")).toAbsolutePath().toString();
+		
+		public static final String POLICY_STYLE = "HighLow";
+}

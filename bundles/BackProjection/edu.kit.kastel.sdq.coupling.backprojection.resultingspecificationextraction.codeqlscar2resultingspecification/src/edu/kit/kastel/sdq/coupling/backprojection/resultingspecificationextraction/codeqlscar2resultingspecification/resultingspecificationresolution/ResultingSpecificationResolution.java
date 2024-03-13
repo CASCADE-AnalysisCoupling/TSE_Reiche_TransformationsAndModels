@@ -30,7 +30,12 @@ public abstract class ResultingSpecificationResolution {
 
 
 	protected boolean sameConfiguration(List<ResultEntry> resultEntries) {
-		return resultEntries.stream().map(ResultEntry::getConfig).distinct().collect(Collectors.toList()).size() != resultEntries.size();
+		
+		if(resultEntries.isEmpty()) {
+			return true;
+		}
+		
+		return resultEntries.stream().map(ResultEntry::getConfig).distinct().collect(Collectors.toList()).size() == 1;
 	}
 
 }

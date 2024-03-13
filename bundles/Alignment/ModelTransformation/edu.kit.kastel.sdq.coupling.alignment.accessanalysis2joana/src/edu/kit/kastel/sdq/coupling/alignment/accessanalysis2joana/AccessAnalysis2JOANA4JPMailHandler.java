@@ -25,7 +25,7 @@ public class AccessAnalysis2JOANA4JPMailHandler extends AbstractHandler{
 		String joanaModelPath = JPMailPaths.JOANA_MODEL_PATH;
 		String correspondenceModelPath = JPMailPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
 
-		AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(repositoryPath, confidentialityModelPath, javaCodeBasePath, codeBasePackageName, javaModelPath, joanaModelPath, correspondenceModelPath, TravelPlannerPaths.CASE_STUDY_NAME);
+		AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(repositoryPath, confidentialityModelPath, javaCodeBasePath, codeBasePackageName, javaModelPath, joanaModelPath, correspondenceModelPath, JPMailPaths.CASE_STUDY_NAME);
 
 		alignment.performAlignment();
 

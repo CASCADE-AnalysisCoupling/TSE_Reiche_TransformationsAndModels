@@ -1,6 +1,7 @@
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.palladiosimulator.pcm.repository.BasicComponent;
@@ -29,8 +30,12 @@ public class PCMJavaCorrespondenceResolutionUtils {
 		return root.getPcmparameter2javaparameter().stream().map(entry -> entry.getPcmParameterIdentification()).collect(Collectors.toList());
 	}
 	
-	public static Parameter getJavaParameters(PCMJavaCorrespondenceRoot root, ProvidedParameterIdentification parameterIdent) {
-		return root.getPcmparameter2javaparameter().stream().filter(entry -> entry.getPcmParameterIdentification().equals(parameterIdent)).map(entry -> entry.getJavaParameter()).findFirst().get();
+//	public static Parameter getJavaParameter(PCMJavaCorrespondenceRoot root, ProvidedParameterIdentification parameterIdent) {
+//		return root.getPcmparameter2javaparameter().stream().filter(entry -> entry.getPcmParameterIdentification().equals(parameterIdent)).map(entry -> entry.getJavaParameter()).findFirst().get();
+//	}
+//	
+	public static Optional<Parameter> getJavaParameters(PCMJavaCorrespondenceRoot root, ProvidedParameterIdentification parameterIdent) {
+		return root.getPcmparameter2javaparameter().stream().filter(entry -> entry.getPcmParameterIdentification().equals(parameterIdent)).map(entry -> entry.getJavaParameter()).findFirst();
 	}
 	
 	public static Collection<BasicComponent> BasicComponent2JavaClass_getBasicComponents(PCMJavaCorrespondenceRoot root){
@@ -49,16 +54,12 @@ public class PCMJavaCorrespondenceResolutionUtils {
 		return root.getOperationInterface2interface().stream().filter(corr -> corr.getPcmInterface().equals(interf)).findFirst().get();
 	}
 	
-	public static ProvidedParameterIdentification getParameterIdentification(PCMJavaCorrespondenceRoot correspondenceRoot, OperationSignature signature, String parameterName) {
+	public static Collection<ProvidedParameterIdentification> getParameterIdentification(PCMJavaCorrespondenceRoot correspondenceRoot, OperationSignature signature, String parameterName) {
 		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils.getProvidedParameters(correspondenceRoot);
-
-		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
-			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
-					&& identification.getParameter().getParameterName().equals(parameterName)) {
-				return identification;
-			}
-		}
-		return null;
+		
+		return generatedParameterIdentifications.stream().filter(identification -> identification.getProvidedSignature().getProvidedSignature().equals(signature)
+					&& identification.getParameter().getParameterName().equals(parameterName)).collect(Collectors.toList());
+		
 	}
 	
 	public static ProvidedParameterIdentification getParameterIdentification(PCMJavaCorrespondenceRoot correspondenceRoot, OperationProvidedRole role, OperationSignature signature, String parameterName) {
@@ -73,4 +74,6 @@ public class PCMJavaCorrespondenceResolutionUtils {
 		}
 		return null;
 	}
+	
+	
 }

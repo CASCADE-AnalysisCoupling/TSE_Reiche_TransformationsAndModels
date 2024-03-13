@@ -31,8 +31,9 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 import org.palladiosimulator.pcm.seff.StartAction;
 
 import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions.AllowedConditionsProvider;
+import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions.AllowedConditionsProviderFactory;
 import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions.DisjunctiveAllowedConditionsProvider;
-import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions.HighLowConditionProvider;
+import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions.HighLowConditionProviderJPMail;
 import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.evaluationpaths.JPMailPaths;
 import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.evaluationpaths.TravelPlannerPaths;
 import edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.Activator;
@@ -77,7 +78,7 @@ public class BasicParameterExtensionAnalysis {
 
 		for (ActionSequence actionSequence : propagationResult) {
 			List<AbstractActionSequenceElement<?>> violations = analysis.queryDataFlow(actionSequence,
-					it -> !allowedState(it, config, analysis));
+					it -> allowedState(it, config, analysis));
 
 			assertTrue(violations.isEmpty());
 
@@ -106,7 +107,7 @@ public class BasicParameterExtensionAnalysis {
 
 				// Determines whether propagated data characteristics and calculated node
 				// characteristics fit;
-				// propagationAndNodeCharacteristicsFit = propagationResultAndNodeCharacteristicsViolated(seffNode, analysis);
+				propagationAndNodeCharacteristicsFit = propagationResultAndNodeCharacteristicsViolated(seffNode, analysis);
 
 			}
 
@@ -117,11 +118,33 @@ public class BasicParameterExtensionAnalysis {
 
 	}
 
+	private boolean propagationResultAndNodeCharacteristicsViolated(SEFFActionSequenceElement<?> seffNode,
+			PCMDataFlowConfidentialityAnalysis analysis) {
+		List<DataFlowVariable> dataFlowVariables = seffNode.getAllDataFlowVariables();
+		List<CharacteristicValue> nodeCharacteristics = seffNode.getAllNodeCharacteristics();
+		
+		boolean allowed = true;
+		for(DataFlowVariable dataFlowVariable : dataFlowVariables) {
+			if(!allowedConditionsProvider.isDataFlowToNodeAllowed(dataFlowVariable.getAllCharacteristics(), nodeCharacteristics)){
+				String unifiedDataLevel = dataFlowVariable.getAllCharacteristics().stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
+				String unifiedNodeLevel = nodeCharacteristics.stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
+								
+				System.out.println(
+						String.format("Illegal Data to Node: %s (Data: %s) ->  %s (Component on Node: %s)", unifiedDataLevel, dataFlowVariable.variableName(), unifiedNodeLevel, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
+				
+				allowed = false;
+			}
+		}
+		return allowed;
+	}
+
 	private boolean propagatedDataValuesAndParameterAnnotationsAllowed(SEFFActionSequenceElement<?> seffNode, ParameterAnnotations parameterAnnotations,
 			PCMDataFlowConfidentialityAnalysis analysis) {
 		Collection<DataFlowVariable> dataFlowVariables = seffNode.getAllDataFlowVariables();
 		Collection<ParameterAnnotation> parameterAnnotationsForSeff = getAllParameterAnnotationsForSeff(seffNode, parameterAnnotations, analysis); 
 
+		
+		boolean allowed = true;
 		for (DataFlowVariable dfVar : dataFlowVariables) {
 			for(ParameterAnnotation annotation : parameterAnnotationsForSeff) {
 				
@@ -135,16 +158,16 @@ public class BasicParameterExtensionAnalysis {
 						String unifiedDataLevel = dfVar.getAllCharacteristics().stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 
 						System.out.println(
-								String.format("Illegal: %s (Data: %s) ->  %s (Node: %s)", unifiedDataLevel, dfVar.variableName(), unifiedParameterLevel, annotation.getParameterIdentification().getParameter()));
+								String.format("Illegal Data to Parameter: %s (Data: %s) ->  %s (Parameter: %s)", unifiedDataLevel, dfVar.variableName(), unifiedParameterLevel, String.format("%s:%s.%s", seffNode.getContext().peek().getEntityName(), annotation.getParameterIdentification().getParameter().getOperationSignature__Parameter().getEntityName(), annotation.getParameterIdentification().getParameter().getParameterName())));
 						
 						
-						return false;
+						allowed = false;
 					}
 				}
 			}		
 		}
 
-		return true;
+		return allowed;
 	}
 
 
@@ -154,7 +177,7 @@ public class BasicParameterExtensionAnalysis {
 		Collection<ParameterAnnotation> parameterAnnotationsForSeff = getAllParameterAnnotationsForSeff(seffNode,
 				parameterAnnotations, analysis);
 		Collection<CharacteristicValue> nodeCharacteristics = seffNode.getAllNodeCharacteristics();
-		
+		boolean allowed = true;
 		for (ParameterAnnotation annot : parameterAnnotationsForSeff) {
 
 			// TODO: Workarround for Eval due to EMF Problems (Resolution of Enum Types)
@@ -169,14 +192,14 @@ public class BasicParameterExtensionAnalysis {
 				String unifiedCheckAgainstNames = nodeCharacteristics.stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 
 				System.out.println(
-						String.format("Illegal: %s (Parameter: %s) ->  %s (Node: %s)", unifiedDataLiteralNames, annot.getParameterIdentification().getParameter().getParameterName(), unifiedCheckAgainstNames, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
+						String.format("Illegal Parameter on Node: %s (Parameter: %s) ->  %s (Component on Node: %s)", unifiedDataLiteralNames, String.format("%s:%s.%s", seffNode.getContext().peek().getEntityName(), annot.getParameterIdentification().getParameter().getOperationSignature__Parameter().getEntityName(), annot.getParameterIdentification().getParameter().getParameterName()), unifiedCheckAgainstNames, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
 				
 			
-				return false;
+				allowed = false;
 			}
 
 		}
-		return true;
+		return allowed;
 
 	}
 
@@ -257,6 +280,7 @@ public class BasicParameterExtensionAnalysis {
 		String parameterAnnotationsModelPath = "";
 		String modelProjectName = "";
 		AllowedConditionsProvider allowedConditionsProvider = null;
+		AllowedConditionsProviderFactory conditionsFactory = new AllowedConditionsProviderFactory();
 		
 		if(CASE_STUDY.contains(TravelPlannerPaths.CASE_STUDY)) {
 			usageModelPath = TravelPlannerPaths.USAGE_MODEL_PATH;
@@ -264,14 +288,14 @@ public class BasicParameterExtensionAnalysis {
 			nodeCharacteristicsModelPath = TravelPlannerPaths.NODECHARACTERISTICS_MODEL_PATH;
 			parameterAnnotationsModelPath = TravelPlannerPaths.PARAMETER_ANNOTATION_MODEL_PATH;
 			modelProjectName = TravelPlannerPaths.MODEL_PROJECT_NAME;
-			allowedConditionsProvider = new DisjunctiveAllowedConditionsProvider();
+			allowedConditionsProvider = conditionsFactory.create(TravelPlannerPaths.POLICY_STYLE);
 		} else if (CASE_STUDY.contains(JPMailPaths.CASE_STUDY)) {
 			usageModelPath = JPMailPaths.USAGE_MODEL_PATH;
 			allocationModelPath = JPMailPaths.ALLOCATION_MODEL_PATH;
 			nodeCharacteristicsModelPath = JPMailPaths.NODECHARACTERISTICS_MODEL_PATH;
 			parameterAnnotationsModelPath = JPMailPaths.PARAMETER_ANNOTATION_MODEL_PATH;
 			modelProjectName = JPMailPaths.MODEL_PROJECT_NAME;
-			allowedConditionsProvider = new HighLowConditionProvider();
+			allowedConditionsProvider = conditionsFactory.create(JPMailPaths.POLICY_STYLE);
 		}
 		
 		return new AnalysisConfiguration(usageModelPath, allocationModelPath, nodeCharacteristicsModelPath, parameterAnnotationsModelPath, modelProjectName, allowedConditionsProvider);
