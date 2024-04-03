@@ -17,6 +17,7 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators.AccessAnalysis2JOANAModelGenerator;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators.SecurityGeneratorCreator;
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators.JOANAClassOrInterfaceTypeCodeGenerator;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
@@ -27,7 +28,7 @@ public class AccessAnalysis2JOANAAlignment {
 	
 	public AccessAnalysis2JOANAAlignment(String repositoryPath,
 			String confidentialityModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath, String caseStudy) {
+			String joanaModelPath, String correspondenceModelPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.confidentialityModelPath = confidentialityModelPath;
@@ -37,6 +38,7 @@ public class AccessAnalysis2JOANAAlignment {
 		this.joanaModelPath = joanaModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
 		AccessAnalysis2JOANAAlignment.caseStudy = caseStudy;
+		this.securityGeneratorCreator = securityGeneratorCreator;
 	}
 
 	private final String repositoryPath;
@@ -47,6 +49,8 @@ public class AccessAnalysis2JOANAAlignment {
 	private final String joanaModelPath;
 	private final String correspondenceModelPath;
 	public static String caseStudy;
+	
+	private final SecurityGeneratorCreator securityGeneratorCreator;
 	
 
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";
@@ -60,7 +64,7 @@ public class AccessAnalysis2JOANAAlignment {
 		ProfileApplication profile = models.getProfile();
 		ConfidentialitySpecification spec = models.getConfidentiality();
 		
-		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator();
+		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator(securityGeneratorCreator);
 		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, profile, spec, codeBasePackageName);
 		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath);
 		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());

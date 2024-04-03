@@ -17,3 +17,6 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
  edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification;bundle-version="1.0.0"
 Bundle-ClassPath: libs/snakeyaml-2.2.jar,
  .
+Import-Package: edu.kit.kastel.sdq.analysiscouplingframework.adapter,
+ edu.kit.kastel.sdq.analysiscouplingframework.results
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.iterative

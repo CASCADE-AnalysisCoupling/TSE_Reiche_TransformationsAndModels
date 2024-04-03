@@ -9,12 +9,15 @@ import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUti
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
 import edu.kit.kastel.sdq.coupling.models.java.types.Type;
+import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.joana.Source;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
@@ -34,12 +37,28 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
   protected String generateImports() {
     String collectionImport = "";
     String joanaUIImports = "";
-    if (((this.currentClassOrInterface instanceof edu.kit.kastel.sdq.coupling.models.java.types.Class) && JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(this.currentClassOrInterface, this.joanaRoot))) {
+    final Function1<EntryPoint, Boolean> _function = (EntryPoint ep) -> {
+      return Boolean.valueOf(super.currentClassOrInterface.getMethod().contains(ep.getMethodIdentification().getMethod()));
+    };
+    final Function1<EntryPoint, Boolean> _function_1 = (EntryPoint ep) -> {
+      int _size = ep.getAnnotation().size();
+      return Boolean.valueOf((_size != 0));
+    };
+    final Function1<EntryPoint, Boolean> _function_2 = (EntryPoint ep) -> {
+      final Function1<InformationFlowAnnotation, Boolean> _function_3 = (InformationFlowAnnotation an) -> {
+        return Boolean.valueOf((an instanceof Source));
+      };
+      return Boolean.valueOf(IterableExtensions.<InformationFlowAnnotation>exists(ep.getAnnotation(), _function_3));
+    };
+    final Iterable<EntryPoint> entryPointsWithSourceAnnotations = IterableExtensions.<EntryPoint>filter(IterableExtensions.<EntryPoint>filter(IterableExtensions.<EntryPoint>filter(this.joanaRoot.getEntrypoint(), _function), _function_1), _function_2);
+    boolean _isEmpty = IterableExtensions.isEmpty(entryPointsWithSourceAnnotations);
+    final boolean targetedByJOANA = (!_isEmpty);
+    if (((this.currentClassOrInterface instanceof edu.kit.kastel.sdq.coupling.models.java.types.Class) && targetedByJOANA)) {
       joanaUIImports = "import edu.kit.joana.ui.annotations.*;";
     }
     final Collection<Type> types = JavaResolutionUtil.getAllNonPrimitiveTypes(this.currentClassOrInterface);
-    boolean _isEmpty = IterableExtensions.isEmpty(Iterables.<CollectionType>filter(types, CollectionType.class));
-    boolean _not = (!_isEmpty);
+    boolean _isEmpty_1 = IterableExtensions.isEmpty(Iterables.<CollectionType>filter(types, CollectionType.class));
+    boolean _not = (!_isEmpty_1);
     if (_not) {
       collectionImport = "import java.util.Collection;";
     }

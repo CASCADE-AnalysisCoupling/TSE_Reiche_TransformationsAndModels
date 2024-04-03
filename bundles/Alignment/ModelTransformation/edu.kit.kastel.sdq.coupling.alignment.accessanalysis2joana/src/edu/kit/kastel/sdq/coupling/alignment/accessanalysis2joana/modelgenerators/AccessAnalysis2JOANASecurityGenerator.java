@@ -46,7 +46,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ConfidentialitySpecification accessAnalysisSpec;
-	private final JOANARoot root;
+	protected final JOANARoot root;
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	// TODO: Do this for ease of debug. Later just generate file with entrypoint IDs
 	// to execute JOANA
@@ -65,7 +65,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 		return root;
 	}
 
-	private Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application) {
+	protected Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application) {
 		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 		Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
 		Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
@@ -222,7 +222,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 
 	protected abstract Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint);
 
-	private Level getLevelForDataSets(Collection<DataSet> datasets, Collection<Level> levels) {
+	protected Level getLevelForDataSets(Collection<DataSet> datasets, Collection<Level> levels) {
 		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName))
 				.collect(Collectors.toList());
 		List<String> dataSetsNames = sortedDataSets.stream().map(dataset -> dataset.getName())

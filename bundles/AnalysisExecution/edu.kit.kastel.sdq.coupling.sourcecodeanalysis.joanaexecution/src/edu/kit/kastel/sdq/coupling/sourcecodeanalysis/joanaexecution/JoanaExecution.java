@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,13 +38,22 @@ public class JoanaExecution{
 		
 		
 		
-		String analysisProjectPath = Path.of(args[0]).toAbsolutePath().toString();
-		String joanaSourceCodeBasePackagePath = Path.of(args[1]).toAbsolutePath().toString();
-		String entryPointsFilePath = Path.of(args[2]).toAbsolutePath().toString();
-		String outputFilePath = Path.of(args[3]).toAbsolutePath().toString();
-		String javaCompilerPath = Path.of(args[4]).toAbsolutePath().toString();
-		String javaRuntimePath = Path.of(args[5]).toAbsolutePath().toString();
-		String joanaCLIPath = Path.of(args[6]).toAbsolutePath().toString();
+//		String analysisProjectPath = Path.of(args[0]).toAbsolutePath().toString();
+//		String joanaSourceCodeBasePackagePath = Path.of(args[1]).toAbsolutePath().toString();
+//		String entryPointsFilePath = Path.of(args[2]).toAbsolutePath().toString();
+//		String outputFilePath = Path.of(args[3]).toAbsolutePath().toString();
+//		String javaCompilerPath = Path.of(args[4]).toAbsolutePath().toString();
+//		String javaRuntimePath = Path.of(args[5]).toAbsolutePath().toString();
+//		String joanaCLIPath = Path.of(args[6]).toAbsolutePath().toString();
+		
+		
+		String analysisProjectPath = args[0];
+		String joanaSourceCodeBasePackagePath = args[1];
+		String entryPointsFilePath = args[2];
+		String outputFilePath = args[3];
+		String javaCompilerPath = args[4];
+		String javaRuntimePath = args[5];
+		String joanaCLIPath = args[6];
 		
 		execute(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath, javaCompilerPath, javaRuntimePath, joanaCLIPath);
 	}
@@ -74,6 +85,7 @@ public class JoanaExecution{
 		try {
 			Path tmp = Files.createTempDirectory("joanaResults");
 			tmpDirectoryLocation = tmp.toAbsolutePath().toString();
+			tmpDirectoryLocation = tmpDirectoryLocation.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("\\\\"));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
