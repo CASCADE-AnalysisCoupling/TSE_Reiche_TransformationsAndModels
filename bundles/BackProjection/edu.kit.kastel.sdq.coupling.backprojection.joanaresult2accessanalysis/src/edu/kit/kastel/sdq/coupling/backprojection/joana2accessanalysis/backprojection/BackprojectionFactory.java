@@ -8,9 +8,9 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 
 public class BackprojectionFactory {
 
-	private BackprojectionFactory() {};
+	public BackprojectionFactory() {};
 	
-	public static Backprojector create(String policyStyle, Repository repository, PCMJavaCorrespondenceRoot correspondences,
+	public Backprojector create(String policyStyle, Repository repository, PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
 		Backprojector backprojector;
 		

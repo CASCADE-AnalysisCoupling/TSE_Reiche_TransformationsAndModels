@@ -4,7 +4,7 @@ import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 
 public class ResultingSpecificationResolutionFactory {
 
-	public static ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle, EntryPoint config) {
+	public ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle, EntryPoint config) {
 		
 		ResultingSpecificationResolution resolution;
 		
@@ -28,7 +28,7 @@ public class ResultingSpecificationResolutionFactory {
 	}
 	
 
-	public static ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle) {
+	public ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle) {
 		
 		ResultingSpecificationResolution resolution;
 		

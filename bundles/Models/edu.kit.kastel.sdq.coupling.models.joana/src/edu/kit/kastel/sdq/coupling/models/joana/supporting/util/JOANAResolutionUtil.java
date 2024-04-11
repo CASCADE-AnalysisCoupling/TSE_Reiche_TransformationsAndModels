@@ -105,8 +105,25 @@ public class JOANAResolutionUtil {
 	}
 	
 	public static Level lookupLevel(String levelName, EntryPoint entryPoint) {
-		return entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName))
-				.findFirst().get();
+		
+		// Original Code:
+		// return entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName)).findFirst().get();
+		
+		// TODO New code:
+		// Following lines are a Hotfix for thesis lehmann, if powerset levels are not generated in alignment
+		// Level is created on the fly and added to entrypoint if not present.
+		try {
+			Level level = entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName))
+					.findFirst().get();
+			if (level != null) {
+				return level;
+			}
+		} catch (Exception e) {
+			// catches NoSuchElementException of Optional if level not already present
+		}
+		Level level = JOANAModelGenerationUtil.generateLevel(levelName);
+		entryPoint.getLevel().add(level);
+		return level;
 	}
 	
 	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {

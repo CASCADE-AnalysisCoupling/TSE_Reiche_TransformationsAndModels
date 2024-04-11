@@ -32,9 +32,17 @@ public class AccessAnalysis2JoanaAdapter implements ExecutableProcessingStepAdap
 		Result result = new OKResult(args[0]);
 
 		try {
-			SecurityGeneratorCreator sgc = (args[9].equals(TravelPlannerPaths.CASE_STUDY_NAME))
-					? new Creator4SG4FullDynamicLevels()
-					: ((args[9].equals(JPMailPaths.CASE_STUDY_NAME)) ? new Creator4SG4HighLow() : null);
+			SecurityGeneratorCreator sgc = null;
+			switch (args[9]) {
+			case "Disjunctive":
+				sgc = new Creator4SG4FullDynamicLevels();
+				break;
+			case "HighLow":
+				sgc = new Creator4SG4HighLow();
+				break;
+			default:
+				sgc = null;
+			}
 
 			if (sgc == null) {
 				throw new IllegalArgumentException("Casestudy type '" + args[9] + "' couldn't be found.");

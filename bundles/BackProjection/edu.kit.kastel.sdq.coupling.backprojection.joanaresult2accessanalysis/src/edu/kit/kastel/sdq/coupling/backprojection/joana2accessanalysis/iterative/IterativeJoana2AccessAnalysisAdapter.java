@@ -5,10 +5,8 @@ import edu.kit.kastel.sdq.analysiscouplingframework.results.NotOKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.Joana2AccessAnalysisResultIntegration;
-import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection.BackprojectionFactory;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolutionFactory;
 
-public class Joana2AccessAnalysisAdapter implements ExecutableProcessingStepAdapter {
+public class IterativeJoana2AccessAnalysisAdapter implements ExecutableProcessingStepAdapter {
 
 	/**
 	 * args[0]: OK message, <br>
@@ -29,12 +27,11 @@ public class Joana2AccessAnalysisAdapter implements ExecutableProcessingStepAdap
 
 		try {
 			Joana2AccessAnalysisResultIntegration integration = new Joana2AccessAnalysisResultIntegration(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]);
-			integration.integrate(new ResultingSpecificationResolutionFactory(), new BackprojectionFactory());
+			integration.integrate(new IterativeResultingSpecificationResolutionFactory(), new IterativeBackprojectionFactory());
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());
 		}
 
 		return result;
 	}
-
 }

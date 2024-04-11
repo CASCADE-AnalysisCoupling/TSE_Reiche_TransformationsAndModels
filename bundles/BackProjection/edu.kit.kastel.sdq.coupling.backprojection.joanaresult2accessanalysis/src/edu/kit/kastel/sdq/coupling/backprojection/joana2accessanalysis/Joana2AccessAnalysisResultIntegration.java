@@ -13,14 +13,14 @@ import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.parser
 public class Joana2AccessAnalysisResultIntegration {
 
 
-	private final String javaModelLocation;
-	private final String joanaModelLocation;
-	private final String correspondenceModelLocation;
-	private final String joanaResultLocation;
-	private final String repositoryModelLocation;
-	private final String confidentialitySpecificationLocation;
-	private final String originBackupLocation;
-	private final String policyStyle;
+	protected final String javaModelLocation;
+	protected final String joanaModelLocation;
+	protected final String correspondenceModelLocation;
+	protected final String joanaResultLocation;
+	protected final String repositoryModelLocation;
+	protected final String confidentialitySpecificationLocation;
+	protected final String originBackupLocation;
+	protected final String policyStyle;
 	
 	
 	public Joana2AccessAnalysisResultIntegration(String javaModelLocation, String joanaModelLocation,
@@ -37,7 +37,7 @@ public class Joana2AccessAnalysisResultIntegration {
 		this.originBackupLocation = originBackupLocation;
 	}
 	
-	public void integrate() {
+	public void integrate(ResultingSpecificationResolutionFactory resolutionFactory, BackprojectionFactory backprojectionFactory) {
 		Models input = Models.createModelsFromFiles(javaModelLocation, joanaModelLocation,
 				correspondenceModelLocation, joanaResultLocation,
 				repositoryModelLocation, confidentialitySpecificationLocation, originBackupLocation);
@@ -46,10 +46,10 @@ public class Joana2AccessAnalysisResultIntegration {
 		SourceCodeAnalysisResult scar = parser.readJOANAOutput(input.getJoanaResult());
 		
 		
-		ResultingSpecificationResolution extractor = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle);
+		ResultingSpecificationResolution extractor = resolutionFactory.generateResultingSpecificationResolution(policyStyle);
 		ResultingSpecification resultingSpec = extractor.calculateResultingSpecification(scar);
 		
-		Backprojector backprojector = BackprojectionFactory.create(policyStyle, input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile());
+		Backprojector backprojector = backprojectionFactory.create(policyStyle, input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile());
 		backprojector.project(resultingSpec);
 		
 		input.updateConfidentialityModel(confidentialitySpecificationLocation);

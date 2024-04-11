@@ -24,7 +24,7 @@ import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionU
 public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSpecificationResolution {
 
 
-	private Map<Triple<Parameter, Level, EntryPoint>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
+	protected Map<Triple<Parameter, Level, EntryPoint>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
 
 	public ResultingSpecificationResolution4AccessAnalysis(EntryPoint config) {
 		super(config);
@@ -34,7 +34,7 @@ public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSp
 		super();
 	}
 
-	private ResultingSpecEntry combine(Triple<Parameter, Level, EntryPoint> originalSink,
+	protected ResultingSpecEntry combine(Triple<Parameter, Level, EntryPoint> originalSink,
 			Collection<ResultEntry> resultEntries) {
 
 		List<ResultEntry> relevantResultEntries = resultEntries.stream()
@@ -56,7 +56,7 @@ public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSp
 				originalSink.getThird());
 	}
 
-	private boolean isResultEntryValidWRTAccessAnalysis(ResultEntry resultEntry) {
+	protected boolean isResultEntryValidWRTAccessAnalysis(ResultEntry resultEntry) {
 		Collection<Level> sourceBasicLevels = JOANAResolutionUtil
 				.resolveBasicLevels(resultEntry.getSource().getSecurityProperty(), resultEntry.getEntryPoint(), SUBLEVEL_DELIMITER);
 		Collection<Level> sinkBasicLevels = JOANAResolutionUtil
@@ -88,7 +88,7 @@ public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSp
 		return resultingSpecification;
 	}
 
-	private Collection<ResultEntry> filterMappableResultEntries(SourceCodeAnalysisResult scar) {
+	protected Collection<ResultEntry> filterMappableResultEntries(SourceCodeAnalysisResult scar) {
 		return scar.getResultEntries().stream()
 				.filter(resultEntry -> resultEntry.getSink().getSystemElement() instanceof Parameter)
 				.collect(Collectors.toList());

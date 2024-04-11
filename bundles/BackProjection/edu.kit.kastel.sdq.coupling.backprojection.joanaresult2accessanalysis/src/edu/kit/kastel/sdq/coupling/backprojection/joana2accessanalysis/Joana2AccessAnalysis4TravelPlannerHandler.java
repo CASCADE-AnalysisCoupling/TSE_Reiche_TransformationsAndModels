@@ -4,7 +4,9 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection.BackprojectionFactory;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.testpaths.TravelPlannerTestPaths;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolutionFactory;
 
 public class Joana2AccessAnalysis4TravelPlannerHandler extends AbstractHandler {
 
@@ -17,7 +19,7 @@ public class Joana2AccessAnalysis4TravelPlannerHandler extends AbstractHandler {
 				TravelPlannerTestPaths.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH, TravelPlannerTestPaths.POLICY_STYLE, TravelPlannerTestPaths.ORIGIN_BACKUP_PATH);
 		
 		
-		integration.integrate();
+		integration.integrate(new ResultingSpecificationResolutionFactory(), new BackprojectionFactory());
 		
 		return true;
 	}
