@@ -13,6 +13,14 @@ import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextracti
 
 public class CodeQL2AccessAnalysisResultIntegration {
 
+	protected final String policyStyle;
+	protected final String javaModelLocation;
+	protected final String codeQLModelLocation;
+	protected final String correspondenceModelLocation;
+	protected final String resultFileLocation;
+	protected final String confidentialitySpecificationLocation;
+	protected final String originBackupLocation;
+	protected final String repositoryModelLocation;
 	
 	public CodeQL2AccessAnalysisResultIntegration(String policyStyle, String javaModelLocation, String codeQLModelLocation,
 			String correspondenceModelLocation, String resultFileLocation, String repositoryModelLocation, String confidentialitySpecificationLocation,
@@ -27,16 +35,6 @@ public class CodeQL2AccessAnalysisResultIntegration {
 		this.confidentialitySpecificationLocation = confidentialitySpecificationLocation;
 		this.originBackupLocation = originBackupLocation;
 	}
-
-
-	private final String policyStyle;
-	private final String javaModelLocation;
-	private final String codeQLModelLocation;
-	private final String correspondenceModelLocation;
-	private final String resultFileLocation;
-	private final String confidentialitySpecificationLocation;
-	private final String originBackupLocation;
-	private final String repositoryModelLocation;
 	
 	public void performResultIntegration() {
 		Models input = Models.createModelsFromFiles(javaModelLocation,
