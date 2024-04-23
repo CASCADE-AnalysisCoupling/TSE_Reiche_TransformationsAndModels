@@ -5,7 +5,7 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators.AccessAnalysis2CodeQLModelsGenerator;
-
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators.SecurityGeneratorCreator;
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate;
@@ -16,7 +16,7 @@ public class AccessAnalysis2CodeQLAlignment {
 
 	public AccessAnalysis2CodeQLAlignment(String repositoryPath, String confidentialityModelPath,
 			String codeBasePackageName, String javaModelPath, String codeQLModelPath,
-			String correspondenceModelPath, String codeQLQueryFolderPath, String caseStudy) {
+			String correspondenceModelPath, String codeQLQueryFolderPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.confidentialityModelPath = confidentialityModelPath;
@@ -26,6 +26,7 @@ public class AccessAnalysis2CodeQLAlignment {
 		this.correspondenceModelPath = correspondenceModelPath;
 		this.codeQLQueryFolderPath = codeQLQueryFolderPath;
 		AccessAnalysis2CodeQLAlignment.caseStudy = caseStudy;
+		this.securityGeneratorCreator = securityGeneratorCreator;
 	}
 
 	private final String repositoryPath;
@@ -36,6 +37,8 @@ public class AccessAnalysis2CodeQLAlignment {
 	private final String correspondenceModelPath;
 	private final String codeQLQueryFolderPath;
 	public static String caseStudy;
+	
+	private final SecurityGeneratorCreator securityGeneratorCreator;
 	
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
 	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4AccessAnalysis";
@@ -48,7 +51,7 @@ public class AccessAnalysis2CodeQLAlignment {
 		ProfileApplication profile = models.getProfile();
 		ConfidentialitySpecification spec = models.getConfidentiality();
 
-		AccessAnalysis2CodeQLModelsGenerator modelsGenerator = new AccessAnalysis2CodeQLModelsGenerator();
+		AccessAnalysis2CodeQLModelsGenerator modelsGenerator = new AccessAnalysis2CodeQLModelsGenerator(securityGeneratorCreator);
 		
 		OutputModels outputModels = modelsGenerator.generateCodeQLModels(correspondences, repo, profile, spec, codeBasePackageName);
 		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getConfigurations().get(0));

@@ -4,11 +4,7 @@ import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.AccessAnalysis2CodeQL4TravelPlannerHandler;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.AccessAnalysis2CodeQLAlignment;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.OutputModels;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.testpaths.JPMailPaths;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.testpaths.TravelPlannerPaths;
 import edu.kit.kastel.sdq.coupling.alignment.pcm2java.PCM2JavaStructuralGenerator;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -19,6 +15,11 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 
 	private JavaRoot javaRoot;
 	private TainttrackingRoot tainttrackingRoot;
+	private SecurityGeneratorCreator securityGeneratorCreator;
+	
+	public AccessAnalysis2CodeQLModelsGenerator(SecurityGeneratorCreator securityGeneratorCreator) {
+		this.securityGeneratorCreator = securityGeneratorCreator;
+	}
 
 	
 	public OutputModels generateCodeQLModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ProfileApplication repositoryProfileApplication, ConfidentialitySpecification spec, String basePackageName) {
@@ -27,14 +28,7 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 		structuralGenerator.generateStructuralModel(basePackageName);
 		
 
-		AccessAnalysis2CodeQLSecurityGenerator securityGenerator = null;
-		
-		//TODO Should be handled by injection/dynamic binding, same as paths
-		if(AccessAnalysis2CodeQLAlignment.caseStudy.equals(JPMailPaths.CASE_STUDY_NAME)) {
-			securityGenerator = new AccessAnalysis2CodeQLSecurityGenerator4HighLow(spec, correspondences);	
-		} else if(AccessAnalysis2CodeQLAlignment.caseStudy.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
-			securityGenerator = new AccessAnalysis2CodeQLSecurityGenerator4FullDynamicLevels(spec, correspondences);	
-		}
+		AccessAnalysis2CodeQLSecurityGenerator securityGenerator = securityGeneratorCreator.createSecurityGenerator(correspondences, spec);
 		
 		securityGenerator.generateCodeQLConfiguration(repositoryProfileApplication.getStereotypeApplications());
 		javaRoot = structuralGenerator.getRoot();

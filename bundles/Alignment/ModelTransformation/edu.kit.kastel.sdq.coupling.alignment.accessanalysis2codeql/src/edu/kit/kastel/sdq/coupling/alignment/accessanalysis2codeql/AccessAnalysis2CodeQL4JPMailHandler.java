@@ -4,11 +4,11 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators.Creator4SG4HighLow;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators.SecurityGeneratorCreator;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.testpaths.JPMailPaths;
-import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.testpaths.TravelPlannerPaths;
 
-
-public class AccessAnalysis2CodeQL4JPMailHandler extends AbstractHandler{
+public class AccessAnalysis2CodeQL4JPMailHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -21,10 +21,14 @@ public class AccessAnalysis2CodeQL4JPMailHandler extends AbstractHandler{
 		String correspondenceModelPath = JPMailPaths.PCMJAVACORRESPONDENCE_MODE_PATH;
 		String codeQLQueryFolderPath = JPMailPaths.CODEQL_QUERY_FOLDER_PATH;
 
-		AccessAnalysis2CodeQLAlignment alignment = new AccessAnalysis2CodeQLAlignment(repositoryPath, confidentialityModelPath, codeBasePackageName, javaModelPath, codeQLModelPath, correspondenceModelPath, codeQLQueryFolderPath, JPMailPaths.CASE_STUDY_NAME);
+		SecurityGeneratorCreator sgc = new Creator4SG4HighLow();
+
+		AccessAnalysis2CodeQLAlignment alignment = new AccessAnalysis2CodeQLAlignment(repositoryPath,
+				confidentialityModelPath, codeBasePackageName, javaModelPath, codeQLModelPath, correspondenceModelPath,
+				codeQLQueryFolderPath, JPMailPaths.CASE_STUDY_NAME, sgc);
 		alignment.performAlignment();
 
 		return true;
 	}
-	
+
 }
