@@ -16,7 +16,7 @@ public class AccessAnalysis2CodeQLAlignment {
 
 	public AccessAnalysis2CodeQLAlignment(String repositoryPath, String confidentialityModelPath,
 			String codeBasePackageName, String javaModelPath, String codeQLModelPath,
-			String correspondenceModelPath, String codeQLQueryFolderPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator) {
+			String correspondenceModelPath, String codeQLQueryFolderPath, String accessAnalysisCodeQLCorrespondenceModelPath, SecurityGeneratorCreator securityGeneratorCreator) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.confidentialityModelPath = confidentialityModelPath;
@@ -25,8 +25,8 @@ public class AccessAnalysis2CodeQLAlignment {
 		this.codeQLModelPath = codeQLModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
 		this.codeQLQueryFolderPath = codeQLQueryFolderPath;
-		AccessAnalysis2CodeQLAlignment.caseStudy = caseStudy;
 		this.securityGeneratorCreator = securityGeneratorCreator;
+		this.accessAnalysisCodeQLCorrespondenceModelPath = accessAnalysisCodeQLCorrespondenceModelPath;
 	}
 
 	private final String repositoryPath;
@@ -36,7 +36,7 @@ public class AccessAnalysis2CodeQLAlignment {
 	private final String codeQLModelPath;
 	private final String correspondenceModelPath;
 	private final String codeQLQueryFolderPath;
-	public static String caseStudy;
+	private final String accessAnalysisCodeQLCorrespondenceModelPath;
 	
 	private final SecurityGeneratorCreator securityGeneratorCreator;
 	
@@ -61,7 +61,7 @@ public class AccessAnalysis2CodeQLAlignment {
 		FileToGenerate fileToGenerate = new FileToGenerate(tainttrackingContent, codeQLQueryFolderPath, CODEQL_QUERY_FILE_NAME, CODEQL_QUERY_FILE_ENDING);
 		fileToGenerate.write();
 
-		outputModels.writeToFiles(javaModelPath, codeQLModelPath, correspondenceModelPath);
+		outputModels.writeToFiles(javaModelPath, codeQLModelPath, correspondenceModelPath, accessAnalysisCodeQLCorrespondenceModelPath);
 
 		System.out.println("Done Alignment Access Analysis 2 CodeQL");
 	}

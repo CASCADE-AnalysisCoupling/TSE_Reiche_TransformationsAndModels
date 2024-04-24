@@ -34,7 +34,7 @@ public class AccessAnalysis2CodeQLModelsGenerator {
 		javaRoot = structuralGenerator.getRoot();
 		tainttrackingRoot = securityGenerator.getRoot(); 
 		
-		return new OutputModels(javaRoot, tainttrackingRoot , correspondences);
+		return new OutputModels(javaRoot, tainttrackingRoot , correspondences, securityGenerator.getSecurityCorrespondences());
 	}
 
 	public JavaRoot getJavaRoot() {

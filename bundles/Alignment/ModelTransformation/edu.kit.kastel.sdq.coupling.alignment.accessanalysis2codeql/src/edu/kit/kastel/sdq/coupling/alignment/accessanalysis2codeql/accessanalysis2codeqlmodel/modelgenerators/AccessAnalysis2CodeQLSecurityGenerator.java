@@ -25,6 +25,9 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.utils.AccessAnalysisResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondenceFactory;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.util.AccessanalysiscodeqlcorrespondenceSwitch;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
@@ -32,6 +35,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotati
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.CorrespondenceCreationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 public abstract class AccessAnalysis2CodeQLSecurityGenerator {
@@ -41,6 +45,8 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 	private final TainttrackingRoot root;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final PCMJavaCorrespondenceRoot correspondences;
+	private final AccessAnalysisCodeQLCorrespondenceRoot securityCorrespondences;
+
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	
 	
@@ -50,10 +56,13 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 		this.root = CodeQLModelgenerationUtil.generateDataFlowRoot();
 		this.accessAnalysisSpec = accessAnalysisSpec;
 		this.correspondences = correspondences;
+		this.securityCorrespondences = AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createAccessAnalysisCodeQLCorrespondenceRoot();
 	}
 	
 	public void generateCodeQLConfiguration(Collection<StereotypeApplication> steretypeApplications) {
 		Configuration config = CodeQLModelgenerationUtil.generateConfiguration();
+		
+		securityCorrespondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().add(CorrespondenceCreationUtil.createConfigurationCorrespondence(accessAnalysisSpec, config));
 		
 		Collection<SecurityLevel> appliedSecurityLevels = generateSecurityLevels(AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
 		config.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
@@ -103,6 +112,7 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 							
 							Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, pcmParameter);
 							SecurityLevel level = getSecurityLevelForDataSets(dataSets, codeQLSecurityLevels);
+							securityCorrespondences.getDataSetSecurityLevelCorrespondence().add(CorrespondenceCreationUtil.createDataSetSecurityLevelCorrespondence(dataSets, level));
 							ParameterAnnotation annotation = CodeQLModelgenerationUtil.generateParameterAnnotation(param.get(), level);
 							
 							annotations.add(annotation);
@@ -143,5 +153,9 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 		return correspondences;
 	}
 	
+	public AccessAnalysisCodeQLCorrespondenceRoot getSecurityCorrespondences() {
+		return securityCorrespondences;
+	}
+
 	
 }

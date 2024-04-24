@@ -10,12 +10,16 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.model.ResultEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.model.ResultEntryElement;
-import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.model.SourceCodeAnalysisResult;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.util.Tuple;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntryElement;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.utils.CodeQLSCARModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Utils.CodeQLSCARCorrespondenceModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.Package;
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
@@ -31,17 +35,28 @@ public class CodeQLSarifOutput2SCARParser {
 
 
 	private final TainttrackingRoot tainttrackingRoot;
+	private final CodeQLSCARCorrespondences scarCorrespondences;
 	private final JavaRoot javaRoot;
 
 	public CodeQLSarifOutput2SCARParser(TainttrackingRoot tainttrackingRoot, JavaRoot javaRoot) {
 		super();
 		this.tainttrackingRoot = tainttrackingRoot;
 		this.javaRoot = javaRoot;
+		this.scarCorrespondences = CodeQLSCARCorrespondenceModelGenerationUtil.createCodeQLSCARCorrespondences();
 	}
 
 	public SourceCodeAnalysisResult interpretCodeQLSarif(String content) {
 		
-		SourceCodeAnalysisResult localResult = new SourceCodeAnalysisResult();
+	
+		
+		
+		SourceCodeAnalysisResult localResult = CodeQLSCARModelGenerationUtil.createSourceCodeAnalysisResult();
+		
+		ConfigurationID_SCAR configID = CodeQLSCARModelGenerationUtil.createConfiguration(tainttrackingRoot.getConfigurations().get(0).getId());
+
+		localResult.getConfigurations().add(configID);
+		scarCorrespondences.getConfigurationCorrespondences().add(CodeQLSCARCorrespondenceModelGenerationUtil.createConfigurationCorrespondence(tainttrackingRoot.getConfigurations().get(0), configID));
+		
 		
 		JsonObject root = new JsonParser().parse(content).getAsJsonObject();
 		
