@@ -21,7 +21,8 @@ public class AccessAnalysis2CodeQLAdapter implements ExecutableProcessingStepAda
 	 * args[6]: codeQLModelPath<br>
 	 * args[7]: correspondenceModelPath<br>
 	 * args[8]: codeQLQueryFolderPath<br>
-	 * args[9]: caseStudyName TODO change to PolicyStyle or sth. else for disj/conj
+	 * args[9]: policyStyle<br>
+	 * args[10]: accessAnalysisCodeQLCorrespondenceModelPath<br>
 	 */
 	@Override
 	public Result executeAdapter(String[] args) {
@@ -44,7 +45,7 @@ public class AccessAnalysis2CodeQLAdapter implements ExecutableProcessingStepAda
 			if (sgc == null) {
 				throw new IllegalArgumentException("Casestudy type '" + args[9] + "' couldn't be found.");
 			}
-			AccessAnalysis2CodeQLAlignment alignment = new AccessAnalysis2CodeQLAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], sgc);
+			AccessAnalysis2CodeQLAlignment alignment = new AccessAnalysis2CodeQLAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[10], sgc);
 			alignment.performAlignment();
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());

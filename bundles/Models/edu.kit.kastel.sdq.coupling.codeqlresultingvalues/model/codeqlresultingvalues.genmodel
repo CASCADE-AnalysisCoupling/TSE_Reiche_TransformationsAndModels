@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.codeqlresultingvalues/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.codeqlresultingvalues.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.codeqlresultingvalues.editor/src-gen"
+    modelPluginID="edu.kit.kastel.sdq.coupling.codeqlresultingvalues" modelName="Codeqlresultingvalues"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>codeqlresultingvalues.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Codeqlresultingvalues" basePackage="edu.kit.kastel.sdq.coupling"
+      disposableProviderFactory="true" ecorePackage="codeqlresultingvalues.ecore#/">
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//CodeQLResultingValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/resultingValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/securityLevel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/systemElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/configurations"/>
+    </genClasses>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/ParameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/parameterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/methodName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/fullyQualifiedClassName"/>
+    </genClasses>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ResultingValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/resultingSecurityLevel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/parameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//SecurityLevel_ResultingValues"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ConfigurationID_ResultingValues">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ConfigurationID_ResultingValues/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

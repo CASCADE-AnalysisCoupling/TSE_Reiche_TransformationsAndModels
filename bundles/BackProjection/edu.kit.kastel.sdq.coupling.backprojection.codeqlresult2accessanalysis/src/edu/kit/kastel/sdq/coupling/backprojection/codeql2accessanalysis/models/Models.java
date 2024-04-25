@@ -16,7 +16,13 @@ import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
@@ -29,11 +35,11 @@ public class Models {
 	private final Repository repository;
 	private final ProfileApplication profile;
 	private final ConfidentialitySpecification confidentiality;
-
+	private final AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondences;
 
 	public Models(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
 			String codeQLResult, Repository repository, ProfileApplication profile,
-			ConfidentialitySpecification confidentiality) {
+			ConfidentialitySpecification confidentiality, AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondences) {
 		super();
 		this.javaRoot = javaRoot;
 		this.tainttrackingRoot = tainttrackingRoot;
@@ -42,10 +48,11 @@ public class Models {
 		this.repository = repository;
 		this.profile = profile;
 		this.confidentiality = confidentiality;
+		this.accessAnalysisCodeQLCorrespondences = accessAnalysisCodeQLCorrespondences;
 	}
 
 	public static Models createModelsFromFiles(String javaFilePath, String codeqlFilePath,
-			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath, String confidentialitySpecFilePath, String originBackupDirectoryPath) {
+			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath, String confidentialitySpecFilePath, String originBackupDirectoryPath, String accessAnalysisCodeQLCorrespondencesPath) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		
@@ -72,19 +79,23 @@ public class Models {
 				.createFileURI(Path.of(pcmjavaCorrespondenceFilePath).toAbsolutePath().toString());
 		URI repositoryUri = URI.createFileURI(Path.of(repositoryFilePath).toAbsolutePath().toString());
 		URI confidentialityUri = URI.createFileURI(Path.of(confidentialitySpecFilePath).toAbsolutePath().toString());
-
+		URI accessAnalysisCodeQLCorrespondencesUri = URI.createFileURI(Path.of(accessAnalysisCodeQLCorrespondencesPath).toAbsolutePath().toString());
+		
+		
 		Resource resourceJava = resSet.getResource(repositoryJava, true);
 		Resource resourceCodeQL = resSet.getResource(codeQLUri, true);
 		Resource resourcePCMJavaCorrespondence = resSet.getResource(pcmjavaCorrespondenceUri, true);
 		Resource resourceRepository = resSet.getResource(repositoryUri, true);
 		Resource resourceConfidentiality = resSet.getResource(confidentialityUri, true);
-
+		Resource resourceAccessAnalysisCodeQLCorrespondences = resSet.getResource(accessAnalysisCodeQLCorrespondencesUri, true);
+		
 		try {
 			resourceJava.load(null);
 			resourceCodeQL.load(null);
 			resourcePCMJavaCorrespondence.load(null);
 			resourceRepository.load(null);
 			resourceConfidentiality.load(null);
+			resourceAccessAnalysisCodeQLCorrespondences.load(null);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,6 +109,8 @@ public class Models {
 		ProfileApplication profile = (ProfileApplication) resourceRepository.getContents().get(1);
 		ConfidentialitySpecification confidentiality = (ConfidentialitySpecification) resourceConfidentiality
 				.getContents().get(0);
+		AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondences = (AccessAnalysisCodeQLCorrespondenceRoot) resourceAccessAnalysisCodeQLCorrespondences.getContents().get(0);
+		
 		String codeQLSarifContent = "";
 		try {
 			codeQLSarifContent = Files.readString(Paths.get(codeQLResultFilePath));
@@ -107,7 +120,7 @@ public class Models {
 		}
 
 		return new Models(java, tainttracking, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository, profile,
-				confidentiality);
+				confidentiality, accessAnalysisCodeQLCorrespondences);
 	}
 
 	public void updateConfidentialityModel(String confidentialitySpecFilePath) {
@@ -130,6 +143,32 @@ public class Models {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void persistCorrespondences(String scarPath, SourceCodeAnalysisResult scar, String resultingValuesPath, CodeQLResultingValues resultingValues, String scarCorrespondencePath, CodeQLSCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath, Correspondences_CodeQLResultingValues resultingValuesCorrespondences) {
+		Resource scarResource = new XMLResourceImpl(URI.createFileURI(scarPath));
+		scarResource.getContents().add(scar);
+		
+		Resource resultingValuesResource = new XMLResourceImpl(URI.createFileURI(resultingValuesPath));
+		resultingValuesResource.getContents().add(resultingValues);
+		
+		Resource scarCorrespondenceResource = new XMLResourceImpl(URI.createFileURI(scarCorrespondencePath));
+		scarCorrespondenceResource.getContents().add(scarCorrespondences);
+		
+		Resource resultingValuesCorrespondenceResource = new XMLResourceImpl(URI.createFileURI(resultingValuesCorrespondencesPath));
+		resultingValuesCorrespondenceResource.getContents().add(resultingValuesCorrespondences);
+		
+	
+		try {
+			resultingValuesResource.save(null);
+			scarResource.save(null);
+			scarCorrespondenceResource.save(null);
+			resultingValuesCorrespondenceResource.save(null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public JavaRoot getJavaRoot() {
@@ -178,5 +217,9 @@ public class Models {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public AccessAnalysisCodeQLCorrespondenceRoot getAccessAnalysisCodeQLCorrespondences() {
+		return accessAnalysisCodeQLCorrespondences;
 	}
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis uid="_8rd2sAE8Ee-1q7fMAstA4Q" selectedViews="_-LBk8AE8Ee-1q7fMAstA4Q" version="14.3.1.202003261200">
+    <semanticResources>accessanalysiscodeqlcorrespondence.ecore</semanticResources>
+    <semanticResources>accessanalysiscodeqlcorrespondence.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore</semanticResources>
+    <semanticResources>platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.palladiosimulator.pcm/model/pcm.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_-LBk8AE8Ee-1q7fMAstA4Q">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-NGBgAE8Ee-1q7fMAstA4Q" name="accessanalysiscodeqlcorrespondence" repPath="#_-MSJMAE8Ee-1q7fMAstA4Q" changeId="e05d0fcb-8e98-42c4-99a9-bba2f4adf21e">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="accessanalysiscodeqlcorrespondence.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_-MSJMAE8Ee-1q7fMAstA4Q">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-NdN4AE8Ee-1q7fMAstA4Q" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_-Nd08AE8Ee-1q7fMAstA4Q" type="Sirius" element="_-MSJMAE8Ee-1q7fMAstA4Q" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_-Nd08QE8Ee-1q7fMAstA4Q"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_-PGzsAE8Ee-1q7fMAstA4Q" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_-PIB0AE8Ee-1q7fMAstA4Q"/>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_-Ms_8AE8Ee-1q7fMAstA4Q"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="accessanalysiscodeqlcorrespondence.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeqlresultingvalues" nsURI="http://www.example.org/codeqlresultingvalues"
+    nsPrefix="codeqlresultingvalues">
+  <eClassifiers xsi:type="ecore:EClass" name="CodeQLResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultingValues" upperBound="-1"
+        eType="#//ResultingValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" upperBound="-1"
+        eType="#//SecurityLevel_ResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemElements" upperBound="-1"
+        eType="#//ParameterIdentificiation_CodeQLResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//ConfigurationID_ResultingValues" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterIdentificiation_CodeQLResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedClassName"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResultingValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultingSecurityLevel"
+        lowerBound="1" eType="#//SecurityLevel_ResultingValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        eType="#//ParameterIdentificiation_CodeQLResultingValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" lowerBound="1"
+        eType="#//ConfigurationID_ResultingValues"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel_ResultingValues" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationID_ResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

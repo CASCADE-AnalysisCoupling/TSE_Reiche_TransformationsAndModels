@@ -2,9 +2,7 @@ package edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.scarparser;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.Optional;
-import java.util.Queue;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -14,21 +12,23 @@ import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.util.Tuple;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntryElement;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.utils.CodeQLSCARElementHandlingUtils;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.utils.CodeQLSCARModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Utils.CodeQLSCARCorrespondenceModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Utils.CodeQLSCARCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
-import edu.kit.kastel.sdq.coupling.models.java.Package;
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
-import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.types.Class;
-import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
+
 
 
 public class CodeQLSarifOutput2SCARParser {
@@ -36,13 +36,18 @@ public class CodeQLSarifOutput2SCARParser {
 
 	private final TainttrackingRoot tainttrackingRoot;
 	private final CodeQLSCARCorrespondences scarCorrespondences;
+	public CodeQLSCARCorrespondences getScarCorrespondences() {
+		return scarCorrespondences;
+	}
+
+	private SourceCodeAnalysisResult scar;
 	private final JavaRoot javaRoot;
 
 	public CodeQLSarifOutput2SCARParser(TainttrackingRoot tainttrackingRoot, JavaRoot javaRoot) {
 		super();
 		this.tainttrackingRoot = tainttrackingRoot;
 		this.javaRoot = javaRoot;
-		this.scarCorrespondences = CodeQLSCARCorrespondenceModelGenerationUtil.createCodeQLSCARCorrespondences();
+		this.scarCorrespondences = CodeQLSCARCorrespondenceUtil.createCodeQLSCARCorrespondences();
 	}
 
 	public SourceCodeAnalysisResult interpretCodeQLSarif(String content) {
@@ -50,12 +55,13 @@ public class CodeQLSarifOutput2SCARParser {
 	
 		
 		
-		SourceCodeAnalysisResult localResult = CodeQLSCARModelGenerationUtil.createSourceCodeAnalysisResult();
+		scar = CodeQLSCARModelGenerationUtil.createSourceCodeAnalysisResult();
 		
 		ConfigurationID_SCAR configID = CodeQLSCARModelGenerationUtil.createConfiguration(tainttrackingRoot.getConfigurations().get(0).getId());
 
-		localResult.getConfigurations().add(configID);
-		scarCorrespondences.getConfigurationCorrespondences().add(CodeQLSCARCorrespondenceModelGenerationUtil.createConfigurationCorrespondence(tainttrackingRoot.getConfigurations().get(0), configID));
+		CodeQLSCARElementHandlingUtils.addConfigById(configID, scar);
+		
+		CodeQLSCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(tainttrackingRoot.getConfigurations().get(0), configID, scarCorrespondences);
 		
 		
 		JsonObject root = new JsonParser().parse(content).getAsJsonObject();
@@ -69,15 +75,15 @@ public class CodeQLSarifOutput2SCARParser {
 			for(int resultIndex = 0; resultIndex < results.size(); resultIndex++) {
 				JsonObject result = results.get(resultIndex).getAsJsonObject();
 
-				localResult.getResultEntries().addAll(parseResult(result));
+				scar.getResultEntries().addAll(parseResult(result, configID));
 			}
 		}
 		
-		return localResult;
+		return scar;
 	}
 	
 	//Return collection, as there may be multiple illegal flows in one result (reason unclear)
-	private Collection<ResultEntry> parseResult(JsonObject result) {
+	private Collection<ResultEntry> parseResult(JsonObject result, ConfigurationID_SCAR configId) {
 		Collection<ResultEntry> resultEntries = new ArrayList<ResultEntry>();
 		
 		String resultText = result.getAsJsonObject("message").get("text").getAsString();
@@ -90,42 +96,51 @@ public class CodeQLSarifOutput2SCARParser {
 			String source = sourceSinkSplit.getFirst();
 			String sink = sourceSinkSplit.getSecond();
 		
-			resultEntries.add(calculateResultEntryForSourceAndSinkRepresentation(source, sink));
+			resultEntries.add(calculateResultEntryForSourceAndSinkRepresentation(source, sink, configId));
 		}
 		
 		return resultEntries;
 	}
 	
-	private ResultEntry calculateResultEntryForSourceAndSinkRepresentation(String sourceRepresentation, String sinkRepresentation) {
+	private ResultEntry calculateResultEntryForSourceAndSinkRepresentation(String sourceRepresentation, String sinkRepresentation, ConfigurationID_SCAR configId) {
 		Tuple<String, String> sourceSystemElementLevelSplit = splitandCleanSourceSinkInSystemElementIdentificationAndSecurityLevel(sourceRepresentation);
 		Tuple<String, String> sinkSystemElementLevelSplit = splitandCleanSourceSinkInSystemElementIdentificationAndSecurityLevel(sinkRepresentation);
-		
-		ResultEntryElement<?> sourceEntryElement = null;
-		ResultEntryElement<?> sinkEntryElement = null;
 		
 		SecurityLevel sourceSecurityLevel = resolveSecurityLevel(sourceSystemElementLevelSplit.getSecond());
 		SecurityLevel sinkSecurityLevel = resolveSecurityLevel(sinkSystemElementLevelSplit.getSecond());
 		
-		if(isFieldIdentification(sourceSystemElementLevelSplit.getFirst())) {
-			Field sourceField = resolveField(sourceSystemElementLevelSplit.getFirst());
-			sourceEntryElement = new ResultEntryElement<Field>(sourceField, sourceSecurityLevel);
-		} else {
-			Parameter sourceParameter = resolveParameter(sourceSystemElementLevelSplit.getFirst());
-			sourceEntryElement = new ResultEntryElement<Parameter>(sourceParameter, sourceSecurityLevel);
-		}
+		SecurityLevel_SCAR sourceScarSecurityLevel = CodeQLSCARElementHandlingUtils.getOrCreateAndAddSecurityLevelByName(sourceSystemElementLevelSplit.getSecond(), scar);
+		SecurityLevel_SCAR sinkScarSecurityLevel = CodeQLSCARElementHandlingUtils.getOrCreateAndAddSecurityLevelByName(sinkSystemElementLevelSplit.getSecond(), scar);
 		
-		if(isFieldIdentification(sinkSystemElementLevelSplit.getFirst())) {
-			Field sinkField = resolveField(sinkSystemElementLevelSplit.getFirst());
-			sinkEntryElement = new ResultEntryElement<Field>(sinkField, sinkSecurityLevel);
-			
-		} else {
-			Parameter sinkParameter = resolveParameter(sinkSystemElementLevelSplit.getFirst());
-			sinkEntryElement = new ResultEntryElement<Parameter>(sinkParameter, sinkSecurityLevel);
-		}
+		CodeQLSCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(sourceSecurityLevel, sourceScarSecurityLevel, scarCorrespondences);
+		CodeQLSCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(sinkSecurityLevel, sinkScarSecurityLevel, scarCorrespondences);
 		
-		return new ResultEntry(sourceEntryElement, sinkEntryElement, tainttrackingRoot.getConfigurations().get(0));
+		
+		ResultEntryElement<?> sourceEntryElement = generateResultEntryElement(sourceSystemElementLevelSplit.getFirst(), sourceScarSecurityLevel);
+		ResultEntryElement<?> sinkEntryElement = generateResultEntryElement(sinkSystemElementLevelSplit.getFirst(), sinkScarSecurityLevel);
+		
+		return CodeQLSCARModelGenerationUtil.createResultEntry(configId, sourceEntryElement, sinkEntryElement);
 	}
 	
+	
+	private ResultEntryElement<?> generateResultEntryElement(String systemElementidentification, SecurityLevel_SCAR securityLevel) {
+		if(isFieldIdentification(systemElementidentification)) {
+			Field field = resolveField(systemElementidentification);
+			FieldIdentification fieldScar = resolveFieldIdentification_SCAR(systemElementidentification);
+			
+			CodeQLSCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(field, fieldScar, scarCorrespondences);
+			return  CodeQLSCARModelGenerationUtil.createResultEntryElement(fieldScar, securityLevel);
+		} else {
+			Parameter parameter = resolveParameter(systemElementidentification);
+			ParameterIdentification parameterScar = resolveParameterIdentification(systemElementidentification);
+			
+			CodeQLSCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(parameter, parameterScar, scarCorrespondences);
+			
+			return CodeQLSCARModelGenerationUtil.createResultEntryElement(parameterScar, securityLevel);
+		}
+	}
+	
+
 	private boolean isFieldIdentification(String systemElementRepresentation) {
 		return systemElementRepresentation.contains(CodeQLTainttrackingCodeGenerator.CLASS_FIELD_DELIMITER);
 	}
@@ -150,6 +165,14 @@ public class CodeQLSarifOutput2SCARParser {
 			clazz.getField().add(newField);
 			return newField;
 		}
+	}
+	
+	private FieldIdentification resolveFieldIdentification_SCAR(String fieldIdentification) {
+		Tuple<String, String> classAndField = splitClassAndFieldIdentification(fieldIdentification);
+		Tuple<String, String> fieldNameAndType = splitSystemElementAndType(classAndField.getSecond());
+		
+		return CodeQLSCARElementHandlingUtils.getOrCreateAndAddField(fieldNameAndType.getFirst(), fieldNameAndType.getSecond(), classAndField.getFirst(), scar);
+
 	}
 	
 	private Tuple<String, String> splitAndCleanSourceAndSinks(String singleFlow) {
@@ -178,9 +201,23 @@ public class CodeQLSarifOutput2SCARParser {
 		
 		return null;
 	}
+	
+	private ParameterIdentification resolveParameterIdentification(String parameterIdentification) {
+		Tuple<String,String> classMethodSplit = splitClassAndParameterIdentification(parameterIdentification);
+		Tuple<String, Tuple<String,String>> methodNameAndParameterAndType = resolveMethodNameAndParameterNameAndParameterType(classMethodSplit.getSecond());
+	
+		String fullyQualifiedClassName = classMethodSplit.getFirst();
+		String methodName = methodNameAndParameterAndType.getFirst();
+		String parameterName = methodNameAndParameterAndType.getSecond().getFirst();
+		String parameterType = methodNameAndParameterAndType.getSecond().getSecond();
+		
+		
+		return CodeQLSCARElementHandlingUtils.getOrCreateAndAddParameter(parameterName, parameterType, methodName, fullyQualifiedClassName, scar);
+	}
 
 	private Parameter resolveParameter(String parameterIdentification) {
 		Tuple<String,String> classMethodSplit = splitClassAndParameterIdentification(parameterIdentification);
+		
 		
 		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(classMethodSplit.getFirst(), javaRoot);
 		

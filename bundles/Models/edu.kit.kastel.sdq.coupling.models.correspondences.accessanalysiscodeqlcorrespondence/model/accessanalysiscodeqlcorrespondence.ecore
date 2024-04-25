@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="accessanalysiscodeqlcorrespondence" nsURI="http://www.example.org/accessanalysiscodeqlcorrespondence"
+    nsPrefix="accessanalysiscodeqlcorrespondence">
+  <eClassifiers xsi:type="ecore:EClass" name="AccessAnalysisCodeQLCorrespondenceRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationCorrespondences_AccessAnalysisCodeQL"
+        upperBound="-1" eType="#//ConfigurationCorrespondence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSetSecurityLevelCorrespondence"
+        upperBound="-1" eType="#//DataSetSecurityLevelCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CodeQLConfig" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/Configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AccessAnalysisConfig" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//ConfidentialitySpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetSecurityLevelCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSets" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/SecurityLevel"/>
+  </eClassifiers>
+</ecore:EPackage>

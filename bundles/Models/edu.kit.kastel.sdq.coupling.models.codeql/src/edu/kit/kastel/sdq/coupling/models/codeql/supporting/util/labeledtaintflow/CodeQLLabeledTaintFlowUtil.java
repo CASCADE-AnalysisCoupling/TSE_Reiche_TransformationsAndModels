@@ -50,6 +50,5 @@ public class CodeQLLabeledTaintFlowUtil {
 		
 		public static List<SecurityLevel> sortSecurityLevels(Collection<SecurityLevel> levels){
 			return levels.stream().sorted(Comparator.comparing(SecurityLevel::getName)).collect(Collectors.toList());
-		}
-		
+		}		
 }

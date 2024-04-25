@@ -4,12 +4,12 @@ import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backproj
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backprojection.Backprojector;
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.models.Models;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.CodeQLResultingSpecificationExtractor;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4AccessAnalysis;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4ConjunctivePowerset;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4HighLow;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolutionFactory;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
 
 public class CodeQL2AccessAnalysisResultIntegration {
 
@@ -21,10 +21,15 @@ public class CodeQL2AccessAnalysisResultIntegration {
 	protected final String confidentialitySpecificationLocation;
 	protected final String originBackupLocation;
 	protected final String repositoryModelLocation;
+	protected final String accessanalysisCodeQLCorrespondenceLocation;
+	protected final String scarLocation;
+	protected final String resultingValuesLocation;
+	protected final String scarCorrespondencesLocation;
+	protected final String resultingValuesCorrespondencesLocation;
 	
 	public CodeQL2AccessAnalysisResultIntegration(String policyStyle, String javaModelLocation, String codeQLModelLocation,
 			String correspondenceModelLocation, String resultFileLocation, String repositoryModelLocation, String confidentialitySpecificationLocation,
-			String originBackupLocation) {
+			String originBackupLocation, String scarLocation, String resultingValuesLocation, String accessanalysisCodeQLCorrespondenceLocation, String scarCorrespondencesLocation, String resultingValuesCorrespondencesLocation) {
 		super();
 		this.policyStyle = policyStyle;
 		this.javaModelLocation = javaModelLocation;
@@ -34,27 +39,34 @@ public class CodeQL2AccessAnalysisResultIntegration {
 		this.repositoryModelLocation = repositoryModelLocation;
 		this.confidentialitySpecificationLocation = confidentialitySpecificationLocation;
 		this.originBackupLocation = originBackupLocation;
+		this.accessanalysisCodeQLCorrespondenceLocation = accessanalysisCodeQLCorrespondenceLocation;
+		this.scarLocation = scarLocation;
+		this.resultingValuesLocation = resultingValuesLocation;
+		this.scarCorrespondencesLocation = scarCorrespondencesLocation;
+		this.resultingValuesCorrespondencesLocation = resultingValuesCorrespondencesLocation;
 	}
 	
 	public void performResultIntegration() {
-		Models input = Models.createModelsFromFiles(javaModelLocation,
+		Models models = Models.createModelsFromFiles(javaModelLocation,
 				codeQLModelLocation, 
 				correspondenceModelLocation,
 				resultFileLocation, 
 				repositoryModelLocation,
 				confidentialitySpecificationLocation,
-				originBackupLocation);
+				originBackupLocation, 
+				accessanalysisCodeQLCorrespondenceLocation);
 
 		//Input -> ResultingSpecification
-		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle, input.getTainttrackingRoot().getConfigurations().get(0));
+		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle, models.getTainttrackingRoot().getConfigurations().get(0));
 		CodeQLResultingSpecificationExtractor extractor = new CodeQLResultingSpecificationExtractor(resolution);
-		
-		ResultingSpecification resultingSpecification = extractor.extract(input.getTainttrackingRoot(), input.getJavaRoot(), input.getCodeQLResult());
+
+		CodeQLResultingValues resultingValues = extractor.extract(models.getTainttrackingRoot(), models.getJavaRoot(), models.getCodeQLResult());
 		
 		//BackProjection ResultingSpecification -> AAM
-		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile(), input.getTainttrackingRoot().getConfigurations().get(0));
-		backprojector.project(resultingSpecification);
-		input.updateConfidentialityModel(confidentialitySpecificationLocation);
+		Backproject backprojector = new Backprojector(models.getCorrespondenceRoot(), models.getConfidentiality(), models.getProfile(), extractor.getSCARCorrespondence(), resolution.getResultingValueCorrespondences(), models.getAccessAnalysisCodeQLCorrespondences());
+		backprojector.project(resultingValues);
+		models.updateConfidentialityModel(confidentialitySpecificationLocation);
+		models.persistCorrespondences(scarLocation, extractor.getSourceCodeAnalysisResult(), resultingValuesLocation,resultingValues ,scarCorrespondencesLocation, extractor.getSCARCorrespondence(), resultingValuesCorrespondencesLocation, resolution.getResultingValueCorrespondences());
 		
 		System.out.println("Result Integration CodeQL to Access Analysis Done");
 	}

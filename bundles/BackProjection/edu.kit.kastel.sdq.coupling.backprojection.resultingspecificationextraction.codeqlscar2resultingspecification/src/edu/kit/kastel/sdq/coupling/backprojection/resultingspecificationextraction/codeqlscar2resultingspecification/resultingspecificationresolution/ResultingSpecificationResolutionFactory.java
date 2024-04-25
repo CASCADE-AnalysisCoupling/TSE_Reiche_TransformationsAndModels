@@ -10,15 +10,15 @@ public class ResultingSpecificationResolutionFactory {
 		
 		switch (policyStyle) {
 		case "HighLow": {
-			resolution = new ResultingSpecificationResolution4HighLow(config);
+			resolution = new ResultingSpecificationResolution4HighLow();
 			break;
 		} 
 		case "Disjunctive": {
-			resolution = new ResultingSpecificationResolution4AccessAnalysis(config);
+			resolution = new ResultingSpecificationResolution4AccessAnalysis();
 			break;
 		} 
 		case "Conjunctive": {
-			resolution = new ResultingSpecificationResolution4ConjunctivePowerset(config);
+			resolution = new ResultingSpecificationResolution4ConjunctivePowerset();
 			break;
 		}
 		default:
