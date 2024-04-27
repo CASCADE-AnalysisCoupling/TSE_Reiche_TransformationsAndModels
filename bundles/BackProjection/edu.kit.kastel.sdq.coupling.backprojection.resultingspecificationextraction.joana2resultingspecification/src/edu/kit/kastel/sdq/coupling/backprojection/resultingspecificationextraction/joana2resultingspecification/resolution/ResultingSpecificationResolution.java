@@ -1,53 +1,28 @@
 package edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution;
 
-import java.util.Collection;
-
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.model.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.util.JOANAResultingValueCorrespondencesUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JOANASCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.util.JOANAResultingValuesModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
 
 public abstract class ResultingSpecificationResolution {
 	
 	protected static final String SUBLEVEL_DELIMITER = ";";
-	protected final ResultingSpecification resultingSpecification; 
-	
-	public ResultingSpecificationResolution(EntryPoint config) {
-		super();
-		this.config = config;
-		this.resultingSpecification = new ResultingSpecification();
-	}
+	protected final JOANAResultingValues resultingValues; 
+	protected Correspondences_JOANAResultingValues correspondences_ResultingValues;
 	
 	public ResultingSpecificationResolution() {
 		super();
-		this.resultingSpecification = new ResultingSpecification();
+		this.resultingValues = JOANAResultingValuesModelGenerationUtil.createResultingValues();
+		this.correspondences_ResultingValues = JOANAResultingValueCorrespondencesUtil.createCorrespondences_JOANAResultingValues();
 	}
 	
-	protected EntryPoint config;
-	
-	public abstract ResultingSpecification calculateResultingSpecification(SourceCodeAnalysisResult scar);
-	
-
-
-	protected boolean containsLevelWithSubname(Level level) {
-		Collection<Level> existingBasicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(level, config, SUBLEVEL_DELIMITER);
-
-		for (Level toCheck : existingBasicLevels) {
-			for (Level checkAgainst : existingBasicLevels) {
-				if (toCheck.getName().equals(checkAgainst.getName())) {
-					continue;
-				} else if (toCheck.getName().contains(checkAgainst.getName())) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
-	
-	public void setEntryPoint(EntryPoint entryPoint) {
-		this.config = entryPoint;
+	public abstract JOANAResultingValues calculateResultingSpecification(SourceCodeAnalysisResult scar, JOANASCARCorrespondences joanaScarCorrespondences);
+		
+	public Correspondences_JOANAResultingValues getCorrespondences_ResultingValues() {
+		return correspondences_ResultingValues;
 	}
 
 }

@@ -32,14 +32,14 @@ public class IterativeAccessAnalysis2JoanaAdapter extends IterativeExecutablePro
 
 		Result result = new OKResult(args[0]);
 		
-		try {
-			SecurityGeneratorCreator sgc = new Creator4IterativeSG(super.blackboard);
-			
-			AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], sgc);
-			alignment.performAlignment();
-		} catch (Exception e) {
-			result = new NotOKResult(args[1] + "\n" + e.getMessage());
-		}
+//		try {
+//			SecurityGeneratorCreator sgc = new Creator4IterativeSG(super.blackboard);
+//			
+//			AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], sgc);
+//			alignment.performAlignment();
+//		} catch (Exception e) {
+//			result = new NotOKResult(args[1] + "\n" + e.getMessage());
+//		}
 		
 		return result;
 	}

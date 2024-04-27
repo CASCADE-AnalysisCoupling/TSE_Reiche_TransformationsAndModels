@@ -23,5 +23,6 @@ Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  edu.kit.kastel.sdq.coupling.alignment.pcm2java;bundle-version="1.0.0",
  ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0",
  Partitioner,
- edu.kit.kastel.sdq.coupling.util
+ edu.kit.kastel.sdq.coupling.util,
+ edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative

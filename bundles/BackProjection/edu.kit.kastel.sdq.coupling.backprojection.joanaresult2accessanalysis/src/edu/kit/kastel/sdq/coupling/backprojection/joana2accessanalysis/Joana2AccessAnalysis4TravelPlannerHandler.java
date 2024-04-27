@@ -12,15 +12,15 @@ public class Joana2AccessAnalysis4TravelPlannerHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		Joana2AccessAnalysisResultIntegration integration = new Joana2AccessAnalysisResultIntegration(
-				TravelPlannerTestPaths.JAVA_MODEL_PATH, TravelPlannerTestPaths.JOANA_MODEL_PATH,
-				TravelPlannerTestPaths.PCMJAVACORRESPONDENCE_MODE_PATH, TravelPlannerTestPaths.JOANA_RESULT_FILE_PATH,
-				TravelPlannerTestPaths.REPOSITORY_MODEL_PATH,
-				TravelPlannerTestPaths.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH, TravelPlannerTestPaths.POLICY_STYLE, TravelPlannerTestPaths.ORIGIN_BACKUP_PATH);
-		
-		
-		integration.integrate(new ResultingSpecificationResolutionFactory(), new BackprojectionFactory());
-		
+//		Joana2AccessAnalysisResultIntegration integration = new Joana2AccessAnalysisResultIntegration(
+//				TravelPlannerTestPaths.JAVA_MODEL_PATH, TravelPlannerTestPaths.JOANA_MODEL_PATH,
+//				TravelPlannerTestPaths.PCMJAVACORRESPONDENCE_MODE_PATH, TravelPlannerTestPaths.JOANA_RESULT_FILE_PATH,
+//				TravelPlannerTestPaths.REPOSITORY_MODEL_PATH,
+//				TravelPlannerTestPaths.CONFIDENTIALITY_SPECIFICATION_MODEL_PATH, TravelPlannerTestPaths.POLICY_STYLE, TravelPlannerTestPaths.ORIGIN_BACKUP_PATH);
+//		
+//		
+//		integration.integrate(new ResultingSpecificationResolutionFactory(), new BackprojectionFactory());
+//		
 		return true;
 	}
 

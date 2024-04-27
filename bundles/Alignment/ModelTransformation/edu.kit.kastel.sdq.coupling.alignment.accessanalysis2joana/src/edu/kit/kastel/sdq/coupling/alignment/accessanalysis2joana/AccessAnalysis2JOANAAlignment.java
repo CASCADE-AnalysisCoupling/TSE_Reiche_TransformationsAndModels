@@ -28,7 +28,7 @@ public class AccessAnalysis2JOANAAlignment {
 	
 	public AccessAnalysis2JOANAAlignment(String repositoryPath,
 			String confidentialityModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator) {
+			String joanaModelPath, String correspondenceModelPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator, String accessAnalysisJOANACorrespondencModelPath) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.confidentialityModelPath = confidentialityModelPath;
@@ -39,6 +39,7 @@ public class AccessAnalysis2JOANAAlignment {
 		this.correspondenceModelPath = correspondenceModelPath;
 		AccessAnalysis2JOANAAlignment.caseStudy = caseStudy;
 		this.securityGeneratorCreator = securityGeneratorCreator;
+		this.accessAnalysisJOANACorrespondencModelPath = accessAnalysisJOANACorrespondencModelPath;
 	}
 
 	private final String repositoryPath;
@@ -49,6 +50,7 @@ public class AccessAnalysis2JOANAAlignment {
 	private final String joanaModelPath;
 	private final String correspondenceModelPath;
 	public static String caseStudy;
+	private final String accessAnalysisJOANACorrespondencModelPath;
 	
 	private final SecurityGeneratorCreator securityGeneratorCreator;
 	
@@ -66,7 +68,7 @@ public class AccessAnalysis2JOANAAlignment {
 		
 		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator(securityGeneratorCreator);
 		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, profile, spec, codeBasePackageName);
-		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath);
+		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath, accessAnalysisJOANACorrespondencModelPath);
 		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
 		generateAndPrintEntryPointIDFile(modelGenerator);
 		

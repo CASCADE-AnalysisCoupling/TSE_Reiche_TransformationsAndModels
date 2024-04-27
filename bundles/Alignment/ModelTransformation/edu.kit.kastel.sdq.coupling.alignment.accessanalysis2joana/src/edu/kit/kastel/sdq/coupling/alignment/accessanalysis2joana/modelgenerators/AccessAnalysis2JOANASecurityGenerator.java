@@ -10,6 +10,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.Correspondences_AccessAnalysisJOANA;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils.AccessAnalysisJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -48,6 +50,8 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	protected final JOANARoot root;
 	protected static final String SUBLEVEL_DELIMITER = ";";
+	protected final Correspondences_AccessAnalysisJOANA accessAnalysisJOANACorrespondences;
+	
 	// TODO: Do this for ease of debug. Later just generate file with entrypoint IDs
 	// to execute JOANA
 	private Integer tagCounter = 0;
@@ -58,6 +62,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 		this.correspondences = correspondences;
 		this.accessAnalysisSpec = accessAnalysisSpec;
 		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
+		this.accessAnalysisJOANACorrespondences = AccessAnalysisJOANACorrespondenceUtil.createCorrespondenceModel();
 	}
 
 	public JOANARoot generateJOANASpecification(ProfileApplication application) {
@@ -184,23 +189,12 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 				entrypoint.setId(tagCounter.toString());
 				tagCounter++;
 				entrypoints.add(entrypoint);
+				
+				AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisSpec, entrypoint, accessAnalysisJOANACorrespondences);
+				
 			}
 		}
 		return entrypoints;
-	}
-
-	private Collection<String> getParametersOfParameterAndDataPairs(
-			Collection<ParametersAndDataPair> paramtersanddatapairs) {
-		Collection<String> parameters = new HashSet<String>();
-
-		for (ParametersAndDataPair pair : paramtersanddatapairs) {
-			parameters.addAll(pair.getParameterSources().stream()
-					.filter(source -> !source.toLowerCase().contains("return")
-							&& !source.toLowerCase().contains("sizeof") && !source.toLowerCase().contains("call"))
-					.collect(Collectors.toList()));
-		}
-
-		return parameters;
 	}
 
 	private Collection<String> filterParametersFromParameterSources(Collection<String> parameterSources) {
@@ -237,17 +231,9 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 		return null;
 	}
 
-	private ProvidedParameterIdentification getParameterIdentification(OperationSignature signature, String name) {
-		Collection<ProvidedParameterIdentification> generatedParameterIdentifications = PCMJavaCorrespondenceResolutionUtils
-				.getProvidedParameters(correspondences);
-
-		for (ProvidedParameterIdentification identification : generatedParameterIdentifications) {
-			if (identification.getProvidedSignature().getProvidedSignature().equals(signature)
-					&& identification.getParameter().getParameterName().equals(name)) {
-				return identification;
-			}
-		}
-		return null;
+	public Correspondences_AccessAnalysisJOANA getAccessAnalysisJOANACorrespondences() {
+		return accessAnalysisJOANACorrespondences;
 	}
+
 
 }

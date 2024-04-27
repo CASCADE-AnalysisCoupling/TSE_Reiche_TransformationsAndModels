@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="accessanalysisjoanacorrespondences" nsURI="http://www.example.org/accessanalysisjoanacorrespondences"
+    nsPrefix="accessanalysisjoanacorrespondences">
+  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_AccessAnalysisJOANA">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPointCorrespondences"
+        upperBound="-1" eType="#//EntryPointCorrespondence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSetLevelCorrespondences"
+        upperBound="-1" eType="#//DataSetLevelCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryPointCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AccessAnalysisConfig" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//ConfidentialitySpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//EntryPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetLevelCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSets" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataSet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//Level"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -6,35 +6,32 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.CollectionUtil;
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
 
 public class Backprojector4AccessAnalysis extends Backprojector {
 
-	public Backprojector4AccessAnalysis(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
-		super(repository, correspondences, confidentialitySpec, profileApplication);
+	public Backprojector4AccessAnalysis(ProfileApplication profileApplication, CorrespondencesResolver correspondenceResolver) {
+		super(profileApplication, correspondenceResolver);
 	}
 
 	@Override
-	protected void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<Parameter, Set<ResultingSpecEntry>> assignment) {
+	protected void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair,
+			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment) {
+		
 		Collection<DataSet> originalDataSets = parametersAndDataPair.getDataTargets().stream()
 				.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toSet());
 		
 		boolean notCleared = true;
 
-		for (ResultingSpecEntry entry : assignment.getValue()) {
+		for (ResultingValue entry : assignment.getValue()) {
 
-			Collection<DataSet> dataSets = resolveDataSetsForLevel(entry.getSecurityProperty(),
-					entry.getEntryPoint());
-
+			Collection<DataSet> dataSets = correspondenceResolver.resolveDataSets(entry.getLevel(), entry.getConfiguration());
 			if (isSecurityLevelValidWRTAccessAnalysis(originalDataSets, dataSets)) {
 				if(notCleared) {
 					parametersAndDataPair.getDataTargets().clear();
@@ -49,6 +46,7 @@ public class Backprojector4AccessAnalysis extends Backprojector {
 	
 	private boolean isSecurityLevelValidWRTAccessAnalysis(Collection<DataSet> originalSet,
 			Collection<DataSet> dataSetsForSecurityLevel) {
+
 		return !(dataSetsForSecurityLevel.size() >= originalSet.size()
 				&& CollectionUtil.containsAny(dataSetsForSecurityLevel, originalSet));
 	}

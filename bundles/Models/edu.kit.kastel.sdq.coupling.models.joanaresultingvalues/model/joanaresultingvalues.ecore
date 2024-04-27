@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="joanaresultingvalues" nsURI="http://www.example.org/joanaresultingvalues"
+    nsPrefix="joanaresultingvalues">
+  <eClassifiers xsi:type="ecore:EClass" name="JOANAResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemElements" upperBound="-1"
+        eType="#//ParameterIdentification_JOANAResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//Level_ResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoints" upperBound="-1"
+        eType="#//EntryPointIdentification_ResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultingValues" upperBound="-1"
+        eType="#//ResultingValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterIdentification_JOANAResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterIndex" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedClassName"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level_ResultingValues" eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryPointIdentification_ResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResultingValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemElement" lowerBound="1"
+        eType="#//ParameterIdentification_JOANAResultingValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" lowerBound="1"
+        eType="#//EntryPointIdentification_ResultingValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" lowerBound="1" eType="#//Level_ResultingValues"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -23,7 +23,8 @@ public class AccessAnalysis2JoanaAdapter implements ExecutableProcessingStepAdap
 	 * args[6]: javaModelPath<br>
 	 * args[7]: joanaModelPath<br>
 	 * args[8]: correspondenceModelPath<br>
-	 * args[9]: caseStudyName TODO change to PolicyStyle or sth. else for disj/conj
+	 * args[9]: policyStyle <br>
+	* args[10]: accessAnalysisCodeQLCorrespondenceModelPath<br>
 	 */
 
 	@Override
@@ -49,7 +50,7 @@ public class AccessAnalysis2JoanaAdapter implements ExecutableProcessingStepAdap
 			}
 
 			AccessAnalysis2JOANAAlignment alignment = new AccessAnalysis2JOANAAlignment(args[2], args[3], args[4],
-					args[5], args[6], args[7], args[8], args[9], sgc);
+					args[5], args[6], args[7], args[8], args[9], sgc, args[10]);
 			alignment.performAlignment();
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());

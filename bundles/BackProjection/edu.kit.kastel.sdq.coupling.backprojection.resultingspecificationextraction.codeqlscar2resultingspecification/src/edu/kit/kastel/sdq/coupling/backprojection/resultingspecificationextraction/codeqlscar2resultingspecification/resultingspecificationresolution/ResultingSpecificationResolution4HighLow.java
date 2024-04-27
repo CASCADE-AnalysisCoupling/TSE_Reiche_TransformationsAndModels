@@ -17,6 +17,7 @@ import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Utils.CodeQLSCARCorrespondenceUtil;
 
 
 public class ResultingSpecificationResolution4HighLow extends ResultingSpecificationResolution {
@@ -28,10 +29,8 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 	@Override
 	public CodeQLResultingValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, CodeQLSCARCorrespondences codeQLScarCorrespondence) {
 		
-		if(config.getAppliedSecurityLevel().size() != 2 || config.getAllowedFlows().size() != 1) {
-			throw new RuntimeException("Configuration contains more than two levels or more than 1 allowed flow. Therefore not high low scenario");
-		}
 		
+	
 		
 		List<ResultEntry> parameterSinkResultEntries = scar.getResultEntries().stream().filter(entry -> entry.getSink().getSystemElement() instanceof ParameterIdentification).collect(Collectors.toList()); 
 		
@@ -39,6 +38,13 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 			//TODO Normally Handle different configurations, but for our access analysis approach, we do not need this. 
 			throw new RuntimeException("Somehow not all entries do not have the same configuration");
 		}
+		
+		config = CodeQLSCARCorrespondenceUtil.getCorresponding(parameterSinkResultEntries.get(0).getConfig(), codeQLScarCorrespondence);
+		
+		if(config.getAppliedSecurityLevel().size() != 2 || config.getAllowedFlows().size() != 1) {
+			throw new RuntimeException("Configuration contains more than two levels or more than 1 allowed flow. Therefore not high low scenario");
+		}
+		
 		
 		for(ResultEntry parameterSinkResultEntry : parameterSinkResultEntries) {
 			

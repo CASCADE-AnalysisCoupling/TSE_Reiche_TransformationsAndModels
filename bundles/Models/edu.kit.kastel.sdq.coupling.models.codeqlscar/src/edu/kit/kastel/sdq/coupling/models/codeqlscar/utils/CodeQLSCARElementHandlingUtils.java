@@ -33,12 +33,6 @@ public class CodeQLSCARElementHandlingUtils {
 		return scar.getSecurityLevels().stream().filter(level -> level.getName().equals(securityLevelName)).findFirst();
 	}
 	
-	public static void addSecuritylevelToScar(SecurityLevel_SCAR securityLevel, SourceCodeAnalysisResult scar) {
-		if(!scar.getSecurityLevels().contains(securityLevel)) {
-			scar.getSecurityLevels().add(securityLevel);
-		}
-	}
-	
 	public static void addSecurityLevelToScarByName(SecurityLevel_SCAR securityLevel, SourceCodeAnalysisResult scar) {
 		if(!scar.getSecurityLevels().stream().anyMatch(level -> level.getName().equals(securityLevel.getName()))) {
 			scar.getSecurityLevels().add(securityLevel);

@@ -15,42 +15,35 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 
 public abstract class Backprojector implements Backproject {
 
-	private final PCMJavaCorrespondenceRoot correspondences;
-	private final ConfidentialitySpecification confidentialitySpec;
-	private final ProfileApplication profileApplication;
-	private static final String SUBLEVEL_DELIMITER = ";";
+	protected final ProfileApplication profileApplication;
+	protected final CorrespondencesResolver correspondenceResolver;
+	protected final Set<ConfidentialitySpecification> updatedSpecifications;
 
-	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
+	public Backprojector(ProfileApplication profileApplication, CorrespondencesResolver correspondenceResolver) {
 		super();
-		this.correspondences = correspondences;
-		this.confidentialitySpec = confidentialitySpec;
 		this.profileApplication = profileApplication;
+		this.correspondenceResolver = correspondenceResolver;
+		this.updatedSpecifications = new HashSet<ConfidentialitySpecification>();
 	}
 
 	@Override
-	public void project(ResultingSpecification resultingSpec) {
+	public void project(JOANAResultingValues resultingSpec) {
 
-		HashMap<Parameter, Set<ResultingSpecEntry>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
 				resultingSpec);
 
-		for (Entry<Parameter, Set<ResultingSpecEntry>> assignment : specEntryParameterAssignments.entrySet()) {
-			PCMParameter2JavaParameter parameterCorrespondence = getParameterCorrespondence(assignment.getKey());
-			OperationSignature targetOperationSignature = parameterCorrespondence.getPcmParameterIdentification()
-					.getProvidedSignature().getProvidedSignature();
+		for (Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment : specEntryParameterAssignments.entrySet()) {
+			ProvidedParameterIdentification providedParameterIdentification = correspondenceResolver.resolve(assignment.getKey());
+			OperationSignature targetOperationSignature = providedParameterIdentification.getProvidedSignature().getProvidedSignature();
 
 			Collection<StereotypeApplication> appliedStereotypes = profileApplication
 					.getStereotypeApplications(targetOperationSignature);
@@ -63,8 +56,7 @@ public abstract class Backprojector implements Backproject {
 						"parametersAndDataPairs", ParametersAndDataPair.class);
 
 				for (ParametersAndDataPair parameterAndDataPair : parametersAndDataPairs) {
-					if (parameterAndDataPair.getParameterSources().contains(parameterCorrespondence
-							.getPcmParameterIdentification().getParameter().getParameterName())) {
+					if (parameterAndDataPair.getParameterSources().contains(providedParameterIdentification.getParameter().getParameterName())) {
 
 						// Assumption: for each annotation exists its own parameter and datapair.
 						// If not valid, the security level of other interfaces would change due to a
@@ -83,36 +75,33 @@ public abstract class Backprojector implements Backproject {
 		}
 	}
 	
-	protected abstract void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<Parameter, Set<ResultingSpecEntry>> assignment );
+	protected abstract void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment );
 	
 	
-	protected Collection<DataSet> resolveDataSetsForLevel(Level securityProperty, EntryPoint entryPoint) {
-		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
-
-		Collection<Level> basicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(securityProperty, entryPoint,
-				SUBLEVEL_DELIMITER);
-
-		for (Level basicLevel : basicLevels) {
-			// this could be replaced by correspondence relationships between dataset and
-			// basic levels ( 1 - 1)
-			// or datasets and all levels (m - 1)
-			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream()
-					.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toList());
-
-			for (DataSet dataSet : dataSets) {
-				if (dataSet.getName().equals(basicLevel.getName())) {
-					resolvedDataSets.add(dataSet);
-				}
-			}
-		}
-
-		return resolvedDataSets;
-	}
-
-	private PCMParameter2JavaParameter getParameterCorrespondence(Parameter parameter) {
-		return correspondences.getPcmparameter2javaparameter().stream()
-				.filter(corr -> corr.getJavaParameter().equals(parameter)).findFirst().get();
-	}
+//	protected Collection<DataSet> resolveDataSetsForLevel(Level securityProperty, EntryPoint entryPoint) {
+//		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
+//
+//		Collection<Level> basicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(securityProperty, entryPoint,
+//				SUBLEVEL_DELIMITER);
+//
+//		ConfidentialitySpecification confidentialitySpec = correspondenceResolver.resolve(null)
+//		
+//		for (Level basicLevel : basicLevels) {
+//			// this could be replaced by correspondence relationships between dataset and
+//			// basic levels ( 1 - 1)
+//			// or datasets and all levels (m - 1)
+//			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream()
+//					.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toList());
+//
+//			for (DataSet dataSet : dataSets) {
+//				if (dataSet.getName().equals(basicLevel.getName())) {
+//					resolvedDataSets.add(dataSet);
+//				}
+//			}
+//		}
+//
+//		return resolvedDataSets;
+//	}
 
 	private static Collection<StereotypeApplication> filterInformationFlowApplications(
 			Collection<StereotypeApplication> applications) {
@@ -128,33 +117,33 @@ public abstract class Backprojector implements Backproject {
 	// and datasets are defined separately ==> With 1.) omit check whether level
 	// exists in entrypoint.
 	// If these assumptions do not hold: Implement respective checks
-	private HashMap<Parameter, Set<DataSet>> calculateDataSetsForParametersImplicitlyMapConfiguration(
-			ResultingSpecification resultingSpec) {
+//	private HashMap<Parameter, Set<DataSet>> calculateDataSetsForParametersForConfiguration(
+//			JOANAResultingValues resultingSpec) {
+//
+//		HashMap<Parameter, Set<DataSet>> parameterDataSetAssignments = new HashMap<Parameter, Set<DataSet>>();
+//
+//		for (ResultingValue entry : resultingSpec.getResultingValues()) {
+//			Collection<DataSet> dataSets = correspondenceResolver.resolveDataSets(entry.getLevel());
+//
+//			if (!parameterDataSetAssignments.containsKey(entry.getSystemElement())) {
+//				Set<DataSet> dataSetsForParameter = new HashSet<DataSet>();
+//				parameterDataSetAssignments.put(entry.getSystemElement(), dataSetsForParameter);
+//			}
+//
+//			parameterDataSetAssignments.get(entry.getSystemElement()).addAll(dataSets);
+//		}
+//
+//		return parameterDataSetAssignments;
+//	}
 
-		HashMap<Parameter, Set<DataSet>> parameterDataSetAssignments = new HashMap<Parameter, Set<DataSet>>();
+	private HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+			JOANAResultingValues resultingSpec) {
 
-		for (ResultingSpecEntry entry : resultingSpec.getEntries()) {
-			Collection<DataSet> dataSets = resolveDataSetsForLevel(entry.getSecurityProperty(), entry.getEntryPoint());
+		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> parameterSpecEntryAssignments = new HashMap<>();
 
-			if (!parameterDataSetAssignments.containsKey(entry.getSystemElement())) {
-				Set<DataSet> dataSetsForParameter = new HashSet<DataSet>();
-				parameterDataSetAssignments.put(entry.getSystemElement(), dataSetsForParameter);
-			}
-
-			parameterDataSetAssignments.get(entry.getSystemElement()).addAll(dataSets);
-		}
-
-		return parameterDataSetAssignments;
-	}
-
-	private HashMap<Parameter, Set<ResultingSpecEntry>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
-			ResultingSpecification resultingSpec) {
-
-		HashMap<Parameter, Set<ResultingSpecEntry>> parameterSpecEntryAssignments = new HashMap<Parameter, Set<ResultingSpecEntry>>();
-
-		for (ResultingSpecEntry entry : resultingSpec.getEntries()) {
+		for (ResultingValue entry : resultingSpec.getResultingValues()) {
 			if (!parameterSpecEntryAssignments.containsKey(entry.getSystemElement())) {
-				Set<ResultingSpecEntry> specEntriesForParameter = new HashSet<ResultingSpecEntry>();
+				Set<ResultingValue> specEntriesForParameter = new HashSet<ResultingValue>();
 				parameterSpecEntryAssignments.put(entry.getSystemElement(), specEntriesForParameter);
 			}
 

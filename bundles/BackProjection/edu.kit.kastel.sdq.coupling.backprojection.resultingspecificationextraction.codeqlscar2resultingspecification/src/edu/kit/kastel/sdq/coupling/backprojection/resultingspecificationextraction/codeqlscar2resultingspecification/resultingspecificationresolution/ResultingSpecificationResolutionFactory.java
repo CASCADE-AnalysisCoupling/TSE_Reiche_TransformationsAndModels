@@ -1,10 +1,8 @@
 package edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
-
 public class ResultingSpecificationResolutionFactory {
 
-	public static ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle, Configuration config) {
+	public static ResultingSpecificationResolution generateResultingSpecificationResolution(String policyStyle) {
 		
 		ResultingSpecificationResolution resolution;
 		

@@ -10,32 +10,35 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.CollectionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.ResultingValuesModelHandlingUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.SCARResultingValuesModelElementUtil;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.Triple;
-import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.model.ResultEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.model.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JOANASCARCorrespondences;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-import edu.kit.kastel.sdq.coupling.models.joana.Level;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.util.JOANAResultingValuesModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
 
 public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSpecificationResolution {
 
 
-	protected Map<Triple<Parameter, Level, EntryPoint>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
+	protected Map<Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
 
-	public ResultingSpecificationResolution4AccessAnalysis(EntryPoint config) {
-		super(config);
-	}
-	
 	public ResultingSpecificationResolution4AccessAnalysis() {
 		super();
 	}
 
-	protected ResultingSpecEntry combine(Triple<Parameter, Level, EntryPoint> originalSink,
-			Collection<ResultEntry> resultEntries) {
+	protected ResultingValue combine(Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying> originalSink,
+			Collection<ResultEntry> resultEntries, JOANASCARCorrespondences joanaScarCorrespondences) {
 
 		List<ResultEntry> relevantResultEntries = resultEntries.stream()
 				.filter(entry -> isResultEntryValidWRTAccessAnalysis(entry)).collect(Collectors.toList());
@@ -44,23 +47,24 @@ public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSp
 			return null;
 		}
 
-		Collection<Level> unifiedLevels = new HashSet<Level>();
+		Collection<String> unifiedLevels = new HashSet<String>();
 
 		for (ResultEntry entry : relevantResultEntries) {
-			unifiedLevels.addAll(JOANAResolutionUtil.resolveBasicLevels(entry.getSource().getSecurityProperty(),
-					entry.getEntryPoint(), SUBLEVEL_DELIMITER));
+			unifiedLevels.addAll(ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(entry.getSource().getLevel().getName(),  SUBLEVEL_DELIMITER));
 		}
 
-		return new ResultingSpecEntry(originalSink.getFirst(), JOANAResolutionUtil
-				.findLevelFromSetOfBasicLevels(unifiedLevels, originalSink.getThird()),
-				originalSink.getThird());
+		String unifiedSortedLevelName = String.join(SUBLEVEL_DELIMITER, unifiedLevels.stream().sorted().collect(Collectors.toList()));
+		
+		ParameterIdentification_JOANAResultingValues parameter = SCARResultingValuesModelElementUtil.getOrTransformAndAddParameterIdentification((ParameterIdentifying) originalSink.getFirst(), resultingValues, correspondences_ResultingValues);
+		EntryPointIdentification_ResultingValues entryPoint = SCARResultingValuesModelElementUtil.getOrTransformAndAddConfigurationID(originalSink.getThird(), resultingValues, correspondences_ResultingValues);
+		Level_ResultingValues level = SCARResultingValuesModelElementUtil.getOrTransformAndAddSecurityLevelByName(unifiedSortedLevelName, entryPoint, joanaScarCorrespondences, resultingValues, correspondences_ResultingValues);
+		
+		return JOANAResultingValuesModelGenerationUtil.createResultingValue(parameter, level, entryPoint);
 	}
 
 	protected boolean isResultEntryValidWRTAccessAnalysis(ResultEntry resultEntry) {
-		Collection<Level> sourceBasicLevels = JOANAResolutionUtil
-				.resolveBasicLevels(resultEntry.getSource().getSecurityProperty(), resultEntry.getEntryPoint(), SUBLEVEL_DELIMITER);
-		Collection<Level> sinkBasicLevels = JOANAResolutionUtil
-				.resolveBasicLevels(resultEntry.getSink().getSecurityProperty(), resultEntry.getEntryPoint(), SUBLEVEL_DELIMITER);
+		Collection<String> sourceBasicLevels = ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(resultEntry.getSource().getLevel().getName(), SUBLEVEL_DELIMITER);
+		Collection<String> sinkBasicLevels = ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(resultEntry.getSink().getLevel().getName(), SUBLEVEL_DELIMITER);
 
 		return !(sourceBasicLevels.size() >= sinkBasicLevels.size()
 				&& CollectionUtil.containsAny(sourceBasicLevels, sinkBasicLevels));
@@ -69,60 +73,60 @@ public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSp
 	}
 
 	@Override
-	public ResultingSpecification calculateResultingSpecification(SourceCodeAnalysisResult scar) {
+	public JOANAResultingValues calculateResultingSpecification(SourceCodeAnalysisResult scar, JOANASCARCorrespondences joanaScarCorrespondences) {
 
 		Collection<ResultEntry> mappableResultEntries = filterMappableResultEntries(scar);
 
 		calculateSinkResultEntryRelations(mappableResultEntries);
 
-		for (Entry<Triple<Parameter, Level, EntryPoint>, Collection<ResultEntry>> entry : sinkEntryAssignment
+		for (Entry<Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying>, Collection<ResultEntry>> entry : sinkEntryAssignment
 				.entrySet()) {
-			ResultingSpecEntry specEntry = combine(entry.getKey(), entry.getValue());
+			ResultingValue resultingvalue = combine(entry.getKey(), entry.getValue(), joanaScarCorrespondences);
 
-			if (specEntry != null) {
-				resultingSpecification.addEntry(specEntry);
+			if (resultingvalue != null) {
+				resultingValues.getResultingValues().add(resultingvalue);
 			}
 
 		}
 
-		return resultingSpecification;
+		return resultingValues;
 	}
 
 	protected Collection<ResultEntry> filterMappableResultEntries(SourceCodeAnalysisResult scar) {
 		return scar.getResultEntries().stream()
-				.filter(resultEntry -> resultEntry.getSink().getSystemElement() instanceof Parameter)
+				.filter(resultEntry -> resultEntry.getSink().getSystemElement() instanceof ParameterIdentifying)
 				.collect(Collectors.toList());
 	}
 
 	public void calculateSinkResultEntryRelations(Collection<ResultEntry> mappableEntries) {
 		for (ResultEntry resultEntry : mappableEntries) {
-			if (!(resultEntry.getSink().getSystemElement() instanceof Parameter)) {
+			if (!(resultEntry.getSink().getSystemElement() instanceof ParameterIdentifying)) {
 				continue;
 			}
 
-			Triple<Parameter, Level, EntryPoint> sink = getOrCreateAndAddOriginalSink(resultEntry);
+			Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying> sink = getOrCreateAndAddOriginalSink(resultEntry);
 
 			sinkEntryAssignment.get(sink).add(resultEntry);
 
 		}
 	}
 
-	public Triple<Parameter, Level, EntryPoint> getOrCreateAndAddOriginalSink(ResultEntry resultEntry) {
+	public Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying> getOrCreateAndAddOriginalSink(ResultEntry resultEntry) {
 
-		if (!(resultEntry.getSink().getSystemElement() instanceof Parameter)) {
+		if (!(resultEntry.getSink().getSystemElement() instanceof ParameterIdentifying)) {
 			return null;
 		}
 
-		for (Triple<Parameter, Level, EntryPoint> sinkAssignment : sinkEntryAssignment.keySet()) {
+		for (Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying> sinkAssignment : sinkEntryAssignment.keySet()) {
 			if (sinkAssignment.getFirst().equals(resultEntry.getSink().getSystemElement())
-					&& sinkAssignment.getSecond().equals(resultEntry.getSink().getSecurityProperty())
+					&& sinkAssignment.getSecond().equals(resultEntry.getSink().getLevel())
 					&& sinkAssignment.getThird().equals(resultEntry.getEntryPoint())) {
 				return sinkAssignment;
 			}
 		}
 
-		Triple<Parameter, Level, EntryPoint> sinkAssignment = new Triple<Parameter, Level, EntryPoint>(
-				(Parameter) resultEntry.getSink().getSystemElement(), resultEntry.getSink().getSecurityProperty(),
+		Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying> sinkAssignment = new Triple<ParameterIdentifying, Level_SCAR, EntryPointIdentifying>(
+				(ParameterIdentifying) resultEntry.getSink().getSystemElement(), resultEntry.getSink().getLevel(),
 				resultEntry.getEntryPoint());
 		sinkEntryAssignment.put(sinkAssignment, new ArrayList<ResultEntry>());
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated joanaresultingvalues -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.presentation.JoanaresultingvaluesModelWizardID"
+            name="%_UI_JoanaresultingvaluesModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.presentation.JoanaresultingvaluesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JoanaresultingvaluesModelFile.gif">
+         <description>%_UI_JoanaresultingvaluesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated joanaresultingvalues -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.presentation.JoanaresultingvaluesEditorID"
+            name="%_UI_JoanaresultingvaluesEditor_label"
+            icon="icons/full/obj16/JoanaresultingvaluesModelFile.gif"
+            extensions="joanaresultingvalues"
+            class="edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.presentation.JoanaresultingvaluesEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.presentation.JoanaresultingvaluesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

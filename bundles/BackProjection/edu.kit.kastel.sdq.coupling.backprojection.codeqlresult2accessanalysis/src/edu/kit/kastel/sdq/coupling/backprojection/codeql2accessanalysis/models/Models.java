@@ -145,7 +145,7 @@ public class Models {
 		}
 	}
 	
-	public void persistCorrespondences(String scarPath, SourceCodeAnalysisResult scar, String resultingValuesPath, CodeQLResultingValues resultingValues, String scarCorrespondencePath, CodeQLSCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath, Correspondences_CodeQLResultingValues resultingValuesCorrespondences) {
+	public void persistCorrespondencesAndModels(String scarPath, SourceCodeAnalysisResult scar, String resultingValuesPath, CodeQLResultingValues resultingValues, String scarCorrespondencePath, CodeQLSCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath, Correspondences_CodeQLResultingValues resultingValuesCorrespondences) {
 		Resource scarResource = new XMLResourceImpl(URI.createFileURI(scarPath));
 		scarResource.getContents().add(scar);
 		

@@ -1,26 +1,22 @@
 package edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection;
 
 import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.palladiosimulator.pcm.repository.Repository;
-
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
 
 public class BackprojectionFactory {
 
 	public BackprojectionFactory() {};
 	
-	public Backprojector create(String policyStyle, Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
+	public Backprojector create(String policyStyle, CorrespondencesResolver resolver, ProfileApplication profileApplication) {
 		Backprojector backprojector;
 		
 		switch (policyStyle) {
 		case "HighLow": {
-			backprojector = new Backprojector4HighLow(repository, correspondences, confidentialitySpec, profileApplication);
+			backprojector = new Backprojector4HighLow(profileApplication, resolver);
 			break;
 		} 
 		case "Disjunctive": {
-			backprojector = new Backprojector4AccessAnalysis(repository, correspondences, confidentialitySpec, profileApplication);
+			backprojector = new Backprojector4AccessAnalysis(profileApplication, resolver);
 			break;
 		} 
 		case "Conjunctive": {

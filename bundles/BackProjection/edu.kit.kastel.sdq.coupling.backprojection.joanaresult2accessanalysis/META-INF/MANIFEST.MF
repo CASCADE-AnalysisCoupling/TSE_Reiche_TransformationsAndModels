@@ -14,7 +14,12 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
  edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
  edu.kit.ipd.sdq.commons.util.java,
  edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar,
- edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification;bundle-version="1.0.0"
+ edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification;bundle-version="1.0.0",
+ edu.kit.kastel.sdq.coupling.models.joanascar,
+ edu.kit.kastel.sdq.coupling.models.joanaresultingvalues,
+ edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences
 Bundle-ClassPath: libs/snakeyaml-2.2.jar,
  .
 Import-Package: edu.kit.kastel.sdq.analysiscouplingframework.adapter,

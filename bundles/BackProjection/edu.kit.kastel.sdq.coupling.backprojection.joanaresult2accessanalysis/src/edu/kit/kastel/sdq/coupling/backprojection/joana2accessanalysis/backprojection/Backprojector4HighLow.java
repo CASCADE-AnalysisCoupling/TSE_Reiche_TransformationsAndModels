@@ -5,30 +5,25 @@ import java.util.Collection;
 import java.util.Set;
 
 import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.palladiosimulator.pcm.repository.Repository;
-
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
 
 public class Backprojector4HighLow extends Backprojector{
 
-	public Backprojector4HighLow(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
-		super(repository, correspondences, confidentialitySpec, profileApplication);
+	public Backprojector4HighLow(ProfileApplication profileApplication, CorrespondencesResolver correspondenceResolver) {
+		super(profileApplication, correspondenceResolver);
 	}
 
 	@Override
 	protected void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair,
-			Entry<Parameter, Set<ResultingSpecEntry>> assignment) {
+			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment) {
 		
-		for (ResultingSpecEntry entry : assignment.getValue()) {
+		for (ResultingValue entry : assignment.getValue()) {
 
-			Collection<DataSet> dataSets = resolveDataSetsForLevel(entry.getSecurityProperty(),
-					entry.getEntryPoint());
+			Collection<DataSet> dataSets = correspondenceResolver.resolveDataSets(entry.getLevel(), entry.getConfiguration());
 			
 			if(dataSets.size() != 1) {
 				throw new IllegalStateException("In High Low scenario, there should either be annoted high or low, no joined levels");

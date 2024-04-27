@@ -57,7 +57,7 @@ public class CodeQL2AccessAnalysisResultIntegration {
 				accessanalysisCodeQLCorrespondenceLocation);
 
 		//Input -> ResultingSpecification
-		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle, models.getTainttrackingRoot().getConfigurations().get(0));
+		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle);
 		CodeQLResultingSpecificationExtractor extractor = new CodeQLResultingSpecificationExtractor(resolution);
 
 		CodeQLResultingValues resultingValues = extractor.extract(models.getTainttrackingRoot(), models.getJavaRoot(), models.getCodeQLResult());
@@ -66,7 +66,7 @@ public class CodeQL2AccessAnalysisResultIntegration {
 		Backproject backprojector = new Backprojector(models.getCorrespondenceRoot(), models.getConfidentiality(), models.getProfile(), extractor.getSCARCorrespondence(), resolution.getResultingValueCorrespondences(), models.getAccessAnalysisCodeQLCorrespondences());
 		backprojector.project(resultingValues);
 		models.updateConfidentialityModel(confidentialitySpecificationLocation);
-		models.persistCorrespondences(scarLocation, extractor.getSourceCodeAnalysisResult(), resultingValuesLocation,resultingValues ,scarCorrespondencesLocation, extractor.getSCARCorrespondence(), resultingValuesCorrespondencesLocation, resolution.getResultingValueCorrespondences());
+		models.persistCorrespondencesAndModels(scarLocation, extractor.getSourceCodeAnalysisResult(), resultingValuesLocation,resultingValues ,scarCorrespondencesLocation, extractor.getSCARCorrespondence(), resultingValuesCorrespondencesLocation, resolution.getResultingValueCorrespondences());
 		
 		System.out.println("Result Integration CodeQL to Access Analysis Done");
 	}

@@ -10,6 +10,8 @@ import com.google.common.collect.Sets;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.AccessAnalysisResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils.AccessAnalysisJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MayFlow;
@@ -39,8 +41,11 @@ public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends Acc
 
 			String securityLevelName = JOANANamingUtil.combineLevelNames(securityLevelNames, SUBLEVEL_DELIMITER);
 			Level level = JOANAModelGenerationUtil.generateLevel(securityLevelName);
-
+			
 			securityLevels.add(level);
+			
+			AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(AccessAnalysisResolutionUtil.getDataSetsForBasicLevels(dataSets, securityLevelNames), level, accessAnalysisJOANACorrespondences);
+			
 		}
 
 		return securityLevels;

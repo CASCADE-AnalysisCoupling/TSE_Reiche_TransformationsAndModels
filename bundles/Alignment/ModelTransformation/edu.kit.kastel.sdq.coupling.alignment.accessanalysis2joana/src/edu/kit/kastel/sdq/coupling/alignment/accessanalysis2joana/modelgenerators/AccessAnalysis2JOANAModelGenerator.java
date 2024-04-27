@@ -30,7 +30,7 @@ public class AccessAnalysis2JOANAModelGenerator {
 		
 		javaRoot = structuralGenerator.getRoot();
 		
-		return new OutputModels(javaRoot, joanaRoot, correspondences);
+		return new OutputModels(javaRoot, joanaRoot, correspondences, securityGenerator.getAccessAnalysisJOANACorrespondences());
 		
 	}
 	

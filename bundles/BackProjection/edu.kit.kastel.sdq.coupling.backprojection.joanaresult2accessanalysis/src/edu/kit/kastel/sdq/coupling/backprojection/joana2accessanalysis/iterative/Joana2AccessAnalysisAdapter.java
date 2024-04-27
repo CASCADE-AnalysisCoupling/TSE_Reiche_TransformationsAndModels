@@ -19,8 +19,13 @@ public class Joana2AccessAnalysisAdapter implements ExecutableProcessingStepAdap
 	 * args[5]: joanaResultLocation, <br>
 	 * args[6]: repositoryModelLocation, <br>
 	 * args[7]: confidentialitySpecificationLocation, <br>
-	 * args[8]: policyStyle, <br>
-	 * args[9]: originBackupLocation, <br>
+	 * args[8]: originBackupLocation, <br>
+	 * args[9]: policyStyle, <br>
+	 * args[10]: scarLocation, <br>
+	 * args[11]: resultingValuesLocation, <br>
+	 * args[12]: accessAnalysisCorrespondencesLocation <br>
+	 * args[13]: scarCorrespondencesLocation <br>
+	 * args[14]: resultingValuesCorrespondencesLocation<br>
 	 */
 	@Override
 	public Result executeAdapter(String[] args) {
@@ -28,7 +33,7 @@ public class Joana2AccessAnalysisAdapter implements ExecutableProcessingStepAdap
 		Result result = new OKResult(args[0]);
 
 		try {
-			Joana2AccessAnalysisResultIntegration integration = new Joana2AccessAnalysisResultIntegration(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]);
+			Joana2AccessAnalysisResultIntegration integration = new Joana2AccessAnalysisResultIntegration(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13], args[14]);
 			integration.integrate(new ResultingSpecificationResolutionFactory(), new BackprojectionFactory());
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());
