@@ -187,7 +187,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	private def String generateLevelToString() '''
 	string getLevelAsString(«LABEL_TYPE_NAME» level){
 			«FOR level : config.appliedSecurityLevel SEPARATOR " or"»
-				level = «generateSecurityLevelType(level)» and result = "«level.name.toFirstUpper»"
+				level = «generateSecurityLevelType(level)» and result = "«level.name»"
 			«ENDFOR»
 		}
 	'''

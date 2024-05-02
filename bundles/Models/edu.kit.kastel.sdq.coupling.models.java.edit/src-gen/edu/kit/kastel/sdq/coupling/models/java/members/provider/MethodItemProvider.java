@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.members.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersFactory;
@@ -64,12 +65,19 @@ public class MethodItemProvider extends EntityItemProvider {
 	 * @generated
 	 */
 	protected void addReturntypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Method_returntype_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Method_returntype_feature",
-								"_UI_Method_type"),
-						MembersPackage.Literals.METHOD__RETURNTYPE, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Method_returntype_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Method_returntype_feature", "_UI_Method_type"),
+				 MembersPackage.Literals.METHOD__RETURNTYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -114,16 +122,6 @@ public class MethodItemProvider extends EntityItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,10 +129,12 @@ public class MethodItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Method) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Method_type")
-				: getString("_UI_Method_type") + " " + label;
+		String label = ((Method)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Method_type") :
+			getString("_UI_Method_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -148,9 +148,9 @@ public class MethodItemProvider extends EntityItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Method.class)) {
-		case MembersPackage.METHOD__PARAMETER:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case MembersPackage.METHOD__PARAMETER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -166,8 +166,10 @@ public class MethodItemProvider extends EntityItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(MembersPackage.Literals.METHOD__PARAMETER,
-				MembersFactory.eINSTANCE.createParameter()));
+		newChildDescriptors.add
+			(createChildParameter
+				(MembersPackage.Literals.METHOD__PARAMETER,
+				 MembersFactory.eINSTANCE.createParameter()));
 	}
 
 	/**

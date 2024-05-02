@@ -31,4 +31,6 @@ public class CodeQLResultingSpecificationExtractor {
 	public SourceCodeAnalysisResult getSourceCodeAnalysisResult() {
 		return scar;
 	}
+	
+	
 }

@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Reference Type</b></em>'.

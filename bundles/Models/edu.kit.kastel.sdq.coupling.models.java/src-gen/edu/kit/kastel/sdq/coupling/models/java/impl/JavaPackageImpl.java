@@ -82,14 +82,11 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	public static JavaPackage init() {
-		if (isInited)
-			return (JavaPackage) EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
+		if (isInited) return (JavaPackage)EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredJavaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		JavaPackageImpl theJavaPackage = registeredJavaPackage instanceof JavaPackageImpl
-				? (JavaPackageImpl) registeredJavaPackage
-				: new JavaPackageImpl();
+		JavaPackageImpl theJavaPackage = registeredJavaPackage instanceof JavaPackageImpl ? (JavaPackageImpl)registeredJavaPackage : new JavaPackageImpl();
 
 		isInited = true;
 
@@ -98,13 +95,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl) (registeredPackage instanceof TypesPackageImpl
-				? registeredPackage
-				: TypesPackage.eINSTANCE);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
-		MembersPackageImpl theMembersPackage = (MembersPackageImpl) (registeredPackage instanceof MembersPackageImpl
-				? registeredPackage
-				: MembersPackage.eINSTANCE);
+		MembersPackageImpl theMembersPackage = (MembersPackageImpl)(registeredPackage instanceof MembersPackageImpl ? registeredPackage : MembersPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theJavaPackage.createPackageContents();
@@ -129,7 +122,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getJavaRoot() {
 		return javaRootEClass;
 	}
@@ -139,9 +131,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getJavaRoot_Primitivetypes() {
-		return (EReference) javaRootEClass.getEStructuralFeatures().get(0);
+		return (EReference)javaRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -149,9 +140,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getJavaRoot_Collectiontypes() {
-		return (EReference) javaRootEClass.getEStructuralFeatures().get(1);
+		return (EReference)javaRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -159,9 +149,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getJavaRoot_Package() {
-		return (EReference) javaRootEClass.getEStructuralFeatures().get(2);
+		return (EReference)javaRootEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -169,7 +158,6 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -179,9 +167,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getPackage_Subpackage() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(0);
+		return (EReference)packageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -189,9 +176,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getPackage_Classorinterface() {
-		return (EReference) packageEClass.getEStructuralFeatures().get(1);
+		return (EReference)packageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -199,9 +185,8 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public JavaFactory getJavaFactory() {
-		return (JavaFactory) getEFactoryInstance();
+		return (JavaFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -219,8 +204,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -249,8 +233,7 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -259,11 +242,9 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TypesPackage theTypesPackage = (TypesPackage) EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
-		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
-				.getEPackage(MembersPackage.eNS_URI);
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
-				.getEPackage(IdentifierPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theTypesPackage);
@@ -277,27 +258,14 @@ public class JavaPackageImpl extends EPackageImpl implements JavaPackage {
 		packageEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(javaRootEClass, JavaRoot.class, "JavaRoot", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJavaRoot_Primitivetypes(), theTypesPackage.getPrimitiveType(), null, "primitivetypes", null,
-				0, -1, JavaRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaRoot_Collectiontypes(), theTypesPackage.getCollectionType(), null, "collectiontypes",
-				null, 0, -1, JavaRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJavaRoot_Package(), this.getPackage(), null, "package", null, 1, 1, JavaRoot.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(javaRootEClass, JavaRoot.class, "JavaRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJavaRoot_Primitivetypes(), theTypesPackage.getPrimitiveType(), null, "primitivetypes", null, 0, -1, JavaRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaRoot_Collectiontypes(), theTypesPackage.getCollectionType(), null, "collectiontypes", null, 0, -1, JavaRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaRoot_Package(), this.getPackage(), null, "package", null, 1, 1, JavaRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(packageEClass, edu.kit.kastel.sdq.coupling.models.java.Package.class, "Package", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPackage_Subpackage(), this.getPackage(), null, "subpackage", null, 0, -1,
-				edu.kit.kastel.sdq.coupling.models.java.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Classorinterface(), theTypesPackage.getClassOrInterfaceType(), null,
-				"classorinterface", null, 0, -1, edu.kit.kastel.sdq.coupling.models.java.Package.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(packageEClass, edu.kit.kastel.sdq.coupling.models.java.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_Subpackage(), this.getPackage(), null, "subpackage", null, 0, -1, edu.kit.kastel.sdq.coupling.models.java.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Classorinterface(), theTypesPackage.getClassOrInterfaceType(), null, "classorinterface", null, 0, -1, edu.kit.kastel.sdq.coupling.models.java.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

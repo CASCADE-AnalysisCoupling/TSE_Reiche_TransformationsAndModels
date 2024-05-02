@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.members.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
@@ -65,13 +66,19 @@ public class FieldItemProvider extends TypedElementItemProvider {
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_IdentifiedElement_id_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_IdentifiedElement_id_feature",
-								"_UI_IdentifiedElement_type"),
-						IdentifierPackage.Literals.IDENTIFIED_ELEMENT__ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IdentifiedElement_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IdentifiedElement_id_feature", "_UI_IdentifiedElement_type"),
+				 IdentifierPackage.Literals.IDENTIFIED_ELEMENT__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,13 +88,19 @@ public class FieldItemProvider extends TypedElementItemProvider {
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_NamedElement_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature",
-								"_UI_NamedElement_type"),
-						IdentifierPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 IdentifierPackage.Literals.NAMED_ELEMENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -102,16 +115,6 @@ public class FieldItemProvider extends TypedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,10 +122,12 @@ public class FieldItemProvider extends TypedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Field_type")
-				: getString("_UI_Field_type") + " " + label;
+		String label = ((Field)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Field_type") :
+			getString("_UI_Field_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -136,10 +141,10 @@ public class FieldItemProvider extends TypedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Field.class)) {
-		case MembersPackage.FIELD__ID:
-		case MembersPackage.FIELD__NAME:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case MembersPackage.FIELD__ID:
+			case MembersPackage.FIELD__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

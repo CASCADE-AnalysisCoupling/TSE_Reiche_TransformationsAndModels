@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 import edu.kit.kastel.sdq.coupling.models.joana.Lattice;
@@ -31,8 +32,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LatticeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class LatticeItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -100,16 +107,6 @@ public class LatticeItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +116,7 @@ public class LatticeItemProvider extends ItemProviderAdapter implements IEditing
 	public String getText(Object object) {
 		return getString("_UI_Lattice_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -132,9 +130,9 @@ public class LatticeItemProvider extends ItemProviderAdapter implements IEditing
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Lattice.class)) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -150,8 +148,10 @@ public class LatticeItemProvider extends ItemProviderAdapter implements IEditing
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-				createChildParameter(JoanaPackage.Literals.LATTICE__MAY_FLOW, JoanaFactory.eINSTANCE.createMayFlow()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.LATTICE__MAY_FLOW,
+				 JoanaFactory.eINSTANCE.createMayFlow()));
 	}
 
 	/**

@@ -58,7 +58,7 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -69,82 +69,73 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JoanaSwitch<Adapter> modelSwitch = new JoanaSwitch<Adapter>() {
-		@Override
-		public Adapter caseJOANARoot(JOANARoot object) {
-			return createJOANARootAdapter();
-		}
-
-		@Override
-		public Adapter caseInformationFlowAnnotation(InformationFlowAnnotation object) {
-			return createInformationFlowAnnotationAdapter();
-		}
-
-		@Override
-		public Adapter caseEntryPoint(EntryPoint object) {
-			return createEntryPointAdapter();
-		}
-
-		@Override
-		public Adapter caseSource(Source object) {
-			return createSourceAdapter();
-		}
-
-		@Override
-		public Adapter caseSink(Sink object) {
-			return createSinkAdapter();
-		}
-
-		@Override
-		public Adapter caseLevel(Level object) {
-			return createLevelAdapter();
-		}
-
-		@Override
-		public Adapter caseMayFlow(MayFlow object) {
-			return createMayFlowAdapter();
-		}
-
-		@Override
-		public Adapter caseLattice(Lattice object) {
-			return createLatticeAdapter();
-		}
-
-		@Override
-		public Adapter caseSystemElementIdentifying(SystemElementIdentifying object) {
-			return createSystemElementIdentifyingAdapter();
-		}
-
-		@Override
-		public Adapter caseParametertIdentifying(ParametertIdentifying object) {
-			return createParametertIdentifyingAdapter();
-		}
-
-		@Override
-		public Adapter caseMethodIdentifying(MethodIdentifying object) {
-			return createMethodIdentifyingAdapter();
-		}
-
-		@Override
-		public Adapter caseIdentifiedElement(IdentifiedElement object) {
-			return createIdentifiedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseEntity(Entity object) {
-			return createEntityAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected JoanaSwitch<Adapter> modelSwitch =
+		new JoanaSwitch<Adapter>() {
+			@Override
+			public Adapter caseJOANARoot(JOANARoot object) {
+				return createJOANARootAdapter();
+			}
+			@Override
+			public Adapter caseInformationFlowAnnotation(InformationFlowAnnotation object) {
+				return createInformationFlowAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseEntryPoint(EntryPoint object) {
+				return createEntryPointAdapter();
+			}
+			@Override
+			public Adapter caseSource(Source object) {
+				return createSourceAdapter();
+			}
+			@Override
+			public Adapter caseSink(Sink object) {
+				return createSinkAdapter();
+			}
+			@Override
+			public Adapter caseLevel(Level object) {
+				return createLevelAdapter();
+			}
+			@Override
+			public Adapter caseMayFlow(MayFlow object) {
+				return createMayFlowAdapter();
+			}
+			@Override
+			public Adapter caseLattice(Lattice object) {
+				return createLatticeAdapter();
+			}
+			@Override
+			public Adapter caseSystemElementIdentifying(SystemElementIdentifying object) {
+				return createSystemElementIdentifyingAdapter();
+			}
+			@Override
+			public Adapter caseParametertIdentifying(ParametertIdentifying object) {
+				return createParametertIdentifyingAdapter();
+			}
+			@Override
+			public Adapter caseMethodIdentifying(MethodIdentifying object) {
+				return createMethodIdentifyingAdapter();
+			}
+			@Override
+			public Adapter caseFieldIdentifying(FieldIdentifying object) {
+				return createFieldIdentifyingAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -156,8 +147,9 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot <em>JOANA Root</em>}'.
@@ -310,6 +302,20 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodIdentifyingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying <em>Field Identifying</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying
+	 * @generated
+	 */
+	public Adapter createFieldIdentifyingAdapter() {
 		return null;
 	}
 

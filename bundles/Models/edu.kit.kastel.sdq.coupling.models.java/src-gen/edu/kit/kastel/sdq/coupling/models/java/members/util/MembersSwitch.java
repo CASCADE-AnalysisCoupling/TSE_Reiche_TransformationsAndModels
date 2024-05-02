@@ -72,51 +72,36 @@ public class MembersSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case MembersPackage.FIELD: {
-			Field field = (Field) theEObject;
-			T result = caseField(field);
-			if (result == null)
-				result = caseTypedElement(field);
-			if (result == null)
-				result = caseEntity(field);
-			if (result == null)
-				result = caseIdentifiedElement(field);
-			if (result == null)
-				result = caseNamedElement(field);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MembersPackage.METHOD: {
-			Method method = (Method) theEObject;
-			T result = caseMethod(method);
-			if (result == null)
-				result = caseEntity(method);
-			if (result == null)
-				result = caseIdentifiedElement(method);
-			if (result == null)
-				result = caseNamedElement(method);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case MembersPackage.PARAMETER: {
-			Parameter parameter = (Parameter) theEObject;
-			T result = caseParameter(parameter);
-			if (result == null)
-				result = caseEntity(parameter);
-			if (result == null)
-				result = caseTypedElement(parameter);
-			if (result == null)
-				result = caseIdentifiedElement(parameter);
-			if (result == null)
-				result = caseNamedElement(parameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case MembersPackage.FIELD: {
+				Field field = (Field)theEObject;
+				T result = caseField(field);
+				if (result == null) result = caseTypedElement(field);
+				if (result == null) result = caseEntity(field);
+				if (result == null) result = caseIdentifiedElement(field);
+				if (result == null) result = caseNamedElement(field);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MembersPackage.METHOD: {
+				Method method = (Method)theEObject;
+				T result = caseMethod(method);
+				if (result == null) result = caseEntity(method);
+				if (result == null) result = caseIdentifiedElement(method);
+				if (result == null) result = caseNamedElement(method);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MembersPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseEntity(parameter);
+				if (result == null) result = caseTypedElement(parameter);
+				if (result == null) result = caseIdentifiedElement(parameter);
+				if (result == null) result = caseNamedElement(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

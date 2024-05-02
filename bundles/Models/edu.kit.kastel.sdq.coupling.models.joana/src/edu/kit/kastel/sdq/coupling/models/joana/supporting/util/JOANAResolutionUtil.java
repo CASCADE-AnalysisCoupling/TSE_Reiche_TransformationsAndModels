@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,12 +34,14 @@ public class JOANAResolutionUtil {
 				.collect(Collectors.toList());
 	}
 
-	public static Collection<Source> getSourcesForParameter(JOANARoot joanaRoot, Parameter parameter){
-		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Source.class::isInstance).map(Source.class::cast).collect(Collectors.toList());
+	public static Collection<Source> getSourcesForParameter(JOANARoot joanaRoot, Parameter parameter) {
+		return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Source.class::isInstance)
+				.map(Source.class::cast).collect(Collectors.toList());
 	}
-	
-	public static Collection<Sink> getSinksForParameter(JOANARoot joanaRoot, Parameter parameter){
-		 return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Sink.class::isInstance).map(Sink.class::cast).collect(Collectors.toList());
+
+	public static Collection<Sink> getSinksForParameter(JOANARoot joanaRoot, Parameter parameter) {
+		return getInformationFlowAnnotationsForParameter(joanaRoot, parameter).stream().filter(Sink.class::isInstance)
+				.map(Sink.class::cast).collect(Collectors.toList());
 	}
 
 	public static EntryPoint getEntryPointForAnnotation(JOANARoot joanaRoot,
@@ -63,54 +66,60 @@ public class JOANAResolutionUtil {
 		return (annotation.getSystemElementIdentification() instanceof ParametertIdentifying
 				&& ((ParametertIdentifying) annotation.getSystemElementIdentification()).getParameter().equals(p));
 	}
-	
-	public static Map<String, Collection<String>> generateLevelTagsMappingsForAnnotations(JOANARoot root, Collection<InformationFlowAnnotation> annotations){
+
+	public static Map<String, Collection<String>> generateLevelTagsMappingsForAnnotations(JOANARoot root,
+			Collection<InformationFlowAnnotation> annotations) {
 		Map<String, Collection<String>> levelToTagsMappings = new HashMap<String, Collection<String>>();
-		
-		for(InformationFlowAnnotation annotation : annotations) {
-			if(!levelToTagsMappings.containsKey(annotation.getLevel().getName())) {
+
+		for (InformationFlowAnnotation annotation : annotations) {
+			if (!levelToTagsMappings.containsKey(annotation.getLevel().getName())) {
 				Collection<String> tags = new HashSet<String>();
 				levelToTagsMappings.put(annotation.getLevel().getName(), tags);
 			}
-			
-			levelToTagsMappings.get(annotation.getLevel().getName()).add(getEntryPointForAnnotation(root, annotation).getId());
+
+			levelToTagsMappings.get(annotation.getLevel().getName())
+					.add(getEntryPointForAnnotation(root, annotation).getId());
 		}
-		
+
 		return levelToTagsMappings;
 	}
-	
+
 	public static boolean isClassOrInterfaceTargetedByJoana(ClassOrInterfaceType coi, JOANARoot root) {
-		for(EntryPoint entryPoint : root.getEntrypoint()) {
-			for(InformationFlowAnnotation annotation :entryPoint.getAnnotation()) {
-				
-				if(annotation.getSystemElementIdentification() instanceof MethodIdentifying) {
+		for (EntryPoint entryPoint : root.getEntrypoint()) {
+			for (InformationFlowAnnotation annotation : entryPoint.getAnnotation()) {
+
+				if (annotation.getSystemElementIdentification() instanceof MethodIdentifying) {
 					MethodIdentifying identifying = (MethodIdentifying) annotation.getSystemElementIdentification();
-					if(coi.getMethod().contains(identifying.getMethod())) {
+					if (coi.getMethod().contains(identifying.getMethod())) {
 						return true;
 					}
 				}
-				
-				if(annotation.getSystemElementIdentification() instanceof ParametertIdentifying) {
-					ParametertIdentifying identifying = (ParametertIdentifying) annotation.getSystemElementIdentification();
-					
-					if(coi.getMethod().stream().filter(method -> method.getParameter().contains(identifying.getParameter())).findAny().isPresent()) {
+
+				if (annotation.getSystemElementIdentification() instanceof ParametertIdentifying) {
+					ParametertIdentifying identifying = (ParametertIdentifying) annotation
+							.getSystemElementIdentification();
+
+					if (coi.getMethod().stream()
+							.filter(method -> method.getParameter().contains(identifying.getParameter())).findAny()
+							.isPresent()) {
 						return true;
 					}
 				}
 			}
 		}
-			
-			
+
 		return false;
 	}
-	
+
 	public static Level lookupLevel(String levelName, EntryPoint entryPoint) {
-		
+
 		// Original Code:
-		// return entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName)).findFirst().get();
-		
+		// return entryPoint.getLevel().stream().filter(secLevel ->
+		// secLevel.getName().equals(levelName)).findFirst().get();
+
 		// TODO New code:
-		// Following lines are a Hotfix for thesis lehmann, if powerset levels are not generated in alignment
+		// Following lines are a Hotfix for thesis lehmann, if powerset levels are not
+		// generated in alignment
 		// Level is created on the fly and added to entrypoint if not present.
 		try {
 			Level level = entryPoint.getLevel().stream().filter(secLevel -> secLevel.getName().equals(levelName))
@@ -125,8 +134,9 @@ public class JOANAResolutionUtil {
 		entryPoint.getLevel().add(level);
 		return level;
 	}
-	
-	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {
+
+	public static Collection<Level> splitLevelIntoBasicLevels(Level level, EntryPoint entryPoint,
+			String sublevelDelimiter) {
 		Collection<Level> basicLevels = new HashSet<Level>();
 
 		Collection<String> splitLevelBasicLevelNames = Arrays.asList(level.getName().split(sublevelDelimiter));
@@ -137,14 +147,16 @@ public class JOANAResolutionUtil {
 
 		return basicLevels;
 	}
-	
-	public static  Level findLevelFromSetOfBasicLevels(Collection<Level> levels, EntryPoint entryPoint) {
-		
-		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(Level::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
-		Optional<Level> calculatedLevel = entryPoint.getLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
+
+	public static Level findLevelFromSetOfBasicLevels(Collection<Level> levels, EntryPoint entryPoint) {
+
+		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(Level::getName))
+				.map(level -> level.getName()).collect(Collectors.joining(";"));
+		Optional<Level> calculatedLevel = entryPoint.getLevel().stream()
+				.filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
 		return calculatedLevel.get();
 	}
-	
+
 	public static Collection<Level> resolveBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {
 		Collection<Level> basicSecurityLevels = new HashSet<Level>();
 
@@ -156,8 +168,9 @@ public class JOANAResolutionUtil {
 
 		return basicSecurityLevels;
 	}
-	
-	public static Collection<Level> resolveBasicLevels(String levelName, EntryPoint entryPoint, String sublevelDelimiter) {
+
+	public static Collection<Level> resolveBasicLevels(String levelName, EntryPoint entryPoint,
+			String sublevelDelimiter) {
 		Collection<Level> basicSecurityLevels = new HashSet<Level>();
 
 		Collection<String> splitLevelBasicLevelNames = Arrays.asList(levelName.split(sublevelDelimiter));
@@ -168,11 +181,11 @@ public class JOANAResolutionUtil {
 
 		return basicSecurityLevels;
 	}
-	
+
 	public static EntryPoint getEntryPointByTag(String tag, JOANARoot root) {
 		return root.getEntrypoint().stream().filter(ep -> ep.getId().equals(tag.toString())).findFirst().get();
 	}
-	
+
 	public static Level findCombinedLevelForSeperateLevels(Collection<Level> seperateLevels,
 			Collection<Level> combinedLevels, String sublevelDelimiter) {
 		for (Level combined : combinedLevels) {
@@ -185,4 +198,21 @@ public class JOANAResolutionUtil {
 
 		return null;
 	}
+
+	public static Collection<Parameter> getAnnotatedParameters(JOANARoot root) {
+		Collection<Parameter> annotatedParameters = new HashSet<Parameter>();
+
+		for (EntryPoint entryPoint : root.getEntrypoint()) {
+
+			annotatedParameters
+					.addAll(entryPoint.getAnnotation().stream().map(annot -> annot.getSystemElementIdentification())
+							.filter(ParametertIdentifying.class::isInstance).map(ParametertIdentifying.class::cast)
+							.map(parameter -> parameter.getParameter()).collect(Collectors.toList()));
+
+		}
+		
+		return annotatedParameters;
+	}
+	
+
 }

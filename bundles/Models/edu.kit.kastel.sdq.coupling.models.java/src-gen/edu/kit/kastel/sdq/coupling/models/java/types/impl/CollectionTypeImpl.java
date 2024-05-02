@@ -62,15 +62,13 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Type getType() {
 		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject) type;
-			type = (Type) eResolveProxy(oldType);
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.COLLECTION_TYPE__TYPE,
-							oldType, type));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.COLLECTION_TYPE__TYPE, oldType, type));
 			}
 		}
 		return type;
@@ -90,7 +88,6 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setType(Type newType) {
 		Type oldType = type;
 		type = newType;
@@ -106,10 +103,9 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TypesPackage.COLLECTION_TYPE__TYPE:
-			if (resolve)
-				return getType();
-			return basicGetType();
+			case TypesPackage.COLLECTION_TYPE__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,9 +118,9 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TypesPackage.COLLECTION_TYPE__TYPE:
-			setType((Type) newValue);
-			return;
+			case TypesPackage.COLLECTION_TYPE__TYPE:
+				setType((Type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -137,9 +133,9 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TypesPackage.COLLECTION_TYPE__TYPE:
-			setType((Type) null);
-			return;
+			case TypesPackage.COLLECTION_TYPE__TYPE:
+				setType((Type)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,8 +148,8 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TypesPackage.COLLECTION_TYPE__TYPE:
-			return type != null;
+			case TypesPackage.COLLECTION_TYPE__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -167,10 +163,8 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TypedElement.class) {
 			switch (derivedFeatureID) {
-			case TypesPackage.COLLECTION_TYPE__TYPE:
-				return TypesPackage.TYPED_ELEMENT__TYPE;
-			default:
-				return -1;
+				case TypesPackage.COLLECTION_TYPE__TYPE: return TypesPackage.TYPED_ELEMENT__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -185,10 +179,8 @@ public class CollectionTypeImpl extends TypeImpl implements CollectionType {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TypedElement.class) {
 			switch (baseFeatureID) {
-			case TypesPackage.TYPED_ELEMENT__TYPE:
-				return TypesPackage.COLLECTION_TYPE__TYPE;
-			default:
-				return -1;
+				case TypesPackage.TYPED_ELEMENT__TYPE: return TypesPackage.COLLECTION_TYPE__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);

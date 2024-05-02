@@ -62,15 +62,13 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Method getMethod() {
 		if (method != null && method.eIsProxy()) {
-			InternalEObject oldMethod = (InternalEObject) method;
-			method = (Method) eResolveProxy(oldMethod);
+			InternalEObject oldMethod = (InternalEObject)method;
+			method = (Method)eResolveProxy(oldMethod);
 			if (method != oldMethod) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.METHOD_IDENTIFYING__METHOD,
-							oldMethod, method));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.METHOD_IDENTIFYING__METHOD, oldMethod, method));
 			}
 		}
 		return method;
@@ -90,13 +88,11 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMethod(Method newMethod) {
 		Method oldMethod = method;
 		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.METHOD_IDENTIFYING__METHOD, oldMethod,
-					method));
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.METHOD_IDENTIFYING__METHOD, oldMethod, method));
 	}
 
 	/**
@@ -107,10 +103,9 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.METHOD_IDENTIFYING__METHOD:
-			if (resolve)
-				return getMethod();
-			return basicGetMethod();
+			case JoanaPackage.METHOD_IDENTIFYING__METHOD:
+				if (resolve) return getMethod();
+				return basicGetMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,9 +118,9 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.METHOD_IDENTIFYING__METHOD:
-			setMethod((Method) newValue);
-			return;
+			case JoanaPackage.METHOD_IDENTIFYING__METHOD:
+				setMethod((Method)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,9 +133,9 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.METHOD_IDENTIFYING__METHOD:
-			setMethod((Method) null);
-			return;
+			case JoanaPackage.METHOD_IDENTIFYING__METHOD:
+				setMethod((Method)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,8 +148,8 @@ public class MethodIdentifyingImpl extends SystemElementIdentifyingImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.METHOD_IDENTIFYING__METHOD:
-			return method != null;
+			case JoanaPackage.METHOD_IDENTIFYING__METHOD:
+				return method != null;
 		}
 		return super.eIsSet(featureID);
 	}

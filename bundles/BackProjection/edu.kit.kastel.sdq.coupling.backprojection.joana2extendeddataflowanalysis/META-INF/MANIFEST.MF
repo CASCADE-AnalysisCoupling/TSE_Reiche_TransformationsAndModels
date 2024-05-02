@@ -13,5 +13,11 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification,
  org.dataflowanalysis.pcm.extension.model,
  edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
- org.eclipse.ui;bundle-version="3.204.0"
+ org.eclipse.ui;bundle-version="3.204.0",
+ edu.kit.kastel.sdq.coupling.models.joanaresultingvalues,
+ edu.kit.kastel.sdq.coupling.models.joanascar,
+ edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis

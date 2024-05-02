@@ -10,7 +10,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgene
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
-
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class AccessAnalysis2CodeQLSecurityGenerator4HighLow extends AccessAnalysis2CodeQLSecurityGenerator{
@@ -34,7 +34,12 @@ public class AccessAnalysis2CodeQLSecurityGenerator4HighLow extends AccessAnalys
 		Collection<SecurityLevel> levels = new ArrayList<SecurityLevel>();
 		
 		for(DataSet dataSet : dataSets) {
-			levels.add(CodeQLModelgenerationUtil.generateSecurityLevel(dataSet.getName()));
+			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(dataSet.getName());
+			levels.add(level);
+			
+			
+			AccessAnalysisCodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(List.of(dataSet), level, getSecurityCorrespondences());
+			
 		}
 		
 		return levels;

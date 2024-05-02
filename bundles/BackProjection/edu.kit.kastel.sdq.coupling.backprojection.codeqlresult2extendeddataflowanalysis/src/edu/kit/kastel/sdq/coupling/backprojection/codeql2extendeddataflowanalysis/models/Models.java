@@ -13,19 +13,21 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.palladiosimulator.pcm.repository.Repository;
+
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
-
 public class Models {
-	
 
-	
-	
-	
 	private final JavaRoot javaRoot;
 	private final TainttrackingRoot tainttrackingRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
@@ -33,9 +35,11 @@ public class Models {
 	private final Repository repository;
 	private final ParameterAnnotations parameterAnnotations;
 	private final PCMDataDictionary dictionary;
-	
-	public Models(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot,
-			PCMJavaCorrespondenceRoot correspondenceRoot, String codeQLResult, Repository repository, ParameterAnnotations parameterAnnotations, PCMDataDictionary dictionary) {
+	private final Correspondences_EDFACodeQL edfaCodeQLCorrespondences;
+
+	public Models(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
+			String codeQLResult, Repository repository, ParameterAnnotations parameterAnnotations,
+			PCMDataDictionary dictionary, Correspondences_EDFACodeQL edfaCodeQLCorrespondences) {
 		super();
 		this.javaRoot = javaRoot;
 		this.tainttrackingRoot = tainttrackingRoot;
@@ -44,21 +48,23 @@ public class Models {
 		this.repository = repository;
 		this.parameterAnnotations = parameterAnnotations;
 		this.dictionary = dictionary;
+		this.edfaCodeQLCorrespondences = edfaCodeQLCorrespondences;
 	}
-	
+
 	public PCMDataDictionary getDataDictionary() {
 		return dictionary;
 	}
 
-	public static Models createModelsFromFiles(String javaFilePath, String codeqlFilePath, String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath, String extensionModelFilePath, String dataDictionaryModelFilePath, String originBackupDirectoryPath) {
+	public static Models createModelsFromFiles(String javaFilePath, String codeqlFilePath,
+			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath,
+			String extensionModelFilePath, String dataDictionaryModelFilePath, String originBackupDirectoryPath,
+			String edfaCodeQLCorrespondencesPath) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
-		
 		File originalDirectory = Path.of(repositoryFilePath).toAbsolutePath().getParent().toFile();
 
-		File originalBackupDirectory = Paths.get(originBackupDirectoryPath).toAbsolutePath()
-				.toFile();
-		
+		File originalBackupDirectory = Paths.get(originBackupDirectoryPath).toAbsolutePath().toFile();
+
 		if (!originalBackupDirectory.exists()) {
 			try {
 				Files.createDirectory(originalBackupDirectory.toPath());
@@ -66,24 +72,28 @@ public class Models {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			copyAllFilesBetweenDirectories(originalDirectory, originalBackupDirectory);
 		}
-		
+
 		URI repositoryJava = URI.createFileURI(Path.of(javaFilePath).toAbsolutePath().toString());
 		URI codeQLUri = URI.createFileURI(Path.of(codeqlFilePath).toAbsolutePath().toString());
-		URI pcmjavaCorrespondenceUri = URI.createFileURI(Path.of(pcmjavaCorrespondenceFilePath).toAbsolutePath().toString());
+		URI pcmjavaCorrespondenceUri = URI
+				.createFileURI(Path.of(pcmjavaCorrespondenceFilePath).toAbsolutePath().toString());
 		URI repositoryUri = URI.createFileURI(Path.of(repositoryFilePath).toAbsolutePath().toString());
 		URI extensionUri = URI.createFileURI(Path.of(extensionModelFilePath).toAbsolutePath().toString());
 		URI dataDictionaryURI = URI.createFileURI(Path.of(dataDictionaryModelFilePath).toString());
-		
+		URI edfaCodeQLCorrespondencesUri = URI
+				.createFileURI(Path.of(edfaCodeQLCorrespondencesPath).toAbsolutePath().toString());
+
 		Resource resourceJava = resSet.getResource(repositoryJava, true);
 		Resource resourceCodeQL = resSet.getResource(codeQLUri, true);
 		Resource resourcePCMJavaCorrespondence = resSet.getResource(pcmjavaCorrespondenceUri, true);
 		Resource resourceRepository = resSet.getResource(repositoryUri, true);
 		Resource resourceParameterAnnotations = resSet.getResource(extensionUri, true);
 		Resource resourceDataDictionary = resSet.getResource(dataDictionaryURI, true);
-		
+		Resource resourceedfaCodeQLCorrespondences = resSet
+				.getResource(edfaCodeQLCorrespondencesUri, true);
 		try {
 			resourceJava.load(null);
 			resourceCodeQL.load(null);
@@ -91,7 +101,8 @@ public class Models {
 			resourceRepository.load(null);
 			resourceParameterAnnotations.load(null);
 			resourceDataDictionary.load(null);
-			
+			resourceedfaCodeQLCorrespondences.load(null);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -99,11 +110,14 @@ public class Models {
 
 		JavaRoot java = (JavaRoot) resourceJava.getContents().get(0);
 		TainttrackingRoot tainttracking = (TainttrackingRoot) resourceCodeQL.getContents().get(0);
-		PCMJavaCorrespondenceRoot pcmJavaCorrespondenceRoot = (PCMJavaCorrespondenceRoot) resourcePCMJavaCorrespondence.getContents().get(0);
+		PCMJavaCorrespondenceRoot pcmJavaCorrespondenceRoot = (PCMJavaCorrespondenceRoot) resourcePCMJavaCorrespondence
+				.getContents().get(0);
 		Repository repository = (Repository) resourceRepository.getContents().get(0);
-		ParameterAnnotations parameterAnnotations = (ParameterAnnotations) resourceParameterAnnotations.getContents().get(0);
+		ParameterAnnotations parameterAnnotations = (ParameterAnnotations) resourceParameterAnnotations.getContents()
+				.get(0);
 		PCMDataDictionary dataDictionary = (PCMDataDictionary) resourceDataDictionary.getContents().get(0);
-		
+		Correspondences_EDFACodeQL edfaCodeQLCorrespondences = (Correspondences_EDFACodeQL) resourceedfaCodeQLCorrespondences.getContents().get(0);
+
 		String codeQLSarifContent = "";
 		try {
 			codeQLSarifContent = Files.readString(Paths.get(codeQLResultFilePath));
@@ -111,34 +125,61 @@ public class Models {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return new Models(java, tainttracking, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository, parameterAnnotations, dataDictionary);
+
+		return new Models(java, tainttracking, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository,
+				parameterAnnotations, dataDictionary, edfaCodeQLCorrespondences);
 	}
-	
+
 	public void updateSpecification(String specificationLocation) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 		URI extensionUri = URI.createFileURI(Path.of(specificationLocation).toAbsolutePath().toString());
 		Resource resourceExtension = resSet.getResource(extensionUri, true);
-		
+
 		try {
 			resourceExtension.load(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		 resourceExtension.getContents().set(0, parameterAnnotations);
-		
-		
+
+		resourceExtension.getContents().set(0, parameterAnnotations);
+
 		try {
 			resourceExtension.save(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+
+	}
+	
+	public void persistCorrespondencesAndModels(String scarPath, SourceCodeAnalysisResult scar,
+			String resultingValuesPath, CodeQLResultingValues resultingValues, String scarCorrespondencePath,
+			CodeQLSCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath,
+			Correspondences_CodeQLResultingValues resultingValuesCorrespondences) {
+		Resource scarResource = new XMLResourceImpl(URI.createFileURI(scarPath));
+		scarResource.getContents().add(scar);
+
+		Resource resultingValuesResource = new XMLResourceImpl(URI.createFileURI(resultingValuesPath));
+		resultingValuesResource.getContents().add(resultingValues);
+
+		Resource scarCorrespondenceResource = new XMLResourceImpl(URI.createFileURI(scarCorrespondencePath));
+		scarCorrespondenceResource.getContents().add(scarCorrespondences);
+
+		Resource resultingValuesCorrespondenceResource = new XMLResourceImpl(
+				URI.createFileURI(resultingValuesCorrespondencesPath));
+		resultingValuesCorrespondenceResource.getContents().add(resultingValuesCorrespondences);
+
+		try {
+			resultingValuesResource.save(null);
+			scarResource.save(null);
+			scarCorrespondenceResource.save(null);
+			resultingValuesCorrespondenceResource.save(null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public JavaRoot getJavaRoot() {
@@ -164,24 +205,28 @@ public class Models {
 	public ParameterAnnotations getParameterAnnotations() {
 		return parameterAnnotations;
 	}
-	
+
 	private static void copyAllFilesBetweenDirectories(File fromDirectory, File toDirectory) {
-		
+
 		try (Stream<Path> stream = Files.walk(fromDirectory.toPath(), 1)) {
 			stream.map(path -> path.toFile()).forEach(fromFile -> {
 				File toFile = Paths.get(toDirectory.getAbsolutePath(), fromFile.getName()).toAbsolutePath().toFile();
-				
+
 				try {
 					Files.copy(fromFile.toPath(), toFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			});
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public Correspondences_EDFACodeQL getEdfaCodeQLCorrespondences() {
+		return edfaCodeQLCorrespondences;
 	}
 }

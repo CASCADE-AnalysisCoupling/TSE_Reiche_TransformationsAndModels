@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.java.types.PrimitiveType;
 import edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage;
 
@@ -56,13 +57,19 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addKindPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PrimitiveType_kind_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveType_kind_feature",
-								"_UI_PrimitiveType_type"),
-						TypesPackage.Literals.PRIMITIVE_TYPE__KIND, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PrimitiveType_kind_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveType_kind_feature", "_UI_PrimitiveType_type"),
+				 TypesPackage.Literals.PRIMITIVE_TYPE__KIND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,16 +84,6 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,10 +91,12 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveType) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_PrimitiveType_type")
-				: getString("_UI_PrimitiveType_type") + " " + label;
+		String label = ((PrimitiveType)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PrimitiveType_type") :
+			getString("_UI_PrimitiveType_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -111,9 +110,9 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PrimitiveType.class)) {
-		case TypesPackage.PRIMITIVE_TYPE__KIND:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case TypesPackage.PRIMITIVE_TYPE__KIND:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="edfacodeqlcorrespondence" nsURI="http://www.example.org/edfacodeqlcorrespondence"
+    nsPrefix="edfacodeqlcorrespondence">
+  <eClassifiers xsi:type="ecore:EClass" name="EDFACodeQLCorrespondences">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationCorrespondences"
+        upperBound="-1" eType="#//ConfigurationCorrespondence_EDFACodeQL" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="characteristicsSecurityLevelCorrespondences"
+        upperBound="-1" eType="#//CharacteristicsSecurityLevelCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence_EDFACodeQL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_EDFA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.ecore#//ParameterAnnotations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_CodeQL" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/Configuration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CharacteristicsSecurityLevelCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_CodeQL" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/SecurityLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="characteristic" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.dataflowanalysis.pcm.extension.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//Literal"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

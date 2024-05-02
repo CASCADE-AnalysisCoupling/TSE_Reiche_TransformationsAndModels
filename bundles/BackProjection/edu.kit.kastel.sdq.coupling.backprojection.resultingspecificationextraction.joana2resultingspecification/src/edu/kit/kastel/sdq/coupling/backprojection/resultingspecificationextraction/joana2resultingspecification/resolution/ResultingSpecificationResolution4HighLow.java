@@ -35,7 +35,7 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 		
 		
 		
-		List<ResultEntry> parameterSinkResultEntries = scar.getResultEntries().stream().filter(entry -> entry.getSink().getSystemElement() instanceof Parameter).collect(Collectors.toList()); 
+		List<ResultEntry> parameterSinkResultEntries = scar.getResultEntries().stream().filter(entry -> entry.getSink().getSystemElement() instanceof ParameterIdentifying).collect(Collectors.toList()); 
 		
 		for(ResultEntry parameterSinkResultEntry : parameterSinkResultEntries) {
 			

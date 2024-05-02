@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
@@ -18,40 +19,16 @@ public class OutputModels {
 	private final JavaRoot javaRoot;
 	private final TainttrackingRoot tainttrackingRoot;
 	private final PCMJavaCorrespondenceRoot correspondenceRoot;
+	private final Correspondences_EDFACodeQL edfaCodeQLCorrespondences;
 			
-	public OutputModels(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot) {
+	public OutputModels(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot, Correspondences_EDFACodeQL edfaCodeQLCorrespondences) {
 		this.javaRoot = javaRoot;
 		this.tainttrackingRoot = tainttrackingRoot;
 		this.correspondenceRoot = correspondenceRoot;
+		this.edfaCodeQLCorrespondences = edfaCodeQLCorrespondences;
 	}
 	
-	public static OutputModels createModelsFromFiles(String javaFilePath, String codeqlFilePath, String pcmjavaCorrespondenceFilePath) {
-		ResourceSetImpl resSet = new ResourceSetImpl();
-
-		URI repositoryUri = URI.createFileURI(Path.of(javaFilePath).toAbsolutePath().toString());
-		URI confidentialityUri = URI.createFileURI(Path.of(codeqlFilePath).toAbsolutePath().toString());
-		URI pcmjavaCorrespondenceUri = URI.createFileURI(Path.of(pcmjavaCorrespondenceFilePath).toAbsolutePath().toString());
-		
-		Resource resourceJava = resSet.getResource(repositoryUri, true);
-		Resource resourceCodeQL = resSet.getResource(confidentialityUri, true);
-		Resource resourcePCMJavaCorrespondence = resSet.getResource(pcmjavaCorrespondenceUri, true);
-		
-		try {
-			resourceJava.load(null);
-			resourceCodeQL.load(null);
-			resourcePCMJavaCorrespondence.load(null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		JavaRoot java = (JavaRoot) resourceJava.getContents().get(0);
-		TainttrackingRoot tainttracking = (TainttrackingRoot) resourceCodeQL.getContents().get(0);
-		PCMJavaCorrespondenceRoot pcmJavaCorrespondenceRoot = (PCMJavaCorrespondenceRoot) resourcePCMJavaCorrespondence.getContents().get(0);
-		
-		return new OutputModels(java, tainttracking, pcmJavaCorrespondenceRoot);
-	}
-	
-	public void writeToFiles(String javaModelPath, String codeQLModelPath, String correspondencePath) {
+	public void writeToFiles(String javaModelPath, String codeQLModelPath, String correspondencePath, String edfaCodeQLCorrespondencesPath) {
 		Resource javaResource = new XMLResourceImpl(URI.createFileURI(javaModelPath));
 		javaResource.getContents().add(javaRoot);
 		
@@ -61,10 +38,14 @@ public class OutputModels {
 		Resource resourcePCMJavaCorrespondence = new XMLResourceImpl(URI.createFileURI(correspondencePath));
 		resourcePCMJavaCorrespondence.getContents().add(correspondenceRoot);
 		
+		Resource resourceEDFACodeQLCorrespondences = new XMLResourceImpl(URI.createFileURI(edfaCodeQLCorrespondencesPath));
+		resourceEDFACodeQLCorrespondences.getContents().add(edfaCodeQLCorrespondences);
+		
 		try {
 			javaResource.save(null);
 			codeqlResource.save(null);
 			resourcePCMJavaCorrespondence.save(null);
+			resourceEDFACodeQLCorrespondences.save(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -101,7 +100,6 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -112,7 +110,6 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -147,7 +144,7 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -161,7 +158,6 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -172,7 +168,6 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -183,7 +178,6 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -198,10 +192,8 @@ public class CodeqlItemProviderAdapterFactory extends CodeqlAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void dispose() {
-		if (codeQLRootItemProvider != null)
-			codeQLRootItemProvider.dispose();
+		if (codeQLRootItemProvider != null) codeQLRootItemProvider.dispose();
 	}
 
 }

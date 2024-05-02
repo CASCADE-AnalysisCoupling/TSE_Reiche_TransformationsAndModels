@@ -24,7 +24,7 @@ public final class JavaEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static final JavaEditorPlugin INSTANCE = new JavaEditorPlugin();
-
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -40,7 +40,10 @@ public final class JavaEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public JavaEditorPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, });
+		super
+			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -54,7 +57,7 @@ public final class JavaEditorPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-
+	
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -65,7 +68,7 @@ public final class JavaEditorPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -81,7 +84,7 @@ public final class JavaEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

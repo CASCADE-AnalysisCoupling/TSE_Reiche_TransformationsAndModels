@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import java.util.Collection;
 import java.util.List;
 
@@ -54,16 +55,6 @@ public class SinkItemProvider extends InformationFlowAnnotationItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,6 +64,7 @@ public class SinkItemProvider extends InformationFlowAnnotationItemProvider {
 	public String getText(Object object) {
 		return getString("_UI_Sink_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -78,31 +78,6 @@ public abstract class Backprojector implements Backproject {
 	protected abstract void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment );
 	
 	
-//	protected Collection<DataSet> resolveDataSetsForLevel(Level securityProperty, EntryPoint entryPoint) {
-//		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
-//
-//		Collection<Level> basicLevels = JOANAResolutionUtil.splitLevelIntoBasicLevels(securityProperty, entryPoint,
-//				SUBLEVEL_DELIMITER);
-//
-//		ConfidentialitySpecification confidentialitySpec = correspondenceResolver.resolve(null)
-//		
-//		for (Level basicLevel : basicLevels) {
-//			// this could be replaced by correspondence relationships between dataset and
-//			// basic levels ( 1 - 1)
-//			// or datasets and all levels (m - 1)
-//			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream()
-//					.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toList());
-//
-//			for (DataSet dataSet : dataSets) {
-//				if (dataSet.getName().equals(basicLevel.getName())) {
-//					resolvedDataSets.add(dataSet);
-//				}
-//			}
-//		}
-//
-//		return resolvedDataSets;
-//	}
-
 	private static Collection<StereotypeApplication> filterInformationFlowApplications(
 			Collection<StereotypeApplication> applications) {
 		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow"))

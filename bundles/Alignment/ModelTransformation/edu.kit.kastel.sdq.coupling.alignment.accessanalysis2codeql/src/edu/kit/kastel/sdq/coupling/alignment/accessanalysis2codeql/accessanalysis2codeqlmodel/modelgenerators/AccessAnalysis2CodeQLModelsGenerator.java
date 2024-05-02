@@ -13,9 +13,9 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespon
 
 public class AccessAnalysis2CodeQLModelsGenerator {
 
-	private JavaRoot javaRoot;
-	private TainttrackingRoot tainttrackingRoot;
-	private SecurityGeneratorCreator securityGeneratorCreator;
+	protected JavaRoot javaRoot;
+	protected TainttrackingRoot tainttrackingRoot;
+	protected SecurityGeneratorCreator securityGeneratorCreator;
 	
 	public AccessAnalysis2CodeQLModelsGenerator(SecurityGeneratorCreator securityGeneratorCreator) {
 		this.securityGeneratorCreator = securityGeneratorCreator;

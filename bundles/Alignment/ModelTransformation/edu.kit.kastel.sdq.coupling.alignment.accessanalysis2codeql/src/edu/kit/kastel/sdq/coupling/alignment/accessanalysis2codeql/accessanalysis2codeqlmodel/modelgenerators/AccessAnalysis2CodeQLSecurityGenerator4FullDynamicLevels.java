@@ -11,12 +11,14 @@ import com.google.common.collect.Sets;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.utils.AccessAnalysisResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class AccessAnalysis2CodeQLSecurityGenerator4FullDynamicLevels extends AccessAnalysis2CodeQLSecurityGenerator{
@@ -39,6 +41,8 @@ public class AccessAnalysis2CodeQLSecurityGenerator4FullDynamicLevels extends Ac
 			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(securityLevelName);
 
 			securityLevels.add(level);
+			
+			AccessAnalysisCodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(AccessAnalysisResolutionUtil.getDataSetsForBasicLevels(dataSets, securityLevelNames), level, getSecurityCorrespondences());
 		}
 
 		return securityLevels;

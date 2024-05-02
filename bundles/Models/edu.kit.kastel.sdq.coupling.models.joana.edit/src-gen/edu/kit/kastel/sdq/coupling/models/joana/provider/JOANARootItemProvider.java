@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
@@ -31,8 +32,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JOANARootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class JOANARootItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -100,16 +107,6 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +116,7 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 	public String getText(Object object) {
 		return getString("_UI_JOANARoot_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -132,9 +130,9 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JOANARoot.class)) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -150,8 +148,10 @@ public class JOANARootItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.JOANA_ROOT__ENTRYPOINT,
-				JoanaFactory.eINSTANCE.createEntryPoint()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.JOANA_ROOT__ENTRYPOINT,
+				 JoanaFactory.eINSTANCE.createEntryPoint()));
 	}
 
 	/**

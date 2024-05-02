@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 
 import java.util.Collection;
@@ -27,8 +28,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MayFlowItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MayFlowItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,11 +70,19 @@ public class MayFlowItemProvider extends ItemProviderAdapter implements IEditing
 	 * @generated
 	 */
 	protected void addFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_MayFlow_from_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_MayFlow_from_feature", "_UI_MayFlow_type"),
-						JoanaPackage.Literals.MAY_FLOW__FROM, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MayFlow_from_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MayFlow_from_feature", "_UI_MayFlow_type"),
+				 JoanaPackage.Literals.MAY_FLOW__FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,11 +92,19 @@ public class MayFlowItemProvider extends ItemProviderAdapter implements IEditing
 	 * @generated
 	 */
 	protected void addToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_MayFlow_to_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_MayFlow_to_feature", "_UI_MayFlow_type"),
-						JoanaPackage.Literals.MAY_FLOW__TO, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MayFlow_to_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MayFlow_to_feature", "_UI_MayFlow_type"),
+				 JoanaPackage.Literals.MAY_FLOW__TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -96,16 +119,6 @@ public class MayFlowItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,6 +128,7 @@ public class MayFlowItemProvider extends ItemProviderAdapter implements IEditing
 	public String getText(Object object) {
 		return getString("_UI_MayFlow_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

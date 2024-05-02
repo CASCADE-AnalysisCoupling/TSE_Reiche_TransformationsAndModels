@@ -6,31 +6,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
-import org.palladiosimulator.pcm.repository.Repository;
-
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.models.ResultingSpecEntry;
+import edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.utils.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
 
 public class Backprojector4HighLow extends Backprojector{
 
-	public Backprojector4HighLow(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ParameterAnnotations parameterAnnotations) {
-		super(repository, correspondences, parameterAnnotations);
+	public Backprojector4HighLow(
+			ParameterAnnotations parameterAnnotations, CorrespondencesResolver resolver) {
+		super(parameterAnnotations, resolver);
 	}
 
+
 	@Override
-	protected void projectIntoSpecification(ParameterAnnotation parameterAnnotation, Entry<Parameter, Set<ResultingSpecEntry>> assignment) {
+	protected void projectIntoSpecification(ParameterAnnotation parameterAnnotation,
+			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment) {
 		//Assumption of annotating only one charactersitic. Otherwise, trace back to origin.
 		Set<Literal> literalsToAdd = new HashSet<Literal>();
 		
 		
-		for (ResultingSpecEntry entry : assignment.getValue()) {
+		for (ResultingValue entry : assignment.getValue()) {
 
-			Collection<Literal> literals = resolveLiteralsForLevel(parameterAnnotation.getCharacteristics().get(0), entry.getSecurityProperty(),
-					entry.getEntryPoint());
+			Collection<Literal> literals = resolver.resolveLiterals(entry.getLevel(), entry.getConfiguration());
 			
 			if(literals.size() != 1) {
 				throw new IllegalStateException("In High Low scenario, there should either be annoted high or low, no joined levels");
@@ -43,7 +42,7 @@ public class Backprojector4HighLow extends Backprojector{
 			parameterAnnotation.getCharacteristics().get(0).getValues().clear();
 			parameterAnnotation.getCharacteristics().get(0).getValues().addAll(literalsToAdd);
 		}
-
+		
 	}
 
 }

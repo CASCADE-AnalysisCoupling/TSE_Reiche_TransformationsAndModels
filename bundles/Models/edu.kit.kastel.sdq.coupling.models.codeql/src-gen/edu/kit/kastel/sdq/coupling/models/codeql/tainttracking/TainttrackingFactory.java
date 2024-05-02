@@ -19,8 +19,7 @@ public interface TainttrackingFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	TainttrackingFactory eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingFactoryImpl
-			.init();
+	TainttrackingFactory eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Node</em>'.
@@ -75,6 +74,15 @@ public interface TainttrackingFactory extends EFactory {
 	 * @generated
 	 */
 	SecurityLevelAnnotation createSecurityLevelAnnotation();
+
+	/**
+	 * Returns a new object of class '<em>Field Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Field Annotation</em>'.
+	 * @generated
+	 */
+	FieldAnnotation createFieldAnnotation();
 
 	/**
 	 * Returns a new object of class '<em>Parameter Annotation</em>'.

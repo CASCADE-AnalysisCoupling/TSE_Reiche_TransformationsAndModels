@@ -2,9 +2,13 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
+import edu.kit.kastel.sdq.coupling.models.java.JavaFactory;
 import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
+
+import edu.kit.kastel.sdq.coupling.models.java.types.TypesFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,8 +18,10 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.java.Package} object.
@@ -45,40 +51,39 @@ public class PackageItemProvider extends EntityItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSubpackagePropertyDescriptor(object);
-			addClassorinterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Subpackage feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSubpackagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_subpackage_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_subpackage_feature",
-								"_UI_Package_type"),
-						JavaPackage.Literals.PACKAGE__SUBPACKAGE, true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(JavaPackage.Literals.PACKAGE__SUBPACKAGE);
+			childrenFeatures.add(JavaPackage.Literals.PACKAGE__CLASSORINTERFACE);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Classorinterface feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassorinterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Package_classorinterface_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Package_classorinterface_feature",
-								"_UI_Package_type"),
-						JavaPackage.Literals.PACKAGE__CLASSORINTERFACE, true, false, true, null, null, null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -93,16 +98,6 @@ public class PackageItemProvider extends EntityItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,10 +105,12 @@ public class PackageItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((edu.kit.kastel.sdq.coupling.models.java.Package) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Package_type")
-				: getString("_UI_Package_type") + " " + label;
+		String label = ((edu.kit.kastel.sdq.coupling.models.java.Package)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Package_type") :
+			getString("_UI_Package_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -125,6 +122,13 @@ public class PackageItemProvider extends EntityItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(edu.kit.kastel.sdq.coupling.models.java.Package.class)) {
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -138,6 +142,21 @@ public class PackageItemProvider extends EntityItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE__SUBPACKAGE,
+				 JavaFactory.eINSTANCE.createPackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE__CLASSORINTERFACE,
+				 TypesFactory.eINSTANCE.createClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.PACKAGE__CLASSORINTERFACE,
+				 TypesFactory.eINSTANCE.createInterface()));
 	}
 
 	/**

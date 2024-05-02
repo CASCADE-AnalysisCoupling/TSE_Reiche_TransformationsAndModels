@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
@@ -54,12 +55,19 @@ public class ParameterNodeItemProvider extends NodeItemProvider {
 	 * @generated
 	 */
 	protected void addParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ParameterNode_parameter_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ParameterNode_parameter_feature",
-								"_UI_ParameterNode_type"),
-						TainttrackingPackage.Literals.PARAMETER_NODE__PARAMETER, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterNode_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterNode_parameter_feature", "_UI_ParameterNode_type"),
+				 TainttrackingPackage.Literals.PARAMETER_NODE__PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -74,16 +82,6 @@ public class ParameterNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,10 +89,12 @@ public class ParameterNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterNode) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ParameterNode_type")
-				: getString("_UI_ParameterNode_type") + " " + label;
+		String label = ((ParameterNode)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ParameterNode_type") :
+			getString("_UI_ParameterNode_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -537,6 +537,44 @@ public interface JoanaPackage extends EPackage {
 	int METHOD_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFYING_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.FieldIdentifyingImpl <em>Field Identifying</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.FieldIdentifyingImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getFieldIdentifying()
+	 * @generated
+	 */
+	int FIELD_IDENTIFYING = 11;
+
+	/**
+	 * The feature id for the '<em><b>Field</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_IDENTIFYING__FIELD = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Field Identifying</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFYING_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Field Identifying</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFYING_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.JOANARoot <em>JOANA Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,6 +817,27 @@ public interface JoanaPackage extends EPackage {
 	EReference getMethodIdentifying_Method();
 
 	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying <em>Field Identifying</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Field Identifying</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying
+	 * @generated
+	 */
+	EClass getFieldIdentifying();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Field</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying#getField()
+	 * @see #getFieldIdentifying()
+	 * @generated
+	 */
+	EReference getFieldIdentifying_Field();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -843,8 +902,7 @@ public interface JoanaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION = eINSTANCE
-				.getInformationFlowAnnotation_SystemElementIdentification();
+		EReference INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION = eINSTANCE.getInformationFlowAnnotation_SystemElementIdentification();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.EntryPointImpl <em>Entry Point</em>}' class.
@@ -1007,6 +1065,24 @@ public interface JoanaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_IDENTIFYING__METHOD = eINSTANCE.getMethodIdentifying_Method();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joana.impl.FieldIdentifyingImpl <em>Field Identifying</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.FieldIdentifyingImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joana.impl.JoanaPackageImpl#getFieldIdentifying()
+		 * @generated
+		 */
+		EClass FIELD_IDENTIFYING = eINSTANCE.getFieldIdentifying();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD_IDENTIFYING__FIELD = eINSTANCE.getFieldIdentifying_Field();
 
 	}
 

@@ -27,12 +27,12 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 */
 	public static TainttrackingFactory init() {
 		try {
-			TainttrackingFactory theTainttrackingFactory = (TainttrackingFactory) EPackage.Registry.INSTANCE
-					.getEFactory(TainttrackingPackage.eNS_URI);
+			TainttrackingFactory theTainttrackingFactory = (TainttrackingFactory)EPackage.Registry.INSTANCE.getEFactory(TainttrackingPackage.eNS_URI);
 			if (theTainttrackingFactory != null) {
 				return theTainttrackingFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TainttrackingFactoryImpl();
@@ -56,24 +56,17 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case TainttrackingPackage.NODE:
-			return createNode();
-		case TainttrackingPackage.PARAMETER_NODE:
-			return createParameterNode();
-		case TainttrackingPackage.SECURITY_LEVEL:
-			return createSecurityLevel();
-		case TainttrackingPackage.TAINTTRACKING_ROOT:
-			return createTainttrackingRoot();
-		case TainttrackingPackage.CONFIGURATION:
-			return createConfiguration();
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION:
-			return createSecurityLevelAnnotation();
-		case TainttrackingPackage.PARAMETER_ANNOTATION:
-			return createParameterAnnotation();
-		case TainttrackingPackage.ALLOWED_FLOW:
-			return createAllowedFlow();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case TainttrackingPackage.NODE: return createNode();
+			case TainttrackingPackage.PARAMETER_NODE: return createParameterNode();
+			case TainttrackingPackage.SECURITY_LEVEL: return createSecurityLevel();
+			case TainttrackingPackage.TAINTTRACKING_ROOT: return createTainttrackingRoot();
+			case TainttrackingPackage.CONFIGURATION: return createConfiguration();
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION: return createSecurityLevelAnnotation();
+			case TainttrackingPackage.FIELD_ANNOTATION: return createFieldAnnotation();
+			case TainttrackingPackage.PARAMETER_ANNOTATION: return createParameterAnnotation();
+			case TainttrackingPackage.ALLOWED_FLOW: return createAllowedFlow();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -82,7 +75,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Node createNode() {
 		NodeImpl node = new NodeImpl();
 		return node;
@@ -93,7 +85,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ParameterNode createParameterNode() {
 		ParameterNodeImpl parameterNode = new ParameterNodeImpl();
 		return parameterNode;
@@ -104,7 +95,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SecurityLevel createSecurityLevel() {
 		SecurityLevelImpl securityLevel = new SecurityLevelImpl();
 		return securityLevel;
@@ -115,7 +105,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TainttrackingRoot createTainttrackingRoot() {
 		TainttrackingRootImpl tainttrackingRoot = new TainttrackingRootImpl();
 		return tainttrackingRoot;
@@ -126,7 +115,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
@@ -137,7 +125,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SecurityLevelAnnotation createSecurityLevelAnnotation() {
 		SecurityLevelAnnotationImpl securityLevelAnnotation = new SecurityLevelAnnotationImpl();
 		return securityLevelAnnotation;
@@ -148,7 +135,16 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public FieldAnnotation createFieldAnnotation() {
+		FieldAnnotationImpl fieldAnnotation = new FieldAnnotationImpl();
+		return fieldAnnotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParameterAnnotation createParameterAnnotation() {
 		ParameterAnnotationImpl parameterAnnotation = new ParameterAnnotationImpl();
 		return parameterAnnotation;
@@ -159,7 +155,6 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public AllowedFlow createAllowedFlow() {
 		AllowedFlowImpl allowedFlow = new AllowedFlowImpl();
 		return allowedFlow;
@@ -170,9 +165,8 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TainttrackingPackage getTainttrackingPackage() {
-		return (TainttrackingPackage) getEPackage();
+		return (TainttrackingPackage)getEPackage();
 	}
 
 	/**

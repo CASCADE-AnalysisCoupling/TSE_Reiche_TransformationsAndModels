@@ -27,12 +27,12 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	 */
 	public static MembersFactory init() {
 		try {
-			MembersFactory theMembersFactory = (MembersFactory) EPackage.Registry.INSTANCE
-					.getEFactory(MembersPackage.eNS_URI);
+			MembersFactory theMembersFactory = (MembersFactory)EPackage.Registry.INSTANCE.getEFactory(MembersPackage.eNS_URI);
 			if (theMembersFactory != null) {
 				return theMembersFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MembersFactoryImpl();
@@ -56,14 +56,11 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case MembersPackage.FIELD:
-			return createField();
-		case MembersPackage.METHOD:
-			return createMethod();
-		case MembersPackage.PARAMETER:
-			return createParameter();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case MembersPackage.FIELD: return createField();
+			case MembersPackage.METHOD: return createMethod();
+			case MembersPackage.PARAMETER: return createParameter();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -72,7 +69,6 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Field createField() {
 		FieldImpl field = new FieldImpl();
 		return field;
@@ -83,7 +79,6 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
@@ -94,7 +89,6 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -105,9 +99,8 @@ public class MembersFactoryImpl extends EFactoryImpl implements MembersFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public MembersPackage getMembersPackage() {
-		return (MembersPackage) getEPackage();
+		return (MembersPackage)getEPackage();
 	}
 
 	/**

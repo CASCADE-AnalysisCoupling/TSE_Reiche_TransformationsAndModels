@@ -8,6 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: edu.kit.kastel.sdq.coupling.models.codeql.presentation.CodeqlEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: edu.kit.kastel.sdq.coupling.models.codeql.presentation,
  edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.presentation
 Require-Bundle: org.eclipse.core.runtime,

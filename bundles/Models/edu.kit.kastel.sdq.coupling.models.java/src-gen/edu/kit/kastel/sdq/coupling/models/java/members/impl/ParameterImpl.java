@@ -66,15 +66,13 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Type getType() {
 		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject) type;
-			type = (Type) eResolveProxy(oldType);
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MembersPackage.PARAMETER__TYPE, oldType,
-							type));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MembersPackage.PARAMETER__TYPE, oldType, type));
 			}
 		}
 		return type;
@@ -94,7 +92,6 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setType(Type newType) {
 		Type oldType = type;
 		type = newType;
@@ -110,10 +107,9 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MembersPackage.PARAMETER__TYPE:
-			if (resolve)
-				return getType();
-			return basicGetType();
+			case MembersPackage.PARAMETER__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +122,9 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MembersPackage.PARAMETER__TYPE:
-			setType((Type) newValue);
-			return;
+			case MembersPackage.PARAMETER__TYPE:
+				setType((Type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -141,9 +137,9 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MembersPackage.PARAMETER__TYPE:
-			setType((Type) null);
-			return;
+			case MembersPackage.PARAMETER__TYPE:
+				setType((Type)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -156,8 +152,8 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MembersPackage.PARAMETER__TYPE:
-			return type != null;
+			case MembersPackage.PARAMETER__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -171,10 +167,8 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TypedElement.class) {
 			switch (derivedFeatureID) {
-			case MembersPackage.PARAMETER__TYPE:
-				return TypesPackage.TYPED_ELEMENT__TYPE;
-			default:
-				return -1;
+				case MembersPackage.PARAMETER__TYPE: return TypesPackage.TYPED_ELEMENT__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -189,10 +183,8 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TypedElement.class) {
 			switch (baseFeatureID) {
-			case TypesPackage.TYPED_ELEMENT__TYPE:
-				return MembersPackage.PARAMETER__TYPE;
-			default:
-				return -1;
+				case TypesPackage.TYPED_ELEMENT__TYPE: return MembersPackage.PARAMETER__TYPE;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);

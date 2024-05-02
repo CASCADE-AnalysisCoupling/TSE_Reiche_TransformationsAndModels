@@ -62,15 +62,13 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Parameter getParameter() {
 		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject) parameter;
-			parameter = (Parameter) eResolveProxy(oldParameter);
+			InternalEObject oldParameter = (InternalEObject)parameter;
+			parameter = (Parameter)eResolveProxy(oldParameter);
 			if (parameter != oldParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER, oldParameter, parameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER, oldParameter, parameter));
 			}
 		}
 		return parameter;
@@ -90,13 +88,11 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParameter(Parameter newParameter) {
 		Parameter oldParameter = parameter;
 		parameter = newParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER,
-					oldParameter, parameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER, oldParameter, parameter));
 	}
 
 	/**
@@ -107,10 +103,9 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
-			if (resolve)
-				return getParameter();
-			return basicGetParameter();
+			case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
+				if (resolve) return getParameter();
+				return basicGetParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,9 +118,9 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
-			setParameter((Parameter) newValue);
-			return;
+			case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
+				setParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,9 +133,9 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
-			setParameter((Parameter) null);
-			return;
+			case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
+				setParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,8 +148,8 @@ public class ParameterAnnotationImpl extends SecurityLevelAnnotationImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
-			return parameter != null;
+			case TainttrackingPackage.PARAMETER_ANNOTATION__PARAMETER:
+				return parameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -68,11 +68,9 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<EntryPoint> getEntrypoint() {
 		if (entrypoint == null) {
-			entrypoint = new EObjectContainmentEList<EntryPoint>(EntryPoint.class, this,
-					JoanaPackage.JOANA_ROOT__ENTRYPOINT);
+			entrypoint = new EObjectContainmentEList<EntryPoint>(EntryPoint.class, this, JoanaPackage.JOANA_ROOT__ENTRYPOINT);
 		}
 		return entrypoint;
 	}
@@ -85,8 +83,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			return ((InternalEList<?>) getEntrypoint()).basicRemove(otherEnd, msgs);
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				return ((InternalEList<?>)getEntrypoint()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -99,8 +97,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			return getEntrypoint();
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				return getEntrypoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,10 +112,10 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			getEntrypoint().clear();
-			getEntrypoint().addAll((Collection<? extends EntryPoint>) newValue);
-			return;
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				getEntrypoint().clear();
+				getEntrypoint().addAll((Collection<? extends EntryPoint>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -130,9 +128,9 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			getEntrypoint().clear();
-			return;
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				getEntrypoint().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,8 +143,8 @@ public class JOANARootImpl extends MinimalEObjectImpl.Container implements JOANA
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
-			return entrypoint != null && !entrypoint.isEmpty();
+			case JoanaPackage.JOANA_ROOT__ENTRYPOINT:
+				return entrypoint != null && !entrypoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.java.JavaFactory;
 import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -33,8 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JavaRootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class JavaRootItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -104,16 +111,6 @@ public class JavaRootItemProvider extends ItemProviderAdapter implements IEditin
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +120,7 @@ public class JavaRootItemProvider extends ItemProviderAdapter implements IEditin
 	public String getText(Object object) {
 		return getString("_UI_JavaRoot_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -136,11 +134,11 @@ public class JavaRootItemProvider extends ItemProviderAdapter implements IEditin
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JavaRoot.class)) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -156,14 +154,20 @@ public class JavaRootItemProvider extends ItemProviderAdapter implements IEditin
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(JavaPackage.Literals.JAVA_ROOT__PRIMITIVETYPES,
-				TypesFactory.eINSTANCE.createPrimitiveType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.JAVA_ROOT__PRIMITIVETYPES,
+				 TypesFactory.eINSTANCE.createPrimitiveType()));
 
-		newChildDescriptors.add(createChildParameter(JavaPackage.Literals.JAVA_ROOT__COLLECTIONTYPES,
-				TypesFactory.eINSTANCE.createCollectionType()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.JAVA_ROOT__COLLECTIONTYPES,
+				 TypesFactory.eINSTANCE.createCollectionType()));
 
-		newChildDescriptors.add(
-				createChildParameter(JavaPackage.Literals.JAVA_ROOT__PACKAGE, JavaFactory.eINSTANCE.createPackage()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaPackage.Literals.JAVA_ROOT__PACKAGE,
+				 JavaFactory.eINSTANCE.createPackage()));
 	}
 
 	/**

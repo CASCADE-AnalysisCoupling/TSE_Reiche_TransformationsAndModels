@@ -70,7 +70,6 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public PrimitiveTypeKinds getKind() {
 		return kind;
 	}
@@ -80,7 +79,6 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setKind(PrimitiveTypeKinds newKind) {
 		PrimitiveTypeKinds oldKind = kind;
 		kind = newKind == null ? KIND_EDEFAULT : newKind;
@@ -96,8 +94,8 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TypesPackage.PRIMITIVE_TYPE__KIND:
-			return getKind();
+			case TypesPackage.PRIMITIVE_TYPE__KIND:
+				return getKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +108,9 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TypesPackage.PRIMITIVE_TYPE__KIND:
-			setKind((PrimitiveTypeKinds) newValue);
-			return;
+			case TypesPackage.PRIMITIVE_TYPE__KIND:
+				setKind((PrimitiveTypeKinds)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,9 +123,9 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TypesPackage.PRIMITIVE_TYPE__KIND:
-			setKind(KIND_EDEFAULT);
-			return;
+			case TypesPackage.PRIMITIVE_TYPE__KIND:
+				setKind(KIND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,8 +138,8 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TypesPackage.PRIMITIVE_TYPE__KIND:
-			return kind != KIND_EDEFAULT;
+			case TypesPackage.PRIMITIVE_TYPE__KIND:
+				return kind != KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,8 +151,7 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (kind: ");

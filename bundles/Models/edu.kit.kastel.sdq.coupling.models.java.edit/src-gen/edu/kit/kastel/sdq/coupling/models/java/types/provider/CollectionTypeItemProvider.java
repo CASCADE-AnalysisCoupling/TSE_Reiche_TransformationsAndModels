@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
 import edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage;
 
@@ -54,12 +55,19 @@ public class CollectionTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_TypedElement_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature",
-								"_UI_TypedElement_type"),
-						TypesPackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypedElement_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature", "_UI_TypedElement_type"),
+				 TypesPackage.Literals.TYPED_ELEMENT__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -74,16 +82,6 @@ public class CollectionTypeItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,10 +89,12 @@ public class CollectionTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CollectionType) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_CollectionType_type")
-				: getString("_UI_CollectionType_type") + " " + label;
+		String label = ((CollectionType)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CollectionType_type") :
+			getString("_UI_CollectionType_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -94,11 +94,9 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<PrimitiveType> getPrimitivetypes() {
 		if (primitivetypes == null) {
-			primitivetypes = new EObjectContainmentEList<PrimitiveType>(PrimitiveType.class, this,
-					JavaPackage.JAVA_ROOT__PRIMITIVETYPES);
+			primitivetypes = new EObjectContainmentEList<PrimitiveType>(PrimitiveType.class, this, JavaPackage.JAVA_ROOT__PRIMITIVETYPES);
 		}
 		return primitivetypes;
 	}
@@ -108,11 +106,9 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<CollectionType> getCollectiontypes() {
 		if (collectiontypes == null) {
-			collectiontypes = new EObjectContainmentEList<CollectionType>(CollectionType.class, this,
-					JavaPackage.JAVA_ROOT__COLLECTIONTYPES);
+			collectiontypes = new EObjectContainmentEList<CollectionType>(CollectionType.class, this, JavaPackage.JAVA_ROOT__COLLECTIONTYPES);
 		}
 		return collectiontypes;
 	}
@@ -122,7 +118,6 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public edu.kit.kastel.sdq.coupling.models.java.Package getPackage() {
 		return package_;
 	}
@@ -132,17 +127,12 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPackage(edu.kit.kastel.sdq.coupling.models.java.Package newPackage,
-			NotificationChain msgs) {
+	public NotificationChain basicSetPackage(edu.kit.kastel.sdq.coupling.models.java.Package newPackage, NotificationChain msgs) {
 		edu.kit.kastel.sdq.coupling.models.java.Package oldPackage = package_;
 		package_ = newPackage;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					JavaPackage.JAVA_ROOT__PACKAGE, oldPackage, newPackage);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaPackage.JAVA_ROOT__PACKAGE, oldPackage, newPackage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -152,22 +142,18 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setPackage(edu.kit.kastel.sdq.coupling.models.java.Package newPackage) {
 		if (newPackage != package_) {
 			NotificationChain msgs = null;
 			if (package_ != null)
-				msgs = ((InternalEObject) package_).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - JavaPackage.JAVA_ROOT__PACKAGE, null, msgs);
+				msgs = ((InternalEObject)package_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaPackage.JAVA_ROOT__PACKAGE, null, msgs);
 			if (newPackage != null)
-				msgs = ((InternalEObject) newPackage).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - JavaPackage.JAVA_ROOT__PACKAGE, null, msgs);
+				msgs = ((InternalEObject)newPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaPackage.JAVA_ROOT__PACKAGE, null, msgs);
 			msgs = basicSetPackage(newPackage, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.JAVA_ROOT__PACKAGE, newPackage,
-					newPackage));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaPackage.JAVA_ROOT__PACKAGE, newPackage, newPackage));
 	}
 
 	/**
@@ -178,12 +164,12 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-			return ((InternalEList<?>) getPrimitivetypes()).basicRemove(otherEnd, msgs);
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-			return ((InternalEList<?>) getCollectiontypes()).basicRemove(otherEnd, msgs);
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			return basicSetPackage(null, msgs);
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+				return ((InternalEList<?>)getPrimitivetypes()).basicRemove(otherEnd, msgs);
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+				return ((InternalEList<?>)getCollectiontypes()).basicRemove(otherEnd, msgs);
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				return basicSetPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -196,12 +182,12 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-			return getPrimitivetypes();
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-			return getCollectiontypes();
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			return getPackage();
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+				return getPrimitivetypes();
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+				return getCollectiontypes();
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				return getPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,17 +201,17 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-			getPrimitivetypes().clear();
-			getPrimitivetypes().addAll((Collection<? extends PrimitiveType>) newValue);
-			return;
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-			getCollectiontypes().clear();
-			getCollectiontypes().addAll((Collection<? extends CollectionType>) newValue);
-			return;
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			setPackage((edu.kit.kastel.sdq.coupling.models.java.Package) newValue);
-			return;
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+				getPrimitivetypes().clear();
+				getPrimitivetypes().addAll((Collection<? extends PrimitiveType>)newValue);
+				return;
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+				getCollectiontypes().clear();
+				getCollectiontypes().addAll((Collection<? extends CollectionType>)newValue);
+				return;
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				setPackage((edu.kit.kastel.sdq.coupling.models.java.Package)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -238,15 +224,15 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-			getPrimitivetypes().clear();
-			return;
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-			getCollectiontypes().clear();
-			return;
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			setPackage((edu.kit.kastel.sdq.coupling.models.java.Package) null);
-			return;
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+				getPrimitivetypes().clear();
+				return;
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+				getCollectiontypes().clear();
+				return;
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				setPackage((edu.kit.kastel.sdq.coupling.models.java.Package)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -259,12 +245,12 @@ public class JavaRootImpl extends MinimalEObjectImpl.Container implements JavaRo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
-			return primitivetypes != null && !primitivetypes.isEmpty();
-		case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
-			return collectiontypes != null && !collectiontypes.isEmpty();
-		case JavaPackage.JAVA_ROOT__PACKAGE:
-			return package_ != null;
+			case JavaPackage.JAVA_ROOT__PRIMITIVETYPES:
+				return primitivetypes != null && !primitivetypes.isEmpty();
+			case JavaPackage.JAVA_ROOT__COLLECTIONTYPES:
+				return collectiontypes != null && !collectiontypes.isEmpty();
+			case JavaPackage.JAVA_ROOT__PACKAGE:
+				return package_ != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,19 +1,16 @@
 package edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection;
 
 import java.util.Collection;
-import java.util.HashSet;
-
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristic;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecEntry;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
-import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
+import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.utils.CorrespondencesResolver;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
@@ -29,35 +26,33 @@ public class Backprojector implements Backproject {
 	private final ParameterAnnotations parameterAnnotations;
 	private final Configuration config;
 	private final PCMDataDictionary dictionary;
-	private static final String DELIMITER = ";";
+	private final CorrespondencesResolver resolver;
 
 	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ParameterAnnotations parameterAnnotations, Configuration config, PCMDataDictionary dictionary) {
+			ParameterAnnotations parameterAnnotations, Configuration config, PCMDataDictionary dictionary, CorrespondencesResolver resolver) {
 		super();
 		this.repository = repository;
 		this.correspondences = correspondences;
 		this.parameterAnnotations = parameterAnnotations;
 		this.config = config;
 		this.dictionary = dictionary;
+		this.resolver = resolver;
 	}
 
 	@Override
-	public void project(ResultingSpecification resultingSpec) {
-		for (ResultingSpecEntry resultingSpecEntry : resultingSpec.getEntries()) {
+	public void project(CodeQLResultingValues resultingValues) {
+		for (ResultingValue resultingValue : resultingValues.getResultingValues()) {
 
 			// Assumption: One annotation for one system element. If multiple: find the one
 			// with the corresponding security property - value pair.
-			ParameterAnnotation annot = resolveParameterAnnotation(resultingSpecEntry);
+			ParameterAnnotation annot = resolveParameterAnnotation(resultingValue);
 
 			for (EnumCharacteristic characteristic : annot.getCharacteristics()) {
 				// Normally, check with additional info, if types assigned to securityLevel is
 				// equal, best with correspondence models. --> Resolve Security Property and
 				// fitting annotation
 				
-				var allLiterals = characteristic.getEnumCharacteristicType().getType().getLiterals();
-				
-				Collection<Literal> resolvedLiterals = resolveLiteralsForLevel(resultingSpecEntry.getSecurityProperty(),
-						allLiterals);
+				Collection<Literal> resolvedLiterals = resolver.resolveLiterals(resultingValue.getResultingSecurityLevel(), resultingValue.getConfiguration());
 
 				if (!resolvedLiterals.isEmpty()) {
 					characteristic.getValues().clear();
@@ -87,31 +82,10 @@ public class Backprojector implements Backproject {
 				&& annotationProvidedParameterIdent.getParameter().equals(correspondenceIdentification.getParameter());
 	}
 
-	private Collection<Literal> resolveLiteralsForLevel(SecurityLevel securityProperty,
-			Collection<Literal> literalsForFittingAnnotation) {
-		Collection<Literal> resolvedLiterals = new HashSet<Literal>();
-
-		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config,
-				DELIMITER);
-
-		for (SecurityLevel basicLevel : basicLevels) {
-			// this could be replaced by correspondence relationships between the levels of
-			// an enum and basic levels
-
-			for (Literal literal : literalsForFittingAnnotation) {
-				if (literal.getName().equals(basicLevel.getName())) {
-					resolvedLiterals.add(literal);
-				}
-			}
-		}
-
-		return resolvedLiterals;
-	}
-
-	private ParameterAnnotation resolveParameterAnnotation(ResultingSpecEntry specEntry) {
+	private ParameterAnnotation resolveParameterAnnotation(ResultingValue resultingValue) {
 		// Resolve System Element
 		PCMParameter2JavaParameter parameterCorrespondence = PCMJavaCorrespondenceResolutionUtils
-				.getParameterCorrespondence(correspondences, specEntry.getSystemElement());
+				.getParameterCorrespondence(correspondences, resolver.resolve(resultingValue.getParameter()));
 
 		for (ParameterAnnotation potentialAnnotation : parameterAnnotations.getAnnotations()) {
 

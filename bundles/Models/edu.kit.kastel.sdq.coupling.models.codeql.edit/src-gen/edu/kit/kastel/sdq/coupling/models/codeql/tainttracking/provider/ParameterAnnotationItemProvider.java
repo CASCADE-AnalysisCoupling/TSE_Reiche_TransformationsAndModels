@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
@@ -54,12 +55,19 @@ public class ParameterAnnotationItemProvider extends SecurityLevelAnnotationItem
 	 * @generated
 	 */
 	protected void addParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterAnnotation_parameter_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ParameterAnnotation_parameter_feature",
-						"_UI_ParameterAnnotation_type"),
-				TainttrackingPackage.Literals.PARAMETER_ANNOTATION__PARAMETER, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterAnnotation_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterAnnotation_parameter_feature", "_UI_ParameterAnnotation_type"),
+				 TainttrackingPackage.Literals.PARAMETER_ANNOTATION__PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -74,16 +82,6 @@ public class ParameterAnnotationItemProvider extends SecurityLevelAnnotationItem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,10 +89,12 @@ public class ParameterAnnotationItemProvider extends SecurityLevelAnnotationItem
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterAnnotation) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_ParameterAnnotation_type")
-				: getString("_UI_ParameterAnnotation_type") + " " + label;
+		String label = ((ParameterAnnotation)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ParameterAnnotation_type") :
+			getString("_UI_ParameterAnnotation_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -203,8 +203,10 @@ public class JoanaResult2SCARParser {
 				.findFirst();
 
 		if (potentialField.isPresent()) {
+			System.out.println("Found Field: %s".formatted(fieldName));
 			return potentialField.get();
 		} else {
+			System.out.println("Did not find Field: %s".formatted(fieldName));
 			Field newField = JavaModelGenerationUtil.generateField(fieldName);
 			clazz.getField().add(newField);
 			return newField;

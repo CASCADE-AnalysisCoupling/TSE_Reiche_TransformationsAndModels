@@ -38,7 +38,10 @@ public final class JavaEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public JavaEditPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, });
+		super
+		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**

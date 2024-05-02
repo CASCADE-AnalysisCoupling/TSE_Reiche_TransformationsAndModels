@@ -1,6 +1,6 @@
 package edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution;
 
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+
 
 public class ResultingSpecificationResolutionFactory {
 

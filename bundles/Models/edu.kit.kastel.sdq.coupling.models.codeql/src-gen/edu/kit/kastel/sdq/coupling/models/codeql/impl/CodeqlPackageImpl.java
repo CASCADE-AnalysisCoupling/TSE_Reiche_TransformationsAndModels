@@ -52,7 +52,6 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	private CodeqlPackageImpl() {
 		super(eNS_URI, CodeqlFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,14 +72,11 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * @generated
 	 */
 	public static CodeqlPackage init() {
-		if (isInited)
-			return (CodeqlPackage) EPackage.Registry.INSTANCE.getEPackage(CodeqlPackage.eNS_URI);
+		if (isInited) return (CodeqlPackage)EPackage.Registry.INSTANCE.getEPackage(CodeqlPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredCodeqlPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		CodeqlPackageImpl theCodeqlPackage = registeredCodeqlPackage instanceof CodeqlPackageImpl
-				? (CodeqlPackageImpl) registeredCodeqlPackage
-				: new CodeqlPackageImpl();
+		CodeqlPackageImpl theCodeqlPackage = registeredCodeqlPackage instanceof CodeqlPackageImpl ? (CodeqlPackageImpl)registeredCodeqlPackage : new CodeqlPackageImpl();
 
 		isInited = true;
 
@@ -90,9 +86,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TainttrackingPackage.eNS_URI);
-		TainttrackingPackageImpl theTainttrackingPackage = (TainttrackingPackageImpl) (registeredPackage instanceof TainttrackingPackageImpl
-				? registeredPackage
-				: TainttrackingPackage.eINSTANCE);
+		TainttrackingPackageImpl theTainttrackingPackage = (TainttrackingPackageImpl)(registeredPackage instanceof TainttrackingPackageImpl ? registeredPackage : TainttrackingPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCodeqlPackage.createPackageContents();
@@ -115,7 +109,6 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getCodeQLRoot() {
 		return codeQLRootEClass;
 	}
@@ -125,9 +118,8 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getCodeQLRoot_TainttrackingRoot() {
-		return (EReference) codeQLRootEClass.getEStructuralFeatures().get(0);
+		return (EReference)codeQLRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -135,9 +127,8 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public CodeqlFactory getCodeqlFactory() {
-		return (CodeqlFactory) getEFactoryInstance();
+		return (CodeqlFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -155,8 +146,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -179,8 +169,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -189,8 +178,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TainttrackingPackage theTainttrackingPackage = (TainttrackingPackage) EPackage.Registry.INSTANCE
-				.getEPackage(TainttrackingPackage.eNS_URI);
+		TainttrackingPackage theTainttrackingPackage = (TainttrackingPackage)EPackage.Registry.INSTANCE.getEPackage(TainttrackingPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theTainttrackingPackage);
@@ -201,12 +189,9 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 
 		// Add supertypes to classes
 
-		// Initialize classes and features; add operations and parameters
-		initEClass(codeQLRootEClass, CodeQLRoot.class, "CodeQLRoot", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCodeQLRoot_TainttrackingRoot(), theTainttrackingPackage.getTainttrackingRoot(), null,
-				"tainttrackingRoot", null, 1, 1, CodeQLRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		// Initialize classes, features, and operations; add parameters
+		initEClass(codeQLRootEClass, CodeQLRoot.class, "CodeQLRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCodeQLRoot_TainttrackingRoot(), theTainttrackingPackage.getTainttrackingRoot(), null, "tainttrackingRoot", null, 1, 1, CodeQLRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

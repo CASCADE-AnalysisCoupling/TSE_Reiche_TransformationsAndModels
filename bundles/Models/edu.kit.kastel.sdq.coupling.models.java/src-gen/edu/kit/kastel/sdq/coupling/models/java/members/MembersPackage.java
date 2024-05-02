@@ -233,6 +233,7 @@ public interface MembersPackage extends EPackage {
 	 */
 	int PARAMETER_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
+
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.java.members.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->

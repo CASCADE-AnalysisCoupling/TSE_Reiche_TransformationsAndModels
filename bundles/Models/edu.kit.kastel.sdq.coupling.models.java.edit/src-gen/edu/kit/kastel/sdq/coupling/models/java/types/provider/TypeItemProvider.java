@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
@@ -51,16 +52,6 @@ public class TypeItemProvider extends EntityItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,10 +59,12 @@ public class TypeItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Type) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Type_type")
-				: getString("_UI_Type_type") + " " + label;
+		String label = ((Type)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Type_type") :
+			getString("_UI_Type_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

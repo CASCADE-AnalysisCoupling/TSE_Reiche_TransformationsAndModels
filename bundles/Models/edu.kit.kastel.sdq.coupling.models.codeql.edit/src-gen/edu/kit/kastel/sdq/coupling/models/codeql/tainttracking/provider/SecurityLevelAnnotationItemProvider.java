@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
@@ -60,13 +61,19 @@ public class SecurityLevelAnnotationItemProvider extends IdentifiedElementItemPr
 	 * @generated
 	 */
 	protected void addSecurityLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SecurityLevelAnnotation_securityLevel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SecurityLevelAnnotation_securityLevel_feature",
-						"_UI_SecurityLevelAnnotation_type"),
-				TainttrackingPackage.Literals.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL, true, false, true, null, null,
-				null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SecurityLevelAnnotation_securityLevel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SecurityLevelAnnotation_securityLevel_feature", "_UI_SecurityLevelAnnotation_type"),
+				 TainttrackingPackage.Literals.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,16 +88,6 @@ public class SecurityLevelAnnotationItemProvider extends IdentifiedElementItemPr
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,10 +95,12 @@ public class SecurityLevelAnnotationItemProvider extends IdentifiedElementItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SecurityLevelAnnotation) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_SecurityLevelAnnotation_type")
-				: getString("_UI_SecurityLevelAnnotation_type") + " " + label;
+		String label = ((SecurityLevelAnnotation)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SecurityLevelAnnotation_type") :
+			getString("_UI_SecurityLevelAnnotation_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

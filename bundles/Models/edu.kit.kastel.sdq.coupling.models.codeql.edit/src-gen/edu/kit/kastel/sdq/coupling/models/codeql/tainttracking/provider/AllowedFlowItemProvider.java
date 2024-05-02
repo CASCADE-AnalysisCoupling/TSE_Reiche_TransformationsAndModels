@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
@@ -29,8 +30,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AllowedFlowItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -65,12 +72,19 @@ public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEdi
 	 * @generated
 	 */
 	protected void addFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AllowedFlow_from_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AllowedFlow_from_feature",
-								"_UI_AllowedFlow_type"),
-						TainttrackingPackage.Literals.ALLOWED_FLOW__FROM, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AllowedFlow_from_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllowedFlow_from_feature", "_UI_AllowedFlow_type"),
+				 TainttrackingPackage.Literals.ALLOWED_FLOW__FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,12 +94,19 @@ public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEdi
 	 * @generated
 	 */
 	protected void addToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AllowedFlow_to_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AllowedFlow_to_feature",
-								"_UI_AllowedFlow_type"),
-						TainttrackingPackage.Literals.ALLOWED_FLOW__TO, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AllowedFlow_to_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllowedFlow_to_feature", "_UI_AllowedFlow_type"),
+				 TainttrackingPackage.Literals.ALLOWED_FLOW__TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -100,16 +121,6 @@ public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +130,7 @@ public class AllowedFlowItemProvider extends ItemProviderAdapter implements IEdi
 	public String getText(Object object) {
 		return getString("_UI_AllowedFlow_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

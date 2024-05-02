@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -303,12 +302,34 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	}
 
 	/**
-	 * This returns the root adapter factory that contains this factory.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FieldIdentifyingItemProvider fieldIdentifyingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
+	public Adapter createFieldIdentifyingAdapter() {
+		if (fieldIdentifyingItemProvider == null) {
+			fieldIdentifyingItemProvider = new FieldIdentifyingItemProvider(this);
+		}
+
+		return fieldIdentifyingItemProvider;
+	}
+
+	/**
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -319,7 +340,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -354,7 +374,7 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -368,7 +388,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -379,7 +398,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -390,7 +408,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -405,28 +422,18 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void dispose() {
-		if (joanaRootItemProvider != null)
-			joanaRootItemProvider.dispose();
-		if (informationFlowAnnotationItemProvider != null)
-			informationFlowAnnotationItemProvider.dispose();
-		if (entryPointItemProvider != null)
-			entryPointItemProvider.dispose();
-		if (sourceItemProvider != null)
-			sourceItemProvider.dispose();
-		if (sinkItemProvider != null)
-			sinkItemProvider.dispose();
-		if (levelItemProvider != null)
-			levelItemProvider.dispose();
-		if (mayFlowItemProvider != null)
-			mayFlowItemProvider.dispose();
-		if (latticeItemProvider != null)
-			latticeItemProvider.dispose();
-		if (parametertIdentifyingItemProvider != null)
-			parametertIdentifyingItemProvider.dispose();
-		if (methodIdentifyingItemProvider != null)
-			methodIdentifyingItemProvider.dispose();
+		if (joanaRootItemProvider != null) joanaRootItemProvider.dispose();
+		if (informationFlowAnnotationItemProvider != null) informationFlowAnnotationItemProvider.dispose();
+		if (entryPointItemProvider != null) entryPointItemProvider.dispose();
+		if (sourceItemProvider != null) sourceItemProvider.dispose();
+		if (sinkItemProvider != null) sinkItemProvider.dispose();
+		if (levelItemProvider != null) levelItemProvider.dispose();
+		if (mayFlowItemProvider != null) mayFlowItemProvider.dispose();
+		if (latticeItemProvider != null) latticeItemProvider.dispose();
+		if (parametertIdentifyingItemProvider != null) parametertIdentifyingItemProvider.dispose();
+		if (methodIdentifyingItemProvider != null) methodIdentifyingItemProvider.dispose();
+		if (fieldIdentifyingItemProvider != null) fieldIdentifyingItemProvider.dispose();
 	}
 
 }

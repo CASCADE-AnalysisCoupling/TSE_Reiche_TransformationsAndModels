@@ -79,11 +79,9 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<edu.kit.kastel.sdq.coupling.models.java.Package> getSubpackage() {
 		if (subpackage == null) {
-			subpackage = new EObjectContainmentEList<edu.kit.kastel.sdq.coupling.models.java.Package>(
-					edu.kit.kastel.sdq.coupling.models.java.Package.class, this, JavaPackage.PACKAGE__SUBPACKAGE);
+			subpackage = new EObjectContainmentEList<edu.kit.kastel.sdq.coupling.models.java.Package>(edu.kit.kastel.sdq.coupling.models.java.Package.class, this, JavaPackage.PACKAGE__SUBPACKAGE);
 		}
 		return subpackage;
 	}
@@ -93,11 +91,9 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<ClassOrInterfaceType> getClassorinterface() {
 		if (classorinterface == null) {
-			classorinterface = new EObjectContainmentEList<ClassOrInterfaceType>(ClassOrInterfaceType.class, this,
-					JavaPackage.PACKAGE__CLASSORINTERFACE);
+			classorinterface = new EObjectContainmentEList<ClassOrInterfaceType>(ClassOrInterfaceType.class, this, JavaPackage.PACKAGE__CLASSORINTERFACE);
 		}
 		return classorinterface;
 	}
@@ -110,10 +106,10 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JavaPackage.PACKAGE__SUBPACKAGE:
-			return ((InternalEList<?>) getSubpackage()).basicRemove(otherEnd, msgs);
-		case JavaPackage.PACKAGE__CLASSORINTERFACE:
-			return ((InternalEList<?>) getClassorinterface()).basicRemove(otherEnd, msgs);
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+				return ((InternalEList<?>)getSubpackage()).basicRemove(otherEnd, msgs);
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				return ((InternalEList<?>)getClassorinterface()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,10 +122,10 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JavaPackage.PACKAGE__SUBPACKAGE:
-			return getSubpackage();
-		case JavaPackage.PACKAGE__CLASSORINTERFACE:
-			return getClassorinterface();
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+				return getSubpackage();
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				return getClassorinterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,14 +139,14 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JavaPackage.PACKAGE__SUBPACKAGE:
-			getSubpackage().clear();
-			getSubpackage().addAll((Collection<? extends edu.kit.kastel.sdq.coupling.models.java.Package>) newValue);
-			return;
-		case JavaPackage.PACKAGE__CLASSORINTERFACE:
-			getClassorinterface().clear();
-			getClassorinterface().addAll((Collection<? extends ClassOrInterfaceType>) newValue);
-			return;
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+				getSubpackage().clear();
+				getSubpackage().addAll((Collection<? extends edu.kit.kastel.sdq.coupling.models.java.Package>)newValue);
+				return;
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				getClassorinterface().clear();
+				getClassorinterface().addAll((Collection<? extends ClassOrInterfaceType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -163,12 +159,12 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JavaPackage.PACKAGE__SUBPACKAGE:
-			getSubpackage().clear();
-			return;
-		case JavaPackage.PACKAGE__CLASSORINTERFACE:
-			getClassorinterface().clear();
-			return;
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+				getSubpackage().clear();
+				return;
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				getClassorinterface().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,10 +177,10 @@ public class PackageImpl extends EntityImpl implements edu.kit.kastel.sdq.coupli
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JavaPackage.PACKAGE__SUBPACKAGE:
-			return subpackage != null && !subpackage.isEmpty();
-		case JavaPackage.PACKAGE__CLASSORINTERFACE:
-			return classorinterface != null && !classorinterface.isEmpty();
+			case JavaPackage.PACKAGE__SUBPACKAGE:
+				return subpackage != null && !subpackage.isEmpty();
+			case JavaPackage.PACKAGE__CLASSORINTERFACE:
+				return classorinterface != null && !classorinterface.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifiedElementItemProvider;
 
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
@@ -18,7 +19,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -50,40 +50,8 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLevelPropertyDescriptor(object);
-			addAnnotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EntryPoint_level_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EntryPoint_level_feature",
-								"_UI_EntryPoint_type"),
-						JoanaPackage.Literals.ENTRY_POINT__LEVEL, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Annotation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAnnotationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EntryPoint_annotation_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EntryPoint_annotation_feature",
-								"_UI_EntryPoint_type"),
-						JoanaPackage.Literals.ENTRY_POINT__ANNOTATION, true, false, true, null, null, null));
 	}
 
 	/**
@@ -98,6 +66,8 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(JoanaPackage.Literals.ENTRY_POINT__LEVEL);
+			childrenFeatures.add(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION);
 			childrenFeatures.add(JoanaPackage.Literals.ENTRY_POINT__LATTICE);
 			childrenFeatures.add(JoanaPackage.Literals.ENTRY_POINT__METHOD_IDENTIFICATION);
 		}
@@ -129,16 +99,6 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,10 +106,12 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EntryPoint) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_EntryPoint_type")
-				: getString("_UI_EntryPoint_type") + " " + label;
+		String label = ((EntryPoint)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EntryPoint_type") :
+			getString("_UI_EntryPoint_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -163,10 +125,12 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntryPoint.class)) {
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -182,11 +146,35 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.ENTRY_POINT__LATTICE,
-				JoanaFactory.eINSTANCE.createLattice()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__LEVEL,
+				 JoanaFactory.eINSTANCE.createLevel()));
 
-		newChildDescriptors.add(createChildParameter(JoanaPackage.Literals.ENTRY_POINT__METHOD_IDENTIFICATION,
-				JoanaFactory.eINSTANCE.createMethodIdentifying()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION,
+				 JoanaFactory.eINSTANCE.createInformationFlowAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION,
+				 JoanaFactory.eINSTANCE.createSource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION,
+				 JoanaFactory.eINSTANCE.createSink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__LATTICE,
+				 JoanaFactory.eINSTANCE.createLattice()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.ENTRY_POINT__METHOD_IDENTIFICATION,
+				 JoanaFactory.eINSTANCE.createMethodIdentifying()));
 	}
 
 	/**

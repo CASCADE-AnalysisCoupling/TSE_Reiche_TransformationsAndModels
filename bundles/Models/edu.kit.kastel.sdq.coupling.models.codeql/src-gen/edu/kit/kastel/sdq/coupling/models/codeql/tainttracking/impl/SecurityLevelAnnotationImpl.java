@@ -63,16 +63,13 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SecurityLevel getSecurityLevel() {
 		if (securityLevel != null && securityLevel.eIsProxy()) {
-			InternalEObject oldSecurityLevel = (InternalEObject) securityLevel;
-			securityLevel = (SecurityLevel) eResolveProxy(oldSecurityLevel);
+			InternalEObject oldSecurityLevel = (InternalEObject)securityLevel;
+			securityLevel = (SecurityLevel)eResolveProxy(oldSecurityLevel);
 			if (securityLevel != oldSecurityLevel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL, oldSecurityLevel,
-							securityLevel));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL, oldSecurityLevel, securityLevel));
 			}
 		}
 		return securityLevel;
@@ -92,13 +89,11 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSecurityLevel(SecurityLevel newSecurityLevel) {
 		SecurityLevel oldSecurityLevel = securityLevel;
 		securityLevel = newSecurityLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL, oldSecurityLevel, securityLevel));
+			eNotify(new ENotificationImpl(this, Notification.SET, TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL, oldSecurityLevel, securityLevel));
 	}
 
 	/**
@@ -109,10 +104,9 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
-			if (resolve)
-				return getSecurityLevel();
-			return basicGetSecurityLevel();
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
+				if (resolve) return getSecurityLevel();
+				return basicGetSecurityLevel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,9 +119,9 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
-			setSecurityLevel((SecurityLevel) newValue);
-			return;
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
+				setSecurityLevel((SecurityLevel)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,9 +134,9 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
-			setSecurityLevel((SecurityLevel) null);
-			return;
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
+				setSecurityLevel((SecurityLevel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -155,8 +149,8 @@ public class SecurityLevelAnnotationImpl extends IdentifiedElementImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
-			return securityLevel != null;
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL:
+				return securityLevel != null;
 		}
 		return super.eIsSet(featureID);
 	}

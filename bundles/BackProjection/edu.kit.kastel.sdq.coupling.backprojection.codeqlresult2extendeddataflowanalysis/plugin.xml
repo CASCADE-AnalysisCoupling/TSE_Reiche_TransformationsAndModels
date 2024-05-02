@@ -1,51 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.CodeQL2ExtendedDataFlowAnalysis4TravelPlannerHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.command.codeql2extendeddataflowanalysis4travelplanner"
-            name="Result Integration: CodeQL to Extended Dataflow Analysis (TravelPlanner)">
-      </command>
-      <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.CodeQL2ExtendedDataFlowAnalysis4JPMailHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.command.codeql2extendeddataflowanalysis4jpmail"
-            name="Result Integration: CodeQL to Extended Dataflow Analysis (JPMail)">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.CodeQL2ExtendedDataFlowAnalysis4TravelPlannerHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.handlers.codeql2extendeddataflowanalysis4travelplanner">
-      </handler>
-      <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.CodeQL2ExtendedDataFlowAnalysis4JPMailHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.handlers.codeql2extendeddataflowanalysis4jpmail">
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="menu:org.eclipse.ui.main.menu">
-         <menu
-               id="coupling"
-               label="Coupling"
-               mnemonic="c">
-            <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.command.codeql2extendeddataflowanalysis4travelplanner"
-                  label="Result Integration: CodeQL to ExtendedDataFlow (TravelPlanner)"
-                  style="push">
-            </command>
-            <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.command.codeql2extendeddataflowanalysis4jpmail"
-                  label="Result Integration: CodeQL to ExtendedDataFlow (JPMail)"
-                  style="push">
-            </command>
-         </menu>
-      </menuContribution>
-   </extension>
 
 </plugin>

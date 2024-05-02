@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -211,6 +210,29 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FieldAnnotationItemProvider fieldAnnotationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFieldAnnotationAdapter() {
+		if (fieldAnnotationItemProvider == null) {
+			fieldAnnotationItemProvider = new FieldAnnotationItemProvider(this);
+		}
+
+		return fieldAnnotationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,7 +284,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -273,7 +294,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -308,7 +328,7 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -322,7 +342,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -333,7 +352,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -344,7 +362,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -359,24 +376,16 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void dispose() {
-		if (nodeItemProvider != null)
-			nodeItemProvider.dispose();
-		if (parameterNodeItemProvider != null)
-			parameterNodeItemProvider.dispose();
-		if (securityLevelItemProvider != null)
-			securityLevelItemProvider.dispose();
-		if (tainttrackingRootItemProvider != null)
-			tainttrackingRootItemProvider.dispose();
-		if (configurationItemProvider != null)
-			configurationItemProvider.dispose();
-		if (securityLevelAnnotationItemProvider != null)
-			securityLevelAnnotationItemProvider.dispose();
-		if (parameterAnnotationItemProvider != null)
-			parameterAnnotationItemProvider.dispose();
-		if (allowedFlowItemProvider != null)
-			allowedFlowItemProvider.dispose();
+		if (nodeItemProvider != null) nodeItemProvider.dispose();
+		if (parameterNodeItemProvider != null) parameterNodeItemProvider.dispose();
+		if (securityLevelItemProvider != null) securityLevelItemProvider.dispose();
+		if (tainttrackingRootItemProvider != null) tainttrackingRootItemProvider.dispose();
+		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (securityLevelAnnotationItemProvider != null) securityLevelAnnotationItemProvider.dispose();
+		if (fieldAnnotationItemProvider != null) fieldAnnotationItemProvider.dispose();
+		if (parameterAnnotationItemProvider != null) parameterAnnotationItemProvider.dispose();
+		if (allowedFlowItemProvider != null) allowedFlowItemProvider.dispose();
 	}
 
 }

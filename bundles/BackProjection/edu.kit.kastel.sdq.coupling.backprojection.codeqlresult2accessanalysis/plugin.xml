@@ -1,51 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
-            name="Result Integration: CodeQL to Access Analysis (TravelPlanner)">
-      </command>
-      <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
-            id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
-            name="Result Integration: CodeQL to Access Analysis (JPMail)">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4TravelPlannerHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4travelplanner">
-      </handler>
-      <handler
-            class="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.CodeQL2AccessAnalysis4JPMailHandler"
-            commandId="edu.kit.kastel.sdq.coupling.backprojection..handler.codeqlresult2accessanalysis4jpmail">
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="menu:org.eclipse.ui.main.menu">
-         <menu
-               id="coupling"
-               label="Coupling"
-               mnemonic="c">
-            <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4travelplanner"
-                  label="Result Integration: CodeQL to Access Analysis (TravelPlanner)"
-                  style="push">
-            </command>
-            <command
-                  commandId="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis4jpmail"
-                  label="ResultIntegration: CodeQL to Access Analysis (JPMail)"
-                  style="push">
-            </command>
-         </menu>
-      </menuContribution>
-   </extension>
 
 </plugin>

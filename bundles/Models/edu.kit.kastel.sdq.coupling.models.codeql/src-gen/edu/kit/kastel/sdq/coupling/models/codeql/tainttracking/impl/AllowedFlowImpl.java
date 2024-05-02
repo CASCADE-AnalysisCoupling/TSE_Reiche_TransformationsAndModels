@@ -73,15 +73,13 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SecurityLevel getFrom() {
 		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject) from;
-			from = (SecurityLevel) eResolveProxy(oldFrom);
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (SecurityLevel)eResolveProxy(oldFrom);
 			if (from != oldFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.ALLOWED_FLOW__FROM,
-							oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.ALLOWED_FLOW__FROM, oldFrom, from));
 			}
 		}
 		return from;
@@ -101,13 +99,11 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setFrom(SecurityLevel newFrom) {
 		SecurityLevel oldFrom = from;
 		from = newFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TainttrackingPackage.ALLOWED_FLOW__FROM, oldFrom,
-					from));
+			eNotify(new ENotificationImpl(this, Notification.SET, TainttrackingPackage.ALLOWED_FLOW__FROM, oldFrom, from));
 	}
 
 	/**
@@ -115,15 +111,13 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SecurityLevel getTo() {
 		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject) to;
-			to = (SecurityLevel) eResolveProxy(oldTo);
+			InternalEObject oldTo = (InternalEObject)to;
+			to = (SecurityLevel)eResolveProxy(oldTo);
 			if (to != oldTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.ALLOWED_FLOW__TO,
-							oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TainttrackingPackage.ALLOWED_FLOW__TO, oldTo, to));
 			}
 		}
 		return to;
@@ -143,7 +137,6 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTo(SecurityLevel newTo) {
 		SecurityLevel oldTo = to;
 		to = newTo;
@@ -159,14 +152,12 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TainttrackingPackage.ALLOWED_FLOW__FROM:
-			if (resolve)
-				return getFrom();
-			return basicGetFrom();
-		case TainttrackingPackage.ALLOWED_FLOW__TO:
-			if (resolve)
-				return getTo();
-			return basicGetTo();
+			case TainttrackingPackage.ALLOWED_FLOW__FROM:
+				if (resolve) return getFrom();
+				return basicGetFrom();
+			case TainttrackingPackage.ALLOWED_FLOW__TO:
+				if (resolve) return getTo();
+				return basicGetTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,12 +170,12 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TainttrackingPackage.ALLOWED_FLOW__FROM:
-			setFrom((SecurityLevel) newValue);
-			return;
-		case TainttrackingPackage.ALLOWED_FLOW__TO:
-			setTo((SecurityLevel) newValue);
-			return;
+			case TainttrackingPackage.ALLOWED_FLOW__FROM:
+				setFrom((SecurityLevel)newValue);
+				return;
+			case TainttrackingPackage.ALLOWED_FLOW__TO:
+				setTo((SecurityLevel)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -197,12 +188,12 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.ALLOWED_FLOW__FROM:
-			setFrom((SecurityLevel) null);
-			return;
-		case TainttrackingPackage.ALLOWED_FLOW__TO:
-			setTo((SecurityLevel) null);
-			return;
+			case TainttrackingPackage.ALLOWED_FLOW__FROM:
+				setFrom((SecurityLevel)null);
+				return;
+			case TainttrackingPackage.ALLOWED_FLOW__TO:
+				setTo((SecurityLevel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,10 +206,10 @@ public class AllowedFlowImpl extends MinimalEObjectImpl.Container implements All
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.ALLOWED_FLOW__FROM:
-			return from != null;
-		case TainttrackingPackage.ALLOWED_FLOW__TO:
-			return to != null;
+			case TainttrackingPackage.ALLOWED_FLOW__FROM:
+				return from != null;
+			case TainttrackingPackage.ALLOWED_FLOW__TO:
+				return to != null;
 		}
 		return super.eIsSet(featureID);
 	}

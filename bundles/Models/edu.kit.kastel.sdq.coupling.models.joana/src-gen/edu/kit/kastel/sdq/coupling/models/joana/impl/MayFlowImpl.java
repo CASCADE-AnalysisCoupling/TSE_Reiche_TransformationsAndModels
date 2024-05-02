@@ -73,15 +73,13 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Level getFrom() {
 		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject) from;
-			from = (Level) eResolveProxy(oldFrom);
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (Level)eResolveProxy(oldFrom);
 			if (from != oldFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.MAY_FLOW__FROM, oldFrom,
-							from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.MAY_FLOW__FROM, oldFrom, from));
 			}
 		}
 		return from;
@@ -101,7 +99,6 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setFrom(Level newFrom) {
 		Level oldFrom = from;
 		from = newFrom;
@@ -114,11 +111,10 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Level getTo() {
 		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject) to;
-			to = (Level) eResolveProxy(oldTo);
+			InternalEObject oldTo = (InternalEObject)to;
+			to = (Level)eResolveProxy(oldTo);
 			if (to != oldTo) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.MAY_FLOW__TO, oldTo, to));
@@ -141,7 +137,6 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTo(Level newTo) {
 		Level oldTo = to;
 		to = newTo;
@@ -157,14 +152,12 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.MAY_FLOW__FROM:
-			if (resolve)
-				return getFrom();
-			return basicGetFrom();
-		case JoanaPackage.MAY_FLOW__TO:
-			if (resolve)
-				return getTo();
-			return basicGetTo();
+			case JoanaPackage.MAY_FLOW__FROM:
+				if (resolve) return getFrom();
+				return basicGetFrom();
+			case JoanaPackage.MAY_FLOW__TO:
+				if (resolve) return getTo();
+				return basicGetTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,12 +170,12 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.MAY_FLOW__FROM:
-			setFrom((Level) newValue);
-			return;
-		case JoanaPackage.MAY_FLOW__TO:
-			setTo((Level) newValue);
-			return;
+			case JoanaPackage.MAY_FLOW__FROM:
+				setFrom((Level)newValue);
+				return;
+			case JoanaPackage.MAY_FLOW__TO:
+				setTo((Level)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -195,12 +188,12 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.MAY_FLOW__FROM:
-			setFrom((Level) null);
-			return;
-		case JoanaPackage.MAY_FLOW__TO:
-			setTo((Level) null);
-			return;
+			case JoanaPackage.MAY_FLOW__FROM:
+				setFrom((Level)null);
+				return;
+			case JoanaPackage.MAY_FLOW__TO:
+				setTo((Level)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,10 +206,10 @@ public class MayFlowImpl extends MinimalEObjectImpl.Container implements MayFlow
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.MAY_FLOW__FROM:
-			return from != null;
-		case JoanaPackage.MAY_FLOW__TO:
-			return to != null;
+			case JoanaPackage.MAY_FLOW__FROM:
+				return from != null;
+			case JoanaPackage.MAY_FLOW__TO:
+				return to != null;
 		}
 		return super.eIsSet(featureID);
 	}

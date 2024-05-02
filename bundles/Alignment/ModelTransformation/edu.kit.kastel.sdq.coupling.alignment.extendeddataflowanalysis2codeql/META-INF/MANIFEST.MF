@@ -20,6 +20,8 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0"
  edu.kit.kastel.sdq.coupling.alignment.pcm2java,
  edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
  org.dataflowanalysis.dfd.datadictionary;bundle-version="0.1.0",
- org.dataflowanalysis.pcm.extension.model
+ org.dataflowanalysis.pcm.extension.model,
+ edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql
 Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql

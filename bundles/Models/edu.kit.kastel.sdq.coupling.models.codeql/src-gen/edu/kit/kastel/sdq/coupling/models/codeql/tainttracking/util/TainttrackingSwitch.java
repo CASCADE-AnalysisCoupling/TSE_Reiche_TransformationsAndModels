@@ -70,92 +70,77 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case TainttrackingPackage.NODE: {
-			Node node = (Node) theEObject;
-			T result = caseNode(node);
-			if (result == null)
-				result = caseEntity(node);
-			if (result == null)
-				result = caseIdentifiedElement(node);
-			if (result == null)
-				result = caseNamedElement(node);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.PARAMETER_NODE: {
-			ParameterNode parameterNode = (ParameterNode) theEObject;
-			T result = caseParameterNode(parameterNode);
-			if (result == null)
-				result = caseNode(parameterNode);
-			if (result == null)
-				result = caseEntity(parameterNode);
-			if (result == null)
-				result = caseIdentifiedElement(parameterNode);
-			if (result == null)
-				result = caseNamedElement(parameterNode);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.SECURITY_LEVEL: {
-			SecurityLevel securityLevel = (SecurityLevel) theEObject;
-			T result = caseSecurityLevel(securityLevel);
-			if (result == null)
-				result = caseEntity(securityLevel);
-			if (result == null)
-				result = caseIdentifiedElement(securityLevel);
-			if (result == null)
-				result = caseNamedElement(securityLevel);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.TAINTTRACKING_ROOT: {
-			TainttrackingRoot tainttrackingRoot = (TainttrackingRoot) theEObject;
-			T result = caseTainttrackingRoot(tainttrackingRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.CONFIGURATION: {
-			Configuration configuration = (Configuration) theEObject;
-			T result = caseConfiguration(configuration);
-			if (result == null)
-				result = caseIdentifiedElement(configuration);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION: {
-			SecurityLevelAnnotation securityLevelAnnotation = (SecurityLevelAnnotation) theEObject;
-			T result = caseSecurityLevelAnnotation(securityLevelAnnotation);
-			if (result == null)
-				result = caseIdentifiedElement(securityLevelAnnotation);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.PARAMETER_ANNOTATION: {
-			ParameterAnnotation parameterAnnotation = (ParameterAnnotation) theEObject;
-			T result = caseParameterAnnotation(parameterAnnotation);
-			if (result == null)
-				result = caseSecurityLevelAnnotation(parameterAnnotation);
-			if (result == null)
-				result = caseIdentifiedElement(parameterAnnotation);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TainttrackingPackage.ALLOWED_FLOW: {
-			AllowedFlow allowedFlow = (AllowedFlow) theEObject;
-			T result = caseAllowedFlow(allowedFlow);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case TainttrackingPackage.NODE: {
+				Node node = (Node)theEObject;
+				T result = caseNode(node);
+				if (result == null) result = caseEntity(node);
+				if (result == null) result = caseIdentifiedElement(node);
+				if (result == null) result = caseNamedElement(node);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.PARAMETER_NODE: {
+				ParameterNode parameterNode = (ParameterNode)theEObject;
+				T result = caseParameterNode(parameterNode);
+				if (result == null) result = caseNode(parameterNode);
+				if (result == null) result = caseEntity(parameterNode);
+				if (result == null) result = caseIdentifiedElement(parameterNode);
+				if (result == null) result = caseNamedElement(parameterNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.SECURITY_LEVEL: {
+				SecurityLevel securityLevel = (SecurityLevel)theEObject;
+				T result = caseSecurityLevel(securityLevel);
+				if (result == null) result = caseEntity(securityLevel);
+				if (result == null) result = caseIdentifiedElement(securityLevel);
+				if (result == null) result = caseNamedElement(securityLevel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.TAINTTRACKING_ROOT: {
+				TainttrackingRoot tainttrackingRoot = (TainttrackingRoot)theEObject;
+				T result = caseTainttrackingRoot(tainttrackingRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.CONFIGURATION: {
+				Configuration configuration = (Configuration)theEObject;
+				T result = caseConfiguration(configuration);
+				if (result == null) result = caseIdentifiedElement(configuration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION: {
+				SecurityLevelAnnotation securityLevelAnnotation = (SecurityLevelAnnotation)theEObject;
+				T result = caseSecurityLevelAnnotation(securityLevelAnnotation);
+				if (result == null) result = caseIdentifiedElement(securityLevelAnnotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.FIELD_ANNOTATION: {
+				FieldAnnotation fieldAnnotation = (FieldAnnotation)theEObject;
+				T result = caseFieldAnnotation(fieldAnnotation);
+				if (result == null) result = caseSecurityLevelAnnotation(fieldAnnotation);
+				if (result == null) result = caseIdentifiedElement(fieldAnnotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.PARAMETER_ANNOTATION: {
+				ParameterAnnotation parameterAnnotation = (ParameterAnnotation)theEObject;
+				T result = caseParameterAnnotation(parameterAnnotation);
+				if (result == null) result = caseSecurityLevelAnnotation(parameterAnnotation);
+				if (result == null) result = caseIdentifiedElement(parameterAnnotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TainttrackingPackage.ALLOWED_FLOW: {
+				AllowedFlow allowedFlow = (AllowedFlow)theEObject;
+				T result = caseAllowedFlow(allowedFlow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 
@@ -246,6 +231,21 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecurityLevelAnnotation(SecurityLevelAnnotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Field Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Field Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFieldAnnotation(FieldAnnotation object) {
 		return null;
 	}
 

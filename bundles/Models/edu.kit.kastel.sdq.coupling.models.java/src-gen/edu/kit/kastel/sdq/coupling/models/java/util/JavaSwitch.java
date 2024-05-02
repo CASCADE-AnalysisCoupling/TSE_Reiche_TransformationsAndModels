@@ -71,28 +71,22 @@ public class JavaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case JavaPackage.JAVA_ROOT: {
-			JavaRoot javaRoot = (JavaRoot) theEObject;
-			T result = caseJavaRoot(javaRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JavaPackage.PACKAGE: {
-			edu.kit.kastel.sdq.coupling.models.java.Package package_ = (edu.kit.kastel.sdq.coupling.models.java.Package) theEObject;
-			T result = casePackage(package_);
-			if (result == null)
-				result = caseEntity(package_);
-			if (result == null)
-				result = caseIdentifiedElement(package_);
-			if (result == null)
-				result = caseNamedElement(package_);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case JavaPackage.JAVA_ROOT: {
+				JavaRoot javaRoot = (JavaRoot)theEObject;
+				T result = caseJavaRoot(javaRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaPackage.PACKAGE: {
+				edu.kit.kastel.sdq.coupling.models.java.Package package_ = (edu.kit.kastel.sdq.coupling.models.java.Package)theEObject;
+				T result = casePackage(package_);
+				if (result == null) result = caseEntity(package_);
+				if (result == null) result = caseIdentifiedElement(package_);
+				if (result == null) result = caseNamedElement(package_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

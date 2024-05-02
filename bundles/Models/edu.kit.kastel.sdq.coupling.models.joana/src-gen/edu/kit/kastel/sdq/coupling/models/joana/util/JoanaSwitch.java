@@ -70,101 +70,88 @@ public class JoanaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case JoanaPackage.JOANA_ROOT: {
-			JOANARoot joanaRoot = (JOANARoot) theEObject;
-			T result = caseJOANARoot(joanaRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION: {
-			InformationFlowAnnotation informationFlowAnnotation = (InformationFlowAnnotation) theEObject;
-			T result = caseInformationFlowAnnotation(informationFlowAnnotation);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.ENTRY_POINT: {
-			EntryPoint entryPoint = (EntryPoint) theEObject;
-			T result = caseEntryPoint(entryPoint);
-			if (result == null)
-				result = caseIdentifiedElement(entryPoint);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.SOURCE: {
-			Source source = (Source) theEObject;
-			T result = caseSource(source);
-			if (result == null)
-				result = caseInformationFlowAnnotation(source);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.SINK: {
-			Sink sink = (Sink) theEObject;
-			T result = caseSink(sink);
-			if (result == null)
-				result = caseInformationFlowAnnotation(sink);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.LEVEL: {
-			Level level = (Level) theEObject;
-			T result = caseLevel(level);
-			if (result == null)
-				result = caseEntity(level);
-			if (result == null)
-				result = caseIdentifiedElement(level);
-			if (result == null)
-				result = caseNamedElement(level);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.MAY_FLOW: {
-			MayFlow mayFlow = (MayFlow) theEObject;
-			T result = caseMayFlow(mayFlow);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.LATTICE: {
-			Lattice lattice = (Lattice) theEObject;
-			T result = caseLattice(lattice);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.SYSTEM_ELEMENT_IDENTIFYING: {
-			SystemElementIdentifying systemElementIdentifying = (SystemElementIdentifying) theEObject;
-			T result = caseSystemElementIdentifying(systemElementIdentifying);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.PARAMETERT_IDENTIFYING: {
-			ParametertIdentifying parametertIdentifying = (ParametertIdentifying) theEObject;
-			T result = caseParametertIdentifying(parametertIdentifying);
-			if (result == null)
-				result = caseSystemElementIdentifying(parametertIdentifying);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaPackage.METHOD_IDENTIFYING: {
-			MethodIdentifying methodIdentifying = (MethodIdentifying) theEObject;
-			T result = caseMethodIdentifying(methodIdentifying);
-			if (result == null)
-				result = caseSystemElementIdentifying(methodIdentifying);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case JoanaPackage.JOANA_ROOT: {
+				JOANARoot joanaRoot = (JOANARoot)theEObject;
+				T result = caseJOANARoot(joanaRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION: {
+				InformationFlowAnnotation informationFlowAnnotation = (InformationFlowAnnotation)theEObject;
+				T result = caseInformationFlowAnnotation(informationFlowAnnotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.ENTRY_POINT: {
+				EntryPoint entryPoint = (EntryPoint)theEObject;
+				T result = caseEntryPoint(entryPoint);
+				if (result == null) result = caseIdentifiedElement(entryPoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.SOURCE: {
+				Source source = (Source)theEObject;
+				T result = caseSource(source);
+				if (result == null) result = caseInformationFlowAnnotation(source);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.SINK: {
+				Sink sink = (Sink)theEObject;
+				T result = caseSink(sink);
+				if (result == null) result = caseInformationFlowAnnotation(sink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.LEVEL: {
+				Level level = (Level)theEObject;
+				T result = caseLevel(level);
+				if (result == null) result = caseEntity(level);
+				if (result == null) result = caseIdentifiedElement(level);
+				if (result == null) result = caseNamedElement(level);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.MAY_FLOW: {
+				MayFlow mayFlow = (MayFlow)theEObject;
+				T result = caseMayFlow(mayFlow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.LATTICE: {
+				Lattice lattice = (Lattice)theEObject;
+				T result = caseLattice(lattice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.SYSTEM_ELEMENT_IDENTIFYING: {
+				SystemElementIdentifying systemElementIdentifying = (SystemElementIdentifying)theEObject;
+				T result = caseSystemElementIdentifying(systemElementIdentifying);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.PARAMETERT_IDENTIFYING: {
+				ParametertIdentifying parametertIdentifying = (ParametertIdentifying)theEObject;
+				T result = caseParametertIdentifying(parametertIdentifying);
+				if (result == null) result = caseSystemElementIdentifying(parametertIdentifying);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.METHOD_IDENTIFYING: {
+				MethodIdentifying methodIdentifying = (MethodIdentifying)theEObject;
+				T result = caseMethodIdentifying(methodIdentifying);
+				if (result == null) result = caseSystemElementIdentifying(methodIdentifying);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanaPackage.FIELD_IDENTIFYING: {
+				FieldIdentifying fieldIdentifying = (FieldIdentifying)theEObject;
+				T result = caseFieldIdentifying(fieldIdentifying);
+				if (result == null) result = caseSystemElementIdentifying(fieldIdentifying);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 
@@ -330,6 +317,21 @@ public class JoanaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethodIdentifying(MethodIdentifying object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Field Identifying</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Field Identifying</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFieldIdentifying(FieldIdentifying object) {
 		return null;
 	}
 

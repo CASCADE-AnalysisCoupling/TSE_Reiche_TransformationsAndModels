@@ -58,7 +58,7 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -69,67 +69,61 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TainttrackingSwitch<Adapter> modelSwitch = new TainttrackingSwitch<Adapter>() {
-		@Override
-		public Adapter caseNode(Node object) {
-			return createNodeAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterNode(ParameterNode object) {
-			return createParameterNodeAdapter();
-		}
-
-		@Override
-		public Adapter caseSecurityLevel(SecurityLevel object) {
-			return createSecurityLevelAdapter();
-		}
-
-		@Override
-		public Adapter caseTainttrackingRoot(TainttrackingRoot object) {
-			return createTainttrackingRootAdapter();
-		}
-
-		@Override
-		public Adapter caseConfiguration(Configuration object) {
-			return createConfigurationAdapter();
-		}
-
-		@Override
-		public Adapter caseSecurityLevelAnnotation(SecurityLevelAnnotation object) {
-			return createSecurityLevelAnnotationAdapter();
-		}
-
-		@Override
-		public Adapter caseParameterAnnotation(ParameterAnnotation object) {
-			return createParameterAnnotationAdapter();
-		}
-
-		@Override
-		public Adapter caseAllowedFlow(AllowedFlow object) {
-			return createAllowedFlowAdapter();
-		}
-
-		@Override
-		public Adapter caseIdentifiedElement(IdentifiedElement object) {
-			return createIdentifiedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseEntity(Entity object) {
-			return createEntityAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected TainttrackingSwitch<Adapter> modelSwitch =
+		new TainttrackingSwitch<Adapter>() {
+			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseParameterNode(ParameterNode object) {
+				return createParameterNodeAdapter();
+			}
+			@Override
+			public Adapter caseSecurityLevel(SecurityLevel object) {
+				return createSecurityLevelAdapter();
+			}
+			@Override
+			public Adapter caseTainttrackingRoot(TainttrackingRoot object) {
+				return createTainttrackingRootAdapter();
+			}
+			@Override
+			public Adapter caseConfiguration(Configuration object) {
+				return createConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseSecurityLevelAnnotation(SecurityLevelAnnotation object) {
+				return createSecurityLevelAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseFieldAnnotation(FieldAnnotation object) {
+				return createFieldAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseParameterAnnotation(ParameterAnnotation object) {
+				return createParameterAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseAllowedFlow(AllowedFlow object) {
+				return createAllowedFlowAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -141,8 +135,9 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node <em>Node</em>}'.
@@ -225,6 +220,20 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSecurityLevelAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation <em>Field Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation
+	 * @generated
+	 */
+	public Adapter createFieldAnnotationAdapter() {
 		return null;
 	}
 

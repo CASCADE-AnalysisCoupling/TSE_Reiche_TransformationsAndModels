@@ -9,6 +9,7 @@ import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
 
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.models.joana.FieldIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
@@ -113,6 +114,13 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	private EClass methodIdentifyingEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass fieldIdentifyingEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -151,14 +159,11 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	public static JoanaPackage init() {
-		if (isInited)
-			return (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
+		if (isInited) return (JoanaPackage)EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredJoanaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		JoanaPackageImpl theJoanaPackage = registeredJoanaPackage instanceof JoanaPackageImpl
-				? (JoanaPackageImpl) registeredJoanaPackage
-				: new JoanaPackageImpl();
+		JoanaPackageImpl theJoanaPackage = registeredJoanaPackage instanceof JoanaPackageImpl ? (JoanaPackageImpl)registeredJoanaPackage : new JoanaPackageImpl();
 
 		isInited = true;
 
@@ -185,7 +190,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getJOANARoot() {
 		return joanaRootEClass;
 	}
@@ -195,9 +199,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getJOANARoot_Entrypoint() {
-		return (EReference) joanaRootEClass.getEStructuralFeatures().get(0);
+		return (EReference)joanaRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -205,7 +208,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getInformationFlowAnnotation() {
 		return informationFlowAnnotationEClass;
 	}
@@ -215,9 +217,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getInformationFlowAnnotation_Level() {
-		return (EReference) informationFlowAnnotationEClass.getEStructuralFeatures().get(0);
+		return (EReference)informationFlowAnnotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -225,9 +226,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getInformationFlowAnnotation_SystemElementIdentification() {
-		return (EReference) informationFlowAnnotationEClass.getEStructuralFeatures().get(1);
+		return (EReference)informationFlowAnnotationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -235,7 +235,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEntryPoint() {
 		return entryPointEClass;
 	}
@@ -245,9 +244,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEntryPoint_Level() {
-		return (EReference) entryPointEClass.getEStructuralFeatures().get(0);
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -255,9 +253,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEntryPoint_Annotation() {
-		return (EReference) entryPointEClass.getEStructuralFeatures().get(1);
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -265,9 +262,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEntryPoint_Lattice() {
-		return (EReference) entryPointEClass.getEStructuralFeatures().get(2);
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -275,9 +271,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getEntryPoint_MethodIdentification() {
-		return (EReference) entryPointEClass.getEStructuralFeatures().get(3);
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -285,7 +280,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSource() {
 		return sourceEClass;
 	}
@@ -295,7 +289,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSink() {
 		return sinkEClass;
 	}
@@ -305,7 +298,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getLevel() {
 		return levelEClass;
 	}
@@ -315,7 +307,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getMayFlow() {
 		return mayFlowEClass;
 	}
@@ -325,9 +316,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMayFlow_From() {
-		return (EReference) mayFlowEClass.getEStructuralFeatures().get(0);
+		return (EReference)mayFlowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -335,9 +325,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMayFlow_To() {
-		return (EReference) mayFlowEClass.getEStructuralFeatures().get(1);
+		return (EReference)mayFlowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -345,7 +334,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getLattice() {
 		return latticeEClass;
 	}
@@ -355,9 +343,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getLattice_MayFlow() {
-		return (EReference) latticeEClass.getEStructuralFeatures().get(0);
+		return (EReference)latticeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -365,7 +352,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSystemElementIdentifying() {
 		return systemElementIdentifyingEClass;
 	}
@@ -375,7 +361,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getParametertIdentifying() {
 		return parametertIdentifyingEClass;
 	}
@@ -385,9 +370,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getParametertIdentifying_Parameter() {
-		return (EReference) parametertIdentifyingEClass.getEStructuralFeatures().get(0);
+		return (EReference)parametertIdentifyingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -395,7 +379,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getMethodIdentifying() {
 		return methodIdentifyingEClass;
 	}
@@ -405,9 +388,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMethodIdentifying_Method() {
-		return (EReference) methodIdentifyingEClass.getEStructuralFeatures().get(0);
+		return (EReference)methodIdentifyingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -415,9 +397,26 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EClass getFieldIdentifying() {
+		return fieldIdentifyingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFieldIdentifying_Field() {
+		return (EReference)fieldIdentifyingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JoanaFactory getJoanaFactory() {
-		return (JoanaFactory) getEFactoryInstance();
+		return (JoanaFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -435,8 +434,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -473,6 +471,9 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		methodIdentifyingEClass = createEClass(METHOD_IDENTIFYING);
 		createEReference(methodIdentifyingEClass, METHOD_IDENTIFYING__METHOD);
+
+		fieldIdentifyingEClass = createEClass(FIELD_IDENTIFYING);
+		createEReference(fieldIdentifyingEClass, FIELD_IDENTIFYING__FIELD);
 	}
 
 	/**
@@ -490,8 +491,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -500,10 +500,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
-				.getEPackage(IdentifierPackage.eNS_URI);
-		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
-				.getEPackage(MembersPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
+		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -516,38 +514,21 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		levelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		parametertIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifying());
 		methodIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifying());
+		fieldIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifying());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(joanaRootEClass, JOANARoot.class, "JOANARoot", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJOANARoot_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, -1,
-				JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(joanaRootEClass, JOANARoot.class, "JOANARoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJOANARoot_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, -1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(informationFlowAnnotationEClass, InformationFlowAnnotation.class, "InformationFlowAnnotation",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInformationFlowAnnotation_Level(), this.getLevel(), null, "level", null, 0, 1,
-				InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInformationFlowAnnotation_SystemElementIdentification(), this.getSystemElementIdentifying(),
-				null, "systemElementIdentification", null, 1, 1, InformationFlowAnnotation.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(informationFlowAnnotationEClass, InformationFlowAnnotation.class, "InformationFlowAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInformationFlowAnnotation_Level(), this.getLevel(), null, "level", null, 0, 1, InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInformationFlowAnnotation_SystemElementIdentification(), this.getSystemElementIdentifying(), null, "systemElementIdentification", null, 1, 1, InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntryPoint_Level(), this.getLevel(), null, "level", null, 0, -1, EntryPoint.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_Annotation(), this.getInformationFlowAnnotation(), null, "annotation", null, 0, -1,
-				EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, EntryPoint.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_MethodIdentification(), this.getMethodIdentifying(), null, "methodIdentification",
-				null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntryPoint_Level(), this.getLevel(), null, "level", null, 0, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Annotation(), this.getInformationFlowAnnotation(), null, "annotation", null, 0, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_MethodIdentification(), this.getMethodIdentifying(), null, "methodIdentification", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -556,32 +537,22 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		initEClass(levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(mayFlowEClass, MayFlow.class, "MayFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMayFlow_From(), this.getLevel(), null, "from", null, 1, 1, MayFlow.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getMayFlow_To(), this.getLevel(), null, "to", null, 1, 1, MayFlow.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getMayFlow_From(), this.getLevel(), null, "from", null, 1, 1, MayFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMayFlow_To(), this.getLevel(), null, "to", null, 1, 1, MayFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(latticeEClass, Lattice.class, "Lattice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLattice_MayFlow(), this.getMayFlow(), null, "mayFlow", null, 0, -1, Lattice.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLattice_MayFlow(), this.getMayFlow(), null, "mayFlow", null, 0, -1, Lattice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(systemElementIdentifyingEClass, SystemElementIdentifying.class, "SystemElementIdentifying",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(systemElementIdentifyingEClass, SystemElementIdentifying.class, "SystemElementIdentifying", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(parametertIdentifyingEClass, ParametertIdentifying.class, "ParametertIdentifying", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParametertIdentifying_Parameter(), theMembersPackage.getParameter(), null, "Parameter", null,
-				1, 1, ParametertIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parametertIdentifyingEClass, ParametertIdentifying.class, "ParametertIdentifying", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParametertIdentifying_Parameter(), theMembersPackage.getParameter(), null, "Parameter", null, 1, 1, ParametertIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(methodIdentifyingEClass, MethodIdentifying.class, "MethodIdentifying", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethodIdentifying_Method(), theMembersPackage.getMethod(), null, "method", null, 1, 1,
-				MethodIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(methodIdentifyingEClass, MethodIdentifying.class, "MethodIdentifying", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMethodIdentifying_Method(), theMembersPackage.getMethod(), null, "method", null, 1, 1, MethodIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(fieldIdentifyingEClass, FieldIdentifying.class, "FieldIdentifying", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFieldIdentifying_Field(), theMembersPackage.getField(), null, "field", null, 1, 1, FieldIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

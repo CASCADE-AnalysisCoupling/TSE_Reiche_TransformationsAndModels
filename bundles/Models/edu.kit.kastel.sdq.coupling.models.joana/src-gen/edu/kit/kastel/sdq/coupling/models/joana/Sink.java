@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sink</b></em>'.

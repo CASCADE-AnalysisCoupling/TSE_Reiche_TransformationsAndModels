@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
@@ -20,7 +21,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -52,42 +52,8 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAppliedSecurityLevelPropertyDescriptor(object);
-			addSecurityLevelAnnotationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Applied Security Level feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAppliedSecurityLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Configuration_appliedSecurityLevel_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Configuration_appliedSecurityLevel_feature",
-						"_UI_Configuration_type"),
-				TainttrackingPackage.Literals.CONFIGURATION__APPLIED_SECURITY_LEVEL, true, false, true, null, null,
-				null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Security Level Annotations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSecurityLevelAnnotationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Configuration_securityLevelAnnotations_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Configuration_securityLevelAnnotations_feature", "_UI_Configuration_type"),
-						TainttrackingPackage.Literals.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS, true, false, true,
-						null, null, null));
 	}
 
 	/**
@@ -102,6 +68,8 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(TainttrackingPackage.Literals.CONFIGURATION__APPLIED_SECURITY_LEVEL);
+			childrenFeatures.add(TainttrackingPackage.Literals.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS);
 			childrenFeatures.add(TainttrackingPackage.Literals.CONFIGURATION__ALLOWED_FLOWS);
 		}
 		return childrenFeatures;
@@ -132,16 +100,6 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,10 +107,12 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Configuration) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_Configuration_type")
-				: getString("_UI_Configuration_type") + " " + label;
+		String label = ((Configuration)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Configuration_type") :
+			getString("_UI_Configuration_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -166,9 +126,11 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Configuration.class)) {
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -184,8 +146,30 @@ public class ConfigurationItemProvider extends IdentifiedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(TainttrackingPackage.Literals.CONFIGURATION__ALLOWED_FLOWS,
-				TainttrackingFactory.eINSTANCE.createAllowedFlow()));
+		newChildDescriptors.add
+			(createChildParameter
+				(TainttrackingPackage.Literals.CONFIGURATION__APPLIED_SECURITY_LEVEL,
+				 TainttrackingFactory.eINSTANCE.createSecurityLevel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TainttrackingPackage.Literals.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS,
+				 TainttrackingFactory.eINSTANCE.createSecurityLevelAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TainttrackingPackage.Literals.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS,
+				 TainttrackingFactory.eINSTANCE.createFieldAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TainttrackingPackage.Literals.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS,
+				 TainttrackingFactory.eINSTANCE.createParameterAnnotation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TainttrackingPackage.Literals.CONFIGURATION__ALLOWED_FLOWS,
+				 TainttrackingFactory.eINSTANCE.createAllowedFlow()));
 	}
 
 	/**

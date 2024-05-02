@@ -75,15 +75,13 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Level getLevel() {
 		if (level != null && level.eIsProxy()) {
-			InternalEObject oldLevel = (InternalEObject) level;
-			level = (Level) eResolveProxy(oldLevel);
+			InternalEObject oldLevel = (InternalEObject)level;
+			level = (Level)eResolveProxy(oldLevel);
 			if (level != oldLevel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL, oldLevel, level));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL, oldLevel, level));
 			}
 		}
 		return level;
@@ -103,13 +101,11 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setLevel(Level newLevel) {
 		Level oldLevel = level;
 		level = newLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL,
-					oldLevel, level));
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL, oldLevel, level));
 	}
 
 	/**
@@ -117,7 +113,6 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public SystemElementIdentifying getSystemElementIdentification() {
 		return systemElementIdentification;
 	}
@@ -127,18 +122,12 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSystemElementIdentification(
-			SystemElementIdentifying newSystemElementIdentification, NotificationChain msgs) {
+	public NotificationChain basicSetSystemElementIdentification(SystemElementIdentifying newSystemElementIdentification, NotificationChain msgs) {
 		SystemElementIdentifying oldSystemElementIdentification = systemElementIdentification;
 		systemElementIdentification = newSystemElementIdentification;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
-					oldSystemElementIdentification, newSystemElementIdentification);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, oldSystemElementIdentification, newSystemElementIdentification);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -148,23 +137,18 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setSystemElementIdentification(SystemElementIdentifying newSystemElementIdentification) {
 		if (newSystemElementIdentification != systemElementIdentification) {
 			NotificationChain msgs = null;
 			if (systemElementIdentification != null)
-				msgs = ((InternalEObject) systemElementIdentification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, null, msgs);
+				msgs = ((InternalEObject)systemElementIdentification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, null, msgs);
 			if (newSystemElementIdentification != null)
-				msgs = ((InternalEObject) newSystemElementIdentification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, null, msgs);
+				msgs = ((InternalEObject)newSystemElementIdentification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, null, msgs);
 			msgs = basicSetSystemElementIdentification(newSystemElementIdentification, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
-					newSystemElementIdentification, newSystemElementIdentification));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION, newSystemElementIdentification, newSystemElementIdentification));
 	}
 
 	/**
@@ -175,8 +159,8 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			return basicSetSystemElementIdentification(null, msgs);
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				return basicSetSystemElementIdentification(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,12 +173,11 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
-			if (resolve)
-				return getLevel();
-			return basicGetLevel();
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			return getSystemElementIdentification();
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
+				if (resolve) return getLevel();
+				return basicGetLevel();
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				return getSystemElementIdentification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,12 +190,12 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
-			setLevel((Level) newValue);
-			return;
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			setSystemElementIdentification((SystemElementIdentifying) newValue);
-			return;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
+				setLevel((Level)newValue);
+				return;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				setSystemElementIdentification((SystemElementIdentifying)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -225,12 +208,12 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
-			setLevel((Level) null);
-			return;
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			setSystemElementIdentification((SystemElementIdentifying) null);
-			return;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
+				setLevel((Level)null);
+				return;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				setSystemElementIdentification((SystemElementIdentifying)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -243,10 +226,10 @@ public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
-			return level != null;
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			return systemElementIdentification != null;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__LEVEL:
+				return level != null;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				return systemElementIdentification != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -4,6 +4,9 @@
   <semanticResources>platform:/resource/org.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
   <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.ecore</semanticResources>
   <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
+  <semanticResources>codeql.genmodel</semanticResources>
+  <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
+  <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" uid="_0SxckGkREe64KdIUn8co6g">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
   </ownedViews>

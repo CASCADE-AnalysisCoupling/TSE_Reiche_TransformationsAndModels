@@ -91,14 +91,11 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * @generated
 	 */
 	public static MembersPackage init() {
-		if (isInited)
-			return (MembersPackage) EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+		if (isInited) return (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredMembersPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		MembersPackageImpl theMembersPackage = registeredMembersPackage instanceof MembersPackageImpl
-				? (MembersPackageImpl) registeredMembersPackage
-				: new MembersPackageImpl();
+		MembersPackageImpl theMembersPackage = registeredMembersPackage instanceof MembersPackageImpl ? (MembersPackageImpl)registeredMembersPackage : new MembersPackageImpl();
 
 		isInited = true;
 
@@ -107,13 +104,9 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaPackage.eNS_URI);
-		JavaPackageImpl theJavaPackage = (JavaPackageImpl) (registeredPackage instanceof JavaPackageImpl
-				? registeredPackage
-				: JavaPackage.eINSTANCE);
+		JavaPackageImpl theJavaPackage = (JavaPackageImpl)(registeredPackage instanceof JavaPackageImpl ? registeredPackage : JavaPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl) (registeredPackage instanceof TypesPackageImpl
-				? registeredPackage
-				: TypesPackage.eINSTANCE);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(registeredPackage instanceof TypesPackageImpl ? registeredPackage : TypesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theMembersPackage.createPackageContents();
@@ -138,7 +131,6 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getField() {
 		return fieldEClass;
 	}
@@ -148,7 +140,6 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getMethod() {
 		return methodEClass;
 	}
@@ -158,9 +149,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMethod_Returntype() {
-		return (EReference) methodEClass.getEStructuralFeatures().get(0);
+		return (EReference)methodEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -168,9 +158,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMethod_Parameter() {
-		return (EReference) methodEClass.getEStructuralFeatures().get(1);
+		return (EReference)methodEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -178,7 +167,6 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -188,9 +176,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public MembersFactory getMembersFactory() {
-		return (MembersFactory) getEFactoryInstance();
+		return (MembersFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -208,8 +195,7 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -237,8 +223,7 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -247,9 +232,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TypesPackage theTypesPackage = (TypesPackage) EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
-				.getEPackage(IdentifierPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -266,15 +250,10 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethod_Returntype(), theTypesPackage.getType(), null, "returntype", null, 0, 1, Method.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Method.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Returntype(), theTypesPackage.getType(), null, "returntype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //MembersPackageImpl

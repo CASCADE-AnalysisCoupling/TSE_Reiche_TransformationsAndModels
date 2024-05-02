@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.impl.CodeqlPackageImpl;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode;
@@ -83,6 +84,13 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass fieldAnnotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass parameterAnnotationEClass = null;
 
 	/**
@@ -110,7 +118,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	private TainttrackingPackageImpl() {
 		super(eNS_URI, TainttrackingFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,14 +138,11 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * @generated
 	 */
 	public static TainttrackingPackage init() {
-		if (isInited)
-			return (TainttrackingPackage) EPackage.Registry.INSTANCE.getEPackage(TainttrackingPackage.eNS_URI);
+		if (isInited) return (TainttrackingPackage)EPackage.Registry.INSTANCE.getEPackage(TainttrackingPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredTainttrackingPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		TainttrackingPackageImpl theTainttrackingPackage = registeredTainttrackingPackage instanceof TainttrackingPackageImpl
-				? (TainttrackingPackageImpl) registeredTainttrackingPackage
-				: new TainttrackingPackageImpl();
+		TainttrackingPackageImpl theTainttrackingPackage = registeredTainttrackingPackage instanceof TainttrackingPackageImpl ? (TainttrackingPackageImpl)registeredTainttrackingPackage : new TainttrackingPackageImpl();
 
 		isInited = true;
 
@@ -148,9 +152,7 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodeqlPackage.eNS_URI);
-		CodeqlPackageImpl theCodeqlPackage = (CodeqlPackageImpl) (registeredPackage instanceof CodeqlPackageImpl
-				? registeredPackage
-				: CodeqlPackage.eINSTANCE);
+		CodeqlPackageImpl theCodeqlPackage = (CodeqlPackageImpl)(registeredPackage instanceof CodeqlPackageImpl ? registeredPackage : CodeqlPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTainttrackingPackage.createPackageContents();
@@ -173,7 +175,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -183,7 +184,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getParameterNode() {
 		return parameterNodeEClass;
 	}
@@ -193,9 +193,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getParameterNode_Parameter() {
-		return (EReference) parameterNodeEClass.getEStructuralFeatures().get(0);
+		return (EReference)parameterNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -203,7 +202,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSecurityLevel() {
 		return securityLevelEClass;
 	}
@@ -213,7 +211,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getTainttrackingRoot() {
 		return tainttrackingRootEClass;
 	}
@@ -223,9 +220,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getTainttrackingRoot_Nodes() {
-		return (EReference) tainttrackingRootEClass.getEStructuralFeatures().get(0);
+		return (EReference)tainttrackingRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -233,9 +229,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getTainttrackingRoot_Configurations() {
-		return (EReference) tainttrackingRootEClass.getEStructuralFeatures().get(1);
+		return (EReference)tainttrackingRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -243,7 +238,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getConfiguration() {
 		return configurationEClass;
 	}
@@ -253,9 +247,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getConfiguration_AppliedSecurityLevel() {
-		return (EReference) configurationEClass.getEStructuralFeatures().get(0);
+		return (EReference)configurationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -263,9 +256,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getConfiguration_SecurityLevelAnnotations() {
-		return (EReference) configurationEClass.getEStructuralFeatures().get(1);
+		return (EReference)configurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -273,9 +265,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getConfiguration_AllowedFlows() {
-		return (EReference) configurationEClass.getEStructuralFeatures().get(2);
+		return (EReference)configurationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -283,7 +274,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSecurityLevelAnnotation() {
 		return securityLevelAnnotationEClass;
 	}
@@ -293,9 +283,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSecurityLevelAnnotation_SecurityLevel() {
-		return (EReference) securityLevelAnnotationEClass.getEStructuralFeatures().get(0);
+		return (EReference)securityLevelAnnotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -303,7 +292,24 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EClass getFieldAnnotation() {
+		return fieldAnnotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFieldAnnotation_Field() {
+		return (EReference)fieldAnnotationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParameterAnnotation() {
 		return parameterAnnotationEClass;
 	}
@@ -313,9 +319,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getParameterAnnotation_Parameter() {
-		return (EReference) parameterAnnotationEClass.getEStructuralFeatures().get(0);
+		return (EReference)parameterAnnotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -323,7 +328,6 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getAllowedFlow() {
 		return allowedFlowEClass;
 	}
@@ -333,9 +337,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getAllowedFlow_From() {
-		return (EReference) allowedFlowEClass.getEStructuralFeatures().get(0);
+		return (EReference)allowedFlowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -343,9 +346,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getAllowedFlow_To() {
-		return (EReference) allowedFlowEClass.getEStructuralFeatures().get(1);
+		return (EReference)allowedFlowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -353,9 +355,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TainttrackingFactory getTainttrackingFactory() {
-		return (TainttrackingFactory) getEFactoryInstance();
+		return (TainttrackingFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -373,8 +374,7 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -396,6 +396,9 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 
 		securityLevelAnnotationEClass = createEClass(SECURITY_LEVEL_ANNOTATION);
 		createEReference(securityLevelAnnotationEClass, SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL);
+
+		fieldAnnotationEClass = createEClass(FIELD_ANNOTATION);
+		createEReference(fieldAnnotationEClass, FIELD_ANNOTATION__FIELD);
 
 		parameterAnnotationEClass = createEClass(PARAMETER_ANNOTATION);
 		createEReference(parameterAnnotationEClass, PARAMETER_ANNOTATION__PARAMETER);
@@ -420,8 +423,7 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -430,10 +432,8 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
-				.getEPackage(IdentifierPackage.eNS_URI);
-		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
-				.getEPackage(MembersPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
+		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -445,61 +445,38 @@ public class TainttrackingPackageImpl extends EPackageImpl implements Tainttrack
 		securityLevelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		configurationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
 		securityLevelAnnotationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifiedElement());
+		fieldAnnotationEClass.getESuperTypes().add(this.getSecurityLevelAnnotation());
 		parameterAnnotationEClass.getESuperTypes().add(this.getSecurityLevelAnnotation());
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(parameterNodeEClass, ParameterNode.class, "ParameterNode", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterNode_Parameter(), theMembersPackage.getParameter(), null, "parameter", null, 1, 1,
-				ParameterNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterNodeEClass, ParameterNode.class, "ParameterNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterNode_Parameter(), theMembersPackage.getParameter(), null, "parameter", null, 1, 1, ParameterNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(securityLevelEClass, SecurityLevel.class, "SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(securityLevelEClass, SecurityLevel.class, "SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(tainttrackingRootEClass, TainttrackingRoot.class, "TainttrackingRoot", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTainttrackingRoot_Nodes(), this.getNode(), null, "nodes", null, 0, -1,
-				TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTainttrackingRoot_Configurations(), this.getConfiguration(), null, "configurations", null, 0,
-				-1, TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tainttrackingRootEClass, TainttrackingRoot.class, "TainttrackingRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTainttrackingRoot_Nodes(), this.getNode(), null, "nodes", null, 0, -1, TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTainttrackingRoot_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, TainttrackingRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfiguration_AppliedSecurityLevel(), this.getSecurityLevel(), null, "appliedSecurityLevel",
-				null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_SecurityLevelAnnotations(), this.getSecurityLevelAnnotation(), null,
-				"securityLevelAnnotations", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_AllowedFlows(), this.getAllowedFlow(), null, "allowedFlows", null, 0, -1,
-				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConfiguration_AppliedSecurityLevel(), this.getSecurityLevel(), null, "appliedSecurityLevel", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_SecurityLevelAnnotations(), this.getSecurityLevelAnnotation(), null, "securityLevelAnnotations", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_AllowedFlows(), this.getAllowedFlow(), null, "allowedFlows", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(securityLevelAnnotationEClass, SecurityLevelAnnotation.class, "SecurityLevelAnnotation",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityLevelAnnotation_SecurityLevel(), this.getSecurityLevel(), null, "securityLevel", null,
-				1, 1, SecurityLevelAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(securityLevelAnnotationEClass, SecurityLevelAnnotation.class, "SecurityLevelAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecurityLevelAnnotation_SecurityLevel(), this.getSecurityLevel(), null, "securityLevel", null, 1, 1, SecurityLevelAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterAnnotationEClass, ParameterAnnotation.class, "ParameterAnnotation", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterAnnotation_Parameter(), theMembersPackage.getParameter(), null, "parameter", null, 1,
-				1, ParameterAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(fieldAnnotationEClass, FieldAnnotation.class, "FieldAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFieldAnnotation_Field(), theMembersPackage.getField(), null, "field", null, 1, 1, FieldAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(allowedFlowEClass, AllowedFlow.class, "AllowedFlow", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAllowedFlow_From(), this.getSecurityLevel(), null, "from", null, 1, 1, AllowedFlow.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAllowedFlow_To(), this.getSecurityLevel(), null, "to", null, 1, 1, AllowedFlow.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterAnnotationEClass, ParameterAnnotation.class, "ParameterAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterAnnotation_Parameter(), theMembersPackage.getParameter(), null, "parameter", null, 1, 1, ParameterAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(allowedFlowEClass, AllowedFlow.class, "AllowedFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAllowedFlow_From(), this.getSecurityLevel(), null, "from", null, 1, 1, AllowedFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAllowedFlow_To(), this.getSecurityLevel(), null, "to", null, 1, 1, AllowedFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //TainttrackingPackageImpl

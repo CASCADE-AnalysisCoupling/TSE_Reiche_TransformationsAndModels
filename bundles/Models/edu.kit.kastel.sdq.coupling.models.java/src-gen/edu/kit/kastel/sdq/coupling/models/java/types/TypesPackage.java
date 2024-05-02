@@ -491,6 +491,7 @@ public interface TypesPackage extends EPackage {
 	 */
 	int PRIMITIVE_TYPE_KINDS = 8;
 
+
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.java.types.ReferenceType <em>Reference Type</em>}'.
 	 * <!-- begin-user-doc -->

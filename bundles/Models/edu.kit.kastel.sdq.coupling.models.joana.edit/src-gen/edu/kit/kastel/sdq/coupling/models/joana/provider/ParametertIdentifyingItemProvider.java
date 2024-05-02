@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
 
 import java.util.Collection;
@@ -53,12 +54,19 @@ public class ParametertIdentifyingItemProvider extends SystemElementIdentifyingI
 	 * @generated
 	 */
 	protected void addParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ParametertIdentifying_Parameter_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ParametertIdentifying_Parameter_feature",
-								"_UI_ParametertIdentifying_type"),
-						JoanaPackage.Literals.PARAMETERT_IDENTIFYING__PARAMETER, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParametertIdentifying_Parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParametertIdentifying_Parameter_feature", "_UI_ParametertIdentifying_type"),
+				 JoanaPackage.Literals.PARAMETERT_IDENTIFYING__PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -73,16 +81,6 @@ public class ParametertIdentifyingItemProvider extends SystemElementIdentifyingI
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +90,7 @@ public class ParametertIdentifyingItemProvider extends SystemElementIdentifyingI
 	public String getText(Object object) {
 		return getString("_UI_ParametertIdentifying_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

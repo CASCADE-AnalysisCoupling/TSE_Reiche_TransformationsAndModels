@@ -66,15 +66,13 @@ public class CodeqlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case CodeqlPackage.CODE_QL_ROOT: {
-			CodeQLRoot codeQLRoot = (CodeQLRoot) theEObject;
-			T result = caseCodeQLRoot(codeQLRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case CodeqlPackage.CODE_QL_ROOT: {
+				CodeQLRoot codeQLRoot = (CodeQLRoot)theEObject;
+				T result = caseCodeQLRoot(codeQLRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

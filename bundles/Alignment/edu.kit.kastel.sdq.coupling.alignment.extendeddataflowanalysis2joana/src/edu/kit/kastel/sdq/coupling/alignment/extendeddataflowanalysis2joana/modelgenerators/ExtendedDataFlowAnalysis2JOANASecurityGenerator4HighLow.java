@@ -7,6 +7,7 @@ import java.util.List;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.util.EDFAJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
@@ -36,7 +37,10 @@ public class ExtendedDataFlowAnalysis2JOANASecurityGenerator4HighLow
 		Collection<Level> levels = new ArrayList<Level>();
 		
 		for(Literal lit : literals) {
-			levels.add(JOANAModelGenerationUtil.generateLevel(lit.getName()));
+			Level level = JOANAModelGenerationUtil.generateLevel(lit.getName());
+			levels.add(level);
+			
+			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(List.of(lit), level, edfaJoanaCorrespondences);
 		}
 		
 		return levels;

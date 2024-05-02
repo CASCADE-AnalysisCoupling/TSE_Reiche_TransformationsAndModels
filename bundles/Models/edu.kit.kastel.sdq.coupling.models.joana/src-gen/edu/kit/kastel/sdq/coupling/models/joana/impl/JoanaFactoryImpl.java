@@ -27,11 +27,12 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 */
 	public static JoanaFactory init() {
 		try {
-			JoanaFactory theJoanaFactory = (JoanaFactory) EPackage.Registry.INSTANCE.getEFactory(JoanaPackage.eNS_URI);
+			JoanaFactory theJoanaFactory = (JoanaFactory)EPackage.Registry.INSTANCE.getEFactory(JoanaPackage.eNS_URI);
 			if (theJoanaFactory != null) {
 				return theJoanaFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new JoanaFactoryImpl();
@@ -55,28 +56,19 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case JoanaPackage.JOANA_ROOT:
-			return createJOANARoot();
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION:
-			return createInformationFlowAnnotation();
-		case JoanaPackage.ENTRY_POINT:
-			return createEntryPoint();
-		case JoanaPackage.SOURCE:
-			return createSource();
-		case JoanaPackage.SINK:
-			return createSink();
-		case JoanaPackage.LEVEL:
-			return createLevel();
-		case JoanaPackage.MAY_FLOW:
-			return createMayFlow();
-		case JoanaPackage.LATTICE:
-			return createLattice();
-		case JoanaPackage.PARAMETERT_IDENTIFYING:
-			return createParametertIdentifying();
-		case JoanaPackage.METHOD_IDENTIFYING:
-			return createMethodIdentifying();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case JoanaPackage.JOANA_ROOT: return createJOANARoot();
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION: return createInformationFlowAnnotation();
+			case JoanaPackage.ENTRY_POINT: return createEntryPoint();
+			case JoanaPackage.SOURCE: return createSource();
+			case JoanaPackage.SINK: return createSink();
+			case JoanaPackage.LEVEL: return createLevel();
+			case JoanaPackage.MAY_FLOW: return createMayFlow();
+			case JoanaPackage.LATTICE: return createLattice();
+			case JoanaPackage.PARAMETERT_IDENTIFYING: return createParametertIdentifying();
+			case JoanaPackage.METHOD_IDENTIFYING: return createMethodIdentifying();
+			case JoanaPackage.FIELD_IDENTIFYING: return createFieldIdentifying();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -85,7 +77,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public JOANARoot createJOANARoot() {
 		JOANARootImpl joanaRoot = new JOANARootImpl();
 		return joanaRoot;
@@ -96,7 +87,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public InformationFlowAnnotation createInformationFlowAnnotation() {
 		InformationFlowAnnotationImpl informationFlowAnnotation = new InformationFlowAnnotationImpl();
 		return informationFlowAnnotation;
@@ -107,7 +97,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EntryPoint createEntryPoint() {
 		EntryPointImpl entryPoint = new EntryPointImpl();
 		return entryPoint;
@@ -118,7 +107,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Source createSource() {
 		SourceImpl source = new SourceImpl();
 		return source;
@@ -129,7 +117,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Sink createSink() {
 		SinkImpl sink = new SinkImpl();
 		return sink;
@@ -140,7 +127,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Level createLevel() {
 		LevelImpl level = new LevelImpl();
 		return level;
@@ -151,7 +137,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public MayFlow createMayFlow() {
 		MayFlowImpl mayFlow = new MayFlowImpl();
 		return mayFlow;
@@ -162,7 +147,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Lattice createLattice() {
 		LatticeImpl lattice = new LatticeImpl();
 		return lattice;
@@ -173,7 +157,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ParametertIdentifying createParametertIdentifying() {
 		ParametertIdentifyingImpl parametertIdentifying = new ParametertIdentifyingImpl();
 		return parametertIdentifying;
@@ -184,7 +167,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public MethodIdentifying createMethodIdentifying() {
 		MethodIdentifyingImpl methodIdentifying = new MethodIdentifyingImpl();
 		return methodIdentifying;
@@ -195,9 +177,18 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public FieldIdentifying createFieldIdentifying() {
+		FieldIdentifyingImpl fieldIdentifying = new FieldIdentifyingImpl();
+		return fieldIdentifying;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JoanaPackage getJoanaPackage() {
-		return (JoanaPackage) getEPackage();
+		return (JoanaPackage)getEPackage();
 	}
 
 	/**

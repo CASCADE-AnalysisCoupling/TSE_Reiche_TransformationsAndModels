@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage;
@@ -32,8 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class InformationFlowAnnotationItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,12 +74,19 @@ public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter i
 	 * @generated
 	 */
 	protected void addLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_InformationFlowAnnotation_level_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_InformationFlowAnnotation_level_feature",
-								"_UI_InformationFlowAnnotation_type"),
-						JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__LEVEL, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InformationFlowAnnotation_level_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InformationFlowAnnotation_level_feature", "_UI_InformationFlowAnnotation_type"),
+				 JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__LEVEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -117,16 +131,6 @@ public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +140,7 @@ public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter i
 	public String getText(Object object) {
 		return getString("_UI_InformationFlowAnnotation_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -149,9 +154,9 @@ public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter i
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(InformationFlowAnnotation.class)) {
-		case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case JoanaPackage.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,13 +172,20 @@ public class InformationFlowAnnotationItemProvider extends ItemProviderAdapter i
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-				createChildParameter(JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
-						JoanaFactory.eINSTANCE.createParametertIdentifying()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
+				 JoanaFactory.eINSTANCE.createParametertIdentifying()));
 
-		newChildDescriptors.add(
-				createChildParameter(JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
-						JoanaFactory.eINSTANCE.createMethodIdentifying()));
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
+				 JoanaFactory.eINSTANCE.createMethodIdentifying()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JoanaPackage.Literals.INFORMATION_FLOW_ANNOTATION__SYSTEM_ELEMENT_IDENTIFICATION,
+				 JoanaFactory.eINSTANCE.createFieldIdentifying()));
 	}
 
 	/**

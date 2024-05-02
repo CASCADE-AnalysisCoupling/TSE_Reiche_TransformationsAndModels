@@ -2,8 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joana.provider;
 
-import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
 
+import edu.kit.kastel.sdq.coupling.models.identifier.provider.EntityItemProvider;
+import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
 import java.util.Collection;
@@ -60,16 +61,6 @@ public class LevelItemProvider extends EntityItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,10 +68,15 @@ public class LevelItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Level) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Level_type")
-				: getString("_UI_Level_type") + " " + label;
+		Level level = ((Level)object);
+		String levelName = level.getName();
+		String entryPointTag = ((EntryPoint)level.eContainer()).getId();
+		String label = "%s : EntryPoint %s".formatted(levelName, entryPointTag);
+		return label == null || label.length() == 0 ?
+			getString("_UI_Level_type") :
+			getString("_UI_Level_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

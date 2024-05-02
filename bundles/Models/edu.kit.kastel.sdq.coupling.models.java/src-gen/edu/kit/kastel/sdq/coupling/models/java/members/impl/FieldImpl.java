@@ -97,7 +97,6 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getId() {
 		return id;
 	}
@@ -107,7 +106,6 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -120,7 +118,6 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -130,7 +127,6 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -146,10 +142,10 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MembersPackage.FIELD__ID:
-			return getId();
-		case MembersPackage.FIELD__NAME:
-			return getName();
+			case MembersPackage.FIELD__ID:
+				return getId();
+			case MembersPackage.FIELD__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,12 +158,12 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MembersPackage.FIELD__ID:
-			setId((String) newValue);
-			return;
-		case MembersPackage.FIELD__NAME:
-			setName((String) newValue);
-			return;
+			case MembersPackage.FIELD__ID:
+				setId((String)newValue);
+				return;
+			case MembersPackage.FIELD__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,12 +176,12 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MembersPackage.FIELD__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case MembersPackage.FIELD__NAME:
-			setName(NAME_EDEFAULT);
-			return;
+			case MembersPackage.FIELD__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case MembersPackage.FIELD__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,10 +194,10 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MembersPackage.FIELD__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case MembersPackage.FIELD__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MembersPackage.FIELD__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case MembersPackage.FIELD__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,24 +211,19 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IdentifiedElement.class) {
 			switch (derivedFeatureID) {
-			case MembersPackage.FIELD__ID:
-				return IdentifierPackage.IDENTIFIED_ELEMENT__ID;
-			default:
-				return -1;
+				case MembersPackage.FIELD__ID: return IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+				default: return -1;
 			}
 		}
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
-			case MembersPackage.FIELD__NAME:
-				return IdentifierPackage.NAMED_ELEMENT__NAME;
-			default:
-				return -1;
+				case MembersPackage.FIELD__NAME: return IdentifierPackage.NAMED_ELEMENT__NAME;
+				default: return -1;
 			}
 		}
 		if (baseClass == Entity.class) {
 			switch (derivedFeatureID) {
-			default:
-				return -1;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -247,24 +238,19 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IdentifiedElement.class) {
 			switch (baseFeatureID) {
-			case IdentifierPackage.IDENTIFIED_ELEMENT__ID:
-				return MembersPackage.FIELD__ID;
-			default:
-				return -1;
+				case IdentifierPackage.IDENTIFIED_ELEMENT__ID: return MembersPackage.FIELD__ID;
+				default: return -1;
 			}
 		}
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-			case IdentifierPackage.NAMED_ELEMENT__NAME:
-				return MembersPackage.FIELD__NAME;
-			default:
-				return -1;
+				case IdentifierPackage.NAMED_ELEMENT__NAME: return MembersPackage.FIELD__NAME;
+				default: return -1;
 			}
 		}
 		if (baseClass == Entity.class) {
 			switch (baseFeatureID) {
-			default:
-				return -1;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -277,8 +263,7 @@ public class FieldImpl extends TypedElementImpl implements Field {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");

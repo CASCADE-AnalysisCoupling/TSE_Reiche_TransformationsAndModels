@@ -92,11 +92,9 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SecurityLevel> getAppliedSecurityLevel() {
 		if (appliedSecurityLevel == null) {
-			appliedSecurityLevel = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this,
-					TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL);
+			appliedSecurityLevel = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this, TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL);
 		}
 		return appliedSecurityLevel;
 	}
@@ -106,12 +104,9 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<SecurityLevelAnnotation> getSecurityLevelAnnotations() {
 		if (securityLevelAnnotations == null) {
-			securityLevelAnnotations = new EObjectContainmentEList<SecurityLevelAnnotation>(
-					SecurityLevelAnnotation.class, this,
-					TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS);
+			securityLevelAnnotations = new EObjectContainmentEList<SecurityLevelAnnotation>(SecurityLevelAnnotation.class, this, TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS);
 		}
 		return securityLevelAnnotations;
 	}
@@ -121,11 +116,9 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<AllowedFlow> getAllowedFlows() {
 		if (allowedFlows == null) {
-			allowedFlows = new EObjectContainmentEList<AllowedFlow>(AllowedFlow.class, this,
-					TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS);
+			allowedFlows = new EObjectContainmentEList<AllowedFlow>(AllowedFlow.class, this, TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS);
 		}
 		return allowedFlows;
 	}
@@ -138,12 +131,12 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
-			return ((InternalEList<?>) getAppliedSecurityLevel()).basicRemove(otherEnd, msgs);
-		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
-			return ((InternalEList<?>) getSecurityLevelAnnotations()).basicRemove(otherEnd, msgs);
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			return ((InternalEList<?>) getAllowedFlows()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+				return ((InternalEList<?>)getAppliedSecurityLevel()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+				return ((InternalEList<?>)getSecurityLevelAnnotations()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				return ((InternalEList<?>)getAllowedFlows()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,12 +149,12 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
-			return getAppliedSecurityLevel();
-		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
-			return getSecurityLevelAnnotations();
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			return getAllowedFlows();
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+				return getAppliedSecurityLevel();
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+				return getSecurityLevelAnnotations();
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				return getAllowedFlows();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,18 +168,18 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
-			getAppliedSecurityLevel().clear();
-			getAppliedSecurityLevel().addAll((Collection<? extends SecurityLevel>) newValue);
-			return;
-		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
-			getSecurityLevelAnnotations().clear();
-			getSecurityLevelAnnotations().addAll((Collection<? extends SecurityLevelAnnotation>) newValue);
-			return;
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			getAllowedFlows().clear();
-			getAllowedFlows().addAll((Collection<? extends AllowedFlow>) newValue);
-			return;
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+				getAppliedSecurityLevel().clear();
+				getAppliedSecurityLevel().addAll((Collection<? extends SecurityLevel>)newValue);
+				return;
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+				getSecurityLevelAnnotations().clear();
+				getSecurityLevelAnnotations().addAll((Collection<? extends SecurityLevelAnnotation>)newValue);
+				return;
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				getAllowedFlows().clear();
+				getAllowedFlows().addAll((Collection<? extends AllowedFlow>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,15 +192,15 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
-			getAppliedSecurityLevel().clear();
-			return;
-		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
-			getSecurityLevelAnnotations().clear();
-			return;
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			getAllowedFlows().clear();
-			return;
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+				getAppliedSecurityLevel().clear();
+				return;
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+				getSecurityLevelAnnotations().clear();
+				return;
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				getAllowedFlows().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,12 +213,12 @@ public class ConfigurationImpl extends IdentifiedElementImpl implements Configur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
-			return appliedSecurityLevel != null && !appliedSecurityLevel.isEmpty();
-		case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
-			return securityLevelAnnotations != null && !securityLevelAnnotations.isEmpty();
-		case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
-			return allowedFlows != null && !allowedFlows.isEmpty();
+			case TainttrackingPackage.CONFIGURATION__APPLIED_SECURITY_LEVEL:
+				return appliedSecurityLevel != null && !appliedSecurityLevel.isEmpty();
+			case TainttrackingPackage.CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS:
+				return securityLevelAnnotations != null && !securityLevelAnnotations.isEmpty();
+			case TainttrackingPackage.CONFIGURATION__ALLOWED_FLOWS:
+				return allowedFlows != null && !allowedFlows.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

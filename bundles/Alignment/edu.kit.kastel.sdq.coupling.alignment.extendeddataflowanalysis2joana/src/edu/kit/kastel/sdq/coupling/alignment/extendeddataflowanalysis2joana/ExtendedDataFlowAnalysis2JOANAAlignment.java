@@ -12,7 +12,6 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.modelgenerators.ExtendedDataFlowAnalysis2JOANAModelsGenerator;
-import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.TravelPlannerPaths;
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators.JOANAClassOrInterfaceTypeCodeGenerator;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -29,7 +28,7 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 	
 	public ExtendedDataFlowAnalysis2JOANAAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath, String caseStudy) {
+			String joanaModelPath, String correspondenceModelPath, String policyStyle, String edfaCodeQLCorrespondencesPath) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -39,7 +38,8 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		this.javaModelPath = javaModelPath;
 		this.joanaModelPath = joanaModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
-		ExtendedDataFlowAnalysis2JOANAAlignment.caseStudy = caseStudy;
+		ExtendedDataFlowAnalysis2JOANAAlignment.policyStyle = policyStyle;
+		this.edfaCodeQLCorrespondencesPath = edfaCodeQLCorrespondencesPath;
 	}
 
 	private final String repositoryPath;
@@ -50,7 +50,8 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 	private final String javaModelPath;
 	private final String joanaModelPath;
 	private final String correspondenceModelPath;
-	public static String caseStudy;
+	public static String policyStyle;
+	private final String edfaCodeQLCorrespondencesPath;
 	
 	private static final String JAVA_CODE_FILE_ENDING = "java";
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";
@@ -64,8 +65,11 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		PCMDataDictionary dictionary = models.getDataDictionary();
 		
 		ExtendedDataFlowAnalysis2JOANAModelsGenerator modelGenerator = new ExtendedDataFlowAnalysis2JOANAModelsGenerator();
-		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, parameterAnnotations, dictionary, codeBasePackageName);
-		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath);
+		modelGenerator.generateJOANAModels(correspondences, repo, parameterAnnotations, dictionary, codeBasePackageName);
+		
+		OutputModels output = new OutputModels(modelGenerator.getJavaRoot(), modelGenerator.getJoanaRoot(), correspondences, modelGenerator.getEDFACodeQLCorrespondences());
+		
+		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath, edfaCodeQLCorrespondencesPath);
 		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
 		generateAndPrintEntryPointIDFile(modelGenerator);
 		

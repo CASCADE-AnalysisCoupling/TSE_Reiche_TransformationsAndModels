@@ -31,6 +31,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
           eType="#//tainttracking/SecurityLevel"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FieldAnnotation" eSuperTypes="#//tainttracking/SecurityLevelAnnotation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1"
+          eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Field"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterAnnotation" eSuperTypes="#//tainttracking/SecurityLevelAnnotation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>

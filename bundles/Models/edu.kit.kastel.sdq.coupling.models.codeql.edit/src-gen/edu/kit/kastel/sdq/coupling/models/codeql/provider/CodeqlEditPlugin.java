@@ -40,7 +40,11 @@ public final class CodeqlEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public CodeqlEditPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, });
+		super
+		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
+		     JavaEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**

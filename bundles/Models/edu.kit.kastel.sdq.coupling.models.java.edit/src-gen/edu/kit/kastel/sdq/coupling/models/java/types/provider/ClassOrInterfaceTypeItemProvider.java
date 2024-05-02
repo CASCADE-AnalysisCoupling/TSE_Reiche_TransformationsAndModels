@@ -2,6 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types.provider;
 
+
+import edu.kit.kastel.sdq.coupling.models.java.members.MembersFactory;
+
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
 import edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage;
 
@@ -11,8 +14,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType} object.
@@ -42,24 +47,25 @@ public class ClassOrInterfaceTypeItemProvider extends ReferenceTypeItemProvider 
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMethodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Method feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMethodPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ClassOrInterfaceType_method_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ClassOrInterfaceType_method_feature",
-								"_UI_ClassOrInterfaceType_type"),
-						TypesPackage.Literals.CLASS_OR_INTERFACE_TYPE__METHOD, true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(TypesPackage.Literals.CLASS_OR_INTERFACE_TYPE__METHOD);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -68,8 +74,11 @@ public class ClassOrInterfaceTypeItemProvider extends ReferenceTypeItemProvider 
 	 * @generated
 	 */
 	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -80,10 +89,12 @@ public class ClassOrInterfaceTypeItemProvider extends ReferenceTypeItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ClassOrInterfaceType) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ClassOrInterfaceType_type")
-				: getString("_UI_ClassOrInterfaceType_type") + " " + label;
+		String label = ((ClassOrInterfaceType)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ClassOrInterfaceType_type") :
+			getString("_UI_ClassOrInterfaceType_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -95,6 +106,12 @@ public class ClassOrInterfaceTypeItemProvider extends ReferenceTypeItemProvider 
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ClassOrInterfaceType.class)) {
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -108,6 +125,11 @@ public class ClassOrInterfaceTypeItemProvider extends ReferenceTypeItemProvider 
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.CLASS_OR_INTERFACE_TYPE__METHOD,
+				 MembersFactory.eINSTANCE.createMethod()));
 	}
 
 }

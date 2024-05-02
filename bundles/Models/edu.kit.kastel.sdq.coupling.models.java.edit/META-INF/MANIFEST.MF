@@ -8,6 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: edu.kit.kastel.sdq.coupling.models.java.members.provider,
  edu.kit.kastel.sdq.coupling.models.java.provider,
  edu.kit.kastel.sdq.coupling.models.java.types.provider

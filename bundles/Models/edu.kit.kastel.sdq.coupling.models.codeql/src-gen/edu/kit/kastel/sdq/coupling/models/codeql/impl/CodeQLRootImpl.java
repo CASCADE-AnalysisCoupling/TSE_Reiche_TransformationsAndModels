@@ -64,7 +64,6 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public TainttrackingRoot getTainttrackingRoot() {
 		return tainttrackingRoot;
 	}
@@ -78,12 +77,8 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 		TainttrackingRoot oldTainttrackingRoot = tainttrackingRoot;
 		tainttrackingRoot = newTainttrackingRoot;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, oldTainttrackingRoot, newTainttrackingRoot);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, oldTainttrackingRoot, newTainttrackingRoot);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -93,22 +88,18 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setTainttrackingRoot(TainttrackingRoot newTainttrackingRoot) {
 		if (newTainttrackingRoot != tainttrackingRoot) {
 			NotificationChain msgs = null;
 			if (tainttrackingRoot != null)
-				msgs = ((InternalEObject) tainttrackingRoot).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
+				msgs = ((InternalEObject)tainttrackingRoot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
 			if (newTainttrackingRoot != null)
-				msgs = ((InternalEObject) newTainttrackingRoot).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
+				msgs = ((InternalEObject)newTainttrackingRoot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, null, msgs);
 			msgs = basicSetTainttrackingRoot(newTainttrackingRoot, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT,
-					newTainttrackingRoot, newTainttrackingRoot));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT, newTainttrackingRoot, newTainttrackingRoot));
 	}
 
 	/**
@@ -119,8 +110,8 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			return basicSetTainttrackingRoot(null, msgs);
+			case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+				return basicSetTainttrackingRoot(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -133,8 +124,8 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			return getTainttrackingRoot();
+			case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+				return getTainttrackingRoot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,9 +138,9 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			setTainttrackingRoot((TainttrackingRoot) newValue);
-			return;
+			case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+				setTainttrackingRoot((TainttrackingRoot)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -162,9 +153,9 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			setTainttrackingRoot((TainttrackingRoot) null);
-			return;
+			case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+				setTainttrackingRoot((TainttrackingRoot)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -177,8 +168,8 @@ public class CodeQLRootImpl extends MinimalEObjectImpl.Container implements Code
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
-			return tainttrackingRoot != null;
+			case CodeqlPackage.CODE_QL_ROOT__TAINTTRACKING_ROOT:
+				return tainttrackingRoot != null;
 		}
 		return super.eIsSet(featureID);
 	}

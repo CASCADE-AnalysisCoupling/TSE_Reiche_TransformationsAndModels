@@ -79,7 +79,6 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Field> getField() {
 		if (field == null) {
 			field = new EObjectContainmentEList<Field>(Field.class, this, TypesPackage.CLASS__FIELD);
@@ -92,7 +91,6 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Interface> getImplements() {
 		if (implements_ == null) {
 			implements_ = new EObjectResolvingEList<Interface>(Interface.class, this, TypesPackage.CLASS__IMPLEMENTS);
@@ -108,8 +106,8 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TypesPackage.CLASS__FIELD:
-			return ((InternalEList<?>) getField()).basicRemove(otherEnd, msgs);
+			case TypesPackage.CLASS__FIELD:
+				return ((InternalEList<?>)getField()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -122,10 +120,10 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TypesPackage.CLASS__FIELD:
-			return getField();
-		case TypesPackage.CLASS__IMPLEMENTS:
-			return getImplements();
+			case TypesPackage.CLASS__FIELD:
+				return getField();
+			case TypesPackage.CLASS__IMPLEMENTS:
+				return getImplements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,14 +137,14 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TypesPackage.CLASS__FIELD:
-			getField().clear();
-			getField().addAll((Collection<? extends Field>) newValue);
-			return;
-		case TypesPackage.CLASS__IMPLEMENTS:
-			getImplements().clear();
-			getImplements().addAll((Collection<? extends Interface>) newValue);
-			return;
+			case TypesPackage.CLASS__FIELD:
+				getField().clear();
+				getField().addAll((Collection<? extends Field>)newValue);
+				return;
+			case TypesPackage.CLASS__IMPLEMENTS:
+				getImplements().clear();
+				getImplements().addAll((Collection<? extends Interface>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -159,12 +157,12 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TypesPackage.CLASS__FIELD:
-			getField().clear();
-			return;
-		case TypesPackage.CLASS__IMPLEMENTS:
-			getImplements().clear();
-			return;
+			case TypesPackage.CLASS__FIELD:
+				getField().clear();
+				return;
+			case TypesPackage.CLASS__IMPLEMENTS:
+				getImplements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -177,10 +175,10 @@ public class ClassImpl extends ClassOrInterfaceTypeImpl implements edu.kit.kaste
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TypesPackage.CLASS__FIELD:
-			return field != null && !field.isEmpty();
-		case TypesPackage.CLASS__IMPLEMENTS:
-			return implements_ != null && !implements_.isEmpty();
+			case TypesPackage.CLASS__FIELD:
+				return field != null && !field.isEmpty();
+			case TypesPackage.CLASS__IMPLEMENTS:
+				return implements_ != null && !implements_.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

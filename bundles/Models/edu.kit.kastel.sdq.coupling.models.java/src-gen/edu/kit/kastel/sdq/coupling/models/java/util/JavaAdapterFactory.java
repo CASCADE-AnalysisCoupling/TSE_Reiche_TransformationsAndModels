@@ -59,7 +59,7 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -70,37 +70,33 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JavaSwitch<Adapter> modelSwitch = new JavaSwitch<Adapter>() {
-		@Override
-		public Adapter caseJavaRoot(JavaRoot object) {
-			return createJavaRootAdapter();
-		}
-
-		@Override
-		public Adapter casePackage(edu.kit.kastel.sdq.coupling.models.java.Package object) {
-			return createPackageAdapter();
-		}
-
-		@Override
-		public Adapter caseIdentifiedElement(IdentifiedElement object) {
-			return createIdentifiedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseEntity(Entity object) {
-			return createEntityAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected JavaSwitch<Adapter> modelSwitch =
+		new JavaSwitch<Adapter>() {
+			@Override
+			public Adapter caseJavaRoot(JavaRoot object) {
+				return createJavaRootAdapter();
+			}
+			@Override
+			public Adapter casePackage(edu.kit.kastel.sdq.coupling.models.java.Package object) {
+				return createPackageAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -112,8 +108,9 @@ public class JavaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.java.JavaRoot <em>Root</em>}'.

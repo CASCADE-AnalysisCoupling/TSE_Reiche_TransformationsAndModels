@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class MembersItemProviderAdapterFactory extends MembersAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -147,7 +146,6 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -158,7 +156,6 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -193,7 +190,7 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -207,7 +204,6 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -218,7 +214,6 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -229,7 +224,6 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -244,14 +238,10 @@ public class MembersItemProviderAdapterFactory extends MembersAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void dispose() {
-		if (fieldItemProvider != null)
-			fieldItemProvider.dispose();
-		if (methodItemProvider != null)
-			methodItemProvider.dispose();
-		if (parameterItemProvider != null)
-			parameterItemProvider.dispose();
+		if (fieldItemProvider != null) fieldItemProvider.dispose();
+		if (methodItemProvider != null) methodItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 	}
 
 }

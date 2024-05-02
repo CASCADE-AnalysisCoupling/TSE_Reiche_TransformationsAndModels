@@ -40,7 +40,11 @@ public final class JoanaEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public JoanaEditPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, });
+		super
+		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
+		     JavaEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**

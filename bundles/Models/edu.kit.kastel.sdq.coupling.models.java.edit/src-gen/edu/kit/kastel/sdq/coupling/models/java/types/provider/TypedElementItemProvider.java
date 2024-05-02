@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.java.types.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.java.types.TypesPackage;
@@ -29,8 +30,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypedElementItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class TypedElementItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -64,22 +71,19 @@ public class TypedElementItemProvider extends ItemProviderAdapter implements IEd
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_TypedElement_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature",
-								"_UI_TypedElement_type"),
-						TypesPackage.Literals.TYPED_ELEMENT__TYPE, true, false, true, null, null, null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypedElement_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypedElement_type_feature", "_UI_TypedElement_type"),
+				 TypesPackage.Literals.TYPED_ELEMENT__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -92,6 +96,7 @@ public class TypedElementItemProvider extends ItemProviderAdapter implements IEd
 	public String getText(Object object) {
 		return getString("_UI_TypedElement_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

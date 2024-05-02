@@ -67,11 +67,9 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Method> getMethod() {
 		if (method == null) {
-			method = new EObjectContainmentEList<Method>(Method.class, this,
-					TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD);
+			method = new EObjectContainmentEList<Method>(Method.class, this, TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD);
 		}
 		return method;
 	}
@@ -84,8 +82,8 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
-			return ((InternalEList<?>) getMethod()).basicRemove(otherEnd, msgs);
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				return ((InternalEList<?>)getMethod()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +96,8 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
-			return getMethod();
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				return getMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,10 +111,10 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
-			getMethod().clear();
-			getMethod().addAll((Collection<? extends Method>) newValue);
-			return;
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				getMethod().clear();
+				getMethod().addAll((Collection<? extends Method>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,9 +127,9 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
-			getMethod().clear();
-			return;
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				getMethod().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,8 +142,8 @@ public abstract class ClassOrInterfaceTypeImpl extends ReferenceTypeImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
-			return method != null && !method.isEmpty();
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE__METHOD:
+				return method != null && !method.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

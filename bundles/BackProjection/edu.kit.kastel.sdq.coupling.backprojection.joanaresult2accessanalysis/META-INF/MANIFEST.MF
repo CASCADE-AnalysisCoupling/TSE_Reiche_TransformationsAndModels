@@ -24,4 +24,5 @@ Bundle-ClassPath: libs/snakeyaml-2.2.jar,
  .
 Import-Package: edu.kit.kastel.sdq.analysiscouplingframework.adapter,
  edu.kit.kastel.sdq.analysiscouplingframework.results
-Export-Package: edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.iterative
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis,
+ edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.backprojection

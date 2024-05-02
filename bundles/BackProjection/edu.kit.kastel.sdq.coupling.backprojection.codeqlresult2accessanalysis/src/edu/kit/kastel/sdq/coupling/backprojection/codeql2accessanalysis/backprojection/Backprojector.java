@@ -21,7 +21,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutio
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
-import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceLookupUtil;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.utils.CodeQLResultingValueCorrespondencesUtil;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
@@ -86,27 +86,6 @@ public class Backprojector implements Backproject{
 		}
 	}
 
-//	private Collection<DataSet> resolveDataSetsForLevel(SecurityLevel securityProperty) {
-//		Collection<DataSet> resolvedDataSets = new HashSet<DataSet>();
-//		
-//		Collection<SecurityLevel> basicLevels = CodeQLResolutionUtil.resolveBasicLevels(securityProperty, config, DELIMITER);
-//		
-//	
-//		for(SecurityLevel basicLevel : basicLevels) {
-//			//this could be replaced by correspondence relationships between dataset and basic levels ( 1 - 1) 
-//			//or datasets and all levels (m - 1)
-//			Collection<DataSet> dataSets = confidentialitySpec.getDataIdentifier().stream().filter(ident -> ident instanceof DataSet).map(ident -> (DataSet) ident).collect(Collectors.toList());
-//			
-//			for(DataSet dataSet : dataSets) {
-//				if(dataSet.getName().equals(basicLevel.getName())) {
-//					resolvedDataSets.add(dataSet);
-//				}
-//			}
-//		}
-//		
-//		return resolvedDataSets;
-//	}
-
 	private static Collection<StereotypeApplication> filterInformationFlowApplications(Collection<StereotypeApplication> applications){
 		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow")).collect(Collectors.toList()); 
 	}
@@ -121,6 +100,6 @@ public class Backprojector implements Backproject{
 	private Collection<DataSet> resolveDataSets(ResultingValue resultingValue){
 		//Could also first correspond here
 		SecurityLevel securityLevel = CodeQLResultingValueCorrespondencesUtil.getCorresponding(resultingValue.getResultingSecurityLevel(), resultingValueCorrespondences);
-		return AccessAnalysisCodeQLCorrespondenceLookupUtil.getCorresponding(securityLevel, accessAnalysisCodeQLCorrespondences);
+		return AccessAnalysisCodeQLCorrespondenceUtil.getCorresponding(securityLevel, accessAnalysisCodeQLCorrespondences);
 	}
 }

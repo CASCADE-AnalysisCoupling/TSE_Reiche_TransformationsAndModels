@@ -3,10 +3,8 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.mod
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
@@ -15,8 +13,8 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 
 
-import com.google.common.collect.Sets;
-
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.util.EDFAJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
@@ -32,10 +30,8 @@ import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joana.Sink;
 import edu.kit.kastel.sdq.coupling.models.joana.Source;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAFlowUtil;
+
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAModelGenerationUtil;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANANamingUtil;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
@@ -47,6 +43,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final PCMDataDictionary dictionary;
 	protected static final String SUBLEVEL_DELIMITER = ";";
+	protected final Correspondences_EDFAJOANA edfaJoanaCorrespondences;
 
 	private Integer tagCounter = 0;
 
@@ -56,6 +53,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 		this.correspondences = correspondences;
 		this.dictionary = dictionary;
 		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
+		this.edfaJoanaCorrespondences = EDFAJOANACorrespondenceUtil.createCorrespondences();
 	}
 
 	public JOANARoot generateJOANASpecification() {
@@ -138,6 +136,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 		if(!entryPoint.getAnnotation().isEmpty()) {
 			entryPoint.setId(tagCounter.toString());
 			tagCounter++;
+			EDFAJOANACorrespondenceUtil.correspondenceExists(parameterAnnotations, entryPoint, edfaJoanaCorrespondences);
 			return entryPoint;
 		} 
 
@@ -203,5 +202,9 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 			}
 		}
 		return null;
+	}
+
+	public Correspondences_EDFAJOANA getEdfaJoanaCorrespondences() {
+		return edfaJoanaCorrespondences;
 	}
 }

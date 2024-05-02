@@ -20,14 +20,15 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 	private final String codeQLModelPath;
 	private final String correspondenceModelPath;
 	private final String codeQLQueryFolderPath;
-	public static String caseStudy;
+	public static String policyStyle;
+	private final String edfaCodeQLCorrespondencesPath;
 
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
 	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4ExtendedDataflowAnalysis";
 	
 	public ExtendedDataFlowAnalysis2CodeQLAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String codeBasePackageName, String javaModelPath,
-			String codeQLModelPath, String correspondenceModelPath, String codeQLQueryFolderPath, String caseStudy) {
+			String codeQLModelPath, String correspondenceModelPath, String codeQLQueryFolderPath, String policyStyle, String edfaCodeQLCorrespondencesPath) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -37,7 +38,8 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		this.codeQLModelPath = codeQLModelPath;
 		this.correspondenceModelPath = correspondenceModelPath;
 		this.codeQLQueryFolderPath = codeQLQueryFolderPath;
-		ExtendedDataFlowAnalysis2CodeQLAlignment.caseStudy = caseStudy;
+		ExtendedDataFlowAnalysis2CodeQLAlignment.policyStyle = policyStyle;
+		this.edfaCodeQLCorrespondencesPath = edfaCodeQLCorrespondencesPath;
 	}
 
 	
@@ -51,14 +53,14 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		modelsGenerator.generateCodeQLModels(correspondences, models.getRepository(), models.getExtensionRoot(), models.getDataDictionary(), codeBasePackageName);
 		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getConfigurations().get(0));
 		
-		OutputModels outputModels = new OutputModels(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot(), correspondences);
+		OutputModels outputModels = new OutputModels(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot(), correspondences, modelsGenerator.getEDFACodeQLCorrespondences());
 		
 		String tainttrackingContent = tainttrackingCodeGenerator.generate();
 		
 		FileToGenerate fileToGenerate = new FileToGenerate(tainttrackingContent, codeQLQueryFolderPath, CODEQL_QUERY_FILE_NAME, CODEQL_QUERY_FILE_ENDING);
 		fileToGenerate.write();
 
-		outputModels.writeToFiles(javaModelPath, codeQLModelPath, correspondenceModelPath);
+		outputModels.writeToFiles(javaModelPath, codeQLModelPath, correspondenceModelPath, edfaCodeQLCorrespondencesPath);
 		
 		System.out.println("Done Alignment Access Analysis 2 CodeQL");
 	}

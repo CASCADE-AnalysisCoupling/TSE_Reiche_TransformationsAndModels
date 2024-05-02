@@ -4,10 +4,11 @@ package edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalys
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection.Backprojector;
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.backprojection.Backproject;
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.models.Models;
+import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.utils.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.CodeQLResultingSpecificationExtractor;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.model.ResultingSpecification;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolutionFactory;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
 
 public class CodeQL2ExtendedDataFlowAnalysisResultIntegration {
 
@@ -21,12 +22,18 @@ public class CodeQL2ExtendedDataFlowAnalysisResultIntegration {
 	private final String dataDictionaryLocation;
 	private final String originBackupLocation;
 	private final String repositoryModelLocation;
+	protected final String scarLocation;
+	protected final String resultingValuesLocation;
+	protected final String edfaCodeQLCorrespondenceLocation;
+	protected final String scarCorrespondencesLocation;
+	protected final String resultingValuesCorrespondencesLocation;
 	
 	
-	public CodeQL2ExtendedDataFlowAnalysisResultIntegration(String policyStyle, String javaModelLocation,
+	
+	public CodeQL2ExtendedDataFlowAnalysisResultIntegration(String javaModelLocation,
 			String codeQLModelLocation, String correspondenceModelLocation, String codeQLResultLocation,
 			String parameterAnnotationModelLocation, String dataDictionaryLocation, String originBackupLocation,
-			String repositoryModelLocation) {
+			String repositoryModelLocation, String policyStyle, String scarLocation, String resultingValuesLocation, String edfaCodeQLCorrespondenceLocation, String scarCorrespondencesLocation, String resultingValuesCorrespondencesLocation) {
 		this.policyStyle = policyStyle;
 		this.javaModelLocation = javaModelLocation;
 		this.codeQLModelLocation = codeQLModelLocation;
@@ -36,27 +43,35 @@ public class CodeQL2ExtendedDataFlowAnalysisResultIntegration {
 		this.dataDictionaryLocation = dataDictionaryLocation;
 		this.originBackupLocation = originBackupLocation;
 		this.repositoryModelLocation = repositoryModelLocation;
+		this.scarLocation = scarLocation;
+		this.resultingValuesLocation = resultingValuesLocation;
+		this.edfaCodeQLCorrespondenceLocation = edfaCodeQLCorrespondenceLocation;
+		this.scarCorrespondencesLocation = scarCorrespondencesLocation;
+		this.resultingValuesCorrespondencesLocation = resultingValuesCorrespondencesLocation;
 	}
 	
 	public void integrate() {
 		
-		Models input = Models.createModelsFromFiles(javaModelLocation,
+		Models models = Models.createModelsFromFiles(javaModelLocation,
 				codeQLModelLocation, 
 				correspondenceModelLocation,
 				codeQLResultLocation, 
 				repositoryModelLocation,
 				parameterAnnotationModelLocation,
 				dataDictionaryLocation,
-				originBackupLocation);
+				originBackupLocation,
+				edfaCodeQLCorrespondenceLocation);
 		
-		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle, input.getTainttrackingRoot().getConfigurations().get(0));
+		ResultingSpecificationResolution resolution = ResultingSpecificationResolutionFactory.generateResultingSpecificationResolution(policyStyle);
 		CodeQLResultingSpecificationExtractor extractor = new CodeQLResultingSpecificationExtractor(resolution);
 		
-		ResultingSpecification resultingSpecification = extractor.extract(input.getTainttrackingRoot(), input.getJavaRoot(), input.getCodeQLResult());
+		CodeQLResultingValues resultingValues = extractor.extract(models.getTainttrackingRoot(), models.getJavaRoot(), models.getCodeQLResult());
 		
-		Backproject backprojector = new Backprojector(input.getRepository(), input.getCorrespondenceRoot(), input.getParameterAnnotations(), input.getTainttrackingRoot().getConfigurations().get(0), input.getDataDictionary());
-		backprojector.project(resultingSpecification);
-		input.updateSpecification(parameterAnnotationModelLocation);
+		CorrespondencesResolver resolver = new CorrespondencesResolver(models.getEdfaCodeQLCorrespondences(), resolution.getResultingValueCorrespondences(), extractor.getSCARCorrespondence(), models.getCorrespondenceRoot());
+		Backproject backprojector = new Backprojector(models.getRepository(), models.getCorrespondenceRoot(), models.getParameterAnnotations(), models.getTainttrackingRoot().getConfigurations().get(0), models.getDataDictionary(), resolver);
+		backprojector.project(resultingValues);
+		models.updateSpecification(parameterAnnotationModelLocation);
+		models.persistCorrespondencesAndModels(scarLocation, extractor.getSourceCodeAnalysisResult(), resultingValuesLocation,resultingValues ,scarCorrespondencesLocation, extractor.getSCARCorrespondence(), resultingValuesCorrespondencesLocation, resolution.getResultingValueCorrespondences());
 		
 		System.out.println("Result Integration CodeQL to Access Analysis Done");
 	}

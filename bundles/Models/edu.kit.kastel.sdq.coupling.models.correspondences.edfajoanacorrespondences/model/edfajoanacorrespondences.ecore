@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="edfajoanacorrespondences" nsURI="http://www.example.org/edfajoanacorrespondences"
+    nsPrefix="edfajoanacorrespondences">
+  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_EDFAJOANA">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationCorrespondences"
+        upperBound="-1" eType="#//ConfigurationCorrespondence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="literalLevelCorrespondences"
+        upperBound="-1" eType="#//LiteralsLevelCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_EDFA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.ecore#//ParameterAnnotations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_JOANA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//EntryPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralsLevelCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="literals_EDFA" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.dataflowanalysis.pcm.extension.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//Literal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level_JOANA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//Level"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -2,23 +2,23 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.mo
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Dictionary;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Enumeration;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 
 import com.google.common.collect.Sets;
 
+import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.utils.EDFAResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.util.EDFACodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
@@ -43,6 +43,8 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4FullDynamicLevels 
 			SecurityLevel level = CodeQLModelgenerationUtil.generateSecurityLevel(securityLevelName);
 
 			securityLevels.add(level);
+			
+			EDFACodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(EDFAResolutionUtil.getLiteralsForBasicLevels(literals, securityLevelNames), level, edfaCodeQLCorrespondences);
 		}
 
 		return securityLevels;

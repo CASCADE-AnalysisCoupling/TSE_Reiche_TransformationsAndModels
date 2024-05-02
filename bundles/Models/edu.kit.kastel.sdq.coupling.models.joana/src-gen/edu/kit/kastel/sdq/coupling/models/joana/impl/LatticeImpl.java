@@ -68,7 +68,6 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<MayFlow> getMayFlow() {
 		if (mayFlow == null) {
 			mayFlow = new EObjectContainmentEList<MayFlow>(MayFlow.class, this, JoanaPackage.LATTICE__MAY_FLOW);
@@ -84,8 +83,8 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			return ((InternalEList<?>) getMayFlow()).basicRemove(otherEnd, msgs);
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				return ((InternalEList<?>)getMayFlow()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +97,8 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			return getMayFlow();
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				return getMayFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,10 +112,10 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			getMayFlow().clear();
-			getMayFlow().addAll((Collection<? extends MayFlow>) newValue);
-			return;
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				getMayFlow().clear();
+				getMayFlow().addAll((Collection<? extends MayFlow>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,9 +128,9 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			getMayFlow().clear();
-			return;
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				getMayFlow().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,8 +143,8 @@ public class LatticeImpl extends MinimalEObjectImpl.Container implements Lattice
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.LATTICE__MAY_FLOW:
-			return mayFlow != null && !mayFlow.isEmpty();
+			case JoanaPackage.LATTICE__MAY_FLOW:
+				return mayFlow != null && !mayFlow.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

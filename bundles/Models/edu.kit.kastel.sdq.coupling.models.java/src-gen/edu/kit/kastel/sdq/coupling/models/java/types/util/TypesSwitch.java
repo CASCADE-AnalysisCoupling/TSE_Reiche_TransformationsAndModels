@@ -77,130 +77,88 @@ public class TypesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case TypesPackage.REFERENCE_TYPE: {
-			ReferenceType referenceType = (ReferenceType) theEObject;
-			T result = caseReferenceType(referenceType);
-			if (result == null)
-				result = caseType(referenceType);
-			if (result == null)
-				result = caseEntity(referenceType);
-			if (result == null)
-				result = caseIdentifiedElement(referenceType);
-			if (result == null)
-				result = caseNamedElement(referenceType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.CLASS_OR_INTERFACE_TYPE: {
-			ClassOrInterfaceType classOrInterfaceType = (ClassOrInterfaceType) theEObject;
-			T result = caseClassOrInterfaceType(classOrInterfaceType);
-			if (result == null)
-				result = caseReferenceType(classOrInterfaceType);
-			if (result == null)
-				result = caseType(classOrInterfaceType);
-			if (result == null)
-				result = caseEntity(classOrInterfaceType);
-			if (result == null)
-				result = caseIdentifiedElement(classOrInterfaceType);
-			if (result == null)
-				result = caseNamedElement(classOrInterfaceType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.PRIMITIVE_TYPE: {
-			PrimitiveType primitiveType = (PrimitiveType) theEObject;
-			T result = casePrimitiveType(primitiveType);
-			if (result == null)
-				result = caseType(primitiveType);
-			if (result == null)
-				result = caseEntity(primitiveType);
-			if (result == null)
-				result = caseIdentifiedElement(primitiveType);
-			if (result == null)
-				result = caseNamedElement(primitiveType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.COLLECTION_TYPE: {
-			CollectionType collectionType = (CollectionType) theEObject;
-			T result = caseCollectionType(collectionType);
-			if (result == null)
-				result = caseType(collectionType);
-			if (result == null)
-				result = caseTypedElement(collectionType);
-			if (result == null)
-				result = caseEntity(collectionType);
-			if (result == null)
-				result = caseIdentifiedElement(collectionType);
-			if (result == null)
-				result = caseNamedElement(collectionType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.TYPE: {
-			Type type = (Type) theEObject;
-			T result = caseType(type);
-			if (result == null)
-				result = caseEntity(type);
-			if (result == null)
-				result = caseIdentifiedElement(type);
-			if (result == null)
-				result = caseNamedElement(type);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.CLASS: {
-			edu.kit.kastel.sdq.coupling.models.java.types.Class class_ = (edu.kit.kastel.sdq.coupling.models.java.types.Class) theEObject;
-			T result = caseClass(class_);
-			if (result == null)
-				result = caseClassOrInterfaceType(class_);
-			if (result == null)
-				result = caseReferenceType(class_);
-			if (result == null)
-				result = caseType(class_);
-			if (result == null)
-				result = caseEntity(class_);
-			if (result == null)
-				result = caseIdentifiedElement(class_);
-			if (result == null)
-				result = caseNamedElement(class_);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.INTERFACE: {
-			Interface interface_ = (Interface) theEObject;
-			T result = caseInterface(interface_);
-			if (result == null)
-				result = caseClassOrInterfaceType(interface_);
-			if (result == null)
-				result = caseReferenceType(interface_);
-			if (result == null)
-				result = caseType(interface_);
-			if (result == null)
-				result = caseEntity(interface_);
-			if (result == null)
-				result = caseIdentifiedElement(interface_);
-			if (result == null)
-				result = caseNamedElement(interface_);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case TypesPackage.TYPED_ELEMENT: {
-			TypedElement typedElement = (TypedElement) theEObject;
-			T result = caseTypedElement(typedElement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case TypesPackage.REFERENCE_TYPE: {
+				ReferenceType referenceType = (ReferenceType)theEObject;
+				T result = caseReferenceType(referenceType);
+				if (result == null) result = caseType(referenceType);
+				if (result == null) result = caseEntity(referenceType);
+				if (result == null) result = caseIdentifiedElement(referenceType);
+				if (result == null) result = caseNamedElement(referenceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.CLASS_OR_INTERFACE_TYPE: {
+				ClassOrInterfaceType classOrInterfaceType = (ClassOrInterfaceType)theEObject;
+				T result = caseClassOrInterfaceType(classOrInterfaceType);
+				if (result == null) result = caseReferenceType(classOrInterfaceType);
+				if (result == null) result = caseType(classOrInterfaceType);
+				if (result == null) result = caseEntity(classOrInterfaceType);
+				if (result == null) result = caseIdentifiedElement(classOrInterfaceType);
+				if (result == null) result = caseNamedElement(classOrInterfaceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.PRIMITIVE_TYPE: {
+				PrimitiveType primitiveType = (PrimitiveType)theEObject;
+				T result = casePrimitiveType(primitiveType);
+				if (result == null) result = caseType(primitiveType);
+				if (result == null) result = caseEntity(primitiveType);
+				if (result == null) result = caseIdentifiedElement(primitiveType);
+				if (result == null) result = caseNamedElement(primitiveType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.COLLECTION_TYPE: {
+				CollectionType collectionType = (CollectionType)theEObject;
+				T result = caseCollectionType(collectionType);
+				if (result == null) result = caseType(collectionType);
+				if (result == null) result = caseTypedElement(collectionType);
+				if (result == null) result = caseEntity(collectionType);
+				if (result == null) result = caseIdentifiedElement(collectionType);
+				if (result == null) result = caseNamedElement(collectionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.TYPE: {
+				Type type = (Type)theEObject;
+				T result = caseType(type);
+				if (result == null) result = caseEntity(type);
+				if (result == null) result = caseIdentifiedElement(type);
+				if (result == null) result = caseNamedElement(type);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.CLASS: {
+				edu.kit.kastel.sdq.coupling.models.java.types.Class class_ = (edu.kit.kastel.sdq.coupling.models.java.types.Class)theEObject;
+				T result = caseClass(class_);
+				if (result == null) result = caseClassOrInterfaceType(class_);
+				if (result == null) result = caseReferenceType(class_);
+				if (result == null) result = caseType(class_);
+				if (result == null) result = caseEntity(class_);
+				if (result == null) result = caseIdentifiedElement(class_);
+				if (result == null) result = caseNamedElement(class_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				T result = caseInterface(interface_);
+				if (result == null) result = caseClassOrInterfaceType(interface_);
+				if (result == null) result = caseReferenceType(interface_);
+				if (result == null) result = caseType(interface_);
+				if (result == null) result = caseEntity(interface_);
+				if (result == null) result = caseIdentifiedElement(interface_);
+				if (result == null) result = caseNamedElement(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.TYPED_ELEMENT: {
+				TypedElement typedElement = (TypedElement)theEObject;
+				T result = caseTypedElement(typedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

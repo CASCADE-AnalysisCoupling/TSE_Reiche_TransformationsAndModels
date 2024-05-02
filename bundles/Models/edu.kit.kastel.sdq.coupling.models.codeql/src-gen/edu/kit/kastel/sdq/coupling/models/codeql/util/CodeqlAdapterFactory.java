@@ -54,7 +54,7 @@ public class CodeqlAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -65,17 +65,17 @@ public class CodeqlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CodeqlSwitch<Adapter> modelSwitch = new CodeqlSwitch<Adapter>() {
-		@Override
-		public Adapter caseCodeQLRoot(CodeQLRoot object) {
-			return createCodeQLRootAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected CodeqlSwitch<Adapter> modelSwitch =
+		new CodeqlSwitch<Adapter>() {
+			@Override
+			public Adapter caseCodeQLRoot(CodeQLRoot object) {
+				return createCodeQLRootAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -87,8 +87,9 @@ public class CodeqlAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot <em>Code QL Root</em>}'.

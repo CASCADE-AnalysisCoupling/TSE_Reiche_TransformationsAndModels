@@ -29,5 +29,4 @@
             class="edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage"
             genModel="model/java.genmodel"/>
    </extension>
-
 </plugin>

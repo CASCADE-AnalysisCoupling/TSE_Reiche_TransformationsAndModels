@@ -27,6 +27,8 @@ import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotati
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
+import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.util.EDFACodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ProvidedOperationParameterIdentification;
@@ -38,6 +40,7 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	protected final ParameterAnnotations extensionRoot;
 	protected final PCMJavaCorrespondenceRoot correspondences;
 	protected final PCMDataDictionary dictionary;
+	protected final Correspondences_EDFACodeQL edfaCodeQLCorrespondences;
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	protected static final boolean HIGH_CONJUNCTIVE = false;
 	
@@ -49,6 +52,7 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		this.extensionRoot = extensionRoot;
 		this.correspondences = correspondences;
 		this.dictionary = dictionary;
+		this.edfaCodeQLCorrespondences = EDFACodeQLCorrespondenceUtil.createCorrespondences();
 	}
 
 	public void generateCodeQLConfiguration() {
@@ -65,7 +69,7 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		config.getSecurityLevelAnnotations().addAll(annotations);
 
 		root.getConfigurations().add(config);
-
+		EDFACodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(extensionRoot, config, edfaCodeQLCorrespondences);
 	}
 
 	private Collection<SecurityLevelAnnotation> generateSecurityLevelAnnotations(
@@ -154,5 +158,9 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
 	public PCMJavaCorrespondenceRoot getCorrespondences() {
 		return correspondences;
+	}
+	
+	public Correspondences_EDFACodeQL getEDFACodeQLCorrespondences() {
+		return edfaCodeQLCorrespondences;
 	}
 }

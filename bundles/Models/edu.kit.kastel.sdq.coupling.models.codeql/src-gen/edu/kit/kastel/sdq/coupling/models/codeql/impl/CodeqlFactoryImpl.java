@@ -27,12 +27,12 @@ public class CodeqlFactoryImpl extends EFactoryImpl implements CodeqlFactory {
 	 */
 	public static CodeqlFactory init() {
 		try {
-			CodeqlFactory theCodeqlFactory = (CodeqlFactory) EPackage.Registry.INSTANCE
-					.getEFactory(CodeqlPackage.eNS_URI);
+			CodeqlFactory theCodeqlFactory = (CodeqlFactory)EPackage.Registry.INSTANCE.getEFactory(CodeqlPackage.eNS_URI);
 			if (theCodeqlFactory != null) {
 				return theCodeqlFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new CodeqlFactoryImpl();
@@ -56,10 +56,9 @@ public class CodeqlFactoryImpl extends EFactoryImpl implements CodeqlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CodeqlPackage.CODE_QL_ROOT:
-			return createCodeQLRoot();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case CodeqlPackage.CODE_QL_ROOT: return createCodeQLRoot();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -68,7 +67,6 @@ public class CodeqlFactoryImpl extends EFactoryImpl implements CodeqlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public CodeQLRoot createCodeQLRoot() {
 		CodeQLRootImpl codeQLRoot = new CodeQLRootImpl();
 		return codeQLRoot;
@@ -79,9 +77,8 @@ public class CodeqlFactoryImpl extends EFactoryImpl implements CodeqlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public CodeqlPackage getCodeqlPackage() {
-		return (CodeqlPackage) getEPackage();
+		return (CodeqlPackage)getEPackage();
 	}
 
 	/**

@@ -65,7 +65,7 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -76,67 +76,57 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypesSwitch<Adapter> modelSwitch = new TypesSwitch<Adapter>() {
-		@Override
-		public Adapter caseReferenceType(ReferenceType object) {
-			return createReferenceTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseClassOrInterfaceType(ClassOrInterfaceType object) {
-			return createClassOrInterfaceTypeAdapter();
-		}
-
-		@Override
-		public Adapter casePrimitiveType(PrimitiveType object) {
-			return createPrimitiveTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseCollectionType(CollectionType object) {
-			return createCollectionTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseType(Type object) {
-			return createTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseClass(edu.kit.kastel.sdq.coupling.models.java.types.Class object) {
-			return createClassAdapter();
-		}
-
-		@Override
-		public Adapter caseInterface(Interface object) {
-			return createInterfaceAdapter();
-		}
-
-		@Override
-		public Adapter caseTypedElement(TypedElement object) {
-			return createTypedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseIdentifiedElement(IdentifiedElement object) {
-			return createIdentifiedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseEntity(Entity object) {
-			return createEntityAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected TypesSwitch<Adapter> modelSwitch =
+		new TypesSwitch<Adapter>() {
+			@Override
+			public Adapter caseReferenceType(ReferenceType object) {
+				return createReferenceTypeAdapter();
+			}
+			@Override
+			public Adapter caseClassOrInterfaceType(ClassOrInterfaceType object) {
+				return createClassOrInterfaceTypeAdapter();
+			}
+			@Override
+			public Adapter casePrimitiveType(PrimitiveType object) {
+				return createPrimitiveTypeAdapter();
+			}
+			@Override
+			public Adapter caseCollectionType(CollectionType object) {
+				return createCollectionTypeAdapter();
+			}
+			@Override
+			public Adapter caseType(Type object) {
+				return createTypeAdapter();
+			}
+			@Override
+			public Adapter caseClass(edu.kit.kastel.sdq.coupling.models.java.types.Class object) {
+				return createClassAdapter();
+			}
+			@Override
+			public Adapter caseInterface(Interface object) {
+				return createInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseTypedElement(TypedElement object) {
+				return createTypedElementAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -148,8 +138,9 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.java.types.ReferenceType <em>Reference Type</em>}'.

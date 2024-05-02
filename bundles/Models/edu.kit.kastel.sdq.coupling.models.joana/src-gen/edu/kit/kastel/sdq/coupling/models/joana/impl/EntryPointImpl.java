@@ -107,7 +107,6 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Level> getLevel() {
 		if (level == null) {
 			level = new EObjectContainmentEList<Level>(Level.class, this, JoanaPackage.ENTRY_POINT__LEVEL);
@@ -120,11 +119,9 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<InformationFlowAnnotation> getAnnotation() {
 		if (annotation == null) {
-			annotation = new EObjectContainmentEList<InformationFlowAnnotation>(InformationFlowAnnotation.class, this,
-					JoanaPackage.ENTRY_POINT__ANNOTATION);
+			annotation = new EObjectContainmentEList<InformationFlowAnnotation>(InformationFlowAnnotation.class, this, JoanaPackage.ENTRY_POINT__ANNOTATION);
 		}
 		return annotation;
 	}
@@ -134,7 +131,6 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Lattice getLattice() {
 		return lattice;
 	}
@@ -148,12 +144,8 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 		Lattice oldLattice = lattice;
 		lattice = newLattice;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					JoanaPackage.ENTRY_POINT__LATTICE, oldLattice, newLattice);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, oldLattice, newLattice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -163,22 +155,18 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setLattice(Lattice newLattice) {
 		if (newLattice != lattice) {
 			NotificationChain msgs = null;
 			if (lattice != null)
-				msgs = ((InternalEObject) lattice).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
+				msgs = ((InternalEObject)lattice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
 			if (newLattice != null)
-				msgs = ((InternalEObject) newLattice).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
+				msgs = ((InternalEObject)newLattice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
 			msgs = basicSetLattice(newLattice, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, newLattice,
-					newLattice));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, newLattice, newLattice));
 	}
 
 	/**
@@ -186,7 +174,6 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public MethodIdentifying getMethodIdentification() {
 		return methodIdentification;
 	}
@@ -196,17 +183,12 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMethodIdentification(MethodIdentifying newMethodIdentification,
-			NotificationChain msgs) {
+	public NotificationChain basicSetMethodIdentification(MethodIdentifying newMethodIdentification, NotificationChain msgs) {
 		MethodIdentifying oldMethodIdentification = methodIdentification;
 		methodIdentification = newMethodIdentification;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, oldMethodIdentification, newMethodIdentification);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, oldMethodIdentification, newMethodIdentification);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -216,22 +198,18 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setMethodIdentification(MethodIdentifying newMethodIdentification) {
 		if (newMethodIdentification != methodIdentification) {
 			NotificationChain msgs = null;
 			if (methodIdentification != null)
-				msgs = ((InternalEObject) methodIdentification).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, null, msgs);
+				msgs = ((InternalEObject)methodIdentification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, null, msgs);
 			if (newMethodIdentification != null)
-				msgs = ((InternalEObject) newMethodIdentification).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, null, msgs);
+				msgs = ((InternalEObject)newMethodIdentification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, null, msgs);
 			msgs = basicSetMethodIdentification(newMethodIdentification, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION,
-					newMethodIdentification, newMethodIdentification));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION, newMethodIdentification, newMethodIdentification));
 	}
 
 	/**
@@ -242,14 +220,14 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JoanaPackage.ENTRY_POINT__LEVEL:
-			return ((InternalEList<?>) getLevel()).basicRemove(otherEnd, msgs);
-		case JoanaPackage.ENTRY_POINT__ANNOTATION:
-			return ((InternalEList<?>) getAnnotation()).basicRemove(otherEnd, msgs);
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-			return basicSetLattice(null, msgs);
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			return basicSetMethodIdentification(null, msgs);
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+				return ((InternalEList<?>)getLevel()).basicRemove(otherEnd, msgs);
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+				return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+				return basicSetLattice(null, msgs);
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				return basicSetMethodIdentification(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,14 +240,14 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JoanaPackage.ENTRY_POINT__LEVEL:
-			return getLevel();
-		case JoanaPackage.ENTRY_POINT__ANNOTATION:
-			return getAnnotation();
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-			return getLattice();
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			return getMethodIdentification();
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+				return getLevel();
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+				return getAnnotation();
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+				return getLattice();
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				return getMethodIdentification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,20 +261,20 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JoanaPackage.ENTRY_POINT__LEVEL:
-			getLevel().clear();
-			getLevel().addAll((Collection<? extends Level>) newValue);
-			return;
-		case JoanaPackage.ENTRY_POINT__ANNOTATION:
-			getAnnotation().clear();
-			getAnnotation().addAll((Collection<? extends InformationFlowAnnotation>) newValue);
-			return;
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-			setLattice((Lattice) newValue);
-			return;
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			setMethodIdentification((MethodIdentifying) newValue);
-			return;
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+				getLevel().clear();
+				getLevel().addAll((Collection<? extends Level>)newValue);
+				return;
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+				getAnnotation().clear();
+				getAnnotation().addAll((Collection<? extends InformationFlowAnnotation>)newValue);
+				return;
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+				setLattice((Lattice)newValue);
+				return;
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				setMethodIdentification((MethodIdentifying)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -309,18 +287,18 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.ENTRY_POINT__LEVEL:
-			getLevel().clear();
-			return;
-		case JoanaPackage.ENTRY_POINT__ANNOTATION:
-			getAnnotation().clear();
-			return;
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-			setLattice((Lattice) null);
-			return;
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			setMethodIdentification((MethodIdentifying) null);
-			return;
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+				getLevel().clear();
+				return;
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+				getAnnotation().clear();
+				return;
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+				setLattice((Lattice)null);
+				return;
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				setMethodIdentification((MethodIdentifying)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,14 +311,14 @@ public class EntryPointImpl extends IdentifiedElementImpl implements EntryPoint 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JoanaPackage.ENTRY_POINT__LEVEL:
-			return level != null && !level.isEmpty();
-		case JoanaPackage.ENTRY_POINT__ANNOTATION:
-			return annotation != null && !annotation.isEmpty();
-		case JoanaPackage.ENTRY_POINT__LATTICE:
-			return lattice != null;
-		case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
-			return methodIdentification != null;
+			case JoanaPackage.ENTRY_POINT__LEVEL:
+				return level != null && !level.isEmpty();
+			case JoanaPackage.ENTRY_POINT__ANNOTATION:
+				return annotation != null && !annotation.isEmpty();
+			case JoanaPackage.ENTRY_POINT__LATTICE:
+				return lattice != null;
+			case JoanaPackage.ENTRY_POINT__METHOD_IDENTIFICATION:
+				return methodIdentification != null;
 		}
 		return super.eIsSet(featureID);
 	}

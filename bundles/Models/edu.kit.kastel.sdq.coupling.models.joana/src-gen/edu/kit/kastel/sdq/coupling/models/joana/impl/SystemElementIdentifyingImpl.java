@@ -16,8 +16,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class SystemElementIdentifyingImpl extends MinimalEObjectImpl.Container
-		implements SystemElementIdentifying {
+public abstract class SystemElementIdentifyingImpl extends MinimalEObjectImpl.Container implements SystemElementIdentifying {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

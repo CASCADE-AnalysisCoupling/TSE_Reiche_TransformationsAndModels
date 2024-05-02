@@ -29,11 +29,12 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 */
 	public static JavaFactory init() {
 		try {
-			JavaFactory theJavaFactory = (JavaFactory) EPackage.Registry.INSTANCE.getEFactory(JavaPackage.eNS_URI);
+			JavaFactory theJavaFactory = (JavaFactory)EPackage.Registry.INSTANCE.getEFactory(JavaPackage.eNS_URI);
 			if (theJavaFactory != null) {
 				return theJavaFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new JavaFactoryImpl();
@@ -57,12 +58,10 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case JavaPackage.JAVA_ROOT:
-			return createJavaRoot();
-		case JavaPackage.PACKAGE:
-			return createPackage();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case JavaPackage.JAVA_ROOT: return createJavaRoot();
+			case JavaPackage.PACKAGE: return createPackage();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -71,7 +70,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public JavaRoot createJavaRoot() {
 		JavaRootImpl javaRoot = new JavaRootImpl();
 		return javaRoot;
@@ -82,7 +80,6 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public edu.kit.kastel.sdq.coupling.models.java.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -93,9 +90,8 @@ public class JavaFactoryImpl extends EFactoryImpl implements JavaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public JavaPackage getJavaPackage() {
-		return (JavaPackage) getEPackage();
+		return (JavaPackage)getEPackage();
 	}
 
 	/**

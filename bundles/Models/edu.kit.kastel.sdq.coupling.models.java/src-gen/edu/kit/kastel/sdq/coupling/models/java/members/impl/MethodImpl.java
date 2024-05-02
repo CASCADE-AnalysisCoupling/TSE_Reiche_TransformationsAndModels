@@ -84,15 +84,13 @@ public class MethodImpl extends EntityImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public Type getReturntype() {
 		if (returntype != null && returntype.eIsProxy()) {
-			InternalEObject oldReturntype = (InternalEObject) returntype;
-			returntype = (Type) eResolveProxy(oldReturntype);
+			InternalEObject oldReturntype = (InternalEObject)returntype;
+			returntype = (Type)eResolveProxy(oldReturntype);
 			if (returntype != oldReturntype) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MembersPackage.METHOD__RETURNTYPE,
-							oldReturntype, returntype));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MembersPackage.METHOD__RETURNTYPE, oldReturntype, returntype));
 			}
 		}
 		return returntype;
@@ -112,13 +110,11 @@ public class MethodImpl extends EntityImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public void setReturntype(Type newReturntype) {
 		Type oldReturntype = returntype;
 		returntype = newReturntype;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MembersPackage.METHOD__RETURNTYPE, oldReturntype,
-					returntype));
+			eNotify(new ENotificationImpl(this, Notification.SET, MembersPackage.METHOD__RETURNTYPE, oldReturntype, returntype));
 	}
 
 	/**
@@ -126,7 +122,6 @@ public class MethodImpl extends EntityImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Parameter> getParameter() {
 		if (parameter == null) {
 			parameter = new EObjectContainmentEList<Parameter>(Parameter.class, this, MembersPackage.METHOD__PARAMETER);
@@ -142,8 +137,8 @@ public class MethodImpl extends EntityImpl implements Method {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case MembersPackage.METHOD__PARAMETER:
-			return ((InternalEList<?>) getParameter()).basicRemove(otherEnd, msgs);
+			case MembersPackage.METHOD__PARAMETER:
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -156,12 +151,11 @@ public class MethodImpl extends EntityImpl implements Method {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case MembersPackage.METHOD__RETURNTYPE:
-			if (resolve)
-				return getReturntype();
-			return basicGetReturntype();
-		case MembersPackage.METHOD__PARAMETER:
-			return getParameter();
+			case MembersPackage.METHOD__RETURNTYPE:
+				if (resolve) return getReturntype();
+				return basicGetReturntype();
+			case MembersPackage.METHOD__PARAMETER:
+				return getParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,13 +169,13 @@ public class MethodImpl extends EntityImpl implements Method {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case MembersPackage.METHOD__RETURNTYPE:
-			setReturntype((Type) newValue);
-			return;
-		case MembersPackage.METHOD__PARAMETER:
-			getParameter().clear();
-			getParameter().addAll((Collection<? extends Parameter>) newValue);
-			return;
+			case MembersPackage.METHOD__RETURNTYPE:
+				setReturntype((Type)newValue);
+				return;
+			case MembersPackage.METHOD__PARAMETER:
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends Parameter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -194,12 +188,12 @@ public class MethodImpl extends EntityImpl implements Method {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case MembersPackage.METHOD__RETURNTYPE:
-			setReturntype((Type) null);
-			return;
-		case MembersPackage.METHOD__PARAMETER:
-			getParameter().clear();
-			return;
+			case MembersPackage.METHOD__RETURNTYPE:
+				setReturntype((Type)null);
+				return;
+			case MembersPackage.METHOD__PARAMETER:
+				getParameter().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -212,10 +206,10 @@ public class MethodImpl extends EntityImpl implements Method {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case MembersPackage.METHOD__RETURNTYPE:
-			return returntype != null;
-		case MembersPackage.METHOD__PARAMETER:
-			return parameter != null && !parameter.isEmpty();
+			case MembersPackage.METHOD__RETURNTYPE:
+				return returntype != null;
+			case MembersPackage.METHOD__PARAMETER:
+				return parameter != null && !parameter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

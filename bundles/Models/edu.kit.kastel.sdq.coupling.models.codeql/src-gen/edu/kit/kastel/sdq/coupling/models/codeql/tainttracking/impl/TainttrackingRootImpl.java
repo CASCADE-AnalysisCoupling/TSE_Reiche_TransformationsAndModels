@@ -80,7 +80,6 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Node> getNodes() {
 		if (nodes == null) {
 			nodes = new EObjectContainmentEList<Node>(Node.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__NODES);
@@ -93,11 +92,9 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Configuration> getConfigurations() {
 		if (configurations == null) {
-			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this,
-					TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS);
+			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS);
 		}
 		return configurations;
 	}
@@ -110,10 +107,10 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
-		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-			return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+				return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,10 +123,10 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			return getNodes();
-		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-			return getConfigurations();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+				return getNodes();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+				return getConfigurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,14 +140,14 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			getNodes().clear();
-			getNodes().addAll((Collection<? extends Node>) newValue);
-			return;
-		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-			getConfigurations().clear();
-			getConfigurations().addAll((Collection<? extends Configuration>) newValue);
-			return;
+			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+				getNodes().clear();
+				getNodes().addAll((Collection<? extends Node>)newValue);
+				return;
+			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+				getConfigurations().clear();
+				getConfigurations().addAll((Collection<? extends Configuration>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -163,12 +160,12 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			getNodes().clear();
-			return;
-		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-			getConfigurations().clear();
-			return;
+			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+				getNodes().clear();
+				return;
+			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+				getConfigurations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,10 +178,10 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			return nodes != null && !nodes.isEmpty();
-		case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-			return configurations != null && !configurations.isEmpty();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
+				return nodes != null && !nodes.isEmpty();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+				return configurations != null && !configurations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

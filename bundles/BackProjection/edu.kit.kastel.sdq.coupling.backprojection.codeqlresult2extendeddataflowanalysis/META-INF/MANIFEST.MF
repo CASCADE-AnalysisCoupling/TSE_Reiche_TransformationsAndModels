@@ -13,6 +13,10 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification,
  org.dataflowanalysis.pcm.extension.model,
  edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
- org.eclipse.ui;bundle-version="3.204.0"
+ org.eclipse.ui;bundle-version="3.204.0",
+ edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences,
+ edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis
 Bundle-RequiredExecutionEnvironment: JavaSE-15
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis

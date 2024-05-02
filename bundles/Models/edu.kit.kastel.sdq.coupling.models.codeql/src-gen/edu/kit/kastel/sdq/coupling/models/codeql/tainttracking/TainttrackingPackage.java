@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -54,8 +55,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	TainttrackingPackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl
-			.init();
+	TainttrackingPackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.NodeImpl <em>Node</em>}' class.
@@ -93,6 +93,15 @@ public interface TainttrackingPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl <em>Parameter Node</em>}' class.
@@ -141,6 +150,15 @@ public interface TainttrackingPackage extends EPackage {
 	int PARAMETER_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>Parameter Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelImpl <em>Security Level</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +196,15 @@ public interface TainttrackingPackage extends EPackage {
 	int SECURITY_LEVEL_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>Security Level</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_LEVEL_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl <em>Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,6 +240,15 @@ public interface TainttrackingPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAINTTRACKING_ROOT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAINTTRACKING_ROOT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -270,6 +306,15 @@ public interface TainttrackingPackage extends EPackage {
 	int CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The number of operations of the '<em>Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelAnnotationImpl <em>Security Level Annotation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,6 +352,70 @@ public interface TainttrackingPackage extends EPackage {
 	int SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>Security Level Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_LEVEL_ANNOTATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.FieldAnnotationImpl <em>Field Annotation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.FieldAnnotationImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getFieldAnnotation()
+	 * @generated
+	 */
+	int FIELD_ANNOTATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_ANNOTATION__ID = SECURITY_LEVEL_ANNOTATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Security Level</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_ANNOTATION__SECURITY_LEVEL = SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Field</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_ANNOTATION__FIELD = SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Field Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_ANNOTATION_FEATURE_COUNT = SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Field Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_ANNOTATION_OPERATION_COUNT = SECURITY_LEVEL_ANNOTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterAnnotationImpl <em>Parameter Annotation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,7 +423,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterAnnotation()
 	 * @generated
 	 */
-	int PARAMETER_ANNOTATION = 6;
+	int PARAMETER_ANNOTATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -353,6 +462,15 @@ public interface TainttrackingPackage extends EPackage {
 	int PARAMETER_ANNOTATION_FEATURE_COUNT = SECURITY_LEVEL_ANNOTATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>Parameter Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_ANNOTATION_OPERATION_COUNT = SECURITY_LEVEL_ANNOTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.AllowedFlowImpl <em>Allowed Flow</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,7 +478,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getAllowedFlow()
 	 * @generated
 	 */
-	int ALLOWED_FLOW = 7;
+	int ALLOWED_FLOW = 8;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -388,6 +506,16 @@ public interface TainttrackingPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALLOWED_FLOW_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Allowed Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOWED_FLOW_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node <em>Node</em>}'.
@@ -527,6 +655,27 @@ public interface TainttrackingPackage extends EPackage {
 	EReference getSecurityLevelAnnotation_SecurityLevel();
 
 	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation <em>Field Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Field Annotation</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation
+	 * @generated
+	 */
+	EClass getFieldAnnotation();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Field</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation#getField()
+	 * @see #getFieldAnnotation()
+	 * @generated
+	 */
+	EReference getFieldAnnotation_Field();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation <em>Parameter Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,6 +743,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -716,6 +866,24 @@ public interface TainttrackingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECURITY_LEVEL_ANNOTATION__SECURITY_LEVEL = eINSTANCE.getSecurityLevelAnnotation_SecurityLevel();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.FieldAnnotationImpl <em>Field Annotation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.FieldAnnotationImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getFieldAnnotation()
+		 * @generated
+		 */
+		EClass FIELD_ANNOTATION = eINSTANCE.getFieldAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD_ANNOTATION__FIELD = eINSTANCE.getFieldAnnotation_Field();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterAnnotationImpl <em>Parameter Annotation</em>}' class.

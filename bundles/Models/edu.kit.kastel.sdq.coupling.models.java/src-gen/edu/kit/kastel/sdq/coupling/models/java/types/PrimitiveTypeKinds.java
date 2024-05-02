@@ -213,8 +213,18 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final PrimitiveTypeKinds[] VALUES_ARRAY = new PrimitiveTypeKinds[] { BOOLEAN, BYTE, SHORT, INT, LONG,
-			CHAR, FLOAT, DOUBLE, STRING, };
+	private static final PrimitiveTypeKinds[] VALUES_ARRAY =
+		new PrimitiveTypeKinds[] {
+			BOOLEAN,
+			BYTE,
+			SHORT,
+			INT,
+			LONG,
+			CHAR,
+			FLOAT,
+			DOUBLE,
+			STRING,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Primitive Type Kinds</b></em>' enumerators.
@@ -270,24 +280,15 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	 */
 	public static PrimitiveTypeKinds get(int value) {
 		switch (value) {
-		case BOOLEAN_VALUE:
-			return BOOLEAN;
-		case BYTE_VALUE:
-			return BYTE;
-		case SHORT_VALUE:
-			return SHORT;
-		case INT_VALUE:
-			return INT;
-		case LONG_VALUE:
-			return LONG;
-		case CHAR_VALUE:
-			return CHAR;
-		case FLOAT_VALUE:
-			return FLOAT;
-		case DOUBLE_VALUE:
-			return DOUBLE;
-		case STRING_VALUE:
-			return STRING;
+			case BOOLEAN_VALUE: return BOOLEAN;
+			case BYTE_VALUE: return BYTE;
+			case SHORT_VALUE: return SHORT;
+			case INT_VALUE: return INT;
+			case LONG_VALUE: return LONG;
+			case CHAR_VALUE: return CHAR;
+			case FLOAT_VALUE: return FLOAT;
+			case DOUBLE_VALUE: return DOUBLE;
+			case STRING_VALUE: return STRING;
 		}
 		return null;
 	}
@@ -330,9 +331,8 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
@@ -340,9 +340,8 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
@@ -350,9 +349,8 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
@@ -365,5 +363,5 @@ public enum PrimitiveTypeKinds implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
+	
 } //PrimitiveTypeKinds

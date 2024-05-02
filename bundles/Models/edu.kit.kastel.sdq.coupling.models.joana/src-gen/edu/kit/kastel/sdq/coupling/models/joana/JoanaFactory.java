@@ -112,6 +112,15 @@ public interface JoanaFactory extends EFactory {
 	MethodIdentifying createMethodIdentifying();
 
 	/**
+	 * Returns a new object of class '<em>Field Identifying</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Field Identifying</em>'.
+	 * @generated
+	 */
+	FieldIdentifying createFieldIdentifying();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
