@@ -59,15 +59,21 @@ public class JoanaExecution{
 	}
 	
 	private static void execute(String projectLocation, String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
+		System.out.println("running JOANA - args parsing: Done");
 		compileJOANACode(projectCodeBasePackageLocation, javaCompilerLocation, joanaJarLocation);
-
+		System.out.println("running JOANA - compiling classes: Done");
+		
 		Collection<String> entryPointIDs = getEntryPointIDs(Path.of(entryPointIDsFileLocation).toFile());
+		System.out.println("running JOANA - fetching entrypoints for execution: Done");
 		executeJOANA(projectLocation, entryPointIDs, javaRuntimeLocation, joanaJarLocation);
+		System.out.println("running JOANA - executing analysis: Done");
 
 		String combinedResult = combineResults(entryPointIDs, tmpDirectoryLocation);
+		System.out.println("running JOANA - combining results: Done");
 		
 		FileToGenerate file = new FileToGenerate(combinedResult, outputFileLocation);
 		file.write();
+		System.out.println("running JOANA - writing results to file: Done");
 		
 		//Cleanup after collecting results
 		try {
@@ -76,8 +82,9 @@ public class JoanaExecution{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Done");
+		System.out.println("running JOANA - deleting .class files: Done");
 		Path.of(tmpDirectoryLocation).toFile().delete();
+		System.out.println("running JOANA - Finished");
 	}
 
 	private static void executeJOANA(String projectLocation, Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
@@ -110,6 +117,7 @@ public class JoanaExecution{
 			ProcessBuilder processBuilder = new ProcessBuilder(executionCommand);
 
 			try {
+				processBuilder.inheritIO();
 				Process pr = processBuilder.start();
 				pr.waitFor();
 			} catch (IOException | InterruptedException e) {

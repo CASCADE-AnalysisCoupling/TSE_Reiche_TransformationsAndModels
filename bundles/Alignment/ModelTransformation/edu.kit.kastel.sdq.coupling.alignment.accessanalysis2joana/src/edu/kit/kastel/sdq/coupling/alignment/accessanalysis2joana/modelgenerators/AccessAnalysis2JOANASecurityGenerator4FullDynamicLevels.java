@@ -19,10 +19,10 @@ import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANANamingUtil;
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
-public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends AccessAnalysis2JOANASecurityGenerator{
+public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends AccessAnalysis2JOANASecurityGenerator {
 
 	private static final boolean HIGH_CONJUNCTIVE = false;
-	
+
 	public AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels(PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification accessAnalysisSpec) {
 		super(correspondences, accessAnalysisSpec);
@@ -45,7 +45,7 @@ public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends Acc
 
 		return securityLevels;
 	}
-	
+
 	private Set<Set<Level>> generatePowerSetOfLevels(Collection<DataSet> dataSets) {
 		Set<Level> basicLevels = new HashSet<Level>();
 
@@ -57,7 +57,7 @@ public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends Acc
 
 		return Sets.powerSet(basicLevels);
 	}
-	
+
 	private Set<List<Level>> generatePowerSetWithSortedLevels(Collection<DataSet> dataSets) {
 		Set<Set<Level>> powerSetLevels = generatePowerSetOfLevels(dataSets);
 		Set<List<Level>> powerSetWithSortedLevels = new HashSet<List<Level>>();
@@ -70,8 +70,7 @@ public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends Acc
 
 		return powerSetWithSortedLevels;
 	}
-	
-	
+
 	@Override
 	protected Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint) {
 
@@ -98,7 +97,7 @@ public class AccessAnalysis2JOANASecurityGenerator4FullDynamicLevels extends Acc
 		}
 		return allowedFlows;
 	}
-	
+
 	// Allowed Flow Condition according to H�ring
 	private boolean allowedFlowCondition(Collection<Level> potentiallyFrom, Collection<Level> potentiallyTo) {
 		return JOANAFlowUtil.allowedFlowConditionConjunctive(HIGH_CONJUNCTIVE, potentiallyFrom, potentiallyTo);

@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.modelversioning.emfprofileapplication.ProfileApplication;
+
 import com.google.common.collect.Sets;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
@@ -20,6 +22,7 @@ import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MayFlow;
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
 import edu.kit.kastel.sdq.coupling.util.iterative.transitivereduction.LevelHandler;
 import edu.kit.kastel.sdq.coupling.util.iterative.transitivereduction.ValidRelation;
 
@@ -47,8 +50,8 @@ public class AccessAnalysis2JOANATransitiveReductionSecurityGenerator extends Ac
 			generatePowersetLevels(dataSets);
 		}
 		
-		// returns null because the levels are inserted later on the fly in getLevelForDataSets()
-		return null;
+		// returns empty because the levels are inserted later on the fly in getLevelForDataSets()
+		return new ArrayList<Level> ();
 	}
 
 	@Override

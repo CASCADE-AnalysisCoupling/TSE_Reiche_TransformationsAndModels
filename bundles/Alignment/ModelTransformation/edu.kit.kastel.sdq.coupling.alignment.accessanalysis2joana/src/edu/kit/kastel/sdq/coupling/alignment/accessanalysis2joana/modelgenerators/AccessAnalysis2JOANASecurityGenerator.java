@@ -101,10 +101,9 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 					AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
 			EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
 			entrypoint.getLevel().addAll(levels);
-			Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
-			Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
-			lattice.getMayFlow().addAll(mayflows);
-			entrypoint.setLattice(lattice);
+
+			// Lattice generation moved to the end of the for loop of processing one entrypoint
+			// (To enable level collecting of srces and sinks on the fly, during processing)
 			MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
 			method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
 			entrypoint.setMethodIdentification(method);
@@ -134,6 +133,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 										stereotypedSignature, paramsource);
 						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil
 								.filterDataSets(pair.getDataTargets());
+						// on the fly registration of levels into entrypoint possible
 						Level level = getLevelForDataSets(dataSets, entrypoint.getLevel());
 
 						Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils
@@ -176,6 +176,13 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 				}
 
 			}
+			
+			// Lattice generation
+			Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
+			Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
+			lattice.getMayFlow().addAll(mayflows);
+			entrypoint.setLattice(lattice);
+			
 
 			if (!entrypoint.getAnnotation().stream().anyMatch(annotation -> annotation instanceof Source)
 					|| entrypoint.getAnnotation().isEmpty()) {

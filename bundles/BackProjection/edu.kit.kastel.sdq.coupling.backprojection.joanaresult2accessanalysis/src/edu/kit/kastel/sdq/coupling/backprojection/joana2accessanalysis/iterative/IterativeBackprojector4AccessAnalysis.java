@@ -17,11 +17,10 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class IterativeBackprojector4AccessAnalysis extends Backprojector4AccessAnalysis {
-
+	
 	public IterativeBackprojector4AccessAnalysis(Repository repository, PCMJavaCorrespondenceRoot correspondences,
 			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication) {
 		super(repository, correspondences, confidentialitySpec, profileApplication);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -29,7 +28,7 @@ public class IterativeBackprojector4AccessAnalysis extends Backprojector4AccessA
 		Collection<DataSet> originalDataSets = parametersAndDataPair.getDataTargets().stream()
 				.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toSet());
 		
-		boolean notCleared = true; // TODO muss das nicht in die for schleife mit rein??? @ Freddy, auch im normalen backprojector...
+		boolean notCleared = true;
 
 		for (ResultingSpecEntry entry : assignment.getValue()) {
 

@@ -13,7 +13,7 @@ public class JOANATravelPlannerPaths {
 	private static final String CONFIDENTIALITY_SPECIFICATION_FILE_ENDING = "confidentiality";
 	private static final String ADVERSARIES_FILE_ENDING = "adversary";
 	
-	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies").toAbsolutePath().toString();
+	public static final String USER_SPECIFIC_REPO_PATH = Path.of("C:/Users/legua/eclipse/Current_MT_2020-12/repos/").toAbsolutePath().toString();
 	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
 	
 	private static final String PATH_PATTERN = "%s/%s.%s";

@@ -109,10 +109,12 @@ public class Models {
 		return new Models(java, joanaRoot, pcmJavaCorrespondenceRoot, joanaResultContent, repository, profile, confidentiality);
 	}
 	
-	public void updateConfidentialityModel(String confidentialitySpecFilePath) {
+	public void updateConfidentialityModel(String confidentialitySpecFilePath, String updatedModelFilePath) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 		URI confidentialityUri = URI.createFileURI(Path.of(confidentialitySpecFilePath).toAbsolutePath().toString());
+		URI updatedConfidentialityUri = URI.createFileURI(Path.of(updatedModelFilePath).toAbsolutePath().toString());
 		Resource resourceConfidentiality = resSet.getResource(confidentialityUri, true);
+		Resource updatedResourceConfidentiality = resSet.createResource(updatedConfidentialityUri);
 		
 		try {
 			resourceConfidentiality.load(null);
@@ -121,11 +123,18 @@ public class Models {
 			e.printStackTrace();
 		}
 		
-		resourceConfidentiality.getContents().set(0, confidentiality);
+		// To configure the file to a different output model file, it is created with the second parameter as a path
+		// And then used to  save the confidentiality spec
 		
+		//resourceConfidentiality.getContents().set(0, confidentiality);
+		
+		//new code
+		updatedResourceConfidentiality.getContents().add(confidentiality);
+		//resourceConfidentiality.setURI(updatedConfidentialityUri);
 		
 		try {
-			resourceConfidentiality.save(null);
+			updatedResourceConfidentiality.save(null);
+//			resourceConfidentiality.save(null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

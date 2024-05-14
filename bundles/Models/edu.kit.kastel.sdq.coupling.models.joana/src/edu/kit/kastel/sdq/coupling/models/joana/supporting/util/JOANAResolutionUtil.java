@@ -141,8 +141,11 @@ public class JOANAResolutionUtil {
 	public static  Level findLevelFromSetOfBasicLevels(Collection<Level> levels, EntryPoint entryPoint) {
 		
 		String levelNameToSearch = levels.stream().sorted(Comparator.comparing(Level::getName)).map(level -> level.getName()).collect(Collectors.joining(";"));
-		Optional<Level> calculatedLevel = entryPoint.getLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
-		return calculatedLevel.get();
+//		Optional<Level> calculatedLevel = entryPoint.getLevel().stream().filter(level -> level.getName().equals(levelNameToSearch)).findFirst();
+//		return calculatedLevel.get();
+		
+		// Hotfix
+		return lookupLevel(levelNameToSearch, entryPoint);
 	}
 	
 	public static Collection<Level> resolveBasicLevels(Level level, EntryPoint entryPoint, String sublevelDelimiter) {

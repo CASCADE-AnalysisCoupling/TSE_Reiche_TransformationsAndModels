@@ -52,8 +52,12 @@ public class Joana2AccessAnalysisResultIntegration {
 		Backprojector backprojector = backprojectionFactory.create(policyStyle, input.getRepository(), input.getCorrespondenceRoot(), input.getConfidentiality(), input.getProfile());
 		backprojector.project(resultingSpec);
 		
-		input.updateConfidentialityModel(confidentialitySpecificationLocation);
+		this.updateConfidentialityModel(input);
 	
 		System.out.println("Result Integration JOANA to Access Analysis Done");
+	}
+	
+	protected void updateConfidentialityModel(Models input) {
+		input.updateConfidentialityModel(confidentialitySpecificationLocation, confidentialitySpecificationLocation);
 	}
 }
