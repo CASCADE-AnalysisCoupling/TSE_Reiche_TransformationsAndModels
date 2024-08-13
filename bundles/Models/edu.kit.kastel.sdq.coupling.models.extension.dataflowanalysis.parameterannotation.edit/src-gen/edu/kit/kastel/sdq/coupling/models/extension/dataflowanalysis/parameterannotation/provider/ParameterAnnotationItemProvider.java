@@ -10,6 +10,7 @@ import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -20,6 +21,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.xtext.util.Strings;
 
 /**
  * This is the item provider adapter for a {@link edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation} object.
@@ -129,7 +131,23 @@ public class ParameterAnnotationItemProvider extends CharacteristicsAnnotationIt
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterAnnotation) object).getId();
+		ParameterAnnotation annotation = ((ParameterAnnotation) object);
+		
+		String annotatatedParameterName = "";
+		String annotatedMethodName = "";
+		String levels = "";
+		
+		if(annotation.getParameterIdentification() != null) {
+			annotatatedParameterName = annotation.getParameterIdentification().getParameter().getParameterName();
+			annotatedMethodName = annotation.getParameterIdentification().getOperationSignature().getEntityName();
+		}
+		
+	
+		if(!annotation.getCharacteristics().isEmpty()) {
+			levels = Strings.concat(";", annotation.getCharacteristics().get(0).getValues().stream().map(lit -> lit.getName()).collect(Collectors.toList()));
+		}
+		
+		String label = "%s.%s : %s".formatted(annotatedMethodName, annotatatedParameterName, levels);
 		return label == null || label.length() == 0 ? getString("_UI_ParameterAnnotation_type")
 				: getString("_UI_ParameterAnnotation_type") + " " + label;
 	}
