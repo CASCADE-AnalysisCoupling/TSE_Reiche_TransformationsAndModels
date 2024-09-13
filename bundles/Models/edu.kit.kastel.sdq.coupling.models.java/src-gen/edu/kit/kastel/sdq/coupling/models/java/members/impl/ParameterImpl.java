@@ -4,6 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.java.members.impl;
 
 import edu.kit.kastel.sdq.coupling.models.identifier.impl.EntityImpl;
 
+import edu.kit.kastel.sdq.coupling.models.java.members.Annotatable;
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
@@ -171,6 +172,11 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 				default: return -1;
 			}
 		}
+		if (baseClass == Annotatable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -184,6 +190,11 @@ public class ParameterImpl extends EntityImpl implements Parameter {
 		if (baseClass == TypedElement.class) {
 			switch (baseFeatureID) {
 				case TypesPackage.TYPED_ELEMENT__TYPE: return MembersPackage.PARAMETER__TYPE;
+				default: return -1;
+			}
+		}
+		if (baseClass == Annotatable.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

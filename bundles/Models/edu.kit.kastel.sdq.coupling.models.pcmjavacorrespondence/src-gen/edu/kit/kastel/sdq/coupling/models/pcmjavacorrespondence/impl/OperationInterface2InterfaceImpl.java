@@ -32,8 +32,7 @@ import org.palladiosimulator.pcm.repository.OperationInterface;
  *
  * @generated
  */
-public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Container
-		implements OperationInterface2Interface {
+public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Container implements OperationInterface2Interface {
 	/**
 	 * The cached value of the '{@link #getPcmInterface() <em>Pcm Interface</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -78,15 +77,14 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperationInterface getPcmInterface() {
-		if (pcmInterface != null && ((EObject) pcmInterface).eIsProxy()) {
-			InternalEObject oldPcmInterface = (InternalEObject) pcmInterface;
-			pcmInterface = (OperationInterface) eResolveProxy(oldPcmInterface);
+		if (pcmInterface != null && ((EObject)pcmInterface).eIsProxy()) {
+			InternalEObject oldPcmInterface = (InternalEObject)pcmInterface;
+			pcmInterface = (OperationInterface)eResolveProxy(oldPcmInterface);
 			if (pcmInterface != oldPcmInterface) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface,
-							pcmInterface));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface, pcmInterface));
 			}
 		}
 		return pcmInterface;
@@ -106,13 +104,12 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPcmInterface(OperationInterface newPcmInterface) {
 		OperationInterface oldPcmInterface = pcmInterface;
 		pcmInterface = newPcmInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface,
-					pcmInterface));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface, pcmInterface));
 	}
 
 	/**
@@ -120,15 +117,14 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Interface getJavaInterface() {
 		if (javaInterface != null && javaInterface.eIsProxy()) {
-			InternalEObject oldJavaInterface = (InternalEObject) javaInterface;
-			javaInterface = (Interface) eResolveProxy(oldJavaInterface);
+			InternalEObject oldJavaInterface = (InternalEObject)javaInterface;
+			javaInterface = (Interface)eResolveProxy(oldJavaInterface);
 			if (javaInterface != oldJavaInterface) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE,
-							oldJavaInterface, javaInterface));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface, javaInterface));
 			}
 		}
 		return javaInterface;
@@ -148,13 +144,12 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJavaInterface(Interface newJavaInterface) {
 		Interface oldJavaInterface = javaInterface;
 		javaInterface = newJavaInterface;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface,
-					javaInterface));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface, javaInterface));
 	}
 
 	/**
@@ -165,14 +160,12 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
-			if (resolve)
-				return getPcmInterface();
-			return basicGetPcmInterface();
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
-			if (resolve)
-				return getJavaInterface();
-			return basicGetJavaInterface();
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
+				if (resolve) return getPcmInterface();
+				return basicGetPcmInterface();
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
+				if (resolve) return getJavaInterface();
+				return basicGetJavaInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,12 +178,12 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
-			setPcmInterface((OperationInterface) newValue);
-			return;
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
-			setJavaInterface((Interface) newValue);
-			return;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
+				setPcmInterface((OperationInterface)newValue);
+				return;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
+				setJavaInterface((Interface)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -203,12 +196,12 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
-			setPcmInterface((OperationInterface) null);
-			return;
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
-			setJavaInterface((Interface) null);
-			return;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
+				setPcmInterface((OperationInterface)null);
+				return;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
+				setJavaInterface((Interface)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -221,10 +214,10 @@ public class OperationInterface2InterfaceImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
-			return pcmInterface != null;
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
-			return javaInterface != null;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE:
+				return pcmInterface != null;
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE:
+				return javaInterface != null;
 		}
 		return super.eIsSet(featureID);
 	}

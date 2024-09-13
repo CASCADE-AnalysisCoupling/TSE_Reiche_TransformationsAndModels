@@ -1,6 +1,6 @@
 package edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration
+
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation
@@ -9,6 +9,8 @@ import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.te
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.FieldAnnotation
 
 class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	public static val String HAS_LABEL_CHECK_NAME = "hasLabel";
@@ -29,10 +31,10 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	
 	val CodeQLQueryTemplate query;
 	
-	val Configuration config;
+	val Query config;
 	val JavaRoot root;
 	
-	new(JavaRoot root, Configuration config){
+	new(JavaRoot root, Query config){
 		this.config = config;
 		this.root = root;
 		this.query = new CodeQLTainttrackingQueryCodeGenerator();
@@ -65,7 +67,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	
 	private def String generateallowedFlowsSecurityLevel()'''
 		predicate allowedFlows(«LABEL_TYPE_NAME» source, «LABEL_TYPE_NAME» sink){
-			«FOR allowedFlow : config.allowedFlows SEPARATOR " or"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
+			«FOR allowedFlow : config.allowedFlows.allowedFlows SEPARATOR " or"»«singleAllowedFlow(allowedFlow)»«ENDFOR»
 			or getLevelAsString(source) = getLevelAsString(sink) 
 			or exists(SecurityLevel l | allowedFlows(source, l) and allowedFlows(l, sink)) 
 			or none()
@@ -137,7 +139,7 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 	protected def String generateLabelingFunction()'''
 		«LABEL_TYPE_NAME» «LABEL_FUNCTION_NAME»(DataFlow::Node node){
 			«FOR annotation : config.securityLevelAnnotations SEPARATOR " or"»
-				«generateSingleLabelling(annotation)»
+				«generateSingleParameterLabeling(annotation)»
 			«ENDFOR»
 			or result = None()
 		}
@@ -148,21 +150,32 @@ class CodeQLTainttrackingCodeGenerator extends CodeQLTainttrackingTemplate{
 		source = «generateSecurityLevelType(flow.from)» and sink = «generateSecurityLevelType(flow.to)»
 	'''
 	
-	private def String generateSingleLabelling(SecurityLevelAnnotation anno){
+	private def String generateSingleParameterLabeling(SecurityLevelAnnotation anno){
 		
 		if(anno instanceof ParameterAnnotation){
 		val levelString = anno.securityLevel.name
 		val className = JavaResolutionUtil.getClassForParameter(root, anno.parameter).name
 		val methodName = JavaResolutionUtil.getMethodContainingParameter(root, anno.parameter).name
 		val parameterName = anno.parameter.name;
-			return generateSingleLabelling(className, methodName, parameterName, anno.securityLevel)
+			return generateSingleParameterLabeling(className, methodName, parameterName, anno.securityLevel)
+		}
+		
+		if(anno instanceof FieldAnnotation){
+		val levelString = anno.securityLevel.name
+		val className = JavaResolutionUtil.getClassForField(root, anno.field).name
+		val fieldName = anno.field.name;
+			return generateSingleFieldLabeling(className, fieldName, anno.securityLevel)
 		}
 		
 		return null
 	}
 	
-	private def String generateSingleLabelling(String className, String methodName, String parameterName, SecurityLevel label)'''
+	private def String generateSingleParameterLabeling(String className, String methodName, String parameterName, SecurityLevel label)'''
 		labelParameter("«className»", "«methodName»", "«parameterName»", node) and result = «generateSecurityLevelType(label)» 
+	'''
+	
+	private def String generateSingleFieldLabeling(String className, String fieldName, SecurityLevel label)'''
+		labelField("«className»", "«fieldName»", node) and result = «generateSecurityLevelType(label)» 
 	'''
 	
 	override protected generateMetaData() '''

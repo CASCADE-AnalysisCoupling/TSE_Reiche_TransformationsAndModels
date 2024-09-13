@@ -77,27 +77,27 @@ public class JoanascarSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR: {
-			SystemElementIdentifiying_JOANASCAR systemElementIdentifiying_JOANASCAR = (SystemElementIdentifiying_JOANASCAR) theEObject;
-			T1 result = caseSystemElementIdentifiying_JOANASCAR(systemElementIdentifiying_JOANASCAR);
+		case JoanascarPackage.SYSTEM_ELEMENT_SCAR: {
+			SystemElement_SCAR systemElement_SCAR = (SystemElement_SCAR) theEObject;
+			T1 result = caseSystemElement_SCAR(systemElement_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.PARAMETER_IDENTIFYING: {
-			ParameterIdentifying parameterIdentifying = (ParameterIdentifying) theEObject;
-			T1 result = caseParameterIdentifying(parameterIdentifying);
+		case JoanascarPackage.PARAMETER_SCAR: {
+			Parameter_SCAR parameter_SCAR = (Parameter_SCAR) theEObject;
+			T1 result = caseParameter_SCAR(parameter_SCAR);
 			if (result == null)
-				result = caseSystemElementIdentifiying_JOANASCAR(parameterIdentifying);
+				result = caseSystemElement_SCAR(parameter_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.FIELD_IDENTIFYING: {
-			FieldIdentifying fieldIdentifying = (FieldIdentifying) theEObject;
-			T1 result = caseFieldIdentifying(fieldIdentifying);
+		case JoanascarPackage.FIELD_SCAR: {
+			Field_SCAR field_SCAR = (Field_SCAR) theEObject;
+			T1 result = caseField_SCAR(field_SCAR);
 			if (result == null)
-				result = caseSystemElementIdentifiying_JOANASCAR(fieldIdentifying);
+				result = caseSystemElement_SCAR(field_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -115,23 +115,30 @@ public class JoanascarSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.ENTRY_POINT_IDENTIFYING: {
-			EntryPointIdentifying entryPointIdentifying = (EntryPointIdentifying) theEObject;
-			T1 result = caseEntryPointIdentifying(entryPointIdentifying);
+		case JoanascarPackage.ENTRY_POINT_SCAR: {
+			EntryPoint_SCAR entryPoint_SCAR = (EntryPoint_SCAR) theEObject;
+			T1 result = caseEntryPoint_SCAR(entryPoint_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.RESULT_ENTRY: {
-			ResultEntry resultEntry = (ResultEntry) theEObject;
-			T1 result = caseResultEntry(resultEntry);
+		case JoanascarPackage.FLOW: {
+			Flow flow = (Flow) theEObject;
+			T1 result = caseFlow(flow);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanascarPackage.RESULT_ENTRY_ELEMENT: {
-			ResultEntryElement<?> resultEntryElement = (ResultEntryElement<?>) theEObject;
-			T1 result = caseResultEntryElement(resultEntryElement);
+		case JoanascarPackage.SOURCE: {
+			Source<?> source = (Source<?>) theEObject;
+			T1 result = caseSource(source);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JoanascarPackage.SINK: {
+			Sink<?> sink = (Sink<?>) theEObject;
+			T1 result = caseSink(sink);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -157,47 +164,47 @@ public class JoanascarSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Element Identifiying JOANASCAR</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>System Element SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Element Identifiying JOANASCAR</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>System Element SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseSystemElementIdentifiying_JOANASCAR(SystemElementIdentifiying_JOANASCAR object) {
+	public T1 caseSystemElement_SCAR(SystemElement_SCAR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Identifying</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Identifying</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseParameterIdentifying(ParameterIdentifying object) {
+	public T1 caseParameter_SCAR(Parameter_SCAR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Field Identifying</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Field SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Field Identifying</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Field SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFieldIdentifying(FieldIdentifying object) {
+	public T1 caseField_SCAR(Field_SCAR object) {
 		return null;
 	}
 
@@ -217,47 +224,62 @@ public class JoanascarSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entry Point Identifying</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Point SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entry Point Identifying</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Point SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseEntryPointIdentifying(EntryPointIdentifying object) {
+	public T1 caseEntryPoint_SCAR(EntryPoint_SCAR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result Entry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result Entry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseResultEntry(ResultEntry object) {
+	public T1 caseFlow(Flow object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result Entry Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result Entry Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends SystemElementIdentifiying_JOANASCAR> T1 caseResultEntryElement(ResultEntryElement<T> object) {
+	public <T extends SystemElement_SCAR> T1 caseSource(Source<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sink</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sink</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends SystemElement_SCAR> T1 caseSink(Sink<T> object) {
 		return null;
 	}
 

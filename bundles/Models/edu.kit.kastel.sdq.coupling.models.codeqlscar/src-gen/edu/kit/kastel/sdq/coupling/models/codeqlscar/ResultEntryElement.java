@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ResultEntryElement<T extends SystemElementIdentification> extends EObject {
+public interface ResultEntryElement<T extends SystemElement> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>System Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Element</em>' reference.
-	 * @see #setSystemElement(SystemElementIdentification)
+	 * @see #setSystemElement(SystemElement)
 	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarPackage#getResultEntryElement_SystemElement()
 	 * @model required="true"
 	 * @generated

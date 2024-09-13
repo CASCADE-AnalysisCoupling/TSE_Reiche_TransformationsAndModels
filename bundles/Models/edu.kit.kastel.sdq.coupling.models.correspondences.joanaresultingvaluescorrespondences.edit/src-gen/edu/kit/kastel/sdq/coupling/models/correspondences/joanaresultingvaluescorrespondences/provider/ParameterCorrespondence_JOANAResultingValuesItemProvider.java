@@ -52,7 +52,7 @@ public class ParameterCorrespondence_JOANAResultingValuesItemProvider extends It
 			super.getPropertyDescriptors(object);
 
 			addParameter_SCARPropertyDescriptor(object);
-			addParameter_ResultingValuesPropertyDescriptor(object);
+			addParameter_ResolvedImplementationValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,19 +75,20 @@ public class ParameterCorrespondence_JOANAResultingValuesItemProvider extends It
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Resulting Values feature.
+	 * This adds a property descriptor for the Parameter Resolved Implementation Values feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParameter_ResultingValuesPropertyDescriptor(Object object) {
+	protected void addParameter_ResolvedImplementationValuesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterCorrespondence_JOANAResultingValues_parameter_ResultingValues_feature"),
+				getString(
+						"_UI_ParameterCorrespondence_JOANAResultingValues_parameter_ResolvedImplementationValues_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_ParameterCorrespondence_JOANAResultingValues_parameter_ResultingValues_feature",
+						"_UI_ParameterCorrespondence_JOANAResultingValues_parameter_ResolvedImplementationValues_feature",
 						"_UI_ParameterCorrespondence_JOANAResultingValues_type"),
-				JoanaresultingvaluescorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES,
+				JoanaresultingvaluescorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES,
 				true, false, true, null, null, null));
 	}
 

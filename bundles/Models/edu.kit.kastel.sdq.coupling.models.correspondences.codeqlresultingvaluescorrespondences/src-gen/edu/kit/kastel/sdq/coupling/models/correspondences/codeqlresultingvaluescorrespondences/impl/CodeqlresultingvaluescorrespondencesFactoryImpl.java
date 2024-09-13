@@ -57,14 +57,14 @@ public class CodeqlresultingvaluescorrespondencesFactoryImpl extends EFactoryImp
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CodeqlresultingvaluescorrespondencesPackage.CORRESPONDENCES_CODE_QL_RESULTING_VALUES:
-			return createCorrespondences_CodeQLResultingValues();
-		case CodeqlresultingvaluescorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES:
-			return createSecurityLevelCorrespondence_CodeQLResultingValues();
-		case CodeqlresultingvaluescorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES:
-			return createConfigurationCorrespondence_CodeQLResultingValues();
-		case CodeqlresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES:
-			return createParameterCorrespondence_CodeQLResultingValues();
+		case CodeqlresultingvaluescorrespondencesPackage.CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES:
+			return createCorrespondences_ResolvedImplementationValues();
+		case CodeqlresultingvaluescorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES:
+			return createSecurityLevelCorrespondence_ResolvedImplementationValues();
+		case CodeqlresultingvaluescorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES:
+			return createConfigurationCorrespondence_ResolvedImplementationValues();
+		case CodeqlresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES:
+			return createParameterCorrespondence_ResolvedImplementationValues();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,9 +75,9 @@ public class CodeqlresultingvaluescorrespondencesFactoryImpl extends EFactoryImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Correspondences_CodeQLResultingValues createCorrespondences_CodeQLResultingValues() {
-		Correspondences_CodeQLResultingValuesImpl correspondences_CodeQLResultingValues = new Correspondences_CodeQLResultingValuesImpl();
-		return correspondences_CodeQLResultingValues;
+	public Correspondences_ResolvedImplementationValues createCorrespondences_ResolvedImplementationValues() {
+		Correspondences_ResolvedImplementationValuesImpl correspondences_ResolvedImplementationValues = new Correspondences_ResolvedImplementationValuesImpl();
+		return correspondences_ResolvedImplementationValues;
 	}
 
 	/**
@@ -85,9 +85,9 @@ public class CodeqlresultingvaluescorrespondencesFactoryImpl extends EFactoryImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevelCorrespondence_CodeQLResultingValues createSecurityLevelCorrespondence_CodeQLResultingValues() {
-		SecurityLevelCorrespondence_CodeQLResultingValuesImpl securityLevelCorrespondence_CodeQLResultingValues = new SecurityLevelCorrespondence_CodeQLResultingValuesImpl();
-		return securityLevelCorrespondence_CodeQLResultingValues;
+	public SecurityLevelCorrespondence_ResolvedImplementationValues createSecurityLevelCorrespondence_ResolvedImplementationValues() {
+		SecurityLevelCorrespondence_ResolvedImplementationValuesImpl securityLevelCorrespondence_ResolvedImplementationValues = new SecurityLevelCorrespondence_ResolvedImplementationValuesImpl();
+		return securityLevelCorrespondence_ResolvedImplementationValues;
 	}
 
 	/**
@@ -95,9 +95,9 @@ public class CodeqlresultingvaluescorrespondencesFactoryImpl extends EFactoryImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationCorrespondence_CodeQLResultingValues createConfigurationCorrespondence_CodeQLResultingValues() {
-		ConfigurationCorrespondence_CodeQLResultingValuesImpl configurationCorrespondence_CodeQLResultingValues = new ConfigurationCorrespondence_CodeQLResultingValuesImpl();
-		return configurationCorrespondence_CodeQLResultingValues;
+	public ConfigurationCorrespondence_ResolvedImplementationValues createConfigurationCorrespondence_ResolvedImplementationValues() {
+		ConfigurationCorrespondence_ResolvedImplementationValuesImpl configurationCorrespondence_ResolvedImplementationValues = new ConfigurationCorrespondence_ResolvedImplementationValuesImpl();
+		return configurationCorrespondence_ResolvedImplementationValues;
 	}
 
 	/**
@@ -105,9 +105,9 @@ public class CodeqlresultingvaluescorrespondencesFactoryImpl extends EFactoryImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterCorrespondence_CodeQLResultingValues createParameterCorrespondence_CodeQLResultingValues() {
-		ParameterCorrespondence_CodeQLResultingValuesImpl parameterCorrespondence_CodeQLResultingValues = new ParameterCorrespondence_CodeQLResultingValuesImpl();
-		return parameterCorrespondence_CodeQLResultingValues;
+	public ParameterCorrespondence_ResolvedImplementationValues createParameterCorrespondence_ResolvedImplementationValues() {
+		ParameterCorrespondence_ResolvedImplementationValuesImpl parameterCorrespondence_ResolvedImplementationValues = new ParameterCorrespondence_ResolvedImplementationValuesImpl();
+		return parameterCorrespondence_ResolvedImplementationValues;
 	}
 
 	/**

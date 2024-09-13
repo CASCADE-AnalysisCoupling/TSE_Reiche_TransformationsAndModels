@@ -13,26 +13,26 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Joanaresultingvalues" basePackage="edu.kit.kastel.sdq.coupling.models"
       disposableProviderFactory="true" ecorePackage="joanaresultingvalues.ecore#/">
-    <genClasses ecoreClass="joanaresultingvalues.ecore#//JOANAResultingValues">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//JOANAResultingValues/systemElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//JOANAResultingValues/levels"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//JOANAResultingValues/entryPoints"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//JOANAResultingValues/resultingValues"/>
+    <genClasses ecoreClass="joanaresultingvalues.ecore#//ResolvedImplementationValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValues/systemElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValues/levels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValues/entryPoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValues/resultingValues"/>
     </genClasses>
-    <genClasses ecoreClass="joanaresultingvalues.ecore#//ParameterIdentification_JOANAResultingValues">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//ParameterIdentification_JOANAResultingValues/parameterIndex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//ParameterIdentification_JOANAResultingValues/parameterType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//ParameterIdentification_JOANAResultingValues/methodName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//ParameterIdentification_JOANAResultingValues/fullyQualifiedClassName"/>
+    <genClasses ecoreClass="joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues/parameterIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues/parameterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues/methodName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues/fullyQualifiedClassName"/>
     </genClasses>
-    <genClasses ecoreClass="joanaresultingvalues.ecore#//Level_ResultingValues"/>
-    <genClasses ecoreClass="joanaresultingvalues.ecore#//EntryPointIdentification_ResultingValues">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//EntryPointIdentification_ResultingValues/tag"/>
+    <genClasses ecoreClass="joanaresultingvalues.ecore#//Level_ResolvedImplementationValues"/>
+    <genClasses ecoreClass="joanaresultingvalues.ecore#//EntryPoint_ResolvedImplementationValues">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanaresultingvalues.ecore#//EntryPoint_ResolvedImplementationValues/tag"/>
     </genClasses>
-    <genClasses ecoreClass="joanaresultingvalues.ecore#//ResultingValue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResultingValue/systemElement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResultingValue/configuration"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResultingValue/level"/>
+    <genClasses ecoreClass="joanaresultingvalues.ecore#//ResolvedImplementationValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValue/systemElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValue/configuration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvalues.ecore#//ResolvedImplementationValue/level"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

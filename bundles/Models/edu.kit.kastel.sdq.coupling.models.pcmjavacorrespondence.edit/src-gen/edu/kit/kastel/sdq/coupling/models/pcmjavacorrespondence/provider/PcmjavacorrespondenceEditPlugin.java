@@ -48,10 +48,16 @@ public final class PcmjavacorrespondenceEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public PcmjavacorrespondenceEditPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE,
-				edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin.INSTANCE,
-				JavaEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+		super
+		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
+		     edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin.INSTANCE,
+		     JavaEditPlugin.INSTANCE,
+		     PalladioComponentModelEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
+		     StoexEditPlugin.INSTANCE,
+		     UnitsEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**

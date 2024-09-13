@@ -14,137 +14,147 @@ import java.util.stream.Collectors;
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.util.Tuple;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.model.ResultingValuesModelHandlingUtil;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.model.SCARResultingValuesModelElementUtil;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.utils.CodeQLResultingValuesModelGenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Result;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
-
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 
 public class ResultingSpecificationResolution4AccessAnalysis extends ResultingSpecificationResolution {
 
-	private Map<Tuple<ParameterIdentification, SecurityLevel_SCAR>, Collection<ResultEntry>> sinkEntryAssignment = new HashMap<>();
-	
+	private Map<Tuple<Parameter_SCAR, SecurityLevel_SCAR>, Collection<Result>> sinkEntryAssignment = new HashMap<>();
+
 	public ResultingSpecificationResolution4AccessAnalysis() {
 		super();
 	}
 
-	private ResultingValue combine(Tuple<ParameterIdentification, SecurityLevel_SCAR> originalSink, Collection<ResultEntry> resultEntries, SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, CodeQLSCARCorrespondences codeQLScarCorrespondence) {
-		
+	private ResolvedImplementationValue combine(Tuple<Parameter_SCAR, SecurityLevel_SCAR> originalSink,
+			Collection<Result> resultEntries, SourceCodeAnalysisResult scar, TainttrackingRoot codeQL,
+			Correspondences_CodeQLScar codeQLScarCorrespondence) {
 
-		List<ResultEntry> relevantResultEntries = resultEntries.stream().filter(entry -> isResultEntryValidWRTAccessAnalysis(entry)).collect(Collectors.toList());
-		
-		if(!sameConfiguration(relevantResultEntries)) {
+		List<Result> relevantResultEntries = resultEntries.stream()
+				.filter(entry -> isResultEntryValidWRTAccessAnalysis(entry)).collect(Collectors.toList());
+
+		if (!sameConfiguration(relevantResultEntries)) {
 			throw new RuntimeException("Somehow not all entries do not have the same configuration");
 		}
-		
-		if(relevantResultEntries.size() == 0) {
+
+		if (relevantResultEntries.size() == 0) {
 			return null;
 		}
-		
+
 		Collection<String> unifiedLevels = new HashSet<>();
-		
-		
-		for(ResultEntry entry : relevantResultEntries) {
-			unifiedLevels.addAll(ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(entry.getSource().getSecurityLevel().getName(), DELIMITER));
+
+		for (Result entry : relevantResultEntries) {
+			unifiedLevels.addAll(ResultingValuesModelHandlingUtil
+					.splitLevelNameIntoBasicLevels(entry.getSource().getSecurityLevel().getName(), DELIMITER));
 		}
-		
-		String unifiedSortedLevelName = String.join(DELIMITER, unifiedLevels.stream().sorted().collect(Collectors.toList()));
-		
-		ParameterIdentificiation_CodeQLResultingValues parameter = SCARResultingValuesModelElementUtil.getOrTransformAndAddParameterIdentification((ParameterIdentification)originalSink.getFirst(), resultingValues, correspondences_ResultingValues);
-		ConfigurationID_ResultingValues config = SCARResultingValuesModelElementUtil.getOrTransformAndAddConfigurationID(relevantResultEntries.get(0).getConfig(), resultingValues, correspondences_ResultingValues);
-		SecurityLevel_ResultingValues securityLevel = SCARResultingValuesModelElementUtil.getOrTransformAndAddSecurityLevelByName(unifiedSortedLevelName, config, scar, codeQL, codeQLScarCorrespondence, resultingValues, correspondences_ResultingValues);
-		
-	
-		
+
+		String unifiedSortedLevelName = String.join(DELIMITER,
+				unifiedLevels.stream().sorted().collect(Collectors.toList()));
+
+		Parameter_ResolvedImplementationValues parameter = SCARResultingValuesModelElementUtil
+				.getOrTransformAndAddParameterIdentification((Parameter_SCAR) originalSink.getFirst(), resultingValues,
+						correspondences_ResultingValues);
+		RuleId_ResolvedImplementationValue config = SCARResultingValuesModelElementUtil
+				.getOrTransformAndAddConfigurationID(relevantResultEntries.get(0).getRuleId(), resultingValues,
+						correspondences_ResultingValues);
+		SecurityLevel_ResolvedImplementationValues securityLevel = SCARResultingValuesModelElementUtil
+				.getOrTransformAndAddSecurityLevelByName(unifiedSortedLevelName, config, scar, codeQL,
+						codeQLScarCorrespondence, resultingValues, correspondences_ResultingValues);
+
 		return CodeQLResultingValuesModelGenerationUtil.createResultingValue(parameter, securityLevel, config);
 	}
 
+	private boolean isResultEntryValidWRTAccessAnalysis(Result resultEntry) {
+		Collection<String> sourceBasicLevels = ResultingValuesModelHandlingUtil
+				.splitLevelNameIntoBasicLevels(resultEntry.getSource().getSecurityLevel().getName(), DELIMITER);
+		Collection<String> sinkBasicLevels = ResultingValuesModelHandlingUtil
+				.splitLevelNameIntoBasicLevels(resultEntry.getSink().getSecurityLevel().getName(), DELIMITER);
 
-
-
-	private boolean isResultEntryValidWRTAccessAnalysis(ResultEntry resultEntry) {
-		Collection<String> sourceBasicLevels = ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(resultEntry.getSource().getSecurityLevel().getName(), DELIMITER);
-		Collection<String> sinkBasicLevels = ResultingValuesModelHandlingUtil.splitLevelNameIntoBasicLevels(resultEntry.getSink().getSecurityLevel().getName(), DELIMITER);
-		
-		boolean valid = !(sourceBasicLevels.size() >= sinkBasicLevels.size() && containsAny(sourceBasicLevels, sinkBasicLevels));
+		boolean valid = !(sourceBasicLevels.size() >= sinkBasicLevels.size()
+				&& containsAny(sourceBasicLevels, sinkBasicLevels));
 
 		return valid;
 	}
 
-	
-
 	@Override
-	public CodeQLResultingValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, CodeQLSCARCorrespondences codeQLScarCorrespondence) {
-	
-		Collection<ResultEntry> mappableResultEntries = filterMappableResultEntries(scar);
-		
+	public ResolvedImplementationValues calculateResultingValues(SourceCodeAnalysisResult scar,
+			TainttrackingRoot codeQL, Correspondences_CodeQLScar codeQLScarCorrespondence) {
+
+		Collection<Result> mappableResultEntries = filterMappableResultEntries(scar);
+
 		calculateSinkResultEntryRelations(mappableResultEntries);
-		
-		for(Entry<Tuple<ParameterIdentification, SecurityLevel_SCAR>, Collection<ResultEntry>> entry : sinkEntryAssignment.entrySet()) {
-			ResultingValue resultingValue = combine(entry.getKey(), entry.getValue(), scar, codeQL, codeQLScarCorrespondence);
-			
-			if(resultingValue != null) {
+
+		for (Entry<Tuple<Parameter_SCAR, SecurityLevel_SCAR>, Collection<Result>> entry : sinkEntryAssignment
+				.entrySet()) {
+			ResolvedImplementationValue resultingValue = combine(entry.getKey(), entry.getValue(), scar, codeQL,
+					codeQLScarCorrespondence);
+
+			if (resultingValue != null) {
 				resultingValues.getResultingValues().add(resultingValue);
 			}
-			
+
 		}
-		
+
 		return resultingValues;
 	}
-	
-	private Collection<ResultEntry> filterMappableResultEntries(SourceCodeAnalysisResult scar) {
-		return scar.getResultEntries().stream().filter(resultEntry -> resultEntry.getSink().getSystemElement() instanceof ParameterIdentification).collect(Collectors.toList());
+
+	private Collection<Result> filterMappableResultEntries(SourceCodeAnalysisResult scar) {
+		return scar.getResultEntries().stream()
+				.filter(resultEntry -> resultEntry.getSink().getSystemElement() instanceof Parameter_SCAR)
+				.collect(Collectors.toList());
 	}
 
-	public void calculateSinkResultEntryRelations(Collection<ResultEntry> mappableEntries) {
-		for(ResultEntry resultEntry : mappableEntries) {
-			if(!(resultEntry.getSink().getSystemElement() instanceof ParameterIdentification)) {
+	public void calculateSinkResultEntryRelations(Collection<Result> mappableEntries) {
+		for (Result resultEntry : mappableEntries) {
+			if (!(resultEntry.getSink().getSystemElement() instanceof Parameter_SCAR)) {
 				continue;
 			}
-			
-			Tuple<ParameterIdentification, SecurityLevel_SCAR> sinkTuple = getOrCreateAndAddOriginalSink(resultEntry);
-			
+
+			Tuple<Parameter_SCAR, SecurityLevel_SCAR> sinkTuple = getOrCreateAndAddOriginalSink(resultEntry);
+
 			sinkEntryAssignment.get(sinkTuple).add(resultEntry);
-			
+
 		}
 	}
-	
-	public Tuple<ParameterIdentification, SecurityLevel_SCAR> getOrCreateAndAddOriginalSink(ResultEntry resultEntry) {
-		
-		if(!(resultEntry.getSink().getSystemElement() instanceof ParameterIdentification)) {
+
+	public Tuple<Parameter_SCAR, SecurityLevel_SCAR> getOrCreateAndAddOriginalSink(Result resultEntry) {
+
+		if (!(resultEntry.getSink().getSystemElement() instanceof Parameter_SCAR)) {
 			return null;
 		}
-		
-		for(Tuple<ParameterIdentification, SecurityLevel_SCAR> sinkAssignment : sinkEntryAssignment.keySet()) {
-			if(sinkAssignment.getFirst().equals(resultEntry.getSink().getSystemElement()) && sinkAssignment.getSecond().equals(resultEntry.getSink().getSecurityLevel())) {
+
+		for (Tuple<Parameter_SCAR, SecurityLevel_SCAR> sinkAssignment : sinkEntryAssignment.keySet()) {
+			if (sinkAssignment.getFirst().equals(resultEntry.getSink().getSystemElement())
+					&& sinkAssignment.getSecond().equals(resultEntry.getSink().getSecurityLevel())) {
 				return sinkAssignment;
 			}
 		}
-		
-		Tuple<ParameterIdentification, SecurityLevel_SCAR> sinkTuple = new Tuple<ParameterIdentification, SecurityLevel_SCAR>((ParameterIdentification)resultEntry.getSink().getSystemElement(), resultEntry.getSink().getSecurityLevel());
-		sinkEntryAssignment.put(sinkTuple, new ArrayList<ResultEntry>());
-		
+
+		Tuple<Parameter_SCAR, SecurityLevel_SCAR> sinkTuple = new Tuple<Parameter_SCAR, SecurityLevel_SCAR>(
+				(Parameter_SCAR) resultEntry.getSink().getSystemElement(), resultEntry.getSink().getSecurityLevel());
+		sinkEntryAssignment.put(sinkTuple, new ArrayList<Result>());
+
 		return sinkTuple;
-			
-	}
-	
-	public static <T> boolean containsAny(Collection<T> ifContaining, Collection<T> testAgainst) {
-		for(T elementToTest : testAgainst) {
-			if(ifContaining.contains(elementToTest)) {
-				return true;
-			}
-		} 
-		
-		return false;
+
 	}
 
+	public static <T> boolean containsAny(Collection<T> ifContaining, Collection<T> testAgainst) {
+		for (T elementToTest : testAgainst) {
+			if (ifContaining.contains(elementToTest)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 }

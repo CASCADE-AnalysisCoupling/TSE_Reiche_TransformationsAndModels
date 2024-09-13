@@ -2,10 +2,11 @@ package edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextract
 
 import edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar.scarparser.CodeQLSarifOutput2SCARParser;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 
 public class CodeQLResultingSpecificationExtractor {
@@ -18,13 +19,13 @@ public class CodeQLResultingSpecificationExtractor {
 		this.extractor = extractor;
 	}
 	
-	public CodeQLResultingValues extract(TainttrackingRoot tainttrackingRoot, JavaRoot javaRoot, String codeQLResult) {
-		parser = new CodeQLSarifOutput2SCARParser(tainttrackingRoot, javaRoot);
+	public ResolvedImplementationValues extract(TainttrackingRoot tainttrackingRoot, JavaRoot javaRoot, String codeQLResult, Configurations codeql_Configurations) {
+		parser = new CodeQLSarifOutput2SCARParser(tainttrackingRoot, javaRoot, codeql_Configurations);
 		scar = parser.interpretCodeQLSarif(codeQLResult);
 		return extractor.calculateResultingValues(scar, tainttrackingRoot, parser.getScarCorrespondences());
 	}
 
-	public CodeQLSCARCorrespondences getSCARCorrespondence() {
+	public Correspondences_CodeQLScar getSCARCorrespondence() {
 		return parser.getScarCorrespondences();
 	}
 	

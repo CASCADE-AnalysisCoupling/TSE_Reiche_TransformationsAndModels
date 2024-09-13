@@ -56,16 +56,16 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CodeqlresultingvaluesPackage.CODE_QL_RESULTING_VALUES:
-			return createCodeQLResultingValues();
-		case CodeqlresultingvaluesPackage.PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES:
-			return createParameterIdentificiation_CodeQLResultingValues();
-		case CodeqlresultingvaluesPackage.RESULTING_VALUE:
-			return createResultingValue();
-		case CodeqlresultingvaluesPackage.SECURITY_LEVEL_RESULTING_VALUES:
-			return createSecurityLevel_ResultingValues();
-		case CodeqlresultingvaluesPackage.CONFIGURATION_ID_RESULTING_VALUES:
-			return createConfigurationID_ResultingValues();
+		case CodeqlresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUES:
+			return createResolvedImplementationValues();
+		case CodeqlresultingvaluesPackage.PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
+			return createParameter_ResolvedImplementationValues();
+		case CodeqlresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUE:
+			return createResolvedImplementationValue();
+		case CodeqlresultingvaluesPackage.SECURITY_LEVEL_RESOLVED_IMPLEMENTATION_VALUES:
+			return createSecurityLevel_ResolvedImplementationValues();
+		case CodeqlresultingvaluesPackage.RULE_ID_RESOLVED_IMPLEMENTATION_VALUE:
+			return createRuleId_ResolvedImplementationValue();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,9 +76,9 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeQLResultingValues createCodeQLResultingValues() {
-		CodeQLResultingValuesImpl codeQLResultingValues = new CodeQLResultingValuesImpl();
-		return codeQLResultingValues;
+	public ResolvedImplementationValues createResolvedImplementationValues() {
+		ResolvedImplementationValuesImpl resolvedImplementationValues = new ResolvedImplementationValuesImpl();
+		return resolvedImplementationValues;
 	}
 
 	/**
@@ -86,9 +86,9 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentificiation_CodeQLResultingValues createParameterIdentificiation_CodeQLResultingValues() {
-		ParameterIdentificiation_CodeQLResultingValuesImpl parameterIdentificiation_CodeQLResultingValues = new ParameterIdentificiation_CodeQLResultingValuesImpl();
-		return parameterIdentificiation_CodeQLResultingValues;
+	public Parameter_ResolvedImplementationValues createParameter_ResolvedImplementationValues() {
+		Parameter_ResolvedImplementationValuesImpl parameter_ResolvedImplementationValues = new Parameter_ResolvedImplementationValuesImpl();
+		return parameter_ResolvedImplementationValues;
 	}
 
 	/**
@@ -96,9 +96,9 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResultingValue createResultingValue() {
-		ResultingValueImpl resultingValue = new ResultingValueImpl();
-		return resultingValue;
+	public ResolvedImplementationValue createResolvedImplementationValue() {
+		ResolvedImplementationValueImpl resolvedImplementationValue = new ResolvedImplementationValueImpl();
+		return resolvedImplementationValue;
 	}
 
 	/**
@@ -106,9 +106,9 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevel_ResultingValues createSecurityLevel_ResultingValues() {
-		SecurityLevel_ResultingValuesImpl securityLevel_ResultingValues = new SecurityLevel_ResultingValuesImpl();
-		return securityLevel_ResultingValues;
+	public SecurityLevel_ResolvedImplementationValues createSecurityLevel_ResolvedImplementationValues() {
+		SecurityLevel_ResolvedImplementationValuesImpl securityLevel_ResolvedImplementationValues = new SecurityLevel_ResolvedImplementationValuesImpl();
+		return securityLevel_ResolvedImplementationValues;
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class CodeqlresultingvaluesFactoryImpl extends EFactoryImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationID_ResultingValues createConfigurationID_ResultingValues() {
-		ConfigurationID_ResultingValuesImpl configurationID_ResultingValues = new ConfigurationID_ResultingValuesImpl();
-		return configurationID_ResultingValues;
+	public RuleId_ResolvedImplementationValue createRuleId_ResolvedImplementationValue() {
+		RuleId_ResolvedImplementationValueImpl ruleId_ResolvedImplementationValue = new RuleId_ResolvedImplementationValueImpl();
+		return ruleId_ResolvedImplementationValue;
 	}
 
 	/**

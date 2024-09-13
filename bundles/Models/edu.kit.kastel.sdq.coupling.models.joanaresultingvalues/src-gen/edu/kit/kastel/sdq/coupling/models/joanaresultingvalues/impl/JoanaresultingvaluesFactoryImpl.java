@@ -56,16 +56,16 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case JoanaresultingvaluesPackage.JOANA_RESULTING_VALUES:
-			return createJOANAResultingValues();
-		case JoanaresultingvaluesPackage.PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES:
-			return createParameterIdentification_JOANAResultingValues();
-		case JoanaresultingvaluesPackage.LEVEL_RESULTING_VALUES:
-			return createLevel_ResultingValues();
-		case JoanaresultingvaluesPackage.ENTRY_POINT_IDENTIFICATION_RESULTING_VALUES:
-			return createEntryPointIdentification_ResultingValues();
-		case JoanaresultingvaluesPackage.RESULTING_VALUE:
-			return createResultingValue();
+		case JoanaresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUES:
+			return createResolvedImplementationValues();
+		case JoanaresultingvaluesPackage.PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
+			return createParameter_ResolvedImplementationValues();
+		case JoanaresultingvaluesPackage.LEVEL_RESOLVED_IMPLEMENTATION_VALUES:
+			return createLevel_ResolvedImplementationValues();
+		case JoanaresultingvaluesPackage.ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES:
+			return createEntryPoint_ResolvedImplementationValues();
+		case JoanaresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUE:
+			return createResolvedImplementationValue();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,9 +76,9 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JOANAResultingValues createJOANAResultingValues() {
-		JOANAResultingValuesImpl joanaResultingValues = new JOANAResultingValuesImpl();
-		return joanaResultingValues;
+	public ResolvedImplementationValues createResolvedImplementationValues() {
+		ResolvedImplementationValuesImpl resolvedImplementationValues = new ResolvedImplementationValuesImpl();
+		return resolvedImplementationValues;
 	}
 
 	/**
@@ -86,9 +86,9 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentification_JOANAResultingValues createParameterIdentification_JOANAResultingValues() {
-		ParameterIdentification_JOANAResultingValuesImpl parameterIdentification_JOANAResultingValues = new ParameterIdentification_JOANAResultingValuesImpl();
-		return parameterIdentification_JOANAResultingValues;
+	public Parameter_ResolvedImplementationValues createParameter_ResolvedImplementationValues() {
+		Parameter_ResolvedImplementationValuesImpl parameter_ResolvedImplementationValues = new Parameter_ResolvedImplementationValuesImpl();
+		return parameter_ResolvedImplementationValues;
 	}
 
 	/**
@@ -96,9 +96,9 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Level_ResultingValues createLevel_ResultingValues() {
-		Level_ResultingValuesImpl level_ResultingValues = new Level_ResultingValuesImpl();
-		return level_ResultingValues;
+	public Level_ResolvedImplementationValues createLevel_ResolvedImplementationValues() {
+		Level_ResolvedImplementationValuesImpl level_ResolvedImplementationValues = new Level_ResolvedImplementationValuesImpl();
+		return level_ResolvedImplementationValues;
 	}
 
 	/**
@@ -106,9 +106,9 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPointIdentification_ResultingValues createEntryPointIdentification_ResultingValues() {
-		EntryPointIdentification_ResultingValuesImpl entryPointIdentification_ResultingValues = new EntryPointIdentification_ResultingValuesImpl();
-		return entryPointIdentification_ResultingValues;
+	public EntryPoint_ResolvedImplementationValues createEntryPoint_ResolvedImplementationValues() {
+		EntryPoint_ResolvedImplementationValuesImpl entryPoint_ResolvedImplementationValues = new EntryPoint_ResolvedImplementationValuesImpl();
+		return entryPoint_ResolvedImplementationValues;
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class JoanaresultingvaluesFactoryImpl extends EFactoryImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResultingValue createResultingValue() {
-		ResultingValueImpl resultingValue = new ResultingValueImpl();
-		return resultingValue;
+	public ResolvedImplementationValue createResolvedImplementationValue() {
+		ResolvedImplementationValueImpl resolvedImplementationValue = new ResolvedImplementationValueImpl();
+		return resolvedImplementationValue;
 	}
 
 	/**

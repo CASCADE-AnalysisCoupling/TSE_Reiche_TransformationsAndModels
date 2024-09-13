@@ -27,8 +27,16 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 public class AccessAnalysis2JOANAAlignment {
 	
 	public AccessAnalysis2JOANAAlignment(String repositoryPath,
-			String confidentialityModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath, String caseStudy, SecurityGeneratorCreator securityGeneratorCreator, String accessAnalysisJOANACorrespondencModelPath) {
+			String confidentialityModelPath, 
+			String accessAnalysis_Configuration_Path,
+			String javaCodeBasePath, 
+			String codeBasePackageName, 
+			String javaModelPath,
+			String joanaModelPath, 
+			String joana_Configurations_Path, 
+			String pcmJava_CorrespondenceModel_Path, 
+			String accessAnalysisJOANACorrespondencModelPath, 
+			SecurityGeneratorCreator securityGeneratorCreator) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.confidentialityModelPath = confidentialityModelPath;
@@ -36,10 +44,11 @@ public class AccessAnalysis2JOANAAlignment {
 		this.codeBasePackageName = codeBasePackageName;
 		this.javaModelPath = javaModelPath;
 		this.joanaModelPath = joanaModelPath;
-		this.correspondenceModelPath = correspondenceModelPath;
-		AccessAnalysis2JOANAAlignment.caseStudy = caseStudy;
+		this.pcmJava_CorrespondenceModel_Path = pcmJava_CorrespondenceModel_Path;
 		this.securityGeneratorCreator = securityGeneratorCreator;
 		this.accessAnalysisJOANACorrespondencModelPath = accessAnalysisJOANACorrespondencModelPath;
+		this.accessAnalysis_Configurations_Path = accessAnalysis_Configuration_Path;
+		this.joana_Configurations_Path = joana_Configurations_Path;
 	}
 
 	private final String repositoryPath;
@@ -48,9 +57,10 @@ public class AccessAnalysis2JOANAAlignment {
 	private final String codeBasePackageName;
 	private final String javaModelPath;
 	private final String joanaModelPath;
-	private final String correspondenceModelPath;
-	public static String caseStudy;
+	private final String pcmJava_CorrespondenceModel_Path;
 	private final String accessAnalysisJOANACorrespondencModelPath;
+	private final String joana_Configurations_Path;
+	private final String accessAnalysis_Configurations_Path;
 	
 	private final SecurityGeneratorCreator securityGeneratorCreator;
 	
@@ -68,7 +78,7 @@ public class AccessAnalysis2JOANAAlignment {
 		
 		AccessAnalysis2JOANAModelGenerator modelGenerator = new AccessAnalysis2JOANAModelGenerator(securityGeneratorCreator);
 		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, profile, spec, codeBasePackageName);
-		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath, accessAnalysisJOANACorrespondencModelPath);
+		output.writeModelsToFiles(javaModelPath, joanaModelPath, pcmJava_CorrespondenceModel_Path, accessAnalysisJOANACorrespondencModelPath, joana_Configurations_Path, accessAnalysis_Configurations_Path);
 		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
 		generateAndPrintEntryPointIDFile(modelGenerator);
 		

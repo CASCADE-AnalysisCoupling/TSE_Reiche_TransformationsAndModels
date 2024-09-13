@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.impl;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
+
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.EntryPointCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.FieldCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JOANASCARCorrespondences;
@@ -128,6 +130,7 @@ public class JoanascarcorrespondencesPackageImpl extends EPackageImpl implements
 		isInited = true;
 
 		// Initialize simple dependencies
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
 		JoanaPackage.eINSTANCE.eClass();
@@ -378,9 +381,11 @@ public class JoanascarcorrespondencesPackageImpl extends EPackageImpl implements
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
 		JoanascarPackage theJoanascarPackage = (JoanascarPackage) EPackage.Registry.INSTANCE
 				.getEPackage(JoanascarPackage.eNS_URI);
+		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
 		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
 				.getEPackage(MembersPackage.eNS_URI);
 
@@ -409,11 +414,12 @@ public class JoanascarcorrespondencesPackageImpl extends EPackageImpl implements
 
 		initEClass(entryPointCorrespondenceEClass, EntryPointCorrespondence.class, "EntryPointCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntryPointCorrespondence_EntryPoint_JOANA(), theJoanaPackage.getEntryPoint(), null,
-				"entryPoint_JOANA", null, 1, 1, EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPointCorrespondence_EntryPoint_SCAR(), theJoanascarPackage.getEntryPointIdentifying(),
-				null, "entryPoint_SCAR", null, 1, 1, EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getEntryPointCorrespondence_EntryPoint_JOANA(),
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "entryPoint_JOANA", null, 1, 1,
+				EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPointCorrespondence_EntryPoint_SCAR(), theJoanascarPackage.getEntryPoint_SCAR(), null,
+				"entryPoint_SCAR", null, 1, 1, EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(levelCorrespondenceEClass, LevelCorrespondence.class, "LevelCorrespondence", !IS_ABSTRACT,
@@ -433,7 +439,7 @@ public class JoanascarcorrespondencesPackageImpl extends EPackageImpl implements
 		initEReference(getParameterCorrespondence_Parameter_JAVA(), theMembersPackage.getParameter(), null,
 				"parameter_JAVA", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterCorrespondence_Parameter_SCAR(), theJoanascarPackage.getParameterIdentifying(), null,
+		initEReference(getParameterCorrespondence_Parameter_SCAR(), theJoanascarPackage.getParameter_SCAR(), null,
 				"parameter_SCAR", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -442,9 +448,9 @@ public class JoanascarcorrespondencesPackageImpl extends EPackageImpl implements
 		initEReference(getFieldCorrespondence_Field_JAVA(), theMembersPackage.getField(), null, "field_JAVA", null, 1,
 				1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFieldCorrespondence_Field_SCAR(), theJoanascarPackage.getFieldIdentifying(), null,
-				"field_SCAR", null, 1, 1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFieldCorrespondence_Field_SCAR(), theJoanascarPackage.getField_SCAR(), null, "field_SCAR",
+				null, 1, 1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

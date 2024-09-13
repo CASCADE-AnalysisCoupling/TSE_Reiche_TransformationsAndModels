@@ -8,7 +8,7 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
@@ -46,7 +46,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator4HighLow extends AccessAnalys
 	}
 
 	@Override
-	protected Collection<AllowedFlow> generateAllowedFlows(Configuration config) {
+	protected Collection<AllowedFlow> generateAllowedFlows(Query config) {
 		SecurityLevel high = getHighLevel(config);
 		SecurityLevel low = getLowLevel(config);
 
@@ -58,13 +58,13 @@ public class AccessAnalysis2CodeQLSecurityGenerator4HighLow extends AccessAnalys
 	}
 
 	// Could be replaced by correspondence definitions or something similar.
-	private SecurityLevel getHighLevel(Configuration config) {
+	private SecurityLevel getHighLevel(Query config) {
 		return config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(highLevelName)).findFirst()
 				.get();
 	}
 
 	// Could be replaced by correspondence definitions or something similar.
-	private SecurityLevel getLowLevel(Configuration config) {
+	private SecurityLevel getLowLevel(Query config) {
 		return config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(lowLevelName)).findFirst()
 				.get();
 	}

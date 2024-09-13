@@ -12,16 +12,16 @@ import edu.kit.kastel.sdq.analysiscouplingframework.parser.Registry;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.steps.IntegrationPS;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.DefaultWorkflow;
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
-import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.iterative.CodeQL2AccessAnalysisAdapter;
+import edu.kit.kastel.sdq.casestudy.framework.processingsteps.accessanalysiscodeql.adapters.CodeQL2AccessAnalysisAdapter;
 
 public class CodeQLIntegrationPS extends IntegrationPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
 	protected static final String[] ARG_IDS = { "POLICY_STYLE", "JAVA_MODEL_PATH", "CODEQL_MODEL_PATH",
-			"CORRESPONDENCE_MODEL_PATH", "CODEQL_RESULT_FILE_LOCATION", "REPOSITORY_PATH",
+			"PCM_JAVA_CORRESPONDENCE_MODEL_PATH", "CODEQL_RESULT_FILE_LOCATION", "REPOSITORY_PATH",
 			"CONFIDENTIALITY_MODEL_PATH", "ORIGIN_BACKUP_LOCATION", "SCAR_LOCATION",
 			"RESULTINGVALUES_LOCATION", "ACCESSANALYSIS_CODEQL_CORRESPONDENCE_PATH", "SCAR_CORRESPONDENCES_LOCATION",
-			"RESULTINGVALUES_CORRESPONDENCES_LOCATION" };
+			"RESULTINGVALUES_CORRESPONDENCES_LOCATION", "CODEQL_CONFIGURATIONS_PATH" };
 
 	public CodeQLIntegrationPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -38,7 +38,7 @@ public class CodeQLIntegrationPS extends IntegrationPS {
 
 		// Create absolut and relative paths
 		String absPath1 = super.registry.getFileForID(ARG_IDS[0]).getPath();
-		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 1, 13))
+		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 1, 14))
 				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
 
 		List<String> paths = new ArrayList<String>();

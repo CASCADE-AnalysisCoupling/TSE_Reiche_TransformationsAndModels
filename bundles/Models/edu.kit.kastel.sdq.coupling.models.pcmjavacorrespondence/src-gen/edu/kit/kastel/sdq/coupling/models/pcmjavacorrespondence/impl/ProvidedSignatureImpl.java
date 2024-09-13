@@ -76,15 +76,14 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperationProvidedRole getProvidedRole() {
-		if (providedRole != null && ((EObject) providedRole).eIsProxy()) {
-			InternalEObject oldProvidedRole = (InternalEObject) providedRole;
-			providedRole = (OperationProvidedRole) eResolveProxy(oldProvidedRole);
+		if (providedRole != null && ((EObject)providedRole).eIsProxy()) {
+			InternalEObject oldProvidedRole = (InternalEObject)providedRole;
+			providedRole = (OperationProvidedRole)eResolveProxy(oldProvidedRole);
 			if (providedRole != oldProvidedRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE, oldProvidedRole,
-							providedRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE, oldProvidedRole, providedRole));
 			}
 		}
 		return providedRole;
@@ -104,12 +103,12 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProvidedRole(OperationProvidedRole newProvidedRole) {
 		OperationProvidedRole oldProvidedRole = providedRole;
 		providedRole = newProvidedRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE, oldProvidedRole, providedRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE, oldProvidedRole, providedRole));
 	}
 
 	/**
@@ -117,15 +116,14 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperationSignature getProvidedSignature() {
-		if (providedSignature != null && ((EObject) providedSignature).eIsProxy()) {
-			InternalEObject oldProvidedSignature = (InternalEObject) providedSignature;
-			providedSignature = (OperationSignature) eResolveProxy(oldProvidedSignature);
+		if (providedSignature != null && ((EObject)providedSignature).eIsProxy()) {
+			InternalEObject oldProvidedSignature = (InternalEObject)providedSignature;
+			providedSignature = (OperationSignature)eResolveProxy(oldProvidedSignature);
 			if (providedSignature != oldProvidedSignature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE, oldProvidedSignature,
-							providedSignature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE, oldProvidedSignature, providedSignature));
 			}
 		}
 		return providedSignature;
@@ -145,13 +143,12 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProvidedSignature(OperationSignature newProvidedSignature) {
 		OperationSignature oldProvidedSignature = providedSignature;
 		providedSignature = newProvidedSignature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE, oldProvidedSignature,
-					providedSignature));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE, oldProvidedSignature, providedSignature));
 	}
 
 	/**
@@ -162,14 +159,12 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
-			if (resolve)
-				return getProvidedRole();
-			return basicGetProvidedRole();
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
-			if (resolve)
-				return getProvidedSignature();
-			return basicGetProvidedSignature();
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
+				if (resolve) return getProvidedRole();
+				return basicGetProvidedRole();
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
+				if (resolve) return getProvidedSignature();
+				return basicGetProvidedSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,12 +177,12 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
-			setProvidedRole((OperationProvidedRole) newValue);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
-			setProvidedSignature((OperationSignature) newValue);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
+				setProvidedRole((OperationProvidedRole)newValue);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
+				setProvidedSignature((OperationSignature)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,12 +195,12 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
-			setProvidedRole((OperationProvidedRole) null);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
-			setProvidedSignature((OperationSignature) null);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
+				setProvidedRole((OperationProvidedRole)null);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
+				setProvidedSignature((OperationSignature)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,10 +213,10 @@ public class ProvidedSignatureImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
-			return providedRole != null;
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
-			return providedSignature != null;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_ROLE:
+				return providedRole != null;
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE:
+				return providedSignature != null;
 		}
 		return super.eIsSet(featureID);
 	}

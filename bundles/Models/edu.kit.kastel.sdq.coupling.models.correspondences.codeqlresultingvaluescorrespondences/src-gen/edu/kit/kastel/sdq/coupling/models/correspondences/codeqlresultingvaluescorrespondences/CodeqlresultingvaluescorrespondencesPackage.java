@@ -57,14 +57,14 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_CodeQLResultingValuesImpl <em>Correspondences Code QL Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl <em>Correspondences Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_CodeQLResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getCorrespondences_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Level Correspondences</b></em>' containment reference list.
@@ -73,7 +73,7 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CORRESPONDENCES = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_CORRESPONDENCES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Configuration Correspondences</b></em>' containment reference list.
@@ -82,7 +82,7 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES__CONFIGURATION_CORRESPONDENCES = 1;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_CORRESPONDENCES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Correspondences</b></em>' containment reference list.
@@ -91,35 +91,35 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES__PARAMETER_CORRESPONDENCES = 2;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_CORRESPONDENCES = 2;
 
 	/**
-	 * The number of structural features of the '<em>Correspondences Code QL Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Correspondences Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES_FEATURE_COUNT = 3;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Correspondences Code QL Resulting Values</em>' class.
+	 * The number of operations of the '<em>Correspondences Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_CODE_QL_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_CodeQLResultingValuesImpl <em>Security Level Correspondence Code QL Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_ResolvedImplementationValuesImpl <em>Security Level Correspondence Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_CodeQLResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getSecurityLevelCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getSecurityLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = 1;
+	int SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Security Level Code QL</b></em>' reference.
@@ -128,44 +128,44 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CODE_QL = 0;
+	int SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_CODE_QL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Security Level Code QL Resulting Values</b></em>' reference.
+	 * The feature id for the '<em><b>Security Level Resolved Implementation Values</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CODE_QL_RESULTING_VALUES = 1;
+	int SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
-	 * The number of structural features of the '<em>Security Level Correspondence Code QL Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Security Level Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_FEATURE_COUNT = 2;
+	int SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Security Level Correspondence Code QL Resulting Values</em>' class.
+	 * The number of operations of the '<em>Security Level Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_CodeQLResultingValuesImpl <em>Configuration Correspondence Code QL Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_ResolvedImplementationValuesImpl <em>Configuration Correspondence Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_CodeQLResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getConfigurationCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getConfigurationCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = 2;
+	int CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Configuration SCAR</b></em>' reference.
@@ -174,7 +174,7 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__CONFIGURATION_SCAR = 0;
+	int CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_SCAR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Configuration Resulting Values</b></em>' reference.
@@ -183,35 +183,35 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__CONFIGURATION_RESULTING_VALUES = 1;
+	int CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_RESULTING_VALUES = 1;
 
 	/**
-	 * The number of structural features of the '<em>Configuration Correspondence Code QL Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Configuration Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_FEATURE_COUNT = 2;
+	int CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Configuration Correspondence Code QL Resulting Values</em>' class.
+	 * The number of operations of the '<em>Configuration Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_CodeQLResultingValuesImpl <em>Parameter Correspondence Code QL Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_ResolvedImplementationValuesImpl <em>Parameter Correspondence Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_CodeQLResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getParameterCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getParameterCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = 3;
+	int PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameter SCAR</b></em>' reference.
@@ -220,173 +220,173 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__PARAMETER_SCAR = 0;
+	int PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_SCAR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Resulting Values</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter Resolved Implementation Values</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__PARAMETER_RESULTING_VALUES = 1;
+	int PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Correspondence Code QL Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Parameter Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_FEATURE_COUNT = 2;
+	int PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Parameter Correspondence Code QL Resulting Values</em>' class.
+	 * The number of operations of the '<em>Parameter Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues <em>Correspondences Code QL Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues <em>Correspondences Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Correspondences Code QL Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues
+	 * @return the meta object for class '<em>Correspondences Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getCorrespondences_CodeQLResultingValues();
+	EClass getCorrespondences_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getSecurityLevelCorrespondences <em>Security Level Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getSecurityLevelCorrespondences <em>Security Level Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Security Level Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getSecurityLevelCorrespondences()
-	 * @see #getCorrespondences_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getSecurityLevelCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_CodeQLResultingValues_SecurityLevelCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_SecurityLevelCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getConfigurationCorrespondences <em>Configuration Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getConfigurationCorrespondences <em>Configuration Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Configuration Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getConfigurationCorrespondences()
-	 * @see #getCorrespondences_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getConfigurationCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_CodeQLResultingValues_ConfigurationCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_ConfigurationCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getParameterCorrespondences <em>Parameter Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getParameterCorrespondences <em>Parameter Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameter Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues#getParameterCorrespondences()
-	 * @see #getCorrespondences_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getParameterCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_CodeQLResultingValues_ParameterCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_ParameterCorrespondences();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues <em>Security Level Correspondence Code QL Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues <em>Security Level Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Security Level Correspondence Code QL Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues
+	 * @return the meta object for class '<em>Security Level Correspondence Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getSecurityLevelCorrespondence_CodeQLResultingValues();
+	EClass getSecurityLevelCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues#getSecurityLevel_CodeQL <em>Security Level Code QL</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues#getSecurityLevel_CodeQL <em>Security Level Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Security Level Code QL</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues#getSecurityLevel_CodeQL()
-	 * @see #getSecurityLevelCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues#getSecurityLevel_CodeQL()
+	 * @see #getSecurityLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getSecurityLevelCorrespondence_CodeQLResultingValues_SecurityLevel_CodeQL();
+	EReference getSecurityLevelCorrespondence_ResolvedImplementationValues_SecurityLevel_CodeQL();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues#getSecurityLevel_CodeQLResultingValues <em>Security Level Code QL Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues#getSecurityLevel_ResolvedImplementationValues <em>Security Level Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Security Level Code QL Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues#getSecurityLevel_CodeQLResultingValues()
-	 * @see #getSecurityLevelCorrespondence_CodeQLResultingValues()
+	 * @return the meta object for the reference '<em>Security Level Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues#getSecurityLevel_ResolvedImplementationValues()
+	 * @see #getSecurityLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getSecurityLevelCorrespondence_CodeQLResultingValues_SecurityLevel_CodeQLResultingValues();
+	EReference getSecurityLevelCorrespondence_ResolvedImplementationValues_SecurityLevel_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues <em>Configuration Correspondence Code QL Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues <em>Configuration Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration Correspondence Code QL Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues
+	 * @return the meta object for class '<em>Configuration Correspondence Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getConfigurationCorrespondence_CodeQLResultingValues();
+	EClass getConfigurationCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues#getConfiguration_SCAR <em>Configuration SCAR</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues#getConfiguration_SCAR <em>Configuration SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Configuration SCAR</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues#getConfiguration_SCAR()
-	 * @see #getConfigurationCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues#getConfiguration_SCAR()
+	 * @see #getConfigurationCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getConfigurationCorrespondence_CodeQLResultingValues_Configuration_SCAR();
+	EReference getConfigurationCorrespondence_ResolvedImplementationValues_Configuration_SCAR();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues#getConfiguration_ResultingValues <em>Configuration Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues#getConfiguration_ResultingValues <em>Configuration Resulting Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Configuration Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues#getConfiguration_ResultingValues()
-	 * @see #getConfigurationCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues#getConfiguration_ResultingValues()
+	 * @see #getConfigurationCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getConfigurationCorrespondence_CodeQLResultingValues_Configuration_ResultingValues();
+	EReference getConfigurationCorrespondence_ResolvedImplementationValues_Configuration_ResultingValues();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues <em>Parameter Correspondence Code QL Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues <em>Parameter Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Correspondence Code QL Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues
+	 * @return the meta object for class '<em>Parameter Correspondence Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getParameterCorrespondence_CodeQLResultingValues();
+	EClass getParameterCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues#getParameter_SCAR <em>Parameter SCAR</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues#getParameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Parameter SCAR</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues#getParameter_SCAR()
-	 * @see #getParameterCorrespondence_CodeQLResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues#getParameter_SCAR()
+	 * @see #getParameterCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getParameterCorrespondence_CodeQLResultingValues_Parameter_SCAR();
+	EReference getParameterCorrespondence_ResolvedImplementationValues_Parameter_SCAR();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues#getParameter_ResultingValues <em>Parameter Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues#getParameter_ResolvedImplementationValues <em>Parameter Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues#getParameter_ResultingValues()
-	 * @see #getParameterCorrespondence_CodeQLResultingValues()
+	 * @return the meta object for the reference '<em>Parameter Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues#getParameter_ResolvedImplementationValues()
+	 * @see #getParameterCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getParameterCorrespondence_CodeQLResultingValues_Parameter_ResultingValues();
+	EReference getParameterCorrespondence_ResolvedImplementationValues_Parameter_ResolvedImplementationValues();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -412,14 +412,15 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_CodeQLResultingValuesImpl <em>Correspondences Code QL Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl <em>Correspondences Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_CodeQLResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getCorrespondences_CodeQLResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getCorrespondences_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass CORRESPONDENCES_CODE_QL_RESULTING_VALUES = eINSTANCE.getCorrespondences_CodeQLResultingValues();
+		EClass CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Level Correspondences</b></em>' containment reference list feature.
@@ -427,8 +428,8 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_CodeQLResultingValues_SecurityLevelCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_SecurityLevelCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Configuration Correspondences</b></em>' containment reference list feature.
@@ -436,8 +437,8 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_CODE_QL_RESULTING_VALUES__CONFIGURATION_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_CodeQLResultingValues_ConfigurationCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_ConfigurationCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Correspondences</b></em>' containment reference list feature.
@@ -445,19 +446,19 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_CODE_QL_RESULTING_VALUES__PARAMETER_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_CodeQLResultingValues_ParameterCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_ParameterCorrespondences();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_CodeQLResultingValuesImpl <em>Security Level Correspondence Code QL Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_ResolvedImplementationValuesImpl <em>Security Level Correspondence Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_CodeQLResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getSecurityLevelCorrespondence_CodeQLResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.SecurityLevelCorrespondence_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getSecurityLevelCorrespondence_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = eINSTANCE
-				.getSecurityLevelCorrespondence_CodeQLResultingValues();
+		EClass SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getSecurityLevelCorrespondence_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Level Code QL</b></em>' reference feature.
@@ -465,28 +466,28 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CODE_QL = eINSTANCE
-				.getSecurityLevelCorrespondence_CodeQLResultingValues_SecurityLevel_CodeQL();
+		EReference SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_CODE_QL = eINSTANCE
+				.getSecurityLevelCorrespondence_ResolvedImplementationValues_SecurityLevel_CodeQL();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Level Code QL Resulting Values</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Security Level Resolved Implementation Values</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__SECURITY_LEVEL_CODE_QL_RESULTING_VALUES = eINSTANCE
-				.getSecurityLevelCorrespondence_CodeQLResultingValues_SecurityLevel_CodeQLResultingValues();
+		EReference SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getSecurityLevelCorrespondence_ResolvedImplementationValues_SecurityLevel_ResolvedImplementationValues();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_CodeQLResultingValuesImpl <em>Configuration Correspondence Code QL Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_ResolvedImplementationValuesImpl <em>Configuration Correspondence Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_CodeQLResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getConfigurationCorrespondence_CodeQLResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ConfigurationCorrespondence_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getConfigurationCorrespondence_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = eINSTANCE
-				.getConfigurationCorrespondence_CodeQLResultingValues();
+		EClass CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getConfigurationCorrespondence_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Configuration SCAR</b></em>' reference feature.
@@ -494,8 +495,8 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__CONFIGURATION_SCAR = eINSTANCE
-				.getConfigurationCorrespondence_CodeQLResultingValues_Configuration_SCAR();
+		EReference CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_SCAR = eINSTANCE
+				.getConfigurationCorrespondence_ResolvedImplementationValues_Configuration_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Configuration Resulting Values</b></em>' reference feature.
@@ -503,19 +504,19 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__CONFIGURATION_RESULTING_VALUES = eINSTANCE
-				.getConfigurationCorrespondence_CodeQLResultingValues_Configuration_ResultingValues();
+		EReference CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATION_RESULTING_VALUES = eINSTANCE
+				.getConfigurationCorrespondence_ResolvedImplementationValues_Configuration_ResultingValues();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_CodeQLResultingValuesImpl <em>Parameter Correspondence Code QL Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_ResolvedImplementationValuesImpl <em>Parameter Correspondence Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_CodeQLResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getParameterCorrespondence_CodeQLResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.ParameterCorrespondence_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.impl.CodeqlresultingvaluescorrespondencesPackageImpl#getParameterCorrespondence_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES = eINSTANCE
-				.getParameterCorrespondence_CodeQLResultingValues();
+		EClass PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getParameterCorrespondence_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter SCAR</b></em>' reference feature.
@@ -523,17 +524,17 @@ public interface CodeqlresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__PARAMETER_SCAR = eINSTANCE
-				.getParameterCorrespondence_CodeQLResultingValues_Parameter_SCAR();
+		EReference PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_SCAR = eINSTANCE
+				.getParameterCorrespondence_ResolvedImplementationValues_Parameter_SCAR();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Resulting Values</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter Resolved Implementation Values</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES__PARAMETER_RESULTING_VALUES = eINSTANCE
-				.getParameterCorrespondence_CodeQLResultingValues_Parameter_ResultingValues();
+		EReference PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getParameterCorrespondence_ResolvedImplementationValues_Parameter_ResolvedImplementationValues();
 
 	}
 

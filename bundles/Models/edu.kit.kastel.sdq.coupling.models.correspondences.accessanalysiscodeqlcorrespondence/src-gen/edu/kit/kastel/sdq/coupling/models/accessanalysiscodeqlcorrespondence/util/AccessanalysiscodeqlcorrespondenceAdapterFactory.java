@@ -67,8 +67,8 @@ public class AccessanalysiscodeqlcorrespondenceAdapterFactory extends AdapterFac
 	 */
 	protected AccessanalysiscodeqlcorrespondenceSwitch<Adapter> modelSwitch = new AccessanalysiscodeqlcorrespondenceSwitch<Adapter>() {
 		@Override
-		public Adapter caseAccessAnalysisCodeQLCorrespondenceRoot(AccessAnalysisCodeQLCorrespondenceRoot object) {
-			return createAccessAnalysisCodeQLCorrespondenceRootAdapter();
+		public Adapter caseCorrespondences_AccessAnalysisCodeQL(Correspondences_AccessAnalysisCodeQL object) {
+			return createCorrespondences_AccessAnalysisCodeQLAdapter();
 		}
 
 		@Override
@@ -101,16 +101,16 @@ public class AccessanalysiscodeqlcorrespondenceAdapterFactory extends AdapterFac
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot <em>Access Analysis Code QL Correspondence Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL <em>Correspondences Access Analysis Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL
 	 * @generated
 	 */
-	public Adapter createAccessAnalysisCodeQLCorrespondenceRootAdapter() {
+	public Adapter createCorrespondences_AccessAnalysisCodeQLAdapter() {
 		return null;
 	}
 

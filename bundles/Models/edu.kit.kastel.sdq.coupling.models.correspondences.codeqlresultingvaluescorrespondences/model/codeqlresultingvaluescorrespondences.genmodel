@@ -13,22 +13,22 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Codeqlresultingvaluescorrespondences" basePackage="edu.kit.kastel.sdq.coupling.models.correspondences"
       disposableProviderFactory="true" ecorePackage="codeqlresultingvaluescorrespondences.ecore#/">
-    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//Correspondences_CodeQLResultingValues">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_CodeQLResultingValues/securityLevelCorrespondences"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_CodeQLResultingValues/configurationCorrespondences"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_CodeQLResultingValues/parameterCorrespondences"/>
+    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/securityLevelCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/configurationCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/parameterCorrespondences"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_CodeQLResultingValues">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_CodeQLResultingValues/securityLevel_CodeQL"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_CodeQLResultingValues/securityLevel_CodeQLResultingValues"/>
+    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_ResolvedImplementationValues">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_ResolvedImplementationValues/securityLevel_CodeQL"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//SecurityLevelCorrespondence_ResolvedImplementationValues/securityLevel_ResolvedImplementationValues"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_CodeQLResultingValues">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_CodeQLResultingValues/configuration_SCAR"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_CodeQLResultingValues/configuration_ResultingValues"/>
+    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_ResolvedImplementationValues">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_ResolvedImplementationValues/configuration_SCAR"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ConfigurationCorrespondence_ResolvedImplementationValues/configuration_ResultingValues"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_CodeQLResultingValues">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_CodeQLResultingValues/parameter_SCAR"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_CodeQLResultingValues/parameter_ResultingValues"/>
+    <genClasses ecoreClass="codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_ResolvedImplementationValues">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_ResolvedImplementationValues/parameter_SCAR"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvaluescorrespondences.ecore#//ParameterCorrespondence_ResolvedImplementationValues/parameter_ResolvedImplementationValues"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

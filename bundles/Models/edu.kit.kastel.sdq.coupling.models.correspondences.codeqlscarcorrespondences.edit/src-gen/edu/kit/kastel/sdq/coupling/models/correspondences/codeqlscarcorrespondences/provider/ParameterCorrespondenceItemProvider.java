@@ -41,41 +41,41 @@ public class ParameterCorrespondenceItemProvider extends SystemElementCorrespond
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addJavaParameterPropertyDescriptor(object);
-			addScarParameterPropertyDescriptor(object);
+			addParameter_JavaPropertyDescriptor(object);
+			addParameter_SCARPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Java Parameter feature.
+	 * This adds a property descriptor for the Parameter Java feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addJavaParameterPropertyDescriptor(Object object) {
+	protected void addParameter_JavaPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterCorrespondence_javaParameter_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ParameterCorrespondence_javaParameter_feature",
+				getString("_UI_ParameterCorrespondence_parameter_Java_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ParameterCorrespondence_parameter_Java_feature",
 						"_UI_ParameterCorrespondence_type"),
-				CodeqlscarcorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE__JAVA_PARAMETER, true, false, true,
+				CodeqlscarcorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE__PARAMETER_JAVA, true, false, true,
 				null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Scar Parameter feature.
+	 * This adds a property descriptor for the Parameter SCAR feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addScarParameterPropertyDescriptor(Object object) {
+	protected void addParameter_SCARPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ParameterCorrespondence_scarParameter_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ParameterCorrespondence_scarParameter_feature",
+				getString("_UI_ParameterCorrespondence_parameter_SCAR_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ParameterCorrespondence_parameter_SCAR_feature",
 						"_UI_ParameterCorrespondence_type"),
-				CodeqlscarcorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE__SCAR_PARAMETER, true, false, true,
+				CodeqlscarcorrespondencesPackage.Literals.PARAMETER_CORRESPONDENCE__PARAMETER_SCAR, true, false, true,
 				null, null, null));
 	}
 

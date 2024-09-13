@@ -67,26 +67,27 @@ public class CodeqlresultingvaluescorrespondencesAdapterFactory extends AdapterF
 	 */
 	protected CodeqlresultingvaluescorrespondencesSwitch<Adapter> modelSwitch = new CodeqlresultingvaluescorrespondencesSwitch<Adapter>() {
 		@Override
-		public Adapter caseCorrespondences_CodeQLResultingValues(Correspondences_CodeQLResultingValues object) {
-			return createCorrespondences_CodeQLResultingValuesAdapter();
+		public Adapter caseCorrespondences_ResolvedImplementationValues(
+				Correspondences_ResolvedImplementationValues object) {
+			return createCorrespondences_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseSecurityLevelCorrespondence_CodeQLResultingValues(
-				SecurityLevelCorrespondence_CodeQLResultingValues object) {
-			return createSecurityLevelCorrespondence_CodeQLResultingValuesAdapter();
+		public Adapter caseSecurityLevelCorrespondence_ResolvedImplementationValues(
+				SecurityLevelCorrespondence_ResolvedImplementationValues object) {
+			return createSecurityLevelCorrespondence_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseConfigurationCorrespondence_CodeQLResultingValues(
-				ConfigurationCorrespondence_CodeQLResultingValues object) {
-			return createConfigurationCorrespondence_CodeQLResultingValuesAdapter();
+		public Adapter caseConfigurationCorrespondence_ResolvedImplementationValues(
+				ConfigurationCorrespondence_ResolvedImplementationValues object) {
+			return createConfigurationCorrespondence_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseParameterCorrespondence_CodeQLResultingValues(
-				ParameterCorrespondence_CodeQLResultingValues object) {
-			return createParameterCorrespondence_CodeQLResultingValuesAdapter();
+		public Adapter caseParameterCorrespondence_ResolvedImplementationValues(
+				ParameterCorrespondence_ResolvedImplementationValues object) {
+			return createParameterCorrespondence_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
@@ -109,58 +110,58 @@ public class CodeqlresultingvaluescorrespondencesAdapterFactory extends AdapterF
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues <em>Correspondences Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues <em>Correspondences Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createCorrespondences_CodeQLResultingValuesAdapter() {
+	public Adapter createCorrespondences_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues <em>Security Level Correspondence Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues <em>Security Level Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createSecurityLevelCorrespondence_CodeQLResultingValuesAdapter() {
+	public Adapter createSecurityLevelCorrespondence_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues <em>Configuration Correspondence Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues <em>Configuration Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createConfigurationCorrespondence_CodeQLResultingValuesAdapter() {
+	public Adapter createConfigurationCorrespondence_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues <em>Parameter Correspondence Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues <em>Parameter Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createParameterCorrespondence_CodeQLResultingValuesAdapter() {
+	public Adapter createParameterCorrespondence_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 

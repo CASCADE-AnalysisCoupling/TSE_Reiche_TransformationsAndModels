@@ -155,6 +155,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.provider.JoanascarcorrespondencesItemProviderAdapterFactory;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationItemProviderAdapterFactory;
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
@@ -689,6 +691,7 @@ public class JoanascarcorrespondencesEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JoanascarcorrespondencesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConfigurationrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());

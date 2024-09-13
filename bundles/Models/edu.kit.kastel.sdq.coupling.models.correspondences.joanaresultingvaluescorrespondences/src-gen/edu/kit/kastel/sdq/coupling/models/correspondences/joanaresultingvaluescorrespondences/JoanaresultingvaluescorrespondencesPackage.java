@@ -57,14 +57,14 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_JOANAResultingValuesImpl <em>Correspondences JOANA Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl <em>Correspondences Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_JOANAResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getCorrespondences_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Level Correspondences</b></em>' containment reference list.
@@ -73,7 +73,7 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES__LEVEL_CORRESPONDENCES = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_CORRESPONDENCES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Entry Point Correspondences</b></em>' containment reference list.
@@ -82,7 +82,7 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES__ENTRY_POINT_CORRESPONDENCES = 1;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__ENTRY_POINT_CORRESPONDENCES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Correspondences</b></em>' containment reference list.
@@ -91,35 +91,35 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES__PARAMETER_CORRESPONDENCES = 2;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_CORRESPONDENCES = 2;
 
 	/**
-	 * The number of structural features of the '<em>Correspondences JOANA Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Correspondences Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES_FEATURE_COUNT = 3;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Correspondences JOANA Resulting Values</em>' class.
+	 * The number of operations of the '<em>Correspondences Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCES_JOANA_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_JOANAResultingValuesImpl <em>Level Correspondence JOANA Resulting Values</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_ResolvedImplementationValuesImpl <em>Level Correspondence Resolved Implementation Values</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_JOANAResultingValuesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getLevelCorrespondence_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_ResolvedImplementationValuesImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	int LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES = 1;
+	int LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Level JOANA</b></em>' reference.
@@ -128,34 +128,34 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES__LEVEL_JOANA = 0;
+	int LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_JOANA = 0;
 
 	/**
-	 * The feature id for the '<em><b>Level Resulting Values</b></em>' reference.
+	 * The feature id for the '<em><b>Level Resolved Implementation Values</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES__LEVEL_RESULTING_VALUES = 1;
+	int LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
-	 * The number of structural features of the '<em>Level Correspondence JOANA Resulting Values</em>' class.
+	 * The number of structural features of the '<em>Level Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES_FEATURE_COUNT = 2;
+	int LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Level Correspondence JOANA Resulting Values</em>' class.
+	 * The number of operations of the '<em>Level Correspondence Resolved Implementation Values</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES_OPERATION_COUNT = 0;
+	int LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.EntryPointCorrespondence_JOANAResultingValuesImpl <em>Entry Point Correspondence JOANA Resulting Values</em>}' class.
@@ -177,13 +177,13 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	int ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_SCAR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Entry Point Resulting Values</b></em>' reference.
+	 * The feature id for the '<em><b>Entry Point Resolved Implementation Values</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESULTING_VALUES = 1;
+	int ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Entry Point Correspondence JOANA Resulting Values</em>' class.
@@ -223,13 +223,13 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_SCAR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Resulting Values</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter Resolved Implementation Values</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES = 1;
+	int PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Correspondence JOANA Resulting Values</em>' class.
@@ -250,79 +250,79 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES_OPERATION_COUNT = 0;
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues <em>Correspondences JOANA Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues <em>Correspondences Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Correspondences JOANA Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues
+	 * @return the meta object for class '<em>Correspondences Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getCorrespondences_JOANAResultingValues();
+	EClass getCorrespondences_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getLevelCorrespondences <em>Level Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getLevelCorrespondences <em>Level Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Level Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getLevelCorrespondences()
-	 * @see #getCorrespondences_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getLevelCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_JOANAResultingValues_LevelCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_LevelCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getEntryPointCorrespondences <em>Entry Point Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getEntryPointCorrespondences <em>Entry Point Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Entry Point Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getEntryPointCorrespondences()
-	 * @see #getCorrespondences_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getEntryPointCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_JOANAResultingValues_EntryPointCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_EntryPointCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getParameterCorrespondences <em>Parameter Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getParameterCorrespondences <em>Parameter Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameter Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues#getParameterCorrespondences()
-	 * @see #getCorrespondences_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues#getParameterCorrespondences()
+	 * @see #getCorrespondences_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getCorrespondences_JOANAResultingValues_ParameterCorrespondences();
+	EReference getCorrespondences_ResolvedImplementationValues_ParameterCorrespondences();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues <em>Level Correspondence JOANA Resulting Values</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues <em>Level Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Level Correspondence JOANA Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues
+	 * @return the meta object for class '<em>Level Correspondence Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	EClass getLevelCorrespondence_JOANAResultingValues();
+	EClass getLevelCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues#getLevel_JOANA <em>Level JOANA</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues#getLevel_JOANA <em>Level JOANA</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Level JOANA</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues#getLevel_JOANA()
-	 * @see #getLevelCorrespondence_JOANAResultingValues()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues#getLevel_JOANA()
+	 * @see #getLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getLevelCorrespondence_JOANAResultingValues_Level_JOANA();
+	EReference getLevelCorrespondence_ResolvedImplementationValues_Level_JOANA();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues#getLevel_ResultingValues <em>Level Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues#getLevel_ResolvedImplementationValues <em>Level Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Level Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues#getLevel_ResultingValues()
-	 * @see #getLevelCorrespondence_JOANAResultingValues()
+	 * @return the meta object for the reference '<em>Level Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues#getLevel_ResolvedImplementationValues()
+	 * @see #getLevelCorrespondence_ResolvedImplementationValues()
 	 * @generated
 	 */
-	EReference getLevelCorrespondence_JOANAResultingValues_Level_ResultingValues();
+	EReference getLevelCorrespondence_ResolvedImplementationValues_Level_ResolvedImplementationValues();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.EntryPointCorrespondence_JOANAResultingValues <em>Entry Point Correspondence JOANA Resulting Values</em>}'.
@@ -346,15 +346,15 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	EReference getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_SCAR();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.EntryPointCorrespondence_JOANAResultingValues#getEntryPoint_ResultingValues <em>Entry Point Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.EntryPointCorrespondence_JOANAResultingValues#getEntryPoint_ResolvedImplementationValues <em>Entry Point Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Entry Point Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.EntryPointCorrespondence_JOANAResultingValues#getEntryPoint_ResultingValues()
+	 * @return the meta object for the reference '<em>Entry Point Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.EntryPointCorrespondence_JOANAResultingValues#getEntryPoint_ResolvedImplementationValues()
 	 * @see #getEntryPointCorrespondence_JOANAResultingValues()
 	 * @generated
 	 */
-	EReference getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_ResultingValues();
+	EReference getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_ResolvedImplementationValues();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues <em>Parameter Correspondence JOANA Resulting Values</em>}'.
@@ -378,15 +378,15 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	EReference getParameterCorrespondence_JOANAResultingValues_Parameter_SCAR();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues#getParameter_ResultingValues <em>Parameter Resulting Values</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues#getParameter_ResolvedImplementationValues <em>Parameter Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter Resulting Values</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues#getParameter_ResultingValues()
+	 * @return the meta object for the reference '<em>Parameter Resolved Implementation Values</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues#getParameter_ResolvedImplementationValues()
 	 * @see #getParameterCorrespondence_JOANAResultingValues()
 	 * @generated
 	 */
-	EReference getParameterCorrespondence_JOANAResultingValues_Parameter_ResultingValues();
+	EReference getParameterCorrespondence_JOANAResultingValues_Parameter_ResolvedImplementationValues();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -412,14 +412,15 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_JOANAResultingValuesImpl <em>Correspondences JOANA Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl <em>Correspondences Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_JOANAResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getCorrespondences_JOANAResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.Correspondences_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getCorrespondences_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass CORRESPONDENCES_JOANA_RESULTING_VALUES = eINSTANCE.getCorrespondences_JOANAResultingValues();
+		EClass CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Level Correspondences</b></em>' containment reference list feature.
@@ -427,8 +428,8 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_JOANA_RESULTING_VALUES__LEVEL_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_JOANAResultingValues_LevelCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_LevelCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Entry Point Correspondences</b></em>' containment reference list feature.
@@ -436,8 +437,8 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_JOANA_RESULTING_VALUES__ENTRY_POINT_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_JOANAResultingValues_EntryPointCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__ENTRY_POINT_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_EntryPointCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Correspondences</b></em>' containment reference list feature.
@@ -445,18 +446,19 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CORRESPONDENCES_JOANA_RESULTING_VALUES__PARAMETER_CORRESPONDENCES = eINSTANCE
-				.getCorrespondences_JOANAResultingValues_ParameterCorrespondences();
+		EReference CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_ResolvedImplementationValues_ParameterCorrespondences();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_JOANAResultingValuesImpl <em>Level Correspondence JOANA Resulting Values</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_ResolvedImplementationValuesImpl <em>Level Correspondence Resolved Implementation Values</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_JOANAResultingValuesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getLevelCorrespondence_JOANAResultingValues()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.LevelCorrespondence_ResolvedImplementationValuesImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.JoanaresultingvaluescorrespondencesPackageImpl#getLevelCorrespondence_ResolvedImplementationValues()
 		 * @generated
 		 */
-		EClass LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES = eINSTANCE.getLevelCorrespondence_JOANAResultingValues();
+		EClass LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getLevelCorrespondence_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Level JOANA</b></em>' reference feature.
@@ -464,17 +466,17 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES__LEVEL_JOANA = eINSTANCE
-				.getLevelCorrespondence_JOANAResultingValues_Level_JOANA();
+		EReference LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_JOANA = eINSTANCE
+				.getLevelCorrespondence_ResolvedImplementationValues_Level_JOANA();
 
 		/**
-		 * The meta object literal for the '<em><b>Level Resulting Values</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Level Resolved Implementation Values</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES__LEVEL_RESULTING_VALUES = eINSTANCE
-				.getLevelCorrespondence_JOANAResultingValues_Level_ResultingValues();
+		EReference LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES__LEVEL_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getLevelCorrespondence_ResolvedImplementationValues_Level_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.EntryPointCorrespondence_JOANAResultingValuesImpl <em>Entry Point Correspondence JOANA Resulting Values</em>}' class.
@@ -497,13 +499,13 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 				.getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_SCAR();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Point Resulting Values</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entry Point Resolved Implementation Values</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESULTING_VALUES = eINSTANCE
-				.getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_ResultingValues();
+		EReference ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getEntryPointCorrespondence_JOANAResultingValues_EntryPoint_ResolvedImplementationValues();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.ParameterCorrespondence_JOANAResultingValuesImpl <em>Parameter Correspondence JOANA Resulting Values</em>}' class.
@@ -526,13 +528,13 @@ public interface JoanaresultingvaluescorrespondencesPackage extends EPackage {
 				.getParameterCorrespondence_JOANAResultingValues_Parameter_SCAR();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Resulting Values</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter Resolved Implementation Values</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES = eINSTANCE
-				.getParameterCorrespondence_JOANAResultingValues_Parameter_ResultingValues();
+		EReference PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES = eINSTANCE
+				.getParameterCorrespondence_JOANAResultingValues_Parameter_ResolvedImplementationValues();
 
 	}
 

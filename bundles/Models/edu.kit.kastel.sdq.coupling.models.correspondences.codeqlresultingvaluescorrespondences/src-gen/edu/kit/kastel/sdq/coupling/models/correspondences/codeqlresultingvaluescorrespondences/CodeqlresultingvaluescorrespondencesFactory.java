@@ -23,40 +23,40 @@ public interface CodeqlresultingvaluescorrespondencesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Correspondences Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Correspondences Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Correspondences Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Correspondences Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	Correspondences_CodeQLResultingValues createCorrespondences_CodeQLResultingValues();
+	Correspondences_ResolvedImplementationValues createCorrespondences_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Security Level Correspondence Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Security Level Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Security Level Correspondence Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Security Level Correspondence Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	SecurityLevelCorrespondence_CodeQLResultingValues createSecurityLevelCorrespondence_CodeQLResultingValues();
+	SecurityLevelCorrespondence_ResolvedImplementationValues createSecurityLevelCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Configuration Correspondence Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Configuration Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration Correspondence Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Configuration Correspondence Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	ConfigurationCorrespondence_CodeQLResultingValues createConfigurationCorrespondence_CodeQLResultingValues();
+	ConfigurationCorrespondence_ResolvedImplementationValues createConfigurationCorrespondence_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Correspondence Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Parameter Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Correspondence Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Parameter Correspondence Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	ParameterCorrespondence_CodeQLResultingValues createParameterCorrespondence_CodeQLResultingValues();
+	ParameterCorrespondence_ResolvedImplementationValues createParameterCorrespondence_ResolvedImplementationValues();
 
 	/**
 	 * Returns the package supported by this factory.

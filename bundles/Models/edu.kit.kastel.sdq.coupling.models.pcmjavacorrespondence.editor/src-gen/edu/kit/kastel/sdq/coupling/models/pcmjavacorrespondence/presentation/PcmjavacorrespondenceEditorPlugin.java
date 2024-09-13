@@ -34,7 +34,7 @@ public final class PcmjavacorrespondenceEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static final PcmjavacorrespondenceEditorPlugin INSTANCE = new PcmjavacorrespondenceEditorPlugin();
-
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -50,10 +50,16 @@ public final class PcmjavacorrespondenceEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public PcmjavacorrespondenceEditorPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE,
+		super
+			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
 				edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin.INSTANCE,
-				JavaEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+				JavaEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE,
+				UnitsEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -67,7 +73,7 @@ public final class PcmjavacorrespondenceEditorPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-
+	
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -78,7 +84,7 @@ public final class PcmjavacorrespondenceEditorPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -94,7 +100,7 @@ public final class PcmjavacorrespondenceEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

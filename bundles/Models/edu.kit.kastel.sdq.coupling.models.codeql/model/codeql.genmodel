@@ -14,20 +14,14 @@
     </genClasses>
     <nestedGenPackages prefix="Tainttracking" basePackage="edu.kit.kastel.sdq.coupling.models.codeql"
         disposableProviderFactory="true" ecorePackage="codeql.ecore#//tainttracking">
-      <genClasses ecoreClass="codeql.ecore#//tainttracking/Node"/>
-      <genClasses ecoreClass="codeql.ecore#//tainttracking/ParameterNode">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/ParameterNode/parameter"/>
-      </genClasses>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/SecurityLevel"/>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/TainttrackingRoot">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/TainttrackingRoot/nodes"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/TainttrackingRoot/configurations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/TainttrackingRoot/queries"/>
       </genClasses>
-      <genClasses ecoreClass="codeql.ecore#//tainttracking/Configuration">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/appliedSecurityLevel"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/securityLevelAnnotations"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Configuration/allowedFlows"/>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/Query">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Query/appliedSecurityLevel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Query/securityLevelAnnotations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/Query/allowedFlows"/>
       </genClasses>
       <genClasses ecoreClass="codeql.ecore#//tainttracking/SecurityLevelAnnotation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -46,6 +40,9 @@
             ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/AllowedFlow/from"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/AllowedFlow/to"/>
+      </genClasses>
+      <genClasses ecoreClass="codeql.ecore#//tainttracking/AllowedFlows">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeql.ecore#//tainttracking/AllowedFlows/allowedFlows"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

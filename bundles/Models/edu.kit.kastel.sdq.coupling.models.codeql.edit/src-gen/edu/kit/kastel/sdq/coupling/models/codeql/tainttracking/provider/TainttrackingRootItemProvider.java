@@ -79,8 +79,7 @@ public class TainttrackingRootItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__NODES);
-			childrenFeatures.add(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__CONFIGURATIONS);
+			childrenFeatures.add(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__QUERIES);
 		}
 		return childrenFeatures;
 	}
@@ -133,8 +132,7 @@ public class TainttrackingRootItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TainttrackingRoot.class)) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,18 +152,8 @@ public class TainttrackingRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__NODES,
-				 TainttrackingFactory.eINSTANCE.createNode()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__NODES,
-				 TainttrackingFactory.eINSTANCE.createParameterNode()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__CONFIGURATIONS,
-				 TainttrackingFactory.eINSTANCE.createConfiguration()));
+				(TainttrackingPackage.Literals.TAINTTRACKING_ROOT__QUERIES,
+				 TainttrackingFactory.eINSTANCE.createQuery()));
 	}
 
 	/**

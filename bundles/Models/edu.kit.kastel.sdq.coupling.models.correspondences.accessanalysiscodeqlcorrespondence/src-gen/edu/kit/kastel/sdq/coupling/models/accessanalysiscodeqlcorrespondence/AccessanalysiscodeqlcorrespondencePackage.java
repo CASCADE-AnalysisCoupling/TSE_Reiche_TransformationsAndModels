@@ -57,14 +57,14 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessAnalysisCodeQLCorrespondenceRootImpl <em>Access Analysis Code QL Correspondence Root</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.Correspondences_AccessAnalysisCodeQLImpl <em>Correspondences Access Analysis Code QL</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessAnalysisCodeQLCorrespondenceRootImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessanalysiscodeqlcorrespondencePackageImpl#getAccessAnalysisCodeQLCorrespondenceRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.Correspondences_AccessAnalysisCodeQLImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessanalysiscodeqlcorrespondencePackageImpl#getCorrespondences_AccessAnalysisCodeQL()
 	 * @generated
 	 */
-	int ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT = 0;
+	int CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Configuration Correspondences Access Analysis Code QL</b></em>' containment reference list.
@@ -73,7 +73,7 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = 0;
+	int CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Data Set Security Level Correspondence</b></em>' containment reference list.
@@ -82,25 +82,25 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE = 1;
+	int CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Access Analysis Code QL Correspondence Root</em>' class.
+	 * The number of structural features of the '<em>Correspondences Access Analysis Code QL</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT_FEATURE_COUNT = 2;
+	int CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Access Analysis Code QL Correspondence Root</em>' class.
+	 * The number of operations of the '<em>Correspondences Access Analysis Code QL</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT_OPERATION_COUNT = 0;
+	int CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.ConfigurationCorrespondenceImpl <em>Configuration Correspondence</em>}' class.
@@ -195,36 +195,36 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 	int DATA_SET_SECURITY_LEVEL_CORRESPONDENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot <em>Access Analysis Code QL Correspondence Root</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL <em>Correspondences Access Analysis Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Access Analysis Code QL Correspondence Root</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot
+	 * @return the meta object for class '<em>Correspondences Access Analysis Code QL</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL
 	 * @generated
 	 */
-	EClass getAccessAnalysisCodeQLCorrespondenceRoot();
+	EClass getCorrespondences_AccessAnalysisCodeQL();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot#getConfigurationCorrespondences_AccessAnalysisCodeQL <em>Configuration Correspondences Access Analysis Code QL</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL#getConfigurationCorrespondences_AccessAnalysisCodeQL <em>Configuration Correspondences Access Analysis Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Configuration Correspondences Access Analysis Code QL</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot#getConfigurationCorrespondences_AccessAnalysisCodeQL()
-	 * @see #getAccessAnalysisCodeQLCorrespondenceRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL#getConfigurationCorrespondences_AccessAnalysisCodeQL()
+	 * @see #getCorrespondences_AccessAnalysisCodeQL()
 	 * @generated
 	 */
-	EReference getAccessAnalysisCodeQLCorrespondenceRoot_ConfigurationCorrespondences_AccessAnalysisCodeQL();
+	EReference getCorrespondences_AccessAnalysisCodeQL_ConfigurationCorrespondences_AccessAnalysisCodeQL();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot#getDataSetSecurityLevelCorrespondence <em>Data Set Security Level Correspondence</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL#getDataSetSecurityLevelCorrespondence <em>Data Set Security Level Correspondence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Data Set Security Level Correspondence</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot#getDataSetSecurityLevelCorrespondence()
-	 * @see #getAccessAnalysisCodeQLCorrespondenceRoot()
+	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL#getDataSetSecurityLevelCorrespondence()
+	 * @see #getCorrespondences_AccessAnalysisCodeQL()
 	 * @generated
 	 */
-	EReference getAccessAnalysisCodeQLCorrespondenceRoot_DataSetSecurityLevelCorrespondence();
+	EReference getCorrespondences_AccessAnalysisCodeQL_DataSetSecurityLevelCorrespondence();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence <em>Configuration Correspondence</em>}'.
@@ -314,14 +314,14 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessAnalysisCodeQLCorrespondenceRootImpl <em>Access Analysis Code QL Correspondence Root</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.Correspondences_AccessAnalysisCodeQLImpl <em>Correspondences Access Analysis Code QL</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessAnalysisCodeQLCorrespondenceRootImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessanalysiscodeqlcorrespondencePackageImpl#getAccessAnalysisCodeQLCorrespondenceRoot()
+		 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.Correspondences_AccessAnalysisCodeQLImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.AccessanalysiscodeqlcorrespondencePackageImpl#getCorrespondences_AccessAnalysisCodeQL()
 		 * @generated
 		 */
-		EClass ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT = eINSTANCE.getAccessAnalysisCodeQLCorrespondenceRoot();
+		EClass CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = eINSTANCE.getCorrespondences_AccessAnalysisCodeQL();
 
 		/**
 		 * The meta object literal for the '<em><b>Configuration Correspondences Access Analysis Code QL</b></em>' containment reference list feature.
@@ -329,8 +329,8 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = eINSTANCE
-				.getAccessAnalysisCodeQLCorrespondenceRoot_ConfigurationCorrespondences_AccessAnalysisCodeQL();
+		EReference CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL = eINSTANCE
+				.getCorrespondences_AccessAnalysisCodeQL_ConfigurationCorrespondences_AccessAnalysisCodeQL();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Set Security Level Correspondence</b></em>' containment reference list feature.
@@ -338,8 +338,8 @@ public interface AccessanalysiscodeqlcorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE = eINSTANCE
-				.getAccessAnalysisCodeQLCorrespondenceRoot_DataSetSecurityLevelCorrespondence();
+		EReference CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE = eINSTANCE
+				.getCorrespondences_AccessAnalysisCodeQL_DataSetSecurityLevelCorrespondence();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl.ConfigurationCorrespondenceImpl <em>Configuration Correspondence</em>}' class.

@@ -23,6 +23,8 @@
     <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
     <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_-LBk8AE8Ee-1q7fMAstA4Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_-NGBgAE8Ee-1q7fMAstA4Q" name="accessanalysiscodeqlcorrespondence" repPath="#_-MSJMAE8Ee-1q7fMAstA4Q" changeId="e05d0fcb-8e98-42c4-99a9-bba2f4adf21e">

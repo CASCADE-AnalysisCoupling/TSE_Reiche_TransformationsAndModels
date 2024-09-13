@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getSystemElements <em>System Elements</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getEntryPoints <em>Entry Points</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getLevels <em>Levels</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getResultEntries <em>Result Entries</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getFlows <em>Flows</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarPackage#getSourceCodeAnalysisResult()
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface SourceCodeAnalysisResult extends EObject {
 	/**
 	 * Returns the value of the '<em><b>System Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR}.
+	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Elements</em>' containment reference list.
@@ -36,11 +36,11 @@ public interface SourceCodeAnalysisResult extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SystemElementIdentifiying_JOANASCAR> getSystemElements();
+	EList<SystemElement_SCAR> getSystemElements();
 
 	/**
 	 * Returns the value of the '<em><b>Entry Points</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying}.
+	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entry Points</em>' containment reference list.
@@ -48,7 +48,7 @@ public interface SourceCodeAnalysisResult extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<EntryPointIdentifying> getEntryPoints();
+	EList<EntryPoint_SCAR> getEntryPoints();
 
 	/**
 	 * Returns the value of the '<em><b>Levels</b></em>' containment reference list.
@@ -63,15 +63,15 @@ public interface SourceCodeAnalysisResult extends EObject {
 	EList<Level_SCAR> getLevels();
 
 	/**
-	 * Returns the value of the '<em><b>Result Entries</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry}.
+	 * Returns the value of the '<em><b>Flows</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Result Entries</em>' containment reference list.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarPackage#getSourceCodeAnalysisResult_ResultEntries()
+	 * @return the value of the '<em>Flows</em>' containment reference list.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarPackage#getSourceCodeAnalysisResult_Flows()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ResultEntry> getResultEntries();
+	EList<Flow> getFlows();
 
 } // SourceCodeAnalysisResult

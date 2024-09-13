@@ -3,11 +3,11 @@
 package edu.kit.kastel.sdq.coupling.models.codeqlscar.impl;
 
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarPackage;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Result;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement;
 
 import java.util.Collection;
 
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SourceCodeAnalysisResultImpl#getSystemElementIdentifications <em>System Element Identifications</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SourceCodeAnalysisResultImpl#getSecurityLevels <em>Security Levels</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SourceCodeAnalysisResultImpl#getResultEntries <em>Result Entries</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SourceCodeAnalysisResultImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SourceCodeAnalysisResultImpl#getRuleIds <em>Rule Ids</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,7 +48,7 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SystemElementIdentification> systemElementIdentifications;
+	protected EList<SystemElement> systemElementIdentifications;
 
 	/**
 	 * The cached value of the '{@link #getSecurityLevels() <em>Security Levels</em>}' containment reference list.
@@ -68,17 +68,17 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResultEntry> resultEntries;
+	protected EList<Result> resultEntries;
 
 	/**
-	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
+	 * The cached value of the '{@link #getRuleIds() <em>Rule Ids</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConfigurations()
+	 * @see #getRuleIds()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ConfigurationID_SCAR> configurations;
+	protected EList<RuleId> ruleIds;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,10 +104,9 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SystemElementIdentification> getSystemElementIdentifications() {
+	public EList<SystemElement> getSystemElementIdentifications() {
 		if (systemElementIdentifications == null) {
-			systemElementIdentifications = new EObjectContainmentEList<SystemElementIdentification>(
-					SystemElementIdentification.class, this,
+			systemElementIdentifications = new EObjectContainmentEList<SystemElement>(SystemElement.class, this,
 					CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS);
 		}
 		return systemElementIdentifications;
@@ -131,9 +130,9 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResultEntry> getResultEntries() {
+	public EList<Result> getResultEntries() {
 		if (resultEntries == null) {
-			resultEntries = new EObjectContainmentEList<ResultEntry>(ResultEntry.class, this,
+			resultEntries = new EObjectContainmentEList<Result>(Result.class, this,
 					CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
 		}
 		return resultEntries;
@@ -144,12 +143,12 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConfigurationID_SCAR> getConfigurations() {
-		if (configurations == null) {
-			configurations = new EObjectContainmentEList<ConfigurationID_SCAR>(ConfigurationID_SCAR.class, this,
-					CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS);
+	public EList<RuleId> getRuleIds() {
+		if (ruleIds == null) {
+			ruleIds = new EObjectContainmentEList<RuleId>(RuleId.class, this,
+					CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS);
 		}
-		return configurations;
+		return ruleIds;
 	}
 
 	/**
@@ -166,8 +165,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return ((InternalEList<?>) getSecurityLevels()).basicRemove(otherEnd, msgs);
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
 			return ((InternalEList<?>) getResultEntries()).basicRemove(otherEnd, msgs);
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
-			return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
+			return ((InternalEList<?>) getRuleIds()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,8 +185,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return getSecurityLevels();
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
 			return getResultEntries();
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
-			return getConfigurations();
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
+			return getRuleIds();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,7 +202,7 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS:
 			getSystemElementIdentifications().clear();
-			getSystemElementIdentifications().addAll((Collection<? extends SystemElementIdentification>) newValue);
+			getSystemElementIdentifications().addAll((Collection<? extends SystemElement>) newValue);
 			return;
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__SECURITY_LEVELS:
 			getSecurityLevels().clear();
@@ -211,11 +210,11 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return;
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
 			getResultEntries().clear();
-			getResultEntries().addAll((Collection<? extends ResultEntry>) newValue);
+			getResultEntries().addAll((Collection<? extends Result>) newValue);
 			return;
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
-			getConfigurations().clear();
-			getConfigurations().addAll((Collection<? extends ConfigurationID_SCAR>) newValue);
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
+			getRuleIds().clear();
+			getRuleIds().addAll((Collection<? extends RuleId>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,8 +237,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
 			getResultEntries().clear();
 			return;
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
-			getConfigurations().clear();
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
+			getRuleIds().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -259,8 +258,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return securityLevels != null && !securityLevels.isEmpty();
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
 			return resultEntries != null && !resultEntries.isEmpty();
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
-			return configurations != null && !configurations.isEmpty();
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
+			return ruleIds != null && !ruleIds.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

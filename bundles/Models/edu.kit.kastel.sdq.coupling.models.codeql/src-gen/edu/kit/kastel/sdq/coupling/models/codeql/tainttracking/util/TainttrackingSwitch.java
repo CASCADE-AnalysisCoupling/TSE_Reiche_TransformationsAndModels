@@ -70,25 +70,6 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TainttrackingPackage.NODE: {
-				Node node = (Node)theEObject;
-				T result = caseNode(node);
-				if (result == null) result = caseEntity(node);
-				if (result == null) result = caseIdentifiedElement(node);
-				if (result == null) result = caseNamedElement(node);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TainttrackingPackage.PARAMETER_NODE: {
-				ParameterNode parameterNode = (ParameterNode)theEObject;
-				T result = caseParameterNode(parameterNode);
-				if (result == null) result = caseNode(parameterNode);
-				if (result == null) result = caseEntity(parameterNode);
-				if (result == null) result = caseIdentifiedElement(parameterNode);
-				if (result == null) result = caseNamedElement(parameterNode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TainttrackingPackage.SECURITY_LEVEL: {
 				SecurityLevel securityLevel = (SecurityLevel)theEObject;
 				T result = caseSecurityLevel(securityLevel);
@@ -104,10 +85,10 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TainttrackingPackage.CONFIGURATION: {
-				Configuration configuration = (Configuration)theEObject;
-				T result = caseConfiguration(configuration);
-				if (result == null) result = caseIdentifiedElement(configuration);
+			case TainttrackingPackage.QUERY: {
+				Query query = (Query)theEObject;
+				T result = caseQuery(query);
+				if (result == null) result = caseIdentifiedElement(query);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,38 +121,14 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TainttrackingPackage.ALLOWED_FLOWS: {
+				AllowedFlows allowedFlows = (AllowedFlows)theEObject;
+				T result = caseAllowedFlows(allowedFlows);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNode(Node object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameterNode(ParameterNode object) {
-		return null;
 	}
 
 	/**
@@ -205,17 +162,17 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Query</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConfiguration(Configuration object) {
+	public T caseQuery(Query object) {
 		return null;
 	}
 
@@ -276,6 +233,21 @@ public class TainttrackingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAllowedFlow(AllowedFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Allowed Flows</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Allowed Flows</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAllowedFlows(AllowedFlows object) {
 		return null;
 	}
 

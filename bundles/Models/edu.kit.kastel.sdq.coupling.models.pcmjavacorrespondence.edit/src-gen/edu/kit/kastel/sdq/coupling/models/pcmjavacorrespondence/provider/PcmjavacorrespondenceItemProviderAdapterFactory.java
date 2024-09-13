@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PcmjavacorrespondenceItemProviderAdapterFactory extends PcmjavacorrespondenceAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class PcmjavacorrespondenceItemProviderAdapterFactory extends PcmjavacorrespondenceAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -181,8 +180,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	@Override
 	public Adapter createProvidedOperationSignature2JavaMethodAdapter() {
 		if (providedOperationSignature2JavaMethodItemProvider == null) {
-			providedOperationSignature2JavaMethodItemProvider = new ProvidedOperationSignature2JavaMethodItemProvider(
-					this);
+			providedOperationSignature2JavaMethodItemProvider = new ProvidedOperationSignature2JavaMethodItemProvider(this);
 		}
 
 		return providedOperationSignature2JavaMethodItemProvider;
@@ -263,6 +261,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -273,6 +272,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -307,7 +307,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -321,6 +321,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -331,6 +332,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -341,6 +343,7 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -355,23 +358,16 @@ public class PcmjavacorrespondenceItemProviderAdapterFactory extends Pcmjavacorr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
-		if (pcmJavaCorrespondenceRootItemProvider != null)
-			pcmJavaCorrespondenceRootItemProvider.dispose();
-		if (basicComponent2ClassItemProvider != null)
-			basicComponent2ClassItemProvider.dispose();
-		if (operationInterface2InterfaceItemProvider != null)
-			operationInterface2InterfaceItemProvider.dispose();
-		if (compositeDataType2ClassItemProvider != null)
-			compositeDataType2ClassItemProvider.dispose();
-		if (providedOperationSignature2JavaMethodItemProvider != null)
-			providedOperationSignature2JavaMethodItemProvider.dispose();
-		if (providedSignatureItemProvider != null)
-			providedSignatureItemProvider.dispose();
-		if (providedParameterIdentificationItemProvider != null)
-			providedParameterIdentificationItemProvider.dispose();
-		if (pcmParameter2JavaParameterItemProvider != null)
-			pcmParameter2JavaParameterItemProvider.dispose();
+		if (pcmJavaCorrespondenceRootItemProvider != null) pcmJavaCorrespondenceRootItemProvider.dispose();
+		if (basicComponent2ClassItemProvider != null) basicComponent2ClassItemProvider.dispose();
+		if (operationInterface2InterfaceItemProvider != null) operationInterface2InterfaceItemProvider.dispose();
+		if (compositeDataType2ClassItemProvider != null) compositeDataType2ClassItemProvider.dispose();
+		if (providedOperationSignature2JavaMethodItemProvider != null) providedOperationSignature2JavaMethodItemProvider.dispose();
+		if (providedSignatureItemProvider != null) providedSignatureItemProvider.dispose();
+		if (providedParameterIdentificationItemProvider != null) providedParameterIdentificationItemProvider.dispose();
+		if (pcmParameter2JavaParameterItemProvider != null) pcmParameter2JavaParameterItemProvider.dispose();
 	}
 
 }

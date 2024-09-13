@@ -11,6 +11,8 @@
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joana/model/joana.genmodel</semanticResources>
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_3n928AMFEe-gupRqVwlL5w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_3pNNEAMFEe-gupRqVwlL5w" name="joanascarcorrespondences" repPath="#_3ojs0AMFEe-gupRqVwlL5w" changeId="38355acb-31bb-405e-85de-9196f168adfd">

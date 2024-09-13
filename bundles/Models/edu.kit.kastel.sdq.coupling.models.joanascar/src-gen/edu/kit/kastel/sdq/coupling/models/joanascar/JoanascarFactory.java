@@ -31,22 +31,22 @@ public interface JoanascarFactory extends EFactory {
 	SourceCodeAnalysisResult createSourceCodeAnalysisResult();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Identifying</em>'.
+	 * Returns a new object of class '<em>Parameter SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Identifying</em>'.
+	 * @return a new object of class '<em>Parameter SCAR</em>'.
 	 * @generated
 	 */
-	ParameterIdentifying createParameterIdentifying();
+	Parameter_SCAR createParameter_SCAR();
 
 	/**
-	 * Returns a new object of class '<em>Field Identifying</em>'.
+	 * Returns a new object of class '<em>Field SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field Identifying</em>'.
+	 * @return a new object of class '<em>Field SCAR</em>'.
 	 * @generated
 	 */
-	FieldIdentifying createFieldIdentifying();
+	Field_SCAR createField_SCAR();
 
 	/**
 	 * Returns a new object of class '<em>Level SCAR</em>'.
@@ -58,31 +58,40 @@ public interface JoanascarFactory extends EFactory {
 	Level_SCAR createLevel_SCAR();
 
 	/**
-	 * Returns a new object of class '<em>Entry Point Identifying</em>'.
+	 * Returns a new object of class '<em>Entry Point SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Point Identifying</em>'.
+	 * @return a new object of class '<em>Entry Point SCAR</em>'.
 	 * @generated
 	 */
-	EntryPointIdentifying createEntryPointIdentifying();
+	EntryPoint_SCAR createEntryPoint_SCAR();
 
 	/**
-	 * Returns a new object of class '<em>Result Entry</em>'.
+	 * Returns a new object of class '<em>Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Result Entry</em>'.
+	 * @return a new object of class '<em>Flow</em>'.
 	 * @generated
 	 */
-	ResultEntry createResultEntry();
+	Flow createFlow();
 
 	/**
-	 * Returns a new object of class '<em>Result Entry Element</em>'.
+	 * Returns a new object of class '<em>Source</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Result Entry Element</em>'.
+	 * @return a new object of class '<em>Source</em>'.
 	 * @generated
 	 */
-	<T extends SystemElementIdentifiying_JOANASCAR> ResultEntryElement<T> createResultEntryElement();
+	<T extends SystemElement_SCAR> Source<T> createSource();
+
+	/**
+	 * Returns a new object of class '<em>Sink</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sink</em>'.
+	 * @generated
+	 */
+	<T extends SystemElement_SCAR> Sink<T> createSink();
 
 	/**
 	 * Returns the package supported by this factory.

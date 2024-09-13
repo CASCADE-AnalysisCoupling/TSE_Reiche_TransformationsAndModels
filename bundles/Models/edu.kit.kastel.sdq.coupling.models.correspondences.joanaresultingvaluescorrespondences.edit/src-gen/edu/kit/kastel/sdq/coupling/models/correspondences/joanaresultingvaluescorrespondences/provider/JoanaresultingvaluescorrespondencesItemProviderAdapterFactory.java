@@ -74,51 +74,51 @@ public class JoanaresultingvaluescorrespondencesItemProviderAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Correspondences_JOANAResultingValuesItemProvider correspondences_JOANAResultingValuesItemProvider;
+	protected Correspondences_ResolvedImplementationValuesItemProvider correspondences_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCorrespondences_JOANAResultingValuesAdapter() {
-		if (correspondences_JOANAResultingValuesItemProvider == null) {
-			correspondences_JOANAResultingValuesItemProvider = new Correspondences_JOANAResultingValuesItemProvider(
+	public Adapter createCorrespondences_ResolvedImplementationValuesAdapter() {
+		if (correspondences_ResolvedImplementationValuesItemProvider == null) {
+			correspondences_ResolvedImplementationValuesItemProvider = new Correspondences_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return correspondences_JOANAResultingValuesItemProvider;
+		return correspondences_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LevelCorrespondence_JOANAResultingValuesItemProvider levelCorrespondence_JOANAResultingValuesItemProvider;
+	protected LevelCorrespondence_ResolvedImplementationValuesItemProvider levelCorrespondence_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLevelCorrespondence_JOANAResultingValuesAdapter() {
-		if (levelCorrespondence_JOANAResultingValuesItemProvider == null) {
-			levelCorrespondence_JOANAResultingValuesItemProvider = new LevelCorrespondence_JOANAResultingValuesItemProvider(
+	public Adapter createLevelCorrespondence_ResolvedImplementationValuesAdapter() {
+		if (levelCorrespondence_ResolvedImplementationValuesItemProvider == null) {
+			levelCorrespondence_ResolvedImplementationValuesItemProvider = new LevelCorrespondence_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return levelCorrespondence_JOANAResultingValuesItemProvider;
+		return levelCorrespondence_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
@@ -268,10 +268,10 @@ public class JoanaresultingvaluescorrespondencesItemProviderAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (correspondences_JOANAResultingValuesItemProvider != null)
-			correspondences_JOANAResultingValuesItemProvider.dispose();
-		if (levelCorrespondence_JOANAResultingValuesItemProvider != null)
-			levelCorrespondence_JOANAResultingValuesItemProvider.dispose();
+		if (correspondences_ResolvedImplementationValuesItemProvider != null)
+			correspondences_ResolvedImplementationValuesItemProvider.dispose();
+		if (levelCorrespondence_ResolvedImplementationValuesItemProvider != null)
+			levelCorrespondence_ResolvedImplementationValuesItemProvider.dispose();
 		if (entryPointCorrespondence_JOANAResultingValuesItemProvider != null)
 			entryPointCorrespondence_JOANAResultingValuesItemProvider.dispose();
 		if (parameterCorrespondence_JOANAResultingValuesItemProvider != null)

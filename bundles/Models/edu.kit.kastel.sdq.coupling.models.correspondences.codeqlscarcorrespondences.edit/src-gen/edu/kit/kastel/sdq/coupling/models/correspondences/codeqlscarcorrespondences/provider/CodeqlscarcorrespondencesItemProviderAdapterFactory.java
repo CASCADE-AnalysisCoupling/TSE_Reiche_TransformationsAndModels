@@ -73,26 +73,26 @@ public class CodeqlscarcorrespondencesItemProviderAdapterFactory extends Codeqls
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CodeQLSCARCorrespondencesItemProvider codeQLSCARCorrespondencesItemProvider;
+	protected Correspondences_CodeQLScarItemProvider correspondences_CodeQLScarItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCodeQLSCARCorrespondencesAdapter() {
-		if (codeQLSCARCorrespondencesItemProvider == null) {
-			codeQLSCARCorrespondencesItemProvider = new CodeQLSCARCorrespondencesItemProvider(this);
+	public Adapter createCorrespondences_CodeQLScarAdapter() {
+		if (correspondences_CodeQLScarItemProvider == null) {
+			correspondences_CodeQLScarItemProvider = new Correspondences_CodeQLScarItemProvider(this);
 		}
 
-		return codeQLSCARCorrespondencesItemProvider;
+		return correspondences_CodeQLScarItemProvider;
 	}
 
 	/**
@@ -286,8 +286,8 @@ public class CodeqlscarcorrespondencesItemProviderAdapterFactory extends Codeqls
 	 * @generated
 	 */
 	public void dispose() {
-		if (codeQLSCARCorrespondencesItemProvider != null)
-			codeQLSCARCorrespondencesItemProvider.dispose();
+		if (correspondences_CodeQLScarItemProvider != null)
+			correspondences_CodeQLScarItemProvider.dispose();
 		if (configurationCorrespondenceItemProvider != null)
 			configurationCorrespondenceItemProvider.dispose();
 		if (securityLevelCorrespondenceItemProvider != null)

@@ -23,13 +23,13 @@ public interface AccessanalysiscodeqlcorrespondenceFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Access Analysis Code QL Correspondence Root</em>'.
+	 * Returns a new object of class '<em>Correspondences Access Analysis Code QL</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Access Analysis Code QL Correspondence Root</em>'.
+	 * @return a new object of class '<em>Correspondences Access Analysis Code QL</em>'.
 	 * @generated
 	 */
-	AccessAnalysisCodeQLCorrespondenceRoot createAccessAnalysisCodeQLCorrespondenceRoot();
+	Correspondences_AccessAnalysisCodeQL createCorrespondences_AccessAnalysisCodeQL();
 
 	/**
 	 * Returns a new object of class '<em>Configuration Correspondence</em>'.

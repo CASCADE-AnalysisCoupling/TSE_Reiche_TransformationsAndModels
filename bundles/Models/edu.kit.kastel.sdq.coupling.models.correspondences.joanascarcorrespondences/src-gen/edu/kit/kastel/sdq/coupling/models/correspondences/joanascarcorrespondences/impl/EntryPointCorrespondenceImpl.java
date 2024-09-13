@@ -2,12 +2,12 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.impl;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.EntryPointCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JoanascarcorrespondencesPackage;
 
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-
-import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -40,7 +40,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EntryPoint entryPoint_JOANA;
+	protected HybridConfiguration entryPoint_JOANA;
 
 	/**
 	 * The cached value of the '{@link #getEntryPoint_SCAR() <em>Entry Point SCAR</em>}' reference.
@@ -50,7 +50,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EntryPointIdentifying entryPoint_SCAR;
+	protected EntryPoint_SCAR entryPoint_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,10 +76,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPoint getEntryPoint_JOANA() {
+	public HybridConfiguration getEntryPoint_JOANA() {
 		if (entryPoint_JOANA != null && entryPoint_JOANA.eIsProxy()) {
 			InternalEObject oldEntryPoint_JOANA = (InternalEObject) entryPoint_JOANA;
-			entryPoint_JOANA = (EntryPoint) eResolveProxy(oldEntryPoint_JOANA);
+			entryPoint_JOANA = (HybridConfiguration) eResolveProxy(oldEntryPoint_JOANA);
 			if (entryPoint_JOANA != oldEntryPoint_JOANA) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -95,7 +95,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPoint basicGetEntryPoint_JOANA() {
+	public HybridConfiguration basicGetEntryPoint_JOANA() {
 		return entryPoint_JOANA;
 	}
 
@@ -104,8 +104,8 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntryPoint_JOANA(EntryPoint newEntryPoint_JOANA) {
-		EntryPoint oldEntryPoint_JOANA = entryPoint_JOANA;
+	public void setEntryPoint_JOANA(HybridConfiguration newEntryPoint_JOANA) {
+		HybridConfiguration oldEntryPoint_JOANA = entryPoint_JOANA;
 		entryPoint_JOANA = newEntryPoint_JOANA;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -118,10 +118,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPointIdentifying getEntryPoint_SCAR() {
+	public EntryPoint_SCAR getEntryPoint_SCAR() {
 		if (entryPoint_SCAR != null && entryPoint_SCAR.eIsProxy()) {
 			InternalEObject oldEntryPoint_SCAR = (InternalEObject) entryPoint_SCAR;
-			entryPoint_SCAR = (EntryPointIdentifying) eResolveProxy(oldEntryPoint_SCAR);
+			entryPoint_SCAR = (EntryPoint_SCAR) eResolveProxy(oldEntryPoint_SCAR);
 			if (entryPoint_SCAR != oldEntryPoint_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -137,7 +137,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPointIdentifying basicGetEntryPoint_SCAR() {
+	public EntryPoint_SCAR basicGetEntryPoint_SCAR() {
 		return entryPoint_SCAR;
 	}
 
@@ -146,8 +146,8 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntryPoint_SCAR(EntryPointIdentifying newEntryPoint_SCAR) {
-		EntryPointIdentifying oldEntryPoint_SCAR = entryPoint_SCAR;
+	public void setEntryPoint_SCAR(EntryPoint_SCAR newEntryPoint_SCAR) {
+		EntryPoint_SCAR oldEntryPoint_SCAR = entryPoint_SCAR;
 		entryPoint_SCAR = newEntryPoint_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -184,10 +184,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case JoanascarcorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT_JOANA:
-			setEntryPoint_JOANA((EntryPoint) newValue);
+			setEntryPoint_JOANA((HybridConfiguration) newValue);
 			return;
 		case JoanascarcorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT_SCAR:
-			setEntryPoint_SCAR((EntryPointIdentifying) newValue);
+			setEntryPoint_SCAR((EntryPoint_SCAR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,10 +202,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case JoanascarcorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT_JOANA:
-			setEntryPoint_JOANA((EntryPoint) null);
+			setEntryPoint_JOANA((HybridConfiguration) null);
 			return;
 		case JoanascarcorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT_SCAR:
-			setEntryPoint_SCAR((EntryPointIdentifying) null);
+			setEntryPoint_SCAR((EntryPoint_SCAR) null);
 			return;
 		}
 		super.eUnset(featureID);

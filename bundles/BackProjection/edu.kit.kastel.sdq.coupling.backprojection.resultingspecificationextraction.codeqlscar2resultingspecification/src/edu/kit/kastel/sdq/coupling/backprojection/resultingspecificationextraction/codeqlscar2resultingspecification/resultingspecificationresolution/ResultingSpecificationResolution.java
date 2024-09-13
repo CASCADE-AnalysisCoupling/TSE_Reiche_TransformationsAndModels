@@ -3,50 +3,50 @@ package edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextract
 import java.util.List;
 import java.util.stream.Collectors;
 
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.utils.CodeQLResultingValuesModelGenerationUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Result;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.utils.CodeQLResultingValueCorrespondencesUtil;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 
 public abstract class ResultingSpecificationResolution {
 	
 	protected static String DELIMITER = ";";
-	protected CodeQLResultingValues resultingValues;
-	protected Correspondences_CodeQLResultingValues correspondences_ResultingValues; 
+	protected ResolvedImplementationValues resultingValues;
+	protected Correspondences_ResolvedImplementationValues correspondences_ResultingValues; 
 	
 	public ResultingSpecificationResolution() {
 		super();
 		this.resultingValues = CodeQLResultingValuesModelGenerationUtil.createResultingValues();
-		this.correspondences_ResultingValues = CodeQLResultingValueCorrespondencesUtil.createCorrespondences_CodeQLResultingValues();
+		this.correspondences_ResultingValues = CodeQLResultingValueCorrespondencesUtil.createCorrespondences_ResolvedImplementationValues();
 	}
 
 	
-	protected Configuration config;
+	protected Query config;
 	
-	public void setConfiguration(Configuration config) {
+	public void setConfiguration(Query config) {
 		this.config = config;
 	}
 	
-	public Correspondences_CodeQLResultingValues getResultingValueCorrespondences() {
+	public Correspondences_ResolvedImplementationValues getResultingValueCorrespondences() {
 		return correspondences_ResultingValues;
 	}
 	
-	public abstract CodeQLResultingValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, CodeQLSCARCorrespondences codeQLScarCorrespondence);
+	public abstract ResolvedImplementationValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, Correspondences_CodeQLScar codeQLScarCorrespondence);
 	
 
 
-	protected boolean sameConfiguration(List<ResultEntry> resultEntries) {
+	protected boolean sameConfiguration(List<Result> resultEntries) {
 		
 		if(resultEntries.isEmpty()) {
 			return true;
 		}
 		
-		return resultEntries.stream().map(ResultEntry::getConfig).distinct().collect(Collectors.toList()).size() == 1;
+		return resultEntries.stream().map(Result::getRuleId).distinct().collect(Collectors.toList()).size() == 1;
 	}
 
 }

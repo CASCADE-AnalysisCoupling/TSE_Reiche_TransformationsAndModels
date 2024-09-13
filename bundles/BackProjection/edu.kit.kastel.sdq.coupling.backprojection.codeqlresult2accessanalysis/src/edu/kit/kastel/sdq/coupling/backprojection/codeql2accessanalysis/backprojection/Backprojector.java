@@ -14,17 +14,16 @@ import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.Stere
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
-import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.utils.CodeQLResultingValueCorrespondencesUtil;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Utils.CodeQLSCARCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
@@ -39,13 +38,13 @@ public class Backprojector implements Backproject{
 	private final ProfileApplication profileApplication;
 //	private final Configuration config;
 	private static final String DELIMITER = ";";
-	private final CodeQLSCARCorrespondences scarCorrespondences;
-	private final Correspondences_CodeQLResultingValues resultingValueCorrespondences;
-	private final AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondences;
+	private final Correspondences_CodeQLScar scarCorrespondences;
+	private final Correspondences_ResolvedImplementationValues resultingValueCorrespondences;
+	private final Correspondences_AccessAnalysisCodeQL accessAnalysisCodeQLCorrespondences;
 	
 	
 	public Backprojector(PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication, CodeQLSCARCorrespondences scarCorrespondences, Correspondences_CodeQLResultingValues resultingValuesCorrespondences,  AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondences) {
+			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication, Correspondences_CodeQLScar scarCorrespondences, Correspondences_ResolvedImplementationValues resultingValuesCorrespondences,  Correspondences_AccessAnalysisCodeQL accessAnalysisCodeQLCorrespondences) {
 		super();
 //		this.repository = repository;
 		this.correspondences = correspondences;
@@ -58,8 +57,8 @@ public class Backprojector implements Backproject{
 	}
 
 	@Override
-	public void project(CodeQLResultingValues resultingValues) {
-		for(ResultingValue resultingValue : resultingValues.getResultingValues()) {
+	public void project(ResolvedImplementationValues resultingValues) {
+		for(ResolvedImplementationValue resultingValue : resultingValues.getResultingValues()) {
 			
 			
 			ProvidedParameterIdentification parameter = resolvePCMParameter(resultingValue);
@@ -90,14 +89,14 @@ public class Backprojector implements Backproject{
 		return applications.stream().filter(app -> app.getStereotype().getName().equals("InformationFlow")).collect(Collectors.toList()); 
 	}
 	
-	private ProvidedParameterIdentification resolvePCMParameter(ResultingValue resultingValue) {
-		ParameterIdentification parameter_SCAR = CodeQLResultingValueCorrespondencesUtil.getCorresponding(resultingValue.getParameter(), resultingValueCorrespondences);
+	private ProvidedParameterIdentification resolvePCMParameter(ResolvedImplementationValue resultingValue) {
+		Parameter_SCAR parameter_SCAR = CodeQLResultingValueCorrespondencesUtil.getCorresponding(resultingValue.getParameter(), resultingValueCorrespondences);
 		Parameter parameter_Java = CodeQLSCARCorrespondenceUtil.getCorresponding(parameter_SCAR, scarCorrespondences);
 		
 		return PCMJavaCorrespondenceResolutionUtils.getParameterCorrespondence(correspondences, parameter_Java).getPcmParameterIdentification();	
 	}
 	
-	private Collection<DataSet> resolveDataSets(ResultingValue resultingValue){
+	private Collection<DataSet> resolveDataSets(ResolvedImplementationValue resultingValue){
 		//Could also first correspond here
 		SecurityLevel securityLevel = CodeQLResultingValueCorrespondencesUtil.getCorresponding(resultingValue.getResultingSecurityLevel(), resultingValueCorrespondences);
 		return AccessAnalysisCodeQLCorrespondenceUtil.getCorresponding(securityLevel, accessAnalysisCodeQLCorrespondences);

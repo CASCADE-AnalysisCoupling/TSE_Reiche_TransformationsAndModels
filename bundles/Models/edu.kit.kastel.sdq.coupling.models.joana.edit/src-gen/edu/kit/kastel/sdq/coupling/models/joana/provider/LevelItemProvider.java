@@ -68,13 +68,13 @@ public class LevelItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Level level = ((Level)object);
+		
+		Level level = (Level)object;
+		
 		String levelName = level.getName();
 		String entryPointTag = ((EntryPoint)level.eContainer()).getId();
-		String label = "%s : EntryPoint %s".formatted(levelName, entryPointTag);
-		return label == null || label.length() == 0 ?
-			getString("_UI_Level_type") :
-			getString("_UI_Level_type") + " " + label;
+		
+		return String.format("%s (EntryPoint %s)", levelName, entryPointTag);
 	}
 
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated configurationrepresentation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.presentation.ConfigurationrepresentationModelWizardID"
+            name="%_UI_ConfigurationrepresentationModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.presentation.ConfigurationrepresentationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConfigurationrepresentationModelFile.gif">
+         <description>%_UI_ConfigurationrepresentationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated configurationrepresentation -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.presentation.ConfigurationrepresentationEditorID"
+            name="%_UI_ConfigurationrepresentationEditor_label"
+            icon="icons/full/obj16/ConfigurationrepresentationModelFile.gif"
+            extensions="configurationrepresentation"
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.presentation.ConfigurationrepresentationEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.presentation.ConfigurationrepresentationActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

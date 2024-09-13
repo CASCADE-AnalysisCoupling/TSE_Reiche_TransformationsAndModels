@@ -96,13 +96,13 @@ public interface CodeqlscarPackage extends EPackage {
 	int SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Rule Ids</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS = 3;
+	int SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Source Code Analysis Result</em>' class.
@@ -123,14 +123,14 @@ public interface CodeqlscarPackage extends EPackage {
 	int SOURCE_CODE_ANALYSIS_RESULT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryImpl <em>Result Entry</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultImpl <em>Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getResult()
 	 * @generated
 	 */
-	int RESULT_ENTRY = 1;
+	int RESULT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -139,7 +139,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__SOURCE = 0;
+	int RESULT__SOURCE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sink</b></em>' containment reference.
@@ -148,34 +148,34 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__SINK = 1;
+	int RESULT__SINK = 1;
 
 	/**
-	 * The feature id for the '<em><b>Config</b></em>' reference.
+	 * The feature id for the '<em><b>Rule Id</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__CONFIG = 2;
+	int RESULT__RULE_ID = 2;
 
 	/**
-	 * The number of structural features of the '<em>Result Entry</em>' class.
+	 * The number of structural features of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_FEATURE_COUNT = 3;
+	int RESULT_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Result Entry</em>' class.
+	 * The number of operations of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_OPERATION_COUNT = 0;
+	int RESULT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryElementImpl <em>Result Entry Element</em>}' class.
@@ -224,14 +224,14 @@ public interface CodeqlscarPackage extends EPackage {
 	int RESULT_ENTRY_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ConfigurationID_SCARImpl <em>Configuration ID SCAR</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.RuleIdImpl <em>Rule Id</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ConfigurationID_SCARImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getConfigurationID_SCAR()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.RuleIdImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getRuleId()
 	 * @generated
 	 */
-	int CONFIGURATION_ID_SCAR = 3;
+	int RULE_ID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -240,63 +240,63 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ID_SCAR__ID = 0;
+	int RULE_ID__ID = 0;
 
 	/**
-	 * The number of structural features of the '<em>Configuration ID SCAR</em>' class.
+	 * The number of structural features of the '<em>Rule Id</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ID_SCAR_FEATURE_COUNT = 1;
+	int RULE_ID_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Configuration ID SCAR</em>' class.
+	 * The number of operations of the '<em>Rule Id</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_ID_SCAR_OPERATION_COUNT = 0;
+	int RULE_ID_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementIdentificationImpl <em>System Element Identification</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementImpl <em>System Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementIdentificationImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getSystemElementIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getSystemElement()
 	 * @generated
 	 */
-	int SYSTEM_ELEMENT_IDENTIFICATION = 4;
+	int SYSTEM_ELEMENT = 4;
 
 	/**
-	 * The number of structural features of the '<em>System Element Identification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>System Element Identification</em>' class.
+	 * The number of structural features of the '<em>System Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_ELEMENT_IDENTIFICATION_OPERATION_COUNT = 0;
+	int SYSTEM_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ParameterIdentificationImpl <em>Parameter Identification</em>}' class.
+	 * The number of operations of the '<em>System Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ParameterIdentificationImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getParameterIdentification()
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Parameter_SCARImpl <em>Parameter SCAR</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Parameter_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getParameter_SCAR()
 	 * @generated
 	 */
-	int PARAMETER_IDENTIFICATION = 5;
+	int PARAMETER_SCAR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Name</b></em>' attribute.
@@ -305,7 +305,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION__PARAMETER_NAME = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 0;
+	int PARAMETER_SCAR__PARAMETER_NAME = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Type</b></em>' attribute.
@@ -314,7 +314,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION__PARAMETER_TYPE = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 1;
+	int PARAMETER_SCAR__PARAMETER_TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Method Name</b></em>' attribute.
@@ -323,7 +323,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION__METHOD_NAME = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 2;
+	int PARAMETER_SCAR__METHOD_NAME = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Class Name</b></em>' attribute.
@@ -332,35 +332,35 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 3;
+	int PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Identification</em>' class.
+	 * The number of structural features of the '<em>Parameter SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 4;
+	int PARAMETER_SCAR_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Parameter Identification</em>' class.
+	 * The number of operations of the '<em>Parameter SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFICATION_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFICATION_OPERATION_COUNT + 0;
+	int PARAMETER_SCAR_OPERATION_COUNT = SYSTEM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.FieldIdentificationImpl <em>Field Identification</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Field_SCARImpl <em>Field SCAR</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.FieldIdentificationImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getFieldIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Field_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getField_SCAR()
 	 * @generated
 	 */
-	int FIELD_IDENTIFICATION = 6;
+	int FIELD_SCAR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Field Name</b></em>' attribute.
@@ -369,7 +369,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFICATION__FIELD_NAME = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 0;
+	int FIELD_SCAR__FIELD_NAME = SYSTEM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -378,7 +378,7 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFICATION__TYPE = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 1;
+	int FIELD_SCAR__TYPE = SYSTEM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Class Name</b></em>' attribute.
@@ -387,25 +387,25 @@ public interface CodeqlscarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 2;
+	int FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Field Identification</em>' class.
+	 * The number of structural features of the '<em>Field SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFICATION_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFICATION_FEATURE_COUNT + 3;
+	int FIELD_SCAR_FEATURE_COUNT = SYSTEM_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Field Identification</em>' class.
+	 * The number of operations of the '<em>Field SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFICATION_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFICATION_OPERATION_COUNT + 0;
+	int FIELD_SCAR_OPERATION_COUNT = SYSTEM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SecurityLevel_SCARImpl <em>Security Level SCAR</em>}' class.
@@ -497,58 +497,58 @@ public interface CodeqlscarPackage extends EPackage {
 	EReference getSourceCodeAnalysisResult_ResultEntries();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult#getConfigurations <em>Configurations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult#getRuleIds <em>Rule Ids</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult#getConfigurations()
+	 * @return the meta object for the containment reference list '<em>Rule Ids</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult#getRuleIds()
 	 * @see #getSourceCodeAnalysisResult()
 	 * @generated
 	 */
-	EReference getSourceCodeAnalysisResult_Configurations();
+	EReference getSourceCodeAnalysisResult_RuleIds();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry <em>Result Entry</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Result Entry</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry
+	 * @return the meta object for class '<em>Result</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Result
 	 * @generated
 	 */
-	EClass getResultEntry();
+	EClass getResult();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getSource <em>Source</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Source</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getSource()
-	 * @see #getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getSource()
+	 * @see #getResult()
 	 * @generated
 	 */
-	EReference getResultEntry_Source();
+	EReference getResult_Source();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getSink <em>Sink</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getSink <em>Sink</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Sink</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getSink()
-	 * @see #getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getSink()
+	 * @see #getResult()
 	 * @generated
 	 */
-	EReference getResultEntry_Sink();
+	EReference getResult_Sink();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getConfig <em>Config</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getRuleId <em>Rule Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Config</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry#getConfig()
-	 * @see #getResultEntry()
+	 * @return the meta object for the reference '<em>Rule Id</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Result#getRuleId()
+	 * @see #getResult()
 	 * @generated
 	 */
-	EReference getResultEntry_Config();
+	EReference getResult_RuleId();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntryElement <em>Result Entry Element</em>}'.
@@ -583,132 +583,132 @@ public interface CodeqlscarPackage extends EPackage {
 	EReference getResultEntryElement_SecurityLevel();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR <em>Configuration ID SCAR</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId <em>Rule Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration ID SCAR</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR
+	 * @return the meta object for class '<em>Rule Id</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId
 	 * @generated
 	 */
-	EClass getConfigurationID_SCAR();
+	EClass getRuleId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR#getId()
-	 * @see #getConfigurationID_SCAR()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId#getId()
+	 * @see #getRuleId()
 	 * @generated
 	 */
-	EAttribute getConfigurationID_SCAR_Id();
+	EAttribute getRuleId_Id();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification <em>System Element Identification</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement <em>System Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System Element Identification</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification
+	 * @return the meta object for class '<em>System Element</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement
 	 * @generated
 	 */
-	EClass getSystemElementIdentification();
+	EClass getSystemElement();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification <em>Parameter Identification</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Identification</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification
+	 * @return the meta object for class '<em>Parameter SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR
 	 * @generated
 	 */
-	EClass getParameterIdentification();
+	EClass getParameter_SCAR();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getParameterName <em>Parameter Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getParameterName <em>Parameter Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getParameterName()
-	 * @see #getParameterIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getParameterName()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentification_ParameterName();
+	EAttribute getParameter_SCAR_ParameterName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getParameterType <em>Parameter Type</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getParameterType <em>Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Type</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getParameterType()
-	 * @see #getParameterIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getParameterType()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentification_ParameterType();
+	EAttribute getParameter_SCAR_ParameterType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getMethodName <em>Method Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getMethodName <em>Method Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Method Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getMethodName()
-	 * @see #getParameterIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getMethodName()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentification_MethodName();
+	EAttribute getParameter_SCAR_MethodName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Fully Qualified Class Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification#getFullyQualifiedClassName()
-	 * @see #getParameterIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR#getFullyQualifiedClassName()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentification_FullyQualifiedClassName();
+	EAttribute getParameter_SCAR_FullyQualifiedClassName();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification <em>Field Identification</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR <em>Field SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Field Identification</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification
+	 * @return the meta object for class '<em>Field SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR
 	 * @generated
 	 */
-	EClass getFieldIdentification();
+	EClass getField_SCAR();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getFieldName <em>Field Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getFieldName <em>Field Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Field Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getFieldName()
-	 * @see #getFieldIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getFieldName()
+	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	EAttribute getFieldIdentification_FieldName();
+	EAttribute getField_SCAR_FieldName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getType()
-	 * @see #getFieldIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getType()
+	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	EAttribute getFieldIdentification_Type();
+	EAttribute getField_SCAR_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Fully Qualified Class Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification#getFullyQualifiedClassName()
-	 * @see #getFieldIdentification()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR#getFullyQualifiedClassName()
+	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	EAttribute getFieldIdentification_FullyQualifiedClassName();
+	EAttribute getField_SCAR_FullyQualifiedClassName();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR <em>Security Level SCAR</em>}'.
@@ -780,22 +780,22 @@ public interface CodeqlscarPackage extends EPackage {
 		EReference SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES = eINSTANCE.getSourceCodeAnalysisResult_ResultEntries();
 
 		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rule Ids</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS = eINSTANCE.getSourceCodeAnalysisResult_Configurations();
+		EReference SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS = eINSTANCE.getSourceCodeAnalysisResult_RuleIds();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryImpl <em>Result Entry</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultImpl <em>Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getResultEntry()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getResult()
 		 * @generated
 		 */
-		EClass RESULT_ENTRY = eINSTANCE.getResultEntry();
+		EClass RESULT = eINSTANCE.getResult();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
@@ -803,7 +803,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__SOURCE = eINSTANCE.getResultEntry_Source();
+		EReference RESULT__SOURCE = eINSTANCE.getResult_Source();
 
 		/**
 		 * The meta object literal for the '<em><b>Sink</b></em>' containment reference feature.
@@ -811,15 +811,15 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__SINK = eINSTANCE.getResultEntry_Sink();
+		EReference RESULT__SINK = eINSTANCE.getResult_Sink();
 
 		/**
-		 * The meta object literal for the '<em><b>Config</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Rule Id</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__CONFIG = eINSTANCE.getResultEntry_Config();
+		EReference RESULT__RULE_ID = eINSTANCE.getResult_RuleId();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ResultEntryElementImpl <em>Result Entry Element</em>}' class.
@@ -848,14 +848,14 @@ public interface CodeqlscarPackage extends EPackage {
 		EReference RESULT_ENTRY_ELEMENT__SECURITY_LEVEL = eINSTANCE.getResultEntryElement_SecurityLevel();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ConfigurationID_SCARImpl <em>Configuration ID SCAR</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.RuleIdImpl <em>Rule Id</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ConfigurationID_SCARImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getConfigurationID_SCAR()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.RuleIdImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getRuleId()
 		 * @generated
 		 */
-		EClass CONFIGURATION_ID_SCAR = eINSTANCE.getConfigurationID_SCAR();
+		EClass RULE_ID = eINSTANCE.getRuleId();
 
 		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
@@ -863,27 +863,27 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONFIGURATION_ID_SCAR__ID = eINSTANCE.getConfigurationID_SCAR_Id();
+		EAttribute RULE_ID__ID = eINSTANCE.getRuleId_Id();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementIdentificationImpl <em>System Element Identification</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementImpl <em>System Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementIdentificationImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getSystemElementIdentification()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SystemElementImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getSystemElement()
 		 * @generated
 		 */
-		EClass SYSTEM_ELEMENT_IDENTIFICATION = eINSTANCE.getSystemElementIdentification();
+		EClass SYSTEM_ELEMENT = eINSTANCE.getSystemElement();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ParameterIdentificationImpl <em>Parameter Identification</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Parameter_SCARImpl <em>Parameter SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.ParameterIdentificationImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getParameterIdentification()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Parameter_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getParameter_SCAR()
 		 * @generated
 		 */
-		EClass PARAMETER_IDENTIFICATION = eINSTANCE.getParameterIdentification();
+		EClass PARAMETER_SCAR = eINSTANCE.getParameter_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Name</b></em>' attribute feature.
@@ -891,7 +891,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFICATION__PARAMETER_NAME = eINSTANCE.getParameterIdentification_ParameterName();
+		EAttribute PARAMETER_SCAR__PARAMETER_NAME = eINSTANCE.getParameter_SCAR_ParameterName();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Type</b></em>' attribute feature.
@@ -899,7 +899,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFICATION__PARAMETER_TYPE = eINSTANCE.getParameterIdentification_ParameterType();
+		EAttribute PARAMETER_SCAR__PARAMETER_TYPE = eINSTANCE.getParameter_SCAR_ParameterType();
 
 		/**
 		 * The meta object literal for the '<em><b>Method Name</b></em>' attribute feature.
@@ -907,7 +907,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFICATION__METHOD_NAME = eINSTANCE.getParameterIdentification_MethodName();
+		EAttribute PARAMETER_SCAR__METHOD_NAME = eINSTANCE.getParameter_SCAR_MethodName();
 
 		/**
 		 * The meta object literal for the '<em><b>Fully Qualified Class Name</b></em>' attribute feature.
@@ -915,18 +915,17 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE
-				.getParameterIdentification_FullyQualifiedClassName();
+		EAttribute PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE.getParameter_SCAR_FullyQualifiedClassName();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.FieldIdentificationImpl <em>Field Identification</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Field_SCARImpl <em>Field SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.FieldIdentificationImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getFieldIdentification()
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.Field_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.CodeqlscarPackageImpl#getField_SCAR()
 		 * @generated
 		 */
-		EClass FIELD_IDENTIFICATION = eINSTANCE.getFieldIdentification();
+		EClass FIELD_SCAR = eINSTANCE.getField_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Field Name</b></em>' attribute feature.
@@ -934,7 +933,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD_IDENTIFICATION__FIELD_NAME = eINSTANCE.getFieldIdentification_FieldName();
+		EAttribute FIELD_SCAR__FIELD_NAME = eINSTANCE.getField_SCAR_FieldName();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -942,7 +941,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD_IDENTIFICATION__TYPE = eINSTANCE.getFieldIdentification_Type();
+		EAttribute FIELD_SCAR__TYPE = eINSTANCE.getField_SCAR_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Fully Qualified Class Name</b></em>' attribute feature.
@@ -950,8 +949,7 @@ public interface CodeqlscarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE
-				.getFieldIdentification_FullyQualifiedClassName();
+		EAttribute FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE.getField_SCAR_FullyQualifiedClassName();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.impl.SecurityLevel_SCARImpl <em>Security Level SCAR</em>}' class.

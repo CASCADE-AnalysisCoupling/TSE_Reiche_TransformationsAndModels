@@ -56,38 +56,17 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TainttrackingPackage.NODE: return createNode();
-			case TainttrackingPackage.PARAMETER_NODE: return createParameterNode();
 			case TainttrackingPackage.SECURITY_LEVEL: return createSecurityLevel();
 			case TainttrackingPackage.TAINTTRACKING_ROOT: return createTainttrackingRoot();
-			case TainttrackingPackage.CONFIGURATION: return createConfiguration();
+			case TainttrackingPackage.QUERY: return createQuery();
 			case TainttrackingPackage.SECURITY_LEVEL_ANNOTATION: return createSecurityLevelAnnotation();
 			case TainttrackingPackage.FIELD_ANNOTATION: return createFieldAnnotation();
 			case TainttrackingPackage.PARAMETER_ANNOTATION: return createParameterAnnotation();
 			case TainttrackingPackage.ALLOWED_FLOW: return createAllowedFlow();
+			case TainttrackingPackage.ALLOWED_FLOWS: return createAllowedFlows();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Node createNode() {
-		NodeImpl node = new NodeImpl();
-		return node;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParameterNode createParameterNode() {
-		ParameterNodeImpl parameterNode = new ParameterNodeImpl();
-		return parameterNode;
 	}
 
 	/**
@@ -115,9 +94,9 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration createConfiguration() {
-		ConfigurationImpl configuration = new ConfigurationImpl();
-		return configuration;
+	public Query createQuery() {
+		QueryImpl query = new QueryImpl();
+		return query;
 	}
 
 	/**
@@ -158,6 +137,16 @@ public class TainttrackingFactoryImpl extends EFactoryImpl implements Tainttrack
 	public AllowedFlow createAllowedFlow() {
 		AllowedFlowImpl allowedFlow = new AllowedFlowImpl();
 		return allowedFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AllowedFlows createAllowedFlows() {
+		AllowedFlowsImpl allowedFlows = new AllowedFlowsImpl();
+		return allowedFlows;
 	}
 
 	/**

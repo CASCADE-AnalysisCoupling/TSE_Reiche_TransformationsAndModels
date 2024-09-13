@@ -23,49 +23,49 @@ public interface JoanaresultingvaluesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>JOANA Resulting Values</em>'.
+	 * Returns a new object of class '<em>Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>JOANA Resulting Values</em>'.
+	 * @return a new object of class '<em>Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	JOANAResultingValues createJOANAResultingValues();
+	ResolvedImplementationValues createResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Identification JOANA Resulting Values</em>'.
+	 * Returns a new object of class '<em>Parameter Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Identification JOANA Resulting Values</em>'.
+	 * @return a new object of class '<em>Parameter Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	ParameterIdentification_JOANAResultingValues createParameterIdentification_JOANAResultingValues();
+	Parameter_ResolvedImplementationValues createParameter_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Level Resulting Values</em>'.
+	 * Returns a new object of class '<em>Level Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Level Resulting Values</em>'.
+	 * @return a new object of class '<em>Level Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	Level_ResultingValues createLevel_ResultingValues();
+	Level_ResolvedImplementationValues createLevel_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Entry Point Identification Resulting Values</em>'.
+	 * Returns a new object of class '<em>Entry Point Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Point Identification Resulting Values</em>'.
+	 * @return a new object of class '<em>Entry Point Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	EntryPointIdentification_ResultingValues createEntryPointIdentification_ResultingValues();
+	EntryPoint_ResolvedImplementationValues createEntryPoint_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Resulting Value</em>'.
+	 * Returns a new object of class '<em>Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resulting Value</em>'.
+	 * @return a new object of class '<em>Resolved Implementation Value</em>'.
 	 * @generated
 	 */
-	ResultingValue createResultingValue();
+	ResolvedImplementationValue createResolvedImplementationValue();
 
 	/**
 	 * Returns the package supported by this factory.

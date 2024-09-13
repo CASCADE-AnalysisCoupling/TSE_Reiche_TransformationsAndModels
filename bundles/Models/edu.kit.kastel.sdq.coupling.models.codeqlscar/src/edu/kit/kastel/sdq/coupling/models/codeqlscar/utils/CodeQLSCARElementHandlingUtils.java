@@ -4,12 +4,12 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement;
 
 public class CodeQLSCARElementHandlingUtils {
 
@@ -39,21 +39,21 @@ public class CodeQLSCARElementHandlingUtils {
 		}
 	}
 	
-	public static void addConfigById(ConfigurationID_SCAR config, SourceCodeAnalysisResult scar) {
-		if(!scar.getConfigurations().stream().anyMatch(cfg -> cfg.getId().equals(config.getId()))) {
-			scar.getConfigurations().add(config);
+	public static void addConfigById(RuleId ruleIds, SourceCodeAnalysisResult scar) {
+		if(!scar.getRuleIds().stream().anyMatch(cfg -> cfg.getId().equals(ruleIds.getId()))) {
+			scar.getRuleIds().add(ruleIds);
 		}
 	}
 	
-	public static ParameterIdentification getOrCreateAndAddParameter(String parameterName, String type, String methodName, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
+	public static Parameter_SCAR getOrCreateAndAddParameter(String parameterName, String type, String methodName, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
 
-		Optional<ParameterIdentification> potentialParameter =  getPotentialParameterByContent(parameterName, type, methodName, fullyQualifiedClassName, scar);
+		Optional<Parameter_SCAR> potentialParameter =  getPotentialParameterByContent(parameterName, type, methodName, fullyQualifiedClassName, scar);
 		
 		if(potentialParameter.isPresent()) {
 			return potentialParameter.get();
 		}
 		
-		ParameterIdentification parameter = CodeQLSCARModelGenerationUtil.createParameterIdentification(parameterName, type, methodName, fullyQualifiedClassName);
+		Parameter_SCAR parameter = CodeQLSCARModelGenerationUtil.createParameter(parameterName, type, methodName, fullyQualifiedClassName);
 	
 		addParameterToScarByContent(parameter, scar);
 		
@@ -61,29 +61,29 @@ public class CodeQLSCARElementHandlingUtils {
 		return parameter;
 	}
 	
-	public static Optional<ParameterIdentification> getPotentialParameterByContent(String parameterName, String type, String methodName, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
+	public static Optional<Parameter_SCAR> getPotentialParameterByContent(String parameterName, String type, String methodName, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
 		return getParameterIdentifications(scar.getSystemElementIdentifications()).stream().filter(param -> {return param.getParameterName().equals(parameterName) && param.getParameterType().equals(type) && param.getMethodName().equals(methodName) && param.getFullyQualifiedClassName().equals(fullyQualifiedClassName);}).findFirst();
 	}
 	
-	public static void addParameterToScarByContent(ParameterIdentification parameter, SourceCodeAnalysisResult scar) {
+	public static void addParameterToScarByContent(Parameter_SCAR parameter, SourceCodeAnalysisResult scar) {
 		if(getPotentialParameterByContent(parameter.getParameterName(), parameter.getParameterType(), parameter.getMethodName(), parameter.getFullyQualifiedClassName(), scar).isEmpty()) {
 			scar.getSystemElementIdentifications().add(parameter);
 		}
 	}
 	
-	private static Collection<ParameterIdentification> getParameterIdentifications(Collection<SystemElementIdentification> systemElements){
-		return systemElements.stream().filter(ParameterIdentification.class::isInstance).map(ParameterIdentification.class::cast).collect(Collectors.toList());
+	private static Collection<Parameter_SCAR> getParameterIdentifications(Collection<SystemElement> systemElements){
+		return systemElements.stream().filter(Parameter_SCAR.class::isInstance).map(Parameter_SCAR.class::cast).collect(Collectors.toList());
 	}
 	
-	public static FieldIdentification getOrCreateAndAddField(String fieldName, String type, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
+	public static Field_SCAR getOrCreateAndAddField(String fieldName, String type, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
 
-		Optional<FieldIdentification> potentialField =  getPotentialFieldByContent(fieldName, type, fullyQualifiedClassName, scar);
+		Optional<Field_SCAR> potentialField =  getPotentialFieldByContent(fieldName, type, fullyQualifiedClassName, scar);
 		
 		if(potentialField.isPresent()) {
 			return potentialField.get();
 		}
 		
-		FieldIdentification field = CodeQLSCARModelGenerationUtil.createFieldIdentification(fieldName, type ,fullyQualifiedClassName);
+		Field_SCAR field = CodeQLSCARModelGenerationUtil.createField(fieldName, type ,fullyQualifiedClassName);
 	
 		addFieldToScarByContent(field, scar);
 		
@@ -91,18 +91,18 @@ public class CodeQLSCARElementHandlingUtils {
 		return field;
 	}
 	
-	public static Optional<FieldIdentification> getPotentialFieldByContent(String fieldName, String type, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
+	public static Optional<Field_SCAR> getPotentialFieldByContent(String fieldName, String type, String fullyQualifiedClassName, SourceCodeAnalysisResult scar) {
 		return getFieldIdentifications(scar.getSystemElementIdentifications()).stream().filter(field -> {return field.getFieldName().equals(fieldName) && field.getType().equals(type) && field.getFullyQualifiedClassName().equals(fullyQualifiedClassName);}).findFirst();
 	}
 	
-	public static void addFieldToScarByContent(FieldIdentification field, SourceCodeAnalysisResult scar) {
+	public static void addFieldToScarByContent(Field_SCAR field, SourceCodeAnalysisResult scar) {
 		if(getPotentialFieldByContent(field.getFieldName(), field.getType(), field.getFullyQualifiedClassName(), scar).isEmpty()) {
 			scar.getSystemElementIdentifications().add(field);
 		}
 	}
 	
-	private static Collection<FieldIdentification> getFieldIdentifications(Collection<SystemElementIdentification> systemElements){
-		return systemElements.stream().filter(FieldIdentification.class::isInstance).map(FieldIdentification.class::cast).collect(Collectors.toList());
+	private static Collection<Field_SCAR> getFieldIdentifications(Collection<SystemElement> systemElements){
+		return systemElements.stream().filter(Field_SCAR.class::isInstance).map(Field_SCAR.class::cast).collect(Collectors.toList());
 	}
 	
 }

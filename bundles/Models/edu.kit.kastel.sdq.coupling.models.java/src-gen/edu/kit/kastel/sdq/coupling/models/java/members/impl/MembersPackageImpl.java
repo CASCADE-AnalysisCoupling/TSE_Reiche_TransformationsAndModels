@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
 
 import edu.kit.kastel.sdq.coupling.models.java.impl.JavaPackageImpl;
 
+import edu.kit.kastel.sdq.coupling.models.java.members.Annotatable;
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersFactory;
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
@@ -51,6 +52,13 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * @generated
 	 */
 	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotatableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -176,6 +184,15 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnnotatable() {
+		return annotatableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MembersFactory getMembersFactory() {
 		return (MembersFactory)getEFactoryInstance();
 	}
@@ -206,6 +223,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 		createEReference(methodEClass, METHOD__PARAMETER);
 
 		parameterEClass = createEClass(PARAMETER);
+
+		annotatableEClass = createEClass(ANNOTATABLE);
 	}
 
 	/**
@@ -242,9 +261,12 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 		// Add supertypes to classes
 		fieldEClass.getESuperTypes().add(theTypesPackage.getTypedElement());
 		fieldEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		fieldEClass.getESuperTypes().add(this.getAnnotatable());
 		methodEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		methodEClass.getESuperTypes().add(this.getAnnotatable());
 		parameterEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		parameterEClass.getESuperTypes().add(theTypesPackage.getTypedElement());
+		parameterEClass.getESuperTypes().add(this.getAnnotatable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -254,6 +276,8 @@ public class MembersPackageImpl extends EPackageImpl implements MembersPackage {
 		initEReference(getMethod_Parameter(), this.getParameter(), null, "parameter", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotatableEClass, Annotatable.class, "Annotatable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //MembersPackageImpl

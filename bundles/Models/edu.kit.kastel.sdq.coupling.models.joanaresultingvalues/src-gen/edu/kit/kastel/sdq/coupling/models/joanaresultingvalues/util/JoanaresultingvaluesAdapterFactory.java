@@ -71,29 +71,28 @@ public class JoanaresultingvaluesAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected JoanaresultingvaluesSwitch<Adapter> modelSwitch = new JoanaresultingvaluesSwitch<Adapter>() {
 		@Override
-		public Adapter caseJOANAResultingValues(JOANAResultingValues object) {
-			return createJOANAResultingValuesAdapter();
+		public Adapter caseResolvedImplementationValues(ResolvedImplementationValues object) {
+			return createResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseParameterIdentification_JOANAResultingValues(
-				ParameterIdentification_JOANAResultingValues object) {
-			return createParameterIdentification_JOANAResultingValuesAdapter();
+		public Adapter caseParameter_ResolvedImplementationValues(Parameter_ResolvedImplementationValues object) {
+			return createParameter_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseLevel_ResultingValues(Level_ResultingValues object) {
-			return createLevel_ResultingValuesAdapter();
+		public Adapter caseLevel_ResolvedImplementationValues(Level_ResolvedImplementationValues object) {
+			return createLevel_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseEntryPointIdentification_ResultingValues(EntryPointIdentification_ResultingValues object) {
-			return createEntryPointIdentification_ResultingValuesAdapter();
+		public Adapter caseEntryPoint_ResolvedImplementationValues(EntryPoint_ResolvedImplementationValues object) {
+			return createEntryPoint_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseResultingValue(ResultingValue object) {
-			return createResultingValueAdapter();
+		public Adapter caseResolvedImplementationValue(ResolvedImplementationValue object) {
+			return createResolvedImplementationValueAdapter();
 		}
 
 		@Override
@@ -131,72 +130,72 @@ public class JoanaresultingvaluesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues <em>JOANA Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues <em>Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createJOANAResultingValuesAdapter() {
+	public Adapter createResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues <em>Parameter Identification JOANA Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues <em>Parameter Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createParameterIdentification_JOANAResultingValuesAdapter() {
+	public Adapter createParameter_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues <em>Level Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues <em>Level Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createLevel_ResultingValuesAdapter() {
+	public Adapter createLevel_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues <em>Entry Point Identification Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues <em>Entry Point Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createEntryPointIdentification_ResultingValuesAdapter() {
+	public Adapter createEntryPoint_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue <em>Resulting Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue <em>Resolved Implementation Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue
+	 * @see edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue
 	 * @generated
 	 */
-	public Adapter createResultingValueAdapter() {
+	public Adapter createResolvedImplementationValueAdapter() {
 		return null;
 	}
 

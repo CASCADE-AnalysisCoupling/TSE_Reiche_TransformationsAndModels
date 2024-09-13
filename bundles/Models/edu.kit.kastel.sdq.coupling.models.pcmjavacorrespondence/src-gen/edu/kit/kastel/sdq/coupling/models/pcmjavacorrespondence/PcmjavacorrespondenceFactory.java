@@ -19,8 +19,7 @@ public interface PcmjavacorrespondenceFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	PcmjavacorrespondenceFactory eINSTANCE = edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PcmjavacorrespondenceFactoryImpl
-			.init();
+	PcmjavacorrespondenceFactory eINSTANCE = edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PcmjavacorrespondenceFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>PCM Java Correspondence Root</em>'.

@@ -70,43 +70,43 @@ public class JoanaresultingvaluesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case JoanaresultingvaluesPackage.JOANA_RESULTING_VALUES: {
-			JOANAResultingValues joanaResultingValues = (JOANAResultingValues) theEObject;
-			T result = caseJOANAResultingValues(joanaResultingValues);
+		case JoanaresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUES: {
+			ResolvedImplementationValues resolvedImplementationValues = (ResolvedImplementationValues) theEObject;
+			T result = caseResolvedImplementationValues(resolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanaresultingvaluesPackage.PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES: {
-			ParameterIdentification_JOANAResultingValues parameterIdentification_JOANAResultingValues = (ParameterIdentification_JOANAResultingValues) theEObject;
-			T result = caseParameterIdentification_JOANAResultingValues(parameterIdentification_JOANAResultingValues);
+		case JoanaresultingvaluesPackage.PARAMETER_RESOLVED_IMPLEMENTATION_VALUES: {
+			Parameter_ResolvedImplementationValues parameter_ResolvedImplementationValues = (Parameter_ResolvedImplementationValues) theEObject;
+			T result = caseParameter_ResolvedImplementationValues(parameter_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanaresultingvaluesPackage.LEVEL_RESULTING_VALUES: {
-			Level_ResultingValues level_ResultingValues = (Level_ResultingValues) theEObject;
-			T result = caseLevel_ResultingValues(level_ResultingValues);
+		case JoanaresultingvaluesPackage.LEVEL_RESOLVED_IMPLEMENTATION_VALUES: {
+			Level_ResolvedImplementationValues level_ResolvedImplementationValues = (Level_ResolvedImplementationValues) theEObject;
+			T result = caseLevel_ResolvedImplementationValues(level_ResolvedImplementationValues);
 			if (result == null)
-				result = caseEntity(level_ResultingValues);
+				result = caseEntity(level_ResolvedImplementationValues);
 			if (result == null)
-				result = caseIdentifiedElement(level_ResultingValues);
+				result = caseIdentifiedElement(level_ResolvedImplementationValues);
 			if (result == null)
-				result = caseNamedElement(level_ResultingValues);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case JoanaresultingvaluesPackage.ENTRY_POINT_IDENTIFICATION_RESULTING_VALUES: {
-			EntryPointIdentification_ResultingValues entryPointIdentification_ResultingValues = (EntryPointIdentification_ResultingValues) theEObject;
-			T result = caseEntryPointIdentification_ResultingValues(entryPointIdentification_ResultingValues);
+				result = caseNamedElement(level_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanaresultingvaluesPackage.RESULTING_VALUE: {
-			ResultingValue resultingValue = (ResultingValue) theEObject;
-			T result = caseResultingValue(resultingValue);
+		case JoanaresultingvaluesPackage.ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES: {
+			EntryPoint_ResolvedImplementationValues entryPoint_ResolvedImplementationValues = (EntryPoint_ResolvedImplementationValues) theEObject;
+			T result = caseEntryPoint_ResolvedImplementationValues(entryPoint_ResolvedImplementationValues);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JoanaresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUE: {
+			ResolvedImplementationValue resolvedImplementationValue = (ResolvedImplementationValue) theEObject;
+			T result = caseResolvedImplementationValue(resolvedImplementationValue);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -117,77 +117,77 @@ public class JoanaresultingvaluesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>JOANA Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>JOANA Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseJOANAResultingValues(JOANAResultingValues object) {
+	public T caseResolvedImplementationValues(ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Identification JOANA Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Identification JOANA Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterIdentification_JOANAResultingValues(ParameterIdentification_JOANAResultingValues object) {
+	public T caseParameter_ResolvedImplementationValues(Parameter_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Level Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Level Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Level Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Level Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLevel_ResultingValues(Level_ResultingValues object) {
+	public T caseLevel_ResolvedImplementationValues(Level_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entry Point Identification Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Point Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entry Point Identification Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Point Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEntryPointIdentification_ResultingValues(EntryPointIdentification_ResultingValues object) {
+	public T caseEntryPoint_ResolvedImplementationValues(EntryPoint_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resulting Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resulting Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resolved Implementation Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResultingValue(ResultingValue object) {
+	public T caseResolvedImplementationValue(ResolvedImplementationValue object) {
 		return null;
 	}
 

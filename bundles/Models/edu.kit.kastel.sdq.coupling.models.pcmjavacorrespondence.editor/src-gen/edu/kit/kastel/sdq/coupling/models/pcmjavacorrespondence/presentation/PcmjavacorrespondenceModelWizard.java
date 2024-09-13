@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.presentation;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -72,6 +73,7 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider.PcmjavacorrespondenceEditPlugin;
 
+
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -81,6 +83,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+
 
 /**
  * This is a simple wizard for creating a new model file.
@@ -95,9 +98,8 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections
-			.unmodifiableList(Arrays.asList(PcmjavacorrespondenceEditorPlugin.INSTANCE
-					.getString("_UI_PcmjavacorrespondenceEditorFilenameExtensions").split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS =
+		Collections.unmodifiableList(Arrays.asList(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -105,8 +107,8 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String FORMATTED_FILE_EXTENSIONS = PcmjavacorrespondenceEditorPlugin.INSTANCE
-			.getString("_UI_PcmjavacorrespondenceEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+	public static final String FORMATTED_FILE_EXTENSIONS =
+		PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -122,8 +124,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PcmjavacorrespondenceFactory pcmjavacorrespondenceFactory = pcmjavacorrespondencePackage
-			.getPcmjavacorrespondenceFactory();
+	protected PcmjavacorrespondenceFactory pcmjavacorrespondenceFactory = pcmjavacorrespondencePackage.getPcmjavacorrespondenceFactory();
 
 	/**
 	 * This is the file creation page.
@@ -171,12 +172,12 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(
-				PcmjavacorrespondenceEditorPlugin.INSTANCE.getImage("full/wizban/NewPcmjavacorrespondence")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PcmjavacorrespondenceEditorPlugin.INSTANCE.getImage("full/wizban/NewPcmjavacorrespondence")));
 	}
 
 	/**
@@ -190,7 +191,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 			initialObjectNames = new ArrayList<String>();
 			for (EClassifier eClassifier : pcmjavacorrespondencePackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass) eClassifier;
+					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
@@ -208,8 +209,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass) pcmjavacorrespondencePackage
-				.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EClass eClass = (EClass)pcmjavacorrespondencePackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = pcmjavacorrespondenceFactory.create(eClass);
 		return rootObject;
 	}
@@ -229,41 +229,44 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-				@Override
-				protected void execute(IProgressMonitor progressMonitor) {
-					try {
-						// Create a resource set
-						//
-						ResourceSet resourceSet = new ResourceSetImpl();
+			WorkspaceModifyOperation operation =
+				new WorkspaceModifyOperation() {
+					@Override
+					protected void execute(IProgressMonitor progressMonitor) {
+						try {
+							// Create a resource set
+							//
+							ResourceSet resourceSet = new ResourceSetImpl();
 
-						// Get the URI of the model file.
-						//
-						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+							// Get the URI of the model file.
+							//
+							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-						// Create a resource for this file.
-						//
-						Resource resource = resourceSet.createResource(fileURI);
+							// Create a resource for this file.
+							//
+							Resource resource = resourceSet.createResource(fileURI);
 
-						// Add the initial model object to the contents.
-						//
-						EObject rootObject = createInitialModel();
-						if (rootObject != null) {
-							resource.getContents().add(rootObject);
+							// Add the initial model object to the contents.
+							//
+							EObject rootObject = createInitialModel();
+							if (rootObject != null) {
+								resource.getContents().add(rootObject);
+							}
+
+							// Save the contents of the resource to the file system.
+							//
+							Map<Object, Object> options = new HashMap<Object, Object>();
+							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							resource.save(options);
 						}
-
-						// Save the contents of the resource to the file system.
-						//
-						Map<Object, Object> options = new HashMap<Object, Object>();
-						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
-						resource.save(options);
-					} catch (Exception exception) {
-						PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
-					} finally {
-						progressMonitor.done();
+						catch (Exception exception) {
+							PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
+						}
+						finally {
+							progressMonitor.done();
+						}
 					}
-				}
-			};
+				};
 
 			getContainer().run(false, false, operation);
 
@@ -274,27 +277,30 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
-					}
-				});
+				getShell().getDisplay().asyncExec
+					(new Runnable() {
+						 @Override
+						 public void run() {
+							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
+						 }
+					 });
 			}
 
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(new FileEditorInput(modelFile),
-						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
-			} catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(),
-						PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
-						exception.getMessage());
+				page.openEditor
+					(new FileEditorInput(modelFile),
+					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+			}
+			catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(), PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -329,8 +335,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString(key,
-							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -391,6 +396,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
@@ -464,11 +470,13 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected ModifyListener validator = new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				setPageComplete(validatePage());
-			}
-		};
+		protected ModifyListener validator =
+			new ModifyListener() {
+				@Override
+				public void modifyText(ModifyEvent e) {
+					setPageComplete(validatePage());
+				}
+			};
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -491,7 +499,8 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
-				} else {
+				}
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -532,7 +541,8 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 		protected String getLabel(String typeName) {
 			try {
 				return PcmjavacorrespondenceEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			} catch (MissingResourceException mre) {
+			}
+			catch(MissingResourceException mre) {
 				PcmjavacorrespondenceEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -546,9 +556,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
-								.hasMoreTokens();) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -562,17 +570,14 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+		@Override
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new PcmjavacorrespondenceModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(
-				PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceModelWizard_label"));
-		newFileCreationPage.setDescription(PcmjavacorrespondenceEditorPlugin.INSTANCE
-				.getString("_UI_PcmjavacorrespondenceModelWizard_description"));
-		newFileCreationPage.setFileName(PcmjavacorrespondenceEditorPlugin.INSTANCE
-				.getString("_UI_PcmjavacorrespondenceEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceModelWizard_label"));
+		newFileCreationPage.setDescription(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceModelWizard_description"));
+		newFileCreationPage.setFileName(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -584,7 +589,7 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource) selectedElement;
+				IResource selectedResource = (IResource)selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
@@ -598,11 +603,10 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = PcmjavacorrespondenceEditorPlugin.INSTANCE
-							.getString("_UI_PcmjavacorrespondenceEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -610,10 +614,8 @@ public class PcmjavacorrespondenceModelWizard extends Wizard implements INewWiza
 			}
 		}
 		initialObjectCreationPage = new PcmjavacorrespondenceModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(
-				PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceModelWizard_label"));
-		initialObjectCreationPage.setDescription(
-				PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_PcmjavacorrespondenceModelWizard_label"));
+		initialObjectCreationPage.setDescription(PcmjavacorrespondenceEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

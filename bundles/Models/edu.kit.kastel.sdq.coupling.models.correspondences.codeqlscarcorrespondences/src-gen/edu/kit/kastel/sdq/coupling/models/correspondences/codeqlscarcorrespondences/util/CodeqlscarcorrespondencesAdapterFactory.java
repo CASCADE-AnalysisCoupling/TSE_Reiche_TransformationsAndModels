@@ -67,8 +67,8 @@ public class CodeqlscarcorrespondencesAdapterFactory extends AdapterFactoryImpl 
 	 */
 	protected CodeqlscarcorrespondencesSwitch<Adapter> modelSwitch = new CodeqlscarcorrespondencesSwitch<Adapter>() {
 		@Override
-		public Adapter caseCodeQLSCARCorrespondences(CodeQLSCARCorrespondences object) {
-			return createCodeQLSCARCorrespondencesAdapter();
+		public Adapter caseCorrespondences_CodeQLScar(Correspondences_CodeQLScar object) {
+			return createCorrespondences_CodeQLScarAdapter();
 		}
 
 		@Override
@@ -116,16 +116,16 @@ public class CodeqlscarcorrespondencesAdapterFactory extends AdapterFactoryImpl 
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences <em>Code QLSCAR Correspondences</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar <em>Correspondences Code QL Scar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar
 	 * @generated
 	 */
-	public Adapter createCodeQLSCARCorrespondencesAdapter() {
+	public Adapter createCorrespondences_CodeQLScarAdapter() {
 		return null;
 	}
 

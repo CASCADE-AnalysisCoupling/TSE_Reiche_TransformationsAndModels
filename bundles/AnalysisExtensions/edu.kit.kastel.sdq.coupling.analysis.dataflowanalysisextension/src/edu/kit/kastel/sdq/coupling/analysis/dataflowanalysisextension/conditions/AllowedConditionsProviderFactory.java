@@ -2,7 +2,7 @@ package edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.condition
 
 public class AllowedConditionsProviderFactory {
 
-	public AllowedConditionsProvider create(String policyStyle) {
+	public static AllowedConditionsProvider create(String policyStyle) {
 		
 		switch (policyStyle) {
 		case "HighLow": {
@@ -15,6 +15,17 @@ public class AllowedConditionsProviderFactory {
 			throw new IllegalArgumentException("Unexpected value: " + policyStyle);
 		}
 		
+	}
+	
+	public enum POLICY {
+		HIGHLOW("HighLow"),
+		DISJUNCTIVE("Disjunctive");
+		
+		public final String label;
+		
+		private POLICY(String label) {
+			this.label = label;
+		}
 	}
 	
 }

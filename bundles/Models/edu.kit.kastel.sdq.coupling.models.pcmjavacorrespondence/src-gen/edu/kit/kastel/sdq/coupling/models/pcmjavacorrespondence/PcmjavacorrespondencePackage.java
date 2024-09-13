@@ -53,8 +53,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	PcmjavacorrespondencePackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PcmjavacorrespondencePackageImpl
-			.init();
+	PcmjavacorrespondencePackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PcmjavacorrespondencePackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PCMJavaCorrespondenceRootImpl <em>PCM Java Correspondence Root</em>}' class.
@@ -451,6 +450,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 	 */
 	int PCM_PARAMETER2_JAVA_PARAMETER_OPERATION_COUNT = 0;
 
+
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot <em>PCM Java Correspondence Root</em>}'.
 	 * <!-- begin-user-doc -->
@@ -779,8 +779,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS = eINSTANCE
-				.getPCMJavaCorrespondenceRoot_Basiccomponent2class();
+		EReference PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS = eINSTANCE.getPCMJavaCorrespondenceRoot_Basiccomponent2class();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation Interface2interface</b></em>' containment reference list feature.
@@ -788,8 +787,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE = eINSTANCE
-				.getPCMJavaCorrespondenceRoot_OperationInterface2interface();
+		EReference PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE = eINSTANCE.getPCMJavaCorrespondenceRoot_OperationInterface2interface();
 
 		/**
 		 * The meta object literal for the '<em><b>Compositedatatype2class</b></em>' containment reference list feature.
@@ -797,8 +795,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS = eINSTANCE
-				.getPCMJavaCorrespondenceRoot_Compositedatatype2class();
+		EReference PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS = eINSTANCE.getPCMJavaCorrespondenceRoot_Compositedatatype2class();
 
 		/**
 		 * The meta object literal for the '<em><b>Providedoperationsignature2javamethod</b></em>' containment reference list feature.
@@ -806,8 +803,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD = eINSTANCE
-				.getPCMJavaCorrespondenceRoot_Providedoperationsignature2javamethod();
+		EReference PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD = eINSTANCE.getPCMJavaCorrespondenceRoot_Providedoperationsignature2javamethod();
 
 		/**
 		 * The meta object literal for the '<em><b>Pcmparameter2javaparameter</b></em>' containment reference list feature.
@@ -815,8 +811,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER = eINSTANCE
-				.getPCMJavaCorrespondenceRoot_Pcmparameter2javaparameter();
+		EReference PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER = eINSTANCE.getPCMJavaCorrespondenceRoot_Pcmparameter2javaparameter();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.BasicComponent2ClassImpl <em>Basic Component2 Class</em>}' class.
@@ -860,8 +855,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE = eINSTANCE
-				.getOperationInterface2Interface_PcmInterface();
+		EReference OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE = eINSTANCE.getOperationInterface2Interface_PcmInterface();
 
 		/**
 		 * The meta object literal for the '<em><b>Java Interface</b></em>' reference feature.
@@ -869,8 +863,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE = eINSTANCE
-				.getOperationInterface2Interface_JavaInterface();
+		EReference OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE = eINSTANCE.getOperationInterface2Interface_JavaInterface();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.CompositeDataType2ClassImpl <em>Composite Data Type2 Class</em>}' class.
@@ -888,8 +881,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE = eINSTANCE
-				.getCompositeDataType2Class_CompositeDataType();
+		EReference COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE = eINSTANCE.getCompositeDataType2Class_CompositeDataType();
 
 		/**
 		 * The meta object literal for the '<em><b>Java Class</b></em>' reference feature.
@@ -915,8 +907,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD = eINSTANCE
-				.getProvidedOperationSignature2JavaMethod_PcmMethod();
+		EReference PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD = eINSTANCE.getProvidedOperationSignature2JavaMethod_PcmMethod();
 
 		/**
 		 * The meta object literal for the '<em><b>Java Method</b></em>' reference feature.
@@ -924,8 +915,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD = eINSTANCE
-				.getProvidedOperationSignature2JavaMethod_JavaMethod();
+		EReference PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD = eINSTANCE.getProvidedOperationSignature2JavaMethod_JavaMethod();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.ProvidedSignatureImpl <em>Provided Signature</em>}' class.
@@ -969,8 +959,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE = eINSTANCE
-				.getProvidedParameterIdentification_ProvidedSignature();
+		EReference PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE = eINSTANCE.getProvidedParameterIdentification_ProvidedSignature();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
@@ -978,8 +967,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER = eINSTANCE
-				.getProvidedParameterIdentification_Parameter();
+		EReference PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER = eINSTANCE.getProvidedParameterIdentification_Parameter();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl.PCMParameter2JavaParameterImpl <em>PCM Parameter2 Java Parameter</em>}' class.
@@ -997,8 +985,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION = eINSTANCE
-				.getPCMParameter2JavaParameter_PcmParameterIdentification();
+		EReference PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION = eINSTANCE.getPCMParameter2JavaParameter_PcmParameterIdentification();
 
 		/**
 		 * The meta object literal for the '<em><b>Java Parameter</b></em>' reference feature.
@@ -1006,8 +993,7 @@ public interface PcmjavacorrespondencePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER = eINSTANCE
-				.getPCMParameter2JavaParameter_JavaParameter();
+		EReference PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER = eINSTANCE.getPCMParameter2JavaParameter_JavaParameter();
 
 	}
 

@@ -11,15 +11,14 @@ import java.util.stream.Collectors;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.pcm.repository.OperationSignature;
-import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 
 public abstract class Backprojector implements Backproject {
@@ -36,12 +35,12 @@ public abstract class Backprojector implements Backproject {
 	}
 
 	@Override
-	public void project(JOANAResultingValues resultingSpec) {
+	public void project(ResolvedImplementationValues resultingSpec) {
 
-		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+		HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
 				resultingSpec);
 
-		for (Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment : specEntryParameterAssignments.entrySet()) {
+		for (Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment : specEntryParameterAssignments.entrySet()) {
 			ProvidedParameterIdentification providedParameterIdentification = correspondenceResolver.resolve(assignment.getKey());
 			OperationSignature targetOperationSignature = providedParameterIdentification.getProvidedSignature().getProvidedSignature();
 
@@ -75,7 +74,7 @@ public abstract class Backprojector implements Backproject {
 		}
 	}
 	
-	protected abstract void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment );
+	protected abstract void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair, Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment );
 	
 	
 	private static Collection<StereotypeApplication> filterInformationFlowApplications(
@@ -84,41 +83,14 @@ public abstract class Backprojector implements Backproject {
 				.collect(Collectors.toList());
 	}
 
-	// For the Case Study we make two assumptions:
-	// 1.) We have the knowledge that every entryPoint maps to the same annotated
-	// architectural model ==> Omit Backtracking of Configurations, i.e., entry
-	// points.
-	// 2.) We know that the configurations contain currently only powerset lattices
-	// and datasets are defined separately ==> With 1.) omit check whether level
-	// exists in entrypoint.
-	// If these assumptions do not hold: Implement respective checks
-//	private HashMap<Parameter, Set<DataSet>> calculateDataSetsForParametersForConfiguration(
-//			JOANAResultingValues resultingSpec) {
-//
-//		HashMap<Parameter, Set<DataSet>> parameterDataSetAssignments = new HashMap<Parameter, Set<DataSet>>();
-//
-//		for (ResultingValue entry : resultingSpec.getResultingValues()) {
-//			Collection<DataSet> dataSets = correspondenceResolver.resolveDataSets(entry.getLevel());
-//
-//			if (!parameterDataSetAssignments.containsKey(entry.getSystemElement())) {
-//				Set<DataSet> dataSetsForParameter = new HashSet<DataSet>();
-//				parameterDataSetAssignments.put(entry.getSystemElement(), dataSetsForParameter);
-//			}
-//
-//			parameterDataSetAssignments.get(entry.getSystemElement()).addAll(dataSets);
-//		}
-//
-//		return parameterDataSetAssignments;
-//	}
+	private HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+			ResolvedImplementationValues resultingSpec) {
 
-	private HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
-			JOANAResultingValues resultingSpec) {
+		HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> parameterSpecEntryAssignments = new HashMap<>();
 
-		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> parameterSpecEntryAssignments = new HashMap<>();
-
-		for (ResultingValue entry : resultingSpec.getResultingValues()) {
+		for (ResolvedImplementationValue entry : resultingSpec.getResultingValues()) {
 			if (!parameterSpecEntryAssignments.containsKey(entry.getSystemElement())) {
-				Set<ResultingValue> specEntriesForParameter = new HashSet<ResultingValue>();
+				Set<ResolvedImplementationValue> specEntriesForParameter = new HashSet<ResolvedImplementationValue>();
 				parameterSpecEntryAssignments.put(entry.getSystemElement(), specEntriesForParameter);
 			}
 

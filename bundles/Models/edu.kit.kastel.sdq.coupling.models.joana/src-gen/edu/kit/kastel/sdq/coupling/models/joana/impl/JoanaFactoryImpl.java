@@ -57,7 +57,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JoanaPackage.JOANA_ROOT: return createJOANARoot();
-			case JoanaPackage.INFORMATION_FLOW_ANNOTATION: return createInformationFlowAnnotation();
 			case JoanaPackage.ENTRY_POINT: return createEntryPoint();
 			case JoanaPackage.SOURCE: return createSource();
 			case JoanaPackage.SINK: return createSink();
@@ -80,16 +79,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	public JOANARoot createJOANARoot() {
 		JOANARootImpl joanaRoot = new JOANARootImpl();
 		return joanaRoot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InformationFlowAnnotation createInformationFlowAnnotation() {
-		InformationFlowAnnotationImpl informationFlowAnnotation = new InformationFlowAnnotationImpl();
-		return informationFlowAnnotation;
 	}
 
 	/**

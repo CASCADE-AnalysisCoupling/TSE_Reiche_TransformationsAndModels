@@ -5,9 +5,9 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluesc
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.JoanaresultingvaluescorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.ParameterCorrespondence_JOANAResultingValues;
 
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.ParameterCorrespondence_JOANAResultingValuesImpl#getParameter_SCAR <em>Parameter SCAR</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.ParameterCorrespondence_JOANAResultingValuesImpl#getParameter_ResultingValues <em>Parameter Resulting Values</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.impl.ParameterCorrespondence_JOANAResultingValuesImpl#getParameter_ResolvedImplementationValues <em>Parameter Resolved Implementation Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,17 +41,17 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterIdentifying parameter_SCAR;
+	protected Parameter_SCAR parameter_SCAR;
 
 	/**
-	 * The cached value of the '{@link #getParameter_ResultingValues() <em>Parameter Resulting Values</em>}' reference.
+	 * The cached value of the '{@link #getParameter_ResolvedImplementationValues() <em>Parameter Resolved Implementation Values</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameter_ResultingValues()
+	 * @see #getParameter_ResolvedImplementationValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterIdentification_JOANAResultingValues parameter_ResultingValues;
+	protected Parameter_ResolvedImplementationValues parameter_ResolvedImplementationValues;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,10 +77,10 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentifying getParameter_SCAR() {
+	public Parameter_SCAR getParameter_SCAR() {
 		if (parameter_SCAR != null && parameter_SCAR.eIsProxy()) {
 			InternalEObject oldParameter_SCAR = (InternalEObject) parameter_SCAR;
-			parameter_SCAR = (ParameterIdentifying) eResolveProxy(oldParameter_SCAR);
+			parameter_SCAR = (Parameter_SCAR) eResolveProxy(oldParameter_SCAR);
 			if (parameter_SCAR != oldParameter_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -96,7 +96,7 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentifying basicGetParameter_SCAR() {
+	public Parameter_SCAR basicGetParameter_SCAR() {
 		return parameter_SCAR;
 	}
 
@@ -105,8 +105,8 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameter_SCAR(ParameterIdentifying newParameter_SCAR) {
-		ParameterIdentifying oldParameter_SCAR = parameter_SCAR;
+	public void setParameter_SCAR(Parameter_SCAR newParameter_SCAR) {
+		Parameter_SCAR oldParameter_SCAR = parameter_SCAR;
 		parameter_SCAR = newParameter_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -119,19 +119,19 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentification_JOANAResultingValues getParameter_ResultingValues() {
-		if (parameter_ResultingValues != null && parameter_ResultingValues.eIsProxy()) {
-			InternalEObject oldParameter_ResultingValues = (InternalEObject) parameter_ResultingValues;
-			parameter_ResultingValues = (ParameterIdentification_JOANAResultingValues) eResolveProxy(
-					oldParameter_ResultingValues);
-			if (parameter_ResultingValues != oldParameter_ResultingValues) {
+	public Parameter_ResolvedImplementationValues getParameter_ResolvedImplementationValues() {
+		if (parameter_ResolvedImplementationValues != null && parameter_ResolvedImplementationValues.eIsProxy()) {
+			InternalEObject oldParameter_ResolvedImplementationValues = (InternalEObject) parameter_ResolvedImplementationValues;
+			parameter_ResolvedImplementationValues = (Parameter_ResolvedImplementationValues) eResolveProxy(
+					oldParameter_ResolvedImplementationValues);
+			if (parameter_ResolvedImplementationValues != oldParameter_ResolvedImplementationValues) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES,
-							oldParameter_ResultingValues, parameter_ResultingValues));
+							JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES,
+							oldParameter_ResolvedImplementationValues, parameter_ResolvedImplementationValues));
 			}
 		}
-		return parameter_ResultingValues;
+		return parameter_ResolvedImplementationValues;
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentification_JOANAResultingValues basicGetParameter_ResultingValues() {
-		return parameter_ResultingValues;
+	public Parameter_ResolvedImplementationValues basicGetParameter_ResolvedImplementationValues() {
+		return parameter_ResolvedImplementationValues;
 	}
 
 	/**
@@ -148,14 +148,14 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameter_ResultingValues(
-			ParameterIdentification_JOANAResultingValues newParameter_ResultingValues) {
-		ParameterIdentification_JOANAResultingValues oldParameter_ResultingValues = parameter_ResultingValues;
-		parameter_ResultingValues = newParameter_ResultingValues;
+	public void setParameter_ResolvedImplementationValues(
+			Parameter_ResolvedImplementationValues newParameter_ResolvedImplementationValues) {
+		Parameter_ResolvedImplementationValues oldParameter_ResolvedImplementationValues = parameter_ResolvedImplementationValues;
+		parameter_ResolvedImplementationValues = newParameter_ResolvedImplementationValues;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES,
-					oldParameter_ResultingValues, parameter_ResultingValues));
+					JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES,
+					oldParameter_ResolvedImplementationValues, parameter_ResolvedImplementationValues));
 	}
 
 	/**
@@ -170,10 +170,10 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 			if (resolve)
 				return getParameter_SCAR();
 			return basicGetParameter_SCAR();
-		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES:
+		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
 			if (resolve)
-				return getParameter_ResultingValues();
-			return basicGetParameter_ResultingValues();
+				return getParameter_ResolvedImplementationValues();
+			return basicGetParameter_ResolvedImplementationValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,10 +187,10 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_SCAR:
-			setParameter_SCAR((ParameterIdentifying) newValue);
+			setParameter_SCAR((Parameter_SCAR) newValue);
 			return;
-		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES:
-			setParameter_ResultingValues((ParameterIdentification_JOANAResultingValues) newValue);
+		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
+			setParameter_ResolvedImplementationValues((Parameter_ResolvedImplementationValues) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -205,10 +205,10 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_SCAR:
-			setParameter_SCAR((ParameterIdentifying) null);
+			setParameter_SCAR((Parameter_SCAR) null);
 			return;
-		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES:
-			setParameter_ResultingValues((ParameterIdentification_JOANAResultingValues) null);
+		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
+			setParameter_ResolvedImplementationValues((Parameter_ResolvedImplementationValues) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -224,8 +224,8 @@ public class ParameterCorrespondence_JOANAResultingValuesImpl extends MinimalEOb
 		switch (featureID) {
 		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_SCAR:
 			return parameter_SCAR != null;
-		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESULTING_VALUES:
-			return parameter_ResultingValues != null;
+		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES__PARAMETER_RESOLVED_IMPLEMENTATION_VALUES:
+			return parameter_ResolvedImplementationValues != null;
 		}
 		return super.eIsSet(featureID);
 	}

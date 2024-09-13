@@ -5,8 +5,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="entrypoint" lowerBound="1"
         upperBound="-1" eType="#//EntryPoint" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowAnnotation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//Level"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowAnnotation" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" lowerBound="1" eType="#//Level"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemElementIdentification"
         lowerBound="1" eType="#//SystemElementIdentifying" containment="true"/>
   </eClassifiers>

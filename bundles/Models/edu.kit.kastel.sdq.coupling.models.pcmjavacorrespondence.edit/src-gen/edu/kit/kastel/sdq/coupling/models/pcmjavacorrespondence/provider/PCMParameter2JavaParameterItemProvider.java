@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
@@ -32,8 +33,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PCMParameter2JavaParameterItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,13 +74,19 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 	 * @generated
 	 */
 	protected void addJavaParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PCMParameter2JavaParameter_javaParameter_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_PCMParameter2JavaParameter_javaParameter_feature",
-						"_UI_PCMParameter2JavaParameter_type"),
-				PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PCMParameter2JavaParameter_javaParameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PCMParameter2JavaParameter_javaParameter_feature", "_UI_PCMParameter2JavaParameter_type"),
+				 PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -88,8 +101,7 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(
-					PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION);
 		}
 		return childrenFeatures;
 	}
@@ -119,16 +131,6 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +140,7 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 	public String getText(Object object) {
 		return getString("_UI_PCMParameter2JavaParameter_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -151,9 +154,9 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PCMParameter2JavaParameter.class)) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -169,9 +172,10 @@ public class PCMParameter2JavaParameterItemProvider extends ItemProviderAdapter 
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
-				PcmjavacorrespondenceFactory.eINSTANCE.createProvidedParameterIdentification()));
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createProvidedParameterIdentification()));
 	}
 
 	/**

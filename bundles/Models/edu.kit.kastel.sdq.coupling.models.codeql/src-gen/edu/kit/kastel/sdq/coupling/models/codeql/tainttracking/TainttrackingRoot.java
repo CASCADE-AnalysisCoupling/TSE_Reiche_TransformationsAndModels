@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes <em>Nodes</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getQueries <em>Queries</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot()
@@ -25,27 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TainttrackingRoot extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node}.
+	 * Returns the value of the '<em><b>Queries</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nodes</em>' containment reference list.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot_Nodes()
+	 * @return the value of the '<em>Queries</em>' containment reference list.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot_Queries()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Node> getNodes();
-
-	/**
-	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Configurations</em>' containment reference list.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage#getTainttrackingRoot_Configurations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Configuration> getConfigurations();
+	EList<Query> getQueries();
 
 } // TainttrackingRoot

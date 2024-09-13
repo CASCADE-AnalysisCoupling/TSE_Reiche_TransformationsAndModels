@@ -12,9 +12,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntryPointCorrespondence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_JOANA" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//EntryPoint"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//HybridConfiguration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_SCAR" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//EntryPointIdentifying"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//EntryPoint_SCAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LevelCorrespondence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="level_JOANA" lowerBound="1"
@@ -27,12 +27,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_JAVA" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_SCAR" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//ParameterIdentifying"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Parameter_SCAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FieldCorrespondence" eSuperTypes="#//SystemElementCorrespondence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="field_JAVA" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Field"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field_SCAR" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//FieldIdentifying"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Field_SCAR"/>
   </eClassifiers>
 </ecore:EPackage>

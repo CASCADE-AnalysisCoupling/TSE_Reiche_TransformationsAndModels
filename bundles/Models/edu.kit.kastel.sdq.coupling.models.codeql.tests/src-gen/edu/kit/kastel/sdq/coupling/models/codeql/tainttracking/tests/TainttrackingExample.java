@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.tests;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingFactory;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
@@ -60,7 +60,7 @@ public class TainttrackingExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.tainttracking"));
-				Node root = TainttrackingFactory.eINSTANCE.createNode();
+				SecurityLevel root = TainttrackingFactory.eINSTANCE.createSecurityLevel();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -2,9 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence;
@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl#getCodeQLConfig <em>Code QL Config</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl#getCodeQLSCARConfig <em>Code QLSCAR Config</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl#getConfiguration_CodeQL <em>Configuration Code QL</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl#getConfiguration_SCAR <em>Configuration SCAR</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +34,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Container
 		implements ConfigurationCorrespondence {
 	/**
-	 * The cached value of the '{@link #getCodeQLConfig() <em>Code QL Config</em>}' reference.
+	 * The cached value of the '{@link #getConfiguration_CodeQL() <em>Configuration Code QL</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeQLConfig()
+	 * @see #getConfiguration_CodeQL()
 	 * @generated
 	 * @ordered
 	 */
-	protected Configuration codeQLConfig;
+	protected HybridConfiguration configuration_CodeQL;
 
 	/**
-	 * The cached value of the '{@link #getCodeQLSCARConfig() <em>Code QLSCAR Config</em>}' reference.
+	 * The cached value of the '{@link #getConfiguration_SCAR() <em>Configuration SCAR</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeQLSCARConfig()
+	 * @see #getConfiguration_SCAR()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConfigurationID_SCAR codeQLSCARConfig;
+	protected RuleId configuration_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,18 +77,18 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration getCodeQLConfig() {
-		if (codeQLConfig != null && codeQLConfig.eIsProxy()) {
-			InternalEObject oldCodeQLConfig = (InternalEObject) codeQLConfig;
-			codeQLConfig = (Configuration) eResolveProxy(oldCodeQLConfig);
-			if (codeQLConfig != oldCodeQLConfig) {
+	public HybridConfiguration getConfiguration_CodeQL() {
+		if (configuration_CodeQL != null && configuration_CodeQL.eIsProxy()) {
+			InternalEObject oldConfiguration_CodeQL = (InternalEObject) configuration_CodeQL;
+			configuration_CodeQL = (HybridConfiguration) eResolveProxy(oldConfiguration_CodeQL);
+			if (configuration_CodeQL != oldConfiguration_CodeQL) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG,
-							oldCodeQLConfig, codeQLConfig));
+							CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL,
+							oldConfiguration_CodeQL, configuration_CodeQL));
 			}
 		}
-		return codeQLConfig;
+		return configuration_CodeQL;
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration basicGetCodeQLConfig() {
-		return codeQLConfig;
+	public HybridConfiguration basicGetConfiguration_CodeQL() {
+		return configuration_CodeQL;
 	}
 
 	/**
@@ -105,13 +105,13 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeQLConfig(Configuration newCodeQLConfig) {
-		Configuration oldCodeQLConfig = codeQLConfig;
-		codeQLConfig = newCodeQLConfig;
+	public void setConfiguration_CodeQL(HybridConfiguration newConfiguration_CodeQL) {
+		HybridConfiguration oldConfiguration_CodeQL = configuration_CodeQL;
+		configuration_CodeQL = newConfiguration_CodeQL;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG, oldCodeQLConfig,
-					codeQLConfig));
+					CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL,
+					oldConfiguration_CodeQL, configuration_CodeQL));
 	}
 
 	/**
@@ -119,18 +119,18 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationID_SCAR getCodeQLSCARConfig() {
-		if (codeQLSCARConfig != null && codeQLSCARConfig.eIsProxy()) {
-			InternalEObject oldCodeQLSCARConfig = (InternalEObject) codeQLSCARConfig;
-			codeQLSCARConfig = (ConfigurationID_SCAR) eResolveProxy(oldCodeQLSCARConfig);
-			if (codeQLSCARConfig != oldCodeQLSCARConfig) {
+	public RuleId getConfiguration_SCAR() {
+		if (configuration_SCAR != null && configuration_SCAR.eIsProxy()) {
+			InternalEObject oldConfiguration_SCAR = (InternalEObject) configuration_SCAR;
+			configuration_SCAR = (RuleId) eResolveProxy(oldConfiguration_SCAR);
+			if (configuration_SCAR != oldConfiguration_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG,
-							oldCodeQLSCARConfig, codeQLSCARConfig));
+							CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR,
+							oldConfiguration_SCAR, configuration_SCAR));
 			}
 		}
-		return codeQLSCARConfig;
+		return configuration_SCAR;
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationID_SCAR basicGetCodeQLSCARConfig() {
-		return codeQLSCARConfig;
+	public RuleId basicGetConfiguration_SCAR() {
+		return configuration_SCAR;
 	}
 
 	/**
@@ -147,13 +147,13 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeQLSCARConfig(ConfigurationID_SCAR newCodeQLSCARConfig) {
-		ConfigurationID_SCAR oldCodeQLSCARConfig = codeQLSCARConfig;
-		codeQLSCARConfig = newCodeQLSCARConfig;
+	public void setConfiguration_SCAR(RuleId newConfiguration_SCAR) {
+		RuleId oldConfiguration_SCAR = configuration_SCAR;
+		configuration_SCAR = newConfiguration_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG,
-					oldCodeQLSCARConfig, codeQLSCARConfig));
+					CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR,
+					oldConfiguration_SCAR, configuration_SCAR));
 	}
 
 	/**
@@ -164,14 +164,14 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL:
 			if (resolve)
-				return getCodeQLConfig();
-			return basicGetCodeQLConfig();
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG:
+				return getConfiguration_CodeQL();
+			return basicGetConfiguration_CodeQL();
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR:
 			if (resolve)
-				return getCodeQLSCARConfig();
-			return basicGetCodeQLSCARConfig();
+				return getConfiguration_SCAR();
+			return basicGetConfiguration_SCAR();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,11 +184,11 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
-			setCodeQLConfig((Configuration) newValue);
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL:
+			setConfiguration_CodeQL((HybridConfiguration) newValue);
 			return;
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG:
-			setCodeQLSCARConfig((ConfigurationID_SCAR) newValue);
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR:
+			setConfiguration_SCAR((RuleId) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,11 +202,11 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
-			setCodeQLConfig((Configuration) null);
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL:
+			setConfiguration_CodeQL((HybridConfiguration) null);
 			return;
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG:
-			setCodeQLSCARConfig((ConfigurationID_SCAR) null);
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR:
+			setConfiguration_SCAR((RuleId) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -220,10 +220,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
-			return codeQLConfig != null;
-		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG:
-			return codeQLSCARConfig != null;
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL:
+			return configuration_CodeQL != null;
+		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR:
+			return configuration_SCAR != null;
 		}
 		return super.eIsSet(featureID);
 	}

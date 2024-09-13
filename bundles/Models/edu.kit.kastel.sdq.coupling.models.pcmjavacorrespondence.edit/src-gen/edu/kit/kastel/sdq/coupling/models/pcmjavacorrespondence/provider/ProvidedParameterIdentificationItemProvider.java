@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
 
 import java.util.Collection;
@@ -27,9 +28,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedParameterIdentificationItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class ProvidedParameterIdentificationItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -64,14 +70,19 @@ public class ProvidedParameterIdentificationItemProvider extends ItemProviderAda
 	 * @generated
 	 */
 	protected void addProvidedSignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ProvidedParameterIdentification_providedSignature_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ProvidedParameterIdentification_providedSignature_feature",
-						"_UI_ProvidedParameterIdentification_type"),
-				PcmjavacorrespondencePackage.Literals.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedParameterIdentification_providedSignature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedParameterIdentification_providedSignature_feature", "_UI_ProvidedParameterIdentification_type"),
+				 PcmjavacorrespondencePackage.Literals.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,13 +92,19 @@ public class ProvidedParameterIdentificationItemProvider extends ItemProviderAda
 	 * @generated
 	 */
 	protected void addParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ProvidedParameterIdentification_parameter_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ProvidedParameterIdentification_parameter_feature",
-						"_UI_ProvidedParameterIdentification_type"),
-				PcmjavacorrespondencePackage.Literals.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedParameterIdentification_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedParameterIdentification_parameter_feature", "_UI_ProvidedParameterIdentification_type"),
+				 PcmjavacorrespondencePackage.Literals.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -102,16 +119,6 @@ public class ProvidedParameterIdentificationItemProvider extends ItemProviderAda
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +128,7 @@ public class ProvidedParameterIdentificationItemProvider extends ItemProviderAda
 	public String getText(Object object) {
 		return getString("_UI_ProvidedParameterIdentification_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

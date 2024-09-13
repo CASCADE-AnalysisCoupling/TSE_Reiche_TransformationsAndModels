@@ -2,12 +2,12 @@
  */
 package edu.kit.kastel.sdq.coupling.models.joanascar.impl;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Flow;
 import edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarPackage;
 import edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR;
 
 import java.util.Collection;
 
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceCodeAnalysisResultImpl#getSystemElements <em>System Elements</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceCodeAnalysisResultImpl#getEntryPoints <em>Entry Points</em>}</li>
  *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceCodeAnalysisResultImpl#getLevels <em>Levels</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceCodeAnalysisResultImpl#getResultEntries <em>Result Entries</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceCodeAnalysisResultImpl#getFlows <em>Flows</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,7 +48,7 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SystemElementIdentifiying_JOANASCAR> systemElements;
+	protected EList<SystemElement_SCAR> systemElements;
 
 	/**
 	 * The cached value of the '{@link #getEntryPoints() <em>Entry Points</em>}' containment reference list.
@@ -58,7 +58,7 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EntryPointIdentifying> entryPoints;
+	protected EList<EntryPoint_SCAR> entryPoints;
 
 	/**
 	 * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
@@ -71,14 +71,14 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	protected EList<Level_SCAR> levels;
 
 	/**
-	 * The cached value of the '{@link #getResultEntries() <em>Result Entries</em>}' containment reference list.
+	 * The cached value of the '{@link #getFlows() <em>Flows</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResultEntries()
+	 * @see #getFlows()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResultEntry> resultEntries;
+	protected EList<Flow> flows;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,10 +104,9 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SystemElementIdentifiying_JOANASCAR> getSystemElements() {
+	public EList<SystemElement_SCAR> getSystemElements() {
 		if (systemElements == null) {
-			systemElements = new EObjectContainmentEList<SystemElementIdentifiying_JOANASCAR>(
-					SystemElementIdentifiying_JOANASCAR.class, this,
+			systemElements = new EObjectContainmentEList<SystemElement_SCAR>(SystemElement_SCAR.class, this,
 					JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS);
 		}
 		return systemElements;
@@ -118,9 +117,9 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EntryPointIdentifying> getEntryPoints() {
+	public EList<EntryPoint_SCAR> getEntryPoints() {
 		if (entryPoints == null) {
-			entryPoints = new EObjectContainmentEList<EntryPointIdentifying>(EntryPointIdentifying.class, this,
+			entryPoints = new EObjectContainmentEList<EntryPoint_SCAR>(EntryPoint_SCAR.class, this,
 					JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS);
 		}
 		return entryPoints;
@@ -144,12 +143,12 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResultEntry> getResultEntries() {
-		if (resultEntries == null) {
-			resultEntries = new EObjectContainmentEList<ResultEntry>(ResultEntry.class, this,
-					JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
+	public EList<Flow> getFlows() {
+		if (flows == null) {
+			flows = new EObjectContainmentEList<Flow>(Flow.class, this,
+					JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS);
 		}
-		return resultEntries;
+		return flows;
 	}
 
 	/**
@@ -166,8 +165,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return ((InternalEList<?>) getEntryPoints()).basicRemove(otherEnd, msgs);
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
 			return ((InternalEList<?>) getLevels()).basicRemove(otherEnd, msgs);
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-			return ((InternalEList<?>) getResultEntries()).basicRemove(otherEnd, msgs);
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
+			return ((InternalEList<?>) getFlows()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,8 +185,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return getEntryPoints();
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
 			return getLevels();
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-			return getResultEntries();
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
+			return getFlows();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,19 +202,19 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS:
 			getSystemElements().clear();
-			getSystemElements().addAll((Collection<? extends SystemElementIdentifiying_JOANASCAR>) newValue);
+			getSystemElements().addAll((Collection<? extends SystemElement_SCAR>) newValue);
 			return;
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS:
 			getEntryPoints().clear();
-			getEntryPoints().addAll((Collection<? extends EntryPointIdentifying>) newValue);
+			getEntryPoints().addAll((Collection<? extends EntryPoint_SCAR>) newValue);
 			return;
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
 			getLevels().clear();
 			getLevels().addAll((Collection<? extends Level_SCAR>) newValue);
 			return;
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-			getResultEntries().clear();
-			getResultEntries().addAll((Collection<? extends ResultEntry>) newValue);
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
+			getFlows().clear();
+			getFlows().addAll((Collection<? extends Flow>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,8 +237,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
 			getLevels().clear();
 			return;
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-			getResultEntries().clear();
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
+			getFlows().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -259,8 +258,8 @@ public class SourceCodeAnalysisResultImpl extends MinimalEObjectImpl.Container i
 			return entryPoints != null && !entryPoints.isEmpty();
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
 			return levels != null && !levels.isEmpty();
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-			return resultEntries != null && !resultEntries.isEmpty();
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
+			return flows != null && !flows.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

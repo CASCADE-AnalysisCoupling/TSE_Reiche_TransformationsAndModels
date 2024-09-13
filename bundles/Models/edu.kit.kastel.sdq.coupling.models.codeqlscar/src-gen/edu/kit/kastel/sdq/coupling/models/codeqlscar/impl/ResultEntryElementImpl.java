@@ -5,7 +5,7 @@ package edu.kit.kastel.sdq.coupling.models.codeqlscar.impl;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarPackage;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntryElement;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ResultEntryElementImpl<T extends SystemElementIdentification> extends MinimalEObjectImpl.Container
+public class ResultEntryElementImpl<T extends SystemElement> extends MinimalEObjectImpl.Container
 		implements ResultEntryElement<T> {
 	/**
 	 * The cached value of the '{@link #getSystemElement() <em>System Element</em>}' reference.

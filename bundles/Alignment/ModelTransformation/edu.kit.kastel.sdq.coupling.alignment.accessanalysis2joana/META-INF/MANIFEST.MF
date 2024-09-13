@@ -25,4 +25,6 @@ Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  Partitioner,
  edu.kit.kastel.sdq.coupling.util,
  edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences
-Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative
+Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana,
+ edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.iterative,
+ edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators

@@ -2,13 +2,13 @@
  */
 package edu.kit.kastel.sdq.coupling.codeqlresultingvalues.impl;
 
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeqlresultingvaluesFactory;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeqlresultingvaluesPackage;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues;
 
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
@@ -31,35 +31,35 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass codeQLResultingValuesEClass = null;
+	private EClass resolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterIdentificiation_CodeQLResultingValuesEClass = null;
+	private EClass parameter_ResolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultingValueEClass = null;
+	private EClass resolvedImplementationValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass securityLevel_ResultingValuesEClass = null;
+	private EClass securityLevel_ResolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass configurationID_ResultingValuesEClass = null;
+	private EClass ruleId_ResolvedImplementationValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -134,8 +134,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCodeQLResultingValues() {
-		return codeQLResultingValuesEClass;
+	public EClass getResolvedImplementationValues() {
+		return resolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLResultingValues_ResultingValues() {
-		return (EReference) codeQLResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EReference getResolvedImplementationValues_ResultingValues() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLResultingValues_SecurityLevel() {
-		return (EReference) codeQLResultingValuesEClass.getEStructuralFeatures().get(1);
+	public EReference getResolvedImplementationValues_SecurityLevel() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLResultingValues_SystemElements() {
-		return (EReference) codeQLResultingValuesEClass.getEStructuralFeatures().get(2);
+	public EReference getResolvedImplementationValues_SystemElements() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -170,8 +170,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLResultingValues_Configurations() {
-		return (EReference) codeQLResultingValuesEClass.getEStructuralFeatures().get(3);
+	public EReference getResolvedImplementationValues_Configurations() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -179,8 +179,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterIdentificiation_CodeQLResultingValues() {
-		return parameterIdentificiation_CodeQLResultingValuesEClass;
+	public EClass getParameter_ResolvedImplementationValues() {
+		return parameter_ResolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -188,8 +188,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentificiation_CodeQLResultingValues_ParameterName() {
-		return (EAttribute) parameterIdentificiation_CodeQLResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameter_ResolvedImplementationValues_ParameterName() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -197,8 +197,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentificiation_CodeQLResultingValues_ParameterType() {
-		return (EAttribute) parameterIdentificiation_CodeQLResultingValuesEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_ResolvedImplementationValues_ParameterType() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -206,8 +206,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentificiation_CodeQLResultingValues_MethodName() {
-		return (EAttribute) parameterIdentificiation_CodeQLResultingValuesEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParameter_ResolvedImplementationValues_MethodName() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -215,8 +215,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentificiation_CodeQLResultingValues_FullyQualifiedClassName() {
-		return (EAttribute) parameterIdentificiation_CodeQLResultingValuesEClass.getEStructuralFeatures().get(3);
+	public EAttribute getParameter_ResolvedImplementationValues_FullyQualifiedClassName() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -224,8 +224,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResultingValue() {
-		return resultingValueEClass;
+	public EClass getResolvedImplementationValue() {
+		return resolvedImplementationValueEClass;
 	}
 
 	/**
@@ -233,8 +233,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_ResultingSecurityLevel() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(0);
+	public EReference getResolvedImplementationValue_ResultingSecurityLevel() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -242,8 +242,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_Parameter() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(1);
+	public EReference getResolvedImplementationValue_Parameter() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_Configuration() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(2);
+	public EReference getResolvedImplementationValue_RuleId() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -260,8 +260,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSecurityLevel_ResultingValues() {
-		return securityLevel_ResultingValuesEClass;
+	public EClass getSecurityLevel_ResolvedImplementationValues() {
+		return securityLevel_ResolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -269,8 +269,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConfigurationID_ResultingValues() {
-		return configurationID_ResultingValuesEClass;
+	public EClass getRuleId_ResolvedImplementationValue() {
+		return ruleId_ResolvedImplementationValueEClass;
 	}
 
 	/**
@@ -278,8 +278,8 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigurationID_ResultingValues_Id() {
-		return (EAttribute) configurationID_ResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRuleId_ResolvedImplementationValue_Id() {
+		return (EAttribute) ruleId_ResolvedImplementationValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -311,32 +311,31 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 		isCreated = true;
 
 		// Create classes and their features
-		codeQLResultingValuesEClass = createEClass(CODE_QL_RESULTING_VALUES);
-		createEReference(codeQLResultingValuesEClass, CODE_QL_RESULTING_VALUES__RESULTING_VALUES);
-		createEReference(codeQLResultingValuesEClass, CODE_QL_RESULTING_VALUES__SECURITY_LEVEL);
-		createEReference(codeQLResultingValuesEClass, CODE_QL_RESULTING_VALUES__SYSTEM_ELEMENTS);
-		createEReference(codeQLResultingValuesEClass, CODE_QL_RESULTING_VALUES__CONFIGURATIONS);
+		resolvedImplementationValuesEClass = createEClass(RESOLVED_IMPLEMENTATION_VALUES);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__RESULTING_VALUES);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__SECURITY_LEVEL);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__SYSTEM_ELEMENTS);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__CONFIGURATIONS);
 
-		parameterIdentificiation_CodeQLResultingValuesEClass = createEClass(
-				PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES);
-		createEAttribute(parameterIdentificiation_CodeQLResultingValuesEClass,
-				PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES__PARAMETER_NAME);
-		createEAttribute(parameterIdentificiation_CodeQLResultingValuesEClass,
-				PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES__PARAMETER_TYPE);
-		createEAttribute(parameterIdentificiation_CodeQLResultingValuesEClass,
-				PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES__METHOD_NAME);
-		createEAttribute(parameterIdentificiation_CodeQLResultingValuesEClass,
-				PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES__FULLY_QUALIFIED_CLASS_NAME);
+		parameter_ResolvedImplementationValuesEClass = createEClass(PARAMETER_RESOLVED_IMPLEMENTATION_VALUES);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_NAME);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_TYPE);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__METHOD_NAME);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__FULLY_QUALIFIED_CLASS_NAME);
 
-		resultingValueEClass = createEClass(RESULTING_VALUE);
-		createEReference(resultingValueEClass, RESULTING_VALUE__RESULTING_SECURITY_LEVEL);
-		createEReference(resultingValueEClass, RESULTING_VALUE__PARAMETER);
-		createEReference(resultingValueEClass, RESULTING_VALUE__CONFIGURATION);
+		resolvedImplementationValueEClass = createEClass(RESOLVED_IMPLEMENTATION_VALUE);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__RESULTING_SECURITY_LEVEL);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__PARAMETER);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__RULE_ID);
 
-		securityLevel_ResultingValuesEClass = createEClass(SECURITY_LEVEL_RESULTING_VALUES);
+		securityLevel_ResolvedImplementationValuesEClass = createEClass(SECURITY_LEVEL_RESOLVED_IMPLEMENTATION_VALUES);
 
-		configurationID_ResultingValuesEClass = createEClass(CONFIGURATION_ID_RESULTING_VALUES);
-		createEAttribute(configurationID_ResultingValuesEClass, CONFIGURATION_ID_RESULTING_VALUES__ID);
+		ruleId_ResolvedImplementationValueEClass = createEClass(RULE_ID_RESOLVED_IMPLEMENTATION_VALUE);
+		createEAttribute(ruleId_ResolvedImplementationValueEClass, RULE_ID_RESOLVED_IMPLEMENTATION_VALUE__ID);
 	}
 
 	/**
@@ -372,61 +371,61 @@ public class CodeqlresultingvaluesPackageImpl extends EPackageImpl implements Co
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		securityLevel_ResultingValuesEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		securityLevel_ResolvedImplementationValuesEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(codeQLResultingValuesEClass, CodeQLResultingValues.class, "CodeQLResultingValues", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCodeQLResultingValues_ResultingValues(), this.getResultingValue(), null, "resultingValues",
-				null, 0, -1, CodeQLResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEClass(resolvedImplementationValuesEClass, ResolvedImplementationValues.class,
+				"ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResolvedImplementationValues_ResultingValues(), this.getResolvedImplementationValue(), null,
+				"resultingValues", null, 0, -1, ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValues_SecurityLevel(),
+				this.getSecurityLevel_ResolvedImplementationValues(), null, "securityLevel", null, 0, -1,
+				ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodeQLResultingValues_SecurityLevel(), this.getSecurityLevel_ResultingValues(), null,
-				"securityLevel", null, 0, -1, CodeQLResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodeQLResultingValues_SystemElements(),
-				this.getParameterIdentificiation_CodeQLResultingValues(), null, "systemElements", null, 0, -1,
-				CodeQLResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getResolvedImplementationValues_SystemElements(),
+				this.getParameter_ResolvedImplementationValues(), null, "systemElements", null, 0, -1,
+				ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodeQLResultingValues_Configurations(), this.getConfigurationID_ResultingValues(), null,
-				"configurations", null, 0, -1, CodeQLResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValues_Configurations(), this.getRuleId_ResolvedImplementationValue(),
+				null, "configurations", null, 0, -1, ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterIdentificiation_CodeQLResultingValuesEClass,
-				ParameterIdentificiation_CodeQLResultingValues.class, "ParameterIdentificiation_CodeQLResultingValues",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterIdentificiation_CodeQLResultingValues_ParameterName(), ecorePackage.getEString(),
-				"ParameterName", null, 1, 1, ParameterIdentificiation_CodeQLResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentificiation_CodeQLResultingValues_ParameterType(), ecorePackage.getEString(),
-				"parameterType", null, 1, 1, ParameterIdentificiation_CodeQLResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentificiation_CodeQLResultingValues_MethodName(), ecorePackage.getEString(),
-				"methodName", null, 1, 1, ParameterIdentificiation_CodeQLResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentificiation_CodeQLResultingValues_FullyQualifiedClassName(),
-				ecorePackage.getEString(), "fullyQualifiedClassName", null, 1, 1,
-				ParameterIdentificiation_CodeQLResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+		initEClass(parameter_ResolvedImplementationValuesEClass, Parameter_ResolvedImplementationValues.class,
+				"Parameter_ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_ResolvedImplementationValues_ParameterName(), ecorePackage.getEString(),
+				"ParameterName", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_ParameterType(), ecorePackage.getEString(),
+				"parameterType", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_MethodName(), ecorePackage.getEString(), "methodName",
+				null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_FullyQualifiedClassName(), ecorePackage.getEString(),
+				"fullyQualifiedClassName", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resultingValueEClass, ResultingValue.class, "ResultingValue", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResultingValue_ResultingSecurityLevel(), this.getSecurityLevel_ResultingValues(), null,
-				"resultingSecurityLevel", null, 1, 1, ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultingValue_Parameter(), this.getParameterIdentificiation_CodeQLResultingValues(), null,
-				"parameter", null, 1, 1, ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultingValue_Configuration(), this.getConfigurationID_ResultingValues(), null,
-				"configuration", null, 1, 1, ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+		initEClass(resolvedImplementationValueEClass, ResolvedImplementationValue.class, "ResolvedImplementationValue",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResolvedImplementationValue_ResultingSecurityLevel(),
+				this.getSecurityLevel_ResolvedImplementationValues(), null, "resultingSecurityLevel", null, 1, 1,
+				ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValue_Parameter(), this.getParameter_ResolvedImplementationValues(),
+				null, "parameter", null, 1, 1, ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValue_RuleId(), this.getRuleId_ResolvedImplementationValue(), null,
+				"ruleId", null, 1, 1, ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(securityLevel_ResultingValuesEClass, SecurityLevel_ResultingValues.class,
-				"SecurityLevel_ResultingValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(securityLevel_ResolvedImplementationValuesEClass, SecurityLevel_ResolvedImplementationValues.class,
+				"SecurityLevel_ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(configurationID_ResultingValuesEClass, ConfigurationID_ResultingValues.class,
-				"ConfigurationID_ResultingValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfigurationID_ResultingValues_Id(), ecorePackage.getEString(), "id", null, 1, 1,
-				ConfigurationID_ResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+		initEClass(ruleId_ResolvedImplementationValueEClass, RuleId_ResolvedImplementationValue.class,
+				"RuleId_ResolvedImplementationValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRuleId_ResolvedImplementationValue_Id(), ecorePackage.getEString(), "id", null, 1, 1,
+				RuleId_ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

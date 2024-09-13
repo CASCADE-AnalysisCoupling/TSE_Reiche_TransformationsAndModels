@@ -66,9 +66,9 @@ public class AccessanalysiscodeqlcorrespondenceSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case AccessanalysiscodeqlcorrespondencePackage.ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT: {
-			AccessAnalysisCodeQLCorrespondenceRoot accessAnalysisCodeQLCorrespondenceRoot = (AccessAnalysisCodeQLCorrespondenceRoot) theEObject;
-			T result = caseAccessAnalysisCodeQLCorrespondenceRoot(accessAnalysisCodeQLCorrespondenceRoot);
+		case AccessanalysiscodeqlcorrespondencePackage.CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL: {
+			Correspondences_AccessAnalysisCodeQL correspondences_AccessAnalysisCodeQL = (Correspondences_AccessAnalysisCodeQL) theEObject;
+			T result = caseCorrespondences_AccessAnalysisCodeQL(correspondences_AccessAnalysisCodeQL);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -93,17 +93,17 @@ public class AccessanalysiscodeqlcorrespondenceSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Access Analysis Code QL Correspondence Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Correspondences Access Analysis Code QL</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Access Analysis Code QL Correspondence Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Correspondences Access Analysis Code QL</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAccessAnalysisCodeQLCorrespondenceRoot(AccessAnalysisCodeQLCorrespondenceRoot object) {
+	public T caseCorrespondences_AccessAnalysisCodeQL(Correspondences_AccessAnalysisCodeQL object) {
 		return null;
 	}
 

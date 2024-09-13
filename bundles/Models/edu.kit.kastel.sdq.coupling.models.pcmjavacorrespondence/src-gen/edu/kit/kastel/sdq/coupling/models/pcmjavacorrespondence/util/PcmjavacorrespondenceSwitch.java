@@ -66,64 +66,55 @@ public class PcmjavacorrespondenceSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT: {
-			PCMJavaCorrespondenceRoot pcmJavaCorrespondenceRoot = (PCMJavaCorrespondenceRoot) theEObject;
-			T result = casePCMJavaCorrespondenceRoot(pcmJavaCorrespondenceRoot);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS: {
-			BasicComponent2Class basicComponent2Class = (BasicComponent2Class) theEObject;
-			T result = caseBasicComponent2Class(basicComponent2Class);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE: {
-			OperationInterface2Interface operationInterface2Interface = (OperationInterface2Interface) theEObject;
-			T result = caseOperationInterface2Interface(operationInterface2Interface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS: {
-			CompositeDataType2Class compositeDataType2Class = (CompositeDataType2Class) theEObject;
-			T result = caseCompositeDataType2Class(compositeDataType2Class);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD: {
-			ProvidedOperationSignature2JavaMethod providedOperationSignature2JavaMethod = (ProvidedOperationSignature2JavaMethod) theEObject;
-			T result = caseProvidedOperationSignature2JavaMethod(providedOperationSignature2JavaMethod);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE: {
-			ProvidedSignature providedSignature = (ProvidedSignature) theEObject;
-			T result = caseProvidedSignature(providedSignature);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION: {
-			ProvidedParameterIdentification providedParameterIdentification = (ProvidedParameterIdentification) theEObject;
-			T result = caseProvidedParameterIdentification(providedParameterIdentification);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER: {
-			PCMParameter2JavaParameter pcmParameter2JavaParameter = (PCMParameter2JavaParameter) theEObject;
-			T result = casePCMParameter2JavaParameter(pcmParameter2JavaParameter);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT: {
+				PCMJavaCorrespondenceRoot pcmJavaCorrespondenceRoot = (PCMJavaCorrespondenceRoot)theEObject;
+				T result = casePCMJavaCorrespondenceRoot(pcmJavaCorrespondenceRoot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS: {
+				BasicComponent2Class basicComponent2Class = (BasicComponent2Class)theEObject;
+				T result = caseBasicComponent2Class(basicComponent2Class);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE: {
+				OperationInterface2Interface operationInterface2Interface = (OperationInterface2Interface)theEObject;
+				T result = caseOperationInterface2Interface(operationInterface2Interface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS: {
+				CompositeDataType2Class compositeDataType2Class = (CompositeDataType2Class)theEObject;
+				T result = caseCompositeDataType2Class(compositeDataType2Class);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD: {
+				ProvidedOperationSignature2JavaMethod providedOperationSignature2JavaMethod = (ProvidedOperationSignature2JavaMethod)theEObject;
+				T result = caseProvidedOperationSignature2JavaMethod(providedOperationSignature2JavaMethod);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE: {
+				ProvidedSignature providedSignature = (ProvidedSignature)theEObject;
+				T result = caseProvidedSignature(providedSignature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION: {
+				ProvidedParameterIdentification providedParameterIdentification = (ProvidedParameterIdentification)theEObject;
+				T result = caseProvidedParameterIdentification(providedParameterIdentification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER: {
+				PCMParameter2JavaParameter pcmParameter2JavaParameter = (PCMParameter2JavaParameter)theEObject;
+				T result = casePCMParameter2JavaParameter(pcmParameter2JavaParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 

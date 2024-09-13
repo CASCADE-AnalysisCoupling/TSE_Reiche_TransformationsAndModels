@@ -86,6 +86,10 @@ public class MembersAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
+			public Adapter caseAnnotatable(Annotatable object) {
+				return createAnnotatableAdapter();
+			}
+			@Override
 			public Adapter caseTypedElement(TypedElement object) {
 				return createTypedElementAdapter();
 			}
@@ -160,6 +164,20 @@ public class MembersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.java.members.Annotatable <em>Annotatable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.java.members.Annotatable
+	 * @generated
+	 */
+	public Adapter createAnnotatableAdapter() {
 		return null;
 	}
 

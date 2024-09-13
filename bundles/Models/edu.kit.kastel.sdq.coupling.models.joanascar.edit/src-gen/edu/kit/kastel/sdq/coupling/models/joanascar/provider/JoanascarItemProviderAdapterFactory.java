@@ -96,49 +96,49 @@ public class JoanascarItemProviderAdapterFactory extends JoanascarAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterIdentifyingItemProvider parameterIdentifyingItemProvider;
+	protected Parameter_SCARItemProvider parameter_SCARItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterIdentifyingAdapter() {
-		if (parameterIdentifyingItemProvider == null) {
-			parameterIdentifyingItemProvider = new ParameterIdentifyingItemProvider(this);
+	public Adapter createParameter_SCARAdapter() {
+		if (parameter_SCARItemProvider == null) {
+			parameter_SCARItemProvider = new Parameter_SCARItemProvider(this);
 		}
 
-		return parameterIdentifyingItemProvider;
+		return parameter_SCARItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FieldIdentifyingItemProvider fieldIdentifyingItemProvider;
+	protected Field_SCARItemProvider field_SCARItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createFieldIdentifyingAdapter() {
-		if (fieldIdentifyingItemProvider == null) {
-			fieldIdentifyingItemProvider = new FieldIdentifyingItemProvider(this);
+	public Adapter createField_SCARAdapter() {
+		if (field_SCARItemProvider == null) {
+			field_SCARItemProvider = new Field_SCARItemProvider(this);
 		}
 
-		return fieldIdentifyingItemProvider;
+		return field_SCARItemProvider;
 	}
 
 	/**
@@ -165,72 +165,95 @@ public class JoanascarItemProviderAdapterFactory extends JoanascarAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EntryPointIdentifyingItemProvider entryPointIdentifyingItemProvider;
+	protected EntryPoint_SCARItemProvider entryPoint_SCARItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEntryPointIdentifyingAdapter() {
-		if (entryPointIdentifyingItemProvider == null) {
-			entryPointIdentifyingItemProvider = new EntryPointIdentifyingItemProvider(this);
+	public Adapter createEntryPoint_SCARAdapter() {
+		if (entryPoint_SCARItemProvider == null) {
+			entryPoint_SCARItemProvider = new EntryPoint_SCARItemProvider(this);
 		}
 
-		return entryPointIdentifyingItemProvider;
+		return entryPoint_SCARItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultEntryItemProvider resultEntryItemProvider;
+	protected FlowItemProvider flowItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultEntryAdapter() {
-		if (resultEntryItemProvider == null) {
-			resultEntryItemProvider = new ResultEntryItemProvider(this);
+	public Adapter createFlowAdapter() {
+		if (flowItemProvider == null) {
+			flowItemProvider = new FlowItemProvider(this);
 		}
 
-		return resultEntryItemProvider;
+		return flowItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.Source} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultEntryElementItemProvider resultEntryElementItemProvider;
+	protected SourceItemProvider sourceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.Source}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultEntryElementAdapter() {
-		if (resultEntryElementItemProvider == null) {
-			resultEntryElementItemProvider = new ResultEntryElementItemProvider(this);
+	public Adapter createSourceAdapter() {
+		if (sourceItemProvider == null) {
+			sourceItemProvider = new SourceItemProvider(this);
 		}
 
-		return resultEntryElementItemProvider;
+		return sourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SinkItemProvider sinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSinkAdapter() {
+		if (sinkItemProvider == null) {
+			sinkItemProvider = new SinkItemProvider(this);
+		}
+
+		return sinkItemProvider;
 	}
 
 	/**
@@ -334,18 +357,20 @@ public class JoanascarItemProviderAdapterFactory extends JoanascarAdapterFactory
 	public void dispose() {
 		if (sourceCodeAnalysisResultItemProvider != null)
 			sourceCodeAnalysisResultItemProvider.dispose();
-		if (parameterIdentifyingItemProvider != null)
-			parameterIdentifyingItemProvider.dispose();
-		if (fieldIdentifyingItemProvider != null)
-			fieldIdentifyingItemProvider.dispose();
+		if (parameter_SCARItemProvider != null)
+			parameter_SCARItemProvider.dispose();
+		if (field_SCARItemProvider != null)
+			field_SCARItemProvider.dispose();
 		if (level_SCARItemProvider != null)
 			level_SCARItemProvider.dispose();
-		if (entryPointIdentifyingItemProvider != null)
-			entryPointIdentifyingItemProvider.dispose();
-		if (resultEntryItemProvider != null)
-			resultEntryItemProvider.dispose();
-		if (resultEntryElementItemProvider != null)
-			resultEntryElementItemProvider.dispose();
+		if (entryPoint_SCARItemProvider != null)
+			entryPoint_SCARItemProvider.dispose();
+		if (flowItemProvider != null)
+			flowItemProvider.dispose();
+		if (sourceItemProvider != null)
+			sourceItemProvider.dispose();
+		if (sinkItemProvider != null)
+			sinkItemProvider.dispose();
 	}
 
 }

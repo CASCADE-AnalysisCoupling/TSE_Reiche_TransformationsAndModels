@@ -58,107 +58,6 @@ public interface TainttrackingPackage extends EPackage {
 	TainttrackingPackage eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.NodeImpl <em>Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.NodeImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getNode()
-	 * @generated
-	 */
-	int NODE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__ID = IdentifierPackage.ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__NAME = IdentifierPackage.ENTITY__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_FEATURE_COUNT = IdentifierPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl <em>Parameter Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterNode()
-	 * @generated
-	 */
-	int PARAMETER_NODE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_NODE__ID = NODE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_NODE__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_NODE__PARAMETER = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Parameter Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Parameter Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelImpl <em>Security Level</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,7 +65,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getSecurityLevel()
 	 * @generated
 	 */
-	int SECURITY_LEVEL = 2;
+	int SECURITY_LEVEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -212,25 +111,16 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getTainttrackingRoot()
 	 * @generated
 	 */
-	int TAINTTRACKING_ROOT = 3;
+	int TAINTTRACKING_ROOT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Queries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAINTTRACKING_ROOT__NODES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAINTTRACKING_ROOT__CONFIGURATIONS = 1;
+	int TAINTTRACKING_ROOT__QUERIES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class.
@@ -239,7 +129,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAINTTRACKING_ROOT_FEATURE_COUNT = 2;
+	int TAINTTRACKING_ROOT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -251,14 +141,14 @@ public interface TainttrackingPackage extends EPackage {
 	int TAINTTRACKING_ROOT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl <em>Configuration</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.QueryImpl <em>Query</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getConfiguration()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.QueryImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getQuery()
 	 * @generated
 	 */
-	int CONFIGURATION = 4;
+	int QUERY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -267,7 +157,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
+	int QUERY__ID = IdentifierPackage.IDENTIFIED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Applied Security Level</b></em>' containment reference list.
@@ -276,7 +166,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__APPLIED_SECURITY_LEVEL = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
+	int QUERY__APPLIED_SECURITY_LEVEL = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Level Annotations</b></em>' containment reference list.
@@ -285,34 +175,34 @@ public interface TainttrackingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
+	int QUERY__SECURITY_LEVEL_ANNOTATIONS = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Allowed Flows</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Allowed Flows</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__ALLOWED_FLOWS = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+	int QUERY__ALLOWED_FLOWS = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Configuration</em>' class.
+	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
+	int QUERY_FEATURE_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Configuration</em>' class.
+	 * The number of operations of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
+	int QUERY_OPERATION_COUNT = IdentifierPackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelAnnotationImpl <em>Security Level Annotation</em>}' class.
@@ -322,7 +212,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getSecurityLevelAnnotation()
 	 * @generated
 	 */
-	int SECURITY_LEVEL_ANNOTATION = 5;
+	int SECURITY_LEVEL_ANNOTATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -368,7 +258,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getFieldAnnotation()
 	 * @generated
 	 */
-	int FIELD_ANNOTATION = 6;
+	int FIELD_ANNOTATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -423,7 +313,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterAnnotation()
 	 * @generated
 	 */
-	int PARAMETER_ANNOTATION = 7;
+	int PARAMETER_ANNOTATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -478,7 +368,7 @@ public interface TainttrackingPackage extends EPackage {
 	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getAllowedFlow()
 	 * @generated
 	 */
-	int ALLOWED_FLOW = 8;
+	int ALLOWED_FLOW = 6;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -516,37 +406,43 @@ public interface TainttrackingPackage extends EPackage {
 	 */
 	int ALLOWED_FLOW_OPERATION_COUNT = 0;
 
-
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node <em>Node</em>}'.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.AllowedFlowsImpl <em>Allowed Flows</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Node</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.AllowedFlowsImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getAllowedFlows()
 	 * @generated
 	 */
-	EClass getNode();
+	int ALLOWED_FLOWS = 7;
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode <em>Parameter Node</em>}'.
+	 * The feature id for the '<em><b>Allowed Flows</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Node</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode
 	 * @generated
+	 * @ordered
 	 */
-	EClass getParameterNode();
+	int ALLOWED_FLOWS__ALLOWED_FLOWS = 0;
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode#getParameter <em>Parameter</em>}'.
+	 * The number of structural features of the '<em>Allowed Flows</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode#getParameter()
-	 * @see #getParameterNode()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getParameterNode_Parameter();
+	int ALLOWED_FLOWS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Allowed Flows</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOWED_FLOWS_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel <em>Security Level</em>}'.
@@ -569,69 +465,58 @@ public interface TainttrackingPackage extends EPackage {
 	EClass getTainttrackingRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes <em>Nodes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getQueries <em>Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getNodes()
+	 * @return the meta object for the containment reference list '<em>Queries</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getQueries()
 	 * @see #getTainttrackingRoot()
 	 * @generated
 	 */
-	EReference getTainttrackingRoot_Nodes();
+	EReference getTainttrackingRoot_Queries();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations <em>Configurations</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot#getConfigurations()
-	 * @see #getTainttrackingRoot()
+	 * @return the meta object for class '<em>Query</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query
 	 * @generated
 	 */
-	EReference getTainttrackingRoot_Configurations();
+	EClass getQuery();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration
-	 * @generated
-	 */
-	EClass getConfiguration();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAppliedSecurityLevel <em>Applied Security Level</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getAppliedSecurityLevel <em>Applied Security Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Applied Security Level</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAppliedSecurityLevel()
-	 * @see #getConfiguration()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getAppliedSecurityLevel()
+	 * @see #getQuery()
 	 * @generated
 	 */
-	EReference getConfiguration_AppliedSecurityLevel();
+	EReference getQuery_AppliedSecurityLevel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getSecurityLevelAnnotations <em>Security Level Annotations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getSecurityLevelAnnotations <em>Security Level Annotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Security Level Annotations</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getSecurityLevelAnnotations()
-	 * @see #getConfiguration()
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getSecurityLevelAnnotations()
+	 * @see #getQuery()
 	 * @generated
 	 */
-	EReference getConfiguration_SecurityLevelAnnotations();
+	EReference getQuery_SecurityLevelAnnotations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAllowedFlows <em>Allowed Flows</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getAllowedFlows <em>Allowed Flows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Allowed Flows</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration#getAllowedFlows()
-	 * @see #getConfiguration()
+	 * @return the meta object for the containment reference '<em>Allowed Flows</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query#getAllowedFlows()
+	 * @see #getQuery()
 	 * @generated
 	 */
-	EReference getConfiguration_AllowedFlows();
+	EReference getQuery_AllowedFlows();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation <em>Security Level Annotation</em>}'.
@@ -729,6 +614,27 @@ public interface TainttrackingPackage extends EPackage {
 	EReference getAllowedFlow_To();
 
 	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows <em>Allowed Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Allowed Flows</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows
+	 * @generated
+	 */
+	EClass getAllowedFlows();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows#getAllowedFlows <em>Allowed Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Allowed Flows</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows#getAllowedFlows()
+	 * @see #getAllowedFlows()
+	 * @generated
+	 */
+	EReference getAllowedFlows_AllowedFlows();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,34 +658,6 @@ public interface TainttrackingPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.NodeImpl <em>Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.NodeImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getNode()
-		 * @generated
-		 */
-		EClass NODE = eINSTANCE.getNode();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl <em>Parameter Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ParameterNodeImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getParameterNode()
-		 * @generated
-		 */
-		EClass PARAMETER_NODE = eINSTANCE.getParameterNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETER_NODE__PARAMETER = eINSTANCE.getParameterNode_Parameter();
-
-		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelImpl <em>Security Level</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -800,30 +678,22 @@ public interface TainttrackingPackage extends EPackage {
 		EClass TAINTTRACKING_ROOT = eINSTANCE.getTainttrackingRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Queries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TAINTTRACKING_ROOT__NODES = eINSTANCE.getTainttrackingRoot_Nodes();
+		EReference TAINTTRACKING_ROOT__QUERIES = eINSTANCE.getTainttrackingRoot_Queries();
 
 		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.QueryImpl <em>Query</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.QueryImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getQuery()
 		 * @generated
 		 */
-		EReference TAINTTRACKING_ROOT__CONFIGURATIONS = eINSTANCE.getTainttrackingRoot_Configurations();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl <em>Configuration</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.ConfigurationImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getConfiguration()
-		 * @generated
-		 */
-		EClass CONFIGURATION = eINSTANCE.getConfiguration();
+		EClass QUERY = eINSTANCE.getQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Applied Security Level</b></em>' containment reference list feature.
@@ -831,7 +701,7 @@ public interface TainttrackingPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION__APPLIED_SECURITY_LEVEL = eINSTANCE.getConfiguration_AppliedSecurityLevel();
+		EReference QUERY__APPLIED_SECURITY_LEVEL = eINSTANCE.getQuery_AppliedSecurityLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Level Annotations</b></em>' containment reference list feature.
@@ -839,15 +709,15 @@ public interface TainttrackingPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION__SECURITY_LEVEL_ANNOTATIONS = eINSTANCE.getConfiguration_SecurityLevelAnnotations();
+		EReference QUERY__SECURITY_LEVEL_ANNOTATIONS = eINSTANCE.getQuery_SecurityLevelAnnotations();
 
 		/**
-		 * The meta object literal for the '<em><b>Allowed Flows</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Allowed Flows</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION__ALLOWED_FLOWS = eINSTANCE.getConfiguration_AllowedFlows();
+		EReference QUERY__ALLOWED_FLOWS = eINSTANCE.getQuery_AllowedFlows();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.SecurityLevelAnnotationImpl <em>Security Level Annotation</em>}' class.
@@ -928,6 +798,24 @@ public interface TainttrackingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ALLOWED_FLOW__TO = eINSTANCE.getAllowedFlow_To();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.AllowedFlowsImpl <em>Allowed Flows</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.AllowedFlowsImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingPackageImpl#getAllowedFlows()
+		 * @generated
+		 */
+		EClass ALLOWED_FLOWS = eINSTANCE.getAllowedFlows();
+
+		/**
+		 * The meta object literal for the '<em><b>Allowed Flows</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOWED_FLOWS__ALLOWED_FLOWS = eINSTANCE.getAllowedFlows_AllowedFlows();
 
 	}
 

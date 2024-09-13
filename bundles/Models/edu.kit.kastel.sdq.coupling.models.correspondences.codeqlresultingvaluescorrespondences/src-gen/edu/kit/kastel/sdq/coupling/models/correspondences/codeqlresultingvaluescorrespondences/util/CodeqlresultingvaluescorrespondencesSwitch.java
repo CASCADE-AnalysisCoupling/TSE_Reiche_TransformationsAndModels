@@ -66,32 +66,33 @@ public class CodeqlresultingvaluescorrespondencesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case CodeqlresultingvaluescorrespondencesPackage.CORRESPONDENCES_CODE_QL_RESULTING_VALUES: {
-			Correspondences_CodeQLResultingValues correspondences_CodeQLResultingValues = (Correspondences_CodeQLResultingValues) theEObject;
-			T result = caseCorrespondences_CodeQLResultingValues(correspondences_CodeQLResultingValues);
+		case CodeqlresultingvaluescorrespondencesPackage.CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES: {
+			Correspondences_ResolvedImplementationValues correspondences_ResolvedImplementationValues = (Correspondences_ResolvedImplementationValues) theEObject;
+			T result = caseCorrespondences_ResolvedImplementationValues(correspondences_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluescorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE_CODE_QL_RESULTING_VALUES: {
-			SecurityLevelCorrespondence_CodeQLResultingValues securityLevelCorrespondence_CodeQLResultingValues = (SecurityLevelCorrespondence_CodeQLResultingValues) theEObject;
-			T result = caseSecurityLevelCorrespondence_CodeQLResultingValues(
-					securityLevelCorrespondence_CodeQLResultingValues);
+		case CodeqlresultingvaluescorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES: {
+			SecurityLevelCorrespondence_ResolvedImplementationValues securityLevelCorrespondence_ResolvedImplementationValues = (SecurityLevelCorrespondence_ResolvedImplementationValues) theEObject;
+			T result = caseSecurityLevelCorrespondence_ResolvedImplementationValues(
+					securityLevelCorrespondence_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluescorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_CODE_QL_RESULTING_VALUES: {
-			ConfigurationCorrespondence_CodeQLResultingValues configurationCorrespondence_CodeQLResultingValues = (ConfigurationCorrespondence_CodeQLResultingValues) theEObject;
-			T result = caseConfigurationCorrespondence_CodeQLResultingValues(
-					configurationCorrespondence_CodeQLResultingValues);
+		case CodeqlresultingvaluescorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES: {
+			ConfigurationCorrespondence_ResolvedImplementationValues configurationCorrespondence_ResolvedImplementationValues = (ConfigurationCorrespondence_ResolvedImplementationValues) theEObject;
+			T result = caseConfigurationCorrespondence_ResolvedImplementationValues(
+					configurationCorrespondence_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_CODE_QL_RESULTING_VALUES: {
-			ParameterCorrespondence_CodeQLResultingValues parameterCorrespondence_CodeQLResultingValues = (ParameterCorrespondence_CodeQLResultingValues) theEObject;
-			T result = caseParameterCorrespondence_CodeQLResultingValues(parameterCorrespondence_CodeQLResultingValues);
+		case CodeqlresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES: {
+			ParameterCorrespondence_ResolvedImplementationValues parameterCorrespondence_ResolvedImplementationValues = (ParameterCorrespondence_ResolvedImplementationValues) theEObject;
+			T result = caseParameterCorrespondence_ResolvedImplementationValues(
+					parameterCorrespondence_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -102,64 +103,65 @@ public class CodeqlresultingvaluescorrespondencesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Correspondences Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Correspondences Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Correspondences Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Correspondences Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCorrespondences_CodeQLResultingValues(Correspondences_CodeQLResultingValues object) {
+	public T caseCorrespondences_ResolvedImplementationValues(Correspondences_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Security Level Correspondence Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Security Level Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Security Level Correspondence Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Security Level Correspondence Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSecurityLevelCorrespondence_CodeQLResultingValues(
-			SecurityLevelCorrespondence_CodeQLResultingValues object) {
+	public T caseSecurityLevelCorrespondence_ResolvedImplementationValues(
+			SecurityLevelCorrespondence_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration Correspondence Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Configuration Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration Correspondence Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Configuration Correspondence Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConfigurationCorrespondence_CodeQLResultingValues(
-			ConfigurationCorrespondence_CodeQLResultingValues object) {
+	public T caseConfigurationCorrespondence_ResolvedImplementationValues(
+			ConfigurationCorrespondence_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Correspondence Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Correspondence Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Correspondence Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterCorrespondence_CodeQLResultingValues(ParameterCorrespondence_CodeQLResultingValues object) {
+	public T caseParameterCorrespondence_ResolvedImplementationValues(
+			ParameterCorrespondence_ResolvedImplementationValues object) {
 		return null;
 	}
 

@@ -52,7 +52,7 @@ public class EntryPointCorrespondence_JOANAResultingValuesItemProvider extends I
 			super.getPropertyDescriptors(object);
 
 			addEntryPoint_SCARPropertyDescriptor(object);
-			addEntryPoint_ResultingValuesPropertyDescriptor(object);
+			addEntryPoint_ResolvedImplementationValuesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,19 +75,20 @@ public class EntryPointCorrespondence_JOANAResultingValuesItemProvider extends I
 	}
 
 	/**
-	 * This adds a property descriptor for the Entry Point Resulting Values feature.
+	 * This adds a property descriptor for the Entry Point Resolved Implementation Values feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEntryPoint_ResultingValuesPropertyDescriptor(Object object) {
+	protected void addEntryPoint_ResolvedImplementationValuesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_EntryPointCorrespondence_JOANAResultingValues_entryPoint_ResultingValues_feature"),
+				getString(
+						"_UI_EntryPointCorrespondence_JOANAResultingValues_entryPoint_ResolvedImplementationValues_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_EntryPointCorrespondence_JOANAResultingValues_entryPoint_ResultingValues_feature",
+						"_UI_EntryPointCorrespondence_JOANAResultingValues_entryPoint_ResolvedImplementationValues_feature",
 						"_UI_EntryPointCorrespondence_JOANAResultingValues_type"),
-				JoanaresultingvaluescorrespondencesPackage.Literals.ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESULTING_VALUES,
+				JoanaresultingvaluescorrespondencesPackage.Literals.ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES__ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES,
 				true, false, true, null, null, null));
 	}
 

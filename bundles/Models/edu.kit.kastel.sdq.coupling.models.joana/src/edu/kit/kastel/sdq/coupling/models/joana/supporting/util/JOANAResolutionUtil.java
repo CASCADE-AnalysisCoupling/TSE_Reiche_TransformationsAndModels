@@ -213,6 +213,4 @@ public class JOANAResolutionUtil {
 		
 		return annotatedParameters;
 	}
-	
-
 }

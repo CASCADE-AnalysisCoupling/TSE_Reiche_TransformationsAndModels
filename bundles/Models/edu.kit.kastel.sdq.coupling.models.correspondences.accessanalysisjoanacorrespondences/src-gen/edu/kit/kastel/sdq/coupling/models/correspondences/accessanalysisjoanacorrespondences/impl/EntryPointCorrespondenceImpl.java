@@ -2,12 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.impl;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.AccessanalysisjoanacorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.EntryPointCorrespondence;
-
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -40,7 +39,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected ConfidentialitySpecification accessAnalysisConfig;
+	protected FullyImplicitConfiguration accessAnalysisConfig;
 
 	/**
 	 * The cached value of the '{@link #getEntryPoint() <em>Entry Point</em>}' reference.
@@ -50,7 +49,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EntryPoint entryPoint;
+	protected HybridConfiguration entryPoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,10 +75,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfidentialitySpecification getAccessAnalysisConfig() {
+	public FullyImplicitConfiguration getAccessAnalysisConfig() {
 		if (accessAnalysisConfig != null && accessAnalysisConfig.eIsProxy()) {
 			InternalEObject oldAccessAnalysisConfig = (InternalEObject) accessAnalysisConfig;
-			accessAnalysisConfig = (ConfidentialitySpecification) eResolveProxy(oldAccessAnalysisConfig);
+			accessAnalysisConfig = (FullyImplicitConfiguration) eResolveProxy(oldAccessAnalysisConfig);
 			if (accessAnalysisConfig != oldAccessAnalysisConfig) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -95,7 +94,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfidentialitySpecification basicGetAccessAnalysisConfig() {
+	public FullyImplicitConfiguration basicGetAccessAnalysisConfig() {
 		return accessAnalysisConfig;
 	}
 
@@ -104,8 +103,8 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccessAnalysisConfig(ConfidentialitySpecification newAccessAnalysisConfig) {
-		ConfidentialitySpecification oldAccessAnalysisConfig = accessAnalysisConfig;
+	public void setAccessAnalysisConfig(FullyImplicitConfiguration newAccessAnalysisConfig) {
+		FullyImplicitConfiguration oldAccessAnalysisConfig = accessAnalysisConfig;
 		accessAnalysisConfig = newAccessAnalysisConfig;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -118,10 +117,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPoint getEntryPoint() {
+	public HybridConfiguration getEntryPoint() {
 		if (entryPoint != null && entryPoint.eIsProxy()) {
 			InternalEObject oldEntryPoint = (InternalEObject) entryPoint;
-			entryPoint = (EntryPoint) eResolveProxy(oldEntryPoint);
+			entryPoint = (HybridConfiguration) eResolveProxy(oldEntryPoint);
 			if (entryPoint != oldEntryPoint) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -137,7 +136,7 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPoint basicGetEntryPoint() {
+	public HybridConfiguration basicGetEntryPoint() {
 		return entryPoint;
 	}
 
@@ -146,8 +145,8 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntryPoint(EntryPoint newEntryPoint) {
-		EntryPoint oldEntryPoint = entryPoint;
+	public void setEntryPoint(HybridConfiguration newEntryPoint) {
+		HybridConfiguration oldEntryPoint = entryPoint;
 		entryPoint = newEntryPoint;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -184,10 +183,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case AccessanalysisjoanacorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ACCESS_ANALYSIS_CONFIG:
-			setAccessAnalysisConfig((ConfidentialitySpecification) newValue);
+			setAccessAnalysisConfig((FullyImplicitConfiguration) newValue);
 			return;
 		case AccessanalysisjoanacorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT:
-			setEntryPoint((EntryPoint) newValue);
+			setEntryPoint((HybridConfiguration) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,10 +201,10 @@ public class EntryPointCorrespondenceImpl extends MinimalEObjectImpl.Container i
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case AccessanalysisjoanacorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ACCESS_ANALYSIS_CONFIG:
-			setAccessAnalysisConfig((ConfidentialitySpecification) null);
+			setAccessAnalysisConfig((FullyImplicitConfiguration) null);
 			return;
 		case AccessanalysisjoanacorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE__ENTRY_POINT:
-			setEntryPoint((EntryPoint) null);
+			setEntryPoint((HybridConfiguration) null);
 			return;
 		}
 		super.eUnset(featureID);

@@ -75,14 +75,14 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BasicComponent getComponent() {
-		if (component != null && ((EObject) component).eIsProxy()) {
-			InternalEObject oldComponent = (InternalEObject) component;
-			component = (BasicComponent) eResolveProxy(oldComponent);
+		if (component != null && ((EObject)component).eIsProxy()) {
+			InternalEObject oldComponent = (InternalEObject)component;
+			component = (BasicComponent)eResolveProxy(oldComponent);
 			if (component != oldComponent) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT, oldComponent, component));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT, oldComponent, component));
 			}
 		}
 		return component;
@@ -102,12 +102,12 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComponent(BasicComponent newComponent) {
 		BasicComponent oldComponent = component;
 		component = newComponent;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT, oldComponent, component));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT, oldComponent, component));
 	}
 
 	/**
@@ -115,14 +115,14 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public edu.kit.kastel.sdq.coupling.models.java.types.Class getJavaClass() {
 		if (javaClass != null && javaClass.eIsProxy()) {
-			InternalEObject oldJavaClass = (InternalEObject) javaClass;
-			javaClass = (edu.kit.kastel.sdq.coupling.models.java.types.Class) eResolveProxy(oldJavaClass);
+			InternalEObject oldJavaClass = (InternalEObject)javaClass;
+			javaClass = (edu.kit.kastel.sdq.coupling.models.java.types.Class)eResolveProxy(oldJavaClass);
 			if (javaClass != oldJavaClass) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
 			}
 		}
 		return javaClass;
@@ -142,12 +142,12 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJavaClass(edu.kit.kastel.sdq.coupling.models.java.types.Class newJavaClass) {
 		edu.kit.kastel.sdq.coupling.models.java.types.Class oldJavaClass = javaClass;
 		javaClass = newJavaClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
 	}
 
 	/**
@@ -158,14 +158,12 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
-			if (resolve)
-				return getComponent();
-			return basicGetComponent();
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
-			if (resolve)
-				return getJavaClass();
-			return basicGetJavaClass();
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
+				if (resolve) return getComponent();
+				return basicGetComponent();
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
+				if (resolve) return getJavaClass();
+				return basicGetJavaClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,12 +176,12 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
-			setComponent((BasicComponent) newValue);
-			return;
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
-			setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class) newValue);
-			return;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
+				setComponent((BasicComponent)newValue);
+				return;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
+				setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -196,12 +194,12 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
-			setComponent((BasicComponent) null);
-			return;
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
-			setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class) null);
-			return;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
+				setComponent((BasicComponent)null);
+				return;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
+				setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,10 +212,10 @@ public class BasicComponent2ClassImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
-			return component != null;
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
-			return javaClass != null;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__COMPONENT:
+				return component != null;
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS__JAVA_CLASS:
+				return javaClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -57,14 +57,14 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeQLSCARCorrespondencesImpl <em>Code QLSCAR Correspondences</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.Correspondences_CodeQLScarImpl <em>Correspondences Code QL Scar</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeQLSCARCorrespondencesImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeqlscarcorrespondencesPackageImpl#getCodeQLSCARCorrespondences()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.Correspondences_CodeQLScarImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeqlscarcorrespondencesPackageImpl#getCorrespondences_CodeQLScar()
 	 * @generated
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES = 0;
+	int CORRESPONDENCES_CODE_QL_SCAR = 0;
 
 	/**
 	 * The feature id for the '<em><b>System Element Correspondences</b></em>' containment reference list.
@@ -73,7 +73,7 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES__SYSTEM_ELEMENT_CORRESPONDENCES = 0;
+	int CORRESPONDENCES_CODE_QL_SCAR__SYSTEM_ELEMENT_CORRESPONDENCES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Level Correspondences</b></em>' containment reference list.
@@ -82,7 +82,7 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES__SECURITY_LEVEL_CORRESPONDENCES = 1;
+	int CORRESPONDENCES_CODE_QL_SCAR__SECURITY_LEVEL_CORRESPONDENCES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Configuration Correspondences</b></em>' containment reference list.
@@ -91,25 +91,25 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES__CONFIGURATION_CORRESPONDENCES = 2;
+	int CORRESPONDENCES_CODE_QL_SCAR__CONFIGURATION_CORRESPONDENCES = 2;
 
 	/**
-	 * The number of structural features of the '<em>Code QLSCAR Correspondences</em>' class.
+	 * The number of structural features of the '<em>Correspondences Code QL Scar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES_FEATURE_COUNT = 3;
+	int CORRESPONDENCES_CODE_QL_SCAR_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Code QLSCAR Correspondences</em>' class.
+	 * The number of operations of the '<em>Correspondences Code QL Scar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_QLSCAR_CORRESPONDENCES_OPERATION_COUNT = 0;
+	int CORRESPONDENCES_CODE_QL_SCAR_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl <em>Configuration Correspondence</em>}' class.
@@ -122,22 +122,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	int CONFIGURATION_CORRESPONDENCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Code QL Config</b></em>' reference.
+	 * The feature id for the '<em><b>Configuration Code QL</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG = 0;
+	int CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Code QLSCAR Config</b></em>' reference.
+	 * The feature id for the '<em><b>Configuration SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG = 1;
+	int CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR = 1;
 
 	/**
 	 * The number of structural features of the '<em>Configuration Correspondence</em>' class.
@@ -168,22 +168,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	int SECURITY_LEVEL_CORRESPONDENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Code QL Security Level</b></em>' reference.
+	 * The feature id for the '<em><b>Security Level Code QL</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL = 0;
+	int SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Code QLSCAR Security Level</b></em>' reference.
+	 * The feature id for the '<em><b>Security Level SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL = 1;
+	int SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR = 1;
 
 	/**
 	 * The number of structural features of the '<em>Security Level Correspondence</em>' class.
@@ -242,22 +242,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Java Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter Java</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE__JAVA_PARAMETER = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int PARAMETER_CORRESPONDENCE__PARAMETER_JAVA = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Scar Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CORRESPONDENCE__SCAR_PARAMETER = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int PARAMETER_CORRESPONDENCE__PARAMETER_SCAR = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Correspondence</em>' class.
@@ -288,22 +288,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	int FIELD_CORRESPONDENCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Java Field</b></em>' reference.
+	 * The feature id for the '<em><b>Field Java</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_CORRESPONDENCE__JAVA_FIELD = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 0;
+	int FIELD_CORRESPONDENCE__FIELD_JAVA = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Scar Field</b></em>' reference.
+	 * The feature id for the '<em><b>Field SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_CORRESPONDENCE__SCAR_FIELD = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 1;
+	int FIELD_CORRESPONDENCE__FIELD_SCAR = SYSTEM_ELEMENT_CORRESPONDENCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Field Correspondence</em>' class.
@@ -324,47 +324,47 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	int FIELD_CORRESPONDENCE_OPERATION_COUNT = SYSTEM_ELEMENT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences <em>Code QLSCAR Correspondences</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar <em>Correspondences Code QL Scar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Code QLSCAR Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences
+	 * @return the meta object for class '<em>Correspondences Code QL Scar</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar
 	 * @generated
 	 */
-	EClass getCodeQLSCARCorrespondences();
+	EClass getCorrespondences_CodeQLScar();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getSystemElementCorrespondences <em>System Element Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getSystemElementCorrespondences <em>System Element Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>System Element Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getSystemElementCorrespondences()
-	 * @see #getCodeQLSCARCorrespondences()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getSystemElementCorrespondences()
+	 * @see #getCorrespondences_CodeQLScar()
 	 * @generated
 	 */
-	EReference getCodeQLSCARCorrespondences_SystemElementCorrespondences();
+	EReference getCorrespondences_CodeQLScar_SystemElementCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getSecurityLevelCorrespondences <em>Security Level Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getSecurityLevelCorrespondences <em>Security Level Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Security Level Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getSecurityLevelCorrespondences()
-	 * @see #getCodeQLSCARCorrespondences()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getSecurityLevelCorrespondences()
+	 * @see #getCorrespondences_CodeQLScar()
 	 * @generated
 	 */
-	EReference getCodeQLSCARCorrespondences_SecurityLevelCorrespondences();
+	EReference getCorrespondences_CodeQLScar_SecurityLevelCorrespondences();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getConfigurationCorrespondences <em>Configuration Correspondences</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getConfigurationCorrespondences <em>Configuration Correspondences</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Configuration Correspondences</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences#getConfigurationCorrespondences()
-	 * @see #getCodeQLSCARCorrespondences()
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar#getConfigurationCorrespondences()
+	 * @see #getCorrespondences_CodeQLScar()
 	 * @generated
 	 */
-	EReference getCodeQLSCARCorrespondences_ConfigurationCorrespondences();
+	EReference getCorrespondences_CodeQLScar_ConfigurationCorrespondences();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence <em>Configuration Correspondence</em>}'.
@@ -377,26 +377,26 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	EClass getConfigurationCorrespondence();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLConfig <em>Code QL Config</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_CodeQL <em>Configuration Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code QL Config</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLConfig()
+	 * @return the meta object for the reference '<em>Configuration Code QL</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_CodeQL()
 	 * @see #getConfigurationCorrespondence()
 	 * @generated
 	 */
-	EReference getConfigurationCorrespondence_CodeQLConfig();
+	EReference getConfigurationCorrespondence_Configuration_CodeQL();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLSCARConfig <em>Code QLSCAR Config</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_SCAR <em>Configuration SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code QLSCAR Config</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLSCARConfig()
+	 * @return the meta object for the reference '<em>Configuration SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_SCAR()
 	 * @see #getConfigurationCorrespondence()
 	 * @generated
 	 */
-	EReference getConfigurationCorrespondence_CodeQLSCARConfig();
+	EReference getConfigurationCorrespondence_Configuration_SCAR();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence <em>Security Level Correspondence</em>}'.
@@ -409,26 +409,26 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	EClass getSecurityLevelCorrespondence();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getCodeQLSecurityLevel <em>Code QL Security Level</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getSecurityLevel_CodeQL <em>Security Level Code QL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code QL Security Level</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getCodeQLSecurityLevel()
+	 * @return the meta object for the reference '<em>Security Level Code QL</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getSecurityLevel_CodeQL()
 	 * @see #getSecurityLevelCorrespondence()
 	 * @generated
 	 */
-	EReference getSecurityLevelCorrespondence_CodeQLSecurityLevel();
+	EReference getSecurityLevelCorrespondence_SecurityLevel_CodeQL();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getCodeQLSCARSecurityLevel <em>Code QLSCAR Security Level</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getSecurityLevel_SCAR <em>Security Level SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Code QLSCAR Security Level</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getCodeQLSCARSecurityLevel()
+	 * @return the meta object for the reference '<em>Security Level SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence#getSecurityLevel_SCAR()
 	 * @see #getSecurityLevelCorrespondence()
 	 * @generated
 	 */
-	EReference getSecurityLevelCorrespondence_CodeQLSCARSecurityLevel();
+	EReference getSecurityLevelCorrespondence_SecurityLevel_SCAR();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence <em>Parameter Correspondence</em>}'.
@@ -441,26 +441,26 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	EClass getParameterCorrespondence();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getJavaParameter <em>Java Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_Java <em>Parameter Java</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Java Parameter</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getJavaParameter()
+	 * @return the meta object for the reference '<em>Parameter Java</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_Java()
 	 * @see #getParameterCorrespondence()
 	 * @generated
 	 */
-	EReference getParameterCorrespondence_JavaParameter();
+	EReference getParameterCorrespondence_Parameter_Java();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getScarParameter <em>Scar Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Scar Parameter</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getScarParameter()
+	 * @return the meta object for the reference '<em>Parameter SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_SCAR()
 	 * @see #getParameterCorrespondence()
 	 * @generated
 	 */
-	EReference getParameterCorrespondence_ScarParameter();
+	EReference getParameterCorrespondence_Parameter_SCAR();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence <em>Field Correspondence</em>}'.
@@ -473,26 +473,26 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	EClass getFieldCorrespondence();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getJavaField <em>Java Field</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getField_Java <em>Field Java</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Java Field</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getJavaField()
+	 * @return the meta object for the reference '<em>Field Java</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getField_Java()
 	 * @see #getFieldCorrespondence()
 	 * @generated
 	 */
-	EReference getFieldCorrespondence_JavaField();
+	EReference getFieldCorrespondence_Field_Java();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getScarField <em>Scar Field</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getField_SCAR <em>Field SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Scar Field</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getScarField()
+	 * @return the meta object for the reference '<em>Field SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence#getField_SCAR()
 	 * @see #getFieldCorrespondence()
 	 * @generated
 	 */
-	EReference getFieldCorrespondence_ScarField();
+	EReference getFieldCorrespondence_Field_SCAR();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SystemElementCorrespondence <em>System Element Correspondence</em>}'.
@@ -528,14 +528,14 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeQLSCARCorrespondencesImpl <em>Code QLSCAR Correspondences</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.Correspondences_CodeQLScarImpl <em>Correspondences Code QL Scar</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeQLSCARCorrespondencesImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeqlscarcorrespondencesPackageImpl#getCodeQLSCARCorrespondences()
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.Correspondences_CodeQLScarImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.CodeqlscarcorrespondencesPackageImpl#getCorrespondences_CodeQLScar()
 		 * @generated
 		 */
-		EClass CODE_QLSCAR_CORRESPONDENCES = eINSTANCE.getCodeQLSCARCorrespondences();
+		EClass CORRESPONDENCES_CODE_QL_SCAR = eINSTANCE.getCorrespondences_CodeQLScar();
 
 		/**
 		 * The meta object literal for the '<em><b>System Element Correspondences</b></em>' containment reference list feature.
@@ -543,8 +543,8 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CODE_QLSCAR_CORRESPONDENCES__SYSTEM_ELEMENT_CORRESPONDENCES = eINSTANCE
-				.getCodeQLSCARCorrespondences_SystemElementCorrespondences();
+		EReference CORRESPONDENCES_CODE_QL_SCAR__SYSTEM_ELEMENT_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_CodeQLScar_SystemElementCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Level Correspondences</b></em>' containment reference list feature.
@@ -552,8 +552,8 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CODE_QLSCAR_CORRESPONDENCES__SECURITY_LEVEL_CORRESPONDENCES = eINSTANCE
-				.getCodeQLSCARCorrespondences_SecurityLevelCorrespondences();
+		EReference CORRESPONDENCES_CODE_QL_SCAR__SECURITY_LEVEL_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_CodeQLScar_SecurityLevelCorrespondences();
 
 		/**
 		 * The meta object literal for the '<em><b>Configuration Correspondences</b></em>' containment reference list feature.
@@ -561,8 +561,8 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CODE_QLSCAR_CORRESPONDENCES__CONFIGURATION_CORRESPONDENCES = eINSTANCE
-				.getCodeQLSCARCorrespondences_ConfigurationCorrespondences();
+		EReference CORRESPONDENCES_CODE_QL_SCAR__CONFIGURATION_CORRESPONDENCES = eINSTANCE
+				.getCorrespondences_CodeQLScar_ConfigurationCorrespondences();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ConfigurationCorrespondenceImpl <em>Configuration Correspondence</em>}' class.
@@ -575,22 +575,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		EClass CONFIGURATION_CORRESPONDENCE = eINSTANCE.getConfigurationCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Code QL Config</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Configuration Code QL</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG = eINSTANCE
-				.getConfigurationCorrespondence_CodeQLConfig();
+		EReference CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL = eINSTANCE
+				.getConfigurationCorrespondence_Configuration_CodeQL();
 
 		/**
-		 * The meta object literal for the '<em><b>Code QLSCAR Config</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Configuration SCAR</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG = eINSTANCE
-				.getConfigurationCorrespondence_CodeQLSCARConfig();
+		EReference CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR = eINSTANCE
+				.getConfigurationCorrespondence_Configuration_SCAR();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SecurityLevelCorrespondenceImpl <em>Security Level Correspondence</em>}' class.
@@ -603,22 +603,22 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		EClass SECURITY_LEVEL_CORRESPONDENCE = eINSTANCE.getSecurityLevelCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Code QL Security Level</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Security Level Code QL</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL = eINSTANCE
-				.getSecurityLevelCorrespondence_CodeQLSecurityLevel();
+		EReference SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL = eINSTANCE
+				.getSecurityLevelCorrespondence_SecurityLevel_CodeQL();
 
 		/**
-		 * The meta object literal for the '<em><b>Code QLSCAR Security Level</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Security Level SCAR</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL = eINSTANCE
-				.getSecurityLevelCorrespondence_CodeQLSCARSecurityLevel();
+		EReference SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR = eINSTANCE
+				.getSecurityLevelCorrespondence_SecurityLevel_SCAR();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.ParameterCorrespondenceImpl <em>Parameter Correspondence</em>}' class.
@@ -631,20 +631,20 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		EClass PARAMETER_CORRESPONDENCE = eINSTANCE.getParameterCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Java Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter Java</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_CORRESPONDENCE__JAVA_PARAMETER = eINSTANCE.getParameterCorrespondence_JavaParameter();
+		EReference PARAMETER_CORRESPONDENCE__PARAMETER_JAVA = eINSTANCE.getParameterCorrespondence_Parameter_Java();
 
 		/**
-		 * The meta object literal for the '<em><b>Scar Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter SCAR</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_CORRESPONDENCE__SCAR_PARAMETER = eINSTANCE.getParameterCorrespondence_ScarParameter();
+		EReference PARAMETER_CORRESPONDENCE__PARAMETER_SCAR = eINSTANCE.getParameterCorrespondence_Parameter_SCAR();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.FieldCorrespondenceImpl <em>Field Correspondence</em>}' class.
@@ -657,20 +657,20 @@ public interface CodeqlscarcorrespondencesPackage extends EPackage {
 		EClass FIELD_CORRESPONDENCE = eINSTANCE.getFieldCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Java Field</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Field Java</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIELD_CORRESPONDENCE__JAVA_FIELD = eINSTANCE.getFieldCorrespondence_JavaField();
+		EReference FIELD_CORRESPONDENCE__FIELD_JAVA = eINSTANCE.getFieldCorrespondence_Field_Java();
 
 		/**
-		 * The meta object literal for the '<em><b>Scar Field</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Field SCAR</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIELD_CORRESPONDENCE__SCAR_FIELD = eINSTANCE.getFieldCorrespondence_ScarField();
+		EReference FIELD_CORRESPONDENCE__FIELD_SCAR = eINSTANCE.getFieldCorrespondence_Field_SCAR();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SystemElementCorrespondenceImpl <em>System Element Correspondence</em>}' class.

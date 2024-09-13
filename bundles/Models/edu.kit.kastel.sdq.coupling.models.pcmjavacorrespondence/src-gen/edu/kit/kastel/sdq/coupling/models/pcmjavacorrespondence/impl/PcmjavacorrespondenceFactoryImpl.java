@@ -27,12 +27,12 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 */
 	public static PcmjavacorrespondenceFactory init() {
 		try {
-			PcmjavacorrespondenceFactory thePcmjavacorrespondenceFactory = (PcmjavacorrespondenceFactory) EPackage.Registry.INSTANCE
-					.getEFactory(PcmjavacorrespondencePackage.eNS_URI);
+			PcmjavacorrespondenceFactory thePcmjavacorrespondenceFactory = (PcmjavacorrespondenceFactory)EPackage.Registry.INSTANCE.getEFactory(PcmjavacorrespondencePackage.eNS_URI);
 			if (thePcmjavacorrespondenceFactory != null) {
 				return thePcmjavacorrespondenceFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PcmjavacorrespondenceFactoryImpl();
@@ -56,24 +56,16 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT:
-			return createPCMJavaCorrespondenceRoot();
-		case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS:
-			return createBasicComponent2Class();
-		case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE:
-			return createOperationInterface2Interface();
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS:
-			return createCompositeDataType2Class();
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD:
-			return createProvidedOperationSignature2JavaMethod();
-		case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE:
-			return createProvidedSignature();
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION:
-			return createProvidedParameterIdentification();
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER:
-			return createPCMParameter2JavaParameter();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT: return createPCMJavaCorrespondenceRoot();
+			case PcmjavacorrespondencePackage.BASIC_COMPONENT2_CLASS: return createBasicComponent2Class();
+			case PcmjavacorrespondencePackage.OPERATION_INTERFACE2_INTERFACE: return createOperationInterface2Interface();
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS: return createCompositeDataType2Class();
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD: return createProvidedOperationSignature2JavaMethod();
+			case PcmjavacorrespondencePackage.PROVIDED_SIGNATURE: return createProvidedSignature();
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION: return createProvidedParameterIdentification();
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER: return createPCMParameter2JavaParameter();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -82,6 +74,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PCMJavaCorrespondenceRoot createPCMJavaCorrespondenceRoot() {
 		PCMJavaCorrespondenceRootImpl pcmJavaCorrespondenceRoot = new PCMJavaCorrespondenceRootImpl();
 		return pcmJavaCorrespondenceRoot;
@@ -92,6 +85,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BasicComponent2Class createBasicComponent2Class() {
 		BasicComponent2ClassImpl basicComponent2Class = new BasicComponent2ClassImpl();
 		return basicComponent2Class;
@@ -102,6 +96,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperationInterface2Interface createOperationInterface2Interface() {
 		OperationInterface2InterfaceImpl operationInterface2Interface = new OperationInterface2InterfaceImpl();
 		return operationInterface2Interface;
@@ -112,6 +107,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CompositeDataType2Class createCompositeDataType2Class() {
 		CompositeDataType2ClassImpl compositeDataType2Class = new CompositeDataType2ClassImpl();
 		return compositeDataType2Class;
@@ -122,6 +118,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedOperationSignature2JavaMethod createProvidedOperationSignature2JavaMethod() {
 		ProvidedOperationSignature2JavaMethodImpl providedOperationSignature2JavaMethod = new ProvidedOperationSignature2JavaMethodImpl();
 		return providedOperationSignature2JavaMethod;
@@ -132,6 +129,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedSignature createProvidedSignature() {
 		ProvidedSignatureImpl providedSignature = new ProvidedSignatureImpl();
 		return providedSignature;
@@ -142,6 +140,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedParameterIdentification createProvidedParameterIdentification() {
 		ProvidedParameterIdentificationImpl providedParameterIdentification = new ProvidedParameterIdentificationImpl();
 		return providedParameterIdentification;
@@ -152,6 +151,7 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PCMParameter2JavaParameter createPCMParameter2JavaParameter() {
 		PCMParameter2JavaParameterImpl pcmParameter2JavaParameter = new PCMParameter2JavaParameterImpl();
 		return pcmParameter2JavaParameter;
@@ -162,8 +162,9 @@ public class PcmjavacorrespondenceFactoryImpl extends EFactoryImpl implements Pc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PcmjavacorrespondencePackage getPcmjavacorrespondencePackage() {
-		return (PcmjavacorrespondencePackage) getEPackage();
+		return (PcmjavacorrespondencePackage)getEPackage();
 	}
 
 	/**

@@ -6,6 +6,7 @@ import java.util.List;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils.AccessAnalysisJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 import edu.kit.kastel.sdq.coupling.models.joana.MayFlow;
@@ -33,7 +34,10 @@ public class AccessAnalysis2JOANASecurityGenerator4HighLow extends AccessAnalysi
 		Collection<Level> levels = new ArrayList<Level>();
 		
 		for(DataSet dataSet : dataSets) {
-			levels.add(JOANAModelGenerationUtil.generateLevel(dataSet.getName()));
+			Level level = JOANAModelGenerationUtil.generateLevel(dataSet.getName());
+			levels.add(level);
+			
+			AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(List.of(dataSet), level, accessAnalysisJOANACorrespondences);
 		}
 		
 		return levels;

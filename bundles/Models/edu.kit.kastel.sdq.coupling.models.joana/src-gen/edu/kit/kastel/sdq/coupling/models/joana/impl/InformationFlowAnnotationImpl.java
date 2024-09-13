@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container implements InformationFlowAnnotation {
+public abstract class InformationFlowAnnotationImpl extends MinimalEObjectImpl.Container implements InformationFlowAnnotation {
 	/**
 	 * The cached value of the '{@link #getLevel() <em>Level</em>}' reference.
 	 * <!-- begin-user-doc -->

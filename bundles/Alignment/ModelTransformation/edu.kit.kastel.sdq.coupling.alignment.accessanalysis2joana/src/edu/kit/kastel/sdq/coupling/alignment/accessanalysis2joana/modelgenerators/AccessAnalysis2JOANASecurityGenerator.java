@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.Correspondences_AccessAnalysisJOANA;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils.AccessAnalysisJOANACorrespondenceUtil;
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -26,6 +27,10 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.AccessAnalysisResolutionUtil;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
@@ -51,7 +56,10 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	protected final JOANARoot root;
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	protected final Correspondences_AccessAnalysisJOANA accessAnalysisJOANACorrespondences;
+	private final Configurations joana_Configurations;
 	
+
+
 	// TODO: Do this for ease of debug. Later just generate file with entrypoint IDs
 	// to execute JOANA
 	private Integer tagCounter = 0;
@@ -63,14 +71,15 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 		this.accessAnalysisSpec = accessAnalysisSpec;
 		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
 		this.accessAnalysisJOANACorrespondences = AccessAnalysisJOANACorrespondenceUtil.createCorrespondenceModel();
+		this.joana_Configurations = ConfigurationrepresentationUtil.generateConfigurations();
 	}
 
-	public JOANARoot generateJOANASpecification(ProfileApplication application) {
-		root.getEntrypoint().addAll(generateConfigurations_EntryPoints(application));
+	public JOANARoot generateJOANASpecification(ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
+		root.getEntrypoint().addAll(generateConfigurations_EntryPoints(application, sourceCode, accessAnalysisConfiguration));
 		return root;
 	}
 
-	protected Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application) {
+	protected Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
 		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 		Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
 		Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
@@ -86,7 +95,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 						.getProvidedoperationsignature2javamethod()) {
 					if (provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
 
-						entrypoints.addAll(generateConfigurations_EntryPoint(provsig.getPcmMethod(), application));
+						entrypoints.addAll(generateConfigurations_EntryPoint(provsig.getPcmMethod(), application, sourceCode, accessAnalysisConfiguration));
 					}
 				}
 			}
@@ -96,7 +105,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	}
 
 	private Collection<EntryPoint> generateConfigurations_EntryPoint(ProvidedSignature targetMethod,
-			ProfileApplication application) {
+			ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
 
 		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 
@@ -190,7 +199,12 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 				tagCounter++;
 				entrypoints.add(entrypoint);
 				
-				AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisSpec, entrypoint, accessAnalysisJOANACorrespondences);
+				HybridConfiguration entryPointConfiguration = ConfigurationrepresentationUtil.generateHybridConfiguration(entrypoint);
+				entryPointConfiguration.getAdditionalInputs().addAll(Collections.singletonList(sourceCode));
+				
+				this.joana_Configurations.getConfigurations().add(entryPointConfiguration);
+				
+				AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisConfiguration, entryPointConfiguration, accessAnalysisJOANACorrespondences);
 				
 			}
 		}
@@ -234,6 +248,8 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 	public Correspondences_AccessAnalysisJOANA getAccessAnalysisJOANACorrespondences() {
 		return accessAnalysisJOANACorrespondences;
 	}
-
+	public Configurations getJoana_Configurations() {
+		return joana_Configurations;
+	}
 
 }

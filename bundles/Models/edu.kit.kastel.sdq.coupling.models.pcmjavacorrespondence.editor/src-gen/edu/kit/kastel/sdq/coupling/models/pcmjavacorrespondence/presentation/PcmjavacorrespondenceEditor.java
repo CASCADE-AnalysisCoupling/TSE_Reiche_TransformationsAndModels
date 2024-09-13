@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.presentation;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -120,6 +121,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
@@ -211,14 +213,16 @@ import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactor
 
 import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 
+
 /**
  * This is an example of a Pcmjavacorrespondence model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
-		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+public class PcmjavacorrespondenceEditor
+	extends MultiPageEditorPart
+	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -373,40 +377,44 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IPartListener partListener = new IPartListener() {
-		public void partActivated(IWorkbenchPart p) {
-			if (p instanceof ContentOutline) {
-				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
-					getActionBarContributor().setActiveEditor(PcmjavacorrespondenceEditor.this);
+	protected IPartListener partListener =
+		new IPartListener() {
+			@Override
+			public void partActivated(IWorkbenchPart p) {
+				if (p instanceof ContentOutline) {
+					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
+						getActionBarContributor().setActiveEditor(PcmjavacorrespondenceEditor.this);
 
-					setCurrentViewer(contentOutlineViewer);
+						setCurrentViewer(contentOutlineViewer);
+					}
 				}
-			} else if (p instanceof PropertySheet) {
-				if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
-					getActionBarContributor().setActiveEditor(PcmjavacorrespondenceEditor.this);
+				else if (p instanceof PropertySheet) {
+					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
+						getActionBarContributor().setActiveEditor(PcmjavacorrespondenceEditor.this);
+						handleActivate();
+					}
+				}
+				else if (p == PcmjavacorrespondenceEditor.this) {
 					handleActivate();
 				}
-			} else if (p == PcmjavacorrespondenceEditor.this) {
-				handleActivate();
 			}
-		}
-
-		public void partBroughtToTop(IWorkbenchPart p) {
-			// Ignore.
-		}
-
-		public void partClosed(IWorkbenchPart p) {
-			// Ignore.
-		}
-
-		public void partDeactivated(IWorkbenchPart p) {
-			// Ignore.
-		}
-
-		public void partOpened(IWorkbenchPart p) {
-			// Ignore.
-		}
-	};
+			@Override
+			public void partBroughtToTop(IWorkbenchPart p) {
+				// Ignore.
+			}
+			@Override
+			public void partClosed(IWorkbenchPart p) {
+				// Ignore.
+			}
+			@Override
+			public void partDeactivated(IWorkbenchPart p) {
+				// Ignore.
+			}
+			@Override
+			public void partOpened(IWorkbenchPart p) {
+				// Ignore.
+			}
+		};
 
 	/**
 	 * Resources that have been removed since last activation.
@@ -454,56 +462,61 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
-		protected boolean dispatching;
+	protected EContentAdapter problemIndicationAdapter =
+		new EContentAdapter() {
+			protected boolean dispatching;
 
-		@Override
-		public void notifyChanged(Notification notification) {
-			if (notification.getNotifier() instanceof Resource) {
-				switch (notification.getFeatureID(Resource.class)) {
-				case Resource.RESOURCE__IS_LOADED:
-				case Resource.RESOURCE__ERRORS:
-				case Resource.RESOURCE__WARNINGS: {
-					Resource resource = (Resource) notification.getNotifier();
-					Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-					if (diagnostic.getSeverity() != Diagnostic.OK) {
-						resourceToDiagnosticMap.put(resource, diagnostic);
-					} else {
-						resourceToDiagnosticMap.remove(resource);
+			@Override
+			public void notifyChanged(Notification notification) {
+				if (notification.getNotifier() instanceof Resource) {
+					switch (notification.getFeatureID(Resource.class)) {
+						case Resource.RESOURCE__IS_LOADED:
+						case Resource.RESOURCE__ERRORS:
+						case Resource.RESOURCE__WARNINGS: {
+							Resource resource = (Resource)notification.getNotifier();
+							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
+							if (diagnostic.getSeverity() != Diagnostic.OK) {
+								resourceToDiagnosticMap.put(resource, diagnostic);
+							}
+							else {
+								resourceToDiagnosticMap.remove(resource);
+							}
+							dispatchUpdateProblemIndication();
+							break;
+						}
 					}
-					dispatchUpdateProblemIndication();
-					break;
 				}
+				else {
+					super.notifyChanged(notification);
 				}
-			} else {
-				super.notifyChanged(notification);
 			}
-		}
 
-		protected void dispatchUpdateProblemIndication() {
-			if (updateProblemIndication && !dispatching) {
-				dispatching = true;
-				getSite().getShell().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						dispatching = false;
-						updateProblemIndication();
-					}
-				});
+			protected void dispatchUpdateProblemIndication() {
+				if (updateProblemIndication && !dispatching) {
+					dispatching = true;
+					getSite().getShell().getDisplay().asyncExec
+						(new Runnable() {
+							 @Override
+							 public void run() {
+								 dispatching = false;
+								 updateProblemIndication();
+							 }
+						 });
+				}
 			}
-		}
 
-		@Override
-		protected void setTarget(Resource target) {
-			basicSetTarget(target);
-		}
+			@Override
+			protected void setTarget(Resource target) {
+				basicSetTarget(target);
+			}
 
-		@Override
-		protected void unsetTarget(Resource target) {
-			basicUnsetTarget(target);
-			resourceToDiagnosticMap.remove(target);
-			dispatchUpdateProblemIndication();
-		}
-	};
+			@Override
+			protected void unsetTarget(Resource target) {
+				basicUnsetTarget(target);
+				resourceToDiagnosticMap.remove(target);
+				dispatchUpdateProblemIndication();
+			}
+		};
 
 	/**
 	 * This listens for workspace changes.
@@ -511,73 +524,81 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-		public void resourceChanged(IResourceChangeEvent event) {
-			IResourceDelta delta = event.getDelta();
-			try {
-				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-					protected ResourceSet resourceSet = editingDomain.getResourceSet();
-					protected Collection<Resource> changedResources = new ArrayList<Resource>();
-					protected Collection<Resource> removedResources = new ArrayList<Resource>();
+	protected IResourceChangeListener resourceChangeListener =
+		new IResourceChangeListener() {
+			@Override
+			public void resourceChanged(IResourceChangeEvent event) {
+				IResourceDelta delta = event.getDelta();
+				try {
+					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+						protected ResourceSet resourceSet = editingDomain.getResourceSet();
+						protected Collection<Resource> changedResources = new ArrayList<Resource>();
+						protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
-					public boolean visit(IResourceDelta delta) {
-						if (delta.getResource().getType() == IResource.FILE) {
-							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
-									&& delta.getFlags() != IResourceDelta.MARKERS) {
-								Resource resource = resourceSet.getResource(
-										URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-								if (resource != null) {
-									if (delta.getKind() == IResourceDelta.REMOVED) {
-										removedResources.add(resource);
-									} else if (!savedResources.remove(resource)) {
-										changedResources.add(resource);
+						@Override
+						public boolean visit(IResourceDelta delta) {
+							if (delta.getResource().getType() == IResource.FILE) {
+								if (delta.getKind() == IResourceDelta.REMOVED ||
+								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
+									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+									if (resource != null) {
+										if (delta.getKind() == IResourceDelta.REMOVED) {
+											removedResources.add(resource);
+										}
+										else if (!savedResources.remove(resource)) {
+											changedResources.add(resource);
+										}
 									}
 								}
+								return false;
 							}
-							return false;
+
+							return true;
 						}
 
-						return true;
-					}
-
-					public Collection<Resource> getChangedResources() {
-						return changedResources;
-					}
-
-					public Collection<Resource> getRemovedResources() {
-						return removedResources;
-					}
-				}
-
-				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-				delta.accept(visitor);
-
-				if (!visitor.getRemovedResources().isEmpty()) {
-					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						public void run() {
-							removedResources.addAll(visitor.getRemovedResources());
-							if (!isDirty()) {
-								getSite().getPage().closeEditor(PcmjavacorrespondenceEditor.this, false);
-							}
+						public Collection<Resource> getChangedResources() {
+							return changedResources;
 						}
-					});
-				}
 
-				if (!visitor.getChangedResources().isEmpty()) {
-					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						public void run() {
-							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == PcmjavacorrespondenceEditor.this) {
-								handleActivate();
-							}
+						public Collection<Resource> getRemovedResources() {
+							return removedResources;
 						}
-					});
+					}
+
+					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+					delta.accept(visitor);
+
+					if (!visitor.getRemovedResources().isEmpty()) {
+						getSite().getShell().getDisplay().asyncExec
+							(new Runnable() {
+								 @Override
+								 public void run() {
+									 removedResources.addAll(visitor.getRemovedResources());
+									 if (!isDirty()) {
+										 getSite().getPage().closeEditor(PcmjavacorrespondenceEditor.this, false);
+									 }
+								 }
+							 });
+					}
+
+					if (!visitor.getChangedResources().isEmpty()) {
+						getSite().getShell().getDisplay().asyncExec
+							(new Runnable() {
+								 @Override
+								 public void run() {
+									 changedResources.addAll(visitor.getChangedResources());
+									 if (getSite().getPage().getActiveEditor() == PcmjavacorrespondenceEditor.this) {
+										 handleActivate();
+									 }
+								 }
+							 });
+					}
 				}
-			} catch (CoreException exception) {
-				PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
+				catch (CoreException exception) {
+					PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
+				}
 			}
-		}
-	};
+		};
 
 	/**
 	 * Handles activation of the editor or it's associated views.
@@ -589,22 +610,24 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		// Recompute the read only state.
 		//
 		if (editingDomain.getResourceToReadOnlyMap() != null) {
-			editingDomain.getResourceToReadOnlyMap().clear();
+		  editingDomain.getResourceToReadOnlyMap().clear();
 
-			// Refresh any actions that may become enabled or disabled.
-			//
-			setSelection(getSelection());
+		  // Refresh any actions that may become enabled or disabled.
+		  //
+		  setSelection(getSelection());
 		}
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
 				getSite().getPage().closeEditor(PcmjavacorrespondenceEditor.this, false);
-			} else {
+			}
+			else {
 				removedResources.clear();
 				changedResources.clear();
 				savedResources.clear();
 			}
-		} else if (!changedResources.isEmpty()) {
+		}
+		else if (!changedResources.isEmpty()) {
 			changedResources.removeAll(savedResources);
 			handleChangedResources();
 			changedResources.clear();
@@ -632,7 +655,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 					resource.unload();
 					try {
 						resource.load(resourceSet.getLoadOptions());
-					} catch (IOException exception) {
+					}
+					catch (IOException exception) {
 						if (!resourceToDiagnosticMap.containsKey(resource)) {
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
@@ -657,9 +681,13 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
-			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK,
-					"edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor", 0, null,
-					new Object[] { editingDomain.getResourceSet() });
+			BasicDiagnostic diagnostic =
+				new BasicDiagnostic
+					(Diagnostic.OK,
+					 "edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor",
+					 0,
+					 null,
+					 new Object [] { editingDomain.getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
@@ -668,11 +696,12 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 
 			int lastEditorPage = getPageCount() - 1;
 			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
-				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
+				((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
 				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
-			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
+			}
+			else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -681,7 +710,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
-				} catch (PartInitException exception) {
+				}
+				catch (PartInitException exception) {
 					PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -689,7 +719,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
 				try {
 					markerHelper.updateMarkers(diagnostic);
-				} catch (CoreException exception) {
+				}
+				catch (CoreException exception) {
 					PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -703,8 +734,11 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return MessageDialog.openQuestion(getSite().getShell(), getString("_UI_FileConflict_label"),
-				getString("_WARN_FileConflict"));
+		return
+			MessageDialog.openQuestion
+				(getSite().getShell(),
+				 getString("_UI_FileConflict_label"),
+				 getString("_WARN_FileConflict"));
 	}
 
 	/**
@@ -732,8 +766,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PcmjavacorrespondenceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(
-				new edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MembersItemProviderAdapterFactory());
@@ -768,30 +801,35 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 
 		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
 		//
-		commandStack.addCommandStackListener(new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				getContainer().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						firePropertyChange(IEditorPart.PROP_DIRTY);
+		commandStack.addCommandStackListener
+			(new CommandStackListener() {
+				 @Override
+				 public void commandStackChanged(final EventObject event) {
+					 getContainer().getDisplay().asyncExec
+						 (new Runnable() {
+							  @Override
+							  public void run() {
+								  firePropertyChange(IEditorPart.PROP_DIRTY);
 
-						// Try to select the affected objects.
-						//
-						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-						if (mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-						}
-						for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
-							PropertySheetPage propertySheetPage = i.next();
-							if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
-								i.remove();
-							} else {
-								propertySheetPage.refresh();
-							}
-						}
-					}
-				});
-			}
-		});
+								  // Try to select the affected objects.
+								  //
+								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
+								  if (mostRecentCommand != null) {
+									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+								  }
+								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); ) {
+									  PropertySheetPage propertySheetPage = i.next();
+									  if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
+										  i.remove();
+									  }
+									  else {
+										  propertySheetPage.refresh();
+									  }
+								  }
+							  }
+						  });
+				 }
+			 });
 
 		// Create the editing domain with a special command stack.
 		//
@@ -804,7 +842,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+			@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
@@ -820,15 +858,17 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable = new Runnable() {
-				public void run() {
-					// Try to select the items in the current content viewer of the editor.
-					//
-					if (currentViewer != null) {
-						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+			Runnable runnable =
+				new Runnable() {
+					@Override
+					public void run() {
+						// Try to select the items in the current content viewer of the editor.
+						//
+						if (currentViewer != null) {
+							currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+						}
 					}
-				}
-			};
+				};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
@@ -841,6 +881,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -866,7 +907,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		 * @generated
 		 */
 		@Override
-		public Object[] getElements(Object object) {
+		public Object [] getElements(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -877,7 +918,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		 * @generated
 		 */
 		@Override
-		public Object[] getChildren(Object object) {
+		public Object [] getChildren(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -933,13 +974,15 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			if (selectionChangedListener == null) {
 				// Create the listener on demand.
 				//
-				selectionChangedListener = new ISelectionChangedListener() {
-					// This just notifies those things that are affected by the section.
-					//
-					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
-						setSelection(selectionChangedEvent.getSelection());
-					}
-				};
+				selectionChangedListener =
+					new ISelectionChangedListener() {
+						// This just notifies those things that are affected by the section.
+						//
+						@Override
+						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+							setSelection(selectionChangedEvent.getSelection());
+						}
+					};
 			}
 
 			// Stop listening to the old one.
@@ -970,6 +1013,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Viewer getViewer() {
 		return currentViewer;
 	}
@@ -985,13 +1029,12 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
+		Menu menu= contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(),
-				FileTransfer.getInstance() };
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
 		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
@@ -1010,14 +1053,15 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// Load the resource through the editing domain.
 			//
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
@@ -1032,17 +1076,26 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		boolean hasErrors = !resource.getErrors().isEmpty();
 		if (hasErrors || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
-					"edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor", 0,
-					getString("_UI_CreateModelError_message", resource.getURI()),
-					new Object[] { exception == null ? (Object) resource : exception });
+			BasicDiagnostic basicDiagnostic =
+				new BasicDiagnostic
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
+					 "edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor",
+					 0,
+					 getString("_UI_CreateModelError_message", resource.getURI()),
+					 new Object [] { exception == null ? (Object)resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
-		} else if (exception != null) {
-			return new BasicDiagnostic(Diagnostic.ERROR,
-					"edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor", 0,
-					getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
-		} else {
+		}
+		else if (exception != null) {
+			return
+				new BasicDiagnostic
+					(Diagnostic.ERROR,
+					 "edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.editor",
+					 0,
+					 getString("_UI_CreateModelError_message", resource.getURI()),
+					 new Object[] { exception });
+		}
+		else {
 			return Diagnostic.OK_INSTANCE;
 		}
 	}
@@ -1065,30 +1118,29 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// Create a page for the selection tree view.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						Tree tree = new Tree(composite, SWT.MULTI);
-						TreeViewer newTreeViewer = new TreeViewer(tree);
-						return newTreeViewer;
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							Tree tree = new Tree(composite, SWT.MULTI);
+							TreeViewer newTreeViewer = new TreeViewer(tree);
+							return newTreeViewer;
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
 
-				selectionViewer = (TreeViewer) viewerPane.getViewer();
+				selectionViewer = (TreeViewer)viewerPane.getViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				selectionViewer.setUseHashlookup(true);
 
 				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				selectionViewer.setInput(editingDomain.getResourceSet());
-				selectionViewer.setSelection(
-						new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
@@ -1101,23 +1153,23 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// Create a page for the parent tree view.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						Tree tree = new Tree(composite, SWT.MULTI);
-						TreeViewer newTreeViewer = new TreeViewer(tree);
-						return newTreeViewer;
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							Tree tree = new Tree(composite, SWT.MULTI);
+							TreeViewer newTreeViewer = new TreeViewer(tree);
+							return newTreeViewer;
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
 
-				parentViewer = (TreeViewer) viewerPane.getViewer();
+				parentViewer = (TreeViewer)viewerPane.getViewer();
 				parentViewer.setAutoExpandLevel(30);
 				parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
 				parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
@@ -1130,20 +1182,20 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// This is the page for the list viewer
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						return new ListViewer(composite);
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							return new ListViewer(composite);
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
-				listViewer = (ListViewer) viewerPane.getViewer();
+				listViewer = (ListViewer)viewerPane.getViewer();
 				listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1155,20 +1207,20 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// This is the page for the tree viewer
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						return new TreeViewer(composite);
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							return new TreeViewer(composite);
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
-				treeViewer = (TreeViewer) viewerPane.getViewer();
+				treeViewer = (TreeViewer)viewerPane.getViewer();
 				treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1182,20 +1234,20 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// This is the page for the table viewer.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						return new TableViewer(composite);
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							return new TableViewer(composite);
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
-				tableViewer = (TableViewer) viewerPane.getViewer();
+				tableViewer = (TableViewer)viewerPane.getViewer();
 
 				Table table = tableViewer.getTable();
 				TableLayout layout = new TableLayout();
@@ -1213,7 +1265,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 				selfColumn.setText(getString("_UI_SelfColumn_label"));
 				selfColumn.setResizable(true);
 
-				tableViewer.setColumnProperties(new String[] { "a", "b" });
+				tableViewer.setColumnProperties(new String [] {"a", "b"});
 				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1225,21 +1277,21 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			// This is the page for the table tree viewer.
 			//
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
-					@Override
-					public Viewer createViewer(Composite composite) {
-						return new TreeViewer(composite);
-					}
-
-					@Override
-					public void requestActivation() {
-						super.requestActivation();
-						setCurrentViewerPane(this);
-					}
-				};
+				ViewerPane viewerPane =
+					new ViewerPane(getSite().getPage(), PcmjavacorrespondenceEditor.this) {
+						@Override
+						public Viewer createViewer(Composite composite) {
+							return new TreeViewer(composite);
+						}
+						@Override
+						public void requestActivation() {
+							super.requestActivation();
+							setCurrentViewerPane(this);
+						}
+					};
 				viewerPane.createControl(getContainer());
 
-				treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
+				treeViewerWithColumns = (TreeViewer)viewerPane.getViewer();
 
 				Tree tree = treeViewerWithColumns.getTree();
 				tree.setLayoutData(new FillLayout());
@@ -1256,7 +1308,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 				selfColumn.setResizable(true);
 				selfColumn.setWidth(200);
 
-				treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
+				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
 				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1265,36 +1317,40 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
 			}
 
-			getSite().getShell().getDisplay().asyncExec(new Runnable() {
-				public void run() {
-					if (!getContainer().isDisposed()) {
-						setActivePage(0);
-					}
-				}
-			});
+			getSite().getShell().getDisplay().asyncExec
+				(new Runnable() {
+					 @Override
+					 public void run() {
+						 if (!getContainer().isDisposed()) {
+							 setActivePage(0);
+						 }
+					 }
+				 });
 		}
 
 		// Ensures that this editor will only display the page's tab
 		// area if there are more than one page
 		//
-		getContainer().addControlListener(new ControlAdapter() {
-			boolean guard = false;
-
-			@Override
-			public void controlResized(ControlEvent event) {
-				if (!guard) {
-					guard = true;
-					hideTabs();
-					guard = false;
+		getContainer().addControlListener
+			(new ControlAdapter() {
+				boolean guard = false;
+				@Override
+				public void controlResized(ControlEvent event) {
+					if (!guard) {
+						guard = true;
+						hideTabs();
+						guard = false;
+					}
 				}
-			}
-		});
+			 });
 
-		getSite().getShell().getDisplay().asyncExec(new Runnable() {
-			public void run() {
-				updateProblemIndication();
-			}
-		});
+		getSite().getShell().getDisplay().asyncExec
+			(new Runnable() {
+				 @Override
+				 public void run() {
+					 updateProblemIndication();
+				 }
+			 });
 	}
 
 	/**
@@ -1310,7 +1366,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 			if (getContainer() instanceof CTabFolder) {
 				Point point = getContainer().getSize();
 				Rectangle clientArea = getContainer().getClientArea();
-				getContainer().setSize(point.x, 2 * point.y - clientArea.height - clientArea.y);
+				getContainer().setSize(point.x,  2 * point.y - clientArea.height - clientArea.y);
 			}
 		}
 	}
@@ -1358,11 +1414,14 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	public <T> T getAdapter(Class<T> key) {
 		if (key.equals(IContentOutlinePage.class)) {
 			return showOutlineView() ? key.cast(getContentOutlinePage()) : null;
-		} else if (key.equals(IPropertySheetPage.class)) {
+		}
+		else if (key.equals(IPropertySheetPage.class)) {
 			return key.cast(getPropertySheetPage());
-		} else if (key.equals(IGotoMarker.class)) {
+		}
+		else if (key.equals(IGotoMarker.class)) {
 			return key.cast(this);
-		} else {
+		}
+		else {
 			return super.getAdapter(key);
 		}
 	}
@@ -1396,16 +1455,14 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 					createContextMenuFor(contentOutlineViewer);
 
 					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-						// Select the root object in the view.
-						//
-						contentOutlineViewer.setSelection(
-								new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+					  // Select the root object in the view.
+					  //
+					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager,
-						IStatusLineManager statusLineManager) {
+				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
@@ -1421,13 +1478,15 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 
 			// Listen to selection so that we can handle it is a special way.
 			//
-			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
-				// This ensures that we handle selections correctly.
-				//
-				public void selectionChanged(SelectionChangedEvent event) {
-					handleContentOutlineSelection(event.getSelection());
-				}
-			});
+			contentOutlinePage.addSelectionChangedListener
+				(new ISelectionChangedListener() {
+					 // This ensures that we handle selections correctly.
+					 //
+					 @Override
+					 public void selectionChanged(SelectionChangedEvent event) {
+						 handleContentOutlineSelection(event.getSelection());
+					 }
+				 });
 		}
 
 		return contentOutlinePage;
@@ -1440,20 +1499,20 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain,
-				ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
-			@Override
-			public void setSelectionToViewer(List<?> selection) {
-				PcmjavacorrespondenceEditor.this.setSelectionToViewer(selection);
-				PcmjavacorrespondenceEditor.this.setFocus();
-			}
+		PropertySheetPage propertySheetPage =
+			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
+				@Override
+				public void setSelectionToViewer(List<?> selection) {
+					PcmjavacorrespondenceEditor.this.setSelectionToViewer(selection);
+					PcmjavacorrespondenceEditor.this.setFocus();
+				}
 
-			@Override
-			public void setActionBars(IActionBars actionBars) {
-				super.setActionBars(actionBars);
-				getActionBarContributor().shareGlobalActions(this, actionBars);
-			}
-		};
+				@Override
+				public void setActionBars(IActionBars actionBars) {
+					super.setActionBars(actionBars);
+					getActionBarContributor().shareGlobalActions(this, actionBars);
+				}
+			};
 		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
 		propertySheetPages.add(propertySheetPage);
 
@@ -1468,7 +1527,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
 		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
 			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
@@ -1486,7 +1545,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 					// Set the selection to the widget.
 					//
 					selectionViewer.setSelection(new StructuredSelection(selectionList));
-				} else {
+				}
+				else {
 					// Set the input to the widget.
 					//
 					if (currentViewerPane.getViewer().getInput() != selectedElement) {
@@ -1506,7 +1566,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 */
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
 	}
 
 	/**
@@ -1525,33 +1585,34 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
-		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-			// This is the method that gets invoked when the operation runs.
-			//
-			@Override
-			public void execute(IProgressMonitor monitor) {
-				// Save the resources to the file system.
+		WorkspaceModifyOperation operation =
+			new WorkspaceModifyOperation() {
+				// This is the method that gets invoked when the operation runs.
 				//
-				boolean first = true;
-				List<Resource> resources = editingDomain.getResourceSet().getResources();
-				for (int i = 0; i < resources.size(); ++i) {
-					Resource resource = resources.get(i);
-					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
-							&& !editingDomain.isReadOnly(resource)) {
-						try {
-							long timeStamp = resource.getTimeStamp();
-							resource.save(saveOptions);
-							if (resource.getTimeStamp() != timeStamp) {
-								savedResources.add(resource);
+				@Override
+				public void execute(IProgressMonitor monitor) {
+					// Save the resources to the file system.
+					//
+					boolean first = true;
+					List<Resource> resources = editingDomain.getResourceSet().getResources();
+					for (int i = 0; i < resources.size(); ++i) {
+						Resource resource = resources.get(i);
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
+							try {
+								long timeStamp = resource.getTimeStamp();
+								resource.save(saveOptions);
+								if (resource.getTimeStamp() != timeStamp) {
+									savedResources.add(resource);
+								}
 							}
-						} catch (Exception exception) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							catch (Exception exception) {
+								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							}
+							first = false;
 						}
-						first = false;
 					}
 				}
-			}
-		};
+			};
 
 		updateProblemIndication = false;
 		try {
@@ -1561,9 +1622,10 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 
 			// Refresh the necessary state.
 			//
-			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
 			PcmjavacorrespondenceEditorPlugin.INSTANCE.log(exception);
@@ -1587,7 +1649,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 				result = true;
 				stream.close();
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// Ignore
 		}
 		return result;
@@ -1632,9 +1695,10 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
-				? getActionBars().getStatusLineManager().getProgressMonitor()
-				: new NullProgressMonitor();
+		IProgressMonitor progressMonitor =
+			getActionBars().getStatusLineManager() != null ?
+				getActionBars().getStatusLineManager().getProgressMonitor() :
+				new NullProgressMonitor();
 		doSave(progressMonitor);
 	}
 
@@ -1643,6 +1707,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
 		if (!targetObjects.isEmpty()) {
@@ -1663,8 +1728,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
-				IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -1676,7 +1740,8 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	public void setFocus() {
 		if (currentViewerPane != null) {
 			currentViewerPane.setFocus();
-		} else {
+		}
+		else {
 			getControl(getActivePage()).setFocus();
 		}
 	}
@@ -1687,6 +1752,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.add(listener);
 	}
@@ -1697,6 +1763,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
@@ -1707,6 +1774,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
@@ -1718,6 +1786,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
@@ -1733,30 +1802,29 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
-		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer
-				? contentOutlineStatusLineManager
-				: getActionBars().getStatusLineManager();
+		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
+			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
 
 		if (statusLineManager != null) {
 			if (selection instanceof IStructuredSelection) {
-				Collection<?> collection = ((IStructuredSelection) selection).toList();
+				Collection<?> collection = ((IStructuredSelection)selection).toList();
 				switch (collection.size()) {
-				case 0: {
-					statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
-					break;
+					case 0: {
+						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
+						break;
+					}
+					case 1: {
+						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
+						break;
+					}
+					default: {
+						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						break;
+					}
 				}
-				case 1: {
-					String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
-					statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
-					break;
-				}
-				default: {
-					statusLineManager
-							.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
-					break;
-				}
-				}
-			} else {
+			}
+			else {
 				statusLineManager.setMessage("");
 			}
 		}
@@ -1779,7 +1847,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PcmjavacorrespondenceEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
+		return PcmjavacorrespondenceEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**
@@ -1788,8 +1856,9 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
 
 	/**
@@ -1798,7 +1867,7 @@ public class PcmjavacorrespondenceEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
-		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
+		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
 	}
 
 	/**

@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -207,6 +206,13 @@ public class JavaResolutionUtil {
 	  	Collection<Class> allClasses = filterClassesFromClassOrInterfaceTypes(getAllClassOrInterfaceTypes(root));
 	  	
 	  	return allClasses.stream().filter(clazz -> clazz.getMethod().contains(method)).findFirst().get();
+	}
+	
+	public static Class getClassForField(JavaRoot root, Field field) {
+		Collection<Class> allClasses = filterClassesFromClassOrInterfaceTypes(getAllClassOrInterfaceTypes(root));
+		
+		return allClasses.stream().filter(clazz -> clazz.getField().contains(field)).findFirst().get();
+		
 	}
 	
 	public static Type getTypeByName(JavaRoot javaRoot, String typeName) {

@@ -4,7 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorresponden
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +51,12 @@ public interface ParameterCorrespondence extends SystemElementCorrespondence {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter SCAR</em>' reference.
-	 * @see #setParameter_SCAR(ParameterIdentifying)
+	 * @see #setParameter_SCAR(Parameter_SCAR)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JoanascarcorrespondencesPackage#getParameterCorrespondence_Parameter_SCAR()
 	 * @model required="true"
 	 * @generated
 	 */
-	ParameterIdentifying getParameter_SCAR();
+	Parameter_SCAR getParameter_SCAR();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.ParameterCorrespondence#getParameter_SCAR <em>Parameter SCAR</em>}' reference.
@@ -66,6 +66,6 @@ public interface ParameterCorrespondence extends SystemElementCorrespondence {
 	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	void setParameter_SCAR(ParameterIdentifying value);
+	void setParameter_SCAR(Parameter_SCAR value);
 
 } // ParameterCorrespondence

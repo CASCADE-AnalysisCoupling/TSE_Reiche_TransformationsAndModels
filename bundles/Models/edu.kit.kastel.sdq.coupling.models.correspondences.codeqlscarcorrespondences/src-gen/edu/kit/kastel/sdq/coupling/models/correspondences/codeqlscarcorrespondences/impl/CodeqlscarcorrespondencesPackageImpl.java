@@ -2,16 +2,18 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
+
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarPackage;
 
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesFactory;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.SecurityLevelCorrespondence;
@@ -41,7 +43,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass codeQLSCARCorrespondencesEClass = null;
+	private EClass correspondences_CodeQLScarEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +134,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 		// Initialize simple dependencies
 		CodeqlPackage.eINSTANCE.eClass();
 		CodeqlscarPackage.eINSTANCE.eClass();
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
 
@@ -154,8 +157,8 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCodeQLSCARCorrespondences() {
-		return codeQLSCARCorrespondencesEClass;
+	public EClass getCorrespondences_CodeQLScar() {
+		return correspondences_CodeQLScarEClass;
 	}
 
 	/**
@@ -163,8 +166,8 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLSCARCorrespondences_SystemElementCorrespondences() {
-		return (EReference) codeQLSCARCorrespondencesEClass.getEStructuralFeatures().get(0);
+	public EReference getCorrespondences_CodeQLScar_SystemElementCorrespondences() {
+		return (EReference) correspondences_CodeQLScarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -172,8 +175,8 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLSCARCorrespondences_SecurityLevelCorrespondences() {
-		return (EReference) codeQLSCARCorrespondencesEClass.getEStructuralFeatures().get(1);
+	public EReference getCorrespondences_CodeQLScar_SecurityLevelCorrespondences() {
+		return (EReference) correspondences_CodeQLScarEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -181,8 +184,8 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeQLSCARCorrespondences_ConfigurationCorrespondences() {
-		return (EReference) codeQLSCARCorrespondencesEClass.getEStructuralFeatures().get(2);
+	public EReference getCorrespondences_CodeQLScar_ConfigurationCorrespondences() {
+		return (EReference) correspondences_CodeQLScarEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -199,7 +202,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfigurationCorrespondence_CodeQLConfig() {
+	public EReference getConfigurationCorrespondence_Configuration_CodeQL() {
 		return (EReference) configurationCorrespondenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -208,7 +211,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfigurationCorrespondence_CodeQLSCARConfig() {
+	public EReference getConfigurationCorrespondence_Configuration_SCAR() {
 		return (EReference) configurationCorrespondenceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -226,7 +229,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecurityLevelCorrespondence_CodeQLSecurityLevel() {
+	public EReference getSecurityLevelCorrespondence_SecurityLevel_CodeQL() {
 		return (EReference) securityLevelCorrespondenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -235,7 +238,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecurityLevelCorrespondence_CodeQLSCARSecurityLevel() {
+	public EReference getSecurityLevelCorrespondence_SecurityLevel_SCAR() {
 		return (EReference) securityLevelCorrespondenceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -253,7 +256,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterCorrespondence_JavaParameter() {
+	public EReference getParameterCorrespondence_Parameter_Java() {
 		return (EReference) parameterCorrespondenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -262,7 +265,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterCorrespondence_ScarParameter() {
+	public EReference getParameterCorrespondence_Parameter_SCAR() {
 		return (EReference) parameterCorrespondenceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -280,7 +283,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFieldCorrespondence_JavaField() {
+	public EReference getFieldCorrespondence_Field_Java() {
 		return (EReference) fieldCorrespondenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -289,7 +292,7 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFieldCorrespondence_ScarField() {
+	public EReference getFieldCorrespondence_Field_SCAR() {
 		return (EReference) fieldCorrespondenceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -331,26 +334,28 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 		isCreated = true;
 
 		// Create classes and their features
-		codeQLSCARCorrespondencesEClass = createEClass(CODE_QLSCAR_CORRESPONDENCES);
-		createEReference(codeQLSCARCorrespondencesEClass, CODE_QLSCAR_CORRESPONDENCES__SYSTEM_ELEMENT_CORRESPONDENCES);
-		createEReference(codeQLSCARCorrespondencesEClass, CODE_QLSCAR_CORRESPONDENCES__SECURITY_LEVEL_CORRESPONDENCES);
-		createEReference(codeQLSCARCorrespondencesEClass, CODE_QLSCAR_CORRESPONDENCES__CONFIGURATION_CORRESPONDENCES);
+		correspondences_CodeQLScarEClass = createEClass(CORRESPONDENCES_CODE_QL_SCAR);
+		createEReference(correspondences_CodeQLScarEClass,
+				CORRESPONDENCES_CODE_QL_SCAR__SYSTEM_ELEMENT_CORRESPONDENCES);
+		createEReference(correspondences_CodeQLScarEClass,
+				CORRESPONDENCES_CODE_QL_SCAR__SECURITY_LEVEL_CORRESPONDENCES);
+		createEReference(correspondences_CodeQLScarEClass, CORRESPONDENCES_CODE_QL_SCAR__CONFIGURATION_CORRESPONDENCES);
 
 		configurationCorrespondenceEClass = createEClass(CONFIGURATION_CORRESPONDENCE);
-		createEReference(configurationCorrespondenceEClass, CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG);
-		createEReference(configurationCorrespondenceEClass, CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG);
+		createEReference(configurationCorrespondenceEClass, CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL);
+		createEReference(configurationCorrespondenceEClass, CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR);
 
 		securityLevelCorrespondenceEClass = createEClass(SECURITY_LEVEL_CORRESPONDENCE);
-		createEReference(securityLevelCorrespondenceEClass, SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL);
-		createEReference(securityLevelCorrespondenceEClass, SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL);
+		createEReference(securityLevelCorrespondenceEClass, SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL);
+		createEReference(securityLevelCorrespondenceEClass, SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR);
 
 		parameterCorrespondenceEClass = createEClass(PARAMETER_CORRESPONDENCE);
-		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__JAVA_PARAMETER);
-		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__SCAR_PARAMETER);
+		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__PARAMETER_JAVA);
+		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__PARAMETER_SCAR);
 
 		fieldCorrespondenceEClass = createEClass(FIELD_CORRESPONDENCE);
-		createEReference(fieldCorrespondenceEClass, FIELD_CORRESPONDENCE__JAVA_FIELD);
-		createEReference(fieldCorrespondenceEClass, FIELD_CORRESPONDENCE__SCAR_FIELD);
+		createEReference(fieldCorrespondenceEClass, FIELD_CORRESPONDENCE__FIELD_JAVA);
+		createEReference(fieldCorrespondenceEClass, FIELD_CORRESPONDENCE__FIELD_SCAR);
 
 		systemElementCorrespondenceEClass = createEClass(SYSTEM_ELEMENT_CORRESPONDENCE);
 	}
@@ -380,10 +385,12 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TainttrackingPackage theTainttrackingPackage = (TainttrackingPackage) EPackage.Registry.INSTANCE
-				.getEPackage(TainttrackingPackage.eNS_URI);
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
 		CodeqlscarPackage theCodeqlscarPackage = (CodeqlscarPackage) EPackage.Registry.INSTANCE
 				.getEPackage(CodeqlscarPackage.eNS_URI);
+		TainttrackingPackage theTainttrackingPackage = (TainttrackingPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TainttrackingPackage.eNS_URI);
 		MembersPackage theMembersPackage = (MembersPackage) EPackage.Registry.INSTANCE
 				.getEPackage(MembersPackage.eNS_URI);
 
@@ -396,58 +403,59 @@ public class CodeqlscarcorrespondencesPackageImpl extends EPackageImpl implement
 		fieldCorrespondenceEClass.getESuperTypes().add(this.getSystemElementCorrespondence());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(codeQLSCARCorrespondencesEClass, CodeQLSCARCorrespondences.class, "CodeQLSCARCorrespondences",
+		initEClass(correspondences_CodeQLScarEClass, Correspondences_CodeQLScar.class, "Correspondences_CodeQLScar",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCodeQLSCARCorrespondences_SystemElementCorrespondences(),
+		initEReference(getCorrespondences_CodeQLScar_SystemElementCorrespondences(),
 				this.getSystemElementCorrespondence(), null, "systemElementCorrespondences", null, 0, -1,
-				CodeQLSCARCorrespondences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				Correspondences_CodeQLScar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodeQLSCARCorrespondences_SecurityLevelCorrespondences(),
+		initEReference(getCorrespondences_CodeQLScar_SecurityLevelCorrespondences(),
 				this.getSecurityLevelCorrespondence(), null, "securityLevelCorrespondences", null, 0, -1,
-				CodeQLSCARCorrespondences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				Correspondences_CodeQLScar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodeQLSCARCorrespondences_ConfigurationCorrespondences(),
+		initEReference(getCorrespondences_CodeQLScar_ConfigurationCorrespondences(),
 				this.getConfigurationCorrespondence(), null, "configurationCorrespondences", null, 0, -1,
-				CodeQLSCARCorrespondences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				Correspondences_CodeQLScar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationCorrespondenceEClass, ConfigurationCorrespondence.class, "ConfigurationCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfigurationCorrespondence_CodeQLConfig(), theTainttrackingPackage.getConfiguration(), null,
-				"codeQLConfig", null, 1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigurationCorrespondence_CodeQLSCARConfig(),
-				theCodeqlscarPackage.getConfigurationID_SCAR(), null, "codeQLSCARConfig", null, 1, 1,
-				ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+		initEReference(getConfigurationCorrespondence_Configuration_CodeQL(),
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "configuration_CodeQL", null, 1,
+				1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurationCorrespondence_Configuration_SCAR(), theCodeqlscarPackage.getRuleId(), null,
+				"configuration_SCAR", null, 1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityLevelCorrespondenceEClass, SecurityLevelCorrespondence.class, "SecurityLevelCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityLevelCorrespondence_CodeQLSecurityLevel(), theTainttrackingPackage.getSecurityLevel(),
-				null, "codeQLSecurityLevel", null, 1, 1, SecurityLevelCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSecurityLevelCorrespondence_CodeQLSCARSecurityLevel(),
-				theCodeqlscarPackage.getSecurityLevel_SCAR(), null, "codeQLSCARSecurityLevel", null, 1, 1,
+		initEReference(getSecurityLevelCorrespondence_SecurityLevel_CodeQL(),
+				theTainttrackingPackage.getSecurityLevel(), null, "securityLevel_CodeQL", null, 1, 1,
+				SecurityLevelCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityLevelCorrespondence_SecurityLevel_SCAR(),
+				theCodeqlscarPackage.getSecurityLevel_SCAR(), null, "securityLevel_SCAR", null, 1, 1,
 				SecurityLevelCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterCorrespondenceEClass, ParameterCorrespondence.class, "ParameterCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterCorrespondence_JavaParameter(), theMembersPackage.getParameter(), null,
-				"javaParameter", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+		initEReference(getParameterCorrespondence_Parameter_Java(), theMembersPackage.getParameter(), null,
+				"parameter_Java", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterCorrespondence_ScarParameter(), theCodeqlscarPackage.getParameterIdentification(),
-				null, "scarParameter", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterCorrespondence_Parameter_SCAR(), theCodeqlscarPackage.getParameter_SCAR(), null,
+				"parameter_SCAR", null, 1, 1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldCorrespondenceEClass, FieldCorrespondence.class, "FieldCorrespondence", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFieldCorrespondence_JavaField(), theMembersPackage.getField(), null, "javaField", null, 1, 1,
-				FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+		initEReference(getFieldCorrespondence_Field_Java(), theMembersPackage.getField(), null, "field_Java", null, 1,
+				1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFieldCorrespondence_ScarField(), theCodeqlscarPackage.getFieldIdentification(), null,
-				"scarField", null, 1, 1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFieldCorrespondence_Field_SCAR(), theCodeqlscarPackage.getField_SCAR(), null, "field_SCAR",
+				null, 1, 1, FieldCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(systemElementCorrespondenceEClass, SystemElementCorrespondence.class, "SystemElementCorrespondence",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

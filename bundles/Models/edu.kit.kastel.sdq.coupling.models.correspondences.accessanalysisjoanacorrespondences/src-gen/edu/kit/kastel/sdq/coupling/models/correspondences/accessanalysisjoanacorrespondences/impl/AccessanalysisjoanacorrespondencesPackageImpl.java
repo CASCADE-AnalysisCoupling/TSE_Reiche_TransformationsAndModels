@@ -14,6 +14,8 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialityPackage;
 
 import edu.kit.kastel.scbs.confidentiality.data.DataPackage;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
+
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.AccessanalysisjoanacorrespondencesFactory;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.AccessanalysisjoanacorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.Correspondences_AccessAnalysisJOANA;
@@ -114,6 +116,7 @@ public class AccessanalysisjoanacorrespondencesPackageImpl extends EPackageImpl
 
 		// Initialize simple dependencies
 		ConfidentialityPackage.eINSTANCE.eClass();
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
@@ -288,10 +291,10 @@ public class AccessanalysisjoanacorrespondencesPackageImpl extends EPackageImpl
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ConfidentialityPackage theConfidentialityPackage = (ConfidentialityPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ConfidentialityPackage.eNS_URI);
-		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
 		DataPackage theDataPackage = (DataPackage) EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
+		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -314,11 +317,12 @@ public class AccessanalysisjoanacorrespondencesPackageImpl extends EPackageImpl
 		initEClass(entryPointCorrespondenceEClass, EntryPointCorrespondence.class, "EntryPointCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPointCorrespondence_AccessAnalysisConfig(),
-				theConfidentialityPackage.getConfidentialitySpecification(), null, "AccessAnalysisConfig", null, 1, 1,
-				EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPointCorrespondence_EntryPoint(), theJoanaPackage.getEntryPoint(), null, "entryPoint",
+				theConfigurationrepresentationPackage.getFullyImplicitConfiguration(), null, "accessAnalysisConfig",
 				null, 1, 1, EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPointCorrespondence_EntryPoint(),
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "entryPoint", null, 1, 1,
+				EntryPointCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSetLevelCorrespondenceEClass, DataSetLevelCorrespondence.class, "DataSetLevelCorrespondence",

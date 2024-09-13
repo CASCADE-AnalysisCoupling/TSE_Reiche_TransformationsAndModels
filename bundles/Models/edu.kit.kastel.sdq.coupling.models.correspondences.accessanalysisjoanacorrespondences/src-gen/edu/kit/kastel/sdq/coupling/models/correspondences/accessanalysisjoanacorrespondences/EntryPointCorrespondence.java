@@ -2,9 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,12 +30,12 @@ public interface EntryPointCorrespondence extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Access Analysis Config</em>' reference.
-	 * @see #setAccessAnalysisConfig(ConfidentialitySpecification)
+	 * @see #setAccessAnalysisConfig(FullyImplicitConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.AccessanalysisjoanacorrespondencesPackage#getEntryPointCorrespondence_AccessAnalysisConfig()
 	 * @model required="true"
 	 * @generated
 	 */
-	ConfidentialitySpecification getAccessAnalysisConfig();
+	FullyImplicitConfiguration getAccessAnalysisConfig();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.EntryPointCorrespondence#getAccessAnalysisConfig <em>Access Analysis Config</em>}' reference.
@@ -46,19 +45,19 @@ public interface EntryPointCorrespondence extends EObject {
 	 * @see #getAccessAnalysisConfig()
 	 * @generated
 	 */
-	void setAccessAnalysisConfig(ConfidentialitySpecification value);
+	void setAccessAnalysisConfig(FullyImplicitConfiguration value);
 
 	/**
 	 * Returns the value of the '<em><b>Entry Point</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entry Point</em>' reference.
-	 * @see #setEntryPoint(EntryPoint)
+	 * @see #setEntryPoint(HybridConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.AccessanalysisjoanacorrespondencesPackage#getEntryPointCorrespondence_EntryPoint()
 	 * @model required="true"
 	 * @generated
 	 */
-	EntryPoint getEntryPoint();
+	HybridConfiguration getEntryPoint();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.EntryPointCorrespondence#getEntryPoint <em>Entry Point</em>}' reference.
@@ -68,6 +67,6 @@ public interface EntryPointCorrespondence extends EObject {
 	 * @see #getEntryPoint()
 	 * @generated
 	 */
-	void setEntryPoint(EntryPoint value);
+	void setEntryPoint(HybridConfiguration value);
 
 } // EntryPointCorrespondence

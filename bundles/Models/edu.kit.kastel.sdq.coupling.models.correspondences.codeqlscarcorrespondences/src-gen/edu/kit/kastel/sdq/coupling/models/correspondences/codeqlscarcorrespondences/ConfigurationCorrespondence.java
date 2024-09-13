@@ -2,9 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLConfig <em>Code QL Config</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLSCARConfig <em>Code QLSCAR Config</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_CodeQL <em>Configuration Code QL</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_SCAR <em>Configuration SCAR</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getConfigurationCorrespondence()
@@ -27,47 +27,47 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ConfigurationCorrespondence extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Code QL Config</b></em>' reference.
+	 * Returns the value of the '<em><b>Configuration Code QL</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code QL Config</em>' reference.
-	 * @see #setCodeQLConfig(Configuration)
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getConfigurationCorrespondence_CodeQLConfig()
+	 * @return the value of the '<em>Configuration Code QL</em>' reference.
+	 * @see #setConfiguration_CodeQL(HybridConfiguration)
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getConfigurationCorrespondence_Configuration_CodeQL()
 	 * @model required="true"
 	 * @generated
 	 */
-	Configuration getCodeQLConfig();
+	HybridConfiguration getConfiguration_CodeQL();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLConfig <em>Code QL Config</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_CodeQL <em>Configuration Code QL</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code QL Config</em>' reference.
-	 * @see #getCodeQLConfig()
+	 * @param value the new value of the '<em>Configuration Code QL</em>' reference.
+	 * @see #getConfiguration_CodeQL()
 	 * @generated
 	 */
-	void setCodeQLConfig(Configuration value);
+	void setConfiguration_CodeQL(HybridConfiguration value);
 
 	/**
-	 * Returns the value of the '<em><b>Code QLSCAR Config</b></em>' reference.
+	 * Returns the value of the '<em><b>Configuration SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code QLSCAR Config</em>' reference.
-	 * @see #setCodeQLSCARConfig(ConfigurationID_SCAR)
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getConfigurationCorrespondence_CodeQLSCARConfig()
+	 * @return the value of the '<em>Configuration SCAR</em>' reference.
+	 * @see #setConfiguration_SCAR(RuleId)
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getConfigurationCorrespondence_Configuration_SCAR()
 	 * @model required="true"
 	 * @generated
 	 */
-	ConfigurationID_SCAR getCodeQLSCARConfig();
+	RuleId getConfiguration_SCAR();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getCodeQLSCARConfig <em>Code QLSCAR Config</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ConfigurationCorrespondence#getConfiguration_SCAR <em>Configuration SCAR</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code QLSCAR Config</em>' reference.
-	 * @see #getCodeQLSCARConfig()
+	 * @param value the new value of the '<em>Configuration SCAR</em>' reference.
+	 * @see #getConfiguration_SCAR()
 	 * @generated
 	 */
-	void setCodeQLSCARConfig(ConfigurationID_SCAR value);
+	void setConfiguration_SCAR(RuleId value);
 
 } // ConfigurationCorrespondence

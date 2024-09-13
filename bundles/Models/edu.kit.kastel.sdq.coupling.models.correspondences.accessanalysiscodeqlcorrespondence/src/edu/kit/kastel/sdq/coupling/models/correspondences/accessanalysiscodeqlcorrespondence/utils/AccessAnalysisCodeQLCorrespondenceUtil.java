@@ -2,13 +2,13 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlc
 
 import java.util.Collection;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
-import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondenceFactory;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.DataSetSecurityLevelCorrespondence;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 
 public class AccessAnalysisCodeQLCorrespondenceUtil {
@@ -20,44 +20,44 @@ public class AccessAnalysisCodeQLCorrespondenceUtil {
 		return correspondence;
 	}
 	
-	public static ConfigurationCorrespondence createConfigurationCorrespondence(ConfidentialitySpecification specification, Configuration config) {
+	public static ConfigurationCorrespondence createConfigurationCorrespondence(FullyImplicitConfiguration accessAnalysisConfig, HybridConfiguration codeQLconfig) {
 		ConfigurationCorrespondence correspondence = AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createConfigurationCorrespondence();
-		correspondence.setAccessAnalysisConfig(specification);
-		correspondence.setCodeQLConfig(config);
+		correspondence.setAccessAnalysisConfig(accessAnalysisConfig);
+		correspondence.setCodeQLConfig(codeQLconfig);
 		return correspondence;
 	}
 	
 	public static Collection<DataSet> getCorresponding(SecurityLevel securityLevel,
-			AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
+			Correspondences_AccessAnalysisCodeQL correspondences) {
 		return correspondences.getDataSetSecurityLevelCorrespondence().stream().filter(correspondence -> correspondence.getSecurityLevel().equals(securityLevel)).findFirst().get().getDataSets();
 	}
 	
-	public static AccessAnalysisCodeQLCorrespondenceRoot createCorrespondenceModel() {
-		return AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createAccessAnalysisCodeQLCorrespondenceRoot();
+	public static Correspondences_AccessAnalysisCodeQL createCorrespondenceModel() {
+		return AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createCorrespondences_AccessAnalysisCodeQL();
 	}
 	
-	public static void createAndAddIfCorrespondenceNotExists(ConfidentialitySpecification confidentialitySpec, Configuration config, AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
-		if(!correspondenceExists(confidentialitySpec, config, correspondences)) {
-			correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().add(createConfigurationCorrespondence(confidentialitySpec, config));
+	public static void createAndAddIfCorrespondenceNotExists(FullyImplicitConfiguration accessAnalysisConfig, HybridConfiguration codeQLConfig, Correspondences_AccessAnalysisCodeQL correspondences) {
+		if(!correspondenceExists(accessAnalysisConfig, codeQLConfig, correspondences)) {
+			correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().add(createConfigurationCorrespondence(accessAnalysisConfig, codeQLConfig));
 		}
 	}
 	
-	public static boolean correspondenceExists(ConfidentialitySpecification confidentialitySpec, Configuration config, AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
-		return correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().stream().anyMatch(correspondence -> {return correspondence.getAccessAnalysisConfig().equals(confidentialitySpec) && correspondence.getCodeQLConfig().equals(config);});
+	public static boolean correspondenceExists(FullyImplicitConfiguration accessAnalysisConfig, HybridConfiguration codeQLConfig, Correspondences_AccessAnalysisCodeQL correspondences) {
+		return correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().stream().anyMatch(correspondence -> {return correspondence.getAccessAnalysisConfig().equals(accessAnalysisConfig) && correspondence.getCodeQLConfig().equals(codeQLConfig);});
 	}
 	
-	public static void createAndAddIfCorrespondenceNotExists(Collection<DataSet> dataSets, SecurityLevel level, AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
+	public static void createAndAddIfCorrespondenceNotExists(Collection<DataSet> dataSets, SecurityLevel level, Correspondences_AccessAnalysisCodeQL correspondences) {
 		if(!correspondenceExists(dataSets, level, correspondences)) {
 			correspondences.getDataSetSecurityLevelCorrespondence().add(createDataSetSecurityLevelCorrespondence(dataSets, level));
 		}
 	}
 	
-	public static boolean correspondenceExists(Collection<DataSet> dataSets, SecurityLevel level, AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
+	public static boolean correspondenceExists(Collection<DataSet> dataSets, SecurityLevel level, Correspondences_AccessAnalysisCodeQL correspondences) {
 		return correspondences.getDataSetSecurityLevelCorrespondence().stream().anyMatch(correspondence -> {return correspondence.getDataSets().containsAll(dataSets) && correspondence.getSecurityLevel().equals(level);});
 	}
 	
 
-	public static ConfidentialitySpecification getCorresponding(Configuration configuration, AccessAnalysisCodeQLCorrespondenceRoot correspondences) {
-		return correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().stream().filter(correspondence -> correspondence.getCodeQLConfig().equals(configuration)).findFirst().get().getAccessAnalysisConfig();
+	public static FullyImplicitConfiguration getCorresponding(HybridConfiguration codeQLConfig, Correspondences_AccessAnalysisCodeQL correspondences) {
+		return correspondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().stream().filter(correspondence -> correspondence.getCodeQLConfig().equals(codeQLConfig)).findFirst().get().getAccessAnalysisConfig();
 	}
 }

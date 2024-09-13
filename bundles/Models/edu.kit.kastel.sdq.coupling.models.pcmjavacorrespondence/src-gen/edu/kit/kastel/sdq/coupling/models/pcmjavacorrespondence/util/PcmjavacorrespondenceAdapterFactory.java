@@ -54,7 +54,7 @@ public class PcmjavacorrespondenceAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -65,52 +65,45 @@ public class PcmjavacorrespondenceAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PcmjavacorrespondenceSwitch<Adapter> modelSwitch = new PcmjavacorrespondenceSwitch<Adapter>() {
-		@Override
-		public Adapter casePCMJavaCorrespondenceRoot(PCMJavaCorrespondenceRoot object) {
-			return createPCMJavaCorrespondenceRootAdapter();
-		}
-
-		@Override
-		public Adapter caseBasicComponent2Class(BasicComponent2Class object) {
-			return createBasicComponent2ClassAdapter();
-		}
-
-		@Override
-		public Adapter caseOperationInterface2Interface(OperationInterface2Interface object) {
-			return createOperationInterface2InterfaceAdapter();
-		}
-
-		@Override
-		public Adapter caseCompositeDataType2Class(CompositeDataType2Class object) {
-			return createCompositeDataType2ClassAdapter();
-		}
-
-		@Override
-		public Adapter caseProvidedOperationSignature2JavaMethod(ProvidedOperationSignature2JavaMethod object) {
-			return createProvidedOperationSignature2JavaMethodAdapter();
-		}
-
-		@Override
-		public Adapter caseProvidedSignature(ProvidedSignature object) {
-			return createProvidedSignatureAdapter();
-		}
-
-		@Override
-		public Adapter caseProvidedParameterIdentification(ProvidedParameterIdentification object) {
-			return createProvidedParameterIdentificationAdapter();
-		}
-
-		@Override
-		public Adapter casePCMParameter2JavaParameter(PCMParameter2JavaParameter object) {
-			return createPCMParameter2JavaParameterAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected PcmjavacorrespondenceSwitch<Adapter> modelSwitch =
+		new PcmjavacorrespondenceSwitch<Adapter>() {
+			@Override
+			public Adapter casePCMJavaCorrespondenceRoot(PCMJavaCorrespondenceRoot object) {
+				return createPCMJavaCorrespondenceRootAdapter();
+			}
+			@Override
+			public Adapter caseBasicComponent2Class(BasicComponent2Class object) {
+				return createBasicComponent2ClassAdapter();
+			}
+			@Override
+			public Adapter caseOperationInterface2Interface(OperationInterface2Interface object) {
+				return createOperationInterface2InterfaceAdapter();
+			}
+			@Override
+			public Adapter caseCompositeDataType2Class(CompositeDataType2Class object) {
+				return createCompositeDataType2ClassAdapter();
+			}
+			@Override
+			public Adapter caseProvidedOperationSignature2JavaMethod(ProvidedOperationSignature2JavaMethod object) {
+				return createProvidedOperationSignature2JavaMethodAdapter();
+			}
+			@Override
+			public Adapter caseProvidedSignature(ProvidedSignature object) {
+				return createProvidedSignatureAdapter();
+			}
+			@Override
+			public Adapter caseProvidedParameterIdentification(ProvidedParameterIdentification object) {
+				return createProvidedParameterIdentificationAdapter();
+			}
+			@Override
+			public Adapter casePCMParameter2JavaParameter(PCMParameter2JavaParameter object) {
+				return createPCMParameter2JavaParameterAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -122,8 +115,9 @@ public class PcmjavacorrespondenceAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot <em>PCM Java Correspondence Root</em>}'.

@@ -66,9 +66,9 @@ public class CodeqlscarcorrespondencesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case CodeqlscarcorrespondencesPackage.CODE_QLSCAR_CORRESPONDENCES: {
-			CodeQLSCARCorrespondences codeQLSCARCorrespondences = (CodeQLSCARCorrespondences) theEObject;
-			T result = caseCodeQLSCARCorrespondences(codeQLSCARCorrespondences);
+		case CodeqlscarcorrespondencesPackage.CORRESPONDENCES_CODE_QL_SCAR: {
+			Correspondences_CodeQLScar correspondences_CodeQLScar = (Correspondences_CodeQLScar) theEObject;
+			T result = caseCorrespondences_CodeQLScar(correspondences_CodeQLScar);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -118,17 +118,17 @@ public class CodeqlscarcorrespondencesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Code QLSCAR Correspondences</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Correspondences Code QL Scar</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Code QLSCAR Correspondences</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Correspondences Code QL Scar</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCodeQLSCARCorrespondences(CodeQLSCARCorrespondences object) {
+	public T caseCorrespondences_CodeQLScar(Correspondences_CodeQLScar object) {
 		return null;
 	}
 

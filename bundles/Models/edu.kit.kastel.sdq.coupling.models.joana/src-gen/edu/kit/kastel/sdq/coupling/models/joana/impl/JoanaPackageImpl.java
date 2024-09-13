@@ -520,8 +520,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		initEClass(joanaRootEClass, JOANARoot.class, "JOANARoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJOANARoot_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, -1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(informationFlowAnnotationEClass, InformationFlowAnnotation.class, "InformationFlowAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInformationFlowAnnotation_Level(), this.getLevel(), null, "level", null, 0, 1, InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(informationFlowAnnotationEClass, InformationFlowAnnotation.class, "InformationFlowAnnotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInformationFlowAnnotation_Level(), this.getLevel(), null, "level", null, 1, 1, InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInformationFlowAnnotation_SystemElementIdentification(), this.getSystemElementIdentifying(), null, "systemElementIdentification", null, 1, 1, InformationFlowAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

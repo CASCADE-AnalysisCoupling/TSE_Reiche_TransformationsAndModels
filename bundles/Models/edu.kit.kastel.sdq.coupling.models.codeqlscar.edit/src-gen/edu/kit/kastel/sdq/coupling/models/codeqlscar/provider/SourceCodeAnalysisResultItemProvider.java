@@ -74,7 +74,7 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 					.add(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS);
 			childrenFeatures.add(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SECURITY_LEVELS);
 			childrenFeatures.add(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
-			childrenFeatures.add(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS);
+			childrenFeatures.add(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS);
 		}
 		return childrenFeatures;
 	}
@@ -139,7 +139,7 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS:
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__SECURITY_LEVELS:
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
-		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS:
+		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -159,11 +159,11 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 
 		newChildDescriptors.add(createChildParameter(
 				CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS,
-				CodeqlscarFactory.eINSTANCE.createParameterIdentification()));
+				CodeqlscarFactory.eINSTANCE.createParameter_SCAR()));
 
 		newChildDescriptors.add(createChildParameter(
 				CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS,
-				CodeqlscarFactory.eINSTANCE.createFieldIdentification()));
+				CodeqlscarFactory.eINSTANCE.createField_SCAR()));
 
 		newChildDescriptors
 				.add(createChildParameter(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SECURITY_LEVELS,
@@ -171,11 +171,10 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 
 		newChildDescriptors
 				.add(createChildParameter(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES,
-						CodeqlscarFactory.eINSTANCE.createResultEntry()));
+						CodeqlscarFactory.eINSTANCE.createResult()));
 
-		newChildDescriptors
-				.add(createChildParameter(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS,
-						CodeqlscarFactory.eINSTANCE.createConfigurationID_SCAR()));
+		newChildDescriptors.add(createChildParameter(CodeqlscarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS,
+				CodeqlscarFactory.eINSTANCE.createRuleId()));
 	}
 
 	/**

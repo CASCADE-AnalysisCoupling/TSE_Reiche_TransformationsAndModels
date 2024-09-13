@@ -74,27 +74,27 @@ public class AccessanalysiscodeqlcorrespondenceItemProviderAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AccessAnalysisCodeQLCorrespondenceRootItemProvider accessAnalysisCodeQLCorrespondenceRootItemProvider;
+	protected Correspondences_AccessAnalysisCodeQLItemProvider correspondences_AccessAnalysisCodeQLItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAccessAnalysisCodeQLCorrespondenceRootAdapter() {
-		if (accessAnalysisCodeQLCorrespondenceRootItemProvider == null) {
-			accessAnalysisCodeQLCorrespondenceRootItemProvider = new AccessAnalysisCodeQLCorrespondenceRootItemProvider(
+	public Adapter createCorrespondences_AccessAnalysisCodeQLAdapter() {
+		if (correspondences_AccessAnalysisCodeQLItemProvider == null) {
+			correspondences_AccessAnalysisCodeQLItemProvider = new Correspondences_AccessAnalysisCodeQLItemProvider(
 					this);
 		}
 
-		return accessAnalysisCodeQLCorrespondenceRootItemProvider;
+		return correspondences_AccessAnalysisCodeQLItemProvider;
 	}
 
 	/**
@@ -242,8 +242,8 @@ public class AccessanalysiscodeqlcorrespondenceItemProviderAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (accessAnalysisCodeQLCorrespondenceRootItemProvider != null)
-			accessAnalysisCodeQLCorrespondenceRootItemProvider.dispose();
+		if (correspondences_AccessAnalysisCodeQLItemProvider != null)
+			correspondences_AccessAnalysisCodeQLItemProvider.dispose();
 		if (configurationCorrespondenceItemProvider != null)
 			configurationCorrespondenceItemProvider.dispose();
 		if (dataSetSecurityLevelCorrespondenceItemProvider != null)

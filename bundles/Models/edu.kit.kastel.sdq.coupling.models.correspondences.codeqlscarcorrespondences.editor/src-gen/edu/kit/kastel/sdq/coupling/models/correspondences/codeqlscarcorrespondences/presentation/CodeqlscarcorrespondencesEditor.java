@@ -155,6 +155,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.provider.CodeqlscarcorrespondencesItemProviderAdapterFactory;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationItemProviderAdapterFactory;
+
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlItemProviderAdapterFactory;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.provider.TainttrackingItemProviderAdapterFactory;
@@ -694,6 +696,7 @@ public class CodeqlscarcorrespondencesEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new CodeqlItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TainttrackingItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CodeqlscarItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConfigurationrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JavaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());

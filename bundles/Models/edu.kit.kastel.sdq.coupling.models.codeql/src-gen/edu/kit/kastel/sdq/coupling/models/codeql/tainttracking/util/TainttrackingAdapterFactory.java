@@ -72,14 +72,6 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	protected TainttrackingSwitch<Adapter> modelSwitch =
 		new TainttrackingSwitch<Adapter>() {
 			@Override
-			public Adapter caseNode(Node object) {
-				return createNodeAdapter();
-			}
-			@Override
-			public Adapter caseParameterNode(ParameterNode object) {
-				return createParameterNodeAdapter();
-			}
-			@Override
 			public Adapter caseSecurityLevel(SecurityLevel object) {
 				return createSecurityLevelAdapter();
 			}
@@ -88,8 +80,8 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 				return createTainttrackingRootAdapter();
 			}
 			@Override
-			public Adapter caseConfiguration(Configuration object) {
-				return createConfigurationAdapter();
+			public Adapter caseQuery(Query object) {
+				return createQueryAdapter();
 			}
 			@Override
 			public Adapter caseSecurityLevelAnnotation(SecurityLevelAnnotation object) {
@@ -106,6 +98,10 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAllowedFlow(AllowedFlow object) {
 				return createAllowedFlowAdapter();
+			}
+			@Override
+			public Adapter caseAllowedFlows(AllowedFlows object) {
+				return createAllowedFlowsAdapter();
 			}
 			@Override
 			public Adapter caseIdentifiedElement(IdentifiedElement object) {
@@ -140,34 +136,6 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node <em>Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node
-	 * @generated
-	 */
-	public Adapter createNodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode <em>Parameter Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode
-	 * @generated
-	 */
-	public Adapter createParameterNodeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel <em>Security Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -196,16 +164,16 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration <em>Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query
 	 * @generated
 	 */
-	public Adapter createConfigurationAdapter() {
+	public Adapter createQueryAdapter() {
 		return null;
 	}
 
@@ -262,6 +230,20 @@ public class TainttrackingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAllowedFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows <em>Allowed Flows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows
+	 * @generated
+	 */
+	public Adapter createAllowedFlowsAdapter() {
 		return null;
 	}
 

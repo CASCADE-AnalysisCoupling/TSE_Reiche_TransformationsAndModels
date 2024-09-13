@@ -23,13 +23,13 @@ public interface CodeqlscarcorrespondencesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Code QLSCAR Correspondences</em>'.
+	 * Returns a new object of class '<em>Correspondences Code QL Scar</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Code QLSCAR Correspondences</em>'.
+	 * @return a new object of class '<em>Correspondences Code QL Scar</em>'.
 	 * @generated
 	 */
-	CodeQLSCARCorrespondences createCodeQLSCARCorrespondences();
+	Correspondences_CodeQLScar createCorrespondences_CodeQLScar();
 
 	/**
 	 * Returns a new object of class '<em>Configuration Correspondence</em>'.

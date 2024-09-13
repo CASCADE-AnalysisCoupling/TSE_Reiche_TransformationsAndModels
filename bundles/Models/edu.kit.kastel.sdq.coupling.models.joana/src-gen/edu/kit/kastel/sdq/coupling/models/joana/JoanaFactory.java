@@ -31,15 +31,6 @@ public interface JoanaFactory extends EFactory {
 	JOANARoot createJOANARoot();
 
 	/**
-	 * Returns a new object of class '<em>Information Flow Annotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Information Flow Annotation</em>'.
-	 * @generated
-	 */
-	InformationFlowAnnotation createInformationFlowAnnotation();
-
-	/**
 	 * Returns a new object of class '<em>Entry Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

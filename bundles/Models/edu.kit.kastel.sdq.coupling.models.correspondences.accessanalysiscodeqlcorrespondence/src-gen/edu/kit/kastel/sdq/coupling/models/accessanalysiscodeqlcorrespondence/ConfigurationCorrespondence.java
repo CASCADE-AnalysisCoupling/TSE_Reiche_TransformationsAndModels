@@ -2,9 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,12 +30,12 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Code QL Config</em>' reference.
-	 * @see #setCodeQLConfig(Configuration)
+	 * @see #setCodeQLConfig(HybridConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondencePackage#getConfigurationCorrespondence_CodeQLConfig()
 	 * @model required="true"
 	 * @generated
 	 */
-	Configuration getCodeQLConfig();
+	HybridConfiguration getCodeQLConfig();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence#getCodeQLConfig <em>Code QL Config</em>}' reference.
@@ -46,19 +45,19 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * @see #getCodeQLConfig()
 	 * @generated
 	 */
-	void setCodeQLConfig(Configuration value);
+	void setCodeQLConfig(HybridConfiguration value);
 
 	/**
 	 * Returns the value of the '<em><b>Access Analysis Config</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Access Analysis Config</em>' reference.
-	 * @see #setAccessAnalysisConfig(ConfidentialitySpecification)
+	 * @see #setAccessAnalysisConfig(FullyImplicitConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondencePackage#getConfigurationCorrespondence_AccessAnalysisConfig()
 	 * @model required="true"
 	 * @generated
 	 */
-	ConfidentialitySpecification getAccessAnalysisConfig();
+	FullyImplicitConfiguration getAccessAnalysisConfig();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence#getAccessAnalysisConfig <em>Access Analysis Config</em>}' reference.
@@ -68,6 +67,6 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * @see #getAccessAnalysisConfig()
 	 * @generated
 	 */
-	void setAccessAnalysisConfig(ConfidentialitySpecification value);
+	void setAccessAnalysisConfig(FullyImplicitConfiguration value);
 
 } // ConfigurationCorrespondence

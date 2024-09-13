@@ -56,8 +56,8 @@ public class CodeqlscarcorrespondencesFactoryImpl extends EFactoryImpl implement
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CodeqlscarcorrespondencesPackage.CODE_QLSCAR_CORRESPONDENCES:
-			return createCodeQLSCARCorrespondences();
+		case CodeqlscarcorrespondencesPackage.CORRESPONDENCES_CODE_QL_SCAR:
+			return createCorrespondences_CodeQLScar();
 		case CodeqlscarcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE:
 			return createConfigurationCorrespondence();
 		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE:
@@ -76,9 +76,9 @@ public class CodeqlscarcorrespondencesFactoryImpl extends EFactoryImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CodeQLSCARCorrespondences createCodeQLSCARCorrespondences() {
-		CodeQLSCARCorrespondencesImpl codeQLSCARCorrespondences = new CodeQLSCARCorrespondencesImpl();
-		return codeQLSCARCorrespondences;
+	public Correspondences_CodeQLScar createCorrespondences_CodeQLScar() {
+		Correspondences_CodeQLScarImpl correspondences_CodeQLScar = new Correspondences_CodeQLScarImpl();
+		return correspondences_CodeQLScar;
 	}
 
 	/**

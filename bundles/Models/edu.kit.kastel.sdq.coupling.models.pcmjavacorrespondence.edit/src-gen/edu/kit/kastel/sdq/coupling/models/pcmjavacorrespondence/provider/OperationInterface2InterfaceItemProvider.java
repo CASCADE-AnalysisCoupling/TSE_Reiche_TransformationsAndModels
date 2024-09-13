@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
 
 import java.util.Collection;
@@ -27,8 +28,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationInterface2InterfaceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class OperationInterface2InterfaceItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,13 +70,19 @@ public class OperationInterface2InterfaceItemProvider extends ItemProviderAdapte
 	 * @generated
 	 */
 	protected void addPcmInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_OperationInterface2Interface_pcmInterface_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_OperationInterface2Interface_pcmInterface_feature",
-						"_UI_OperationInterface2Interface_type"),
-				PcmjavacorrespondencePackage.Literals.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OperationInterface2Interface_pcmInterface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInterface2Interface_pcmInterface_feature", "_UI_OperationInterface2Interface_type"),
+				 PcmjavacorrespondencePackage.Literals.OPERATION_INTERFACE2_INTERFACE__PCM_INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -79,14 +92,19 @@ public class OperationInterface2InterfaceItemProvider extends ItemProviderAdapte
 	 * @generated
 	 */
 	protected void addJavaInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_OperationInterface2Interface_javaInterface_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_OperationInterface2Interface_javaInterface_feature",
-								"_UI_OperationInterface2Interface_type"),
-						PcmjavacorrespondencePackage.Literals.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE, true,
-						false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OperationInterface2Interface_javaInterface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInterface2Interface_javaInterface_feature", "_UI_OperationInterface2Interface_type"),
+				 PcmjavacorrespondencePackage.Literals.OPERATION_INTERFACE2_INTERFACE__JAVA_INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -101,16 +119,6 @@ public class OperationInterface2InterfaceItemProvider extends ItemProviderAdapte
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,6 +128,7 @@ public class OperationInterface2InterfaceItemProvider extends ItemProviderAdapte
 	public String getText(Object object) {
 		return getString("_UI_OperationInterface2Interface_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

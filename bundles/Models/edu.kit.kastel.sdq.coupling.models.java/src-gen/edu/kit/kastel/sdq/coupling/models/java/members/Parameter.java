@@ -16,5 +16,5 @@ import edu.kit.kastel.sdq.coupling.models.java.types.TypedElement;
  * @model
  * @generated
  */
-public interface Parameter extends Entity, TypedElement {
+public interface Parameter extends Entity, TypedElement, Annotatable {
 } // Parameter

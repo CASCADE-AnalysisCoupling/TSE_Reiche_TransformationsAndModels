@@ -50,44 +50,44 @@ public class SecurityLevelCorrespondenceItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCodeQLSecurityLevelPropertyDescriptor(object);
-			addCodeQLSCARSecurityLevelPropertyDescriptor(object);
+			addSecurityLevel_CodeQLPropertyDescriptor(object);
+			addSecurityLevel_SCARPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Code QL Security Level feature.
+	 * This adds a property descriptor for the Security Level Code QL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodeQLSecurityLevelPropertyDescriptor(Object object) {
+	protected void addSecurityLevel_CodeQLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_SecurityLevelCorrespondence_codeQLSecurityLevel_feature"),
+						getResourceLocator(), getString("_UI_SecurityLevelCorrespondence_securityLevel_CodeQL_feature"),
 						getString("_UI_PropertyDescriptor_description",
-								"_UI_SecurityLevelCorrespondence_codeQLSecurityLevel_feature",
+								"_UI_SecurityLevelCorrespondence_securityLevel_CodeQL_feature",
 								"_UI_SecurityLevelCorrespondence_type"),
-						CodeqlscarcorrespondencesPackage.Literals.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL,
+						CodeqlscarcorrespondencesPackage.Literals.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL,
 						true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Code QLSCAR Security Level feature.
+	 * This adds a property descriptor for the Security Level SCAR feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodeQLSCARSecurityLevelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SecurityLevelCorrespondence_codeQLSCARSecurityLevel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_SecurityLevelCorrespondence_codeQLSCARSecurityLevel_feature",
-						"_UI_SecurityLevelCorrespondence_type"),
-				CodeqlscarcorrespondencesPackage.Literals.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL,
-				true, false, true, null, null, null));
+	protected void addSecurityLevel_SCARPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SecurityLevelCorrespondence_securityLevel_SCAR_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_SecurityLevelCorrespondence_securityLevel_SCAR_feature",
+								"_UI_SecurityLevelCorrespondence_type"),
+						CodeqlscarcorrespondencesPackage.Literals.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR,
+						true, false, true, null, null, null));
 	}
 
 	/**

@@ -57,10 +57,10 @@ public class JoanaresultingvaluescorrespondencesFactoryImpl extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case JoanaresultingvaluescorrespondencesPackage.CORRESPONDENCES_JOANA_RESULTING_VALUES:
-			return createCorrespondences_JOANAResultingValues();
-		case JoanaresultingvaluescorrespondencesPackage.LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES:
-			return createLevelCorrespondence_JOANAResultingValues();
+		case JoanaresultingvaluescorrespondencesPackage.CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES:
+			return createCorrespondences_ResolvedImplementationValues();
+		case JoanaresultingvaluescorrespondencesPackage.LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES:
+			return createLevelCorrespondence_ResolvedImplementationValues();
 		case JoanaresultingvaluescorrespondencesPackage.ENTRY_POINT_CORRESPONDENCE_JOANA_RESULTING_VALUES:
 			return createEntryPointCorrespondence_JOANAResultingValues();
 		case JoanaresultingvaluescorrespondencesPackage.PARAMETER_CORRESPONDENCE_JOANA_RESULTING_VALUES:
@@ -75,9 +75,9 @@ public class JoanaresultingvaluescorrespondencesFactoryImpl extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Correspondences_JOANAResultingValues createCorrespondences_JOANAResultingValues() {
-		Correspondences_JOANAResultingValuesImpl correspondences_JOANAResultingValues = new Correspondences_JOANAResultingValuesImpl();
-		return correspondences_JOANAResultingValues;
+	public Correspondences_ResolvedImplementationValues createCorrespondences_ResolvedImplementationValues() {
+		Correspondences_ResolvedImplementationValuesImpl correspondences_ResolvedImplementationValues = new Correspondences_ResolvedImplementationValuesImpl();
+		return correspondences_ResolvedImplementationValues;
 	}
 
 	/**
@@ -85,9 +85,9 @@ public class JoanaresultingvaluescorrespondencesFactoryImpl extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LevelCorrespondence_JOANAResultingValues createLevelCorrespondence_JOANAResultingValues() {
-		LevelCorrespondence_JOANAResultingValuesImpl levelCorrespondence_JOANAResultingValues = new LevelCorrespondence_JOANAResultingValuesImpl();
-		return levelCorrespondence_JOANAResultingValues;
+	public LevelCorrespondence_ResolvedImplementationValues createLevelCorrespondence_ResolvedImplementationValues() {
+		LevelCorrespondence_ResolvedImplementationValuesImpl levelCorrespondence_ResolvedImplementationValues = new LevelCorrespondence_ResolvedImplementationValuesImpl();
+		return levelCorrespondence_ResolvedImplementationValues;
 	}
 
 	/**

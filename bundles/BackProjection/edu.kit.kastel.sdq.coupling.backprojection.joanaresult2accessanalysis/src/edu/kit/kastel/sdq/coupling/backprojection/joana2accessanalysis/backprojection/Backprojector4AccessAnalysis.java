@@ -11,8 +11,8 @@ import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.CollectionUtil;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
 
 public class Backprojector4AccessAnalysis extends Backprojector {
 
@@ -22,14 +22,14 @@ public class Backprojector4AccessAnalysis extends Backprojector {
 
 	@Override
 	protected void projectIntoParameterAndDataPair(ParametersAndDataPair parametersAndDataPair,
-			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment) {
+			Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment) {
 		
 		Collection<DataSet> originalDataSets = parametersAndDataPair.getDataTargets().stream()
 				.filter(DataSet.class::isInstance).map(DataSet.class::cast).collect(Collectors.toSet());
 		
 		boolean notCleared = true;
 
-		for (ResultingValue entry : assignment.getValue()) {
+		for (ResolvedImplementationValue entry : assignment.getValue()) {
 
 			Collection<DataSet> dataSets = correspondenceResolver.resolveDataSets(entry.getLevel(), entry.getConfiguration());
 			if (isSecurityLevelValidWRTAccessAnalysis(originalDataSets, dataSets)) {

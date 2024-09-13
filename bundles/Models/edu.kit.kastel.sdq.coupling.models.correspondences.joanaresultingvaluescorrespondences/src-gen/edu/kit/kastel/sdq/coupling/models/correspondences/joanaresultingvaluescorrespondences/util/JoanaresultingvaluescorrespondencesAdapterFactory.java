@@ -67,13 +67,15 @@ public class JoanaresultingvaluescorrespondencesAdapterFactory extends AdapterFa
 	 */
 	protected JoanaresultingvaluescorrespondencesSwitch<Adapter> modelSwitch = new JoanaresultingvaluescorrespondencesSwitch<Adapter>() {
 		@Override
-		public Adapter caseCorrespondences_JOANAResultingValues(Correspondences_JOANAResultingValues object) {
-			return createCorrespondences_JOANAResultingValuesAdapter();
+		public Adapter caseCorrespondences_ResolvedImplementationValues(
+				Correspondences_ResolvedImplementationValues object) {
+			return createCorrespondences_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseLevelCorrespondence_JOANAResultingValues(LevelCorrespondence_JOANAResultingValues object) {
-			return createLevelCorrespondence_JOANAResultingValuesAdapter();
+		public Adapter caseLevelCorrespondence_ResolvedImplementationValues(
+				LevelCorrespondence_ResolvedImplementationValues object) {
+			return createLevelCorrespondence_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
@@ -108,30 +110,30 @@ public class JoanaresultingvaluescorrespondencesAdapterFactory extends AdapterFa
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues <em>Correspondences JOANA Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues <em>Correspondences Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createCorrespondences_JOANAResultingValuesAdapter() {
+	public Adapter createCorrespondences_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues <em>Level Correspondence JOANA Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues <em>Level Correspondence Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_JOANAResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.LevelCorrespondence_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createLevelCorrespondence_JOANAResultingValuesAdapter() {
+	public Adapter createLevelCorrespondence_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 

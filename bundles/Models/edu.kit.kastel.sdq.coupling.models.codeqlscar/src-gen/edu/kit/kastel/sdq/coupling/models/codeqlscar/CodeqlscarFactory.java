@@ -31,13 +31,13 @@ public interface CodeqlscarFactory extends EFactory {
 	SourceCodeAnalysisResult createSourceCodeAnalysisResult();
 
 	/**
-	 * Returns a new object of class '<em>Result Entry</em>'.
+	 * Returns a new object of class '<em>Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Result Entry</em>'.
+	 * @return a new object of class '<em>Result</em>'.
 	 * @generated
 	 */
-	ResultEntry createResultEntry();
+	Result createResult();
 
 	/**
 	 * Returns a new object of class '<em>Result Entry Element</em>'.
@@ -46,34 +46,34 @@ public interface CodeqlscarFactory extends EFactory {
 	 * @return a new object of class '<em>Result Entry Element</em>'.
 	 * @generated
 	 */
-	<T extends SystemElementIdentification> ResultEntryElement<T> createResultEntryElement();
+	<T extends SystemElement> ResultEntryElement<T> createResultEntryElement();
 
 	/**
-	 * Returns a new object of class '<em>Configuration ID SCAR</em>'.
+	 * Returns a new object of class '<em>Rule Id</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration ID SCAR</em>'.
+	 * @return a new object of class '<em>Rule Id</em>'.
 	 * @generated
 	 */
-	ConfigurationID_SCAR createConfigurationID_SCAR();
+	RuleId createRuleId();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Identification</em>'.
+	 * Returns a new object of class '<em>Parameter SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Identification</em>'.
+	 * @return a new object of class '<em>Parameter SCAR</em>'.
 	 * @generated
 	 */
-	ParameterIdentification createParameterIdentification();
+	Parameter_SCAR createParameter_SCAR();
 
 	/**
-	 * Returns a new object of class '<em>Field Identification</em>'.
+	 * Returns a new object of class '<em>Field SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field Identification</em>'.
+	 * @return a new object of class '<em>Field SCAR</em>'.
 	 * @generated
 	 */
-	FieldIdentification createFieldIdentification();
+	Field_SCAR createField_SCAR();
 
 	/**
 	 * Returns a new object of class '<em>Security Level SCAR</em>'.

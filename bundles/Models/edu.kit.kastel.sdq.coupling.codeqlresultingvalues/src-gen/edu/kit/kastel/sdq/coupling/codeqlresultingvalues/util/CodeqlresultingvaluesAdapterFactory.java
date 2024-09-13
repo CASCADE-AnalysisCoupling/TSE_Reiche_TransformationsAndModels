@@ -71,29 +71,29 @@ public class CodeqlresultingvaluesAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected CodeqlresultingvaluesSwitch<Adapter> modelSwitch = new CodeqlresultingvaluesSwitch<Adapter>() {
 		@Override
-		public Adapter caseCodeQLResultingValues(CodeQLResultingValues object) {
-			return createCodeQLResultingValuesAdapter();
+		public Adapter caseResolvedImplementationValues(ResolvedImplementationValues object) {
+			return createResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseParameterIdentificiation_CodeQLResultingValues(
-				ParameterIdentificiation_CodeQLResultingValues object) {
-			return createParameterIdentificiation_CodeQLResultingValuesAdapter();
+		public Adapter caseParameter_ResolvedImplementationValues(Parameter_ResolvedImplementationValues object) {
+			return createParameter_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseResultingValue(ResultingValue object) {
-			return createResultingValueAdapter();
+		public Adapter caseResolvedImplementationValue(ResolvedImplementationValue object) {
+			return createResolvedImplementationValueAdapter();
 		}
 
 		@Override
-		public Adapter caseSecurityLevel_ResultingValues(SecurityLevel_ResultingValues object) {
-			return createSecurityLevel_ResultingValuesAdapter();
+		public Adapter caseSecurityLevel_ResolvedImplementationValues(
+				SecurityLevel_ResolvedImplementationValues object) {
+			return createSecurityLevel_ResolvedImplementationValuesAdapter();
 		}
 
 		@Override
-		public Adapter caseConfigurationID_ResultingValues(ConfigurationID_ResultingValues object) {
-			return createConfigurationID_ResultingValuesAdapter();
+		public Adapter caseRuleId_ResolvedImplementationValue(RuleId_ResolvedImplementationValue object) {
+			return createRuleId_ResolvedImplementationValueAdapter();
 		}
 
 		@Override
@@ -131,72 +131,72 @@ public class CodeqlresultingvaluesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues <em>Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues <em>Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createCodeQLResultingValuesAdapter() {
+	public Adapter createResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues <em>Parameter Identificiation Code QL Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues <em>Parameter Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createParameterIdentificiation_CodeQLResultingValuesAdapter() {
+	public Adapter createParameter_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue <em>Resulting Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue <em>Resolved Implementation Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue
+	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue
 	 * @generated
 	 */
-	public Adapter createResultingValueAdapter() {
+	public Adapter createResolvedImplementationValueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues <em>Security Level Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues <em>Security Level Resolved Implementation Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues
 	 * @generated
 	 */
-	public Adapter createSecurityLevel_ResultingValuesAdapter() {
+	public Adapter createSecurityLevel_ResolvedImplementationValuesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues <em>Configuration ID Resulting Values</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue <em>Rule Id Resolved Implementation Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues
+	 * @see edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue
 	 * @generated
 	 */
-	public Adapter createConfigurationID_ResultingValuesAdapter() {
+	public Adapter createRuleId_ResolvedImplementationValueAdapter() {
 		return null;
 	}
 

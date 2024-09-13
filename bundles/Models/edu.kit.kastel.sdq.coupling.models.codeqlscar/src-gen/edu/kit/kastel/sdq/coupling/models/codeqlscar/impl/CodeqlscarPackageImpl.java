@@ -4,14 +4,14 @@ package edu.kit.kastel.sdq.coupling.models.codeqlscar.impl;
 
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarFactory;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.CodeqlscarPackage;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Result;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntryElement;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SecurityLevel_SCAR;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement;
 
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
@@ -43,7 +43,7 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultEntryEClass = null;
+	private EClass resultEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,28 +57,28 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass configurationID_SCAREClass = null;
+	private EClass ruleIdEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass systemElementIdentificationEClass = null;
+	private EClass systemElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterIdentificationEClass = null;
+	private EClass parameter_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass fieldIdentificationEClass = null;
+	private EClass field_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,7 +195,7 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSourceCodeAnalysisResult_Configurations() {
+	public EReference getSourceCodeAnalysisResult_RuleIds() {
 		return (EReference) sourceCodeAnalysisResultEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -204,8 +204,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResultEntry() {
-		return resultEntryEClass;
+	public EClass getResult() {
+		return resultEClass;
 	}
 
 	/**
@@ -213,8 +213,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_Source() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(0);
+	public EReference getResult_Source() {
+		return (EReference) resultEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -222,8 +222,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_Sink() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(1);
+	public EReference getResult_Sink() {
+		return (EReference) resultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -231,8 +231,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_Config() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(2);
+	public EReference getResult_RuleId() {
+		return (EReference) resultEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -267,8 +267,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConfigurationID_SCAR() {
-		return configurationID_SCAREClass;
+	public EClass getRuleId() {
+		return ruleIdEClass;
 	}
 
 	/**
@@ -276,8 +276,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigurationID_SCAR_Id() {
-		return (EAttribute) configurationID_SCAREClass.getEStructuralFeatures().get(0);
+	public EAttribute getRuleId_Id() {
+		return (EAttribute) ruleIdEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -285,8 +285,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSystemElementIdentification() {
-		return systemElementIdentificationEClass;
+	public EClass getSystemElement() {
+		return systemElementEClass;
 	}
 
 	/**
@@ -294,8 +294,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterIdentification() {
-		return parameterIdentificationEClass;
+	public EClass getParameter_SCAR() {
+		return parameter_SCAREClass;
 	}
 
 	/**
@@ -303,8 +303,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_ParameterName() {
-		return (EAttribute) parameterIdentificationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameter_SCAR_ParameterName() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -312,8 +312,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_ParameterType() {
-		return (EAttribute) parameterIdentificationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_SCAR_ParameterType() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -321,8 +321,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_MethodName() {
-		return (EAttribute) parameterIdentificationEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParameter_SCAR_MethodName() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -330,8 +330,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_FullyQualifiedClassName() {
-		return (EAttribute) parameterIdentificationEClass.getEStructuralFeatures().get(3);
+	public EAttribute getParameter_SCAR_FullyQualifiedClassName() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -339,8 +339,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFieldIdentification() {
-		return fieldIdentificationEClass;
+	public EClass getField_SCAR() {
+		return field_SCAREClass;
 	}
 
 	/**
@@ -348,8 +348,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFieldIdentification_FieldName() {
-		return (EAttribute) fieldIdentificationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getField_SCAR_FieldName() {
+		return (EAttribute) field_SCAREClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -357,8 +357,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFieldIdentification_Type() {
-		return (EAttribute) fieldIdentificationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getField_SCAR_Type() {
+		return (EAttribute) field_SCAREClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -366,8 +366,8 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFieldIdentification_FullyQualifiedClassName() {
-		return (EAttribute) fieldIdentificationEClass.getEStructuralFeatures().get(2);
+	public EAttribute getField_SCAR_FullyQualifiedClassName() {
+		return (EAttribute) field_SCAREClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -412,32 +412,32 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENT_IDENTIFICATIONS);
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__SECURITY_LEVELS);
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
-		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__CONFIGURATIONS);
+		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__RULE_IDS);
 
-		resultEntryEClass = createEClass(RESULT_ENTRY);
-		createEReference(resultEntryEClass, RESULT_ENTRY__SOURCE);
-		createEReference(resultEntryEClass, RESULT_ENTRY__SINK);
-		createEReference(resultEntryEClass, RESULT_ENTRY__CONFIG);
+		resultEClass = createEClass(RESULT);
+		createEReference(resultEClass, RESULT__SOURCE);
+		createEReference(resultEClass, RESULT__SINK);
+		createEReference(resultEClass, RESULT__RULE_ID);
 
 		resultEntryElementEClass = createEClass(RESULT_ENTRY_ELEMENT);
 		createEReference(resultEntryElementEClass, RESULT_ENTRY_ELEMENT__SYSTEM_ELEMENT);
 		createEReference(resultEntryElementEClass, RESULT_ENTRY_ELEMENT__SECURITY_LEVEL);
 
-		configurationID_SCAREClass = createEClass(CONFIGURATION_ID_SCAR);
-		createEAttribute(configurationID_SCAREClass, CONFIGURATION_ID_SCAR__ID);
+		ruleIdEClass = createEClass(RULE_ID);
+		createEAttribute(ruleIdEClass, RULE_ID__ID);
 
-		systemElementIdentificationEClass = createEClass(SYSTEM_ELEMENT_IDENTIFICATION);
+		systemElementEClass = createEClass(SYSTEM_ELEMENT);
 
-		parameterIdentificationEClass = createEClass(PARAMETER_IDENTIFICATION);
-		createEAttribute(parameterIdentificationEClass, PARAMETER_IDENTIFICATION__PARAMETER_NAME);
-		createEAttribute(parameterIdentificationEClass, PARAMETER_IDENTIFICATION__PARAMETER_TYPE);
-		createEAttribute(parameterIdentificationEClass, PARAMETER_IDENTIFICATION__METHOD_NAME);
-		createEAttribute(parameterIdentificationEClass, PARAMETER_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME);
+		parameter_SCAREClass = createEClass(PARAMETER_SCAR);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__PARAMETER_NAME);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__PARAMETER_TYPE);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__METHOD_NAME);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME);
 
-		fieldIdentificationEClass = createEClass(FIELD_IDENTIFICATION);
-		createEAttribute(fieldIdentificationEClass, FIELD_IDENTIFICATION__FIELD_NAME);
-		createEAttribute(fieldIdentificationEClass, FIELD_IDENTIFICATION__TYPE);
-		createEAttribute(fieldIdentificationEClass, FIELD_IDENTIFICATION__FULLY_QUALIFIED_CLASS_NAME);
+		field_SCAREClass = createEClass(FIELD_SCAR);
+		createEAttribute(field_SCAREClass, FIELD_SCAR__FIELD_NAME);
+		createEAttribute(field_SCAREClass, FIELD_SCAR__TYPE);
+		createEAttribute(field_SCAREClass, FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME);
 
 		securityLevel_SCAREClass = createEClass(SECURITY_LEVEL_SCAR);
 	}
@@ -474,48 +474,45 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 		ETypeParameter resultEntryElementEClass_T = addETypeParameter(resultEntryElementEClass, "T");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getSystemElementIdentification());
+		EGenericType g1 = createEGenericType(this.getSystemElement());
 		resultEntryElementEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		parameterIdentificationEClass.getESuperTypes().add(this.getSystemElementIdentification());
-		fieldIdentificationEClass.getESuperTypes().add(this.getSystemElementIdentification());
+		parameter_SCAREClass.getESuperTypes().add(this.getSystemElement());
+		field_SCAREClass.getESuperTypes().add(this.getSystemElement());
 		securityLevel_SCAREClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sourceCodeAnalysisResultEClass, SourceCodeAnalysisResult.class, "SourceCodeAnalysisResult",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSourceCodeAnalysisResult_SystemElementIdentifications(),
-				this.getSystemElementIdentification(), null, "systemElementIdentifications", null, 0, -1,
-				SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceCodeAnalysisResult_SystemElementIdentifications(), this.getSystemElement(), null,
+				"systemElementIdentifications", null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getSourceCodeAnalysisResult_SecurityLevels(), this.getSecurityLevel_SCAR(), null,
 				"securityLevels", null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourceCodeAnalysisResult_ResultEntries(), this.getResultEntry(), null, "resultEntries", null,
-				0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getSourceCodeAnalysisResult_ResultEntries(), this.getResult(), null, "resultEntries", null, 0,
+				-1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourceCodeAnalysisResult_Configurations(), this.getConfigurationID_SCAR(), null,
-				"configurations", null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceCodeAnalysisResult_RuleIds(), this.getRuleId(), null, "ruleIds", null, 0, -1,
+				SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resultEntryEClass, ResultEntry.class, "ResultEntry", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getResultEntryElement());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getResultEntry_Source(), g1, null, "source", null, 1, 1, ResultEntry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getResult_Source(), g1, null, "source", null, 1, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getResultEntryElement());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getResultEntry_Sink(), g1, null, "sink", null, 1, 1, ResultEntry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getResult_Sink(), g1, null, "sink", null, 1, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResult_RuleId(), this.getRuleId(), null, "ruleId", null, 1, 1, Result.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getResultEntry_Config(), this.getConfigurationID_SCAR(), null, "config", null, 1, 1,
-				ResultEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultEntryElementEClass, ResultEntryElement.class, "ResultEntryElement", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -527,41 +524,37 @@ public class CodeqlscarPackageImpl extends EPackageImpl implements CodeqlscarPac
 				1, 1, ResultEntryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(configurationID_SCAREClass, ConfigurationID_SCAR.class, "ConfigurationID_SCAR", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfigurationID_SCAR_Id(), ecorePackage.getEString(), "id", null, 1, 1,
-				ConfigurationID_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ruleIdEClass, RuleId.class, "RuleId", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRuleId_Id(), ecorePackage.getEString(), "id", null, 1, 1, RuleId.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(systemElementIdentificationEClass, SystemElementIdentification.class, "SystemElementIdentification",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(systemElementEClass, SystemElement.class, "SystemElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(parameterIdentificationEClass, ParameterIdentification.class, "ParameterIdentification",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterIdentification_ParameterName(), ecorePackage.getEString(), "parameterName", null, 1,
-				1, ParameterIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_ParameterType(), ecorePackage.getEString(), "parameterType", null, 1,
-				1, ParameterIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_MethodName(), ecorePackage.getEString(), "methodName", null, 1, 1,
-				ParameterIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_FullyQualifiedClassName(), ecorePackage.getEString(),
-				"fullyQualifiedClassName", null, 1, 1, ParameterIdentification.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameter_SCAREClass, Parameter_SCAR.class, "Parameter_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_SCAR_ParameterName(), ecorePackage.getEString(), "parameterName", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_ParameterType(), ecorePackage.getEString(), "parameterType", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_MethodName(), ecorePackage.getEString(), "methodName", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_FullyQualifiedClassName(), ecorePackage.getEString(),
+				"fullyQualifiedClassName", null, 1, 1, Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(fieldIdentificationEClass, FieldIdentification.class, "FieldIdentification", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFieldIdentification_FieldName(), ecorePackage.getEString(), "fieldName", null, 1, 1,
-				FieldIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEClass(field_SCAREClass, Field_SCAR.class, "Field_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getField_SCAR_FieldName(), ecorePackage.getEString(), "fieldName", null, 1, 1, Field_SCAR.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_SCAR_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field_SCAR.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_SCAR_FullyQualifiedClassName(), ecorePackage.getEString(), "fullyQualifiedClassName",
+				null, 1, 1, Field_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldIdentification_Type(), ecorePackage.getEString(), "type", null, 1, 1,
-				FieldIdentification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldIdentification_FullyQualifiedClassName(), ecorePackage.getEString(),
-				"fullyQualifiedClassName", null, 1, 1, FieldIdentification.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityLevel_SCAREClass, SecurityLevel_SCAR.class, "SecurityLevel_SCAR", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

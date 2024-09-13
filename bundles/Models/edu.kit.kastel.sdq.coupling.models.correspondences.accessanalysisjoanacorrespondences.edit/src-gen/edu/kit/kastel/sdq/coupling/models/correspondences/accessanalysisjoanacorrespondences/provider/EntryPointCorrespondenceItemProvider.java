@@ -65,9 +65,9 @@ public class EntryPointCorrespondenceItemProvider extends ItemProviderAdapter im
 	protected void addAccessAnalysisConfigPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_EntryPointCorrespondence_AccessAnalysisConfig_feature"),
+				getString("_UI_EntryPointCorrespondence_accessAnalysisConfig_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_EntryPointCorrespondence_AccessAnalysisConfig_feature",
+						"_UI_EntryPointCorrespondence_accessAnalysisConfig_feature",
 						"_UI_EntryPointCorrespondence_type"),
 				AccessanalysisjoanacorrespondencesPackage.Literals.ENTRY_POINT_CORRESPONDENCE__ACCESS_ANALYSIS_CONFIG,
 				true, false, true, null, null, null));

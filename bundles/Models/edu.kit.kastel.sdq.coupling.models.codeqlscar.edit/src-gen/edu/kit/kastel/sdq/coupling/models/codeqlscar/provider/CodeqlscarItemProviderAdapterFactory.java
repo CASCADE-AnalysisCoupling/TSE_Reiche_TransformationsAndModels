@@ -96,26 +96,26 @@ public class CodeqlscarItemProviderAdapterFactory extends CodeqlscarAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultEntryItemProvider resultEntryItemProvider;
+	protected ResultItemProvider resultItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultEntryAdapter() {
-		if (resultEntryItemProvider == null) {
-			resultEntryItemProvider = new ResultEntryItemProvider(this);
+	public Adapter createResultAdapter() {
+		if (resultItemProvider == null) {
+			resultItemProvider = new ResultItemProvider(this);
 		}
 
-		return resultEntryItemProvider;
+		return resultItemProvider;
 	}
 
 	/**
@@ -142,72 +142,72 @@ public class CodeqlscarItemProviderAdapterFactory extends CodeqlscarAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConfigurationID_SCARItemProvider configurationID_SCARItemProvider;
+	protected RuleIdItemProvider ruleIdItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConfigurationID_SCARAdapter() {
-		if (configurationID_SCARItemProvider == null) {
-			configurationID_SCARItemProvider = new ConfigurationID_SCARItemProvider(this);
+	public Adapter createRuleIdAdapter() {
+		if (ruleIdItemProvider == null) {
+			ruleIdItemProvider = new RuleIdItemProvider(this);
 		}
 
-		return configurationID_SCARItemProvider;
+		return ruleIdItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterIdentificationItemProvider parameterIdentificationItemProvider;
+	protected Parameter_SCARItemProvider parameter_SCARItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterIdentificationAdapter() {
-		if (parameterIdentificationItemProvider == null) {
-			parameterIdentificationItemProvider = new ParameterIdentificationItemProvider(this);
+	public Adapter createParameter_SCARAdapter() {
+		if (parameter_SCARItemProvider == null) {
+			parameter_SCARItemProvider = new Parameter_SCARItemProvider(this);
 		}
 
-		return parameterIdentificationItemProvider;
+		return parameter_SCARItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FieldIdentificationItemProvider fieldIdentificationItemProvider;
+	protected Field_SCARItemProvider field_SCARItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createFieldIdentificationAdapter() {
-		if (fieldIdentificationItemProvider == null) {
-			fieldIdentificationItemProvider = new FieldIdentificationItemProvider(this);
+	public Adapter createField_SCARAdapter() {
+		if (field_SCARItemProvider == null) {
+			field_SCARItemProvider = new Field_SCARItemProvider(this);
 		}
 
-		return fieldIdentificationItemProvider;
+		return field_SCARItemProvider;
 	}
 
 	/**
@@ -334,16 +334,16 @@ public class CodeqlscarItemProviderAdapterFactory extends CodeqlscarAdapterFacto
 	public void dispose() {
 		if (sourceCodeAnalysisResultItemProvider != null)
 			sourceCodeAnalysisResultItemProvider.dispose();
-		if (resultEntryItemProvider != null)
-			resultEntryItemProvider.dispose();
+		if (resultItemProvider != null)
+			resultItemProvider.dispose();
 		if (resultEntryElementItemProvider != null)
 			resultEntryElementItemProvider.dispose();
-		if (configurationID_SCARItemProvider != null)
-			configurationID_SCARItemProvider.dispose();
-		if (parameterIdentificationItemProvider != null)
-			parameterIdentificationItemProvider.dispose();
-		if (fieldIdentificationItemProvider != null)
-			fieldIdentificationItemProvider.dispose();
+		if (ruleIdItemProvider != null)
+			ruleIdItemProvider.dispose();
+		if (parameter_SCARItemProvider != null)
+			parameter_SCARItemProvider.dispose();
+		if (field_SCARItemProvider != null)
+			field_SCARItemProvider.dispose();
 		if (securityLevel_SCARItemProvider != null)
 			securityLevel_SCARItemProvider.dispose();
 	}

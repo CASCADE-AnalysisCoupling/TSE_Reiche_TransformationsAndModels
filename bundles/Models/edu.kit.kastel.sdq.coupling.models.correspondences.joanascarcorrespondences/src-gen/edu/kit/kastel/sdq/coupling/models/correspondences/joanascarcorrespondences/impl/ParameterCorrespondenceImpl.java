@@ -7,7 +7,7 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondenc
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -49,7 +49,7 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterIdentifying parameter_SCAR;
+	protected Parameter_SCAR parameter_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,10 +117,10 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentifying getParameter_SCAR() {
+	public Parameter_SCAR getParameter_SCAR() {
 		if (parameter_SCAR != null && parameter_SCAR.eIsProxy()) {
 			InternalEObject oldParameter_SCAR = (InternalEObject) parameter_SCAR;
-			parameter_SCAR = (ParameterIdentifying) eResolveProxy(oldParameter_SCAR);
+			parameter_SCAR = (Parameter_SCAR) eResolveProxy(oldParameter_SCAR);
 			if (parameter_SCAR != oldParameter_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -136,7 +136,7 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentifying basicGetParameter_SCAR() {
+	public Parameter_SCAR basicGetParameter_SCAR() {
 		return parameter_SCAR;
 	}
 
@@ -145,8 +145,8 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameter_SCAR(ParameterIdentifying newParameter_SCAR) {
-		ParameterIdentifying oldParameter_SCAR = parameter_SCAR;
+	public void setParameter_SCAR(Parameter_SCAR newParameter_SCAR) {
+		Parameter_SCAR oldParameter_SCAR = parameter_SCAR;
 		parameter_SCAR = newParameter_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -186,7 +186,7 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 			setParameter_JAVA((Parameter) newValue);
 			return;
 		case JoanascarcorrespondencesPackage.PARAMETER_CORRESPONDENCE__PARAMETER_SCAR:
-			setParameter_SCAR((ParameterIdentifying) newValue);
+			setParameter_SCAR((Parameter_SCAR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,7 +204,7 @@ public class ParameterCorrespondenceImpl extends SystemElementCorrespondenceImpl
 			setParameter_JAVA((Parameter) null);
 			return;
 		case JoanascarcorrespondencesPackage.PARAMETER_CORRESPONDENCE__PARAMETER_SCAR:
-			setParameter_SCAR((ParameterIdentifying) null);
+			setParameter_SCAR((Parameter_SCAR) null);
 			return;
 		}
 		super.eUnset(featureID);

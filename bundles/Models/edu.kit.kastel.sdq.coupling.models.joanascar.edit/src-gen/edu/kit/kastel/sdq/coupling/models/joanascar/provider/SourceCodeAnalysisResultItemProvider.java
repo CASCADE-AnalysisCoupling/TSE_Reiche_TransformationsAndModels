@@ -73,7 +73,7 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 			childrenFeatures.add(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS);
 			childrenFeatures.add(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS);
 			childrenFeatures.add(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__LEVELS);
-			childrenFeatures.add(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
+			childrenFeatures.add(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__FLOWS);
 		}
 		return childrenFeatures;
 	}
@@ -138,7 +138,7 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS:
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS:
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__LEVELS:
-		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES:
+		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT__FLOWS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -158,22 +158,21 @@ public class SourceCodeAnalysisResultItemProvider extends ItemProviderAdapter im
 
 		newChildDescriptors
 				.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS,
-						JoanascarFactory.eINSTANCE.createParameterIdentifying()));
+						JoanascarFactory.eINSTANCE.createParameter_SCAR()));
 
 		newChildDescriptors
 				.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS,
-						JoanascarFactory.eINSTANCE.createFieldIdentifying()));
+						JoanascarFactory.eINSTANCE.createField_SCAR()));
 
 		newChildDescriptors
 				.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS,
-						JoanascarFactory.eINSTANCE.createEntryPointIdentifying()));
+						JoanascarFactory.eINSTANCE.createEntryPoint_SCAR()));
 
 		newChildDescriptors.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__LEVELS,
 				JoanascarFactory.eINSTANCE.createLevel_SCAR()));
 
-		newChildDescriptors
-				.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES,
-						JoanascarFactory.eINSTANCE.createResultEntry()));
+		newChildDescriptors.add(createChildParameter(JoanascarPackage.Literals.SOURCE_CODE_ANALYSIS_RESULT__FLOWS,
+				JoanascarFactory.eINSTANCE.createFlow()));
 	}
 
 	/**

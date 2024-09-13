@@ -7,7 +7,8 @@
     complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier ../../edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel#//java"
     operationReflection="true" importOrganizing="true">
   <foreignModel>joana.ecore</foreignModel>
-  <genPackages prefix="Joana" disposableProviderFactory="true" ecorePackage="joana.ecore#/" basePackage="edu.kit.kastel.sdq.coupling.models" >
+  <genPackages prefix="Joana" basePackage="edu.kit.kastel.sdq.coupling.models" disposableProviderFactory="true"
+      ecorePackage="joana.ecore#/">
     <genClasses ecoreClass="joana.ecore#//JOANARoot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joana.ecore#//JOANARoot/entrypoint"/>
     </genClasses>

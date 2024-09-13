@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences;
 
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
@@ -15,8 +15,8 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getJavaParameter <em>Java Parameter</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getScarParameter <em>Scar Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_Java <em>Parameter Java</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_SCAR <em>Parameter SCAR</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getParameterCorrespondence()
@@ -25,47 +25,47 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
  */
 public interface ParameterCorrespondence extends SystemElementCorrespondence {
 	/**
-	 * Returns the value of the '<em><b>Java Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Parameter Java</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Java Parameter</em>' reference.
-	 * @see #setJavaParameter(Parameter)
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getParameterCorrespondence_JavaParameter()
+	 * @return the value of the '<em>Parameter Java</em>' reference.
+	 * @see #setParameter_Java(Parameter)
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getParameterCorrespondence_Parameter_Java()
 	 * @model required="true"
 	 * @generated
 	 */
-	Parameter getJavaParameter();
+	Parameter getParameter_Java();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getJavaParameter <em>Java Parameter</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_Java <em>Parameter Java</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Java Parameter</em>' reference.
-	 * @see #getJavaParameter()
+	 * @param value the new value of the '<em>Parameter Java</em>' reference.
+	 * @see #getParameter_Java()
 	 * @generated
 	 */
-	void setJavaParameter(Parameter value);
+	void setParameter_Java(Parameter value);
 
 	/**
-	 * Returns the value of the '<em><b>Scar Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Parameter SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scar Parameter</em>' reference.
-	 * @see #setScarParameter(ParameterIdentification)
-	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getParameterCorrespondence_ScarParameter()
+	 * @return the value of the '<em>Parameter SCAR</em>' reference.
+	 * @see #setParameter_SCAR(Parameter_SCAR)
+	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage#getParameterCorrespondence_Parameter_SCAR()
 	 * @model required="true"
 	 * @generated
 	 */
-	ParameterIdentification getScarParameter();
+	Parameter_SCAR getParameter_SCAR();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getScarParameter <em>Scar Parameter</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.ParameterCorrespondence#getParameter_SCAR <em>Parameter SCAR</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scar Parameter</em>' reference.
-	 * @see #getScarParameter()
+	 * @param value the new value of the '<em>Parameter SCAR</em>' reference.
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	void setScarParameter(ParameterIdentification value);
+	void setParameter_SCAR(Parameter_SCAR value);
 
 } // ParameterCorrespondence

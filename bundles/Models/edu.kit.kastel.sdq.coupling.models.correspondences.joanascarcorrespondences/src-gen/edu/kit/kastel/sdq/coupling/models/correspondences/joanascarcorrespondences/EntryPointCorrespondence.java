@@ -2,9 +2,9 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences;
 
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,12 +31,12 @@ public interface EntryPointCorrespondence extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entry Point JOANA</em>' reference.
-	 * @see #setEntryPoint_JOANA(EntryPoint)
+	 * @see #setEntryPoint_JOANA(HybridConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JoanascarcorrespondencesPackage#getEntryPointCorrespondence_EntryPoint_JOANA()
 	 * @model required="true"
 	 * @generated
 	 */
-	EntryPoint getEntryPoint_JOANA();
+	HybridConfiguration getEntryPoint_JOANA();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.EntryPointCorrespondence#getEntryPoint_JOANA <em>Entry Point JOANA</em>}' reference.
@@ -46,19 +46,19 @@ public interface EntryPointCorrespondence extends EObject {
 	 * @see #getEntryPoint_JOANA()
 	 * @generated
 	 */
-	void setEntryPoint_JOANA(EntryPoint value);
+	void setEntryPoint_JOANA(HybridConfiguration value);
 
 	/**
 	 * Returns the value of the '<em><b>Entry Point SCAR</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entry Point SCAR</em>' reference.
-	 * @see #setEntryPoint_SCAR(EntryPointIdentifying)
+	 * @see #setEntryPoint_SCAR(EntryPoint_SCAR)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JoanascarcorrespondencesPackage#getEntryPointCorrespondence_EntryPoint_SCAR()
 	 * @model required="true"
 	 * @generated
 	 */
-	EntryPointIdentifying getEntryPoint_SCAR();
+	EntryPoint_SCAR getEntryPoint_SCAR();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.EntryPointCorrespondence#getEntryPoint_SCAR <em>Entry Point SCAR</em>}' reference.
@@ -68,6 +68,6 @@ public interface EntryPointCorrespondence extends EObject {
 	 * @see #getEntryPoint_SCAR()
 	 * @generated
 	 */
-	void setEntryPoint_SCAR(EntryPointIdentifying value);
+	void setEntryPoint_SCAR(EntryPoint_SCAR value);
 
 } // EntryPointCorrespondence

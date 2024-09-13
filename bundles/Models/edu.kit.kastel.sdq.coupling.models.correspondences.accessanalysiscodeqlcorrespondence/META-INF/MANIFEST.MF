@@ -15,6 +15,7 @@ Export-Package: edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespon
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.codeql;visibility:=reexport,
  edu.kit.kastel.scbs.confidentialitymm;visibility:=reexport,
+ edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.identifier;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.java;visibility:=reexport,

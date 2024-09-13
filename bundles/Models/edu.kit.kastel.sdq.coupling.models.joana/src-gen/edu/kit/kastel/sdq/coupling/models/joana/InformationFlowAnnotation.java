@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage#getInformationFlowAnnotation()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface InformationFlowAnnotation extends EObject {
@@ -29,7 +29,7 @@ public interface InformationFlowAnnotation extends EObject {
 	 * @return the value of the '<em>Level</em>' reference.
 	 * @see #setLevel(Level)
 	 * @see edu.kit.kastel.sdq.coupling.models.joana.JoanaPackage#getInformationFlowAnnotation_Level()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Level getLevel();

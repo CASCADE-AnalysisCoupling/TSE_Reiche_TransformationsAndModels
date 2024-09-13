@@ -154,11 +154,6 @@ public class EntryPointItemProvider extends IdentifiedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION,
-				 JoanaFactory.eINSTANCE.createInformationFlowAnnotation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JoanaPackage.Literals.ENTRY_POINT__ANNOTATION,
 				 JoanaFactory.eINSTANCE.createSource()));
 
 		newChildDescriptors.add

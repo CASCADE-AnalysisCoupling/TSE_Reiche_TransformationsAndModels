@@ -22,24 +22,6 @@ public interface TainttrackingFactory extends EFactory {
 	TainttrackingFactory eINSTANCE = edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node</em>'.
-	 * @generated
-	 */
-	Node createNode();
-
-	/**
-	 * Returns a new object of class '<em>Parameter Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Node</em>'.
-	 * @generated
-	 */
-	ParameterNode createParameterNode();
-
-	/**
 	 * Returns a new object of class '<em>Security Level</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,13 +40,13 @@ public interface TainttrackingFactory extends EFactory {
 	TainttrackingRoot createTainttrackingRoot();
 
 	/**
-	 * Returns a new object of class '<em>Configuration</em>'.
+	 * Returns a new object of class '<em>Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration</em>'.
+	 * @return a new object of class '<em>Query</em>'.
 	 * @generated
 	 */
-	Configuration createConfiguration();
+	Query createQuery();
 
 	/**
 	 * Returns a new object of class '<em>Security Level Annotation</em>'.
@@ -101,6 +83,15 @@ public interface TainttrackingFactory extends EFactory {
 	 * @generated
 	 */
 	AllowedFlow createAllowedFlow();
+
+	/**
+	 * Returns a new object of class '<em>Allowed Flows</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Allowed Flows</em>'.
+	 * @generated
+	 */
+	AllowedFlows createAllowedFlows();
 
 	/**
 	 * Returns the package supported by this factory.

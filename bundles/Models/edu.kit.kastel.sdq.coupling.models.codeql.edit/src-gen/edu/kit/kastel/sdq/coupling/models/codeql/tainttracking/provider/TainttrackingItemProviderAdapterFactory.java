@@ -72,52 +72,6 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NodeItemProvider nodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNodeAdapter() {
-		if (nodeItemProvider == null) {
-			nodeItemProvider = new NodeItemProvider(this);
-		}
-
-		return nodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterNodeItemProvider parameterNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterNodeAdapter() {
-		if (parameterNodeItemProvider == null) {
-			parameterNodeItemProvider = new ParameterNodeItemProvider(this);
-		}
-
-		return parameterNodeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,26 +118,26 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConfigurationItemProvider configurationItemProvider;
+	protected QueryItemProvider queryItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConfigurationAdapter() {
-		if (configurationItemProvider == null) {
-			configurationItemProvider = new ConfigurationItemProvider(this);
+	public Adapter createQueryAdapter() {
+		if (queryItemProvider == null) {
+			queryItemProvider = new QueryItemProvider(this);
 		}
 
-		return configurationItemProvider;
+		return queryItemProvider;
 	}
 
 	/**
@@ -276,6 +230,29 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 		}
 
 		return allowedFlowItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AllowedFlowsItemProvider allowedFlowsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAllowedFlowsAdapter() {
+		if (allowedFlowsItemProvider == null) {
+			allowedFlowsItemProvider = new AllowedFlowsItemProvider(this);
+		}
+
+		return allowedFlowsItemProvider;
 	}
 
 	/**
@@ -377,15 +354,14 @@ public class TainttrackingItemProviderAdapterFactory extends TainttrackingAdapte
 	 * @generated
 	 */
 	public void dispose() {
-		if (nodeItemProvider != null) nodeItemProvider.dispose();
-		if (parameterNodeItemProvider != null) parameterNodeItemProvider.dispose();
 		if (securityLevelItemProvider != null) securityLevelItemProvider.dispose();
 		if (tainttrackingRootItemProvider != null) tainttrackingRootItemProvider.dispose();
-		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (queryItemProvider != null) queryItemProvider.dispose();
 		if (securityLevelAnnotationItemProvider != null) securityLevelAnnotationItemProvider.dispose();
 		if (fieldAnnotationItemProvider != null) fieldAnnotationItemProvider.dispose();
 		if (parameterAnnotationItemProvider != null) parameterAnnotationItemProvider.dispose();
 		if (allowedFlowItemProvider != null) allowedFlowItemProvider.dispose();
+		if (allowedFlowsItemProvider != null) allowedFlowsItemProvider.dispose();
 	}
 
 }

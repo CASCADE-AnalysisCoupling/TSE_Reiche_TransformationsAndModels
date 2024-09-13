@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
@@ -16,7 +17,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -32,8 +32,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PCMJavaCorrespondenceRootItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -55,26 +61,8 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCompositedatatype2classPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Compositedatatype2class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCompositedatatype2classPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PCMJavaCorrespondenceRoot_compositedatatype2class_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_PCMJavaCorrespondenceRoot_compositedatatype2class_feature",
-						"_UI_PCMJavaCorrespondenceRoot_type"),
-				PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS, true,
-				false, true, null, null, null));
 	}
 
 	/**
@@ -89,14 +77,11 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS);
-			childrenFeatures.add(
-					PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE);
-			childrenFeatures.add(
-					PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD);
-			childrenFeatures.add(
-					PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD);
+			childrenFeatures.add(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER);
 		}
 		return childrenFeatures;
 	}
@@ -126,16 +111,6 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,6 +120,7 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 	public String getText(Object object) {
 		return getString("_UI_PCMJavaCorrespondenceRoot_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -158,12 +134,13 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PCMJavaCorrespondenceRoot.class)) {
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS:
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE:
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD:
-		case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS:
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE:
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS:
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD:
+			case PcmjavacorrespondencePackage.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -179,21 +156,30 @@ public class PCMJavaCorrespondenceRootItemProvider extends ItemProviderAdapter i
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS,
-				PcmjavacorrespondenceFactory.eINSTANCE.createBasicComponent2Class()));
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__BASICCOMPONENT2CLASS,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createBasicComponent2Class()));
 
-		newChildDescriptors.add(createChildParameter(
-				PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE,
-				PcmjavacorrespondenceFactory.eINSTANCE.createOperationInterface2Interface()));
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__OPERATION_INTERFACE2INTERFACE,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createOperationInterface2Interface()));
 
-		newChildDescriptors.add(createChildParameter(
-				PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD,
-				PcmjavacorrespondenceFactory.eINSTANCE.createProvidedOperationSignature2JavaMethod()));
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__COMPOSITEDATATYPE2CLASS,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createCompositeDataType2Class()));
 
-		newChildDescriptors.add(createChildParameter(
-				PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER,
-				PcmjavacorrespondenceFactory.eINSTANCE.createPCMParameter2JavaParameter()));
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PROVIDEDOPERATIONSIGNATURE2JAVAMETHOD,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createProvidedOperationSignature2JavaMethod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PcmjavacorrespondencePackage.Literals.PCM_JAVA_CORRESPONDENCE_ROOT__PCMPARAMETER2JAVAPARAMETER,
+				 PcmjavacorrespondenceFactory.eINSTANCE.createPCMParameter2JavaParameter()));
 	}
 
 	/**

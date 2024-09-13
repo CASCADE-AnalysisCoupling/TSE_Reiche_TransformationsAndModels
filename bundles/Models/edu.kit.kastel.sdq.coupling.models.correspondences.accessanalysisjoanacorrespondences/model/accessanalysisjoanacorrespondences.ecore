@@ -9,10 +9,10 @@
         upperBound="-1" eType="#//DataSetLevelCorrespondence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntryPointCorrespondence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AccessAnalysisConfig" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//ConfidentialitySpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessAnalysisConfig" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//FullyImplicitConfiguration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//EntryPoint"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//HybridConfiguration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSetLevelCorrespondence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSets" lowerBound="1"

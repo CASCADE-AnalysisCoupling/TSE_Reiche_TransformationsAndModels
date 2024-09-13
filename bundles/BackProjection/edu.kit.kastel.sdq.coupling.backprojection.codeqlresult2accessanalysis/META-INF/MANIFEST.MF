@@ -23,4 +23,5 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences,
  edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence,
  edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences
-Export-Package: edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.iterative
+Export-Package: edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis,
+ edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backprojection

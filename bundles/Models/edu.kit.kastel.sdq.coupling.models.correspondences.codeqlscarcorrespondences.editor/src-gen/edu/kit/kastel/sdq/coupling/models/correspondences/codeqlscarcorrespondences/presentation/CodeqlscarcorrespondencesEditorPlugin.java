@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationEditPlugin;
+
 import edu.kit.kastel.sdq.coupling.models.codeql.provider.CodeqlEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.provider.CodeqlscarEditPlugin;
@@ -47,7 +49,8 @@ public final class CodeqlscarcorrespondencesEditorPlugin extends EMFPlugin {
 	 */
 	public CodeqlscarcorrespondencesEditorPlugin() {
 		super(new ResourceLocator[] { CodeqlEditPlugin.INSTANCE, CodeqlscarEditPlugin.INSTANCE,
-				IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, });
+				ConfigurationrepresentationEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+				JavaEditPlugin.INSTANCE, });
 	}
 
 	/**

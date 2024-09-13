@@ -76,18 +76,18 @@ public class JoanascarAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSystemElementIdentifiying_JOANASCAR(SystemElementIdentifiying_JOANASCAR object) {
-			return createSystemElementIdentifiying_JOANASCARAdapter();
+		public Adapter caseSystemElement_SCAR(SystemElement_SCAR object) {
+			return createSystemElement_SCARAdapter();
 		}
 
 		@Override
-		public Adapter caseParameterIdentifying(ParameterIdentifying object) {
-			return createParameterIdentifyingAdapter();
+		public Adapter caseParameter_SCAR(Parameter_SCAR object) {
+			return createParameter_SCARAdapter();
 		}
 
 		@Override
-		public Adapter caseFieldIdentifying(FieldIdentifying object) {
-			return createFieldIdentifyingAdapter();
+		public Adapter caseField_SCAR(Field_SCAR object) {
+			return createField_SCARAdapter();
 		}
 
 		@Override
@@ -96,19 +96,23 @@ public class JoanascarAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseEntryPointIdentifying(EntryPointIdentifying object) {
-			return createEntryPointIdentifyingAdapter();
+		public Adapter caseEntryPoint_SCAR(EntryPoint_SCAR object) {
+			return createEntryPoint_SCARAdapter();
 		}
 
 		@Override
-		public Adapter caseResultEntry(ResultEntry object) {
-			return createResultEntryAdapter();
+		public Adapter caseFlow(Flow object) {
+			return createFlowAdapter();
 		}
 
 		@Override
-		public <T extends SystemElementIdentifiying_JOANASCAR> Adapter caseResultEntryElement(
-				ResultEntryElement<T> object) {
-			return createResultEntryElementAdapter();
+		public <T extends SystemElement_SCAR> Adapter caseSource(Source<T> object) {
+			return createSourceAdapter();
+		}
+
+		@Override
+		public <T extends SystemElement_SCAR> Adapter caseSink(Sink<T> object) {
+			return createSinkAdapter();
 		}
 
 		@Override
@@ -160,44 +164,44 @@ public class JoanascarAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR <em>System Element Identifiying JOANASCAR</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR <em>System Element SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR
 	 * @generated
 	 */
-	public Adapter createSystemElementIdentifiying_JOANASCARAdapter() {
+	public Adapter createSystemElement_SCARAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying <em>Parameter Identifying</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR
 	 * @generated
 	 */
-	public Adapter createParameterIdentifyingAdapter() {
+	public Adapter createParameter_SCARAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying <em>Field Identifying</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR <em>Field SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR
 	 * @generated
 	 */
-	public Adapter createFieldIdentifyingAdapter() {
+	public Adapter createField_SCARAdapter() {
 		return null;
 	}
 
@@ -216,44 +220,58 @@ public class JoanascarAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying <em>Entry Point Identifying</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR <em>Entry Point SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR
 	 * @generated
 	 */
-	public Adapter createEntryPointIdentifyingAdapter() {
+	public Adapter createEntryPoint_SCARAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry <em>Result Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Flow
 	 * @generated
 	 */
-	public Adapter createResultEntryAdapter() {
+	public Adapter createFlowAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement <em>Result Entry Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Source <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Source
 	 * @generated
 	 */
-	public Adapter createResultEntryElementAdapter() {
+	public Adapter createSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink <em>Sink</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Sink
+	 * @generated
+	 */
+	public Adapter createSinkAdapter() {
 		return null;
 	}
 

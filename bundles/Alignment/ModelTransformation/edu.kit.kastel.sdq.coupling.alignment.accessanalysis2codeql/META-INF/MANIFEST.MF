@@ -26,4 +26,5 @@ Require-Bundle: org.palladiosimulator.pcm,
  edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence;bundle-version="0.1.0"
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.iterative
+Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql,
+ edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.accessanalysis2codeqlmodel.modelgenerators

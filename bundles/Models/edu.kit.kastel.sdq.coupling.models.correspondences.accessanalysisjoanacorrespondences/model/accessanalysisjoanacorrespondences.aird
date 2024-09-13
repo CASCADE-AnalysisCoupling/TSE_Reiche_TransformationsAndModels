@@ -23,6 +23,8 @@
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joana/model/joana.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_8V5b4AOYEe-gupRqVwlL5w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_8WEbAQOYEe-gupRqVwlL5w" name="accessanalysisjoanacorrespondences" repPath="#_8WCl0AOYEe-gupRqVwlL5w" changeId="46746d0c-47f1-4ef0-9bea-7016b0e889fb">

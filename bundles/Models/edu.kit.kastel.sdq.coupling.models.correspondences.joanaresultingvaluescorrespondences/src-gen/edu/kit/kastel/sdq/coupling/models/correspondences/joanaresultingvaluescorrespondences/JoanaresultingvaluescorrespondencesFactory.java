@@ -23,22 +23,22 @@ public interface JoanaresultingvaluescorrespondencesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Correspondences JOANA Resulting Values</em>'.
+	 * Returns a new object of class '<em>Correspondences Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Correspondences JOANA Resulting Values</em>'.
+	 * @return a new object of class '<em>Correspondences Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	Correspondences_JOANAResultingValues createCorrespondences_JOANAResultingValues();
+	Correspondences_ResolvedImplementationValues createCorrespondences_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Level Correspondence JOANA Resulting Values</em>'.
+	 * Returns a new object of class '<em>Level Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Level Correspondence JOANA Resulting Values</em>'.
+	 * @return a new object of class '<em>Level Correspondence Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	LevelCorrespondence_JOANAResultingValues createLevelCorrespondence_JOANAResultingValues();
+	LevelCorrespondence_ResolvedImplementationValues createLevelCorrespondence_ResolvedImplementationValues();
 
 	/**
 	 * Returns a new object of class '<em>Entry Point Correspondence JOANA Resulting Values</em>'.

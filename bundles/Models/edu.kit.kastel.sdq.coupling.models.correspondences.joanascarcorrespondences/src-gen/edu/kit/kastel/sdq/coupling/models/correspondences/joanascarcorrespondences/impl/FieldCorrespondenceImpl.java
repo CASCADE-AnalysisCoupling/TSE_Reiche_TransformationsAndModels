@@ -7,7 +7,7 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondenc
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -49,7 +49,7 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected FieldIdentifying field_SCAR;
+	protected Field_SCAR field_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,10 +116,10 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentifying getField_SCAR() {
+	public Field_SCAR getField_SCAR() {
 		if (field_SCAR != null && field_SCAR.eIsProxy()) {
 			InternalEObject oldField_SCAR = (InternalEObject) field_SCAR;
-			field_SCAR = (FieldIdentifying) eResolveProxy(oldField_SCAR);
+			field_SCAR = (Field_SCAR) eResolveProxy(oldField_SCAR);
 			if (field_SCAR != oldField_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -135,7 +135,7 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentifying basicGetField_SCAR() {
+	public Field_SCAR basicGetField_SCAR() {
 		return field_SCAR;
 	}
 
@@ -144,8 +144,8 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setField_SCAR(FieldIdentifying newField_SCAR) {
-		FieldIdentifying oldField_SCAR = field_SCAR;
+	public void setField_SCAR(Field_SCAR newField_SCAR) {
+		Field_SCAR oldField_SCAR = field_SCAR;
 		field_SCAR = newField_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -184,7 +184,7 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 			setField_JAVA((Field) newValue);
 			return;
 		case JoanascarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
-			setField_SCAR((FieldIdentifying) newValue);
+			setField_SCAR((Field_SCAR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,7 +202,7 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 			setField_JAVA((Field) null);
 			return;
 		case JoanascarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
-			setField_SCAR((FieldIdentifying) null);
+			setField_SCAR((Field_SCAR) null);
 			return;
 		}
 		super.eUnset(featureID);

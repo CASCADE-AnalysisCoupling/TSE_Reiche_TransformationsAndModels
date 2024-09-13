@@ -2,12 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.impl;
 
-import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondencePackage;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence;
-
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -41,7 +40,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected Configuration codeQLConfig;
+	protected HybridConfiguration codeQLConfig;
 
 	/**
 	 * The cached value of the '{@link #getAccessAnalysisConfig() <em>Access Analysis Config</em>}' reference.
@@ -51,7 +50,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected ConfidentialitySpecification accessAnalysisConfig;
+	protected FullyImplicitConfiguration accessAnalysisConfig;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,10 +76,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration getCodeQLConfig() {
+	public HybridConfiguration getCodeQLConfig() {
 		if (codeQLConfig != null && codeQLConfig.eIsProxy()) {
 			InternalEObject oldCodeQLConfig = (InternalEObject) codeQLConfig;
-			codeQLConfig = (Configuration) eResolveProxy(oldCodeQLConfig);
+			codeQLConfig = (HybridConfiguration) eResolveProxy(oldCodeQLConfig);
 			if (codeQLConfig != oldCodeQLConfig) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -96,7 +95,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration basicGetCodeQLConfig() {
+	public HybridConfiguration basicGetCodeQLConfig() {
 		return codeQLConfig;
 	}
 
@@ -105,8 +104,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeQLConfig(Configuration newCodeQLConfig) {
-		Configuration oldCodeQLConfig = codeQLConfig;
+	public void setCodeQLConfig(HybridConfiguration newCodeQLConfig) {
+		HybridConfiguration oldCodeQLConfig = codeQLConfig;
 		codeQLConfig = newCodeQLConfig;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -119,10 +118,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfidentialitySpecification getAccessAnalysisConfig() {
+	public FullyImplicitConfiguration getAccessAnalysisConfig() {
 		if (accessAnalysisConfig != null && accessAnalysisConfig.eIsProxy()) {
 			InternalEObject oldAccessAnalysisConfig = (InternalEObject) accessAnalysisConfig;
-			accessAnalysisConfig = (ConfidentialitySpecification) eResolveProxy(oldAccessAnalysisConfig);
+			accessAnalysisConfig = (FullyImplicitConfiguration) eResolveProxy(oldAccessAnalysisConfig);
 			if (accessAnalysisConfig != oldAccessAnalysisConfig) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -138,7 +137,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfidentialitySpecification basicGetAccessAnalysisConfig() {
+	public FullyImplicitConfiguration basicGetAccessAnalysisConfig() {
 		return accessAnalysisConfig;
 	}
 
@@ -147,8 +146,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccessAnalysisConfig(ConfidentialitySpecification newAccessAnalysisConfig) {
-		ConfidentialitySpecification oldAccessAnalysisConfig = accessAnalysisConfig;
+	public void setAccessAnalysisConfig(FullyImplicitConfiguration newAccessAnalysisConfig) {
+		FullyImplicitConfiguration oldAccessAnalysisConfig = accessAnalysisConfig;
 		accessAnalysisConfig = newAccessAnalysisConfig;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -185,10 +184,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case AccessanalysiscodeqlcorrespondencePackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
-			setCodeQLConfig((Configuration) newValue);
+			setCodeQLConfig((HybridConfiguration) newValue);
 			return;
 		case AccessanalysiscodeqlcorrespondencePackage.CONFIGURATION_CORRESPONDENCE__ACCESS_ANALYSIS_CONFIG:
-			setAccessAnalysisConfig((ConfidentialitySpecification) newValue);
+			setAccessAnalysisConfig((FullyImplicitConfiguration) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,10 +202,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case AccessanalysiscodeqlcorrespondencePackage.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG:
-			setCodeQLConfig((Configuration) null);
+			setCodeQLConfig((HybridConfiguration) null);
 			return;
 		case AccessanalysiscodeqlcorrespondencePackage.CONFIGURATION_CORRESPONDENCE__ACCESS_ANALYSIS_CONFIG:
-			setAccessAnalysisConfig((ConfidentialitySpecification) null);
+			setAccessAnalysisConfig((FullyImplicitConfiguration) null);
 			return;
 		}
 		super.eUnset(featureID);

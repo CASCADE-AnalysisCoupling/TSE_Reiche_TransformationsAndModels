@@ -9,14 +9,14 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondenc
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.util.JOANASCARCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.util.JOANAResultingValuesModelGenerationUtil;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Flow;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
 
 public class ResultingSpecificationResolution4HighLow extends ResultingSpecificationResolution {
@@ -31,21 +31,21 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 	}
 
 	@Override
-	public JOANAResultingValues calculateResultingSpecification(SourceCodeAnalysisResult scar, JOANASCARCorrespondences joanaScarCorrespondences) {
+	public ResolvedImplementationValues calculateResultingSpecification(SourceCodeAnalysisResult scar, JOANASCARCorrespondences joanaScarCorrespondences) {
 		
 		
 		
-		List<ResultEntry> parameterSinkResultEntries = scar.getResultEntries().stream().filter(entry -> entry.getSink().getSystemElement() instanceof ParameterIdentifying).collect(Collectors.toList()); 
+		List<Flow> parameterSinkResultEntries = scar.getFlows().stream().filter(entry -> entry.getSink().getSystemElement() instanceof Parameter_SCAR).collect(Collectors.toList()); 
 		
-		for(ResultEntry parameterSinkResultEntry : parameterSinkResultEntries) {
+		for(Flow parameterSinkResultEntry : parameterSinkResultEntries) {
 			
-			EntryPoint entryPoint_JOANA = JOANASCARCorrespondenceUtil.getCorresponding(parameterSinkResultEntry.getEntryPoint(), joanaScarCorrespondences);
+			EntryPoint entryPoint_JOANA = JOANASCARCorrespondenceUtil.getCorrespondingEntryPoint(parameterSinkResultEntry.getEntryPoint(), joanaScarCorrespondences);
 			
 			if(entryPoint_JOANA.getLevel().size() != 2 || entryPoint_JOANA.getLattice().getMayFlow().size() != 1) {
 				throw new RuntimeException("Configuration contains more than two levels or more than 1 allowed flow. Therefore not high low scenario");
 			}
 			
-			Optional<ResultingValue> resultingValueForParameter = resultingValues.getResultingValues().stream().filter(entry -> entry.getSystemElement().equals(parameterSinkResultEntry.getSink().getSystemElement())).filter(entry -> entry.getConfiguration().equals(parameterSinkResultEntry.getEntryPoint())).findAny();
+			Optional<ResolvedImplementationValue> resultingValueForParameter = resultingValues.getResultingValues().stream().filter(entry -> entry.getSystemElement().equals(parameterSinkResultEntry.getSink().getSystemElement())).filter(entry -> entry.getConfiguration().equals(parameterSinkResultEntry.getEntryPoint())).findAny();
 			
 			//Many Implicit assumptions here: 
 			//1. we have every time the same configuration - see above. 
@@ -54,11 +54,11 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 			//   Therefore, if such a entry exists for a parameter, it is already high. 
 			if(resultingValueForParameter.isEmpty()) {
 				
-				ParameterIdentification_JOANAResultingValues parameter = SCARResultingValuesModelElementUtil.getOrTransformAndAddParameterIdentification((ParameterIdentifying) parameterSinkResultEntry.getSink().getSystemElement(), resultingValues, correspondences_ResultingValues);
-				EntryPointIdentification_ResultingValues entryPoint = SCARResultingValuesModelElementUtil.getOrTransformAndAddConfigurationID(parameterSinkResultEntry.getEntryPoint(), resultingValues, correspondences_ResultingValues);
-				Level_ResultingValues level = SCARResultingValuesModelElementUtil.getOrTransformAndAddSecurityLevel(parameterSinkResultEntry.getSource().getLevel(), entryPoint, joanaScarCorrespondences, resultingValues, correspondences_ResultingValues);
+				Parameter_ResolvedImplementationValues parameter = SCARResultingValuesModelElementUtil.getOrTransformAndAddParameter((Parameter_SCAR) parameterSinkResultEntry.getSink().getSystemElement(), resultingValues, correspondences_ResultingValues);
+				EntryPoint_ResolvedImplementationValues entryPoint = SCARResultingValuesModelElementUtil.getOrTransformAndAddConfigurationID(parameterSinkResultEntry.getEntryPoint(), resultingValues, correspondences_ResultingValues);
+				Level_ResolvedImplementationValues level = SCARResultingValuesModelElementUtil.getOrTransformAndAddSecurityLevel(parameterSinkResultEntry.getSource().getSourceLevel(), entryPoint, joanaScarCorrespondences, resultingValues, correspondences_ResultingValues);
 				
-				ResultingValue resultingValue = JOANAResultingValuesModelGenerationUtil.createResultingValue(parameter, level, entryPoint);
+				ResolvedImplementationValue resultingValue = JOANAResultingValuesModelGenerationUtil.createResultingValue(parameter, level, entryPoint);
 				resultingValues.getResultingValues().add(resultingValue);
 			}
 		}

@@ -66,16 +66,17 @@ public class JoanaresultingvaluescorrespondencesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case JoanaresultingvaluescorrespondencesPackage.CORRESPONDENCES_JOANA_RESULTING_VALUES: {
-			Correspondences_JOANAResultingValues correspondences_JOANAResultingValues = (Correspondences_JOANAResultingValues) theEObject;
-			T result = caseCorrespondences_JOANAResultingValues(correspondences_JOANAResultingValues);
+		case JoanaresultingvaluescorrespondencesPackage.CORRESPONDENCES_RESOLVED_IMPLEMENTATION_VALUES: {
+			Correspondences_ResolvedImplementationValues correspondences_ResolvedImplementationValues = (Correspondences_ResolvedImplementationValues) theEObject;
+			T result = caseCorrespondences_ResolvedImplementationValues(correspondences_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JoanaresultingvaluescorrespondencesPackage.LEVEL_CORRESPONDENCE_JOANA_RESULTING_VALUES: {
-			LevelCorrespondence_JOANAResultingValues levelCorrespondence_JOANAResultingValues = (LevelCorrespondence_JOANAResultingValues) theEObject;
-			T result = caseLevelCorrespondence_JOANAResultingValues(levelCorrespondence_JOANAResultingValues);
+		case JoanaresultingvaluescorrespondencesPackage.LEVEL_CORRESPONDENCE_RESOLVED_IMPLEMENTATION_VALUES: {
+			LevelCorrespondence_ResolvedImplementationValues levelCorrespondence_ResolvedImplementationValues = (LevelCorrespondence_ResolvedImplementationValues) theEObject;
+			T result = caseLevelCorrespondence_ResolvedImplementationValues(
+					levelCorrespondence_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -100,32 +101,33 @@ public class JoanaresultingvaluescorrespondencesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Correspondences JOANA Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Correspondences Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Correspondences JOANA Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Correspondences Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCorrespondences_JOANAResultingValues(Correspondences_JOANAResultingValues object) {
+	public T caseCorrespondences_ResolvedImplementationValues(Correspondences_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Level Correspondence JOANA Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Level Correspondence Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Level Correspondence JOANA Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Level Correspondence Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLevelCorrespondence_JOANAResultingValues(LevelCorrespondence_JOANAResultingValues object) {
+	public T caseLevelCorrespondence_ResolvedImplementationValues(
+			LevelCorrespondence_ResolvedImplementationValues object) {
 		return null;
 	}
 

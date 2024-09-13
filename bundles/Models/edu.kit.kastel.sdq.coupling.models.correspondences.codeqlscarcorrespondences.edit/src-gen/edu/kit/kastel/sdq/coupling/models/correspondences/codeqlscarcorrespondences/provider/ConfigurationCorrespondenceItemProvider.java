@@ -50,42 +50,43 @@ public class ConfigurationCorrespondenceItemProvider extends ItemProviderAdapter
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCodeQLConfigPropertyDescriptor(object);
-			addCodeQLSCARConfigPropertyDescriptor(object);
+			addConfiguration_CodeQLPropertyDescriptor(object);
+			addConfiguration_SCARPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Code QL Config feature.
+	 * This adds a property descriptor for the Configuration Code QL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodeQLConfigPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ConfigurationCorrespondence_codeQLConfig_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_ConfigurationCorrespondence_codeQLConfig_feature",
-						"_UI_ConfigurationCorrespondence_type"),
-				CodeqlscarcorrespondencesPackage.Literals.CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG, true, false,
-				true, null, null, null));
+	protected void addConfiguration_CodeQLPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ConfigurationCorrespondence_configuration_CodeQL_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_ConfigurationCorrespondence_configuration_CodeQL_feature",
+								"_UI_ConfigurationCorrespondence_type"),
+						CodeqlscarcorrespondencesPackage.Literals.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_CODE_QL,
+						true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Code QLSCAR Config feature.
+	 * This adds a property descriptor for the Configuration SCAR feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodeQLSCARConfigPropertyDescriptor(Object object) {
+	protected void addConfiguration_SCARPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ConfigurationCorrespondence_codeQLSCARConfig_feature"),
+						getResourceLocator(), getString("_UI_ConfigurationCorrespondence_configuration_SCAR_feature"),
 						getString("_UI_PropertyDescriptor_description",
-								"_UI_ConfigurationCorrespondence_codeQLSCARConfig_feature",
+								"_UI_ConfigurationCorrespondence_configuration_SCAR_feature",
 								"_UI_ConfigurationCorrespondence_type"),
-						CodeqlscarcorrespondencesPackage.Literals.CONFIGURATION_CORRESPONDENCE__CODE_QLSCAR_CONFIG,
+						CodeqlscarcorrespondencesPackage.Literals.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_SCAR,
 						true, false, true, null, null, null));
 	}
 

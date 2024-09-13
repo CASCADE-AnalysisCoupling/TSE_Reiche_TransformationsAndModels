@@ -76,33 +76,33 @@ public class CodeqlscarAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseResultEntry(ResultEntry object) {
-			return createResultEntryAdapter();
+		public Adapter caseResult(Result object) {
+			return createResultAdapter();
 		}
 
 		@Override
-		public <T extends SystemElementIdentification> Adapter caseResultEntryElement(ResultEntryElement<T> object) {
+		public <T extends SystemElement> Adapter caseResultEntryElement(ResultEntryElement<T> object) {
 			return createResultEntryElementAdapter();
 		}
 
 		@Override
-		public Adapter caseConfigurationID_SCAR(ConfigurationID_SCAR object) {
-			return createConfigurationID_SCARAdapter();
+		public Adapter caseRuleId(RuleId object) {
+			return createRuleIdAdapter();
 		}
 
 		@Override
-		public Adapter caseSystemElementIdentification(SystemElementIdentification object) {
-			return createSystemElementIdentificationAdapter();
+		public Adapter caseSystemElement(SystemElement object) {
+			return createSystemElementAdapter();
 		}
 
 		@Override
-		public Adapter caseParameterIdentification(ParameterIdentification object) {
-			return createParameterIdentificationAdapter();
+		public Adapter caseParameter_SCAR(Parameter_SCAR object) {
+			return createParameter_SCARAdapter();
 		}
 
 		@Override
-		public Adapter caseFieldIdentification(FieldIdentification object) {
-			return createFieldIdentificationAdapter();
+		public Adapter caseField_SCAR(Field_SCAR object) {
+			return createField_SCARAdapter();
 		}
 
 		@Override
@@ -159,16 +159,16 @@ public class CodeqlscarAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry <em>Result Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Result <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Result
 	 * @generated
 	 */
-	public Adapter createResultEntryAdapter() {
+	public Adapter createResultAdapter() {
 		return null;
 	}
 
@@ -187,58 +187,58 @@ public class CodeqlscarAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR <em>Configuration ID SCAR</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId <em>Rule Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ConfigurationID_SCAR
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.RuleId
 	 * @generated
 	 */
-	public Adapter createConfigurationID_SCARAdapter() {
+	public Adapter createRuleIdAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification <em>System Element Identification</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement <em>System Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElementIdentification
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.SystemElement
 	 * @generated
 	 */
-	public Adapter createSystemElementIdentificationAdapter() {
+	public Adapter createSystemElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification <em>Parameter Identification</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.ParameterIdentification
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR
 	 * @generated
 	 */
-	public Adapter createParameterIdentificationAdapter() {
+	public Adapter createParameter_SCARAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification <em>Field Identification</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR <em>Field SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification
+	 * @see edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR
 	 * @generated
 	 */
-	public Adapter createFieldIdentificationAdapter() {
+	public Adapter createField_SCARAdapter() {
 		return null;
 	}
 

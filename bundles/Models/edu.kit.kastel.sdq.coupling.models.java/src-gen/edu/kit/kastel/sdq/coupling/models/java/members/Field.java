@@ -16,5 +16,5 @@ import edu.kit.kastel.sdq.coupling.models.java.types.TypedElement;
  * @model
  * @generated
  */
-public interface Field extends TypedElement, Entity {
+public interface Field extends TypedElement, Entity, Annotatable {
 } // Field

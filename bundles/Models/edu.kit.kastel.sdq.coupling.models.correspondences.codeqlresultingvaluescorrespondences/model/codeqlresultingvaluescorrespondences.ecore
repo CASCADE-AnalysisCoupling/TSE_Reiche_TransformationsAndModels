@@ -2,32 +2,33 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeqlresultingvaluescorrespondences" nsURI="http://www.example.org/codeqlresultingvaluescorrespondences"
     nsPrefix="codeqlresultingvaluescorrespondences">
-  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_CodeQLResultingValues">
+  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_ResolvedImplementationValues">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevelCorrespondences"
-        upperBound="-1" eType="#//SecurityLevelCorrespondence_CodeQLResultingValues"
+        upperBound="-1" eType="#//SecurityLevelCorrespondence_ResolvedImplementationValues"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurationCorrespondences"
-        upperBound="-1" eType="#//ConfigurationCorrespondence_CodeQLResultingValues"
+        upperBound="-1" eType="#//ConfigurationCorrespondence_ResolvedImplementationValues"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCorrespondences"
-        upperBound="-1" eType="#//ParameterCorrespondence_CodeQLResultingValues" containment="true"/>
+        upperBound="-1" eType="#//ParameterCorrespondence_ResolvedImplementationValues"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelCorrespondence_CodeQLResultingValues">
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelCorrespondence_ResolvedImplementationValues">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_CodeQL" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/SecurityLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_CodeQLResultingValues"
-        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//SecurityLevel_ResultingValues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_ResolvedImplementationValues"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//SecurityLevel_ResolvedImplementationValues"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence_CodeQLResultingValues">
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence_ResolvedImplementationValues">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_SCAR" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//ConfigurationID_SCAR"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//RuleId"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_ResultingValues"
-        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//ConfigurationID_ResultingValues"/>
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//RuleId_ResolvedImplementationValue"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence_CodeQLResultingValues">
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence_ResolvedImplementationValues">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_SCAR" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//ParameterIdentification"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ResultingValues"
-        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//Parameter_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ResolvedImplementationValues"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.codeqlresultingvalues/model/codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues"/>
   </eClassifiers>
 </ecore:EPackage>

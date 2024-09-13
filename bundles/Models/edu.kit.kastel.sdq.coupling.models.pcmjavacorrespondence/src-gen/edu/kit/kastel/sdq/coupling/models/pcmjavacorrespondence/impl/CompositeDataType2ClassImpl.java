@@ -75,15 +75,14 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CompositeDataType getCompositeDataType() {
-		if (compositeDataType != null && ((EObject) compositeDataType).eIsProxy()) {
-			InternalEObject oldCompositeDataType = (InternalEObject) compositeDataType;
-			compositeDataType = (CompositeDataType) eResolveProxy(oldCompositeDataType);
+		if (compositeDataType != null && ((EObject)compositeDataType).eIsProxy()) {
+			InternalEObject oldCompositeDataType = (InternalEObject)compositeDataType;
+			compositeDataType = (CompositeDataType)eResolveProxy(oldCompositeDataType);
 			if (compositeDataType != oldCompositeDataType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE,
-							oldCompositeDataType, compositeDataType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE, oldCompositeDataType, compositeDataType));
 			}
 		}
 		return compositeDataType;
@@ -103,13 +102,12 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCompositeDataType(CompositeDataType newCompositeDataType) {
 		CompositeDataType oldCompositeDataType = compositeDataType;
 		compositeDataType = newCompositeDataType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE, oldCompositeDataType,
-					compositeDataType));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE, oldCompositeDataType, compositeDataType));
 	}
 
 	/**
@@ -117,15 +115,14 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public edu.kit.kastel.sdq.coupling.models.java.types.Class getJavaClass() {
 		if (javaClass != null && javaClass.eIsProxy()) {
-			InternalEObject oldJavaClass = (InternalEObject) javaClass;
-			javaClass = (edu.kit.kastel.sdq.coupling.models.java.types.Class) eResolveProxy(oldJavaClass);
+			InternalEObject oldJavaClass = (InternalEObject)javaClass;
+			javaClass = (edu.kit.kastel.sdq.coupling.models.java.types.Class)eResolveProxy(oldJavaClass);
 			if (javaClass != oldJavaClass) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS, oldJavaClass,
-							javaClass));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
 			}
 		}
 		return javaClass;
@@ -145,12 +142,12 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJavaClass(edu.kit.kastel.sdq.coupling.models.java.types.Class newJavaClass) {
 		edu.kit.kastel.sdq.coupling.models.java.types.Class oldJavaClass = javaClass;
 		javaClass = newJavaClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS, oldJavaClass, javaClass));
 	}
 
 	/**
@@ -161,14 +158,12 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
-			if (resolve)
-				return getCompositeDataType();
-			return basicGetCompositeDataType();
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
-			if (resolve)
-				return getJavaClass();
-			return basicGetJavaClass();
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
+				if (resolve) return getCompositeDataType();
+				return basicGetCompositeDataType();
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
+				if (resolve) return getJavaClass();
+				return basicGetJavaClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,12 +176,12 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
-			setCompositeDataType((CompositeDataType) newValue);
-			return;
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
-			setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class) newValue);
-			return;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
+				setCompositeDataType((CompositeDataType)newValue);
+				return;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
+				setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,12 +194,12 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
-			setCompositeDataType((CompositeDataType) null);
-			return;
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
-			setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class) null);
-			return;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
+				setCompositeDataType((CompositeDataType)null);
+				return;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
+				setJavaClass((edu.kit.kastel.sdq.coupling.models.java.types.Class)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,10 +212,10 @@ public class CompositeDataType2ClassImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
-			return compositeDataType != null;
-		case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
-			return javaClass != null;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__COMPOSITE_DATA_TYPE:
+				return compositeDataType != null;
+			case PcmjavacorrespondencePackage.COMPOSITE_DATA_TYPE2_CLASS__JAVA_CLASS:
+				return javaClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

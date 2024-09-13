@@ -73,120 +73,120 @@ public class JoanaresultingvaluesItemProviderAdapterFactory extends Joanaresulti
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JOANAResultingValuesItemProvider joanaResultingValuesItemProvider;
+	protected ResolvedImplementationValuesItemProvider resolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createJOANAResultingValuesAdapter() {
-		if (joanaResultingValuesItemProvider == null) {
-			joanaResultingValuesItemProvider = new JOANAResultingValuesItemProvider(this);
+	public Adapter createResolvedImplementationValuesAdapter() {
+		if (resolvedImplementationValuesItemProvider == null) {
+			resolvedImplementationValuesItemProvider = new ResolvedImplementationValuesItemProvider(this);
 		}
 
-		return joanaResultingValuesItemProvider;
+		return resolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterIdentification_JOANAResultingValuesItemProvider parameterIdentification_JOANAResultingValuesItemProvider;
+	protected Parameter_ResolvedImplementationValuesItemProvider parameter_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterIdentification_JOANAResultingValuesAdapter() {
-		if (parameterIdentification_JOANAResultingValuesItemProvider == null) {
-			parameterIdentification_JOANAResultingValuesItemProvider = new ParameterIdentification_JOANAResultingValuesItemProvider(
+	public Adapter createParameter_ResolvedImplementationValuesAdapter() {
+		if (parameter_ResolvedImplementationValuesItemProvider == null) {
+			parameter_ResolvedImplementationValuesItemProvider = new Parameter_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return parameterIdentification_JOANAResultingValuesItemProvider;
+		return parameter_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Level_ResultingValuesItemProvider level_ResultingValuesItemProvider;
+	protected Level_ResolvedImplementationValuesItemProvider level_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLevel_ResultingValuesAdapter() {
-		if (level_ResultingValuesItemProvider == null) {
-			level_ResultingValuesItemProvider = new Level_ResultingValuesItemProvider(this);
+	public Adapter createLevel_ResolvedImplementationValuesAdapter() {
+		if (level_ResolvedImplementationValuesItemProvider == null) {
+			level_ResolvedImplementationValuesItemProvider = new Level_ResolvedImplementationValuesItemProvider(this);
 		}
 
-		return level_ResultingValuesItemProvider;
+		return level_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EntryPointIdentification_ResultingValuesItemProvider entryPointIdentification_ResultingValuesItemProvider;
+	protected EntryPoint_ResolvedImplementationValuesItemProvider entryPoint_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEntryPointIdentification_ResultingValuesAdapter() {
-		if (entryPointIdentification_ResultingValuesItemProvider == null) {
-			entryPointIdentification_ResultingValuesItemProvider = new EntryPointIdentification_ResultingValuesItemProvider(
+	public Adapter createEntryPoint_ResolvedImplementationValuesAdapter() {
+		if (entryPoint_ResolvedImplementationValuesItemProvider == null) {
+			entryPoint_ResolvedImplementationValuesItemProvider = new EntryPoint_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return entryPointIdentification_ResultingValuesItemProvider;
+		return entryPoint_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultingValueItemProvider resultingValueItemProvider;
+	protected ResolvedImplementationValueItemProvider resolvedImplementationValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultingValueAdapter() {
-		if (resultingValueItemProvider == null) {
-			resultingValueItemProvider = new ResultingValueItemProvider(this);
+	public Adapter createResolvedImplementationValueAdapter() {
+		if (resolvedImplementationValueItemProvider == null) {
+			resolvedImplementationValueItemProvider = new ResolvedImplementationValueItemProvider(this);
 		}
 
-		return resultingValueItemProvider;
+		return resolvedImplementationValueItemProvider;
 	}
 
 	/**
@@ -288,16 +288,16 @@ public class JoanaresultingvaluesItemProviderAdapterFactory extends Joanaresulti
 	 * @generated
 	 */
 	public void dispose() {
-		if (joanaResultingValuesItemProvider != null)
-			joanaResultingValuesItemProvider.dispose();
-		if (parameterIdentification_JOANAResultingValuesItemProvider != null)
-			parameterIdentification_JOANAResultingValuesItemProvider.dispose();
-		if (level_ResultingValuesItemProvider != null)
-			level_ResultingValuesItemProvider.dispose();
-		if (entryPointIdentification_ResultingValuesItemProvider != null)
-			entryPointIdentification_ResultingValuesItemProvider.dispose();
-		if (resultingValueItemProvider != null)
-			resultingValueItemProvider.dispose();
+		if (resolvedImplementationValuesItemProvider != null)
+			resolvedImplementationValuesItemProvider.dispose();
+		if (parameter_ResolvedImplementationValuesItemProvider != null)
+			parameter_ResolvedImplementationValuesItemProvider.dispose();
+		if (level_ResolvedImplementationValuesItemProvider != null)
+			level_ResolvedImplementationValuesItemProvider.dispose();
+		if (entryPoint_ResolvedImplementationValuesItemProvider != null)
+			entryPoint_ResolvedImplementationValuesItemProvider.dispose();
+		if (resolvedImplementationValueItemProvider != null)
+			resolvedImplementationValueItemProvider.dispose();
 	}
 
 }

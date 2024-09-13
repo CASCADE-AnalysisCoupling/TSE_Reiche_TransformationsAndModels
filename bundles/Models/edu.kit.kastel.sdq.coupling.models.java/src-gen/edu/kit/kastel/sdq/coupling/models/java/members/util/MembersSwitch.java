@@ -77,6 +77,7 @@ public class MembersSwitch<T> extends Switch<T> {
 				T result = caseField(field);
 				if (result == null) result = caseTypedElement(field);
 				if (result == null) result = caseEntity(field);
+				if (result == null) result = caseAnnotatable(field);
 				if (result == null) result = caseIdentifiedElement(field);
 				if (result == null) result = caseNamedElement(field);
 				if (result == null) result = defaultCase(theEObject);
@@ -86,6 +87,7 @@ public class MembersSwitch<T> extends Switch<T> {
 				Method method = (Method)theEObject;
 				T result = caseMethod(method);
 				if (result == null) result = caseEntity(method);
+				if (result == null) result = caseAnnotatable(method);
 				if (result == null) result = caseIdentifiedElement(method);
 				if (result == null) result = caseNamedElement(method);
 				if (result == null) result = defaultCase(theEObject);
@@ -96,8 +98,15 @@ public class MembersSwitch<T> extends Switch<T> {
 				T result = caseParameter(parameter);
 				if (result == null) result = caseEntity(parameter);
 				if (result == null) result = caseTypedElement(parameter);
+				if (result == null) result = caseAnnotatable(parameter);
 				if (result == null) result = caseIdentifiedElement(parameter);
 				if (result == null) result = caseNamedElement(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MembersPackage.ANNOTATABLE: {
+				Annotatable annotatable = (Annotatable)theEObject;
+				T result = caseAnnotatable(annotatable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,6 +156,21 @@ public class MembersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotatable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotatable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotatable(Annotatable object) {
 		return null;
 	}
 

@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 import edu.kit.kastel.scbs.confidentiality.provider.ConfidentialityEditPlugin;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationEditPlugin;
+
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.joana.provider.JoanaEditPlugin;
@@ -54,7 +56,8 @@ public final class AccessanalysisjoanacorrespondencesEditorPlugin extends EMFPlu
 	 * @generated
 	 */
 	public AccessanalysisjoanacorrespondencesEditorPlugin() {
-		super(new ResourceLocator[] { ConfidentialityEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+		super(new ResourceLocator[] { ConfidentialityEditPlugin.INSTANCE,
+				ConfigurationrepresentationEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
 				edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin.INSTANCE,
 				JavaEditPlugin.INSTANCE, JoanaEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
 				ProbabilityFunctionEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });

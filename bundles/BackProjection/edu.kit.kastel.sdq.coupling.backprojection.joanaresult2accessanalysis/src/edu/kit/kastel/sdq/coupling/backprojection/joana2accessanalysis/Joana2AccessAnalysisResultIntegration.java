@@ -8,14 +8,15 @@ import edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.util.Corr
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolution;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.resolution.ResultingSpecificationResolutionFactory;
 import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.parser.JoanaResult2SCARParser;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
 
 public class Joana2AccessAnalysisResultIntegration {
 
 	protected final String javaModelLocation;
 	protected final String joanaModelLocation;
-	protected final String correspondenceModelLocation;
+	protected final String pcmJava_correspondenceModelLocation;
 	protected final String joanaResultLocation;
 	protected final String repositoryModelLocation;
 	protected final String confidentialitySpecificationLocation;
@@ -26,16 +27,17 @@ public class Joana2AccessAnalysisResultIntegration {
 	protected final String accessAnalysisJOANACorrespondencesLocation;
 	protected final String scarCorrespondencesLocation;
 	protected final String resultingValuesCorrespondencesLocation;
+	protected final String joana_Configurations_Location;
 	
-	public Joana2AccessAnalysisResultIntegration(String javaModelLocation, String joanaModelLocation,
-			String correspondenceModelLocation, String joanaResultLocation, String repositoryModelLocation,
+	public Joana2AccessAnalysisResultIntegration(String javaModelLocation, String joanaModelLocation,  String joana_Configurations_Location,
+			String pcmJava_correspondenceModelLocation, String joanaResultLocation, String repositoryModelLocation,
 			String confidentialitySpecificationLocation, String originBackupLocation, String policyStyle,
 			String scarLocation, String resultingValuesLocation, String accessAnalysisJOANACorrespondencesLocation,
 			String scarCorrespondencesLocation, String resultingValuesCorrespondencesLocation) {
 		super();
 		this.javaModelLocation = javaModelLocation;
 		this.joanaModelLocation = joanaModelLocation;
-		this.correspondenceModelLocation = correspondenceModelLocation;
+		this.pcmJava_correspondenceModelLocation = pcmJava_correspondenceModelLocation;
 		this.joanaResultLocation = joanaResultLocation;
 		this.repositoryModelLocation = repositoryModelLocation;
 		this.confidentialitySpecificationLocation = confidentialitySpecificationLocation;
@@ -46,20 +48,21 @@ public class Joana2AccessAnalysisResultIntegration {
 		this.accessAnalysisJOANACorrespondencesLocation = accessAnalysisJOANACorrespondencesLocation;
 		this.scarCorrespondencesLocation = scarCorrespondencesLocation;
 		this.resultingValuesCorrespondencesLocation = resultingValuesCorrespondencesLocation;
+		this.joana_Configurations_Location = joana_Configurations_Location;
 	}
 
 	
 	public void integrate(ResultingSpecificationResolutionFactory resolutionFactory, BackprojectionFactory backprojectionFactory) {
 		Models models = Models.createModelsFromFiles(javaModelLocation, joanaModelLocation,
-				correspondenceModelLocation, joanaResultLocation,
-				repositoryModelLocation, confidentialitySpecificationLocation, originBackupLocation, accessAnalysisJOANACorrespondencesLocation);
+				pcmJava_correspondenceModelLocation, joanaResultLocation,
+				repositoryModelLocation, confidentialitySpecificationLocation, originBackupLocation, accessAnalysisJOANACorrespondencesLocation, joana_Configurations_Location);
 		
-		JoanaResult2SCARParser parser = new JoanaResult2SCARParser(models.getJavaRoot(), models.getJoanaRoot());
+		JoanaResult2SCARParser parser = new JoanaResult2SCARParser(models.getJavaRoot(), models.getJoanaRoot(), models.getJoana_Configurations());
 		SourceCodeAnalysisResult scar = parser.readJOANAOutput(models.getJoanaResult());
 		
 		
 		ResultingSpecificationResolution extractor = resolutionFactory.generateResultingSpecificationResolution(policyStyle);
-		JOANAResultingValues resultingSpec = extractor.calculateResultingSpecification(scar, parser.getScarCorrespondences());
+		ResolvedImplementationValues resultingSpec = extractor.calculateResultingSpecification(scar, parser.getScarCorrespondences());
 		
 		CorrespondencesResolver resolver = new CorrespondencesResolver(models.getAccessanalysisJOANACorrespondences(), extractor.getCorrespondences_ResultingValues(), parser.getScarCorrespondences(), models.getCorrespondenceRoot());
 		

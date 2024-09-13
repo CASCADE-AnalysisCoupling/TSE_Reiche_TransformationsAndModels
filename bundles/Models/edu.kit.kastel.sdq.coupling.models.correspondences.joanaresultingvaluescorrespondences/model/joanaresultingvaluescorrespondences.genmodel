@@ -13,22 +13,22 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Joanaresultingvaluescorrespondences" basePackage="edu.kit.kastel.sdq.coupling.models.correspondences"
       disposableProviderFactory="true" ecorePackage="joanaresultingvaluescorrespondences.ecore#/">
-    <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//Correspondences_JOANAResultingValues">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_JOANAResultingValues/levelCorrespondences"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_JOANAResultingValues/entryPointCorrespondences"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_JOANAResultingValues/parameterCorrespondences"/>
+    <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/levelCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/entryPointCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//Correspondences_ResolvedImplementationValues/parameterCorrespondences"/>
     </genClasses>
-    <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_JOANAResultingValues">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_JOANAResultingValues/level_JOANA"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_JOANAResultingValues/level_ResultingValues"/>
+    <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_ResolvedImplementationValues">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_ResolvedImplementationValues/level_JOANA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//LevelCorrespondence_ResolvedImplementationValues/level_ResolvedImplementationValues"/>
     </genClasses>
     <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//EntryPointCorrespondence_JOANAResultingValues">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//EntryPointCorrespondence_JOANAResultingValues/entryPoint_SCAR"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//EntryPointCorrespondence_JOANAResultingValues/entryPoint_ResultingValues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//EntryPointCorrespondence_JOANAResultingValues/entryPoint_ResolvedImplementationValues"/>
     </genClasses>
     <genClasses ecoreClass="joanaresultingvaluescorrespondences.ecore#//ParameterCorrespondence_JOANAResultingValues">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//ParameterCorrespondence_JOANAResultingValues/parameter_SCAR"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//ParameterCorrespondence_JOANAResultingValues/parameter_ResultingValues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanaresultingvaluescorrespondences.ecore#//ParameterCorrespondence_JOANAResultingValues/parameter_ResolvedImplementationValues"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

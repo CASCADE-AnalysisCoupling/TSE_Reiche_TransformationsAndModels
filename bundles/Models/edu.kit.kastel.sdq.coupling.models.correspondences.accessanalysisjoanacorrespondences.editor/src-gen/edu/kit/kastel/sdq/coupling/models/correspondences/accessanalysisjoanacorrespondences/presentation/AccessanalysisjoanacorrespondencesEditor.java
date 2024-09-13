@@ -175,6 +175,8 @@ import edu.kit.kastel.scbs.confidentiality.resources.provider.ResourcesItemProvi
 
 import edu.kit.kastel.scbs.confidentiality.system.provider.SystemItemProviderAdapterFactory;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationItemProviderAdapterFactory;
+
 import edu.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
 
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaItemProviderAdapterFactory;
@@ -748,6 +750,7 @@ public class AccessanalysisjoanacorrespondencesEditor extends MultiPageEditorPar
 		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourcesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdversaryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConfigurationrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(
 				new edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory());

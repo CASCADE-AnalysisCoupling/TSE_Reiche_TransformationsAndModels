@@ -17,32 +17,37 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//SourceCodeAnalysisResult/systemElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//SourceCodeAnalysisResult/entryPoints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//SourceCodeAnalysisResult/levels"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//SourceCodeAnalysisResult/resultEntries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//SourceCodeAnalysisResult/flows"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="joanascar.ecore#//SystemElementIdentifiying_JOANASCAR"/>
-    <genClasses ecoreClass="joanascar.ecore#//ParameterIdentifying">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//ParameterIdentifying/parameterIndex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//ParameterIdentifying/parameterType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//ParameterIdentifying/methodName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//ParameterIdentifying/fullyQualifiedClassName"/>
+    <genClasses image="false" ecoreClass="joanascar.ecore#//SystemElement_SCAR"/>
+    <genClasses ecoreClass="joanascar.ecore#//Parameter_SCAR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Parameter_SCAR/parameterIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Parameter_SCAR/parameterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Parameter_SCAR/methodName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Parameter_SCAR/fullyQualifiedClassName"/>
     </genClasses>
-    <genClasses ecoreClass="joanascar.ecore#//FieldIdentifying">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//FieldIdentifying/fieldName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//FieldIdentifying/fullyQualifiedClassName"/>
+    <genClasses ecoreClass="joanascar.ecore#//Field_SCAR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Field_SCAR/fieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//Field_SCAR/fullyQualifiedClassName"/>
     </genClasses>
     <genClasses ecoreClass="joanascar.ecore#//Level_SCAR"/>
-    <genClasses ecoreClass="joanascar.ecore#//EntryPointIdentifying">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//EntryPointIdentifying/tag"/>
+    <genClasses ecoreClass="joanascar.ecore#//EntryPoint_SCAR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanascar.ecore#//EntryPoint_SCAR/tag"/>
     </genClasses>
-    <genClasses ecoreClass="joanascar.ecore#//ResultEntry">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//ResultEntry/entryPoint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//ResultEntry/source"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//ResultEntry/sink"/>
+    <genClasses ecoreClass="joanascar.ecore#//Flow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//Flow/entryPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//Flow/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascar.ecore#//Flow/sink"/>
     </genClasses>
-    <genClasses ecoreClass="joanascar.ecore#//ResultEntryElement">
-      <genTypeParameters ecoreTypeParameter="joanascar.ecore#//ResultEntryElement/T"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//ResultEntryElement/systemElement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//ResultEntryElement/level"/>
+    <genClasses ecoreClass="joanascar.ecore#//Source">
+      <genTypeParameters ecoreTypeParameter="joanascar.ecore#//Source/T"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//Source/systemElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//Source/sourceLevel"/>
+    </genClasses>
+    <genClasses ecoreClass="joanascar.ecore#//Sink">
+      <genTypeParameters ecoreTypeParameter="joanascar.ecore#//Sink/T"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//Sink/sinkLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascar.ecore#//Sink/systemElement"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

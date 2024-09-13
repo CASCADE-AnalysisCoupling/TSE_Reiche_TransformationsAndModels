@@ -7,6 +7,7 @@ import edu.kit.kastel.sdq.coupling.models.identifier.IdentifiedElement;
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 import edu.kit.kastel.sdq.coupling.models.identifier.NamedElement;
 
+import edu.kit.kastel.sdq.coupling.models.java.members.Annotatable;
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 import edu.kit.kastel.sdq.coupling.models.java.members.MembersPackage;
 
@@ -226,6 +227,11 @@ public class FieldImpl extends TypedElementImpl implements Field {
 				default: return -1;
 			}
 		}
+		if (baseClass == Annotatable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -249,6 +255,11 @@ public class FieldImpl extends TypedElementImpl implements Field {
 			}
 		}
 		if (baseClass == Entity.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Annotatable.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

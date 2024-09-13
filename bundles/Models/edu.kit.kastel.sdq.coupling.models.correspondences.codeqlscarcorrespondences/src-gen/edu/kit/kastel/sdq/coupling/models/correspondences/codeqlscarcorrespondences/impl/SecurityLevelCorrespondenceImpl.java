@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SecurityLevelCorrespondenceImpl#getCodeQLSecurityLevel <em>Code QL Security Level</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SecurityLevelCorrespondenceImpl#getCodeQLSCARSecurityLevel <em>Code QLSCAR Security Level</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SecurityLevelCorrespondenceImpl#getSecurityLevel_CodeQL <em>Security Level Code QL</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.SecurityLevelCorrespondenceImpl#getSecurityLevel_SCAR <em>Security Level SCAR</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +34,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Container
 		implements SecurityLevelCorrespondence {
 	/**
-	 * The cached value of the '{@link #getCodeQLSecurityLevel() <em>Code QL Security Level</em>}' reference.
+	 * The cached value of the '{@link #getSecurityLevel_CodeQL() <em>Security Level Code QL</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeQLSecurityLevel()
+	 * @see #getSecurityLevel_CodeQL()
 	 * @generated
 	 * @ordered
 	 */
-	protected SecurityLevel codeQLSecurityLevel;
+	protected SecurityLevel securityLevel_CodeQL;
 
 	/**
-	 * The cached value of the '{@link #getCodeQLSCARSecurityLevel() <em>Code QLSCAR Security Level</em>}' reference.
+	 * The cached value of the '{@link #getSecurityLevel_SCAR() <em>Security Level SCAR</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCodeQLSCARSecurityLevel()
+	 * @see #getSecurityLevel_SCAR()
 	 * @generated
 	 * @ordered
 	 */
-	protected SecurityLevel_SCAR codeQLSCARSecurityLevel;
+	protected SecurityLevel_SCAR securityLevel_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,18 +77,18 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevel getCodeQLSecurityLevel() {
-		if (codeQLSecurityLevel != null && codeQLSecurityLevel.eIsProxy()) {
-			InternalEObject oldCodeQLSecurityLevel = (InternalEObject) codeQLSecurityLevel;
-			codeQLSecurityLevel = (SecurityLevel) eResolveProxy(oldCodeQLSecurityLevel);
-			if (codeQLSecurityLevel != oldCodeQLSecurityLevel) {
+	public SecurityLevel getSecurityLevel_CodeQL() {
+		if (securityLevel_CodeQL != null && securityLevel_CodeQL.eIsProxy()) {
+			InternalEObject oldSecurityLevel_CodeQL = (InternalEObject) securityLevel_CodeQL;
+			securityLevel_CodeQL = (SecurityLevel) eResolveProxy(oldSecurityLevel_CodeQL);
+			if (securityLevel_CodeQL != oldSecurityLevel_CodeQL) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL,
-							oldCodeQLSecurityLevel, codeQLSecurityLevel));
+							CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL,
+							oldSecurityLevel_CodeQL, securityLevel_CodeQL));
 			}
 		}
-		return codeQLSecurityLevel;
+		return securityLevel_CodeQL;
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevel basicGetCodeQLSecurityLevel() {
-		return codeQLSecurityLevel;
+	public SecurityLevel basicGetSecurityLevel_CodeQL() {
+		return securityLevel_CodeQL;
 	}
 
 	/**
@@ -105,13 +105,13 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeQLSecurityLevel(SecurityLevel newCodeQLSecurityLevel) {
-		SecurityLevel oldCodeQLSecurityLevel = codeQLSecurityLevel;
-		codeQLSecurityLevel = newCodeQLSecurityLevel;
+	public void setSecurityLevel_CodeQL(SecurityLevel newSecurityLevel_CodeQL) {
+		SecurityLevel oldSecurityLevel_CodeQL = securityLevel_CodeQL;
+		securityLevel_CodeQL = newSecurityLevel_CodeQL;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL,
-					oldCodeQLSecurityLevel, codeQLSecurityLevel));
+					CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL,
+					oldSecurityLevel_CodeQL, securityLevel_CodeQL));
 	}
 
 	/**
@@ -119,18 +119,18 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevel_SCAR getCodeQLSCARSecurityLevel() {
-		if (codeQLSCARSecurityLevel != null && codeQLSCARSecurityLevel.eIsProxy()) {
-			InternalEObject oldCodeQLSCARSecurityLevel = (InternalEObject) codeQLSCARSecurityLevel;
-			codeQLSCARSecurityLevel = (SecurityLevel_SCAR) eResolveProxy(oldCodeQLSCARSecurityLevel);
-			if (codeQLSCARSecurityLevel != oldCodeQLSCARSecurityLevel) {
+	public SecurityLevel_SCAR getSecurityLevel_SCAR() {
+		if (securityLevel_SCAR != null && securityLevel_SCAR.eIsProxy()) {
+			InternalEObject oldSecurityLevel_SCAR = (InternalEObject) securityLevel_SCAR;
+			securityLevel_SCAR = (SecurityLevel_SCAR) eResolveProxy(oldSecurityLevel_SCAR);
+			if (securityLevel_SCAR != oldSecurityLevel_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL,
-							oldCodeQLSCARSecurityLevel, codeQLSCARSecurityLevel));
+							CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR,
+							oldSecurityLevel_SCAR, securityLevel_SCAR));
 			}
 		}
-		return codeQLSCARSecurityLevel;
+		return securityLevel_SCAR;
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityLevel_SCAR basicGetCodeQLSCARSecurityLevel() {
-		return codeQLSCARSecurityLevel;
+	public SecurityLevel_SCAR basicGetSecurityLevel_SCAR() {
+		return securityLevel_SCAR;
 	}
 
 	/**
@@ -147,13 +147,13 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeQLSCARSecurityLevel(SecurityLevel_SCAR newCodeQLSCARSecurityLevel) {
-		SecurityLevel_SCAR oldCodeQLSCARSecurityLevel = codeQLSCARSecurityLevel;
-		codeQLSCARSecurityLevel = newCodeQLSCARSecurityLevel;
+	public void setSecurityLevel_SCAR(SecurityLevel_SCAR newSecurityLevel_SCAR) {
+		SecurityLevel_SCAR oldSecurityLevel_SCAR = securityLevel_SCAR;
+		securityLevel_SCAR = newSecurityLevel_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL,
-					oldCodeQLSCARSecurityLevel, codeQLSCARSecurityLevel));
+					CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR,
+					oldSecurityLevel_SCAR, securityLevel_SCAR));
 	}
 
 	/**
@@ -164,14 +164,14 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL:
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL:
 			if (resolve)
-				return getCodeQLSecurityLevel();
-			return basicGetCodeQLSecurityLevel();
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL:
+				return getSecurityLevel_CodeQL();
+			return basicGetSecurityLevel_CodeQL();
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR:
 			if (resolve)
-				return getCodeQLSCARSecurityLevel();
-			return basicGetCodeQLSCARSecurityLevel();
+				return getSecurityLevel_SCAR();
+			return basicGetSecurityLevel_SCAR();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,11 +184,11 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL:
-			setCodeQLSecurityLevel((SecurityLevel) newValue);
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL:
+			setSecurityLevel_CodeQL((SecurityLevel) newValue);
 			return;
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL:
-			setCodeQLSCARSecurityLevel((SecurityLevel_SCAR) newValue);
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR:
+			setSecurityLevel_SCAR((SecurityLevel_SCAR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,11 +202,11 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL:
-			setCodeQLSecurityLevel((SecurityLevel) null);
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL:
+			setSecurityLevel_CodeQL((SecurityLevel) null);
 			return;
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL:
-			setCodeQLSCARSecurityLevel((SecurityLevel_SCAR) null);
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR:
+			setSecurityLevel_SCAR((SecurityLevel_SCAR) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -220,10 +220,10 @@ public class SecurityLevelCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QL_SECURITY_LEVEL:
-			return codeQLSecurityLevel != null;
-		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__CODE_QLSCAR_SECURITY_LEVEL:
-			return codeQLSCARSecurityLevel != null;
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_CODE_QL:
+			return securityLevel_CodeQL != null;
+		case CodeqlscarcorrespondencesPackage.SECURITY_LEVEL_CORRESPONDENCE__SECURITY_LEVEL_SCAR:
+			return securityLevel_SCAR != null;
 		}
 		return super.eIsSet(featureID);
 	}

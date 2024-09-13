@@ -4,16 +4,17 @@ package edu.kit.kastel.sdq.coupling.models.joanascar.impl;
 
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
-import edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Flow;
 import edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarFactory;
 import edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarPackage;
 import edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Sink;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Source;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -43,21 +44,21 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass systemElementIdentifiying_JOANASCAREClass = null;
+	private EClass systemElement_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterIdentifyingEClass = null;
+	private EClass parameter_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass fieldIdentifyingEClass = null;
+	private EClass field_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,21 +72,28 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass entryPointIdentifyingEClass = null;
+	private EClass entryPoint_SCAREClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultEntryEClass = null;
+	private EClass flowEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultEntryElementEClass = null;
+	private EClass sourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sinkEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -195,7 +203,7 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSourceCodeAnalysisResult_ResultEntries() {
+	public EReference getSourceCodeAnalysisResult_Flows() {
 		return (EReference) sourceCodeAnalysisResultEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -204,8 +212,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSystemElementIdentifiying_JOANASCAR() {
-		return systemElementIdentifiying_JOANASCAREClass;
+	public EClass getSystemElement_SCAR() {
+		return systemElement_SCAREClass;
 	}
 
 	/**
@@ -213,8 +221,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterIdentifying() {
-		return parameterIdentifyingEClass;
+	public EClass getParameter_SCAR() {
+		return parameter_SCAREClass;
 	}
 
 	/**
@@ -222,8 +230,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentifying_ParameterIndex() {
-		return (EAttribute) parameterIdentifyingEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameter_SCAR_ParameterIndex() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -231,8 +239,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentifying_ParameterType() {
-		return (EAttribute) parameterIdentifyingEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_SCAR_ParameterType() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -240,8 +248,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentifying_MethodName() {
-		return (EAttribute) parameterIdentifyingEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParameter_SCAR_MethodName() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -249,8 +257,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentifying_FullyQualifiedClassName() {
-		return (EAttribute) parameterIdentifyingEClass.getEStructuralFeatures().get(3);
+	public EAttribute getParameter_SCAR_FullyQualifiedClassName() {
+		return (EAttribute) parameter_SCAREClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -258,8 +266,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFieldIdentifying() {
-		return fieldIdentifyingEClass;
+	public EClass getField_SCAR() {
+		return field_SCAREClass;
 	}
 
 	/**
@@ -267,8 +275,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFieldIdentifying_FieldName() {
-		return (EAttribute) fieldIdentifyingEClass.getEStructuralFeatures().get(0);
+	public EAttribute getField_SCAR_FieldName() {
+		return (EAttribute) field_SCAREClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -276,8 +284,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFieldIdentifying_FullyQualifiedClassName() {
-		return (EAttribute) fieldIdentifyingEClass.getEStructuralFeatures().get(1);
+	public EAttribute getField_SCAR_FullyQualifiedClassName() {
+		return (EAttribute) field_SCAREClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -294,8 +302,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEntryPointIdentifying() {
-		return entryPointIdentifyingEClass;
+	public EClass getEntryPoint_SCAR() {
+		return entryPoint_SCAREClass;
 	}
 
 	/**
@@ -303,8 +311,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntryPointIdentifying_Tag() {
-		return (EAttribute) entryPointIdentifyingEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEntryPoint_SCAR_Tag() {
+		return (EAttribute) entryPoint_SCAREClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -312,8 +320,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResultEntry() {
-		return resultEntryEClass;
+	public EClass getFlow() {
+		return flowEClass;
 	}
 
 	/**
@@ -321,8 +329,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_EntryPoint() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(0);
+	public EReference getFlow_EntryPoint() {
+		return (EReference) flowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -330,8 +338,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_Source() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(1);
+	public EReference getFlow_Source() {
+		return (EReference) flowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -339,8 +347,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntry_Sink() {
-		return (EReference) resultEntryEClass.getEStructuralFeatures().get(2);
+	public EReference getFlow_Sink() {
+		return (EReference) flowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -348,8 +356,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResultEntryElement() {
-		return resultEntryElementEClass;
+	public EClass getSource() {
+		return sourceEClass;
 	}
 
 	/**
@@ -357,8 +365,8 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntryElement_SystemElement() {
-		return (EReference) resultEntryElementEClass.getEStructuralFeatures().get(0);
+	public EReference getSource_SystemElement() {
+		return (EReference) sourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -366,8 +374,35 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultEntryElement_Level() {
-		return (EReference) resultEntryElementEClass.getEStructuralFeatures().get(1);
+	public EReference getSource_SourceLevel() {
+		return (EReference) sourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSink() {
+		return sinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSink_SinkLevel() {
+		return (EReference) sinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSink_SystemElement() {
+		return (EReference) sinkEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -403,33 +438,37 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__SYSTEM_ELEMENTS);
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__ENTRY_POINTS);
 		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__LEVELS);
-		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES);
+		createEReference(sourceCodeAnalysisResultEClass, SOURCE_CODE_ANALYSIS_RESULT__FLOWS);
 
-		systemElementIdentifiying_JOANASCAREClass = createEClass(SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR);
+		systemElement_SCAREClass = createEClass(SYSTEM_ELEMENT_SCAR);
 
-		parameterIdentifyingEClass = createEClass(PARAMETER_IDENTIFYING);
-		createEAttribute(parameterIdentifyingEClass, PARAMETER_IDENTIFYING__PARAMETER_INDEX);
-		createEAttribute(parameterIdentifyingEClass, PARAMETER_IDENTIFYING__PARAMETER_TYPE);
-		createEAttribute(parameterIdentifyingEClass, PARAMETER_IDENTIFYING__METHOD_NAME);
-		createEAttribute(parameterIdentifyingEClass, PARAMETER_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME);
+		parameter_SCAREClass = createEClass(PARAMETER_SCAR);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__PARAMETER_INDEX);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__PARAMETER_TYPE);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__METHOD_NAME);
+		createEAttribute(parameter_SCAREClass, PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME);
 
-		fieldIdentifyingEClass = createEClass(FIELD_IDENTIFYING);
-		createEAttribute(fieldIdentifyingEClass, FIELD_IDENTIFYING__FIELD_NAME);
-		createEAttribute(fieldIdentifyingEClass, FIELD_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME);
+		field_SCAREClass = createEClass(FIELD_SCAR);
+		createEAttribute(field_SCAREClass, FIELD_SCAR__FIELD_NAME);
+		createEAttribute(field_SCAREClass, FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME);
 
 		level_SCAREClass = createEClass(LEVEL_SCAR);
 
-		entryPointIdentifyingEClass = createEClass(ENTRY_POINT_IDENTIFYING);
-		createEAttribute(entryPointIdentifyingEClass, ENTRY_POINT_IDENTIFYING__TAG);
+		entryPoint_SCAREClass = createEClass(ENTRY_POINT_SCAR);
+		createEAttribute(entryPoint_SCAREClass, ENTRY_POINT_SCAR__TAG);
 
-		resultEntryEClass = createEClass(RESULT_ENTRY);
-		createEReference(resultEntryEClass, RESULT_ENTRY__ENTRY_POINT);
-		createEReference(resultEntryEClass, RESULT_ENTRY__SOURCE);
-		createEReference(resultEntryEClass, RESULT_ENTRY__SINK);
+		flowEClass = createEClass(FLOW);
+		createEReference(flowEClass, FLOW__ENTRY_POINT);
+		createEReference(flowEClass, FLOW__SOURCE);
+		createEReference(flowEClass, FLOW__SINK);
 
-		resultEntryElementEClass = createEClass(RESULT_ENTRY_ELEMENT);
-		createEReference(resultEntryElementEClass, RESULT_ENTRY_ELEMENT__SYSTEM_ELEMENT);
-		createEReference(resultEntryElementEClass, RESULT_ENTRY_ELEMENT__LEVEL);
+		sourceEClass = createEClass(SOURCE);
+		createEReference(sourceEClass, SOURCE__SYSTEM_ELEMENT);
+		createEReference(sourceEClass, SOURCE__SOURCE_LEVEL);
+
+		sinkEClass = createEClass(SINK);
+		createEReference(sinkEClass, SINK__SINK_LEVEL);
+		createEReference(sinkEClass, SINK__SYSTEM_ELEMENT);
 	}
 
 	/**
@@ -461,96 +500,102 @@ public class JoanascarPackageImpl extends EPackageImpl implements JoanascarPacka
 				.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter resultEntryElementEClass_T = addETypeParameter(resultEntryElementEClass, "T");
+		ETypeParameter sourceEClass_T = addETypeParameter(sourceEClass, "T");
+		ETypeParameter sinkEClass_T = addETypeParameter(sinkEClass, "T");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getSystemElementIdentifiying_JOANASCAR());
-		resultEntryElementEClass_T.getEBounds().add(g1);
+		EGenericType g1 = createEGenericType(this.getSystemElement_SCAR());
+		sourceEClass_T.getEBounds().add(g1);
+		g1 = createEGenericType(this.getSystemElement_SCAR());
+		sinkEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		parameterIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifiying_JOANASCAR());
-		fieldIdentifyingEClass.getESuperTypes().add(this.getSystemElementIdentifiying_JOANASCAR());
+		parameter_SCAREClass.getESuperTypes().add(this.getSystemElement_SCAR());
+		field_SCAREClass.getESuperTypes().add(this.getSystemElement_SCAR());
 		level_SCAREClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sourceCodeAnalysisResultEClass, SourceCodeAnalysisResult.class, "SourceCodeAnalysisResult",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSourceCodeAnalysisResult_SystemElements(), this.getSystemElementIdentifiying_JOANASCAR(),
-				null, "systemElements", null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getSourceCodeAnalysisResult_SystemElements(), this.getSystemElement_SCAR(), null,
+				"systemElements", null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourceCodeAnalysisResult_EntryPoints(), this.getEntryPointIdentifying(), null, "entryPoints",
-				null, 0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getSourceCodeAnalysisResult_EntryPoints(), this.getEntryPoint_SCAR(), null, "entryPoints", null,
+				0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSourceCodeAnalysisResult_Levels(), this.getLevel_SCAR(), null, "levels", null, 0, -1,
 				SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSourceCodeAnalysisResult_ResultEntries(), this.getResultEntry(), null, "resultEntries", null,
-				0, -1, SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEReference(getSourceCodeAnalysisResult_Flows(), this.getFlow(), null, "flows", null, 0, -1,
+				SourceCodeAnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(systemElementIdentifiying_JOANASCAREClass, SystemElementIdentifiying_JOANASCAR.class,
-				"SystemElementIdentifiying_JOANASCAR", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(parameterIdentifyingEClass, ParameterIdentifying.class, "ParameterIdentifying", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterIdentifying_ParameterIndex(), ecorePackage.getEInt(), "parameterIndex", null, 1, 1,
-				ParameterIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentifying_ParameterType(), ecorePackage.getEString(), "parameterType", null, 1, 1,
-				ParameterIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentifying_MethodName(), ecorePackage.getEString(), "methodName", null, 1, 1,
-				ParameterIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentifying_FullyQualifiedClassName(), ecorePackage.getEString(),
-				"fullyQualifiedClassName", null, 1, 1, ParameterIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(fieldIdentifyingEClass, FieldIdentifying.class, "FieldIdentifying", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(systemElement_SCAREClass, SystemElement_SCAR.class, "SystemElement_SCAR", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFieldIdentifying_FieldName(), ecorePackage.getEString(), "fieldName", null, 1, 1,
-				FieldIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+
+		initEClass(parameter_SCAREClass, Parameter_SCAR.class, "Parameter_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_SCAR_ParameterIndex(), ecorePackage.getEInt(), "parameterIndex", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFieldIdentifying_FullyQualifiedClassName(), ecorePackage.getEString(),
-				"fullyQualifiedClassName", null, 1, 1, FieldIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_ParameterType(), ecorePackage.getEString(), "parameterType", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_MethodName(), ecorePackage.getEString(), "methodName", null, 1, 1,
+				Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_SCAR_FullyQualifiedClassName(), ecorePackage.getEString(),
+				"fullyQualifiedClassName", null, 1, 1, Parameter_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(field_SCAREClass, Field_SCAR.class, "Field_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getField_SCAR_FieldName(), ecorePackage.getEString(), "fieldName", null, 1, 1, Field_SCAR.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_SCAR_FullyQualifiedClassName(), ecorePackage.getEString(), "fullyQualifiedClassName",
+				null, 1, 1, Field_SCAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(level_SCAREClass, Level_SCAR.class, "Level_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(entryPointIdentifyingEClass, EntryPointIdentifying.class, "EntryPointIdentifying", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEntryPointIdentifying_Tag(), ecorePackage.getEString(), "tag", null, 1, 1,
-				EntryPointIdentifying.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(resultEntryEClass, ResultEntry.class, "ResultEntry", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(entryPoint_SCAREClass, EntryPoint_SCAR.class, "EntryPoint_SCAR", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResultEntry_EntryPoint(), this.getEntryPointIdentifying(), null, "entryPoint", null, 1, 1,
-				ResultEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getResultEntryElement());
+		initEAttribute(getEntryPoint_SCAR_Tag(), ecorePackage.getEString(), "tag", null, 1, 1, EntryPoint_SCAR.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlow_EntryPoint(), this.getEntryPoint_SCAR(), null, "entryPoint", null, 1, 1, Flow.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getSource());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getResultEntry_Source(), g1, null, "source", null, 1, 1, ResultEntry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		g1 = createEGenericType(this.getResultEntryElement());
+		initEReference(getFlow_Source(), g1, null, "source", null, 1, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getSink());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getResultEntry_Sink(), g1, null, "sink", null, 1, 1, ResultEntry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getFlow_Sink(), g1, null, "sink", null, 1, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resultEntryElementEClass, ResultEntryElement.class, "ResultEntryElement", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(resultEntryElementEClass_T);
-		initEReference(getResultEntryElement_SystemElement(), g1, null, "systemElement", null, 1, 1,
-				ResultEntryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultEntryElement_Level(), this.getLevel_SCAR(), null, "level", null, 1, 1,
-				ResultEntryElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(sourceEClass_T);
+		initEReference(getSource_SystemElement(), g1, null, "systemElement", null, 1, 1, Source.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getSource_SourceLevel(), this.getLevel_SCAR(), null, "sourceLevel", null, 1, 1, Source.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sinkEClass, Sink.class, "Sink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSink_SinkLevel(), this.getLevel_SCAR(), null, "sinkLevel", null, 1, 1, Sink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(sinkEClass_T);
+		initEReference(getSink_SystemElement(), g1, null, "systemElement", null, 1, 1, Sink.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

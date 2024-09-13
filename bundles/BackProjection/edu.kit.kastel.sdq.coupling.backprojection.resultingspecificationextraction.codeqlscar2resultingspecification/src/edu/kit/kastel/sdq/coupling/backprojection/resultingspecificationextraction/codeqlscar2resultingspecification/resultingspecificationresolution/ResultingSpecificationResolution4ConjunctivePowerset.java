@@ -4,15 +4,15 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeQLRoot;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.ResultEntry;
+
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 
 //TODO: Reimplement Class if necessary
@@ -23,8 +23,8 @@ public class ResultingSpecificationResolution4ConjunctivePowerset extends Result
 	}
 
 	@Override
-	public CodeQLResultingValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL,
-			CodeQLSCARCorrespondences codeQLScarCorrespondence) {
+	public ResolvedImplementationValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL,
+			Correspondences_CodeQLScar codeQLScarCorrespondence) {
 		// TODO Auto-generated method stub
 		return null;
 	}

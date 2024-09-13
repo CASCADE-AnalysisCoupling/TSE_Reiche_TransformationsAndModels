@@ -46,16 +46,16 @@ public class IterativeAccessAnalysis2JOANASecurityGenerator extends AccessAnalys
 		this(correspondences, accessAnalysisSpec, blackboard, false);
 	}
 	
-	@Override
-	public JOANARoot generateJOANASpecification(ProfileApplication application) {
-		Collection<EntryPoint> entrypoints = generateConfigurations_EntryPoints(application);
-		
-		// Additional step for Iterative approach:
-		this.postprocessEntrypointsForIterations(entrypoints);
-		
-		root.getEntrypoint().addAll(entrypoints);
-		return root;
-	}
+//	@Override
+//	public JOANARoot generateJOANASpecification(ProfileApplication application) {
+//		Collection<EntryPoint> entrypoints = generateConfigurations_EntryPoints(application);
+//		
+//		// Additional step for Iterative approach:
+//		this.postprocessEntrypointsForIterations(entrypoints);
+//		
+//		root.getEntrypoint().addAll(entrypoints);
+//		return root;
+//	}
 
 	private void postprocessEntrypointsForIterations(Collection<EntryPoint> entrypoints) {
 		this.selectEntrypointsForCurrentIteration(entrypoints);

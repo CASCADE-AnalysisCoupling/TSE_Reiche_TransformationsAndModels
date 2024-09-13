@@ -52,6 +52,7 @@ public class CodeqlPackageImpl extends EPackageImpl implements CodeqlPackage {
 	private CodeqlPackageImpl() {
 		super(eNS_URI, CodeqlFactory.eINSTANCE);
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

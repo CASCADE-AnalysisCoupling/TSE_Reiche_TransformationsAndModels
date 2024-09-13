@@ -2,8 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Node;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingPackage;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 
@@ -29,32 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl#getNodes <em>Nodes</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.impl.TainttrackingRootImpl#getQueries <em>Queries</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implements TainttrackingRoot {
 	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
+	 * The cached value of the '{@link #getQueries() <em>Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNodes()
+	 * @see #getQueries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> nodes;
-
-	/**
-	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConfigurations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Configuration> configurations;
+	protected EList<Query> queries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,23 +68,11 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getNodes() {
-		if (nodes == null) {
-			nodes = new EObjectContainmentEList<Node>(Node.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__NODES);
+	public EList<Query> getQueries() {
+		if (queries == null) {
+			queries = new EObjectContainmentEList<Query>(Query.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES);
 		}
-		return nodes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Configuration> getConfigurations() {
-		if (configurations == null) {
-			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this, TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS);
-		}
-		return configurations;
+		return queries;
 	}
 
 	/**
@@ -107,10 +83,8 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-				return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
+				return ((InternalEList<?>)getQueries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,10 +97,8 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-				return getNodes();
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-				return getConfigurations();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
+				return getQueries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,13 +112,9 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-				getNodes().clear();
-				getNodes().addAll((Collection<? extends Node>)newValue);
-				return;
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-				getConfigurations().clear();
-				getConfigurations().addAll((Collection<? extends Configuration>)newValue);
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
+				getQueries().clear();
+				getQueries().addAll((Collection<? extends Query>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +128,8 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-				getNodes().clear();
-				return;
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-				getConfigurations().clear();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
+				getQueries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,10 +143,8 @@ public class TainttrackingRootImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TainttrackingPackage.TAINTTRACKING_ROOT__NODES:
-				return nodes != null && !nodes.isEmpty();
-			case TainttrackingPackage.TAINTTRACKING_ROOT__CONFIGURATIONS:
-				return configurations != null && !configurations.isEmpty();
+			case TainttrackingPackage.TAINTTRACKING_ROOT__QUERIES:
+				return queries != null && !queries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

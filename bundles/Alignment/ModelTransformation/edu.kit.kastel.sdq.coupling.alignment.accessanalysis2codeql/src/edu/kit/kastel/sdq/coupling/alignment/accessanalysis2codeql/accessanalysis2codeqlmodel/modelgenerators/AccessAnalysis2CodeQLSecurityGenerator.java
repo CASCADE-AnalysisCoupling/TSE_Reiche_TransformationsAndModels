@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
@@ -25,18 +26,23 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.utils.AccessAnalysisResolutionUtil;
-import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondenceFactory;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.util.AccessanalysiscodeqlcorrespondenceSwitch;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlows;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 
@@ -45,7 +51,9 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 	private final TainttrackingRoot root;
 	private final ConfidentialitySpecification accessAnalysisSpec;
 	private final PCMJavaCorrespondenceRoot correspondences;
-	private final AccessAnalysisCodeQLCorrespondenceRoot securityCorrespondences;
+	private final Correspondences_AccessAnalysisCodeQL securityCorrespondences;
+	private final Configurations codeQL_Configurations;
+
 
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	
@@ -56,25 +64,29 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 		this.root = CodeQLModelgenerationUtil.generateDataFlowRoot();
 		this.accessAnalysisSpec = accessAnalysisSpec;
 		this.correspondences = correspondences;
-		this.securityCorrespondences = AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createAccessAnalysisCodeQLCorrespondenceRoot();
+		this.securityCorrespondences = AccessanalysiscodeqlcorrespondenceFactory.eINSTANCE.createCorrespondences_AccessAnalysisCodeQL();
+		this.codeQL_Configurations = ConfigurationrepresentationUtil.generateConfigurations();
 	}
 	
-	public void generateCodeQLConfiguration(Collection<StereotypeApplication> steretypeApplications) {
-		Configuration config = CodeQLModelgenerationUtil.generateConfiguration();
+	public void generateCodeQLConfiguration(Collection<StereotypeApplication> steretypeApplications, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
+		Query query = CodeQLModelgenerationUtil.generateQuery();
 		
-		securityCorrespondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().add(AccessAnalysisCodeQLCorrespondenceUtil.createConfigurationCorrespondence(accessAnalysisSpec, config));
+		HybridConfiguration codeQL_Configuration = ConfigurationrepresentationUtil.generatedHybridConfiguration(query, Collections.singleton(sourceCode));
+		codeQL_Configurations.getConfigurations().add(codeQL_Configuration);
+		
+		securityCorrespondences.getConfigurationCorrespondences_AccessAnalysisCodeQL().add(AccessAnalysisCodeQLCorrespondenceUtil.createConfigurationCorrespondence(accessAnalysisConfiguration, codeQL_Configuration));
 		
 		Collection<SecurityLevel> appliedSecurityLevels = generateSecurityLevels(AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
-		config.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
-		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(config);
+		query.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
+		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(query);
 		Collection<SecurityLevelAnnotation> annotations = generateSecurityLevelAnnotations(steretypeApplications, appliedSecurityLevels);
 		
 		
-		config.getAllowedFlows().addAll(allowedFlows);
-		config.getSecurityLevelAnnotations().addAll(annotations);
+		query.getAllowedFlows().getAllowedFlows().addAll(allowedFlows);
+		query.getSecurityLevelAnnotations().addAll(annotations);
 		
-		root.getConfigurations().add(config);
-		AccessAnalysisCodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisSpec, config, securityCorrespondences);
+		root.getQueries().add(query);
+		AccessAnalysisCodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisConfiguration, codeQL_Configuration, securityCorrespondences);
 		
 	}
 	
@@ -130,7 +142,7 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 	
 	protected abstract Collection<SecurityLevel> generateSecurityLevels(Collection<DataSet> dataSets);
 
-	protected abstract Collection<AllowedFlow> generateAllowedFlows(Configuration config);
+	protected abstract Collection<AllowedFlow> generateAllowedFlows(Query config);
 
 
 	private SecurityLevel getSecurityLevelForDataSets(Collection<DataSet> datasets, Collection<SecurityLevel> securityLevels) {
@@ -154,9 +166,12 @@ public abstract class AccessAnalysis2CodeQLSecurityGenerator {
 		return correspondences;
 	}
 	
-	public AccessAnalysisCodeQLCorrespondenceRoot getSecurityCorrespondences() {
+	public Correspondences_AccessAnalysisCodeQL getSecurityCorrespondences() {
 		return securityCorrespondences;
 	}
 
+	public Configurations getCodeQLConfigurations() {
+		return codeQL_Configurations;
+	}
 	
 }

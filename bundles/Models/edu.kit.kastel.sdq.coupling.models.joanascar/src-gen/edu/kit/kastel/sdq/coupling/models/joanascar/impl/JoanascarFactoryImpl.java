@@ -58,18 +58,20 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 		switch (eClass.getClassifierID()) {
 		case JoanascarPackage.SOURCE_CODE_ANALYSIS_RESULT:
 			return createSourceCodeAnalysisResult();
-		case JoanascarPackage.PARAMETER_IDENTIFYING:
-			return createParameterIdentifying();
-		case JoanascarPackage.FIELD_IDENTIFYING:
-			return createFieldIdentifying();
+		case JoanascarPackage.PARAMETER_SCAR:
+			return createParameter_SCAR();
+		case JoanascarPackage.FIELD_SCAR:
+			return createField_SCAR();
 		case JoanascarPackage.LEVEL_SCAR:
 			return createLevel_SCAR();
-		case JoanascarPackage.ENTRY_POINT_IDENTIFYING:
-			return createEntryPointIdentifying();
-		case JoanascarPackage.RESULT_ENTRY:
-			return createResultEntry();
-		case JoanascarPackage.RESULT_ENTRY_ELEMENT:
-			return createResultEntryElement();
+		case JoanascarPackage.ENTRY_POINT_SCAR:
+			return createEntryPoint_SCAR();
+		case JoanascarPackage.FLOW:
+			return createFlow();
+		case JoanascarPackage.SOURCE:
+			return createSource();
+		case JoanascarPackage.SINK:
+			return createSink();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,9 +92,9 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentifying createParameterIdentifying() {
-		ParameterIdentifyingImpl parameterIdentifying = new ParameterIdentifyingImpl();
-		return parameterIdentifying;
+	public Parameter_SCAR createParameter_SCAR() {
+		Parameter_SCARImpl parameter_SCAR = new Parameter_SCARImpl();
+		return parameter_SCAR;
 	}
 
 	/**
@@ -100,9 +102,9 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentifying createFieldIdentifying() {
-		FieldIdentifyingImpl fieldIdentifying = new FieldIdentifyingImpl();
-		return fieldIdentifying;
+	public Field_SCAR createField_SCAR() {
+		Field_SCARImpl field_SCAR = new Field_SCARImpl();
+		return field_SCAR;
 	}
 
 	/**
@@ -120,9 +122,9 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPointIdentifying createEntryPointIdentifying() {
-		EntryPointIdentifyingImpl entryPointIdentifying = new EntryPointIdentifyingImpl();
-		return entryPointIdentifying;
+	public EntryPoint_SCAR createEntryPoint_SCAR() {
+		EntryPoint_SCARImpl entryPoint_SCAR = new EntryPoint_SCARImpl();
+		return entryPoint_SCAR;
 	}
 
 	/**
@@ -130,9 +132,9 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResultEntry createResultEntry() {
-		ResultEntryImpl resultEntry = new ResultEntryImpl();
-		return resultEntry;
+	public Flow createFlow() {
+		FlowImpl flow = new FlowImpl();
+		return flow;
 	}
 
 	/**
@@ -140,9 +142,19 @@ public class JoanascarFactoryImpl extends EFactoryImpl implements JoanascarFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends SystemElementIdentifiying_JOANASCAR> ResultEntryElement<T> createResultEntryElement() {
-		ResultEntryElementImpl<T> resultEntryElement = new ResultEntryElementImpl<T>();
-		return resultEntryElement;
+	public <T extends SystemElement_SCAR> Source<T> createSource() {
+		SourceImpl<T> source = new SourceImpl<T>();
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <T extends SystemElement_SCAR> Sink<T> createSink() {
+		SinkImpl<T> sink = new SinkImpl<T>();
+		return sink;
 	}
 
 	/**

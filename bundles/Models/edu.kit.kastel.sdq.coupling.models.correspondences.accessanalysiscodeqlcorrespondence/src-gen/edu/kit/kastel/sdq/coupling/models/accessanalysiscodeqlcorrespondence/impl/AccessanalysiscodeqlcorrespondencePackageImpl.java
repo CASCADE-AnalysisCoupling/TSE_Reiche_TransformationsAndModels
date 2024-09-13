@@ -14,10 +14,12 @@ import edu.kit.kastel.scbs.confidentiality.ConfidentialityPackage;
 
 import edu.kit.kastel.scbs.confidentiality.data.DataPackage;
 
-import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessAnalysisCodeQLCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
+
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondenceFactory;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.AccessanalysiscodeqlcorrespondencePackage;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.ConfigurationCorrespondence;
+import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.DataSetSecurityLevelCorrespondence;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage;
@@ -47,7 +49,7 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass accessAnalysisCodeQLCorrespondenceRootEClass = null;
+	private EClass correspondences_AccessAnalysisCodeQLEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,6 +119,7 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 		// Initialize simple dependencies
 		CodeqlPackage.eINSTANCE.eClass();
 		ConfidentialityPackage.eINSTANCE.eClass();
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
@@ -145,8 +148,8 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAccessAnalysisCodeQLCorrespondenceRoot() {
-		return accessAnalysisCodeQLCorrespondenceRootEClass;
+	public EClass getCorrespondences_AccessAnalysisCodeQL() {
+		return correspondences_AccessAnalysisCodeQLEClass;
 	}
 
 	/**
@@ -154,8 +157,8 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAccessAnalysisCodeQLCorrespondenceRoot_ConfigurationCorrespondences_AccessAnalysisCodeQL() {
-		return (EReference) accessAnalysisCodeQLCorrespondenceRootEClass.getEStructuralFeatures().get(0);
+	public EReference getCorrespondences_AccessAnalysisCodeQL_ConfigurationCorrespondences_AccessAnalysisCodeQL() {
+		return (EReference) correspondences_AccessAnalysisCodeQLEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -163,8 +166,8 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAccessAnalysisCodeQLCorrespondenceRoot_DataSetSecurityLevelCorrespondence() {
-		return (EReference) accessAnalysisCodeQLCorrespondenceRootEClass.getEStructuralFeatures().get(1);
+	public EReference getCorrespondences_AccessAnalysisCodeQL_DataSetSecurityLevelCorrespondence() {
+		return (EReference) correspondences_AccessAnalysisCodeQLEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -250,11 +253,11 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 		isCreated = true;
 
 		// Create classes and their features
-		accessAnalysisCodeQLCorrespondenceRootEClass = createEClass(ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT);
-		createEReference(accessAnalysisCodeQLCorrespondenceRootEClass,
-				ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL);
-		createEReference(accessAnalysisCodeQLCorrespondenceRootEClass,
-				ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE);
+		correspondences_AccessAnalysisCodeQLEClass = createEClass(CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL);
+		createEReference(correspondences_AccessAnalysisCodeQLEClass,
+				CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__CONFIGURATION_CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL);
+		createEReference(correspondences_AccessAnalysisCodeQLEClass,
+				CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL__DATA_SET_SECURITY_LEVEL_CORRESPONDENCE);
 
 		configurationCorrespondenceEClass = createEClass(CONFIGURATION_CORRESPONDENCE);
 		createEReference(configurationCorrespondenceEClass, CONFIGURATION_CORRESPONDENCE__CODE_QL_CONFIG);
@@ -291,11 +294,11 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
+		DataPackage theDataPackage = (DataPackage) EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 		TainttrackingPackage theTainttrackingPackage = (TainttrackingPackage) EPackage.Registry.INSTANCE
 				.getEPackage(TainttrackingPackage.eNS_URI);
-		ConfidentialityPackage theConfidentialityPackage = (ConfidentialityPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ConfidentialityPackage.eNS_URI);
-		DataPackage theDataPackage = (DataPackage) EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -304,26 +307,27 @@ public class AccessanalysiscodeqlcorrespondencePackageImpl extends EPackageImpl
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(accessAnalysisCodeQLCorrespondenceRootEClass, AccessAnalysisCodeQLCorrespondenceRoot.class,
-				"AccessAnalysisCodeQLCorrespondenceRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAccessAnalysisCodeQLCorrespondenceRoot_ConfigurationCorrespondences_AccessAnalysisCodeQL(),
+		initEClass(correspondences_AccessAnalysisCodeQLEClass, Correspondences_AccessAnalysisCodeQL.class,
+				"Correspondences_AccessAnalysisCodeQL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCorrespondences_AccessAnalysisCodeQL_ConfigurationCorrespondences_AccessAnalysisCodeQL(),
 				this.getConfigurationCorrespondence(), null, "configurationCorrespondences_AccessAnalysisCodeQL", null,
-				0, -1, AccessAnalysisCodeQLCorrespondenceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				0, -1, Correspondences_AccessAnalysisCodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAccessAnalysisCodeQLCorrespondenceRoot_DataSetSecurityLevelCorrespondence(),
+		initEReference(getCorrespondences_AccessAnalysisCodeQL_DataSetSecurityLevelCorrespondence(),
 				this.getDataSetSecurityLevelCorrespondence(), null, "dataSetSecurityLevelCorrespondence", null, 0, -1,
-				AccessAnalysisCodeQLCorrespondenceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				Correspondences_AccessAnalysisCodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationCorrespondenceEClass, ConfigurationCorrespondence.class, "ConfigurationCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfigurationCorrespondence_CodeQLConfig(), theTainttrackingPackage.getConfiguration(), null,
-				"CodeQLConfig", null, 1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigurationCorrespondence_AccessAnalysisConfig(),
-				theConfidentialityPackage.getConfidentialitySpecification(), null, "AccessAnalysisConfig", null, 1, 1,
+		initEReference(getConfigurationCorrespondence_CodeQLConfig(),
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "CodeQLConfig", null, 1, 1,
 				ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurationCorrespondence_AccessAnalysisConfig(),
+				theConfigurationrepresentationPackage.getFullyImplicitConfiguration(), null, "AccessAnalysisConfig",
+				null, 1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSetSecurityLevelCorrespondenceEClass, DataSetSecurityLevelCorrespondence.class,
 				"DataSetSecurityLevelCorrespondence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

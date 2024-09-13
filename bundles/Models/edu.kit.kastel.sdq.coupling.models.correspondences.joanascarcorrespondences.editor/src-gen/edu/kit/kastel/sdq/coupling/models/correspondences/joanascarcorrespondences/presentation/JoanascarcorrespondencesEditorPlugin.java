@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationEditPlugin;
+
 import edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
@@ -46,8 +48,8 @@ public final class JoanascarcorrespondencesEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public JoanascarcorrespondencesEditorPlugin() {
-		super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, JavaEditPlugin.INSTANCE, JoanaEditPlugin.INSTANCE,
-				JoanascarEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { ConfigurationrepresentationEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+				JavaEditPlugin.INSTANCE, JoanaEditPlugin.INSTANCE, JoanascarEditPlugin.INSTANCE, });
 	}
 
 	/**

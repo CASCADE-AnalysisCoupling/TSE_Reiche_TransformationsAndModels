@@ -77,12 +77,12 @@ public class CodeqlscarSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlscarPackage.RESULT_ENTRY: {
-			ResultEntry resultEntry = (ResultEntry) theEObject;
-			T1 result = caseResultEntry(resultEntry);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
+		case CodeqlscarPackage.RESULT: {
+			Result result = (Result) theEObject;
+			T1 theResult = caseResult(result);
+			if (theResult == null)
+				theResult = defaultCase(theEObject);
+			return theResult;
 		}
 		case CodeqlscarPackage.RESULT_ENTRY_ELEMENT: {
 			ResultEntryElement<?> resultEntryElement = (ResultEntryElement<?>) theEObject;
@@ -91,34 +91,34 @@ public class CodeqlscarSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlscarPackage.CONFIGURATION_ID_SCAR: {
-			ConfigurationID_SCAR configurationID_SCAR = (ConfigurationID_SCAR) theEObject;
-			T1 result = caseConfigurationID_SCAR(configurationID_SCAR);
+		case CodeqlscarPackage.RULE_ID: {
+			RuleId ruleId = (RuleId) theEObject;
+			T1 result = caseRuleId(ruleId);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlscarPackage.SYSTEM_ELEMENT_IDENTIFICATION: {
-			SystemElementIdentification systemElementIdentification = (SystemElementIdentification) theEObject;
-			T1 result = caseSystemElementIdentification(systemElementIdentification);
+		case CodeqlscarPackage.SYSTEM_ELEMENT: {
+			SystemElement systemElement = (SystemElement) theEObject;
+			T1 result = caseSystemElement(systemElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlscarPackage.PARAMETER_IDENTIFICATION: {
-			ParameterIdentification parameterIdentification = (ParameterIdentification) theEObject;
-			T1 result = caseParameterIdentification(parameterIdentification);
+		case CodeqlscarPackage.PARAMETER_SCAR: {
+			Parameter_SCAR parameter_SCAR = (Parameter_SCAR) theEObject;
+			T1 result = caseParameter_SCAR(parameter_SCAR);
 			if (result == null)
-				result = caseSystemElementIdentification(parameterIdentification);
+				result = caseSystemElement(parameter_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlscarPackage.FIELD_IDENTIFICATION: {
-			FieldIdentification fieldIdentification = (FieldIdentification) theEObject;
-			T1 result = caseFieldIdentification(fieldIdentification);
+		case CodeqlscarPackage.FIELD_SCAR: {
+			Field_SCAR field_SCAR = (Field_SCAR) theEObject;
+			T1 result = caseField_SCAR(field_SCAR);
 			if (result == null)
-				result = caseSystemElementIdentification(fieldIdentification);
+				result = caseSystemElement(field_SCAR);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -157,17 +157,17 @@ public class CodeqlscarSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result Entry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result Entry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Result</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseResultEntry(ResultEntry object) {
+	public T1 caseResult(Result object) {
 		return null;
 	}
 
@@ -182,67 +182,67 @@ public class CodeqlscarSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T extends SystemElementIdentification> T1 caseResultEntryElement(ResultEntryElement<T> object) {
+	public <T extends SystemElement> T1 caseResultEntryElement(ResultEntryElement<T> object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration ID SCAR</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rule Id</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration ID SCAR</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rule Id</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseConfigurationID_SCAR(ConfigurationID_SCAR object) {
+	public T1 caseRuleId(RuleId object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Element Identification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>System Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Element Identification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>System Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseSystemElementIdentification(SystemElementIdentification object) {
+	public T1 caseSystemElement(SystemElement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Identification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Identification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseParameterIdentification(ParameterIdentification object) {
+	public T1 caseParameter_SCAR(Parameter_SCAR object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Field Identification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Field SCAR</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Field Identification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Field SCAR</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFieldIdentification(FieldIdentification object) {
+	public T1 caseField_SCAR(Field_SCAR object) {
 		return null;
 	}
 

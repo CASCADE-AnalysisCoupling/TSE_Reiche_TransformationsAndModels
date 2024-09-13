@@ -13,26 +13,26 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Codeqlresultingvalues" basePackage="edu.kit.kastel.sdq.coupling"
       disposableProviderFactory="true" ecorePackage="codeqlresultingvalues.ecore#/">
-    <genClasses ecoreClass="codeqlresultingvalues.ecore#//CodeQLResultingValues">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/resultingValues"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/securityLevel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/systemElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//CodeQLResultingValues/configurations"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ResolvedImplementationValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValues/resultingValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValues/securityLevel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValues/systemElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValues/configurations"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/ParameterName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/parameterType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/methodName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ParameterIdentificiation_CodeQLResultingValues/fullyQualifiedClassName"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues/ParameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues/parameterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues/methodName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//Parameter_ResolvedImplementationValues/fullyQualifiedClassName"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ResultingValue">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/resultingSecurityLevel"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/parameter"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResultingValue/configuration"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ResolvedImplementationValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValue/resultingSecurityLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValue/parameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlresultingvalues.ecore#//ResolvedImplementationValue/ruleId"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlresultingvalues.ecore#//SecurityLevel_ResultingValues"/>
-    <genClasses ecoreClass="codeqlresultingvalues.ecore#//ConfigurationID_ResultingValues">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//ConfigurationID_ResultingValues/id"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//SecurityLevel_ResolvedImplementationValues"/>
+    <genClasses ecoreClass="codeqlresultingvalues.ecore#//RuleId_ResolvedImplementationValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlresultingvalues.ecore#//RuleId_ResolvedImplementationValue/id"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

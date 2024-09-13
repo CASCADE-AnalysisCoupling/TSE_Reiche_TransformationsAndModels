@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImpl.Container
-		implements ProvidedOperationSignature2JavaMethod {
+public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImpl.Container implements ProvidedOperationSignature2JavaMethod {
 	/**
 	 * The cached value of the '{@link #getPcmMethod() <em>Pcm Method</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -77,6 +76,7 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedSignature getPcmMethod() {
 		return pcmMethod;
 	}
@@ -90,13 +90,8 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 		ProvidedSignature oldPcmMethod = pcmMethod;
 		pcmMethod = newPcmMethod;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, oldPcmMethod,
-					newPcmMethod);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, oldPcmMethod, newPcmMethod);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -106,26 +101,19 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPcmMethod(ProvidedSignature newPcmMethod) {
 		if (newPcmMethod != pcmMethod) {
 			NotificationChain msgs = null;
 			if (pcmMethod != null)
-				msgs = ((InternalEObject) pcmMethod).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE
-								- PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD,
-						null, msgs);
+				msgs = ((InternalEObject)pcmMethod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, null, msgs);
 			if (newPcmMethod != null)
-				msgs = ((InternalEObject) newPcmMethod).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE
-								- PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD,
-						null, msgs);
+				msgs = ((InternalEObject)newPcmMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, null, msgs);
 			msgs = basicSetPcmMethod(newPcmMethod, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, newPcmMethod,
-					newPcmMethod));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD, newPcmMethod, newPcmMethod));
 	}
 
 	/**
@@ -133,15 +121,14 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Method getJavaMethod() {
 		if (javaMethod != null && javaMethod.eIsProxy()) {
-			InternalEObject oldJavaMethod = (InternalEObject) javaMethod;
-			javaMethod = (Method) eResolveProxy(oldJavaMethod);
+			InternalEObject oldJavaMethod = (InternalEObject)javaMethod;
+			javaMethod = (Method)eResolveProxy(oldJavaMethod);
 			if (javaMethod != oldJavaMethod) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD,
-							oldJavaMethod, javaMethod));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD, oldJavaMethod, javaMethod));
 			}
 		}
 		return javaMethod;
@@ -161,13 +148,12 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJavaMethod(Method newJavaMethod) {
 		Method oldJavaMethod = javaMethod;
 		javaMethod = newJavaMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD, oldJavaMethod,
-					javaMethod));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD, oldJavaMethod, javaMethod));
 	}
 
 	/**
@@ -178,8 +164,8 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
-			return basicSetPcmMethod(null, msgs);
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
+				return basicSetPcmMethod(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -192,12 +178,11 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
-			return getPcmMethod();
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
-			if (resolve)
-				return getJavaMethod();
-			return basicGetJavaMethod();
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
+				return getPcmMethod();
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
+				if (resolve) return getJavaMethod();
+				return basicGetJavaMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,12 +195,12 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
-			setPcmMethod((ProvidedSignature) newValue);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
-			setJavaMethod((Method) newValue);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
+				setPcmMethod((ProvidedSignature)newValue);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
+				setJavaMethod((Method)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -228,12 +213,12 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
-			setPcmMethod((ProvidedSignature) null);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
-			setJavaMethod((Method) null);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
+				setPcmMethod((ProvidedSignature)null);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
+				setJavaMethod((Method)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,10 +231,10 @@ public class ProvidedOperationSignature2JavaMethodImpl extends MinimalEObjectImp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
-			return pcmMethod != null;
-		case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
-			return javaMethod != null;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__PCM_METHOD:
+				return pcmMethod != null;
+			case PcmjavacorrespondencePackage.PROVIDED_OPERATION_SIGNATURE2_JAVA_METHOD__JAVA_METHOD:
+				return javaMethod != null;
 		}
 		return super.eIsSet(featureID);
 	}

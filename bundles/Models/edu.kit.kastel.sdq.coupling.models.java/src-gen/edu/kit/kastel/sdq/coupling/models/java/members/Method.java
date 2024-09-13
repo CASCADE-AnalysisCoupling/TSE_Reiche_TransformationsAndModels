@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Method extends Entity {
+public interface Method extends Entity, Annotatable {
 	/**
 	 * Returns the value of the '<em><b>Returntype</b></em>' reference.
 	 * <!-- begin-user-doc -->

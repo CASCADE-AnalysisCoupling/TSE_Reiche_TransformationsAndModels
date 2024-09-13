@@ -233,6 +233,34 @@ public interface MembersPackage extends EPackage {
 	 */
 	int PARAMETER_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.java.members.impl.AnnotatableImpl <em>Annotatable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.java.members.impl.AnnotatableImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.java.members.impl.MembersPackageImpl#getAnnotatable()
+	 * @generated
+	 */
+	int ANNOTATABLE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Annotatable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Annotatable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATABLE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.java.members.Field <em>Field</em>}'.
@@ -285,6 +313,16 @@ public interface MembersPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.java.members.Annotatable <em>Annotatable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotatable</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.java.members.Annotatable
+	 * @generated
+	 */
+	EClass getAnnotatable();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -354,6 +392,16 @@ public interface MembersPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.java.members.impl.AnnotatableImpl <em>Annotatable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.java.members.impl.AnnotatableImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.java.members.impl.MembersPackageImpl#getAnnotatable()
+		 * @generated
+		 */
+		EClass ANNOTATABLE = eINSTANCE.getAnnotatable();
 
 	}
 

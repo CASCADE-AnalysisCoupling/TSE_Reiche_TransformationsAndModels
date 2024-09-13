@@ -1,18 +1,20 @@
 package edu.kit.kastel.sdq.coupling.models.joanascar.utils;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying;
-import edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying;
 import edu.kit.kastel.sdq.coupling.models.joanascar.JoanascarFactory;
 import edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry;
-import edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Sink;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Source;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Flow;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR;
 
 public class JOANASCARModelGenerationUtil {
 
-	public static EntryPointIdentifying createEntryPointIdentifiying(String tag) {
-		EntryPointIdentifying entryPoint = JoanascarFactory.eINSTANCE.createEntryPointIdentifying();
+	public static EntryPoint_SCAR createEntryPointIdentifiying(String tag) {
+		EntryPoint_SCAR entryPoint = JoanascarFactory.eINSTANCE.createEntryPoint_SCAR();
 		entryPoint.setTag(tag);
 		return entryPoint;
 	}
@@ -23,8 +25,8 @@ public class JOANASCARModelGenerationUtil {
 		return level;
 	}
 	
-	public static ParameterIdentifying createParameterIdentification(int parameterIndex, String type, String methodName, String fullyQualifiedClassName) {
-		ParameterIdentifying ident = JoanascarFactory.eINSTANCE.createParameterIdentifying();
+	public static Parameter_SCAR createParameterIdentification(int parameterIndex, String type, String methodName, String fullyQualifiedClassName) {
+		Parameter_SCAR ident = JoanascarFactory.eINSTANCE.createParameter_SCAR();
 		ident.setFullyQualifiedClassName(fullyQualifiedClassName);
 		ident.setMethodName(methodName);
 		ident.setParameterIndex(parameterIndex);
@@ -32,29 +34,43 @@ public class JOANASCARModelGenerationUtil {
 		return ident;
 	}
 	
-	public static FieldIdentifying createFieldIdentification(String fieldName, String fullyQualifiedClassName) {
-		FieldIdentifying ident = JoanascarFactory.eINSTANCE.createFieldIdentifying();
+	public static Field_SCAR createFieldIdentification(String fieldName, String fullyQualifiedClassName) {
+		Field_SCAR ident = JoanascarFactory.eINSTANCE.createField_SCAR();
 		ident.setFieldName(fieldName);
 		ident.setFullyQualifiedClassName(fullyQualifiedClassName);
 		return ident;
 	}
 	
-	public static ResultEntryElement<FieldIdentifying> createResultEntryElement(FieldIdentifying systemElement, Level_SCAR securityLevel){
-		ResultEntryElement<FieldIdentifying> resultEntryElement = JoanascarFactory.eINSTANCE.createResultEntryElement();
-		resultEntryElement.setSystemElement(systemElement);
-		resultEntryElement.setLevel(securityLevel);
-		return resultEntryElement;
+	public static Source<Field_SCAR> createSource(Field_SCAR systemElement, Level_SCAR securityLevel){
+		Source<Field_SCAR> source = JoanascarFactory.eINSTANCE.createSource();
+		source.setSystemElement(systemElement);
+		source.setSourceLevel(securityLevel);
+		return source;
 	}
 	
-	public static ResultEntryElement<ParameterIdentifying> createResultEntryElement(ParameterIdentifying systemElement, Level_SCAR securityLevel){
-		ResultEntryElement<ParameterIdentifying> resultEntryElement = JoanascarFactory.eINSTANCE.createResultEntryElement();
-		resultEntryElement.setSystemElement(systemElement);
-		resultEntryElement.setLevel(securityLevel);
-		return resultEntryElement;
+	public static Source<Parameter_SCAR> createSource(Parameter_SCAR systemElement, Level_SCAR securityLevel){
+		Source<Parameter_SCAR> source = JoanascarFactory.eINSTANCE.createSource();
+		source.setSystemElement(systemElement);
+		source.setSourceLevel(securityLevel);
+		return source;
 	}
 	
-	public static ResultEntry createResultEntry(EntryPointIdentifying entryPoint, ResultEntryElement<?> source, ResultEntryElement<?> sink) {
-		ResultEntry resultEntry = JoanascarFactory.eINSTANCE.createResultEntry();
+	public static Sink<Field_SCAR> createSink(Field_SCAR systemElement, Level_SCAR securityLevel){
+		Sink<Field_SCAR> sink = JoanascarFactory.eINSTANCE.createSink();
+		sink.setSystemElement(systemElement);
+		sink.setSinkLevel(securityLevel);
+		return sink;
+	}
+	
+	public static Sink<Parameter_SCAR> createSink(Parameter_SCAR systemElement, Level_SCAR securityLevel){
+		Sink<Parameter_SCAR> sink = JoanascarFactory.eINSTANCE.createSink();
+		sink.setSystemElement(systemElement);
+		sink.setSinkLevel(securityLevel);
+		return sink;
+	}
+	
+	public static Flow createResultEntry(EntryPoint_SCAR entryPoint, Source<?> source, Sink<?> sink) {
+		Flow resultEntry = JoanascarFactory.eINSTANCE.createFlow();
 		resultEntry.setEntryPoint(entryPoint);
 		resultEntry.setSink(sink);
 		resultEntry.setSource(source);

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Accessanalysisprofiletoannotationsmodeltransformator
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+Require-Bundle: edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations;bundle-version="0.1.0",
+ edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="2.0.0",
+ org.modelversioning.emfprofile,
+ org.eclipse.ui;bundle-version="3.118.100",
+ org.eclipse.core.resources;bundle-version="3.13.900",
+ org.eclipse.core.commands

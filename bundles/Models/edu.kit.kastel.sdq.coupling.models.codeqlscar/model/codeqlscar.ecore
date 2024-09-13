@@ -3,15 +3,15 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeqlscar" nsURI="http://www.example.org/codeqlscar" nsPrefix="codeqlscar">
   <eClassifiers xsi:type="ecore:EClass" name="SourceCodeAnalysisResult">
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemElementIdentifications"
-        upperBound="-1" eType="#//SystemElementIdentification" containment="true"/>
+        upperBound="-1" eType="#//SystemElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevels" upperBound="-1"
         eType="#//SecurityLevel_SCAR" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultEntries" upperBound="-1"
-        eType="#//ResultEntry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="#//ConfigurationID_SCAR" containment="true"/>
+        eType="#//Result" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleIds" upperBound="-1"
+        eType="#//RuleId" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResultEntry">
+  <eClassifiers xsi:type="ecore:EClass" name="Result">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         containment="true">
       <eGenericType eClassifier="#//ResultEntryElement">
@@ -23,12 +23,12 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="config" lowerBound="1"
-        eType="#//ConfigurationID_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleId" lowerBound="1"
+        eType="#//RuleId"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResultEntryElement">
     <eTypeParameters name="T">
-      <eBounds eClassifier="#//SystemElementIdentification"/>
+      <eBounds eClassifier="#//SystemElement"/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemElement" lowerBound="1">
       <eGenericType eTypeParameter="#//ResultEntryElement/T"/>
@@ -36,11 +36,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel" lowerBound="1"
         eType="#//SecurityLevel_SCAR"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationID_SCAR">
+  <eClassifiers xsi:type="ecore:EClass" name="RuleId">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemElementIdentification" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterIdentification" eSuperTypes="#//SystemElementIdentification">
+  <eClassifiers xsi:type="ecore:EClass" name="SystemElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter_SCAR" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterType" lowerBound="1"
@@ -50,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullyQualifiedClassName"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FieldIdentification" eSuperTypes="#//SystemElementIdentification">
+  <eClassifiers xsi:type="ecore:EClass" name="Field_SCAR" eSuperTypes="#//SystemElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

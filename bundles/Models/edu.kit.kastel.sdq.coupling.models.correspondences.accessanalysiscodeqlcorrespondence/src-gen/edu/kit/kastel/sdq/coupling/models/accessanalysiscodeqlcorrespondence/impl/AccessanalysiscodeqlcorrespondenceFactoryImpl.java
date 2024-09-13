@@ -57,8 +57,8 @@ public class AccessanalysiscodeqlcorrespondenceFactoryImpl extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case AccessanalysiscodeqlcorrespondencePackage.ACCESS_ANALYSIS_CODE_QL_CORRESPONDENCE_ROOT:
-			return createAccessAnalysisCodeQLCorrespondenceRoot();
+		case AccessanalysiscodeqlcorrespondencePackage.CORRESPONDENCES_ACCESS_ANALYSIS_CODE_QL:
+			return createCorrespondences_AccessAnalysisCodeQL();
 		case AccessanalysiscodeqlcorrespondencePackage.CONFIGURATION_CORRESPONDENCE:
 			return createConfigurationCorrespondence();
 		case AccessanalysiscodeqlcorrespondencePackage.DATA_SET_SECURITY_LEVEL_CORRESPONDENCE:
@@ -73,9 +73,9 @@ public class AccessanalysiscodeqlcorrespondenceFactoryImpl extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AccessAnalysisCodeQLCorrespondenceRoot createAccessAnalysisCodeQLCorrespondenceRoot() {
-		AccessAnalysisCodeQLCorrespondenceRootImpl accessAnalysisCodeQLCorrespondenceRoot = new AccessAnalysisCodeQLCorrespondenceRootImpl();
-		return accessAnalysisCodeQLCorrespondenceRoot;
+	public Correspondences_AccessAnalysisCodeQL createCorrespondences_AccessAnalysisCodeQL() {
+		Correspondences_AccessAnalysisCodeQLImpl correspondences_AccessAnalysisCodeQL = new Correspondences_AccessAnalysisCodeQLImpl();
+		return correspondences_AccessAnalysisCodeQL;
 	}
 
 	/**

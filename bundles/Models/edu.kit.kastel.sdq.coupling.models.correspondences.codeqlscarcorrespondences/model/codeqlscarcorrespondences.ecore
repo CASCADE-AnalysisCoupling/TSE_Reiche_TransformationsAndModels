@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="codeqlscarcorrespondences" nsURI="http://www.example.org/codeqlscarcorrespondences"
     nsPrefix="codeqlscarcorrespondences">
-  <eClassifiers xsi:type="ecore:EClass" name="CodeQLSCARCorrespondences">
+  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_CodeQLScar">
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemElementCorrespondences"
         upperBound="-1" eType="#//SystemElementCorrespondence" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevelCorrespondences"
@@ -11,28 +11,28 @@
         upperBound="-1" eType="#//ConfigurationCorrespondence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="codeQLConfig" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/Configuration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="codeQLSCARConfig" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//ConfigurationID_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_CodeQL" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//HybridConfiguration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//RuleId"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityLevelCorrespondence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="codeQLSecurityLevel" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_CodeQL" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/SecurityLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="codeQLSCARSecurityLevel"
-        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//SecurityLevel_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevel_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//SecurityLevel_SCAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence" eSuperTypes="#//SystemElementCorrespondence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="javaParameter" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_Java" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scarParameter" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//ParameterIdentification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//Parameter_SCAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FieldCorrespondence" eSuperTypes="#//SystemElementCorrespondence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="javaField" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field_Java" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scarField" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//FieldIdentification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeqlscar/model/codeqlscar.ecore#//Field_SCAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemElementCorrespondence" abstract="true"/>
 </ecore:EPackage>

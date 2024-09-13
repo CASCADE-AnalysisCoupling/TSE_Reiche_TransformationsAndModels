@@ -17,32 +17,32 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//SourceCodeAnalysisResult/systemElementIdentifications"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//SourceCodeAnalysisResult/securityLevels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//SourceCodeAnalysisResult/resultEntries"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//SourceCodeAnalysisResult/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//SourceCodeAnalysisResult/ruleIds"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlscar.ecore#//ResultEntry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//ResultEntry/source"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//ResultEntry/sink"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//ResultEntry/config"/>
+    <genClasses ecoreClass="codeqlscar.ecore#//Result">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//Result/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//Result/sink"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//Result/ruleId"/>
     </genClasses>
     <genClasses ecoreClass="codeqlscar.ecore#//ResultEntryElement">
       <genTypeParameters ecoreTypeParameter="codeqlscar.ecore#//ResultEntryElement/T"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//ResultEntryElement/systemElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeqlscar.ecore#//ResultEntryElement/securityLevel"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlscar.ecore#//ConfigurationID_SCAR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//ConfigurationID_SCAR/id"/>
+    <genClasses ecoreClass="codeqlscar.ecore#//RuleId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//RuleId/id"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="codeqlscar.ecore#//SystemElementIdentification"/>
-    <genClasses ecoreClass="codeqlscar.ecore#//ParameterIdentification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//ParameterIdentification/parameterName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//ParameterIdentification/parameterType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//ParameterIdentification/methodName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//ParameterIdentification/fullyQualifiedClassName"/>
+    <genClasses image="false" ecoreClass="codeqlscar.ecore#//SystemElement"/>
+    <genClasses ecoreClass="codeqlscar.ecore#//Parameter_SCAR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Parameter_SCAR/parameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Parameter_SCAR/parameterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Parameter_SCAR/methodName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Parameter_SCAR/fullyQualifiedClassName"/>
     </genClasses>
-    <genClasses ecoreClass="codeqlscar.ecore#//FieldIdentification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//FieldIdentification/fieldName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//FieldIdentification/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//FieldIdentification/fullyQualifiedClassName"/>
+    <genClasses ecoreClass="codeqlscar.ecore#//Field_SCAR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Field_SCAR/fieldName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Field_SCAR/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeqlscar.ecore#//Field_SCAR/fullyQualifiedClassName"/>
     </genClasses>
     <genClasses ecoreClass="codeqlscar.ecore#//SecurityLevel_SCAR"/>
   </genPackages>

@@ -58,16 +58,16 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 		switch (eClass.getClassifierID()) {
 		case CodeqlscarPackage.SOURCE_CODE_ANALYSIS_RESULT:
 			return createSourceCodeAnalysisResult();
-		case CodeqlscarPackage.RESULT_ENTRY:
-			return createResultEntry();
+		case CodeqlscarPackage.RESULT:
+			return createResult();
 		case CodeqlscarPackage.RESULT_ENTRY_ELEMENT:
 			return createResultEntryElement();
-		case CodeqlscarPackage.CONFIGURATION_ID_SCAR:
-			return createConfigurationID_SCAR();
-		case CodeqlscarPackage.PARAMETER_IDENTIFICATION:
-			return createParameterIdentification();
-		case CodeqlscarPackage.FIELD_IDENTIFICATION:
-			return createFieldIdentification();
+		case CodeqlscarPackage.RULE_ID:
+			return createRuleId();
+		case CodeqlscarPackage.PARAMETER_SCAR:
+			return createParameter_SCAR();
+		case CodeqlscarPackage.FIELD_SCAR:
+			return createField_SCAR();
 		case CodeqlscarPackage.SECURITY_LEVEL_SCAR:
 			return createSecurityLevel_SCAR();
 		default:
@@ -90,9 +90,9 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResultEntry createResultEntry() {
-		ResultEntryImpl resultEntry = new ResultEntryImpl();
-		return resultEntry;
+	public Result createResult() {
+		ResultImpl result = new ResultImpl();
+		return result;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends SystemElementIdentification> ResultEntryElement<T> createResultEntryElement() {
+	public <T extends SystemElement> ResultEntryElement<T> createResultEntryElement() {
 		ResultEntryElementImpl<T> resultEntryElement = new ResultEntryElementImpl<T>();
 		return resultEntryElement;
 	}
@@ -110,9 +110,9 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigurationID_SCAR createConfigurationID_SCAR() {
-		ConfigurationID_SCARImpl configurationID_SCAR = new ConfigurationID_SCARImpl();
-		return configurationID_SCAR;
+	public RuleId createRuleId() {
+		RuleIdImpl ruleId = new RuleIdImpl();
+		return ruleId;
 	}
 
 	/**
@@ -120,9 +120,9 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterIdentification createParameterIdentification() {
-		ParameterIdentificationImpl parameterIdentification = new ParameterIdentificationImpl();
-		return parameterIdentification;
+	public Parameter_SCAR createParameter_SCAR() {
+		Parameter_SCARImpl parameter_SCAR = new Parameter_SCARImpl();
+		return parameter_SCAR;
 	}
 
 	/**
@@ -130,9 +130,9 @@ public class CodeqlscarFactoryImpl extends EFactoryImpl implements CodeqlscarFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentification createFieldIdentification() {
-		FieldIdentificationImpl fieldIdentification = new FieldIdentificationImpl();
-		return fieldIdentification;
+	public Field_SCAR createField_SCAR() {
+		Field_SCARImpl field_SCAR = new Field_SCARImpl();
+		return field_SCAR;
 	}
 
 	/**

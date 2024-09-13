@@ -2,24 +2,24 @@ package edu.kit.kastel.sdq.coupling.codeqlresultingvalues.utils;
 
 import java.util.Optional;
 
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues;
+
 
 
 public class CodeQLResultingValuesElementHandlingUtils {
 	
-	public static SecurityLevel_ResultingValues getOrCreateAndAddSecurityLevelByName(String securityLevelName, CodeQLResultingValues resultingValues) {
+	public static SecurityLevel_ResolvedImplementationValues getOrCreateAndAddSecurityLevelByName(String securityLevelName, ResolvedImplementationValues resultingValues) {
 
-		Optional<SecurityLevel_ResultingValues> potentialSecurityLevel =  getPotentialSecurityLevelByName(securityLevelName, resultingValues);
+		Optional<SecurityLevel_ResolvedImplementationValues> potentialSecurityLevel =  getPotentialSecurityLevelByName(securityLevelName, resultingValues);
 		
 		if(potentialSecurityLevel.isPresent()) {
 			return potentialSecurityLevel.get();
 		}
 		
-		SecurityLevel_ResultingValues securityLevel = CodeQLResultingValuesModelGenerationUtil.createSecurityLevel(securityLevelName);
+		SecurityLevel_ResolvedImplementationValues securityLevel = CodeQLResultingValuesModelGenerationUtil.createSecurityLevel(securityLevelName);
 	
 		addSecurityLevelToResultingvaluesByName(securityLevel, resultingValues);
 		
@@ -27,37 +27,37 @@ public class CodeQLResultingValuesElementHandlingUtils {
 		return securityLevel;
 	}
 	
-	public static Optional<SecurityLevel_ResultingValues> getPotentialSecurityLevelByName(String securityLevelName, CodeQLResultingValues resultingValues){
+	public static Optional<SecurityLevel_ResolvedImplementationValues> getPotentialSecurityLevelByName(String securityLevelName, ResolvedImplementationValues resultingValues){
 		return resultingValues.getSecurityLevel().stream().filter(level -> level.getName().equals(securityLevelName)).findFirst();
 	}
 	
-	public static void addSecuritylevelToResultingValues(SecurityLevel_ResultingValues securityLevel, CodeQLResultingValues resultingValues) {
+	public static void addSecuritylevelToResultingValues(SecurityLevel_ResolvedImplementationValues securityLevel, ResolvedImplementationValues resultingValues) {
 		if(!resultingValues.getSecurityLevel().contains(securityLevel)) {
 			resultingValues.getSecurityLevel().add(securityLevel);
 		}
 	}
 	
-	public static void addSecurityLevelToResultingvaluesByName(SecurityLevel_ResultingValues securityLevel, CodeQLResultingValues resultingValues) {
+	public static void addSecurityLevelToResultingvaluesByName(SecurityLevel_ResolvedImplementationValues securityLevel, ResolvedImplementationValues resultingValues) {
 		if(!resultingValues.getSecurityLevel().stream().anyMatch(level -> level.getName().equals(securityLevel.getName()))) {
 			resultingValues.getSecurityLevel().add(securityLevel);
 		}
 	}
 	
-	public static void addConfigById(ConfigurationID_ResultingValues config, CodeQLResultingValues resultingValues) {
+	public static void addConfigById(RuleId_ResolvedImplementationValue config, ResolvedImplementationValues resultingValues) {
 		if(!resultingValues.getConfigurations().stream().anyMatch(cfg -> cfg.getId().equals(config.getId()))) {
 			resultingValues.getConfigurations().add(config);
 		}
 	}
 	
-	public static ParameterIdentificiation_CodeQLResultingValues getOrCreateAndAddParameter(String parameterName, String type, String methodName, String fullyQualifiedClassName, CodeQLResultingValues resultingValues) {
+	public static Parameter_ResolvedImplementationValues getOrCreateAndAddParameter(String parameterName, String type, String methodName, String fullyQualifiedClassName, ResolvedImplementationValues resultingValues) {
 
-		Optional<ParameterIdentificiation_CodeQLResultingValues> potentialParameter =  getPotentialParameterByContent(parameterName, type, methodName, fullyQualifiedClassName, resultingValues);
+		Optional<Parameter_ResolvedImplementationValues> potentialParameter =  getPotentialParameterByContent(parameterName, type, methodName, fullyQualifiedClassName, resultingValues);
 		
 		if(potentialParameter.isPresent()) {
 			return potentialParameter.get();
 		}
 		
-		ParameterIdentificiation_CodeQLResultingValues parameter = CodeQLResultingValuesModelGenerationUtil.createParameterIdentification(parameterName, type, methodName, fullyQualifiedClassName);
+		Parameter_ResolvedImplementationValues parameter = CodeQLResultingValuesModelGenerationUtil.createParameter(parameterName, type, methodName, fullyQualifiedClassName);
 	
 		addParameterToResultingvaluesByContent(parameter, resultingValues);
 		
@@ -65,24 +65,24 @@ public class CodeQLResultingValuesElementHandlingUtils {
 		return parameter;
 	}
 	
-	public static Optional<ParameterIdentificiation_CodeQLResultingValues> getPotentialParameterByContent(String parameterName, String type, String methodName, String fullyQualifiedClassName, CodeQLResultingValues resultingValues) {
+	public static Optional<Parameter_ResolvedImplementationValues> getPotentialParameterByContent(String parameterName, String type, String methodName, String fullyQualifiedClassName, ResolvedImplementationValues resultingValues) {
 		return resultingValues.getSystemElements().stream().filter(param -> {return param.getParameterName().equals(parameterName) && param.getParameterType().equals(type) && param.getMethodName().equals(methodName) && param.getFullyQualifiedClassName().equals(fullyQualifiedClassName);}).findFirst();
 	}
 	
-	public static void addParameterToResultingvaluesByContent(ParameterIdentificiation_CodeQLResultingValues parameter, CodeQLResultingValues resultingValues) {
+	public static void addParameterToResultingvaluesByContent(Parameter_ResolvedImplementationValues parameter, ResolvedImplementationValues resultingValues) {
 		if(getPotentialParameterByContent(parameter.getParameterName(), parameter.getParameterType(), parameter.getMethodName(), parameter.getFullyQualifiedClassName(), resultingValues).isEmpty()) {
 			resultingValues.getSystemElements().add(parameter);
 		}
 	}
 	
-	public static ConfigurationID_ResultingValues getOrCreateAndAddConfigById(String configID, CodeQLResultingValues resultingValues) {
-			Optional<ConfigurationID_ResultingValues> potentialConfig =  getPotentialConfigByID(configID, resultingValues);
+	public static RuleId_ResolvedImplementationValue getOrCreateAndAddConfigById(String configID, ResolvedImplementationValues resultingValues) {
+			Optional<RuleId_ResolvedImplementationValue> potentialConfig =  getPotentialConfigByID(configID, resultingValues);
 		
 		if(potentialConfig.isPresent()) {
 			return potentialConfig.get();
 		}
 		
-		ConfigurationID_ResultingValues parameter = CodeQLResultingValuesModelGenerationUtil.createConfiguration(configID);
+		RuleId_ResolvedImplementationValue parameter = CodeQLResultingValuesModelGenerationUtil.createConfiguration(configID);
 	
 		addConfigToResultingvaluesByID(parameter, resultingValues);
 		
@@ -90,14 +90,14 @@ public class CodeQLResultingValuesElementHandlingUtils {
 		return parameter;
 	}
 
-	private static Optional<ConfigurationID_ResultingValues> getPotentialConfigByID(String configID,
-			CodeQLResultingValues resultingValues) {
+	private static Optional<RuleId_ResolvedImplementationValue> getPotentialConfigByID(String configID,
+			ResolvedImplementationValues resultingValues) {
 		
 		return resultingValues.getConfigurations().stream().filter(config -> config.getId().equals(configID)).findFirst();	
 	
 	}
 	
-	public static void addConfigToResultingvaluesByID(ConfigurationID_ResultingValues config, CodeQLResultingValues resultingValues) {
+	public static void addConfigToResultingvaluesByID(RuleId_ResolvedImplementationValue config, ResolvedImplementationValues resultingValues) {
 		if(getPotentialConfigByID(config.getId(), resultingValues).isEmpty()) {
 			resultingValues.getConfigurations().add(config);
 		}

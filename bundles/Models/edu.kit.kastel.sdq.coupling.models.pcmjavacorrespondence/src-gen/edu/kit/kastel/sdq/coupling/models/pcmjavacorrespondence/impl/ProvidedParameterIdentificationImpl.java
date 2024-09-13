@@ -31,8 +31,7 @@ import org.palladiosimulator.pcm.repository.Parameter;
  *
  * @generated
  */
-public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Container
-		implements ProvidedParameterIdentification {
+public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Container implements ProvidedParameterIdentification {
 	/**
 	 * The cached value of the '{@link #getProvidedSignature() <em>Provided Signature</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -77,15 +76,14 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedSignature getProvidedSignature() {
 		if (providedSignature != null && providedSignature.eIsProxy()) {
-			InternalEObject oldProvidedSignature = (InternalEObject) providedSignature;
-			providedSignature = (ProvidedSignature) eResolveProxy(oldProvidedSignature);
+			InternalEObject oldProvidedSignature = (InternalEObject)providedSignature;
+			providedSignature = (ProvidedSignature)eResolveProxy(oldProvidedSignature);
 			if (providedSignature != oldProvidedSignature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE,
-							oldProvidedSignature, providedSignature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE, oldProvidedSignature, providedSignature));
 			}
 		}
 		return providedSignature;
@@ -105,13 +103,12 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProvidedSignature(ProvidedSignature newProvidedSignature) {
 		ProvidedSignature oldProvidedSignature = providedSignature;
 		providedSignature = newProvidedSignature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE,
-					oldProvidedSignature, providedSignature));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE, oldProvidedSignature, providedSignature));
 	}
 
 	/**
@@ -119,15 +116,14 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter getParameter() {
-		if (parameter != null && ((EObject) parameter).eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject) parameter;
-			parameter = (Parameter) eResolveProxy(oldParameter);
+		if (parameter != null && ((EObject)parameter).eIsProxy()) {
+			InternalEObject oldParameter = (InternalEObject)parameter;
+			parameter = (Parameter)eResolveProxy(oldParameter);
 			if (parameter != oldParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER, oldParameter,
-							parameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER, oldParameter, parameter));
 			}
 		}
 		return parameter;
@@ -147,13 +143,12 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParameter(Parameter newParameter) {
 		Parameter oldParameter = parameter;
 		parameter = newParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER, oldParameter,
-					parameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER, oldParameter, parameter));
 	}
 
 	/**
@@ -164,14 +159,12 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
-			if (resolve)
-				return getProvidedSignature();
-			return basicGetProvidedSignature();
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
-			if (resolve)
-				return getParameter();
-			return basicGetParameter();
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
+				if (resolve) return getProvidedSignature();
+				return basicGetProvidedSignature();
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
+				if (resolve) return getParameter();
+				return basicGetParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,12 +177,12 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
-			setProvidedSignature((ProvidedSignature) newValue);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
-			setParameter((Parameter) newValue);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
+				setProvidedSignature((ProvidedSignature)newValue);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
+				setParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -202,12 +195,12 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
-			setProvidedSignature((ProvidedSignature) null);
-			return;
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
-			setParameter((Parameter) null);
-			return;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
+				setProvidedSignature((ProvidedSignature)null);
+				return;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
+				setParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,10 +213,10 @@ public class ProvidedParameterIdentificationImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
-			return providedSignature != null;
-		case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
-			return parameter != null;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PROVIDED_SIGNATURE:
+				return providedSignature != null;
+			case PcmjavacorrespondencePackage.PROVIDED_PARAMETER_IDENTIFICATION__PARAMETER:
+				return parameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

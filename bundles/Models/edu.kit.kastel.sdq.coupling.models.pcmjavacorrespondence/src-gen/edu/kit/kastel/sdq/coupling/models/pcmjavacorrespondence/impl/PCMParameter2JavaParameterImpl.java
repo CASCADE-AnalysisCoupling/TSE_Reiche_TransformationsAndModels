@@ -76,6 +76,7 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProvidedParameterIdentification getPcmParameterIdentification() {
 		return pcmParameterIdentification;
 	}
@@ -85,18 +86,12 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPcmParameterIdentification(
-			ProvidedParameterIdentification newPcmParameterIdentification, NotificationChain msgs) {
+	public NotificationChain basicSetPcmParameterIdentification(ProvidedParameterIdentification newPcmParameterIdentification, NotificationChain msgs) {
 		ProvidedParameterIdentification oldPcmParameterIdentification = pcmParameterIdentification;
 		pcmParameterIdentification = newPcmParameterIdentification;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
-					oldPcmParameterIdentification, newPcmParameterIdentification);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION, oldPcmParameterIdentification, newPcmParameterIdentification);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -106,24 +101,19 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPcmParameterIdentification(ProvidedParameterIdentification newPcmParameterIdentification) {
 		if (newPcmParameterIdentification != pcmParameterIdentification) {
 			NotificationChain msgs = null;
 			if (pcmParameterIdentification != null)
-				msgs = ((InternalEObject) pcmParameterIdentification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-						- PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
-						null, msgs);
+				msgs = ((InternalEObject)pcmParameterIdentification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION, null, msgs);
 			if (newPcmParameterIdentification != null)
-				msgs = ((InternalEObject) newPcmParameterIdentification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
-						null, msgs);
+				msgs = ((InternalEObject)newPcmParameterIdentification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION, null, msgs);
 			msgs = basicSetPcmParameterIdentification(newPcmParameterIdentification, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION,
-					newPcmParameterIdentification, newPcmParameterIdentification));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION, newPcmParameterIdentification, newPcmParameterIdentification));
 	}
 
 	/**
@@ -131,15 +121,14 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter getJavaParameter() {
 		if (javaParameter != null && javaParameter.eIsProxy()) {
-			InternalEObject oldJavaParameter = (InternalEObject) javaParameter;
-			javaParameter = (Parameter) eResolveProxy(oldJavaParameter);
+			InternalEObject oldJavaParameter = (InternalEObject)javaParameter;
+			javaParameter = (Parameter)eResolveProxy(oldJavaParameter);
 			if (javaParameter != oldJavaParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER,
-							oldJavaParameter, javaParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER, oldJavaParameter, javaParameter));
 			}
 		}
 		return javaParameter;
@@ -159,13 +148,12 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setJavaParameter(Parameter newJavaParameter) {
 		Parameter oldJavaParameter = javaParameter;
 		javaParameter = newJavaParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER, oldJavaParameter,
-					javaParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER, oldJavaParameter, javaParameter));
 	}
 
 	/**
@@ -176,8 +164,8 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			return basicSetPcmParameterIdentification(null, msgs);
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				return basicSetPcmParameterIdentification(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -190,12 +178,11 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			return getPcmParameterIdentification();
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
-			if (resolve)
-				return getJavaParameter();
-			return basicGetJavaParameter();
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				return getPcmParameterIdentification();
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
+				if (resolve) return getJavaParameter();
+				return basicGetJavaParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,12 +195,12 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			setPcmParameterIdentification((ProvidedParameterIdentification) newValue);
-			return;
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
-			setJavaParameter((Parameter) newValue);
-			return;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				setPcmParameterIdentification((ProvidedParameterIdentification)newValue);
+				return;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
+				setJavaParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -226,12 +213,12 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			setPcmParameterIdentification((ProvidedParameterIdentification) null);
-			return;
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
-			setJavaParameter((Parameter) null);
-			return;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				setPcmParameterIdentification((ProvidedParameterIdentification)null);
+				return;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
+				setJavaParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,10 +231,10 @@ public class PCMParameter2JavaParameterImpl extends MinimalEObjectImpl.Container
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
-			return pcmParameterIdentification != null;
-		case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
-			return javaParameter != null;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__PCM_PARAMETER_IDENTIFICATION:
+				return pcmParameterIdentification != null;
+			case PcmjavacorrespondencePackage.PCM_PARAMETER2_JAVA_PARAMETER__JAVA_PARAMETER:
+				return javaParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

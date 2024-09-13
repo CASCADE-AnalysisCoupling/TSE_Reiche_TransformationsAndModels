@@ -70,44 +70,43 @@ public class CodeqlresultingvaluesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case CodeqlresultingvaluesPackage.CODE_QL_RESULTING_VALUES: {
-			CodeQLResultingValues codeQLResultingValues = (CodeQLResultingValues) theEObject;
-			T result = caseCodeQLResultingValues(codeQLResultingValues);
+		case CodeqlresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUES: {
+			ResolvedImplementationValues resolvedImplementationValues = (ResolvedImplementationValues) theEObject;
+			T result = caseResolvedImplementationValues(resolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluesPackage.PARAMETER_IDENTIFICIATION_CODE_QL_RESULTING_VALUES: {
-			ParameterIdentificiation_CodeQLResultingValues parameterIdentificiation_CodeQLResultingValues = (ParameterIdentificiation_CodeQLResultingValues) theEObject;
-			T result = caseParameterIdentificiation_CodeQLResultingValues(
-					parameterIdentificiation_CodeQLResultingValues);
+		case CodeqlresultingvaluesPackage.PARAMETER_RESOLVED_IMPLEMENTATION_VALUES: {
+			Parameter_ResolvedImplementationValues parameter_ResolvedImplementationValues = (Parameter_ResolvedImplementationValues) theEObject;
+			T result = caseParameter_ResolvedImplementationValues(parameter_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluesPackage.RESULTING_VALUE: {
-			ResultingValue resultingValue = (ResultingValue) theEObject;
-			T result = caseResultingValue(resultingValue);
+		case CodeqlresultingvaluesPackage.RESOLVED_IMPLEMENTATION_VALUE: {
+			ResolvedImplementationValue resolvedImplementationValue = (ResolvedImplementationValue) theEObject;
+			T result = caseResolvedImplementationValue(resolvedImplementationValue);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluesPackage.SECURITY_LEVEL_RESULTING_VALUES: {
-			SecurityLevel_ResultingValues securityLevel_ResultingValues = (SecurityLevel_ResultingValues) theEObject;
-			T result = caseSecurityLevel_ResultingValues(securityLevel_ResultingValues);
+		case CodeqlresultingvaluesPackage.SECURITY_LEVEL_RESOLVED_IMPLEMENTATION_VALUES: {
+			SecurityLevel_ResolvedImplementationValues securityLevel_ResolvedImplementationValues = (SecurityLevel_ResolvedImplementationValues) theEObject;
+			T result = caseSecurityLevel_ResolvedImplementationValues(securityLevel_ResolvedImplementationValues);
 			if (result == null)
-				result = caseEntity(securityLevel_ResultingValues);
+				result = caseEntity(securityLevel_ResolvedImplementationValues);
 			if (result == null)
-				result = caseIdentifiedElement(securityLevel_ResultingValues);
+				result = caseIdentifiedElement(securityLevel_ResolvedImplementationValues);
 			if (result == null)
-				result = caseNamedElement(securityLevel_ResultingValues);
+				result = caseNamedElement(securityLevel_ResolvedImplementationValues);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CodeqlresultingvaluesPackage.CONFIGURATION_ID_RESULTING_VALUES: {
-			ConfigurationID_ResultingValues configurationID_ResultingValues = (ConfigurationID_ResultingValues) theEObject;
-			T result = caseConfigurationID_ResultingValues(configurationID_ResultingValues);
+		case CodeqlresultingvaluesPackage.RULE_ID_RESOLVED_IMPLEMENTATION_VALUE: {
+			RuleId_ResolvedImplementationValue ruleId_ResolvedImplementationValue = (RuleId_ResolvedImplementationValue) theEObject;
+			T result = caseRuleId_ResolvedImplementationValue(ruleId_ResolvedImplementationValue);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -118,77 +117,77 @@ public class CodeqlresultingvaluesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCodeQLResultingValues(CodeQLResultingValues object) {
+	public T caseResolvedImplementationValues(ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Identificiation Code QL Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Identificiation Code QL Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameterIdentificiation_CodeQLResultingValues(ParameterIdentificiation_CodeQLResultingValues object) {
+	public T caseParameter_ResolvedImplementationValues(Parameter_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resulting Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resulting Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resolved Implementation Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResultingValue(ResultingValue object) {
+	public T caseResolvedImplementationValue(ResolvedImplementationValue object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Security Level Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Security Level Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Security Level Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Security Level Resolved Implementation Values</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSecurityLevel_ResultingValues(SecurityLevel_ResultingValues object) {
+	public T caseSecurityLevel_ResolvedImplementationValues(SecurityLevel_ResolvedImplementationValues object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration ID Resulting Values</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rule Id Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration ID Resulting Values</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rule Id Resolved Implementation Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConfigurationID_ResultingValues(ConfigurationID_ResultingValues object) {
+	public T caseRuleId_ResolvedImplementationValue(RuleId_ResolvedImplementationValue object) {
 		return null;
 	}
 

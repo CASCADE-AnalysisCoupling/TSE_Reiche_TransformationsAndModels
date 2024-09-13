@@ -4,7 +4,7 @@
 <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.kit.kastel.sdq.coupling.casestudy.framework.accessanalysisjoana.processingsteps.RunnerHandler"
+            defaultHandler="edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.accessanalysisjoana.RunnerHandler"
             id="edu.kit.kastel.sdq.analysiscouplingframework.joanaexample.commands.runConfig"
             name="Run Configuration">
       </command>

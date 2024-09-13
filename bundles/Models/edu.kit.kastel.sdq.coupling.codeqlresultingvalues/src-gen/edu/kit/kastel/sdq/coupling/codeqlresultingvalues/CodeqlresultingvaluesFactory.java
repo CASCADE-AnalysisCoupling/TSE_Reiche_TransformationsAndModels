@@ -23,49 +23,49 @@ public interface CodeqlresultingvaluesFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	CodeQLResultingValues createCodeQLResultingValues();
+	ResolvedImplementationValues createResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Identificiation Code QL Resulting Values</em>'.
+	 * Returns a new object of class '<em>Parameter Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Identificiation Code QL Resulting Values</em>'.
+	 * @return a new object of class '<em>Parameter Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	ParameterIdentificiation_CodeQLResultingValues createParameterIdentificiation_CodeQLResultingValues();
+	Parameter_ResolvedImplementationValues createParameter_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Resulting Value</em>'.
+	 * Returns a new object of class '<em>Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resulting Value</em>'.
+	 * @return a new object of class '<em>Resolved Implementation Value</em>'.
 	 * @generated
 	 */
-	ResultingValue createResultingValue();
+	ResolvedImplementationValue createResolvedImplementationValue();
 
 	/**
-	 * Returns a new object of class '<em>Security Level Resulting Values</em>'.
+	 * Returns a new object of class '<em>Security Level Resolved Implementation Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Security Level Resulting Values</em>'.
+	 * @return a new object of class '<em>Security Level Resolved Implementation Values</em>'.
 	 * @generated
 	 */
-	SecurityLevel_ResultingValues createSecurityLevel_ResultingValues();
+	SecurityLevel_ResolvedImplementationValues createSecurityLevel_ResolvedImplementationValues();
 
 	/**
-	 * Returns a new object of class '<em>Configuration ID Resulting Values</em>'.
+	 * Returns a new object of class '<em>Rule Id Resolved Implementation Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration ID Resulting Values</em>'.
+	 * @return a new object of class '<em>Rule Id Resolved Implementation Value</em>'.
 	 * @generated
 	 */
-	ConfigurationID_ResultingValues createConfigurationID_ResultingValues();
+	RuleId_ResolvedImplementationValue createRuleId_ResolvedImplementationValue();
 
 	/**
 	 * Returns the package supported by this factory.

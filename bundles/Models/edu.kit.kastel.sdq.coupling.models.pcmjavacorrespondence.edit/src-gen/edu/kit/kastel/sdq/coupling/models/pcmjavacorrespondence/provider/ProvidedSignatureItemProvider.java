@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.provider;
 
+
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondencePackage;
 
 import java.util.Collection;
@@ -27,8 +28,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedSignatureItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ProvidedSignatureItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,13 +70,19 @@ public class ProvidedSignatureItemProvider extends ItemProviderAdapter implement
 	 * @generated
 	 */
 	protected void addProvidedRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ProvidedSignature_providedRole_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ProvidedSignature_providedRole_feature",
-								"_UI_ProvidedSignature_type"),
-						PcmjavacorrespondencePackage.Literals.PROVIDED_SIGNATURE__PROVIDED_ROLE, true, false, true,
-						null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedSignature_providedRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedSignature_providedRole_feature", "_UI_ProvidedSignature_type"),
+				 PcmjavacorrespondencePackage.Literals.PROVIDED_SIGNATURE__PROVIDED_ROLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -79,13 +92,19 @@ public class ProvidedSignatureItemProvider extends ItemProviderAdapter implement
 	 * @generated
 	 */
 	protected void addProvidedSignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ProvidedSignature_providedSignature_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_ProvidedSignature_providedSignature_feature", "_UI_ProvidedSignature_type"),
-						PcmjavacorrespondencePackage.Literals.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE, true, false, true,
-						null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedSignature_providedSignature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedSignature_providedSignature_feature", "_UI_ProvidedSignature_type"),
+				 PcmjavacorrespondencePackage.Literals.PROVIDED_SIGNATURE__PROVIDED_SIGNATURE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -100,16 +119,6 @@ public class ProvidedSignatureItemProvider extends ItemProviderAdapter implement
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,6 +128,7 @@ public class ProvidedSignatureItemProvider extends ItemProviderAdapter implement
 	public String getText(Object object) {
 		return getString("_UI_ProvidedSignature_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

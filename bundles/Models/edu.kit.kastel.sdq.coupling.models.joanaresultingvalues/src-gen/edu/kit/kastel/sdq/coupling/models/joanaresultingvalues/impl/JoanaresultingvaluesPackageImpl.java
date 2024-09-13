@@ -4,13 +4,13 @@ package edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.impl;
 
 import edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage;
 
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPointIdentification_ResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.EntryPoint_ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JoanaresultingvaluesFactory;
 import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JoanaresultingvaluesPackage;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Level_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -31,35 +31,35 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass joanaResultingValuesEClass = null;
+	private EClass resolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterIdentification_JOANAResultingValuesEClass = null;
+	private EClass parameter_ResolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass level_ResultingValuesEClass = null;
+	private EClass level_ResolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass entryPointIdentification_ResultingValuesEClass = null;
+	private EClass entryPoint_ResolvedImplementationValuesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultingValueEClass = null;
+	private EClass resolvedImplementationValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -134,8 +134,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getJOANAResultingValues() {
-		return joanaResultingValuesEClass;
+	public EClass getResolvedImplementationValues() {
+		return resolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJOANAResultingValues_SystemElements() {
-		return (EReference) joanaResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EReference getResolvedImplementationValues_SystemElements() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJOANAResultingValues_Levels() {
-		return (EReference) joanaResultingValuesEClass.getEStructuralFeatures().get(1);
+	public EReference getResolvedImplementationValues_Levels() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJOANAResultingValues_EntryPoints() {
-		return (EReference) joanaResultingValuesEClass.getEStructuralFeatures().get(2);
+	public EReference getResolvedImplementationValues_EntryPoints() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -170,8 +170,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJOANAResultingValues_ResultingValues() {
-		return (EReference) joanaResultingValuesEClass.getEStructuralFeatures().get(3);
+	public EReference getResolvedImplementationValues_ResultingValues() {
+		return (EReference) resolvedImplementationValuesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -179,8 +179,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterIdentification_JOANAResultingValues() {
-		return parameterIdentification_JOANAResultingValuesEClass;
+	public EClass getParameter_ResolvedImplementationValues() {
+		return parameter_ResolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -188,8 +188,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_JOANAResultingValues_ParameterIndex() {
-		return (EAttribute) parameterIdentification_JOANAResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameter_ResolvedImplementationValues_ParameterIndex() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -197,8 +197,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_JOANAResultingValues_ParameterType() {
-		return (EAttribute) parameterIdentification_JOANAResultingValuesEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_ResolvedImplementationValues_ParameterType() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -206,8 +206,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_JOANAResultingValues_MethodName() {
-		return (EAttribute) parameterIdentification_JOANAResultingValuesEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParameter_ResolvedImplementationValues_MethodName() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -215,8 +215,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterIdentification_JOANAResultingValues_FullyQualifiedClassName() {
-		return (EAttribute) parameterIdentification_JOANAResultingValuesEClass.getEStructuralFeatures().get(3);
+	public EAttribute getParameter_ResolvedImplementationValues_FullyQualifiedClassName() {
+		return (EAttribute) parameter_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -224,8 +224,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLevel_ResultingValues() {
-		return level_ResultingValuesEClass;
+	public EClass getLevel_ResolvedImplementationValues() {
+		return level_ResolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -233,8 +233,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEntryPointIdentification_ResultingValues() {
-		return entryPointIdentification_ResultingValuesEClass;
+	public EClass getEntryPoint_ResolvedImplementationValues() {
+		return entryPoint_ResolvedImplementationValuesEClass;
 	}
 
 	/**
@@ -242,8 +242,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntryPointIdentification_ResultingValues_Tag() {
-		return (EAttribute) entryPointIdentification_ResultingValuesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEntryPoint_ResolvedImplementationValues_Tag() {
+		return (EAttribute) entryPoint_ResolvedImplementationValuesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResultingValue() {
-		return resultingValueEClass;
+	public EClass getResolvedImplementationValue() {
+		return resolvedImplementationValueEClass;
 	}
 
 	/**
@@ -260,8 +260,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_SystemElement() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(0);
+	public EReference getResolvedImplementationValue_SystemElement() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -269,8 +269,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_Configuration() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(1);
+	public EReference getResolvedImplementationValue_Configuration() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -278,8 +278,8 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultingValue_Level() {
-		return (EReference) resultingValueEClass.getEStructuralFeatures().get(2);
+	public EReference getResolvedImplementationValue_Level() {
+		return (EReference) resolvedImplementationValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -311,33 +311,32 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 		isCreated = true;
 
 		// Create classes and their features
-		joanaResultingValuesEClass = createEClass(JOANA_RESULTING_VALUES);
-		createEReference(joanaResultingValuesEClass, JOANA_RESULTING_VALUES__SYSTEM_ELEMENTS);
-		createEReference(joanaResultingValuesEClass, JOANA_RESULTING_VALUES__LEVELS);
-		createEReference(joanaResultingValuesEClass, JOANA_RESULTING_VALUES__ENTRY_POINTS);
-		createEReference(joanaResultingValuesEClass, JOANA_RESULTING_VALUES__RESULTING_VALUES);
+		resolvedImplementationValuesEClass = createEClass(RESOLVED_IMPLEMENTATION_VALUES);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__SYSTEM_ELEMENTS);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__LEVELS);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__ENTRY_POINTS);
+		createEReference(resolvedImplementationValuesEClass, RESOLVED_IMPLEMENTATION_VALUES__RESULTING_VALUES);
 
-		parameterIdentification_JOANAResultingValuesEClass = createEClass(
-				PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES);
-		createEAttribute(parameterIdentification_JOANAResultingValuesEClass,
-				PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES__PARAMETER_INDEX);
-		createEAttribute(parameterIdentification_JOANAResultingValuesEClass,
-				PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES__PARAMETER_TYPE);
-		createEAttribute(parameterIdentification_JOANAResultingValuesEClass,
-				PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES__METHOD_NAME);
-		createEAttribute(parameterIdentification_JOANAResultingValuesEClass,
-				PARAMETER_IDENTIFICATION_JOANA_RESULTING_VALUES__FULLY_QUALIFIED_CLASS_NAME);
+		parameter_ResolvedImplementationValuesEClass = createEClass(PARAMETER_RESOLVED_IMPLEMENTATION_VALUES);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_INDEX);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__PARAMETER_TYPE);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__METHOD_NAME);
+		createEAttribute(parameter_ResolvedImplementationValuesEClass,
+				PARAMETER_RESOLVED_IMPLEMENTATION_VALUES__FULLY_QUALIFIED_CLASS_NAME);
 
-		level_ResultingValuesEClass = createEClass(LEVEL_RESULTING_VALUES);
+		level_ResolvedImplementationValuesEClass = createEClass(LEVEL_RESOLVED_IMPLEMENTATION_VALUES);
 
-		entryPointIdentification_ResultingValuesEClass = createEClass(ENTRY_POINT_IDENTIFICATION_RESULTING_VALUES);
-		createEAttribute(entryPointIdentification_ResultingValuesEClass,
-				ENTRY_POINT_IDENTIFICATION_RESULTING_VALUES__TAG);
+		entryPoint_ResolvedImplementationValuesEClass = createEClass(ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES);
+		createEAttribute(entryPoint_ResolvedImplementationValuesEClass,
+				ENTRY_POINT_RESOLVED_IMPLEMENTATION_VALUES__TAG);
 
-		resultingValueEClass = createEClass(RESULTING_VALUE);
-		createEReference(resultingValueEClass, RESULTING_VALUE__SYSTEM_ELEMENT);
-		createEReference(resultingValueEClass, RESULTING_VALUE__CONFIGURATION);
-		createEReference(resultingValueEClass, RESULTING_VALUE__LEVEL);
+		resolvedImplementationValueEClass = createEClass(RESOLVED_IMPLEMENTATION_VALUE);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__SYSTEM_ELEMENT);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__CONFIGURATION);
+		createEReference(resolvedImplementationValueEClass, RESOLVED_IMPLEMENTATION_VALUE__LEVEL);
 	}
 
 	/**
@@ -373,61 +372,61 @@ public class JoanaresultingvaluesPackageImpl extends EPackageImpl implements Joa
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		level_ResultingValuesEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		level_ResolvedImplementationValuesEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(joanaResultingValuesEClass, JOANAResultingValues.class, "JOANAResultingValues", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJOANAResultingValues_SystemElements(), this.getParameterIdentification_JOANAResultingValues(),
-				null, "systemElements", null, 0, -1, JOANAResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJOANAResultingValues_Levels(), this.getLevel_ResultingValues(), null, "levels", null, 0, -1,
-				JOANAResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+		initEClass(resolvedImplementationValuesEClass, ResolvedImplementationValues.class,
+				"ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResolvedImplementationValues_SystemElements(),
+				this.getParameter_ResolvedImplementationValues(), null, "systemElements", null, 0, -1,
+				ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJOANAResultingValues_EntryPoints(), this.getEntryPointIdentification_ResultingValues(), null,
-				"entryPoints", null, 0, -1, JOANAResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+		initEReference(getResolvedImplementationValues_Levels(), this.getLevel_ResolvedImplementationValues(), null,
+				"levels", null, 0, -1, ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJOANAResultingValues_ResultingValues(), this.getResultingValue(), null, "resultingValues",
-				null, 0, -1, JOANAResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValues_EntryPoints(), this.getEntryPoint_ResolvedImplementationValues(),
+				null, "entryPoints", null, 0, -1, ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValues_ResultingValues(), this.getResolvedImplementationValue(), null,
+				"resultingValues", null, 0, -1, ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterIdentification_JOANAResultingValuesEClass,
-				ParameterIdentification_JOANAResultingValues.class, "ParameterIdentification_JOANAResultingValues",
+		initEClass(parameter_ResolvedImplementationValuesEClass, Parameter_ResolvedImplementationValues.class,
+				"Parameter_ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_ResolvedImplementationValues_ParameterIndex(), ecorePackage.getEInt(),
+				"parameterIndex", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_ParameterType(), ecorePackage.getEString(),
+				"parameterType", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_MethodName(), ecorePackage.getEString(), "methodName",
+				null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ResolvedImplementationValues_FullyQualifiedClassName(), ecorePackage.getEString(),
+				"fullyQualifiedClassName", null, 1, 1, Parameter_ResolvedImplementationValues.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(level_ResolvedImplementationValuesEClass, Level_ResolvedImplementationValues.class,
+				"Level_ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entryPoint_ResolvedImplementationValuesEClass, EntryPoint_ResolvedImplementationValues.class,
+				"EntryPoint_ResolvedImplementationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEntryPoint_ResolvedImplementationValues_Tag(), ecorePackage.getEString(), "tag", null, 1, 1,
+				EntryPoint_ResolvedImplementationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resolvedImplementationValueEClass, ResolvedImplementationValue.class, "ResolvedImplementationValue",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterIdentification_JOANAResultingValues_ParameterIndex(), ecorePackage.getEInt(),
-				"parameterIndex", null, 1, 1, ParameterIdentification_JOANAResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_JOANAResultingValues_ParameterType(), ecorePackage.getEString(),
-				"parameterType", null, 1, 1, ParameterIdentification_JOANAResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_JOANAResultingValues_MethodName(), ecorePackage.getEString(),
-				"methodName", null, 1, 1, ParameterIdentification_JOANAResultingValues.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterIdentification_JOANAResultingValues_FullyQualifiedClassName(),
-				ecorePackage.getEString(), "fullyQualifiedClassName", null, 1, 1,
-				ParameterIdentification_JOANAResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(level_ResultingValuesEClass, Level_ResultingValues.class, "Level_ResultingValues", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(entryPointIdentification_ResultingValuesEClass, EntryPointIdentification_ResultingValues.class,
-				"EntryPointIdentification_ResultingValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEntryPointIdentification_ResultingValues_Tag(), ecorePackage.getEString(), "tag", null, 1, 1,
-				EntryPointIdentification_ResultingValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(resultingValueEClass, ResultingValue.class, "ResultingValue", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResultingValue_SystemElement(), this.getParameterIdentification_JOANAResultingValues(), null,
-				"systemElement", null, 1, 1, ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+		initEReference(getResolvedImplementationValue_SystemElement(), this.getParameter_ResolvedImplementationValues(),
+				null, "systemElement", null, 1, 1, ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValue_Configuration(),
+				this.getEntryPoint_ResolvedImplementationValues(), null, "configuration", null, 1, 1,
+				ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResolvedImplementationValue_Level(), this.getLevel_ResolvedImplementationValues(), null,
+				"level", null, 1, 1, ResolvedImplementationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultingValue_Configuration(), this.getEntryPointIdentification_ResultingValues(), null,
-				"configuration", null, 1, 1, ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultingValue_Level(), this.getLevel_ResultingValues(), null, "level", null, 1, 1,
-				ResultingValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -96,13 +96,13 @@ public interface JoanascarPackage extends EPackage {
 	int SOURCE_CODE_ANALYSIS_RESULT__LEVELS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Result Entries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Flows</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES = 3;
+	int SOURCE_CODE_ANALYSIS_RESULT__FLOWS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Source Code Analysis Result</em>' class.
@@ -123,42 +123,42 @@ public interface JoanascarPackage extends EPackage {
 	int SOURCE_CODE_ANALYSIS_RESULT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElementIdentifiying_JOANASCARImpl <em>System Element Identifiying JOANASCAR</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElement_SCARImpl <em>System Element SCAR</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElementIdentifiying_JOANASCARImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSystemElementIdentifiying_JOANASCAR()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElement_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSystemElement_SCAR()
 	 * @generated
 	 */
-	int SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR = 1;
+	int SYSTEM_ELEMENT_SCAR = 1;
 
 	/**
-	 * The number of structural features of the '<em>System Element Identifiying JOANASCAR</em>' class.
+	 * The number of structural features of the '<em>System Element SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT = 0;
+	int SYSTEM_ELEMENT_SCAR_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>System Element Identifiying JOANASCAR</em>' class.
+	 * The number of operations of the '<em>System Element SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_OPERATION_COUNT = 0;
+	int SYSTEM_ELEMENT_SCAR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ParameterIdentifyingImpl <em>Parameter Identifying</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Parameter_SCARImpl <em>Parameter SCAR</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ParameterIdentifyingImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getParameterIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.Parameter_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getParameter_SCAR()
 	 * @generated
 	 */
-	int PARAMETER_IDENTIFYING = 2;
+	int PARAMETER_SCAR = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Index</b></em>' attribute.
@@ -167,7 +167,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING__PARAMETER_INDEX = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 0;
+	int PARAMETER_SCAR__PARAMETER_INDEX = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Type</b></em>' attribute.
@@ -176,7 +176,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING__PARAMETER_TYPE = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 1;
+	int PARAMETER_SCAR__PARAMETER_TYPE = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Method Name</b></em>' attribute.
@@ -185,7 +185,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING__METHOD_NAME = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 2;
+	int PARAMETER_SCAR__METHOD_NAME = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Class Name</b></em>' attribute.
@@ -194,35 +194,35 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 3;
+	int PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Identifying</em>' class.
+	 * The number of structural features of the '<em>Parameter SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 4;
+	int PARAMETER_SCAR_FEATURE_COUNT = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Parameter Identifying</em>' class.
+	 * The number of operations of the '<em>Parameter SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_OPERATION_COUNT + 0;
+	int PARAMETER_SCAR_OPERATION_COUNT = SYSTEM_ELEMENT_SCAR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.FieldIdentifyingImpl <em>Field Identifying</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Field_SCARImpl <em>Field SCAR</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.FieldIdentifyingImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getFieldIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.Field_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getField_SCAR()
 	 * @generated
 	 */
-	int FIELD_IDENTIFYING = 3;
+	int FIELD_SCAR = 3;
 
 	/**
 	 * The feature id for the '<em><b>Field Name</b></em>' attribute.
@@ -231,7 +231,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFYING__FIELD_NAME = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 0;
+	int FIELD_SCAR__FIELD_NAME = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Fully Qualified Class Name</b></em>' attribute.
@@ -240,25 +240,25 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 1;
+	int FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Field Identifying</em>' class.
+	 * The number of structural features of the '<em>Field SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFYING_FEATURE_COUNT = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_FEATURE_COUNT + 2;
+	int FIELD_SCAR_FEATURE_COUNT = SYSTEM_ELEMENT_SCAR_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Field Identifying</em>' class.
+	 * The number of operations of the '<em>Field SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_IDENTIFYING_OPERATION_COUNT = SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR_OPERATION_COUNT + 0;
+	int FIELD_SCAR_OPERATION_COUNT = SYSTEM_ELEMENT_SCAR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Level_SCARImpl <em>Level SCAR</em>}' class.
@@ -307,14 +307,14 @@ public interface JoanascarPackage extends EPackage {
 	int LEVEL_SCAR_OPERATION_COUNT = IdentifierPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPointIdentifyingImpl <em>Entry Point Identifying</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPoint_SCARImpl <em>Entry Point SCAR</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPointIdentifyingImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getEntryPointIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPoint_SCARImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getEntryPoint_SCAR()
 	 * @generated
 	 */
-	int ENTRY_POINT_IDENTIFYING = 5;
+	int ENTRY_POINT_SCAR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
@@ -323,35 +323,35 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_IDENTIFYING__TAG = 0;
+	int ENTRY_POINT_SCAR__TAG = 0;
 
 	/**
-	 * The number of structural features of the '<em>Entry Point Identifying</em>' class.
+	 * The number of structural features of the '<em>Entry Point SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_IDENTIFYING_FEATURE_COUNT = 1;
+	int ENTRY_POINT_SCAR_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Entry Point Identifying</em>' class.
+	 * The number of operations of the '<em>Entry Point SCAR</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_IDENTIFYING_OPERATION_COUNT = 0;
+	int ENTRY_POINT_SCAR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryImpl <em>Result Entry</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.FlowImpl <em>Flow</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.FlowImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getFlow()
 	 * @generated
 	 */
-	int RESULT_ENTRY = 6;
+	int FLOW = 6;
 
 	/**
 	 * The feature id for the '<em><b>Entry Point</b></em>' reference.
@@ -360,7 +360,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__ENTRY_POINT = 0;
+	int FLOW__ENTRY_POINT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -369,7 +369,7 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__SOURCE = 1;
+	int FLOW__SOURCE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Sink</b></em>' containment reference.
@@ -378,35 +378,35 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY__SINK = 2;
+	int FLOW__SINK = 2;
 
 	/**
-	 * The number of structural features of the '<em>Result Entry</em>' class.
+	 * The number of structural features of the '<em>Flow</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_FEATURE_COUNT = 3;
+	int FLOW_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Result Entry</em>' class.
+	 * The number of operations of the '<em>Flow</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_OPERATION_COUNT = 0;
+	int FLOW_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryElementImpl <em>Result Entry Element</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceImpl <em>Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryElementImpl
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getResultEntryElement()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSource()
 	 * @generated
 	 */
-	int RESULT_ENTRY_ELEMENT = 7;
+	int SOURCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>System Element</b></em>' reference.
@@ -415,34 +415,80 @@ public interface JoanascarPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_ELEMENT__SYSTEM_ELEMENT = 0;
+	int SOURCE__SYSTEM_ELEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Level</b></em>' reference.
+	 * The feature id for the '<em><b>Source Level</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_ELEMENT__LEVEL = 1;
+	int SOURCE__SOURCE_LEVEL = 1;
 
 	/**
-	 * The number of structural features of the '<em>Result Entry Element</em>' class.
+	 * The number of structural features of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_ELEMENT_FEATURE_COUNT = 2;
+	int SOURCE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Result Entry Element</em>' class.
+	 * The number of operations of the '<em>Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_ENTRY_ELEMENT_OPERATION_COUNT = 0;
+	int SOURCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SinkImpl <em>Sink</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SinkImpl
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSink()
+	 * @generated
+	 */
+	int SINK = 8;
+
+	/**
+	 * The feature id for the '<em><b>Sink Level</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__SINK_LEVEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>System Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__SYSTEM_ELEMENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Sink</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Sink</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult <em>Source Code Analysis Result</em>}'.
@@ -488,111 +534,111 @@ public interface JoanascarPackage extends EPackage {
 	EReference getSourceCodeAnalysisResult_Levels();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getResultEntries <em>Result Entries</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getFlows <em>Flows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Result Entries</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getResultEntries()
+	 * @return the meta object for the containment reference list '<em>Flows</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult#getFlows()
 	 * @see #getSourceCodeAnalysisResult()
 	 * @generated
 	 */
-	EReference getSourceCodeAnalysisResult_ResultEntries();
+	EReference getSourceCodeAnalysisResult_Flows();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR <em>System Element Identifiying JOANASCAR</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR <em>System Element SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System Element Identifiying JOANASCAR</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SystemElementIdentifiying_JOANASCAR
+	 * @return the meta object for class '<em>System Element SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.SystemElement_SCAR
 	 * @generated
 	 */
-	EClass getSystemElementIdentifiying_JOANASCAR();
+	EClass getSystemElement_SCAR();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying <em>Parameter Identifying</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR <em>Parameter SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Identifying</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying
+	 * @return the meta object for class '<em>Parameter SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR
 	 * @generated
 	 */
-	EClass getParameterIdentifying();
+	EClass getParameter_SCAR();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getParameterIndex <em>Parameter Index</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getParameterIndex <em>Parameter Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Index</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getParameterIndex()
-	 * @see #getParameterIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getParameterIndex()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentifying_ParameterIndex();
+	EAttribute getParameter_SCAR_ParameterIndex();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getParameterType <em>Parameter Type</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getParameterType <em>Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Type</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getParameterType()
-	 * @see #getParameterIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getParameterType()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentifying_ParameterType();
+	EAttribute getParameter_SCAR_ParameterType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getMethodName <em>Method Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getMethodName <em>Method Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Method Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getMethodName()
-	 * @see #getParameterIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getMethodName()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentifying_MethodName();
+	EAttribute getParameter_SCAR_MethodName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Fully Qualified Class Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ParameterIdentifying#getFullyQualifiedClassName()
-	 * @see #getParameterIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR#getFullyQualifiedClassName()
+	 * @see #getParameter_SCAR()
 	 * @generated
 	 */
-	EAttribute getParameterIdentifying_FullyQualifiedClassName();
+	EAttribute getParameter_SCAR_FullyQualifiedClassName();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying <em>Field Identifying</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR <em>Field SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Field Identifying</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying
+	 * @return the meta object for class '<em>Field SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR
 	 * @generated
 	 */
-	EClass getFieldIdentifying();
+	EClass getField_SCAR();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying#getFieldName <em>Field Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR#getFieldName <em>Field Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Field Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying#getFieldName()
-	 * @see #getFieldIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR#getFieldName()
+	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	EAttribute getFieldIdentifying_FieldName();
+	EAttribute getField_SCAR_FieldName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR#getFullyQualifiedClassName <em>Fully Qualified Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Fully Qualified Class Name</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying#getFullyQualifiedClassName()
-	 * @see #getFieldIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR#getFullyQualifiedClassName()
+	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	EAttribute getFieldIdentifying_FullyQualifiedClassName();
+	EAttribute getField_SCAR_FullyQualifiedClassName();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR <em>Level SCAR</em>}'.
@@ -605,100 +651,132 @@ public interface JoanascarPackage extends EPackage {
 	EClass getLevel_SCAR();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying <em>Entry Point Identifying</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR <em>Entry Point SCAR</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Point Identifying</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying
+	 * @return the meta object for class '<em>Entry Point SCAR</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR
 	 * @generated
 	 */
-	EClass getEntryPointIdentifying();
+	EClass getEntryPoint_SCAR();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying#getTag <em>Tag</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR#getTag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Tag</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPointIdentifying#getTag()
-	 * @see #getEntryPointIdentifying()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR#getTag()
+	 * @see #getEntryPoint_SCAR()
 	 * @generated
 	 */
-	EAttribute getEntryPointIdentifying_Tag();
+	EAttribute getEntryPoint_SCAR_Tag();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry <em>Result Entry</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Result Entry</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry
+	 * @return the meta object for class '<em>Flow</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Flow
 	 * @generated
 	 */
-	EClass getResultEntry();
+	EClass getFlow();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getEntryPoint <em>Entry Point</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getEntryPoint <em>Entry Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Entry Point</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getEntryPoint()
-	 * @see #getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getEntryPoint()
+	 * @see #getFlow()
 	 * @generated
 	 */
-	EReference getResultEntry_EntryPoint();
+	EReference getFlow_EntryPoint();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getSource <em>Source</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Source</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getSource()
-	 * @see #getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getSource()
+	 * @see #getFlow()
 	 * @generated
 	 */
-	EReference getResultEntry_Source();
+	EReference getFlow_Source();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getSink <em>Sink</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getSink <em>Sink</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Sink</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntry#getSink()
-	 * @see #getResultEntry()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Flow#getSink()
+	 * @see #getFlow()
 	 * @generated
 	 */
-	EReference getResultEntry_Sink();
+	EReference getFlow_Sink();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement <em>Result Entry Element</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Source <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Result Entry Element</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement
+	 * @return the meta object for class '<em>Source</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Source
 	 * @generated
 	 */
-	EClass getResultEntryElement();
+	EClass getSource();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement#getSystemElement <em>System Element</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Source#getSystemElement <em>System Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>System Element</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement#getSystemElement()
-	 * @see #getResultEntryElement()
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Source#getSystemElement()
+	 * @see #getSource()
 	 * @generated
 	 */
-	EReference getResultEntryElement_SystemElement();
+	EReference getSource_SystemElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement#getLevel <em>Level</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Source#getSourceLevel <em>Source Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Level</em>'.
-	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.ResultEntryElement#getLevel()
-	 * @see #getResultEntryElement()
+	 * @return the meta object for the reference '<em>Source Level</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Source#getSourceLevel()
+	 * @see #getSource()
 	 * @generated
 	 */
-	EReference getResultEntryElement_Level();
+	EReference getSource_SourceLevel();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink <em>Sink</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sink</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Sink
+	 * @generated
+	 */
+	EClass getSink();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink#getSinkLevel <em>Sink Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sink Level</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Sink#getSinkLevel()
+	 * @see #getSink()
+	 * @generated
+	 */
+	EReference getSink_SinkLevel();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.sdq.coupling.models.joanascar.Sink#getSystemElement <em>System Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System Element</em>'.
+	 * @see edu.kit.kastel.sdq.coupling.models.joanascar.Sink#getSystemElement()
+	 * @see #getSink()
+	 * @generated
+	 */
+	EReference getSink_SystemElement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -759,32 +837,32 @@ public interface JoanascarPackage extends EPackage {
 		EReference SOURCE_CODE_ANALYSIS_RESULT__LEVELS = eINSTANCE.getSourceCodeAnalysisResult_Levels();
 
 		/**
-		 * The meta object literal for the '<em><b>Result Entries</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Flows</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOURCE_CODE_ANALYSIS_RESULT__RESULT_ENTRIES = eINSTANCE.getSourceCodeAnalysisResult_ResultEntries();
+		EReference SOURCE_CODE_ANALYSIS_RESULT__FLOWS = eINSTANCE.getSourceCodeAnalysisResult_Flows();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElementIdentifiying_JOANASCARImpl <em>System Element Identifiying JOANASCAR</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElement_SCARImpl <em>System Element SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElementIdentifiying_JOANASCARImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSystemElementIdentifiying_JOANASCAR()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SystemElement_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSystemElement_SCAR()
 		 * @generated
 		 */
-		EClass SYSTEM_ELEMENT_IDENTIFIYING_JOANASCAR = eINSTANCE.getSystemElementIdentifiying_JOANASCAR();
+		EClass SYSTEM_ELEMENT_SCAR = eINSTANCE.getSystemElement_SCAR();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ParameterIdentifyingImpl <em>Parameter Identifying</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Parameter_SCARImpl <em>Parameter SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ParameterIdentifyingImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getParameterIdentifying()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.Parameter_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getParameter_SCAR()
 		 * @generated
 		 */
-		EClass PARAMETER_IDENTIFYING = eINSTANCE.getParameterIdentifying();
+		EClass PARAMETER_SCAR = eINSTANCE.getParameter_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Index</b></em>' attribute feature.
@@ -792,7 +870,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFYING__PARAMETER_INDEX = eINSTANCE.getParameterIdentifying_ParameterIndex();
+		EAttribute PARAMETER_SCAR__PARAMETER_INDEX = eINSTANCE.getParameter_SCAR_ParameterIndex();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Type</b></em>' attribute feature.
@@ -800,7 +878,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFYING__PARAMETER_TYPE = eINSTANCE.getParameterIdentifying_ParameterType();
+		EAttribute PARAMETER_SCAR__PARAMETER_TYPE = eINSTANCE.getParameter_SCAR_ParameterType();
 
 		/**
 		 * The meta object literal for the '<em><b>Method Name</b></em>' attribute feature.
@@ -808,7 +886,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFYING__METHOD_NAME = eINSTANCE.getParameterIdentifying_MethodName();
+		EAttribute PARAMETER_SCAR__METHOD_NAME = eINSTANCE.getParameter_SCAR_MethodName();
 
 		/**
 		 * The meta object literal for the '<em><b>Fully Qualified Class Name</b></em>' attribute feature.
@@ -816,18 +894,17 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE
-				.getParameterIdentifying_FullyQualifiedClassName();
+		EAttribute PARAMETER_SCAR__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE.getParameter_SCAR_FullyQualifiedClassName();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.FieldIdentifyingImpl <em>Field Identifying</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Field_SCARImpl <em>Field SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.FieldIdentifyingImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getFieldIdentifying()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.Field_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getField_SCAR()
 		 * @generated
 		 */
-		EClass FIELD_IDENTIFYING = eINSTANCE.getFieldIdentifying();
+		EClass FIELD_SCAR = eINSTANCE.getField_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Field Name</b></em>' attribute feature.
@@ -835,7 +912,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD_IDENTIFYING__FIELD_NAME = eINSTANCE.getFieldIdentifying_FieldName();
+		EAttribute FIELD_SCAR__FIELD_NAME = eINSTANCE.getField_SCAR_FieldName();
 
 		/**
 		 * The meta object literal for the '<em><b>Fully Qualified Class Name</b></em>' attribute feature.
@@ -843,8 +920,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD_IDENTIFYING__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE
-				.getFieldIdentifying_FullyQualifiedClassName();
+		EAttribute FIELD_SCAR__FULLY_QUALIFIED_CLASS_NAME = eINSTANCE.getField_SCAR_FullyQualifiedClassName();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.Level_SCARImpl <em>Level SCAR</em>}' class.
@@ -857,14 +933,14 @@ public interface JoanascarPackage extends EPackage {
 		EClass LEVEL_SCAR = eINSTANCE.getLevel_SCAR();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPointIdentifyingImpl <em>Entry Point Identifying</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPoint_SCARImpl <em>Entry Point SCAR</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPointIdentifyingImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getEntryPointIdentifying()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.EntryPoint_SCARImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getEntryPoint_SCAR()
 		 * @generated
 		 */
-		EClass ENTRY_POINT_IDENTIFYING = eINSTANCE.getEntryPointIdentifying();
+		EClass ENTRY_POINT_SCAR = eINSTANCE.getEntryPoint_SCAR();
 
 		/**
 		 * The meta object literal for the '<em><b>Tag</b></em>' attribute feature.
@@ -872,17 +948,17 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ENTRY_POINT_IDENTIFYING__TAG = eINSTANCE.getEntryPointIdentifying_Tag();
+		EAttribute ENTRY_POINT_SCAR__TAG = eINSTANCE.getEntryPoint_SCAR_Tag();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryImpl <em>Result Entry</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.FlowImpl <em>Flow</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getResultEntry()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.FlowImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getFlow()
 		 * @generated
 		 */
-		EClass RESULT_ENTRY = eINSTANCE.getResultEntry();
+		EClass FLOW = eINSTANCE.getFlow();
 
 		/**
 		 * The meta object literal for the '<em><b>Entry Point</b></em>' reference feature.
@@ -890,7 +966,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__ENTRY_POINT = eINSTANCE.getResultEntry_EntryPoint();
+		EReference FLOW__ENTRY_POINT = eINSTANCE.getFlow_EntryPoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
@@ -898,7 +974,7 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__SOURCE = eINSTANCE.getResultEntry_Source();
+		EReference FLOW__SOURCE = eINSTANCE.getFlow_Source();
 
 		/**
 		 * The meta object literal for the '<em><b>Sink</b></em>' containment reference feature.
@@ -906,17 +982,17 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY__SINK = eINSTANCE.getResultEntry_Sink();
+		EReference FLOW__SINK = eINSTANCE.getFlow_Sink();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryElementImpl <em>Result Entry Element</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceImpl <em>Source</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.ResultEntryElementImpl
-		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getResultEntryElement()
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SourceImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSource()
 		 * @generated
 		 */
-		EClass RESULT_ENTRY_ELEMENT = eINSTANCE.getResultEntryElement();
+		EClass SOURCE = eINSTANCE.getSource();
 
 		/**
 		 * The meta object literal for the '<em><b>System Element</b></em>' reference feature.
@@ -924,15 +1000,41 @@ public interface JoanascarPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY_ELEMENT__SYSTEM_ELEMENT = eINSTANCE.getResultEntryElement_SystemElement();
+		EReference SOURCE__SYSTEM_ELEMENT = eINSTANCE.getSource_SystemElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source Level</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESULT_ENTRY_ELEMENT__LEVEL = eINSTANCE.getResultEntryElement_Level();
+		EReference SOURCE__SOURCE_LEVEL = eINSTANCE.getSource_SourceLevel();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.sdq.coupling.models.joanascar.impl.SinkImpl <em>Sink</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.SinkImpl
+		 * @see edu.kit.kastel.sdq.coupling.models.joanascar.impl.JoanascarPackageImpl#getSink()
+		 * @generated
+		 */
+		EClass SINK = eINSTANCE.getSink();
+
+		/**
+		 * The meta object literal for the '<em><b>Sink Level</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINK__SINK_LEVEL = eINSTANCE.getSink_SinkLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>System Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINK__SYSTEM_ELEMENT = eINSTANCE.getSink_SystemElement();
 
 	}
 

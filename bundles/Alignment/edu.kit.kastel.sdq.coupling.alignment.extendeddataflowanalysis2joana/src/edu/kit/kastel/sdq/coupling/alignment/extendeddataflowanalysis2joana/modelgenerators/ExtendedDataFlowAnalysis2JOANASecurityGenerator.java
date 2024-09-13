@@ -136,7 +136,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 		if(!entryPoint.getAnnotation().isEmpty()) {
 			entryPoint.setId(tagCounter.toString());
 			tagCounter++;
-			EDFAJOANACorrespondenceUtil.correspondenceExists(parameterAnnotations, entryPoint, edfaJoanaCorrespondences);
+			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(parameterAnnotations, entryPoint, edfaJoanaCorrespondences);
 			return entryPoint;
 		} 
 

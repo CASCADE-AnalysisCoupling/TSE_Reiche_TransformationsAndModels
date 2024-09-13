@@ -41,41 +41,41 @@ public class FieldCorrespondenceItemProvider extends SystemElementCorrespondence
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addJavaFieldPropertyDescriptor(object);
-			addScarFieldPropertyDescriptor(object);
+			addField_JavaPropertyDescriptor(object);
+			addField_SCARPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Java Field feature.
+	 * This adds a property descriptor for the Field Java feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addJavaFieldPropertyDescriptor(Object object) {
+	protected void addField_JavaPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_FieldCorrespondence_javaField_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_FieldCorrespondence_javaField_feature",
+						getResourceLocator(), getString("_UI_FieldCorrespondence_field_Java_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_FieldCorrespondence_field_Java_feature",
 								"_UI_FieldCorrespondence_type"),
-						CodeqlscarcorrespondencesPackage.Literals.FIELD_CORRESPONDENCE__JAVA_FIELD, true, false, true,
+						CodeqlscarcorrespondencesPackage.Literals.FIELD_CORRESPONDENCE__FIELD_JAVA, true, false, true,
 						null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Scar Field feature.
+	 * This adds a property descriptor for the Field SCAR feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addScarFieldPropertyDescriptor(Object object) {
+	protected void addField_SCARPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_FieldCorrespondence_scarField_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_FieldCorrespondence_scarField_feature",
+						getResourceLocator(), getString("_UI_FieldCorrespondence_field_SCAR_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_FieldCorrespondence_field_SCAR_feature",
 								"_UI_FieldCorrespondence_type"),
-						CodeqlscarcorrespondencesPackage.Literals.FIELD_CORRESPONDENCE__SCAR_FIELD, true, false, true,
+						CodeqlscarcorrespondencesPackage.Literals.FIELD_CORRESPONDENCE__FIELD_SCAR, true, false, true,
 						null, null, null));
 	}
 

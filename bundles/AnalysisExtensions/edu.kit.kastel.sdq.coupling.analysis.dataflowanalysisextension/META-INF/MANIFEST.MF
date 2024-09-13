@@ -14,6 +14,6 @@ Require-Bundle: org.palladiosimulator.pcm,
  org.dataflowanalysis.analysis.pcm,
  org.dataflowanalysis.pcm.extension.dictionary.characterized,
  edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation;bundle-version="0.1.0",
- edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow;bundle-version="1.0.0"
+ edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension
 Bundle-RequiredExecutionEnvironment: JavaSE-17

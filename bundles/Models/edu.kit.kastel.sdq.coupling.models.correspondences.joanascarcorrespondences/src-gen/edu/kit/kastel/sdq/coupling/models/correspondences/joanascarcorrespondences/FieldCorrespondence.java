@@ -4,7 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorresponden
 
 import edu.kit.kastel.sdq.coupling.models.java.members.Field;
 
-import edu.kit.kastel.sdq.coupling.models.joanascar.FieldIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +51,12 @@ public interface FieldCorrespondence extends SystemElementCorrespondence {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Field SCAR</em>' reference.
-	 * @see #setField_SCAR(FieldIdentifying)
+	 * @see #setField_SCAR(Field_SCAR)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JoanascarcorrespondencesPackage#getFieldCorrespondence_Field_SCAR()
 	 * @model required="true"
 	 * @generated
 	 */
-	FieldIdentifying getField_SCAR();
+	Field_SCAR getField_SCAR();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.FieldCorrespondence#getField_SCAR <em>Field SCAR</em>}' reference.
@@ -66,6 +66,6 @@ public interface FieldCorrespondence extends SystemElementCorrespondence {
 	 * @see #getField_SCAR()
 	 * @generated
 	 */
-	void setField_SCAR(FieldIdentifying value);
+	void setField_SCAR(Field_SCAR value);
 
 } // FieldCorrespondence

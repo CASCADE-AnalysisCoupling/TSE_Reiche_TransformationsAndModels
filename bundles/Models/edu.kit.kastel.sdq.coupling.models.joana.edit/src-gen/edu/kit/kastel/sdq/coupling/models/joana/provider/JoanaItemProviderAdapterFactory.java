@@ -95,29 +95,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InformationFlowAnnotationItemProvider informationFlowAnnotationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInformationFlowAnnotationAdapter() {
-		if (informationFlowAnnotationItemProvider == null) {
-			informationFlowAnnotationItemProvider = new InformationFlowAnnotationItemProvider(this);
-		}
-
-		return informationFlowAnnotationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.joana.EntryPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,7 +401,6 @@ public class JoanaItemProviderAdapterFactory extends JoanaAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (joanaRootItemProvider != null) joanaRootItemProvider.dispose();
-		if (informationFlowAnnotationItemProvider != null) informationFlowAnnotationItemProvider.dispose();
 		if (entryPointItemProvider != null) entryPointItemProvider.dispose();
 		if (sourceItemProvider != null) sourceItemProvider.dispose();
 		if (sinkItemProvider != null) sinkItemProvider.dispose();

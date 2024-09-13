@@ -16,7 +16,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgene
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
@@ -49,7 +49,7 @@ public class AccessAnalysis2CodeQLSecurityGenerator4FullDynamicLevels extends Ac
 	}
 	
 	@Override
-	protected Collection<AllowedFlow> generateAllowedFlows(Configuration config) {
+	protected Collection<AllowedFlow> generateAllowedFlows(Query config) {
 
 		Collection<AllowedFlow> allowedFlows = new ArrayList<AllowedFlow>();
 		

@@ -74,99 +74,99 @@ public class CodeqlresultingvaluescorrespondencesItemProviderAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Correspondences_CodeQLResultingValuesItemProvider correspondences_CodeQLResultingValuesItemProvider;
+	protected Correspondences_ResolvedImplementationValuesItemProvider correspondences_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCorrespondences_CodeQLResultingValuesAdapter() {
-		if (correspondences_CodeQLResultingValuesItemProvider == null) {
-			correspondences_CodeQLResultingValuesItemProvider = new Correspondences_CodeQLResultingValuesItemProvider(
+	public Adapter createCorrespondences_ResolvedImplementationValuesAdapter() {
+		if (correspondences_ResolvedImplementationValuesItemProvider == null) {
+			correspondences_ResolvedImplementationValuesItemProvider = new Correspondences_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return correspondences_CodeQLResultingValuesItemProvider;
+		return correspondences_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SecurityLevelCorrespondence_CodeQLResultingValuesItemProvider securityLevelCorrespondence_CodeQLResultingValuesItemProvider;
+	protected SecurityLevelCorrespondence_ResolvedImplementationValuesItemProvider securityLevelCorrespondence_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.SecurityLevelCorrespondence_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSecurityLevelCorrespondence_CodeQLResultingValuesAdapter() {
-		if (securityLevelCorrespondence_CodeQLResultingValuesItemProvider == null) {
-			securityLevelCorrespondence_CodeQLResultingValuesItemProvider = new SecurityLevelCorrespondence_CodeQLResultingValuesItemProvider(
+	public Adapter createSecurityLevelCorrespondence_ResolvedImplementationValuesAdapter() {
+		if (securityLevelCorrespondence_ResolvedImplementationValuesItemProvider == null) {
+			securityLevelCorrespondence_ResolvedImplementationValuesItemProvider = new SecurityLevelCorrespondence_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return securityLevelCorrespondence_CodeQLResultingValuesItemProvider;
+		return securityLevelCorrespondence_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConfigurationCorrespondence_CodeQLResultingValuesItemProvider configurationCorrespondence_CodeQLResultingValuesItemProvider;
+	protected ConfigurationCorrespondence_ResolvedImplementationValuesItemProvider configurationCorrespondence_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ConfigurationCorrespondence_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConfigurationCorrespondence_CodeQLResultingValuesAdapter() {
-		if (configurationCorrespondence_CodeQLResultingValuesItemProvider == null) {
-			configurationCorrespondence_CodeQLResultingValuesItemProvider = new ConfigurationCorrespondence_CodeQLResultingValuesItemProvider(
+	public Adapter createConfigurationCorrespondence_ResolvedImplementationValuesAdapter() {
+		if (configurationCorrespondence_ResolvedImplementationValuesItemProvider == null) {
+			configurationCorrespondence_ResolvedImplementationValuesItemProvider = new ConfigurationCorrespondence_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return configurationCorrespondence_CodeQLResultingValuesItemProvider;
+		return configurationCorrespondence_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterCorrespondence_CodeQLResultingValuesItemProvider parameterCorrespondence_CodeQLResultingValuesItemProvider;
+	protected ParameterCorrespondence_ResolvedImplementationValuesItemProvider parameterCorrespondence_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.ParameterCorrespondence_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterCorrespondence_CodeQLResultingValuesAdapter() {
-		if (parameterCorrespondence_CodeQLResultingValuesItemProvider == null) {
-			parameterCorrespondence_CodeQLResultingValuesItemProvider = new ParameterCorrespondence_CodeQLResultingValuesItemProvider(
+	public Adapter createParameterCorrespondence_ResolvedImplementationValuesAdapter() {
+		if (parameterCorrespondence_ResolvedImplementationValuesItemProvider == null) {
+			parameterCorrespondence_ResolvedImplementationValuesItemProvider = new ParameterCorrespondence_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return parameterCorrespondence_CodeQLResultingValuesItemProvider;
+		return parameterCorrespondence_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
@@ -268,14 +268,14 @@ public class CodeqlresultingvaluescorrespondencesItemProviderAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (correspondences_CodeQLResultingValuesItemProvider != null)
-			correspondences_CodeQLResultingValuesItemProvider.dispose();
-		if (securityLevelCorrespondence_CodeQLResultingValuesItemProvider != null)
-			securityLevelCorrespondence_CodeQLResultingValuesItemProvider.dispose();
-		if (configurationCorrespondence_CodeQLResultingValuesItemProvider != null)
-			configurationCorrespondence_CodeQLResultingValuesItemProvider.dispose();
-		if (parameterCorrespondence_CodeQLResultingValuesItemProvider != null)
-			parameterCorrespondence_CodeQLResultingValuesItemProvider.dispose();
+		if (correspondences_ResolvedImplementationValuesItemProvider != null)
+			correspondences_ResolvedImplementationValuesItemProvider.dispose();
+		if (securityLevelCorrespondence_ResolvedImplementationValuesItemProvider != null)
+			securityLevelCorrespondence_ResolvedImplementationValuesItemProvider.dispose();
+		if (configurationCorrespondence_ResolvedImplementationValuesItemProvider != null)
+			configurationCorrespondence_ResolvedImplementationValuesItemProvider.dispose();
+		if (parameterCorrespondence_ResolvedImplementationValuesItemProvider != null)
+			parameterCorrespondence_ResolvedImplementationValuesItemProvider.dispose();
 	}
 
 }

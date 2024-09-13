@@ -73,119 +73,120 @@ public class CodeqlresultingvaluesItemProviderAdapterFactory extends Codeqlresul
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CodeQLResultingValuesItemProvider codeQLResultingValuesItemProvider;
+	protected ResolvedImplementationValuesItemProvider resolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCodeQLResultingValuesAdapter() {
-		if (codeQLResultingValuesItemProvider == null) {
-			codeQLResultingValuesItemProvider = new CodeQLResultingValuesItemProvider(this);
+	public Adapter createResolvedImplementationValuesAdapter() {
+		if (resolvedImplementationValuesItemProvider == null) {
+			resolvedImplementationValuesItemProvider = new ResolvedImplementationValuesItemProvider(this);
 		}
 
-		return codeQLResultingValuesItemProvider;
+		return resolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterIdentificiation_CodeQLResultingValuesItemProvider parameterIdentificiation_CodeQLResultingValuesItemProvider;
+	protected Parameter_ResolvedImplementationValuesItemProvider parameter_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ParameterIdentificiation_CodeQLResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.Parameter_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterIdentificiation_CodeQLResultingValuesAdapter() {
-		if (parameterIdentificiation_CodeQLResultingValuesItemProvider == null) {
-			parameterIdentificiation_CodeQLResultingValuesItemProvider = new ParameterIdentificiation_CodeQLResultingValuesItemProvider(
+	public Adapter createParameter_ResolvedImplementationValuesAdapter() {
+		if (parameter_ResolvedImplementationValuesItemProvider == null) {
+			parameter_ResolvedImplementationValuesItemProvider = new Parameter_ResolvedImplementationValuesItemProvider(
 					this);
 		}
 
-		return parameterIdentificiation_CodeQLResultingValuesItemProvider;
+		return parameter_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResultingValueItemProvider resultingValueItemProvider;
+	protected ResolvedImplementationValueItemProvider resolvedImplementationValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResultingValueAdapter() {
-		if (resultingValueItemProvider == null) {
-			resultingValueItemProvider = new ResultingValueItemProvider(this);
+	public Adapter createResolvedImplementationValueAdapter() {
+		if (resolvedImplementationValueItemProvider == null) {
+			resolvedImplementationValueItemProvider = new ResolvedImplementationValueItemProvider(this);
 		}
 
-		return resultingValueItemProvider;
+		return resolvedImplementationValueItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SecurityLevel_ResultingValuesItemProvider securityLevel_ResultingValuesItemProvider;
+	protected SecurityLevel_ResolvedImplementationValuesItemProvider securityLevel_ResolvedImplementationValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.SecurityLevel_ResolvedImplementationValues}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSecurityLevel_ResultingValuesAdapter() {
-		if (securityLevel_ResultingValuesItemProvider == null) {
-			securityLevel_ResultingValuesItemProvider = new SecurityLevel_ResultingValuesItemProvider(this);
+	public Adapter createSecurityLevel_ResolvedImplementationValuesAdapter() {
+		if (securityLevel_ResolvedImplementationValuesItemProvider == null) {
+			securityLevel_ResolvedImplementationValuesItemProvider = new SecurityLevel_ResolvedImplementationValuesItemProvider(
+					this);
 		}
 
-		return securityLevel_ResultingValuesItemProvider;
+		return securityLevel_ResolvedImplementationValuesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues} instances.
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConfigurationID_ResultingValuesItemProvider configurationID_ResultingValuesItemProvider;
+	protected RuleId_ResolvedImplementationValueItemProvider ruleId_ResolvedImplementationValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ConfigurationID_ResultingValues}.
+	 * This creates an adapter for a {@link edu.kit.kastel.sdq.coupling.codeqlresultingvalues.RuleId_ResolvedImplementationValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConfigurationID_ResultingValuesAdapter() {
-		if (configurationID_ResultingValuesItemProvider == null) {
-			configurationID_ResultingValuesItemProvider = new ConfigurationID_ResultingValuesItemProvider(this);
+	public Adapter createRuleId_ResolvedImplementationValueAdapter() {
+		if (ruleId_ResolvedImplementationValueItemProvider == null) {
+			ruleId_ResolvedImplementationValueItemProvider = new RuleId_ResolvedImplementationValueItemProvider(this);
 		}
 
-		return configurationID_ResultingValuesItemProvider;
+		return ruleId_ResolvedImplementationValueItemProvider;
 	}
 
 	/**
@@ -287,16 +288,16 @@ public class CodeqlresultingvaluesItemProviderAdapterFactory extends Codeqlresul
 	 * @generated
 	 */
 	public void dispose() {
-		if (codeQLResultingValuesItemProvider != null)
-			codeQLResultingValuesItemProvider.dispose();
-		if (parameterIdentificiation_CodeQLResultingValuesItemProvider != null)
-			parameterIdentificiation_CodeQLResultingValuesItemProvider.dispose();
-		if (resultingValueItemProvider != null)
-			resultingValueItemProvider.dispose();
-		if (securityLevel_ResultingValuesItemProvider != null)
-			securityLevel_ResultingValuesItemProvider.dispose();
-		if (configurationID_ResultingValuesItemProvider != null)
-			configurationID_ResultingValuesItemProvider.dispose();
+		if (resolvedImplementationValuesItemProvider != null)
+			resolvedImplementationValuesItemProvider.dispose();
+		if (parameter_ResolvedImplementationValuesItemProvider != null)
+			parameter_ResolvedImplementationValuesItemProvider.dispose();
+		if (resolvedImplementationValueItemProvider != null)
+			resolvedImplementationValueItemProvider.dispose();
+		if (securityLevel_ResolvedImplementationValuesItemProvider != null)
+			securityLevel_ResolvedImplementationValuesItemProvider.dispose();
+		if (ruleId_ResolvedImplementationValueItemProvider != null)
+			ruleId_ResolvedImplementationValueItemProvider.dispose();
 	}
 
 }

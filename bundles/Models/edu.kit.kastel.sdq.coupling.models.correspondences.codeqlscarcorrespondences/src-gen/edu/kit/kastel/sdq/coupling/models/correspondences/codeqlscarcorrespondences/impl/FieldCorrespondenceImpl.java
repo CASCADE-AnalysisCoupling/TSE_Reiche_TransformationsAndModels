@@ -2,7 +2,7 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl;
 
-import edu.kit.kastel.sdq.coupling.models.codeqlscar.FieldIdentification;
+import edu.kit.kastel.sdq.coupling.models.codeqlscar.Field_SCAR;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeqlscarcorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.FieldCorrespondence;
@@ -24,32 +24,32 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.FieldCorrespondenceImpl#getJavaField <em>Java Field</em>}</li>
- *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.FieldCorrespondenceImpl#getScarField <em>Scar Field</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.FieldCorrespondenceImpl#getField_Java <em>Field Java</em>}</li>
+ *   <li>{@link edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.impl.FieldCorrespondenceImpl#getField_SCAR <em>Field SCAR</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl implements FieldCorrespondence {
 	/**
-	 * The cached value of the '{@link #getJavaField() <em>Java Field</em>}' reference.
+	 * The cached value of the '{@link #getField_Java() <em>Field Java</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJavaField()
+	 * @see #getField_Java()
 	 * @generated
 	 * @ordered
 	 */
-	protected Field javaField;
+	protected Field field_Java;
 
 	/**
-	 * The cached value of the '{@link #getScarField() <em>Scar Field</em>}' reference.
+	 * The cached value of the '{@link #getField_SCAR() <em>Field SCAR</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getScarField()
+	 * @see #getField_SCAR()
 	 * @generated
 	 * @ordered
 	 */
-	protected FieldIdentification scarField;
+	protected Field_SCAR field_SCAR;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,18 +75,18 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Field getJavaField() {
-		if (javaField != null && javaField.eIsProxy()) {
-			InternalEObject oldJavaField = (InternalEObject) javaField;
-			javaField = (Field) eResolveProxy(oldJavaField);
-			if (javaField != oldJavaField) {
+	public Field getField_Java() {
+		if (field_Java != null && field_Java.eIsProxy()) {
+			InternalEObject oldField_Java = (InternalEObject) field_Java;
+			field_Java = (Field) eResolveProxy(oldField_Java);
+			if (field_Java != oldField_Java) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD, oldJavaField,
-							javaField));
+							CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA, oldField_Java,
+							field_Java));
 			}
 		}
-		return javaField;
+		return field_Java;
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Field basicGetJavaField() {
-		return javaField;
+	public Field basicGetField_Java() {
+		return field_Java;
 	}
 
 	/**
@@ -103,12 +103,12 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJavaField(Field newJavaField) {
-		Field oldJavaField = javaField;
-		javaField = newJavaField;
+	public void setField_Java(Field newField_Java) {
+		Field oldField_Java = field_Java;
+		field_Java = newField_Java;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD, oldJavaField, javaField));
+					CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA, oldField_Java, field_Java));
 	}
 
 	/**
@@ -116,18 +116,18 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentification getScarField() {
-		if (scarField != null && scarField.eIsProxy()) {
-			InternalEObject oldScarField = (InternalEObject) scarField;
-			scarField = (FieldIdentification) eResolveProxy(oldScarField);
-			if (scarField != oldScarField) {
+	public Field_SCAR getField_SCAR() {
+		if (field_SCAR != null && field_SCAR.eIsProxy()) {
+			InternalEObject oldField_SCAR = (InternalEObject) field_SCAR;
+			field_SCAR = (Field_SCAR) eResolveProxy(oldField_SCAR);
+			if (field_SCAR != oldField_SCAR) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD, oldScarField,
-							scarField));
+							CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR, oldField_SCAR,
+							field_SCAR));
 			}
 		}
-		return scarField;
+		return field_SCAR;
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldIdentification basicGetScarField() {
-		return scarField;
+	public Field_SCAR basicGetField_SCAR() {
+		return field_SCAR;
 	}
 
 	/**
@@ -144,12 +144,12 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScarField(FieldIdentification newScarField) {
-		FieldIdentification oldScarField = scarField;
-		scarField = newScarField;
+	public void setField_SCAR(Field_SCAR newField_SCAR) {
+		Field_SCAR oldField_SCAR = field_SCAR;
+		field_SCAR = newField_SCAR;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD, oldScarField, scarField));
+					CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR, oldField_SCAR, field_SCAR));
 	}
 
 	/**
@@ -160,14 +160,14 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD:
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA:
 			if (resolve)
-				return getJavaField();
-			return basicGetJavaField();
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD:
+				return getField_Java();
+			return basicGetField_Java();
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
 			if (resolve)
-				return getScarField();
-			return basicGetScarField();
+				return getField_SCAR();
+			return basicGetField_SCAR();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,11 +180,11 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD:
-			setJavaField((Field) newValue);
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA:
+			setField_Java((Field) newValue);
 			return;
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD:
-			setScarField((FieldIdentification) newValue);
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
+			setField_SCAR((Field_SCAR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,11 +198,11 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD:
-			setJavaField((Field) null);
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA:
+			setField_Java((Field) null);
 			return;
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD:
-			setScarField((FieldIdentification) null);
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
+			setField_SCAR((Field_SCAR) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -216,10 +216,10 @@ public class FieldCorrespondenceImpl extends SystemElementCorrespondenceImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__JAVA_FIELD:
-			return javaField != null;
-		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__SCAR_FIELD:
-			return scarField != null;
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_JAVA:
+			return field_Java != null;
+		case CodeqlscarcorrespondencesPackage.FIELD_CORRESPONDENCE__FIELD_SCAR:
+			return field_SCAR != null;
 		}
 		return super.eIsSet(featureID);
 	}
