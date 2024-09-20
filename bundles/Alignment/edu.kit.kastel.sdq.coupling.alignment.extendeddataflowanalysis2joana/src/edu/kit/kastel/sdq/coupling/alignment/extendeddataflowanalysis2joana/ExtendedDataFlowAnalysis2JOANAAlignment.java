@@ -27,8 +27,8 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 
 	
 	public ExtendedDataFlowAnalysis2JOANAAlignment(String repositoryPath, String parameterAnnotationModelPath,
-			String datadictionaryModelPath, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
-			String joanaModelPath, String correspondenceModelPath, String policyStyle, String edfaCodeQLCorrespondencesPath) {
+			String datadictionaryModelPath, String edfa_Configurations_Path, String javaCodeBasePath, String codeBasePackageName, String javaModelPath,
+			String joanaModelPath, String joanaConfigurations_Path , String correspondenceModelPath, String edfaCodeQLCorrespondencesPath, String policyStyle) {
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -40,6 +40,8 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		this.correspondenceModelPath = correspondenceModelPath;
 		ExtendedDataFlowAnalysis2JOANAAlignment.policyStyle = policyStyle;
 		this.edfaCodeQLCorrespondencesPath = edfaCodeQLCorrespondencesPath;
+		this.joana_Configurations_Path = joanaConfigurations_Path;
+		this.edfa_Configurations_Path = edfa_Configurations_Path;
 	}
 
 	private final String repositoryPath;
@@ -52,6 +54,8 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 	private final String correspondenceModelPath;
 	public static String policyStyle;
 	private final String edfaCodeQLCorrespondencesPath;
+	private final String joana_Configurations_Path;
+	private final String edfa_Configurations_Path;
 	
 	private static final String JAVA_CODE_FILE_ENDING = "java";
 	private static final String ENTRY_POINT_ID_FILE_NAME = "entryPointIDs";
@@ -65,11 +69,9 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		PCMDataDictionary dictionary = models.getDataDictionary();
 		
 		ExtendedDataFlowAnalysis2JOANAModelsGenerator modelGenerator = new ExtendedDataFlowAnalysis2JOANAModelsGenerator();
-		modelGenerator.generateJOANAModels(correspondences, repo, parameterAnnotations, dictionary, codeBasePackageName);
+		OutputModels output = modelGenerator.generateJOANAModels(correspondences, repo, parameterAnnotations, dictionary, codeBasePackageName);
 		
-		OutputModels output = new OutputModels(modelGenerator.getJavaRoot(), modelGenerator.getJoanaRoot(), correspondences, modelGenerator.getEDFACodeQLCorrespondences());
-		
-		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath, edfaCodeQLCorrespondencesPath);
+		output.writeModelsToFiles(javaModelPath, joanaModelPath, correspondenceModelPath, edfaCodeQLCorrespondencesPath, joana_Configurations_Path, edfa_Configurations_Path);
 		generateAndPrintSourceCode(output.getJavaRoot(), output.getJoanaRoot());
 		generateAndPrintEntryPointIDFile(modelGenerator);
 		

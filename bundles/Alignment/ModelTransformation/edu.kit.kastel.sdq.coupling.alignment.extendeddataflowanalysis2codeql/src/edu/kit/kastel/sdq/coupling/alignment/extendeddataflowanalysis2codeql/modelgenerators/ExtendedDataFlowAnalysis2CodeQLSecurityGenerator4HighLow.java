@@ -9,7 +9,7 @@ import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDa
 
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.util.EDFACodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
@@ -48,7 +48,7 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4HighLow extends Ex
 	}
 
 	@Override
-	protected Collection<AllowedFlow> generateAllowedFlows(Configuration config) {
+	protected Collection<AllowedFlow> generateAllowedFlows(Query config) {
 		SecurityLevel high = getHighLevel(config);
 		SecurityLevel low = getLowLevel(config);
 
@@ -60,13 +60,13 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4HighLow extends Ex
 	}
 
 	// Could be replaced by correspondence definitions or something similar.
-	private SecurityLevel getHighLevel(Configuration config) {
+	private SecurityLevel getHighLevel(Query config) {
 		return config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(highLevelName)).findFirst()
 				.get();
 	}
 
 	// Could be replaced by correspondence definitions or something similar.
-	private SecurityLevel getLowLevel(Configuration config) {
+	private SecurityLevel getLowLevel(Query config) {
 		return config.getAppliedSecurityLevel().stream().filter(level -> level.getName().equals(lowLevelName)).findFirst()
 				.get();
 	}

@@ -16,7 +16,6 @@
     <genClasses image="false" ecoreClass="parameterannotation.ecore#//CharacteristicsAnnotation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//CharacteristicsAnnotation/characteristics"/>
     </genClasses>
-    <genClasses ecoreClass="parameterannotation.ecore#//ProvidedOperationIdentification"/>
     <genClasses ecoreClass="parameterannotation.ecore#//GeneralOperationParameterIdentification">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//GeneralOperationParameterIdentification/operationSignature"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//GeneralOperationParameterIdentification/parameter"/>

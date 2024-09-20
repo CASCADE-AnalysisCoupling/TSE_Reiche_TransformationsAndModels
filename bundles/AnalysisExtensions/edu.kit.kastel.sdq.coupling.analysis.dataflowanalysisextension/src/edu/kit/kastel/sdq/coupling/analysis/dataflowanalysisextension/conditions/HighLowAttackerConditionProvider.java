@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.dataflowanalysis.analysis.core.CharacteristicValue;
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 
-public class HighLowConditionProviderJPMail extends AllowedConditionsProvider {
+public class HighLowAttackerConditionProvider extends AllowedConditionsProvider {
 
 	@Override
 	public boolean isDataFlowToNodeAllowed(Collection<CharacteristicValue> dataValues, Collection<CharacteristicValue> nodeValues) {

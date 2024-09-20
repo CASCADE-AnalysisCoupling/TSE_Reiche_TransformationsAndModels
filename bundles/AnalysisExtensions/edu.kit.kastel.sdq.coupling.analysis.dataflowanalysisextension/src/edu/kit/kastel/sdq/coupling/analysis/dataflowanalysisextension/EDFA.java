@@ -20,7 +20,7 @@ import edu.kit.kastel.sdq.coupling.analysis.dataflowanalysisextension.conditions
 import edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql.Activator;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 
-public class BasicParameterExtensionAnalysis {
+public class EDFA {
 
 
 

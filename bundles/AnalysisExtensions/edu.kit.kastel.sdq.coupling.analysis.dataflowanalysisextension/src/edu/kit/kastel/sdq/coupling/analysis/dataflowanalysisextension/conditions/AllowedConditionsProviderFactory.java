@@ -6,7 +6,7 @@ public class AllowedConditionsProviderFactory {
 		
 		switch (policyStyle) {
 		case "HighLow": {
-			return new HighLowConditionProviderJPMail();
+			return new HighLowAttackerConditionProvider();
 		}
 		case "Disjunctive" : {
 			return new DisjunctiveAllowedConditionsProvider();

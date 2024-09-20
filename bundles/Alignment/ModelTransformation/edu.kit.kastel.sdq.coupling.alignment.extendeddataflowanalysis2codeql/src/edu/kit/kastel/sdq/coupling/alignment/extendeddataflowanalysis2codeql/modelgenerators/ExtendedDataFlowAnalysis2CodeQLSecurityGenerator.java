@@ -2,11 +2,13 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.mo
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
@@ -20,10 +22,14 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
-
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgenerationUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.ParameterAnnotation;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevelAnnotation;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
@@ -32,7 +38,6 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorresponden
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ProvidedOperationParameterIdentification;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
 
 public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 
@@ -43,8 +48,9 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	protected final Correspondences_EDFACodeQL edfaCodeQLCorrespondences;
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	protected static final boolean HIGH_CONJUNCTIVE = false;
-	
-	
+	private final Configurations codeQL_Configurations;
+
+
 	public ExtendedDataFlowAnalysis2CodeQLSecurityGenerator(ParameterAnnotations extensionRoot,
 			PCMJavaCorrespondenceRoot correspondences, PCMDataDictionary dictionary) {
 		super();
@@ -53,23 +59,27 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 		this.correspondences = correspondences;
 		this.dictionary = dictionary;
 		this.edfaCodeQLCorrespondences = EDFACodeQLCorrespondenceUtil.createCorrespondences();
+		this.codeQL_Configurations = ConfigurationrepresentationUtil.generateConfigurations();
 	}
 
-	public void generateCodeQLConfiguration() {
-		Configuration config = CodeQLModelgenerationUtil.generateConfiguration();
+	public void generateCodeQLConfiguration(JavaRoot sourceCode, FullyImplicitConfiguration edfa_configuration) {
+		Query query = CodeQLModelgenerationUtil.generateQuery();
+		HybridConfiguration codeQL_Configuration = ConfigurationrepresentationUtil.generatedHybridConfiguration(query, Collections.singleton(sourceCode));
+		codeQL_Configurations.getConfigurations().add(codeQL_Configuration);
 		
 		Enumeration targetEnum = dictionary.getCharacteristicEnumerations().get(0);
 		Collection<SecurityLevel> appliedSecurityLevels = generateSecurityLevels(targetEnum.getLiterals());
-		config.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
-		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(config);
+		query.getAppliedSecurityLevel().addAll(appliedSecurityLevels);
+		Collection<AllowedFlow> allowedFlows = generateAllowedFlows(query);
 		Collection<SecurityLevelAnnotation> annotations = generateSecurityLevelAnnotations(appliedSecurityLevels);
 
 		
-		config.getAllowedFlows().addAll(allowedFlows);
-		config.getSecurityLevelAnnotations().addAll(annotations);
-
-		root.getConfigurations().add(config);
-		EDFACodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(extensionRoot, config, edfaCodeQLCorrespondences);
+		query.getAllowedFlows().getAllowedFlows().addAll(allowedFlows);
+		query.getSecurityLevelAnnotations().addAll(annotations);
+		
+		
+		root.getQueries().add(query);
+		EDFACodeQLCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(edfa_configuration, codeQL_Configuration, edfaCodeQLCorrespondences);
 	}
 
 	private Collection<SecurityLevelAnnotation> generateSecurityLevelAnnotations(
@@ -134,7 +144,7 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	
 	protected abstract Collection<SecurityLevel> generateSecurityLevels(Collection<Literal> literals);
 
-	protected abstract Collection<AllowedFlow> generateAllowedFlows(Configuration config);
+	protected abstract Collection<AllowedFlow> generateAllowedFlows(Query config);
 
 	 SecurityLevel getSecurityLevelForLiterals(Collection<Literal> literals,
 			Collection<SecurityLevel> securityLevels) {
@@ -162,5 +172,9 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 	
 	public Correspondences_EDFACodeQL getEDFACodeQLCorrespondences() {
 		return edfaCodeQLCorrespondences;
+	}
+	
+	public Configurations getCodeQL_Configurations() {
+		return codeQL_Configurations;
 	}
 }

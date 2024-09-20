@@ -1,13 +1,18 @@
 package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.modelgenerators;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
+import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.ExtendedDataFlowAnalysis2JOANAAlignment;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.OutputModels;
-import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.JPMailPaths;
-import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.testpaths.TravelPlannerPaths;
 import edu.kit.kastel.sdq.coupling.alignment.pcm2java.PCM2JavaStructuralGenerator;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -20,7 +25,7 @@ public class ExtendedDataFlowAnalysis2JOANAModelsGenerator {
 	private JOANARoot joanaRoot;
 	private Correspondences_EDFAJOANA edfaJoanaCorrespondences;
 
-	public void generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ParameterAnnotations extensionRoot, PCMDataDictionary dictionary, String basePackageName) {
+	public OutputModels generateJOANAModels(PCMJavaCorrespondenceRoot correspondences, Repository repo, ParameterAnnotations extensionRoot, PCMDataDictionary dictionary, String basePackageName) {
 		
 		PCM2JavaStructuralGenerator structuralGenerator = new PCM2JavaStructuralGenerator(correspondences, repo);
 		structuralGenerator.generateStructuralModel(basePackageName);
@@ -36,10 +41,23 @@ public class ExtendedDataFlowAnalysis2JOANAModelsGenerator {
 			throw new RuntimeException("Unsupported Policy Style: %s".formatted(ExtendedDataFlowAnalysis2JOANAAlignment.policyStyle));
 		}
 			
+		Collection<EObject> edfa_Roots = new HashSet<EObject>();
 		
-		joanaRoot = securityGenerator.generateJOANASpecification();
+		edfa_Roots.add(repo);
+		edfa_Roots.add(extensionRoot);
+		edfa_Roots.add(dictionary);
+		
+		FullyImplicitConfiguration edfa_configuration = ConfigurationrepresentationUtil.generadeFullyImplicitConfiguration(edfa_Roots);
+		Configurations edfa_configurations = ConfigurationrepresentationUtil.generateConfigurations();
+		edfa_configurations.getConfigurations().add(edfa_configuration);
+		
 		javaRoot = structuralGenerator.getRoot();
+		
+		joanaRoot = securityGenerator.generateJOANASpecification(javaRoot, edfa_configuration);
+		
 		edfaJoanaCorrespondences = securityGenerator.getEdfaJoanaCorrespondences();
+		
+		return new OutputModels(javaRoot, joanaRoot, correspondences, edfaJoanaCorrespondences, edfa_configurations, securityGenerator.getJoana_Configurations());
 	}
 
 	public JavaRoot getJavaRoot() {

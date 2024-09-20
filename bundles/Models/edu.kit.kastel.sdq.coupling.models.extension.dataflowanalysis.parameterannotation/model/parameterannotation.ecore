@@ -7,7 +7,6 @@
         eType="ecore:EClass ../../org.dataflowanalysis.pcm.extension.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//EnumCharacteristic"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProvidedOperationIdentification"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneralOperationParameterIdentification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" lowerBound="1"
         eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>

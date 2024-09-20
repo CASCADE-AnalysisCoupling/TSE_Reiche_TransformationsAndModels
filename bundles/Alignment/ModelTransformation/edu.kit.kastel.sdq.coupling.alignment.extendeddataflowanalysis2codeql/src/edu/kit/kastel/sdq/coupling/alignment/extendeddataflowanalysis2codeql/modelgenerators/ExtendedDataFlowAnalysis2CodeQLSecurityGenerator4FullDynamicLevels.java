@@ -16,7 +16,7 @@ import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLModelgene
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.labeledtaintflow.CodeQLLabeledTaintFlowUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.AllowedFlow;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Query;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.util.EDFACodeQLCorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
@@ -51,19 +51,19 @@ public class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4FullDynamicLevels 
 	}
 	
 	@Override
-	protected Collection<AllowedFlow> generateAllowedFlows(Configuration config) {
+	protected Collection<AllowedFlow> generateAllowedFlows(Query query) {
 
 		Collection<AllowedFlow> allowedFlows = new ArrayList<AllowedFlow>();
 		
-		for (SecurityLevel potentiallyFrom : config.getAppliedSecurityLevel()) {
-			for (SecurityLevel potentiallyTo : config.getAppliedSecurityLevel()) {
+		for (SecurityLevel potentiallyFrom : query.getAppliedSecurityLevel()) {
+			for (SecurityLevel potentiallyTo : query.getAppliedSecurityLevel()) {
 
 				if(potentiallyFrom.equals(potentiallyTo)) {
 					continue;
 				}
 				
-				Collection<SecurityLevel> potentiallyFromSplit = CodeQLResolutionUtil.resolveBasicLevels(potentiallyFrom, config, SUBLEVEL_DELIMITER);
-				Collection<SecurityLevel> potentiallyToSplit = CodeQLResolutionUtil.resolveBasicLevels(potentiallyTo, config, SUBLEVEL_DELIMITER);
+				Collection<SecurityLevel> potentiallyFromSplit = CodeQLResolutionUtil.resolveBasicLevels(potentiallyFrom, query, SUBLEVEL_DELIMITER);
+				Collection<SecurityLevel> potentiallyToSplit = CodeQLResolutionUtil.resolveBasicLevels(potentiallyTo, query, SUBLEVEL_DELIMITER);
 				
 				
 				if (CodeQLLabeledTaintFlowUtil.allowedFlowConditionConjunctive(HIGH_CONJUNCTIVE, potentiallyFromSplit, potentiallyToSplit)) {

@@ -3,6 +3,7 @@ package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators;
 import com.google.common.collect.Iterables;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.ClassOrInterfaceTypeGenerationTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate;
+import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators.JOANAMethodCodeGenerator;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
 import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
@@ -23,16 +24,16 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate {
   private final MethodGenerationTemplate methodGenerator;
-
+  
   private JOANARoot joanaRoot;
-
+  
   public JOANAClassOrInterfaceTypeCodeGenerator(final JavaRoot javaRoot, final JOANARoot joanaRoot) {
     this.javaRoot = javaRoot;
     this.joanaRoot = joanaRoot;
     JOANAMethodCodeGenerator _jOANAMethodCodeGenerator = new JOANAMethodCodeGenerator(javaRoot, joanaRoot);
     this.methodGenerator = _jOANAMethodCodeGenerator;
   }
-
+  
   @Override
   protected String generateImports() {
     String collectionImport = "";
@@ -88,7 +89,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
-
+  
   @Override
   protected String generateMethods() {
     StringConcatenation _builder = new StringConcatenation();
@@ -108,7 +109,7 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
     }
     return _builder.toString();
   }
-
+  
   private String generateMethod(final Method method, final ClassOrInterfaceType parent) {
     this.methodGenerator.setCurrentMethod(method);
     this.methodGenerator.setParent(parent);

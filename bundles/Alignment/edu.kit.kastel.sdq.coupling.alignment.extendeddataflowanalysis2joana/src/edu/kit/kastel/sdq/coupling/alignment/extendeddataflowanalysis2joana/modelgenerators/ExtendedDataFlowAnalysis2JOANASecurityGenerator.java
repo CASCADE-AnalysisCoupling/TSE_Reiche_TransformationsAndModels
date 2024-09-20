@@ -2,6 +2,7 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.mod
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -12,13 +13,17 @@ import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDa
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 
-
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.util.EDFAJOANACorrespondenceUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ProvidedOperationParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
 import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
@@ -44,6 +49,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 	private final PCMDataDictionary dictionary;
 	protected static final String SUBLEVEL_DELIMITER = ";";
 	protected final Correspondences_EDFAJOANA edfaJoanaCorrespondences;
+	private final Configurations joana_Configurations;
 
 	private Integer tagCounter = 0;
 
@@ -54,14 +60,15 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 		this.dictionary = dictionary;
 		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
 		this.edfaJoanaCorrespondences = EDFAJOANACorrespondenceUtil.createCorrespondences();
+		this.joana_Configurations = ConfigurationrepresentationUtil.generateConfigurations();
 	}
 
-	public JOANARoot generateJOANASpecification() {
-		root.getEntrypoint().addAll(generateConfigurations_EntryPoints());
+	public JOANARoot generateJOANASpecification(JavaRoot sourceCode, FullyImplicitConfiguration edfa_Configuration) {
+		root.getEntrypoint().addAll(generateConfigurations_EntryPoints(sourceCode, edfa_Configuration));
 		return root;
 	}
 
-	private Collection<EntryPoint> generateConfigurations_EntryPoints() {
+	private Collection<EntryPoint> generateConfigurations_EntryPoints(JavaRoot sourceCode, FullyImplicitConfiguration edfa_Configuration) {
 		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
 		Collection<ParameterAnnotation> annotations = parameterAnnotations.getAnnotations();
 
@@ -72,7 +79,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 
 			for (ProvidedParameterIdentification parameterIdentification : providedParameterIdents) {
 				EntryPoint entryPoint = generateConfiguration_EntryPoint(parameterIdentification, annotation,
-						annotations);
+						annotations, sourceCode, edfa_Configuration);
 
 				if (entryPoint != null) {
 					entrypoints.add(entryPoint);
@@ -85,7 +92,7 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 	}
 
 	private EntryPoint generateConfiguration_EntryPoint(ProvidedParameterIdentification targetParameterIdentification,
-			ParameterAnnotation targetAnnotation, Collection<ParameterAnnotation> allAnnotations) {
+			ParameterAnnotation targetAnnotation, Collection<ParameterAnnotation> allAnnotations, JavaRoot sourceCode, FullyImplicitConfiguration edfa_Configuration) {
 
 		// TODO: Workaround necessary as EMF does not correctly resolve
 		// EnumCharacteristicType, otherwise we would do this for target Annotation directly
@@ -136,7 +143,11 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 		if(!entryPoint.getAnnotation().isEmpty()) {
 			entryPoint.setId(tagCounter.toString());
 			tagCounter++;
-			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(parameterAnnotations, entryPoint, edfaJoanaCorrespondences);
+			HybridConfiguration entryPointConfiguration = ConfigurationrepresentationUtil.generateHybridConfiguration(entryPoint);
+			entryPointConfiguration.getAdditionalInputs().addAll(Collections.singletonList(sourceCode));
+			
+			this.joana_Configurations.getConfigurations().add(entryPointConfiguration);
+			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(edfa_Configuration, entryPointConfiguration, edfaJoanaCorrespondences);
 			return entryPoint;
 		} 
 
@@ -207,4 +218,9 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 	public Correspondences_EDFAJOANA getEdfaJoanaCorrespondences() {
 		return edfaJoanaCorrespondences;
 	}
+	
+	public Configurations getJoana_Configurations() {
+		return joana_Configurations;
+	}
+
 }

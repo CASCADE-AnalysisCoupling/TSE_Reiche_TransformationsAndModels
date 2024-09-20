@@ -33,6 +33,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel_ResolvedImplementationValues"
       eSuperTypes="../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore#//Entity"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleId_ResolvedImplementationValue">
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="Role"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
