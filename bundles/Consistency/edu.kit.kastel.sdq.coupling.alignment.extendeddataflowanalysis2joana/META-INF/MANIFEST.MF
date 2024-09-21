@@ -7,7 +7,6 @@ Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowana
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.joana,
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence,
- edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
  org.dataflowanalysis.pcm.extension.model,
  org.eclipse.core.commands,
  edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator,

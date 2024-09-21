@@ -2,8 +2,6 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;

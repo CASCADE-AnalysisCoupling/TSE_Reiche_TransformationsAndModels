@@ -2,13 +2,11 @@ package edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backpro
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.pcm.repository.OperationSignature;
-import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
@@ -17,7 +15,6 @@ import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.accessanalysiscodeqlcorrespondence.Correspondences_AccessAnalysisCodeQL;
-import edu.kit.kastel.sdq.coupling.models.codeql.supporting.util.CodeQLResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.Parameter_SCAR;
 import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence.utils.AccessAnalysisCodeQLCorrespondenceUtil;
@@ -32,25 +29,18 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.
 
 public class Backprojector implements Backproject{
 	
-//	private final Repository repository;
 	private final PCMJavaCorrespondenceRoot correspondences;
-	private final ConfidentialitySpecification confidentialitySpec;
 	private final ProfileApplication profileApplication;
-//	private final Configuration config;
-	private static final String DELIMITER = ";";
 	private final Correspondences_CodeQLScar scarCorrespondences;
 	private final Correspondences_ResolvedImplementationValues resultingValueCorrespondences;
 	private final Correspondences_AccessAnalysisCodeQL accessAnalysisCodeQLCorrespondences;
 	
 	
 	public Backprojector(PCMJavaCorrespondenceRoot correspondences,
-			ConfidentialitySpecification confidentialitySpec, ProfileApplication profileApplication, Correspondences_CodeQLScar scarCorrespondences, Correspondences_ResolvedImplementationValues resultingValuesCorrespondences,  Correspondences_AccessAnalysisCodeQL accessAnalysisCodeQLCorrespondences) {
+			ProfileApplication profileApplication, Correspondences_CodeQLScar scarCorrespondences, Correspondences_ResolvedImplementationValues resultingValuesCorrespondences,  Correspondences_AccessAnalysisCodeQL accessAnalysisCodeQLCorrespondences) {
 		super();
-//		this.repository = repository;
 		this.correspondences = correspondences;
-		this.confidentialitySpec = confidentialitySpec;
 		this.profileApplication = profileApplication;
-//		this.config = config;
 		this.scarCorrespondences = scarCorrespondences;
 		this.resultingValueCorrespondences = resultingValuesCorrespondences;
 		this.accessAnalysisCodeQLCorrespondences = accessAnalysisCodeQLCorrespondences;

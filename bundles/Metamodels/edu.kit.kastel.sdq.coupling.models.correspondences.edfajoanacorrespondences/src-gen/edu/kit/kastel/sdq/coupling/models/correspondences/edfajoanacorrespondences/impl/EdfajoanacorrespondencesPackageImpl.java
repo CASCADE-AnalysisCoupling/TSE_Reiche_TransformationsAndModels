@@ -4,19 +4,13 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorresponden
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.ConfigurationCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesFactory;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.LiteralsLevelCorrespondence;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterannotationPackage;
 
 import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
 
@@ -29,11 +23,8 @@ import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionar
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.palladiosimulator.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -115,18 +106,13 @@ public class EdfajoanacorrespondencesPackageImpl extends EPackageImpl implements
 		isInited = true;
 
 		// Initialize simple dependencies
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		DataDictionaryPackage.eINSTANCE.eClass();
 		DataDictionaryCharacterizedPackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
 		JoanaPackage.eINSTANCE.eClass();
-		PcmPackage.eINSTANCE.eClass();
-		ParameterannotationPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEdfajoanacorrespondencesPackage.createPackageContents();
@@ -300,11 +286,11 @@ public class EdfajoanacorrespondencesPackageImpl extends EPackageImpl implements
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ParameterannotationPackage theParameterannotationPackage = (ParameterannotationPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ParameterannotationPackage.eNS_URI);
-		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
 		DataDictionaryCharacterizedPackage theDataDictionaryCharacterizedPackage = (DataDictionaryCharacterizedPackage) EPackage.Registry.INSTANCE
 				.getEPackage(DataDictionaryCharacterizedPackage.eNS_URI);
+		JoanaPackage theJoanaPackage = (JoanaPackage) EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -327,12 +313,13 @@ public class EdfajoanacorrespondencesPackageImpl extends EPackageImpl implements
 		initEClass(configurationCorrespondenceEClass, ConfigurationCorrespondence.class, "ConfigurationCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfigurationCorrespondence_Configuration_EDFA(),
-				theParameterannotationPackage.getParameterAnnotations(), null, "configuration_EDFA", null, 1, 1,
+				theConfigurationrepresentationPackage.getFullyImplicitConfiguration(), null, "configuration_EDFA", null,
+				1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigurationCorrespondence_Configuration_JOANA(),
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "configuration_JOANA", null, 1, 1,
 				ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfigurationCorrespondence_Configuration_JOANA(), theJoanaPackage.getEntryPoint(), null,
-				"configuration_JOANA", null, 1, 1, ConfigurationCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalsLevelCorrespondenceEClass, LiteralsLevelCorrespondence.class, "LiteralsLevelCorrespondence",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -7,7 +7,7 @@ import edu.kit.kastel.sdq.analysiscouplingframework.processing.ProcessingStrateg
 public class EDFAJOANAProcessingStrategy extends ProcessingStrategy {
 
 	public EDFAJOANAProcessingStrategy(Registry registry) throws MissingPathIdentifierException {
-		super(new EDFAJOANAQLAlignmentPS(registry), new EDFAJOANACompletionPS(registry),
+		super(new EDFAJOANAAlignmentPS(registry), new EDFAJOANACompletionPS(registry),
 				new EDFAJOANASourceCodeAnalysisPS(registry), new EDFAJOANAResolutionPS(registry),
 				new EDFAJOANAIntegrationPS(registry));
 	}

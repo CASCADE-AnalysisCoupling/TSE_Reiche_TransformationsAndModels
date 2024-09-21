@@ -14,13 +14,15 @@ public class EDFA2CodeQLAdapter implements ExecutableProcessingStepAdapter{
 	 * args[2]: repositoryPath<br>
 	 * args[3]: parameterAnnotationModelPath<br>
 	 * args[4]: dataDictionaryModelPath<br>
-	 * args[5]: codeBasePackageName<br>
-	 * args[6]: javaModelPath<br>
-	 * args[7]: codeQLModelPath<br>
-	 * args[8]: pcmCorrespondenceModelPath<br>
-	 * args[9]: codeQLQueryFolderPath<br>
-	 * args[10]: policyStyle<br>
-	 * args[11]: edfaCodeQLCorrespondenceModelPath<br>
+	 * args[5]: edfa_Configurations_Path <br>
+	 * args[6]: codeBasePackageName<br>
+	 * args[7]: javaModelPath<br>
+	 * args[8]: codeQLModelPath<br>
+	 * args[9]: codeQLConfigurations_Path <br>
+	 * args[10]: pcmCorrespondenceModelPath<br>
+	 * args[11]: codeQLQueryFolderPath<br>
+	 * args[12]: edfaCodeQLCorrespondenceModelPath<br>
+	 * args[13]: policyStyle<br>
 	 */
 	@Override
 	public Result executeAdapter(String[] args) {
@@ -28,7 +30,7 @@ public class EDFA2CodeQLAdapter implements ExecutableProcessingStepAdapter{
 		Result result = new OKResult(args[0]);
 		
 		try {
-			ExtendedDataFlowAnalysis2CodeQLAlignment alignment = new ExtendedDataFlowAnalysis2CodeQLAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11]);
+			ExtendedDataFlowAnalysis2CodeQLAlignment alignment = new ExtendedDataFlowAnalysis2CodeQLAlignment(args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13]);
 			alignment.performAlignment();
 		} catch (Exception e) {
 			result = new NotOKResult(args[1] + "\n" + e.getMessage());

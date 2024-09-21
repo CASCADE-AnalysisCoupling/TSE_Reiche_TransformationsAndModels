@@ -1,11 +1,8 @@
 package edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.backprojection;
 
 
-import org.palladiosimulator.pcm.repository.Repository;
-
 import edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.utils.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
 public class BackprojectionFactory {
 

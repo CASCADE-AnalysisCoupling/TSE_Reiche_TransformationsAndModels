@@ -27,6 +27,8 @@
     <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
     <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_1p3Y8AbeEe-S4ZxiuXSeFA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_1rrW0AbeEe-S4ZxiuXSeFA" name="edfajoanacorrespondences" repPath="#_1rGIAAbeEe-S4ZxiuXSeFA" changeId="1714473962884">

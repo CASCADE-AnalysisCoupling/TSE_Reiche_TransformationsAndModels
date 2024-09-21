@@ -16,9 +16,10 @@ import edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.accessana
 public class JoanaAlignmentPS extends AlignmentPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
-	protected static final String[] ARG_IDS = { "REPOSITORY_PATH", "CONFIDENTIALITY_MODEL_PATH", "ACCESS_ANALYSIS_CONFIGURATIONS_PATH", "JAVA_CODE_BASE_PATH",
-			"CODE_BASE_PACKAGE_NAME", "JAVA_MODEL_PATH", "JOANA_MODEL_PATH", "JOANA_CONFIGURATIONS_PATH" ,"PCM_JAVA_CORRESPONDENCE_MODEL_PATH",
-			"ACCESSANALYSIS_JOANA_CORRESPONDENCE_PATH", "POLICY_STYLE"};
+	protected static final String[] ARG_IDS = { "REPOSITORY_PATH", "CONFIDENTIALITY_MODEL_PATH",
+			"ACCESS_ANALYSIS_CONFIGURATIONS_PATH", "JAVA_CODE_BASE_PATH", "CODE_BASE_PACKAGE_NAME", "JAVA_MODEL_PATH",
+			"JOANA_MODEL_PATH", "JOANA_CONFIGURATIONS_PATH", "PCM_JAVA_CORRESPONDENCE_MODEL_PATH",
+			"ACCESSANALYSIS_JOANA_CORRESPONDENCE_PATH", "POLICY_STYLE" };
 
 	public JoanaAlignmentPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
@@ -39,11 +40,11 @@ public class JoanaAlignmentPS extends AlignmentPS {
 		List<String> relPaths2 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 5, 10))
 				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
 		String absPath2 = super.registry.getFileForID(ARG_IDS[10]).getPath();
-		
+
 		relPaths1.add(absPath1);
 		relPaths1.addAll(relPaths2);
 		relPaths1.add(absPath2);
-		
+
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry
 		return Stream.concat(Arrays.stream(new String[] { "JoanaAlignmentPS: execution successful.",

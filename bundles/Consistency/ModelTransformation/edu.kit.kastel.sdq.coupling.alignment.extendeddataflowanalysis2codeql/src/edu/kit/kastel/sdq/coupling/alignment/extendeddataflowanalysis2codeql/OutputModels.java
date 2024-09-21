@@ -1,17 +1,14 @@
 package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
-import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
-import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;

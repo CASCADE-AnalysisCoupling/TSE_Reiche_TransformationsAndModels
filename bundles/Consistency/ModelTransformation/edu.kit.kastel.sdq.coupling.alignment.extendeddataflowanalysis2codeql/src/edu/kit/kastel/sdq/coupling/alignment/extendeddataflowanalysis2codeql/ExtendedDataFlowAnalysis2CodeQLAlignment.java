@@ -1,13 +1,10 @@
 package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql;
 
-import java.util.HashSet;
 
 import edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils.filehandling.FileToGenerate;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.CodeQLTainttrackingCodeGenerator;
 import edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates.CodeQLTainttrackingTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.modelgenerators.ExtendedDataFlowAnalysis2CodeQLModelsGenerator;
-import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
-import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PcmjavacorrespondenceFactory;
 
@@ -30,7 +27,7 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 	private final String edfa_Configurations_Path;
 
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
-	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4ExtendedDataflowAnalysis";
+	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4EDFA";
 	
 	public ExtendedDataFlowAnalysis2CodeQLAlignment(String repositoryPath, String parameterAnnotationModelPath,
 			String datadictionaryModelPath, String edfa_Configurations_Path, String codeBasePackageName, String javaModelPath,

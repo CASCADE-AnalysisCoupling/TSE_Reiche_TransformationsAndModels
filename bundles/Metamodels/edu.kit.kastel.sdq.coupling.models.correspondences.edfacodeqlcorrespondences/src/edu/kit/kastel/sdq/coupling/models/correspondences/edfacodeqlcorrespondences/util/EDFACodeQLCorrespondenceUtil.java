@@ -4,13 +4,13 @@ import java.util.Collection;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.SecurityLevel;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.ConfigurationCorrespondence_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.EdfacodeqlcorrespondencesFactory;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.LiteralSecurityLevelCorrespondence_EDFACodeQL;
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 
 public class EDFACodeQLCorrespondenceUtil {
 	
@@ -21,9 +21,9 @@ public class EDFACodeQLCorrespondenceUtil {
 		return correspondence;
 	}
 	
-	public static ConfigurationCorrespondence_EDFACodeQL createConfigurationCorrespondence(ParameterAnnotations parameterAnnotations_EDFA, Configuration config) {
+	public static ConfigurationCorrespondence_EDFACodeQL createConfigurationCorrespondence(FullyImplicitConfiguration config_EDFA, HybridConfiguration config) {
 		ConfigurationCorrespondence_EDFACodeQL correspondence = EdfacodeqlcorrespondencesFactory.eINSTANCE.createConfigurationCorrespondence_EDFACodeQL();
-		correspondence.setConfiguration_EDFA(parameterAnnotations_EDFA);
+		correspondence.setConfiguration_EDFA(config_EDFA);
 		correspondence.setConfiguration_CodeQL(config);
 		return correspondence;
 	}
@@ -38,14 +38,14 @@ public class EDFACodeQLCorrespondenceUtil {
 	}
 	
 	
-	public static void createAndAddIfCorrespondenceNotExists(ParameterAnnotations specification, Configuration config, Correspondences_EDFACodeQL correspondences) {
-		if(!correspondenceExists(specification, config, correspondences)) {
-			correspondences.getConfigurationCorrespondences().add(createConfigurationCorrespondence(specification, config));
+	public static void createAndAddIfCorrespondenceNotExists(FullyImplicitConfiguration config_EDFA, HybridConfiguration config_CodeQL, Correspondences_EDFACodeQL correspondences) {
+		if(!correspondenceExists(config_EDFA, config_CodeQL, correspondences)) {
+			correspondences.getConfigurationCorrespondences().add(createConfigurationCorrespondence(config_EDFA, config_CodeQL));
 		}
 	}
 	
-	public static boolean correspondenceExists(ParameterAnnotations specification, Configuration config, Correspondences_EDFACodeQL correspondences) {
-		return correspondences.getConfigurationCorrespondences().stream().anyMatch(correspondence -> {return correspondence.getConfiguration_EDFA().equals(specification) && correspondence.getConfiguration_CodeQL().equals(config);});
+	public static boolean correspondenceExists(FullyImplicitConfiguration config_EDFA, HybridConfiguration config_CodeQL, Correspondences_EDFACodeQL correspondences) {
+		return correspondences.getConfigurationCorrespondences().stream().anyMatch(correspondence -> {return correspondence.getConfiguration_EDFA().equals(config_EDFA) && correspondence.getConfiguration_CodeQL().equals(config_CodeQL);});
 	}
 	
 	public static void createAndAddIfCorrespondenceNotExists(Collection<Literal> literals, SecurityLevel level, Correspondences_EDFACodeQL correspondences) {
@@ -59,8 +59,8 @@ public class EDFACodeQLCorrespondenceUtil {
 	}
 	
 
-	public static ParameterAnnotations getCorresponding(Configuration configuration, Correspondences_EDFACodeQL correspondences) {
-		return correspondences.getConfigurationCorrespondences().stream().filter(correspondence -> correspondence.getConfiguration_CodeQL().equals(configuration)).findFirst().get().getConfiguration_EDFA();
+	public static FullyImplicitConfiguration getCorresponding(HybridConfiguration config_CodeQL, Correspondences_EDFACodeQL correspondences) {
+		return correspondences.getConfigurationCorrespondences().stream().filter(correspondence -> correspondence.getConfiguration_CodeQL().equals(config_CodeQL)).findFirst().get().getConfiguration_EDFA();
 	}
 
 }

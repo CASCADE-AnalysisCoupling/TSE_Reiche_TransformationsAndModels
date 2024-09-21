@@ -16,8 +16,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationCorrespondence_EDFACodeQL">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_CodeQL" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.codeql/model/codeql.ecore#//tainttracking/Query"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//HybridConfiguration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configuration_EDFA" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/model/parameterannotation.ecore#//ParameterAnnotations"/>
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//FullyImplicitConfiguration"/>
   </eClassifiers>
 </ecore:EPackage>

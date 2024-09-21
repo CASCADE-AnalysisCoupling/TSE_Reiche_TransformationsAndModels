@@ -2,12 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.impl;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.ConfigurationCorrespondence_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.EdfacodeqlcorrespondencesPackage;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -41,7 +40,7 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 * @ordered
 	 */
-	protected Configuration configuration_CodeQL;
+	protected HybridConfiguration configuration_CodeQL;
 
 	/**
 	 * The cached value of the '{@link #getConfiguration_EDFA() <em>Configuration EDFA</em>}' reference.
@@ -51,7 +50,7 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterAnnotations configuration_EDFA;
+	protected FullyImplicitConfiguration configuration_EDFA;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,10 +77,10 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 */
 	@Override
-	public Configuration getConfiguration_CodeQL() {
+	public HybridConfiguration getConfiguration_CodeQL() {
 		if (configuration_CodeQL != null && configuration_CodeQL.eIsProxy()) {
 			InternalEObject oldConfiguration_CodeQL = (InternalEObject) configuration_CodeQL;
-			configuration_CodeQL = (Configuration) eResolveProxy(oldConfiguration_CodeQL);
+			configuration_CodeQL = (HybridConfiguration) eResolveProxy(oldConfiguration_CodeQL);
 			if (configuration_CodeQL != oldConfiguration_CodeQL) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -97,7 +96,7 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Configuration basicGetConfiguration_CodeQL() {
+	public HybridConfiguration basicGetConfiguration_CodeQL() {
 		return configuration_CodeQL;
 	}
 
@@ -107,8 +106,8 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 */
 	@Override
-	public void setConfiguration_CodeQL(Configuration newConfiguration_CodeQL) {
-		Configuration oldConfiguration_CodeQL = configuration_CodeQL;
+	public void setConfiguration_CodeQL(HybridConfiguration newConfiguration_CodeQL) {
+		HybridConfiguration oldConfiguration_CodeQL = configuration_CodeQL;
 		configuration_CodeQL = newConfiguration_CodeQL;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -122,10 +121,10 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 */
 	@Override
-	public ParameterAnnotations getConfiguration_EDFA() {
+	public FullyImplicitConfiguration getConfiguration_EDFA() {
 		if (configuration_EDFA != null && configuration_EDFA.eIsProxy()) {
 			InternalEObject oldConfiguration_EDFA = (InternalEObject) configuration_EDFA;
-			configuration_EDFA = (ParameterAnnotations) eResolveProxy(oldConfiguration_EDFA);
+			configuration_EDFA = (FullyImplicitConfiguration) eResolveProxy(oldConfiguration_EDFA);
 			if (configuration_EDFA != oldConfiguration_EDFA) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -141,7 +140,7 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterAnnotations basicGetConfiguration_EDFA() {
+	public FullyImplicitConfiguration basicGetConfiguration_EDFA() {
 		return configuration_EDFA;
 	}
 
@@ -151,8 +150,8 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	 * @generated
 	 */
 	@Override
-	public void setConfiguration_EDFA(ParameterAnnotations newConfiguration_EDFA) {
-		ParameterAnnotations oldConfiguration_EDFA = configuration_EDFA;
+	public void setConfiguration_EDFA(FullyImplicitConfiguration newConfiguration_EDFA) {
+		FullyImplicitConfiguration oldConfiguration_EDFA = configuration_EDFA;
 		configuration_EDFA = newConfiguration_EDFA;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -189,10 +188,10 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case EdfacodeqlcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_EDFA_CODE_QL__CONFIGURATION_CODE_QL:
-			setConfiguration_CodeQL((Configuration) newValue);
+			setConfiguration_CodeQL((HybridConfiguration) newValue);
 			return;
 		case EdfacodeqlcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_EDFA_CODE_QL__CONFIGURATION_EDFA:
-			setConfiguration_EDFA((ParameterAnnotations) newValue);
+			setConfiguration_EDFA((FullyImplicitConfiguration) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,10 +206,10 @@ public class ConfigurationCorrespondence_EDFACodeQLImpl extends MinimalEObjectIm
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case EdfacodeqlcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_EDFA_CODE_QL__CONFIGURATION_CODE_QL:
-			setConfiguration_CodeQL((Configuration) null);
+			setConfiguration_CodeQL((HybridConfiguration) null);
 			return;
 		case EdfacodeqlcorrespondencesPackage.CONFIGURATION_CORRESPONDENCE_EDFA_CODE_QL__CONFIGURATION_EDFA:
-			setConfiguration_EDFA((ParameterAnnotations) null);
+			setConfiguration_EDFA((FullyImplicitConfiguration) null);
 			return;
 		}
 		super.eUnset(featureID);

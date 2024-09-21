@@ -2,12 +2,11 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.impl;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.ConfigurationCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesPackage;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -41,7 +40,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterAnnotations configuration_EDFA;
+	protected FullyImplicitConfiguration configuration_EDFA;
 
 	/**
 	 * The cached value of the '{@link #getConfiguration_JOANA() <em>Configuration JOANA</em>}' reference.
@@ -51,7 +50,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 * @ordered
 	 */
-	protected EntryPoint configuration_JOANA;
+	protected HybridConfiguration configuration_JOANA;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,10 +77,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public ParameterAnnotations getConfiguration_EDFA() {
+	public FullyImplicitConfiguration getConfiguration_EDFA() {
 		if (configuration_EDFA != null && configuration_EDFA.eIsProxy()) {
 			InternalEObject oldConfiguration_EDFA = (InternalEObject) configuration_EDFA;
-			configuration_EDFA = (ParameterAnnotations) eResolveProxy(oldConfiguration_EDFA);
+			configuration_EDFA = (FullyImplicitConfiguration) eResolveProxy(oldConfiguration_EDFA);
 			if (configuration_EDFA != oldConfiguration_EDFA) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -97,7 +96,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterAnnotations basicGetConfiguration_EDFA() {
+	public FullyImplicitConfiguration basicGetConfiguration_EDFA() {
 		return configuration_EDFA;
 	}
 
@@ -107,8 +106,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void setConfiguration_EDFA(ParameterAnnotations newConfiguration_EDFA) {
-		ParameterAnnotations oldConfiguration_EDFA = configuration_EDFA;
+	public void setConfiguration_EDFA(FullyImplicitConfiguration newConfiguration_EDFA) {
+		FullyImplicitConfiguration oldConfiguration_EDFA = configuration_EDFA;
 		configuration_EDFA = newConfiguration_EDFA;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -122,10 +121,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public EntryPoint getConfiguration_JOANA() {
+	public HybridConfiguration getConfiguration_JOANA() {
 		if (configuration_JOANA != null && configuration_JOANA.eIsProxy()) {
 			InternalEObject oldConfiguration_JOANA = (InternalEObject) configuration_JOANA;
-			configuration_JOANA = (EntryPoint) eResolveProxy(oldConfiguration_JOANA);
+			configuration_JOANA = (HybridConfiguration) eResolveProxy(oldConfiguration_JOANA);
 			if (configuration_JOANA != oldConfiguration_JOANA) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -141,7 +140,7 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPoint basicGetConfiguration_JOANA() {
+	public HybridConfiguration basicGetConfiguration_JOANA() {
 		return configuration_JOANA;
 	}
 
@@ -151,8 +150,8 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated
 	 */
 	@Override
-	public void setConfiguration_JOANA(EntryPoint newConfiguration_JOANA) {
-		EntryPoint oldConfiguration_JOANA = configuration_JOANA;
+	public void setConfiguration_JOANA(HybridConfiguration newConfiguration_JOANA) {
+		HybridConfiguration oldConfiguration_JOANA = configuration_JOANA;
 		configuration_JOANA = newConfiguration_JOANA;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
@@ -189,10 +188,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case EdfajoanacorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_EDFA:
-			setConfiguration_EDFA((ParameterAnnotations) newValue);
+			setConfiguration_EDFA((FullyImplicitConfiguration) newValue);
 			return;
 		case EdfajoanacorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_JOANA:
-			setConfiguration_JOANA((EntryPoint) newValue);
+			setConfiguration_JOANA((HybridConfiguration) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,10 +206,10 @@ public class ConfigurationCorrespondenceImpl extends MinimalEObjectImpl.Containe
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case EdfajoanacorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_EDFA:
-			setConfiguration_EDFA((ParameterAnnotations) null);
+			setConfiguration_EDFA((FullyImplicitConfiguration) null);
 			return;
 		case EdfajoanacorrespondencesPackage.CONFIGURATION_CORRESPONDENCE__CONFIGURATION_JOANA:
-			setConfiguration_JOANA((EntryPoint) null);
+			setConfiguration_JOANA((HybridConfiguration) null);
 			return;
 		}
 		super.eUnset(featureID);

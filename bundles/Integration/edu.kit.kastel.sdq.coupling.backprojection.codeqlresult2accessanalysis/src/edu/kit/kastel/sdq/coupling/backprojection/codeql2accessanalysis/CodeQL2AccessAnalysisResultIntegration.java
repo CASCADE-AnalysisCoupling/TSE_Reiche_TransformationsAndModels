@@ -4,10 +4,7 @@ import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backproj
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.backprojection.Backprojector;
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.models.Models;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.CodeQLResultingSpecificationExtractor;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4AccessAnalysis;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4ConjunctivePowerset;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution;
-import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolution4HighLow;
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification.resultingspecificationresolution.ResultingSpecificationResolutionFactory;
 import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
 
@@ -70,7 +67,7 @@ public class CodeQL2AccessAnalysisResultIntegration {
 				models.getJavaRoot(), models.getCodeQLResult(), models.getCodeQL_Configurations());
 
 		// BackProjection ResultingSpecification -> AAM
-		Backproject backprojector = new Backprojector(models.getCorrespondenceRoot(), models.getConfidentiality(),
+		Backproject backprojector = new Backprojector(models.getCorrespondenceRoot(),
 				models.getProfile(), extractor.getSCARCorrespondence(), resolution.getResultingValueCorrespondences(),
 				models.getAccessAnalysisCodeQLCorrespondences());
 		backprojector.project(resultingValues);

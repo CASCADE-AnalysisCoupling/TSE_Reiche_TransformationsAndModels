@@ -12,17 +12,17 @@ import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDa
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.palladiosimulator.pcm.repository.Repository;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
-import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JOANASCARCorrespondences;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
 
@@ -36,10 +36,12 @@ public class Models {
 	private final ParameterAnnotations parameterAnnotations;
 	private final PCMDataDictionary dictionary;
 	private final Correspondences_EDFAJOANA edfaJoanaCorrespondences;
+	private final Configurations joana_Configurations;
+
 
 	public Models(JavaRoot javaRoot, JOANARoot joanaRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
 			String joanaResult, Repository repository, ParameterAnnotations parameterAnnotations,
-			PCMDataDictionary dictionary, Correspondences_EDFAJOANA edfaJoanaCorrespondences) {
+			PCMDataDictionary dictionary, Correspondences_EDFAJOANA edfaJoanaCorrespondences, Configurations joana_Configurations) {
 		this.javaRoot = javaRoot;
 		this.joanaRoot = joanaRoot;
 		this.correspondenceRoot = correspondenceRoot;
@@ -48,12 +50,14 @@ public class Models {
 		this.parameterAnnotations = parameterAnnotations;
 		this.dictionary = dictionary;
 		this.edfaJoanaCorrespondences = edfaJoanaCorrespondences;
+		this.joana_Configurations = joana_Configurations;
 	}
 
 	public static Models createModelsFromFiles(String javaFilePath, String joanaPath,
 			String pcmjavaCorrespondenceFilePath, String joanaResultPath, String repositoryFilePath,
 			String parameterAnnotationModelPath, String dataDictionaryModelPath, String originBackupDirectoryPath,
-			String edfaJoanaCorrespondencesPath) {
+			String edfaJoanaCorrespondencesPath,
+			String joana_Configurations_Path) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		File originalDirectory = Path.of(repositoryFilePath).toAbsolutePath().getParent().toFile();
@@ -80,7 +84,7 @@ public class Models {
 		URI dataDictionaryURI = URI.createFileURI(Path.of(dataDictionaryModelPath).toString());
 		URI edfaJoanaCorrespondencesUri = URI
 				.createFileURI(Path.of(edfaJoanaCorrespondencesPath).toAbsolutePath().toString());
-		
+		URI joana_Configurations_URI = URI.createFileURI(Path.of(joana_Configurations_Path).toAbsolutePath().toString());
 		
 		Resource resourceJava = resSet.getResource(repositoryJava, true);
 		Resource resourceJoana = resSet.getResource(joanaUri, true);
@@ -90,6 +94,7 @@ public class Models {
 		Resource resourceDataDictionary = resSet.getResource(dataDictionaryURI, true);
 		Resource resourceedfaJoanaCorrespondences = resSet
 				.getResource(edfaJoanaCorrespondencesUri, true);
+		Resource joana_Configurations_Resource = resSet.getResource(joana_Configurations_URI, true);
 		
 		try {
 			resourceJava.load(null);
@@ -99,6 +104,7 @@ public class Models {
 			resourceParameterAnnotations.load(null);
 			resourceDataDictionary.load(null);
 			resourceedfaJoanaCorrespondences.load(null);
+			joana_Configurations_Resource.load(null);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -113,6 +119,7 @@ public class Models {
 				.get(0);
 		PCMDataDictionary dataDictionary = (PCMDataDictionary) resourceDataDictionary.getContents().get(0);
 		Correspondences_EDFAJOANA edfaJoanaCorrespondences = (Correspondences_EDFAJOANA) resourceedfaJoanaCorrespondences.getContents().get(0);
+		Configurations joana_Configurations = (Configurations) joana_Configurations_Resource.getContents().get(0);
 		
 		String codeQLSarifContent = "";
 		try {
@@ -123,7 +130,7 @@ public class Models {
 		}
 
 		return new Models(java, joanaRoot, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository,
-				parameterAnnotations, dataDictionary, edfaJoanaCorrespondences);
+				parameterAnnotations, dataDictionary, edfaJoanaCorrespondences, joana_Configurations);
 	}
 
 	public void updateArchitecturalSpecification(String specificationPath) {
@@ -149,7 +156,7 @@ public class Models {
 
 	}
 	
-	public void persistCorrespondencesAndModels(String scarPath, SourceCodeAnalysisResult scar, String resultingValuesPath, JOANAResultingValues resultingValues, String scarCorrespondencePath, JOANASCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath, Correspondences_JOANAResultingValues resultingValuesCorrespondences) {
+	public void persistCorrespondencesAndModels(String scarPath, SourceCodeAnalysisResult scar, String resultingValuesPath, ResolvedImplementationValues resultingValues, String scarCorrespondencePath, JOANASCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath, Correspondences_ResolvedImplementationValues resultingValuesCorrespondences) {
 		Resource scarResource = new XMLResourceImpl(URI.createFileURI(scarPath));
 		scarResource.getContents().add(scar);
 		
@@ -226,4 +233,10 @@ public class Models {
 	public Correspondences_EDFAJOANA getEdfaJoanaCorrespondences() {
 		return edfaJoanaCorrespondences;
 	}
+	
+
+	public Configurations getJoana_Configurations() {
+		return joana_Configurations;
+	}
+
 }

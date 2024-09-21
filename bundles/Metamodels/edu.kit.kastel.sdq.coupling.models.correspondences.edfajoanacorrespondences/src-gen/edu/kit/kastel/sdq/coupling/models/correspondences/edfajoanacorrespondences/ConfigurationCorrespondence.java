@@ -2,9 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences;
 
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,12 +30,12 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configuration EDFA</em>' reference.
-	 * @see #setConfiguration_EDFA(ParameterAnnotations)
+	 * @see #setConfiguration_EDFA(FullyImplicitConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesPackage#getConfigurationCorrespondence_Configuration_EDFA()
 	 * @model required="true"
 	 * @generated
 	 */
-	ParameterAnnotations getConfiguration_EDFA();
+	FullyImplicitConfiguration getConfiguration_EDFA();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.ConfigurationCorrespondence#getConfiguration_EDFA <em>Configuration EDFA</em>}' reference.
@@ -46,19 +45,19 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * @see #getConfiguration_EDFA()
 	 * @generated
 	 */
-	void setConfiguration_EDFA(ParameterAnnotations value);
+	void setConfiguration_EDFA(FullyImplicitConfiguration value);
 
 	/**
 	 * Returns the value of the '<em><b>Configuration JOANA</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configuration JOANA</em>' reference.
-	 * @see #setConfiguration_JOANA(EntryPoint)
+	 * @see #setConfiguration_JOANA(HybridConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesPackage#getConfigurationCorrespondence_Configuration_JOANA()
 	 * @model required="true"
 	 * @generated
 	 */
-	EntryPoint getConfiguration_JOANA();
+	HybridConfiguration getConfiguration_JOANA();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.ConfigurationCorrespondence#getConfiguration_JOANA <em>Configuration JOANA</em>}' reference.
@@ -68,6 +67,6 @@ public interface ConfigurationCorrespondence extends EObject {
 	 * @see #getConfiguration_JOANA()
 	 * @generated
 	 */
-	void setConfiguration_JOANA(EntryPoint value);
+	void setConfiguration_JOANA(HybridConfiguration value);
 
 } // ConfigurationCorrespondence

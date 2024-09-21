@@ -2,9 +2,8 @@
  */
 package edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences;
 
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -31,12 +30,12 @@ public interface ConfigurationCorrespondence_EDFACodeQL extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configuration Code QL</em>' reference.
-	 * @see #setConfiguration_CodeQL(Configuration)
+	 * @see #setConfiguration_CodeQL(HybridConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.EdfacodeqlcorrespondencesPackage#getConfigurationCorrespondence_EDFACodeQL_Configuration_CodeQL()
 	 * @model required="true"
 	 * @generated
 	 */
-	Configuration getConfiguration_CodeQL();
+	HybridConfiguration getConfiguration_CodeQL();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.ConfigurationCorrespondence_EDFACodeQL#getConfiguration_CodeQL <em>Configuration Code QL</em>}' reference.
@@ -46,19 +45,19 @@ public interface ConfigurationCorrespondence_EDFACodeQL extends EObject {
 	 * @see #getConfiguration_CodeQL()
 	 * @generated
 	 */
-	void setConfiguration_CodeQL(Configuration value);
+	void setConfiguration_CodeQL(HybridConfiguration value);
 
 	/**
 	 * Returns the value of the '<em><b>Configuration EDFA</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configuration EDFA</em>' reference.
-	 * @see #setConfiguration_EDFA(ParameterAnnotations)
+	 * @see #setConfiguration_EDFA(FullyImplicitConfiguration)
 	 * @see edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.EdfacodeqlcorrespondencesPackage#getConfigurationCorrespondence_EDFACodeQL_Configuration_EDFA()
 	 * @model required="true"
 	 * @generated
 	 */
-	ParameterAnnotations getConfiguration_EDFA();
+	FullyImplicitConfiguration getConfiguration_EDFA();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.ConfigurationCorrespondence_EDFACodeQL#getConfiguration_EDFA <em>Configuration EDFA</em>}' reference.
@@ -68,6 +67,6 @@ public interface ConfigurationCorrespondence_EDFACodeQL extends EObject {
 	 * @see #getConfiguration_EDFA()
 	 * @generated
 	 */
-	void setConfiguration_EDFA(ParameterAnnotations value);
+	void setConfiguration_EDFA(FullyImplicitConfiguration value);
 
 } // ConfigurationCorrespondence_EDFACodeQL

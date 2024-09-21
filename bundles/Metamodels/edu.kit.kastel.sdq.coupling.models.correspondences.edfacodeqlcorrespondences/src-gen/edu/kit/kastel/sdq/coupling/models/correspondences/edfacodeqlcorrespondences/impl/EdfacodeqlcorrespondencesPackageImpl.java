@@ -4,11 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorresponde
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.ConfigurationrepresentationPackage;
 
 import edu.kit.kastel.sdq.coupling.models.codeql.CodeqlPackage;
 
@@ -20,8 +16,6 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorresponden
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.EdfacodeqlcorrespondencesPackage;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.LiteralSecurityLevelCorrespondence_EDFACodeQL;
 
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterannotationPackage;
-
 import edu.kit.kastel.sdq.coupling.models.java.JavaPackage;
 
 import org.dataflowanalysis.pcm.extension.dictionary.DataDictionary.DataDictionaryPackage;
@@ -31,11 +25,8 @@ import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionar
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.palladiosimulator.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,17 +109,12 @@ public class EdfacodeqlcorrespondencesPackageImpl extends EPackageImpl implement
 
 		// Initialize simple dependencies
 		CodeqlPackage.eINSTANCE.eClass();
+		ConfigurationrepresentationPackage.eINSTANCE.eClass();
 		DataDictionaryPackage.eINSTANCE.eClass();
 		DataDictionaryCharacterizedPackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
 		edu.kit.kastel.sdq.coupling.models.identifier.IdentifierPackage.eINSTANCE.eClass();
 		JavaPackage.eINSTANCE.eClass();
-		PcmPackage.eINSTANCE.eClass();
-		ParameterannotationPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEdfacodeqlcorrespondencesPackage.createPackageContents();
@@ -312,8 +298,8 @@ public class EdfacodeqlcorrespondencesPackageImpl extends EPackageImpl implement
 				.getEPackage(TainttrackingPackage.eNS_URI);
 		DataDictionaryCharacterizedPackage theDataDictionaryCharacterizedPackage = (DataDictionaryCharacterizedPackage) EPackage.Registry.INSTANCE
 				.getEPackage(DataDictionaryCharacterizedPackage.eNS_URI);
-		ParameterannotationPackage theParameterannotationPackage = (ParameterannotationPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ParameterannotationPackage.eNS_URI);
+		ConfigurationrepresentationPackage theConfigurationrepresentationPackage = (ConfigurationrepresentationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConfigurationrepresentationPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -348,13 +334,13 @@ public class EdfacodeqlcorrespondencesPackageImpl extends EPackageImpl implement
 		initEClass(configurationCorrespondence_EDFACodeQLEClass, ConfigurationCorrespondence_EDFACodeQL.class,
 				"ConfigurationCorrespondence_EDFACodeQL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfigurationCorrespondence_EDFACodeQL_Configuration_CodeQL(),
-				theTainttrackingPackage.getConfiguration(), null, "configuration_CodeQL", null, 1, 1,
-				ConfigurationCorrespondence_EDFACodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				theConfigurationrepresentationPackage.getHybridConfiguration(), null, "configuration_CodeQL", null, 1,
+				1, ConfigurationCorrespondence_EDFACodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfigurationCorrespondence_EDFACodeQL_Configuration_EDFA(),
-				theParameterannotationPackage.getParameterAnnotations(), null, "configuration_EDFA", null, 1, 1,
-				ConfigurationCorrespondence_EDFACodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				theConfigurationrepresentationPackage.getFullyImplicitConfiguration(), null, "configuration_EDFA", null,
+				1, 1, ConfigurationCorrespondence_EDFACodeQL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

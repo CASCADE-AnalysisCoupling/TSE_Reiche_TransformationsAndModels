@@ -4,12 +4,12 @@ import java.util.Collection;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.ConfigurationCorrespondence;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.Correspondences_EDFAJOANA;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.EdfajoanacorrespondencesFactory;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.LiteralsLevelCorrespondence;
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
 import edu.kit.kastel.sdq.coupling.models.joana.Level;
 
 public class EDFAJOANACorrespondenceUtil {
@@ -20,10 +20,10 @@ public class EDFAJOANACorrespondenceUtil {
 		return correspondence;
 	}
 	
-	public static ConfigurationCorrespondence createConfigurationCorrespondence(ParameterAnnotations parameterAnnotations_EDFA, EntryPoint config) {
+	public static ConfigurationCorrespondence createConfigurationCorrespondence(FullyImplicitConfiguration config_EDFA, HybridConfiguration config_JOANA) {
 		ConfigurationCorrespondence correspondence = EdfajoanacorrespondencesFactory.eINSTANCE.createConfigurationCorrespondence();
-		correspondence.setConfiguration_EDFA(parameterAnnotations_EDFA);
-		correspondence.setConfiguration_JOANA(config);
+		correspondence.setConfiguration_EDFA(config_EDFA);
+		correspondence.setConfiguration_JOANA(config_JOANA);
 		return correspondence;
 	}
 	
@@ -37,14 +37,14 @@ public class EDFAJOANACorrespondenceUtil {
 	}
 	
 	
-	public static void createAndAddIfCorrespondenceNotExists(ParameterAnnotations specification, EntryPoint config, Correspondences_EDFAJOANA correspondences) {
+	public static void createAndAddIfCorrespondenceNotExists(FullyImplicitConfiguration specification, HybridConfiguration config, Correspondences_EDFAJOANA correspondences) {
 		if(!correspondenceExists(specification, config, correspondences)) {
 			correspondences.getConfigurationCorrespondences().add(createConfigurationCorrespondence(specification, config));
 		}
 	}
 	
-	public static boolean correspondenceExists(ParameterAnnotations specification, EntryPoint config, Correspondences_EDFAJOANA correspondences) {
-		return correspondences.getConfigurationCorrespondences().stream().anyMatch(correspondence -> {return correspondence.getConfiguration_EDFA().equals(specification) && correspondence.getConfiguration_JOANA().equals(config);});
+	public static boolean correspondenceExists(FullyImplicitConfiguration config_EDFA, HybridConfiguration config_JOANA, Correspondences_EDFAJOANA correspondences) {
+		return correspondences.getConfigurationCorrespondences().stream().anyMatch(correspondence -> {return correspondence.getConfiguration_EDFA().equals(config_EDFA) && correspondence.getConfiguration_JOANA().equals(config_JOANA);});
 	}
 	
 	public static void createAndAddIfCorrespondenceNotExists(Collection<Literal> literals, Level level, Correspondences_EDFAJOANA correspondences) {
@@ -58,7 +58,7 @@ public class EDFAJOANACorrespondenceUtil {
 	}
 	
 
-	public static ParameterAnnotations getCorresponding(EntryPoint configuration, Correspondences_EDFAJOANA correspondences) {
-		return correspondences.getConfigurationCorrespondences().stream().filter(correspondence -> correspondence.getConfiguration_EDFA().equals(configuration)).findFirst().get().getConfiguration_EDFA();
+	public static FullyImplicitConfiguration getCorresponding(HybridConfiguration config_JOANA, Correspondences_EDFAJOANA correspondences) {
+		return correspondences.getConfigurationCorrespondences().stream().filter(correspondence -> correspondence.getConfiguration_JOANA().equals(config_JOANA)).findFirst().get().getConfiguration_EDFA();
 	}
 }

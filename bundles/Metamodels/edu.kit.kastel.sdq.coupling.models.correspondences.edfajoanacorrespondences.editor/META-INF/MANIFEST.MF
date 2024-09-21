@@ -16,16 +16,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
+ edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.edit;visibility:=reexport,
  org.dataflowanalysis.pcm.extension.dictionary.edit;visibility:=reexport,
  org.dataflowanalysis.pcm.extension.dictionary.characterized.edit;visibility:=reexport,
- org.eclipse.emf.ecore.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.identifier.edit;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.java.edit;visibility:=reexport,
- edu.kit.kastel.sdq.coupling.models.joana.edit;visibility:=reexport,
- org.palladiosimulator.pcm.edit;visibility:=reexport,
- edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.edit;visibility:=reexport,
- de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
- de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ edu.kit.kastel.sdq.coupling.models.joana.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

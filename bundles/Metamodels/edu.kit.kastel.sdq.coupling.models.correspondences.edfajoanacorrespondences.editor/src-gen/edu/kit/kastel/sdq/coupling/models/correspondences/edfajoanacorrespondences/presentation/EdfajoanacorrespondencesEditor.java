@@ -157,13 +157,7 @@ import edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondenc
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.provider.ParameterannotationItemProviderAdapterFactory;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationItemProviderAdapterFactory;
 
 import edu.kit.kastel.sdq.coupling.models.java.members.provider.MembersItemProviderAdapterFactory;
 
@@ -179,49 +173,7 @@ import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionar
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.provider.DataDictionaryCharacterizedItemProviderAdapterFactory;
 
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 
 /**
  * This is an example of a Edfajoanacorrespondences model editor.
@@ -753,10 +705,10 @@ public class EdfajoanacorrespondencesEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EdfajoanacorrespondencesItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConfigurationrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DataDictionaryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DataDictionaryCharacterizedItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExpressionsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(
 				new edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierItemProviderAdapterFactory());
@@ -764,30 +716,6 @@ public class EdfajoanacorrespondencesEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new TypesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MembersItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JoanaItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ParameterannotationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

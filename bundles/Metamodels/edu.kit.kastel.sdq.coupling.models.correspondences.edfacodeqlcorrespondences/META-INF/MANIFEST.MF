@@ -13,6 +13,7 @@ Export-Package: edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcor
  edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.codeql;visibility:=reexport,
+ edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation;visibility:=reexport,
  org.dataflowanalysis.pcm.extension.dictionary;visibility:=reexport,
  org.dataflowanalysis.pcm.extension.dictionary.characterized;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,

@@ -14,19 +14,19 @@ import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Default
 import edu.kit.kastel.sdq.analysiscouplingframework.processing.workflows.Workflow;
 import edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.edfacodeql.adapter.CodeQL2EDFAAdapter;
 
-public class EDFACodeQLIntegrationPS extends IntegrationPS{
-
+public class EDFACodeQLIntegrationPS extends IntegrationPS {
 
 	protected static final String USER_SPECIFIC_PATH = "USER_SPECIFIC_PATH";
-	protected static final String[] ARG_IDS = { "JAVA_MODEL_PATH", "CODEQL_MODEL_PATH",
-			"CORRESPONDENCE_MODEL_PATH", "CODEQL_RESULT_FILE_LOCATION", "SPECIFICATION_MODEL_PATH","DATADICTIONARY_PATH","ORIGIN_BACKUP_LOCATION","REPOSITORY_PATH",
-			"POLICY_STYLE", "SCAR_LOCATION",
+	protected static final String[] ARG_IDS = { "POLICY_STYLE", "JAVA_MODEL_PATH", "CODEQL_MODEL_PATH",
+			"PCM_JAVA_CORRESPONDENCE_MODEL_PATH", "CODEQL_RESULT_FILE_LOCATION", "SPECIFICATION_MODEL_PATH",
+			"DATADICTIONARY_PATH", "ORIGIN_BACKUP_LOCATION", "REPOSITORY_PATH", "SCAR_LOCATION",
 			"RESULTINGVALUES_LOCATION", "EDFA_CODEQL_CORRESPONDENCE_PATH", "SCAR_CORRESPONDENCES_LOCATION",
-			"RESULTINGVALUES_CORRESPONDENCES_LOCATION" };
-	
+			"RESULTINGVALUES_CORRESPONDENCES_LOCATION", "CODEQL_CONFIGURATIONS_PATH"};
+
 	public EDFACodeQLIntegrationPS(Registry registry) throws MissingPathIdentifierException {
 		super(registry);
 	}
+
 	@Override
 	protected ExecutableProcessingStepAdapter getDefinedExecutableProcessingStepAdapter() {
 		return new CodeQL2EDFAAdapter();
@@ -37,17 +37,16 @@ public class EDFACodeQLIntegrationPS extends IntegrationPS{
 		String pathPrefix = super.registry.getFileForID(USER_SPECIFIC_PATH).getPath();
 
 		// Create absolut and relative paths
-		
-		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 0, 8))
-				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
-		String absPath1 = super.registry.getFileForID(ARG_IDS[8]).getPath();
-		List<String> relPaths2 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 9, 14))
-				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
 
+		String absPath1 = super.registry.getFileForID(ARG_IDS[0]).getPath();
+		List<String> relPaths1 = Arrays.stream(Arrays.copyOfRange(ARG_IDS, 1, 15))
+				.map(e -> pathPrefix + super.registry.getFileForID(e).getPath()).collect(Collectors.toList());
+	
 		List<String> paths = new ArrayList<String>();
-		paths.addAll(relPaths1);
 		paths.add(absPath1);
-		paths.addAll(relPaths2);
+		paths.addAll(relPaths1);
+		
+
 
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry

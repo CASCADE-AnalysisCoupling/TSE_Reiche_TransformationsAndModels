@@ -2,7 +2,6 @@ package edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
 import org.eclipse.emf.common.util.URI;
@@ -11,8 +10,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
-
-
 
 public class InputModels {
 

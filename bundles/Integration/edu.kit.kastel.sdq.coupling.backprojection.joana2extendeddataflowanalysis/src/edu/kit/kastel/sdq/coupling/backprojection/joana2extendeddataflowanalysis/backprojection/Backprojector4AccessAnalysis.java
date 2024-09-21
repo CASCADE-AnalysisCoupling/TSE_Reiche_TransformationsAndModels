@@ -11,9 +11,9 @@ import edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis
 import edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification.util.CollectionUtil;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
 
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
 
 
 public class Backprojector4AccessAnalysis extends Backprojector {
@@ -33,13 +33,13 @@ public class Backprojector4AccessAnalysis extends Backprojector {
 
 	@Override
 	protected void projectIntoSpecification(ParameterAnnotation parameterAnnotation,
-			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment) {
+			Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment) {
 		//Assumption of annotating only one charactersitic. Otherwise, trace back to origin.
 		Collection<Literal> originalLiterals = parameterAnnotation.getCharacteristics().get(0).getValues();
 		
 		Collection<Literal> literalsForReplacement = new HashSet<Literal>(); 
 		
-		for (ResultingValue entry : assignment.getValue()) {
+		for (ResolvedImplementationValue entry : assignment.getValue()) {
 
 			Collection<Literal> potentialLiterals = resolver.resolveLiterals(entry.getLevel(), entry.getConfiguration());
 

@@ -16,11 +16,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.palladiosimulator.pcm.repository.Repository;
 
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
 import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.TainttrackingRoot;
 import edu.kit.kastel.sdq.coupling.models.codeqlscar.SourceCodeAnalysisResult;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.CodeQLSCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.Correspondences_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.Correspondences_CodeQLScar;
 import edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences.Correspondences_EDFACodeQL;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
@@ -36,10 +37,11 @@ public class Models {
 	private final ParameterAnnotations parameterAnnotations;
 	private final PCMDataDictionary dictionary;
 	private final Correspondences_EDFACodeQL edfaCodeQLCorrespondences;
+	private final Configurations codeQL_Configurations;
 
 	public Models(JavaRoot javaRoot, TainttrackingRoot tainttrackingRoot, PCMJavaCorrespondenceRoot correspondenceRoot,
 			String codeQLResult, Repository repository, ParameterAnnotations parameterAnnotations,
-			PCMDataDictionary dictionary, Correspondences_EDFACodeQL edfaCodeQLCorrespondences) {
+			PCMDataDictionary dictionary, Correspondences_EDFACodeQL edfaCodeQLCorrespondences, Configurations codeQL_Configurations) {
 		super();
 		this.javaRoot = javaRoot;
 		this.tainttrackingRoot = tainttrackingRoot;
@@ -49,6 +51,7 @@ public class Models {
 		this.parameterAnnotations = parameterAnnotations;
 		this.dictionary = dictionary;
 		this.edfaCodeQLCorrespondences = edfaCodeQLCorrespondences;
+		this.codeQL_Configurations = codeQL_Configurations;
 	}
 
 	public PCMDataDictionary getDataDictionary() {
@@ -58,7 +61,7 @@ public class Models {
 	public static Models createModelsFromFiles(String javaFilePath, String codeqlFilePath,
 			String pcmjavaCorrespondenceFilePath, String codeQLResultFilePath, String repositoryFilePath,
 			String extensionModelFilePath, String dataDictionaryModelFilePath, String originBackupDirectoryPath,
-			String edfaCodeQLCorrespondencesPath) {
+			String edfaCodeQLCorrespondencesPath, String codeQL_Configurations_Path) {
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		File originalDirectory = Path.of(repositoryFilePath).toAbsolutePath().getParent().toFile();
@@ -85,6 +88,7 @@ public class Models {
 		URI dataDictionaryURI = URI.createFileURI(Path.of(dataDictionaryModelFilePath).toString());
 		URI edfaCodeQLCorrespondencesUri = URI
 				.createFileURI(Path.of(edfaCodeQLCorrespondencesPath).toAbsolutePath().toString());
+		URI codeQL_Configurations_URI = URI.createFileURI(Path.of(codeQL_Configurations_Path).toAbsolutePath().toString());
 
 		Resource resourceJava = resSet.getResource(repositoryJava, true);
 		Resource resourceCodeQL = resSet.getResource(codeQLUri, true);
@@ -94,6 +98,8 @@ public class Models {
 		Resource resourceDataDictionary = resSet.getResource(dataDictionaryURI, true);
 		Resource resourceedfaCodeQLCorrespondences = resSet
 				.getResource(edfaCodeQLCorrespondencesUri, true);
+		Resource codeQL_Configurations_Resource = resSet
+				.getResource(codeQL_Configurations_URI, true);
 		try {
 			resourceJava.load(null);
 			resourceCodeQL.load(null);
@@ -102,6 +108,7 @@ public class Models {
 			resourceParameterAnnotations.load(null);
 			resourceDataDictionary.load(null);
 			resourceedfaCodeQLCorrespondences.load(null);
+			codeQL_Configurations_Resource.load(null);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -117,7 +124,9 @@ public class Models {
 				.get(0);
 		PCMDataDictionary dataDictionary = (PCMDataDictionary) resourceDataDictionary.getContents().get(0);
 		Correspondences_EDFACodeQL edfaCodeQLCorrespondences = (Correspondences_EDFACodeQL) resourceedfaCodeQLCorrespondences.getContents().get(0);
+		Configurations codeQL_Configurations = (Configurations) codeQL_Configurations_Resource.getContents().get(0);
 
+		
 		String codeQLSarifContent = "";
 		try {
 			codeQLSarifContent = Files.readString(Paths.get(codeQLResultFilePath));
@@ -127,7 +136,7 @@ public class Models {
 		}
 
 		return new Models(java, tainttracking, pcmJavaCorrespondenceRoot, codeQLSarifContent, repository,
-				parameterAnnotations, dataDictionary, edfaCodeQLCorrespondences);
+				parameterAnnotations, dataDictionary, edfaCodeQLCorrespondences, codeQL_Configurations);
 	}
 
 	public void updateSpecification(String specificationLocation) {
@@ -154,9 +163,9 @@ public class Models {
 	}
 	
 	public void persistCorrespondencesAndModels(String scarPath, SourceCodeAnalysisResult scar,
-			String resultingValuesPath, CodeQLResultingValues resultingValues, String scarCorrespondencePath,
-			CodeQLSCARCorrespondences scarCorrespondences, String resultingValuesCorrespondencesPath,
-			Correspondences_CodeQLResultingValues resultingValuesCorrespondences) {
+			String resultingValuesPath, ResolvedImplementationValues resultingValues, String scarCorrespondencePath,
+			Correspondences_CodeQLScar scarCorrespondences, String resultingValuesCorrespondencesPath,
+			Correspondences_ResolvedImplementationValues resultingValuesCorrespondences) {
 		Resource scarResource = new XMLResourceImpl(URI.createFileURI(scarPath));
 		scarResource.getContents().add(scar);
 
@@ -228,5 +237,9 @@ public class Models {
 
 	public Correspondences_EDFACodeQL getEdfaCodeQLCorrespondences() {
 		return edfaCodeQLCorrespondences;
+	}
+	
+	public Configurations getCodeQL_Configurations() {
+		return codeQL_Configurations;
 	}
 }

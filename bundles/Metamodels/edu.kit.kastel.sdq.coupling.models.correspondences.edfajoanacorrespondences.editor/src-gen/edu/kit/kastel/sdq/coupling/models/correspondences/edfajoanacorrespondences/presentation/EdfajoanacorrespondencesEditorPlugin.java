@@ -4,13 +4,7 @@ package edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorresponden
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
-import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.provider.ParameterannotationEditPlugin;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.provider.ConfigurationrepresentationEditPlugin;
 
 import edu.kit.kastel.sdq.coupling.models.java.provider.JavaEditPlugin;
 
@@ -25,10 +19,6 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
-import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
  * This is the central singleton for the Edfajoanacorrespondences editor plugin.
@@ -60,12 +50,10 @@ public final class EdfajoanacorrespondencesEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public EdfajoanacorrespondencesEditorPlugin() {
-		super(new ResourceLocator[] { DataDictionaryEditPlugin.INSTANCE, DataDictionaryCharacterizedEditPlugin.INSTANCE,
-				EcoreEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+		super(new ResourceLocator[] { ConfigurationrepresentationEditPlugin.INSTANCE, DataDictionaryEditPlugin.INSTANCE,
+				DataDictionaryCharacterizedEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
 				edu.kit.kastel.sdq.coupling.models.identifier.provider.IdentifierEditPlugin.INSTANCE,
-				JavaEditPlugin.INSTANCE, JoanaEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
-				ParameterannotationEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+				JavaEditPlugin.INSTANCE, JoanaEditPlugin.INSTANCE, });
 	}
 
 	/**

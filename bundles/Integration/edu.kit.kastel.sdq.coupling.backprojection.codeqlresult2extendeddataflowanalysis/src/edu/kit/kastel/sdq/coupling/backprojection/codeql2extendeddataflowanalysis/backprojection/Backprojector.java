@@ -8,9 +8,8 @@ import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDa
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.utils.CorrespondencesResolver;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.CodeQLResultingValues;
-import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResultingValue;
-import edu.kit.kastel.sdq.coupling.models.codeql.tainttracking.Configuration;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.codeqlresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
@@ -21,27 +20,21 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.
 
 public class Backprojector implements Backproject {
 
-	private final Repository repository;
 	private final PCMJavaCorrespondenceRoot correspondences;
 	private final ParameterAnnotations parameterAnnotations;
-	private final Configuration config;
-	private final PCMDataDictionary dictionary;
 	private final CorrespondencesResolver resolver;
 
-	public Backprojector(Repository repository, PCMJavaCorrespondenceRoot correspondences,
-			ParameterAnnotations parameterAnnotations, Configuration config, PCMDataDictionary dictionary, CorrespondencesResolver resolver) {
+	public Backprojector(PCMJavaCorrespondenceRoot correspondences,
+			ParameterAnnotations parameterAnnotations, CorrespondencesResolver resolver) {
 		super();
-		this.repository = repository;
 		this.correspondences = correspondences;
 		this.parameterAnnotations = parameterAnnotations;
-		this.config = config;
-		this.dictionary = dictionary;
 		this.resolver = resolver;
 	}
 
 	@Override
-	public void project(CodeQLResultingValues resultingValues) {
-		for (ResultingValue resultingValue : resultingValues.getResultingValues()) {
+	public void project(ResolvedImplementationValues resultingValues) {
+		for (ResolvedImplementationValue resultingValue : resultingValues.getResultingValues()) {
 
 			// Assumption: One annotation for one system element. If multiple: find the one
 			// with the corresponding security property - value pair.
@@ -52,7 +45,7 @@ public class Backprojector implements Backproject {
 				// equal, best with correspondence models. --> Resolve Security Property and
 				// fitting annotation
 				
-				Collection<Literal> resolvedLiterals = resolver.resolveLiterals(resultingValue.getResultingSecurityLevel(), resultingValue.getConfiguration());
+				Collection<Literal> resolvedLiterals = resolver.resolveLiterals(resultingValue.getResultingSecurityLevel(), resultingValue.getRuleId());
 
 				if (!resolvedLiterals.isEmpty()) {
 					characteristic.getValues().clear();
@@ -82,7 +75,7 @@ public class Backprojector implements Backproject {
 				&& annotationProvidedParameterIdent.getParameter().equals(correspondenceIdentification.getParameter());
 	}
 
-	private ParameterAnnotation resolveParameterAnnotation(ResultingValue resultingValue) {
+	private ParameterAnnotation resolveParameterAnnotation(ResolvedImplementationValue resultingValue) {
 		// Resolve System Element
 		PCMParameter2JavaParameter parameterCorrespondence = PCMJavaCorrespondenceResolutionUtils
 				.getParameterCorrespondence(correspondences, resolver.resolve(resultingValue.getParameter()));

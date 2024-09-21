@@ -1,22 +1,18 @@
 package edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.backprojection;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.utils.CorrespondencesResolver;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.GeneralOperationParameterIdentification;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotation;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ParameterAnnotations;
 import edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.ProvidedOperationParameterIdentification;
-
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ParameterIdentification_JOANAResultingValues;
-import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResultingValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.Parameter_ResolvedImplementationValues;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValue;
+import edu.kit.kastel.sdq.coupling.models.joanaresultingvalues.ResolvedImplementationValues;
 import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
 
 public abstract class Backprojector implements Backproject {
@@ -31,12 +27,12 @@ public abstract class Backprojector implements Backproject {
 	}
 
 	@Override
-	public void project(JOANAResultingValues resultingSpec) {
+	public void project(ResolvedImplementationValues resultingSpec) {
 
-		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+		HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> specEntryParameterAssignments = calculateSpecEntriesForParametersImplicitlyMapConfiguration(
 				resultingSpec);
 
-		for (Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment : specEntryParameterAssignments.entrySet()) {
+		for (Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment : specEntryParameterAssignments.entrySet()) {
 
 			ParameterAnnotation targetParameterAnnotation = resolveParameterAnnotation(resolver.resolve(assignment.getKey()));
 			
@@ -46,17 +42,17 @@ public abstract class Backprojector implements Backproject {
 	}
 
 	protected abstract void projectIntoSpecification(ParameterAnnotation parameterAnnotation,
-			Entry<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> assignment);
+			Entry<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> assignment);
 
 
-	private HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
-			JOANAResultingValues resultingSpec) {
+	private HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> calculateSpecEntriesForParametersImplicitlyMapConfiguration(
+			ResolvedImplementationValues resultingSpec) {
 
-		HashMap<ParameterIdentification_JOANAResultingValues, Set<ResultingValue>> parameterSpecEntryAssignments = new HashMap<>();
+		HashMap<Parameter_ResolvedImplementationValues, Set<ResolvedImplementationValue>> parameterSpecEntryAssignments = new HashMap<>();
 
-		for (ResultingValue entry : resultingSpec.getResultingValues()) {
+		for (ResolvedImplementationValue entry : resultingSpec.getResultingValues()) {
 			if (!parameterSpecEntryAssignments.containsKey(entry.getSystemElement())) {
-				Set<ResultingValue> specEntriesForParameter = new HashSet<ResultingValue>();
+				Set<ResolvedImplementationValue> specEntriesForParameter = new HashSet<ResolvedImplementationValue>();
 				parameterSpecEntryAssignments.put(entry.getSystemElement(), specEntriesForParameter);
 			}
 
