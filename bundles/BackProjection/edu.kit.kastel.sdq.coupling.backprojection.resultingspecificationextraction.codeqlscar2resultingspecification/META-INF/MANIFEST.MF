@@ -9,4 +9,4 @@ Export-Package: edu.kit.kastel.sdq.coupling.backprojection.resultingspecificatio
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql,
  edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlscar2resultingspecification2
-Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-RequiredExecutionEnvironment: JavaSE-17

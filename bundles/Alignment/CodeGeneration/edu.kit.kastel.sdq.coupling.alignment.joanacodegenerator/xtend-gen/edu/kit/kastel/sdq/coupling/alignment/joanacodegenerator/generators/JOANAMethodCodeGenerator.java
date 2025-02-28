@@ -4,17 +4,8 @@ import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templa
 import edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils.JOANAStringUtil;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
-import edu.kit.kastel.sdq.coupling.models.joana.InformationFlowAnnotation;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.Sink;
-import edu.kit.kastel.sdq.coupling.models.joana.Source;
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class JOANAMethodCodeGenerator extends MethodGenerationTemplate {
@@ -31,23 +22,12 @@ public class JOANAMethodCodeGenerator extends MethodGenerationTemplate {
 
   @Override
   protected String generateAnnotations(final Parameter parameter) {
-    final Collection<Source> sources = JOANAResolutionUtil.getSourcesForParameter(this.joanaRoot, parameter);
-    final Collection<Sink> sinks = JOANAResolutionUtil.getSinksForParameter(this.joanaRoot, parameter);
-    final Function1<Source, InformationFlowAnnotation> _function = (Source source) -> {
-      return ((InformationFlowAnnotation) source);
-    };
-    final List<InformationFlowAnnotation> annotSources = IterableExtensions.<InformationFlowAnnotation>toList(IterableExtensions.<Source, InformationFlowAnnotation>map(sources, _function));
-    final Function1<Sink, InformationFlowAnnotation> _function_1 = (Sink sink) -> {
-      return ((InformationFlowAnnotation) sink);
-    };
-    final List<InformationFlowAnnotation> annotSinks = IterableExtensions.<InformationFlowAnnotation>toList(IterableExtensions.<Sink, InformationFlowAnnotation>map(sinks, _function_1));
-    final Map<String, Collection<String>> levelToTagMappingsForSources = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSources);
-    final Map<String, Collection<String>> levelToTagMappingsForSinks = JOANAResolutionUtil.generateLevelTagsMappingsForAnnotations(this.joanaRoot, annotSinks);
-    final String generatedSourceAnnotations = JOANAStringUtil.FlowAnnotation_generateSourcesAnnotation(levelToTagMappingsForSources);
-    final String generatedSinkAnnotations = JOANAStringUtil.FlowAnnotation_generateSinkAnnotation(levelToTagMappingsForSinks);
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(generatedSourceAnnotations);
-    _builder.append(generatedSinkAnnotations);
-    return _builder.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method map((Object)=>InformationFlowAnnotation) is undefined for the type Collection<Source>"
+      + "\nThe method map((Object)=>InformationFlowAnnotation) is undefined for the type Collection<Sink>"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\ntoList cannot be resolved"
+      + "\ntoList cannot be resolved");
   }
 }

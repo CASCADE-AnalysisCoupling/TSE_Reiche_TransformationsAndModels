@@ -1,21 +1,13 @@
 package edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators;
 
-import com.google.common.collect.Iterables;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.ClassOrInterfaceTypeGenerationTemplate;
 import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates.MethodGenerationTemplate;
 import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
 import edu.kit.kastel.sdq.coupling.models.java.members.Method;
-import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType;
-import edu.kit.kastel.sdq.coupling.models.java.types.CollectionType;
-import edu.kit.kastel.sdq.coupling.models.java.types.Type;
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
-import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
-import java.util.Collection;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate {
@@ -32,42 +24,29 @@ public class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceType
 
   @Override
   protected String generateImports() {
-    String collectionImport = "";
-    String joanaUIImports = "";
-    if (((this.currentClassOrInterface instanceof edu.kit.kastel.sdq.coupling.models.java.types.Class) && JOANAResolutionUtil.isClassOrInterfaceTargetedByJoana(this.currentClassOrInterface, this.joanaRoot))) {
-      joanaUIImports = "import edu.kit.joana.ui.annotations.*;";
-    }
-    final Collection<Type> types = JavaResolutionUtil.getAllNonPrimitiveTypes(this.currentClassOrInterface);
-    boolean _isEmpty = IterableExtensions.isEmpty(Iterables.<CollectionType>filter(types, CollectionType.class));
-    boolean _not = (!_isEmpty);
-    if (_not) {
-      collectionImport = "import java.util.Collection;";
-    }
-    final List<ClassOrInterfaceType> classOrInterfaceTypes = IterableExtensions.<ClassOrInterfaceType>toList(Iterables.<ClassOrInterfaceType>filter(types, ClassOrInterfaceType.class));
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(joanaUIImports);
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
-    _builder.append(collectionImport);
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
-    {
-      boolean _hasElements = false;
-      for(final ClassOrInterfaceType classOrInterfaceType : classOrInterfaceTypes) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          String _lineSeparator = System.lineSeparator();
-          _builder.appendImmediate(_lineSeparator, "");
-        }
-        _builder.append("import ");
-        String _createFullyQualifiedPath = JavaResolutionUtil.createFullyQualifiedPath(this.javaRoot, classOrInterfaceType);
-        _builder.append(_createFullyQualifiedPath);
-        _builder.append(";");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method filter((Object)=>boolean) is undefined for the type EList<EntryPoint>"
+      + "\nThe method or field methodIdentification is undefined for the type Object"
+      + "\nThe method or field annotation is undefined for the type Object"
+      + "\nThe method or field annotation is undefined for the type Object"
+      + "\nThe method filter(Class<CollectionType>) is undefined for the type Collection<Type>"
+      + "\nThe method filter(Class<ClassOrInterfaceType>) is undefined for the type Collection<Type>"
+      + "\nType mismatch: cannot convert from EList<Method> to boolean[]"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nmethod cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nsize cannot be resolved"
+      + "\n!= cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nexists cannot be resolved"
+      + "\nisEmpty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ntoList cannot be resolved");
   }
 
   @Override

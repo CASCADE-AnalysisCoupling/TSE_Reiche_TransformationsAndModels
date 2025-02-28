@@ -27,9 +27,9 @@ public class ExtendedDataFlowAnalysis2CodeQLModelsGenerator {
 		
 		ExtendedDataFlowAnalysis2CodeQLSecurityGenerator securityGenerator = null;
 		
-		if(ExtendedDataFlowAnalysis2CodeQLAlignment.caseStudy.equals(JPMailPaths.CASE_STUDY_NAME)) {
+		if(ExtendedDataFlowAnalysis2CodeQLAlignment.policyStyle.equals(JPMailPaths.CASE_STUDY_NAME)) {
 			securityGenerator = new ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4HighLow(extensionRoot, correspondences, dictionary);	
-		} else if(ExtendedDataFlowAnalysis2CodeQLAlignment.caseStudy.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
+		} else if(ExtendedDataFlowAnalysis2CodeQLAlignment.policyStyle.equals(TravelPlannerPaths.CASE_STUDY_NAME)) {
 			securityGenerator = new ExtendedDataFlowAnalysis2CodeQLSecurityGenerator4FullDynamicLevels(extensionRoot, correspondences, dictionary);	
 		}
 			
