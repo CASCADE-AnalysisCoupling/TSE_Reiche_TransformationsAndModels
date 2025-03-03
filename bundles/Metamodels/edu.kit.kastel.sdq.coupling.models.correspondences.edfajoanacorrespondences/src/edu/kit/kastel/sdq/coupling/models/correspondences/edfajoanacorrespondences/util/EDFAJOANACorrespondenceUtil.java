@@ -1,6 +1,7 @@
 package edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences.util;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 
@@ -60,5 +61,15 @@ public class EDFAJOANACorrespondenceUtil {
 
 	public static FullyImplicitConfiguration getCorresponding(HybridConfiguration config_JOANA, Correspondences_EDFAJOANA correspondences) {
 		return correspondences.getConfigurationCorrespondences().stream().filter(correspondence -> correspondence.getConfiguration_JOANA().equals(config_JOANA)).findFirst().get().getConfiguration_EDFA();
+	}
+	
+	public static void deleteIfExists(Level level, Correspondences_EDFAJOANA correspondences) {
+		
+		Optional<LiteralsLevelCorrespondence> correspondence = correspondences.getLiteralLevelCorrespondences().stream().filter(x -> x.getLevel_JOANA().equals(level)).findFirst(); 
+		
+		if(correspondence.isEmpty())
+			return;
+		
+		correspondences.getLiteralLevelCorrespondences().remove(correspondence.get());
 	}
 }

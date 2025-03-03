@@ -133,21 +133,22 @@ public class ParameterAnnotationItemProvider extends CharacteristicsAnnotationIt
 	public String getText(Object object) {
 		ParameterAnnotation annotation = ((ParameterAnnotation) object);
 		
+		String annotatedInterfaceName = "";
 		String annotatatedParameterName = "";
 		String annotatedMethodName = "";
 		String levels = "";
 		
 		if(annotation.getParameterIdentification() != null) {
+			annotatedInterfaceName = annotation.getParameterIdentification().getOperationSignature().getInterface__OperationSignature().getEntityName();
 			annotatatedParameterName = annotation.getParameterIdentification().getParameter().getParameterName();
 			annotatedMethodName = annotation.getParameterIdentification().getOperationSignature().getEntityName();
 		}
 		
-	
 		if(!annotation.getCharacteristics().isEmpty()) {
 			levels = Strings.concat(";", annotation.getCharacteristics().get(0).getValues().stream().map(lit -> lit.getName()).collect(Collectors.toList()));
 		}
 		
-		String label = "%s.%s : %s".formatted(annotatedMethodName, annotatatedParameterName, levels);
+		String label = "%s::%s.%s : %s".formatted(annotatedInterfaceName, annotatedMethodName, annotatatedParameterName, levels);
 		return label == null || label.length() == 0 ? getString("_UI_ParameterAnnotation_type")
 				: getString("_UI_ParameterAnnotation_type") + " " + label;
 	}

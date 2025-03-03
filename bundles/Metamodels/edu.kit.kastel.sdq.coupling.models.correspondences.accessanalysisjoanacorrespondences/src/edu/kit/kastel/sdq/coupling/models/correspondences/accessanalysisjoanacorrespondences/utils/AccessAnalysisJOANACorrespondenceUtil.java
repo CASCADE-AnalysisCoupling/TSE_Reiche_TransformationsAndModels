@@ -1,7 +1,7 @@
 package edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils;
 
 import java.util.Collection;
-
+import java.util.Optional;
 
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
@@ -59,5 +59,16 @@ public class AccessAnalysisJOANACorrespondenceUtil {
 	
 	public static boolean correspondenceExists(Collection<DataSet> dataSets, Level level, Correspondences_AccessAnalysisJOANA correspondences) {
 		return correspondences.getDataSetLevelCorrespondences().stream().anyMatch(correspondence -> {return correspondence.getDataSets().containsAll(dataSets) && correspondence.getLevel().equals(level);});
+	}
+	
+	public static void removeIfCorrespondenceExists(Level level, Correspondences_AccessAnalysisJOANA correspondences) {
+		
+		Optional<DataSetLevelCorrespondence> correspondence = correspondences.getDataSetLevelCorrespondences().stream().filter(corr -> corr.getLevel().equals(level)).findFirst();
+		
+		if(correspondence.isEmpty())
+			return;
+					
+		correspondences.getDataSetLevelCorrespondences().remove(correspondence.get());
+		
 	}
 }

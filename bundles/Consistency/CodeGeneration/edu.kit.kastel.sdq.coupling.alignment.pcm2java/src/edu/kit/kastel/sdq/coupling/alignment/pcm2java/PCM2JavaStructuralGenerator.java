@@ -84,7 +84,7 @@ public class PCM2JavaStructuralGenerator {
 			root.getPrimitivetypes().add(type);
 		}
 	}
-	//TC1
+
 	//Assume only one hierarchy level, no composite containment;
 	private void generateClassesFromCompositeTypes(Collection<CompositeDataType> compositeTypes) {
 	
@@ -221,6 +221,12 @@ public class PCM2JavaStructuralGenerator {
 		case "LONG":
 				primitiveType = getPrimitiveTypeWithLiteralName("long");
 				break;
+		case "DOUBLE":
+				primitiveType = getPrimitiveTypeWithLiteralName("double");
+				break;
+		case "BYTE":
+				primitiveType = getPrimitiveTypeWithLiteralName("byte");
+				break;
 		default:
 			primitiveType = null;
 		}
@@ -279,12 +285,18 @@ public class PCM2JavaStructuralGenerator {
 	
 	//TODO: Necessary to capture case study names as they provide better reference overview, not good approach.
 	public static String getOperationSignatureMethodName(OperationSignature sig) {
-		String nameRegEx = "\\w*::\\w*\\([a-zA-Z0-9_$]*(?:\\s*,\\s*[a-zA-Z0-9_$]+)*\\)";
+		String nameRegEx = "^[a-zA-Z_][a-zA-Z0-9_]*::[a-zA-Z_][a-zA-Z0-9_]*(\\([a-zA-Z_][a-zA-Z0-9_, ]*\\))?$";
 		
 		if(sig.getEntityName().matches(nameRegEx)) {
 			String[] methodReferences = sig.getEntityName().split("::");
-			int parenthesisLocation = methodReferences[1].indexOf("(");
-			String methodName = methodReferences[1].substring(0, parenthesisLocation);
+			
+			String methodName = "";
+			if(methodReferences[1].contains("(")) {
+				int parenthesisLocation = methodReferences[1].indexOf("(");
+				methodName = methodReferences[1].substring(0, parenthesisLocation);
+			} else {
+				methodName = methodReferences[1];
+			}
 			return methodName;
 		} else {
 			return sig.getEntityName();

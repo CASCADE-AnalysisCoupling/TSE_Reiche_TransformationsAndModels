@@ -42,10 +42,18 @@ public class ExtendedDataFlowAnalysis2JOANASecurityGenerator4FullDynamicLevels e
 
 			String securityLevelName = JOANANamingUtil.combineLevelNames(securityLevelNames, SUBLEVEL_DELIMITER);
 			Level level = JOANAModelGenerationUtil.generateLevel(securityLevelName);
-
-			securityLevels.add(level);
 			
-			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(ResolutionUtil.getLiteralsForBasicLevels(literals, securityLevelNames), level, edfaJoanaCorrespondences);
+			Collection<Literal> fittingLiterals = new HashSet<Literal>();
+			
+			for(Literal literal : literals) {
+				if(securityLevelNames.stream().anyMatch(potentialLevel -> potentialLevel.getName().equals(literal.getName()))) {
+					fittingLiterals.add(literal);
+				}
+			}
+		
+			securityLevels.add(level);
+			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(fittingLiterals, level, edfaJoanaCorrespondences);
+			
 		}
 
 		return securityLevels;

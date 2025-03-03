@@ -123,6 +123,10 @@ public abstract class ExtendedDataFlowAnalysis2CodeQLSecurityGenerator {
 							
 							Optional<Parameter> javaParam = PCMJavaCorrespondenceResolutionUtils.getJavaParameters(correspondences, correspondenceParameterIdent);
 							
+							if(javaParam.isEmpty()){
+								throw new RuntimeException("%s:%s not found".formatted(generalParameterIdent.getOperationSignature().getEntityName(), generalParameterIdent.getParameter().getParameterName()));
+							}
+							
 							for (EnumCharacteristic characteristic : annotation.getCharacteristics()) {
 
 								SecurityLevel level = getSecurityLevelForLiterals(characteristic.getValues(), codeQLSecurityLevels);

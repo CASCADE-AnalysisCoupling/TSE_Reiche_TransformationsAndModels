@@ -9,5 +9,7 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
-Export-Package: edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates
+ org.eclipse.xtend.lib.macro,
+ edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils;bundle-version="1.0.0"
+Export-Package: edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.templates,
+ edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils

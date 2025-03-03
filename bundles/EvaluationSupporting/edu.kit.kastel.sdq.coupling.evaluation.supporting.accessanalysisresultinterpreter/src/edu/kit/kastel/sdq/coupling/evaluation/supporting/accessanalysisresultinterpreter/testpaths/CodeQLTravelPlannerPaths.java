@@ -14,7 +14,7 @@ public class CodeQLTravelPlannerPaths {
 	private static final String ADVERSARIES_FILE_ENDING = "adversary";
 	
 	public static final String USER_SPECIFIC_REPO_PATH = Path.of("/home/frederik/Arbeitsplatz/git/Diss/casestudies").toAbsolutePath().toString();
-	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/CaseStudies/Systems/TravelPlanner";
+	public static final String EVAL_REPO_SPECIFIC_PATH = "CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner";
 	
 	private static final String PATH_PATTERN = "%s/%s.%s";
 	private static final String ACCESS_ANALYSIS_RESULT_FILE_NAME = "AccessAnalysisResultWithCodeQL4TravelPlanner";
@@ -27,5 +27,5 @@ public class CodeQLTravelPlannerPaths {
 	public static final String ADVERSARIES_PATH = Paths.get(String.format(PATH_PATTERN, BASE_PATH, ADVERSARIES_MODEL_NAME, ADVERSARIES_FILE_ENDING)).toAbsolutePath().toString();
 	
 	public static final String ID_MAPPINGS_PATH = Paths.get(String.format("%s/src-gen/mappings.txt", BASE_PATH)).toAbsolutePath().toString();
-	public static final String ACCESS_ANALYSIS_RESULT_PATH = Paths.get(String.format("%s/%s/AAR/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, ACCESS_ANALYSIS_RESULT_FILE_NAME)).toAbsolutePath().toString();
+	public static final String ACCESS_ANALYSIS_RESULT_PATH = Paths.get(String.format("%s/%s/AccessAnalysis_AAR/%s", USER_SPECIFIC_REPO_PATH, EVAL_REPO_SPECIFIC_PATH, ACCESS_ANALYSIS_RESULT_FILE_NAME)).toAbsolutePath().toString();
 }

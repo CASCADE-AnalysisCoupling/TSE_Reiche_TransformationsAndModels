@@ -46,7 +46,7 @@ public class EDFAJOANAIntegrationPS extends IntegrationPS {
 
 		paths.add(absPath1);
 		paths.addAll(relPaths1);
-
+ 
 		// args[0] = success message, args[1] = failure message
 		// all other ordered args are the paths of the IDs taken from the registry
 		return Stream.concat(Arrays.stream(new String[] { "JOANAIntegrationPS: execution successful.",

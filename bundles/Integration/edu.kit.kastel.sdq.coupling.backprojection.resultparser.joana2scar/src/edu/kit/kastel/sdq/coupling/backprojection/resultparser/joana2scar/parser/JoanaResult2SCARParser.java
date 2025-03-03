@@ -183,9 +183,9 @@ public class JoanaResult2SCARParser {
 
 		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(fullyQualifiedNameOfClass, javaRoot);
 		String methodSelector = (String) methodDetails.get(METHOD_SELECTOR);
-
+		List<String> parameters = (List<String>) methodDetails.get(METHOD_PARAMETERS_KEY);
 	
-		Method method = getMethodOfClassBySelector(methodSelector, clazz);
+		Method method = getMethodOfClassBySelector(methodSelector, clazz, parameters.size());
 
 		// Method method = JavaResolutionUtil.resolveMethodFromClassByName(clazz,
 		// methodName);
@@ -279,7 +279,7 @@ public class JoanaResult2SCARParser {
 
 	}
 	
-	private Method getMethodOfClassBySelector(String selector, Class clazz) {
+	private Method getMethodOfClassBySelector(String selector, Class clazz, int numParameters) {
 		String[] methodNameParameterSplit = selector.split("\\(");
 		String methodName = methodNameParameterSplit[0];
 		String[] parameterTypes = methodNameParameterSplit[1].split("\\)")[0].split("L|;");
@@ -288,12 +288,12 @@ public class JoanaResult2SCARParser {
 		
 		for(Method method : clazz.getMethod()) {
 			boolean isTargetMethod = true;
-			if(methodName.equals(method.getName()) && method.getParameter().size() == clearedParameterTypes.size()) {
+			if(methodName.equals(method.getName()) && method.getParameter().size() == numParameters) {
 				for(int i = 0; i < clearedParameterTypes.size(); i++) {
 					
 					Parameter methodParameter = method.getParameter().get(i);
 					
-					if(clearedParameterTypes.get(i).equals("I")) {
+					if(clearedParameterTypes.get(i).equals("I") || clearedParameterTypes.get(i).equals("II") ) {
 						isTargetMethod &= methodParameter.getType().getName().equals("int");
 					} else {
 					

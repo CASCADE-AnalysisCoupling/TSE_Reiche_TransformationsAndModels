@@ -84,6 +84,10 @@ public class ExtendedDataFlowAnalysis2JOANAAlignment {
 		Collection<ClassOrInterfaceType> classOrInterfaceTypes = JavaResolutionUtil.getAllClassOrInterfaceTypes(javaRoot);
 		
 		for(ClassOrInterfaceType type : classOrInterfaceTypes) {
+			
+			if(type.getName().equals("Object")) {
+				continue;
+			}
 			codeGenerator.setClassOrInterfaceType(type);
 			String content = codeGenerator.generate();
 			List<Package> packagePath = JavaResolutionUtil.getPackagePathToClassOrInterface(javaRoot, type);

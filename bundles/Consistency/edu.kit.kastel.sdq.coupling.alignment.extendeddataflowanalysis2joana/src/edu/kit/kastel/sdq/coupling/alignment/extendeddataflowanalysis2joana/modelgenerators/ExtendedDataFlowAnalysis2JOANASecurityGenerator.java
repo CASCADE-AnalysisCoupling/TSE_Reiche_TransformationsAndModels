@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.dataflowanalysis.pcm.extension.dictionary.characterized.DataDictionaryCharacterized.Literal;
 import org.dataflowanalysis.pcm.extension.model.confidentiality.dictionary.PCMDataDictionary;
+import org.eclipse.emf.edit.provider.FeatureMapEntryWrapperItemProvider;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 
@@ -145,11 +146,16 @@ public abstract class ExtendedDataFlowAnalysis2JOANASecurityGenerator {
 			tagCounter++;
 			HybridConfiguration entryPointConfiguration = ConfigurationrepresentationUtil.generateHybridConfiguration(entryPoint);
 			entryPointConfiguration.getAdditionalInputs().addAll(Collections.singletonList(sourceCode));
-			
 			this.joana_Configurations.getConfigurations().add(entryPointConfiguration);
 			EDFAJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(edfa_Configuration, entryPointConfiguration, edfaJoanaCorrespondences);
 			return entryPoint;
-		} 
+		} else {
+			//Clean Up Correspondences if entry point is not valid
+			
+			entryPoint.getLevel().forEach(level -> {
+				EDFAJOANACorrespondenceUtil.deleteIfExists(level, edfaJoanaCorrespondences);
+			});
+		}
 
 		return null;
 	}

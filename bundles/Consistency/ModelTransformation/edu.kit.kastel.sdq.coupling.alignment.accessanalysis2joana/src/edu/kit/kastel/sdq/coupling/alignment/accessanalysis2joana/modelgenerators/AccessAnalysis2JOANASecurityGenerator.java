@@ -194,6 +194,7 @@ public abstract class AccessAnalysis2JOANASecurityGenerator {
 			if (!entrypoint.getAnnotation().stream().anyMatch(annotation -> annotation instanceof Source)
 					|| entrypoint.getAnnotation().isEmpty()) {
 				entrypoint.setId(null);
+				entrypoint.getLevel().forEach(level -> AccessAnalysisJOANACorrespondenceUtil.removeIfCorrespondenceExists(level, accessAnalysisJOANACorrespondences));
 			} else {
 				entrypoint.setId(tagCounter.toString());
 				tagCounter++;

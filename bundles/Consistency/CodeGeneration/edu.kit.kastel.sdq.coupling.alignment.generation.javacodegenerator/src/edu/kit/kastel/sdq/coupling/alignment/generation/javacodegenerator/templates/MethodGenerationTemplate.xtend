@@ -4,6 +4,7 @@ import edu.kit.kastel.sdq.coupling.models.java.members.Method
 import edu.kit.kastel.sdq.coupling.models.java.members.Parameter
 import edu.kit.kastel.sdq.coupling.models.java.types.ClassOrInterfaceType
 import edu.kit.kastel.sdq.coupling.models.java.types.Class
+import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.Filter
 
 abstract class MethodGenerationTemplate{
 	
@@ -24,7 +25,7 @@ abstract class MethodGenerationTemplate{
 	protected def String generateParameters()'''«FOR parameter : currentMethod.parameter SEPARATOR ", "»«generateParameter(parameter)»«ENDFOR»'''
 	
 	protected def String generateParameter(Parameter parameter)
-	'''«generateAnnotations(parameter)»«parameter.type.name» «parameter.name»'''
+	'''«generateAnnotations(parameter)»«generateParameterTypeName(parameter)» «parameter.name»'''
 	
 	protected def String generateAnnotations(Parameter parameter)''''''
 	
@@ -33,6 +34,28 @@ abstract class MethodGenerationTemplate{
 	public def void setCurrentMethod(Method newMethod){
 		this.currentMethod = newMethod;
 	} 
+	
+	protected def String generateParameterTypeName(Parameter parameter){
+		
+		if(parameter.type.name.contains(Filter.ARRAY_MARKER)){
+			var parts = parameter.type.name.split("Array",-1);
+			
+			val count = parts.length - 1;
+			
+			var name = parameter.type.name.split("_").get(0);
+			
+			for(var i = 0; i < count; i++){
+				name = name + "[]";
+			}
+			
+			return name;
+		} else if (parameter.type.name.contains(Filter.INTERFACE_MARKER) ||
+			parameter.type.name.contains(Filter.CLASS_MARKER) || parameter.type.name.contains(Filter.PRIMITIVE_MARKER) || parameter.type.name.contains(Filter.REMOTE_CLASS_MARKER)) {
+				return parameter.type.name.split("_").get(0);
+		} else {
+			return parameter.type.name;
+		}
+	}
 	
 	public def Method getCurrentMethod(){
 		return this.currentMethod;

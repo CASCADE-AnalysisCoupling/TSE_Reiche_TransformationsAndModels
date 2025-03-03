@@ -160,7 +160,7 @@ public class JavaResolutionUtil {
 	}
 	
 	private static boolean isPrimitiveType(Type type) {
-		return type instanceof PrimitiveType;
+		return type instanceof PrimitiveType || type.getName().equals("long");
 	}
 	
 	public static String translatePrimitiveTypeKindToJavaTypeName(PrimitiveTypeKinds primitiveTypeKind) {
@@ -170,7 +170,7 @@ public class JavaResolutionUtil {
 			javaTypeName = "boolean";
 			break;
 		case "BYTE":
-			javaTypeName = "int";
+			javaTypeName = "byte";
 			break;
 		case "SHORT":
 			javaTypeName = "short";

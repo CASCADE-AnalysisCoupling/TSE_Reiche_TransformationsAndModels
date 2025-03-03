@@ -14,6 +14,7 @@ import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUti
 import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot
 import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil
 import edu.kit.kastel.sdq.coupling.models.joana.Source
+import edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator.utils.Filter
 
 class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerationTemplate {
 
@@ -48,13 +49,17 @@ class JOANAClassOrInterfaceTypeCodeGenerator extends ClassOrInterfaceTypeGenerat
 		}
 
 		// Not nice, but aside from primitive types and collection types, only ClassOrInterfaceTypes, i.e., Reference Types exist
-		val classOrInterfaceTypes = types.filter(ClassOrInterfaceType).toList;
+		val classOrInterfaceTypes = types.filter(ClassOrInterfaceType).filter[coi | coi.name.contains(Filter.ARRAY_MARKER) || coi.name.contains(Filter.OBJECT_MARKER) || coi.name.contains(Filter.PRIMITIVE_MARKER) || coi.name.contains(Filter.REMOTE_CLASS_MARKER)].toList;
 
 		return '''
 			«joanaUIImports» 
 			«collectionImport» 
-			«FOR classOrInterfaceType : classOrInterfaceTypes SEPARATOR System.lineSeparator»import «JavaResolutionUtil.createFullyQualifiedPath(javaRoot, classOrInterfaceType)»;«ENDFOR»
+			«FOR classOrInterfaceType : classOrInterfaceTypes SEPARATOR System.lineSeparator»«generateSingleImport(classOrInterfaceType)»«ENDFOR»
 		'''
+	}
+	
+	private def String generateSingleImport(ClassOrInterfaceType type){
+			return '''import «JavaResolutionUtil.createFullyQualifiedPath(javaRoot, classOrInterfaceType)»;''' 
 	}
 
 	override protected generateMethods() {

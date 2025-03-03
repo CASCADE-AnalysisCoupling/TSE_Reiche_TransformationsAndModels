@@ -70,7 +70,7 @@ public abstract class Backprojector implements Backproject {
 				.equals(correspondenceIdentification.getProvidedSignature().getProvidedSignature())
 				&& annotationProvidedParameterIdent.getProvidedRole()
 						.equals(correspondenceIdentification.getProvidedSignature().getProvidedRole())
-				&& annotationProvidedParameterIdent.getParameter().equals(correspondenceIdentification.getParameter());
+				&& annotationProvidedParameterIdent.getParameter().getParameterName().equals(correspondenceIdentification.getParameter().getParameterName());
 	}
 
 	private boolean areParameterIdentificationsEqual(
