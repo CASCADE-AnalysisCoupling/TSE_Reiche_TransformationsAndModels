@@ -1,6 +1,5 @@
 package edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +15,7 @@ import java.util.stream.Stream;
 
 import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.filehandling.FileToGenerate;
 
-public class JoanaExecution{
+public class JoanaExecution {
 
 	private final static String RUN_TEMPLATE = "run %s --out=%s/%s";
 	private final static String ENABLE_INTERFACE_FLOWS = "sdgOptions enableUninitializedFieldTypes";
@@ -26,8 +25,8 @@ public class JoanaExecution{
 	private final static String FLOW_FOUND_INDICATOR = "found_flows: true";
 
 	public static void main(String[] args) {
-		
-		//ARGS: MAKE CLI, now static for eval:
+
+		// ARGS: MAKE CLI, now static for eval:
 		// [0]: Base ProjectPath
 		// [0]: Source Code base package path
 		// [1]: Path to EntryPoints
@@ -35,9 +34,7 @@ public class JoanaExecution{
 		// [3]: Java-Compiler Path
 		// [4]: Java-Runtime Path
 		// [5]: JOANA CLI Path
-		
-		
-		
+
 //		String analysisProjectPath = Path.of(args[0]).toAbsolutePath().toString();
 //		String joanaSourceCodeBasePackagePath = Path.of(args[1]).toAbsolutePath().toString();
 //		String entryPointsFilePath = Path.of(args[2]).toAbsolutePath().toString();
@@ -45,8 +42,7 @@ public class JoanaExecution{
 //		String javaCompilerPath = Path.of(args[4]).toAbsolutePath().toString();
 //		String javaRuntimePath = Path.of(args[5]).toAbsolutePath().toString();
 //		String joanaCLIPath = Path.of(args[6]).toAbsolutePath().toString();
-		
-		
+
 		String analysisProjectPath = args[0];
 		String joanaSourceCodeBasePackagePath = args[1];
 		String entryPointsFilePath = args[2];
@@ -54,22 +50,27 @@ public class JoanaExecution{
 		String javaCompilerPath = args[4];
 		String javaRuntimePath = args[5];
 		String joanaCLIPath = args[6];
-		
-		execute(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath, javaCompilerPath, javaRuntimePath, joanaCLIPath);
+		boolean executeWithUninitializedFieldTypes = Boolean.getBoolean(args[7]);
+
+		execute(analysisProjectPath, joanaSourceCodeBasePackagePath, entryPointsFilePath, outputFilePath,
+				javaCompilerPath, javaRuntimePath, joanaCLIPath, executeWithUninitializedFieldTypes);
 	}
-	
-	private static void execute(String projectLocation, String projectCodeBasePackageLocation, String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation, String javaRuntimeLocation, String joanaJarLocation) {
+
+	private static void execute(String projectLocation, String projectCodeBasePackageLocation,
+			String entryPointIDsFileLocation, String outputFileLocation, String javaCompilerLocation,
+			String javaRuntimeLocation, String joanaJarLocation, boolean executeWithUninitializedFieldTypes) {
 		compileJOANACode(projectCodeBasePackageLocation, javaCompilerLocation, joanaJarLocation);
 
 		Collection<String> entryPointIDs = getEntryPointIDs(Path.of(entryPointIDsFileLocation).toFile());
-		executeJOANA(projectLocation, entryPointIDs, javaRuntimeLocation, joanaJarLocation);
+		executeJOANA(projectLocation, entryPointIDs, javaRuntimeLocation, joanaJarLocation,
+				executeWithUninitializedFieldTypes);
 
 		String combinedResult = combineResults(entryPointIDs, tmpDirectoryLocation);
-		
+
 		FileToGenerate file = new FileToGenerate(combinedResult, outputFileLocation);
 		file.write();
-		
-		//Cleanup after collecting results
+
+		// Cleanup after collecting results
 		try {
 			deleteClassFilesRecursively(Path.of(projectCodeBasePackageLocation).toAbsolutePath().toFile());
 		} catch (IOException e) {
@@ -80,12 +81,14 @@ public class JoanaExecution{
 		Path.of(tmpDirectoryLocation).toFile().delete();
 	}
 
-	private static void executeJOANA(String projectLocation, Collection<String> entryPointIDs, String javaRuntimeLocation, String joanaJarLocation) {
+	private static void executeJOANA(String projectLocation, Collection<String> entryPointIDs,
+			String javaRuntimeLocation, String joanaJarLocation, boolean executeWithUninitializedFieldTypes) {
 
 		try {
 			Path tmp = Files.createTempDirectory("joanaResults");
 			tmpDirectoryLocation = tmp.toAbsolutePath().toString();
-			tmpDirectoryLocation = tmpDirectoryLocation.replaceAll(Pattern.quote("\\"), Matcher.quoteReplacement("\\\\"));
+			tmpDirectoryLocation = tmpDirectoryLocation.replaceAll(Pattern.quote("\\"),
+					Matcher.quoteReplacement("\\\\"));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +103,9 @@ public class JoanaExecution{
 			executionCommand.add("-jar");
 			executionCommand.add(joanaJarLocation);
 			executionCommand.add(String.format(CLASS_PATH_TEMPLATE, projectLocation));
-			executionCommand.add(ENABLE_INTERFACE_FLOWS);
+			if (executeWithUninitializedFieldTypes) {
+				executionCommand.add(ENABLE_INTERFACE_FLOWS);
+			}
 
 			String outputFileName = String.format(OUTPUT_FILE_NAME_TEMPLATE, entryPointID);
 
@@ -217,7 +222,7 @@ public class JoanaExecution{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("Compiled Project");
 	}
 

@@ -136,7 +136,8 @@ public class JavaResolutionUtil {
 		Collection<Type> types = new HashSet<Type>();
 		
 		for(Method method : coi.getMethod()) {
-			if(!isPrimitiveType(method.getReturntype())){
+			System.out.println(method.getName());
+			if(method.getReturntype() != null && !isPrimitiveType(method.getReturntype())){
 				types.add(method.getReturntype());
 			}
 			
@@ -291,7 +292,7 @@ public class JavaResolutionUtil {
 		for(Method method : clazz.getMethod()) {
 			if(method.getName().equals(methodName)) {
 				for(Parameter param : method.getParameter()) {
-					if(param.getName().equals(parameterName) && param.getType().getName().equals(parameterType)) {
+					if(param.getName().equals(parameterName) && parameterTypeMatches(param, parameterType)) {
 						return param;
 					}
 				}
@@ -300,6 +301,27 @@ public class JavaResolutionUtil {
 		} 
 		
 		return null;
+	}
+	
+	public static boolean parameterTypeMatches(Parameter parameter, String parameterType) {
+		
+		if(parameter.getType().getName().equals(parameterType.replace("\\",""))) {
+			return true;
+		}
+		
+		//Special Case to find arrays 
+		if(parameter.getType().getName().contains("_Array") && parameterType.contains("[]")) {
+			
+			int parameter_arrayMentions = parameter.getType().getName().split("Array",-1).length - 1;
+			int parameterType_arrayDimeonsions = parameterType.split("[]").length - 1;
+			
+			if(parameter_arrayMentions == parameterType_arrayDimeonsions) {
+				return true;
+			}
+		}
+		
+		return false;
+		
 	}
 	
 	public static Method resolveMethodFromClassByName(Class clazz, String methodName) {

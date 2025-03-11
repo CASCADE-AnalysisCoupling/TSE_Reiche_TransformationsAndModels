@@ -80,8 +80,8 @@ public class Evaluator {
 				String unifiedDataLevel = dataFlowVariable.getAllCharacteristics().stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 				String unifiedNodeLevel = nodeCharacteristics.stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 								
-				//System.out.println(
-				//		String.format("Illegal Data to Node: %s (Data: %s) ->  %s (Component on Node: %s)", unifiedDataLevel, dataFlowVariable.variableName(), unifiedNodeLevel, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
+				System.out.println(
+						String.format("Illegal Data to Node: %s (Data: %s) ->  %s (Component on Node: %s)", unifiedDataLevel, dataFlowVariable.variableName(), unifiedNodeLevel, seffNode.getContext().peek().getEncapsulatedComponent__AssemblyContext().getEntityName()));
 				
 				allowed = false;
 			}
@@ -108,8 +108,8 @@ public class Evaluator {
 						String unifiedParameterLevel = parameterLiterals.stream().map(Literal::getName).sorted().collect(Collectors.joining(";"));
 						String unifiedDataLevel = dfVar.getAllCharacteristics().stream().map(CharacteristicValue::getValueName).sorted().collect(Collectors.joining(";"));
 
-					//	System.out.println(
-						//		String.format("Illegal Data to Parameter: %s (Data: %s) ->  %s (Parameter: %s)", unifiedDataLevel, dfVar.variableName(), unifiedParameterLevel, String.format("%s:%s.%s", seffNode.getContext().peek().getEntityName(), annotation.getParameterIdentification().getParameter().getOperationSignature__Parameter().getEntityName(), annotation.getParameterIdentification().getParameter().getParameterName())));
+						System.out.println(
+								String.format("Illegal Data to Parameter: %s (Data: %s) ->  %s (Parameter: %s)", unifiedDataLevel, dfVar.variableName(), unifiedParameterLevel, String.format("%s:%s.%s", seffNode.getContext().peek().getEntityName(), annotation.getParameterIdentification().getParameter().getOperationSignature__Parameter().getEntityName(), annotation.getParameterIdentification().getParameter().getParameterName())));
 						
 						
 						allowed = false;

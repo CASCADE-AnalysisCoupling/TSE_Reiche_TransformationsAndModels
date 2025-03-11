@@ -82,7 +82,24 @@ public class JavaModelGenerationUtil {
 	public static CollectionType generateCollectionType(Type type) {
 		CollectionType colType = TypesFactory.eINSTANCE.createCollectionType();
 		colType.setType(type);
+		if(type.getName().contains("_Array")) {
+			colType.setName(null);
+		}
 		colType.setName(String.format("Collection<%s>", type.getName()));
+		return colType;
+	}
+	
+	public static CollectionType generateCollectionType(int dimensions,Type innerType) {
+		CollectionType colType = TypesFactory.eINSTANCE.createCollectionType();
+		colType.setType(innerType);
+
+		String name = innerType.getName();
+		
+		for(int i = 0; i < dimensions; i++) {
+			name = name + "[]";
+		}
+		
+		colType.setName(name);
 		return colType;
 	}
 	

@@ -139,9 +139,9 @@ public class ParameterAnnotationItemProvider extends CharacteristicsAnnotationIt
 		String levels = "";
 		
 		if(annotation.getParameterIdentification() != null) {
-			annotatedInterfaceName = annotation.getParameterIdentification().getOperationSignature().getInterface__OperationSignature().getEntityName();
+			annotatedInterfaceName = annotation.getParameterIdentification().getParameter().getOperationSignature__Parameter().getInterface__OperationSignature().getEntityName();
 			annotatatedParameterName = annotation.getParameterIdentification().getParameter().getParameterName();
-			annotatedMethodName = annotation.getParameterIdentification().getOperationSignature().getEntityName();
+			annotatedMethodName = annotation.getParameterIdentification().getParameter().getOperationSignature__Parameter().getEntityName();
 		}
 		
 		if(!annotation.getCharacteristics().isEmpty()) {

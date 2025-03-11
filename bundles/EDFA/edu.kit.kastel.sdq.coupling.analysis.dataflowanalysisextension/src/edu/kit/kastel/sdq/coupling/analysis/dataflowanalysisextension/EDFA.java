@@ -390,4 +390,88 @@ public class EDFA {
 			assertTrue(violations.isEmpty());
 		}
 	}
+	
+	@Test
+	public void EclipseSecureStorageStandardTest() {
+		AllowedConditionsProvider provider = AllowedConditionsProviderFactory
+				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
+		Evaluator evaluator = new Evaluator(provider);
+
+		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.usagemodel";
+		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.allocation";
+		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.nodecharacteristics";
+		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.parameterannotation";
+		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow";
+
+		final var usageModelURI = URI.createFileURI(usageModelPath);
+		final var allocationURI = URI.createFileURI(allocationModelPath);
+		final var nodeCharacteristicsURI = URI.createFileURI(nodeCharacteristicsModelPath);
+		final var extensionModelURI = URI.createFileURI(parameterAnnotationsModelPath);
+
+		PCMDataFlowConfidentialityAnalysis analysis = new PCMDataFlowConfidentialityAnalysisBuilder().standalone()
+				.modelProjectName(modelProjectName).usePluginActivator(Activator.class)
+				.useCustomResourceProvider(new ParameterAnnotationExtensionResourceProvider(usageModelURI,
+						allocationURI, nodeCharacteristicsURI, extensionModelURI))
+				.build();
+
+		analysis.setLoggerLevel(Level.TRACE); // Set desired logger level. Level.TRACE provides additional
+		// propagation Information
+
+		List<ActionSequence> actionSequences = analysis.findAllSequences();
+
+		List<ActionSequence> propagationResult = analysis.evaluateDataFlows(actionSequences);
+
+		ParameterAnnotations config = ((ParameterAnnotationExtensionResourceProvider) analysis.getResourceProvider())
+				.getParameterAnnotations();
+
+		for (ActionSequence actionSequence : propagationResult) {
+			List<AbstractActionSequenceElement<?>> violations = analysis.queryDataFlow(actionSequence,
+					it -> !evaluator.allowedState(it, config, analysis));
+
+			assertTrue(violations.isEmpty());
+		}
+
+	}
+	
+	@Test
+	public void EclipseSecureStorageCodeQLTest() {
+		AllowedConditionsProvider provider = AllowedConditionsProviderFactory
+				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
+		Evaluator evaluator = new Evaluator(provider);
+
+		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.usagemodel";
+		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.allocation";
+		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.nodecharacteristics";
+		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.parameterannotation";
+		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow";
+
+		final var usageModelURI = URI.createFileURI(usageModelPath);
+		final var allocationURI = URI.createFileURI(allocationModelPath);
+		final var nodeCharacteristicsURI = URI.createFileURI(nodeCharacteristicsModelPath);
+		final var extensionModelURI = URI.createFileURI(parameterAnnotationsModelPath);
+
+		PCMDataFlowConfidentialityAnalysis analysis = new PCMDataFlowConfidentialityAnalysisBuilder().standalone()
+				.modelProjectName(modelProjectName).usePluginActivator(Activator.class)
+				.useCustomResourceProvider(new ParameterAnnotationExtensionResourceProvider(usageModelURI,
+						allocationURI, nodeCharacteristicsURI, extensionModelURI))
+				.build();
+
+		analysis.setLoggerLevel(Level.TRACE); // Set desired logger level. Level.TRACE provides additional
+		// propagation Information
+
+		List<ActionSequence> actionSequences = analysis.findAllSequences();
+
+		List<ActionSequence> propagationResult = analysis.evaluateDataFlows(actionSequences);
+
+		ParameterAnnotations config = ((ParameterAnnotationExtensionResourceProvider) analysis.getResourceProvider())
+				.getParameterAnnotations();
+
+		for (ActionSequence actionSequence : propagationResult) {
+			List<AbstractActionSequenceElement<?>> violations = analysis.queryDataFlow(actionSequence,
+					it -> !evaluator.allowedState(it, config, analysis));
+
+			assertTrue(violations.isEmpty());
+		}
+
+	}
 }

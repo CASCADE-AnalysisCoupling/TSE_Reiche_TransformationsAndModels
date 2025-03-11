@@ -270,7 +270,17 @@ public class PCM2JavaStructuralGenerator {
 			}
 		}
 		
-		CollectionType newType = JavaModelGenerationUtil.generateCollectionType(getJavaTypeForPCMDataType(type.getInnerType_CollectionDataType()));
+		CollectionType newType = null;
+		Type innerType = getJavaTypeForPCMDataType(type.getInnerType_CollectionDataType());
+		
+		
+		if(type.getEntityName().contains("_Array")) {
+			int dimensions = type.getEntityName().split("Array",-1).length - 1;
+			newType =  JavaModelGenerationUtil.generateCollectionType(dimensions, innerType);
+		} else {
+			newType = JavaModelGenerationUtil.generateCollectionType(innerType);
+		}
+		
 		root.getCollectiontypes().add(newType);
 		return newType;
 	}

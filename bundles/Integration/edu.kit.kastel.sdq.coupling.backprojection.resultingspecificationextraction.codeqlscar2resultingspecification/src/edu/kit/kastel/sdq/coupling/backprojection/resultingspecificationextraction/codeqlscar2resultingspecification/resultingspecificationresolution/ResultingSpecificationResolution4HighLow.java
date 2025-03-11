@@ -30,9 +30,13 @@ public class ResultingSpecificationResolution4HighLow extends ResultingSpecifica
 	public ResolvedImplementationValues calculateResultingValues(SourceCodeAnalysisResult scar, TainttrackingRoot codeQL, Correspondences_CodeQLScar codeQLScarCorrespondence) {
 		
 		
-	
+		
 		
 		List<Result> parameterSinkResultEntries = scar.getResultEntries().stream().filter(entry -> entry.getSink().getSystemElement() instanceof Parameter_SCAR).collect(Collectors.toList()); 
+		
+		if(parameterSinkResultEntries.isEmpty()) {
+			return resultingValues;
+		}
 		
 		if(!sameConfiguration(parameterSinkResultEntries)) {
 			//TODO Normally Handle different configurations, but for our access analysis approach, we do not need this. 

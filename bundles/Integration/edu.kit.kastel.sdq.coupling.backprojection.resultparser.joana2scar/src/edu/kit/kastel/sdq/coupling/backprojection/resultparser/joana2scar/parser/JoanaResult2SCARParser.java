@@ -185,7 +185,7 @@ public class JoanaResult2SCARParser {
 		String methodSelector = (String) methodDetails.get(METHOD_SELECTOR);
 		List<String> parameters = (List<String>) methodDetails.get(METHOD_PARAMETERS_KEY);
 	
-		Method method = getMethodOfClassBySelector(methodSelector, clazz, parameters.size());
+		Method method = getMethodOfClassBySelector(methodSelector,parameters, clazz);
 
 		// Method method = JavaResolutionUtil.resolveMethodFromClassByName(clazz,
 		// methodName);
@@ -279,28 +279,28 @@ public class JoanaResult2SCARParser {
 
 	}
 	
-	private Method getMethodOfClassBySelector(String selector, Class clazz, int numParameters) {
+	private Method getMethodOfClassBySelector(String selector, List<String> parametersOfMethodSelector, Class clazz) {
 		String[] methodNameParameterSplit = selector.split("\\(");
 		String methodName = methodNameParameterSplit[0];
-		String[] parameterTypes = methodNameParameterSplit[1].split("\\)")[0].split("L|;");
-		List<String> clearedParameterTypes = new ArrayList<String>(Arrays.asList(parameterTypes));
-		clearedParameterTypes.removeAll(Collections.singleton(""));
 		
 		for(Method method : clazz.getMethod()) {
 			boolean isTargetMethod = true;
-			if(methodName.equals(method.getName()) && method.getParameter().size() == numParameters) {
-				for(int i = 0; i < clearedParameterTypes.size(); i++) {
+			if(methodName.equals(method.getName()) && method.getParameter().size() == parametersOfMethodSelector.size()) {
+				for(int i = 0; i < parametersOfMethodSelector.size(); i++) {
 					
 					Parameter methodParameter = method.getParameter().get(i);
 					
-					if(clearedParameterTypes.get(i).equals("I") || clearedParameterTypes.get(i).equals("II") ) {
-						isTargetMethod &= methodParameter.getType().getName().equals("int");
-					} else {
-					
-					String[] parameterTypeParts = clearedParameterTypes.get(i).split("/");
-					String parameterType = parameterTypeParts[parameterTypeParts.length - 1];
-					
-					isTargetMethod &= parameterType.equals(method.getParameter().get(i).getType().getName());
+					String fullParameterTypeIdentificator =  parametersOfMethodSelector.get(i);
+					boolean isPrimitive = fullParameterTypeIdentificator.chars().filter(ch -> ch =='.').count() == 0;
+			
+					if(isPrimitive) {
+						isTargetMethod &= fullParameterTypeIdentificator.equals(methodParameter.getType().getName());
+					} else  {
+						String[] parameterTypeParts = fullParameterTypeIdentificator.split("\\.");
+						String parameterType = parameterTypeParts[parameterTypeParts.length - 1];
+						
+						isTargetMethod &= parameterType.equals(methodParameter.getType().getName());
+						
 					}
 				}
 				
