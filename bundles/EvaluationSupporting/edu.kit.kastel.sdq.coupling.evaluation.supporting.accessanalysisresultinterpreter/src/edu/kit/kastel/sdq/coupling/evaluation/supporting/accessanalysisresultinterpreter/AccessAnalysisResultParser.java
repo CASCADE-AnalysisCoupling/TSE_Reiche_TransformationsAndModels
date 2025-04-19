@@ -17,6 +17,7 @@ public class AccessAnalysisResultParser {
 	private final static String NEW_RESULT_INDICATOR = "adversary(";
 	private final static String ADVERSARY_INFORMATION = "adversary(";
 	private final static String COMPONENTIDENTIFICATION = "basicComponent(";
+	private final static String PROVIDES_IDENTIFICATION = "provides(";
 	//Unique String
 	private final static String SIGNATURE_AND_PARAMETER_IDENTIFICATION = "parametersOf";
 	private final static String NOT_MAY_KNOW_IDENTIFICATION = "not mayknow(";
@@ -76,6 +77,10 @@ public class AccessAnalysisResultParser {
 				
 				if(line.startsWith(SIGNATURE_AND_PARAMETER_IDENTIFICATION)) {
 					parseSignatureAndParameter(line, result, allIdMappings, idToSignatureMappings);
+				}
+				
+				if(line.startsWith(PROVIDES_IDENTIFICATION)) {
+					parseBasicComponentByProvidesMarker(line, result, idToComponentMappings);
 				}
 				
 				if(line.startsWith(NOT_MAY_KNOW_IDENTIFICATION)) {
@@ -165,6 +170,32 @@ public class AccessAnalysisResultParser {
 		} else {
 			throw new IllegalStateException();
 		}
+		
+		result.setComponent(component);
+	}
+	
+	private void parseBasicComponentByProvidesMarker(String line, Result result,
+			Map<String, RepositoryComponent> idToComponentMappings) {
+		
+		line = line.replace("provides", "");
+		line = line.replace("(", "");
+		line = line.replace(")", "");
+		
+		if(line.contains("basicComponent")) {
+			line = line.replace("basicComponent", "");
+		}
+		
+		String[] componentInterfaceSplit = line.split(",");
+		
+		String componentId = componentInterfaceSplit[0];
+		
+		RepositoryComponent component = idToComponentMappings.get(componentId);
+		
+		if(result.getComponent() != null && result.getComponent() != component) {
+			throw new RuntimeException("Components do not match");
+		}
+		
+		result.setRequired("provided");
 		
 		result.setComponent(component);
 	}
