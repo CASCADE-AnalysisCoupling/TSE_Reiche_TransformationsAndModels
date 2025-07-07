@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated codeqlscarcorrespondences -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation.CodeqlscarcorrespondencesModelWizardID"
+            name="%_UI_CodeqlscarcorrespondencesModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation.CodeqlscarcorrespondencesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CodeqlscarcorrespondencesModelFile.gif">
+         <description>%_UI_CodeqlscarcorrespondencesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated codeqlscarcorrespondences -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation.CodeqlscarcorrespondencesEditorID"
+            name="%_UI_CodeqlscarcorrespondencesEditor_label"
+            icon="icons/full/obj16/CodeqlscarcorrespondencesModelFile.gif"
+            extensions="codeqlscarcorrespondences"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation.CodeqlscarcorrespondencesEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences.presentation.CodeqlscarcorrespondencesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

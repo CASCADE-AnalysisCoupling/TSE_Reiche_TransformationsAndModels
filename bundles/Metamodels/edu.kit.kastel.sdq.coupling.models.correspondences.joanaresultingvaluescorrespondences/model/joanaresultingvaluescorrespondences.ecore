@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="joanaresultingvaluescorrespondences" nsURI="http://www.example.org/joanaresultingvaluescorrespondences"
+    nsPrefix="joanaresultingvaluescorrespondences">
+  <eClassifiers xsi:type="ecore:EClass" name="Correspondences_ResolvedImplementationValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levelCorrespondences" upperBound="-1"
+        eType="#//LevelCorrespondence_ResolvedImplementationValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPointCorrespondences"
+        upperBound="-1" eType="#//EntryPointCorrespondence_JOANAResultingValues" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCorrespondences"
+        upperBound="-1" eType="#//ParameterCorrespondence_JOANAResultingValues" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LevelCorrespondence_ResolvedImplementationValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level_JOANA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//Level"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level_ResolvedImplementationValues"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanaresultingvalues/model/joanaresultingvalues.ecore#//Level_ResolvedImplementationValues"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryPointCorrespondence_JOANAResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//EntryPoint_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_ResolvedImplementationValues"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanaresultingvalues/model/joanaresultingvalues.ecore#//EntryPoint_ResolvedImplementationValues"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence_JOANAResultingValues">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Parameter_SCAR"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ResolvedImplementationValues"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanaresultingvalues/model/joanaresultingvalues.ecore#//Parameter_ResolvedImplementationValues"/>
+  </eClassifiers>
+</ecore:EPackage>

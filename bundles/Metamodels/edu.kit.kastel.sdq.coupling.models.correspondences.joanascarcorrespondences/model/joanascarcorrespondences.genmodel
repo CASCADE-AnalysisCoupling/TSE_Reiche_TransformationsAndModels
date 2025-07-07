@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.editor/src-gen"
+    modelPluginID="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences"
+    modelName="Joanascarcorrespondences" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.genmodel#//configurationrepresentation ../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier ../../edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel#//java ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.genmodel#//joana ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.genmodel#//joanascar"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>joanascarcorrespondences.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Joanascarcorrespondences" basePackage="edu.kit.kastel.sdq.coupling.models.correspondences"
+      disposableProviderFactory="true" ecorePackage="joanascarcorrespondences.ecore#/">
+    <genClasses ecoreClass="joanascarcorrespondences.ecore#//JOANASCARCorrespondences">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//JOANASCARCorrespondences/entryPointCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//JOANASCARCorrespondences/levelCorrespondences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//JOANASCARCorrespondences/systemElementCorrespondences"/>
+    </genClasses>
+    <genClasses ecoreClass="joanascarcorrespondences.ecore#//EntryPointCorrespondence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//EntryPointCorrespondence/entryPoint_JOANA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//EntryPointCorrespondence/entryPoint_SCAR"/>
+    </genClasses>
+    <genClasses ecoreClass="joanascarcorrespondences.ecore#//LevelCorrespondence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//LevelCorrespondence/level_JOANA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//LevelCorrespondence/level_SCAR"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="joanascarcorrespondences.ecore#//SystemElementCorrespondence"/>
+    <genClasses ecoreClass="joanascarcorrespondences.ecore#//ParameterCorrespondence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//ParameterCorrespondence/parameter_JAVA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//ParameterCorrespondence/parameter_SCAR"/>
+    </genClasses>
+    <genClasses ecoreClass="joanascarcorrespondences.ecore#//FieldCorrespondence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//FieldCorrespondence/field_JAVA"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanascarcorrespondences.ecore#//FieldCorrespondence/field_SCAR"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

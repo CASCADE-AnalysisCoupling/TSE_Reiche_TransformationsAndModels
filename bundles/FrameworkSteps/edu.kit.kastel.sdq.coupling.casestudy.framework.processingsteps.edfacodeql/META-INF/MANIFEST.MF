@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Edfacodeql
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.edfacodeql;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: edu.kit.kastel.sdq.casestudy.framework.processingsteps.edfacodeql
+Bundle-ClassPath: libs/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution-0.0.1-SNAPSHOT.jar,
+ .
+Require-Bundle: ArchitectureAndStaticCodeAnalysisCouplingFramework,
+ edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql,
+ edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis,
+ org.eclipse.ui;bundle-version="3.204.0",
+ org.eclipse.core.runtime;bundle-version="3.29.0",
+ Partitioner;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.19.100"

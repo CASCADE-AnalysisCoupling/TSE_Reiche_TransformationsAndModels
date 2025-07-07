@@ -10,5 +10,4 @@ Require-Bundle: org.palladiosimulator.pcm,
  org.eclipse.ui;bundle-version="3.118.100",
  org.eclipse.core.resources;bundle-version="3.13.900"
 Export-Package: edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter,
- edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers,
- edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.testpaths
+ edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisresultinterpreter.handlers

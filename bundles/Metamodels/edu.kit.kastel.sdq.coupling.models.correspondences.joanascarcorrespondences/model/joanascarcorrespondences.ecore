@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="joanascarcorrespondences" nsURI="http://www.example.org/joanascarcorrespondences"
+    nsPrefix="joanascarcorrespondences">
+  <eClassifiers xsi:type="ecore:EClass" name="JOANASCARCorrespondences">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPointCorrespondences"
+        upperBound="-1" eType="#//EntryPointCorrespondence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levelCorrespondences" upperBound="-1"
+        eType="#//LevelCorrespondence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemElementCorrespondences"
+        upperBound="-1" eType="#//SystemElementCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryPointCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_JOANA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation/model/configurationrepresentation.ecore#//HybridConfiguration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryPoint_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//EntryPoint_SCAR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LevelCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level_JOANA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore#//Level"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Level_SCAR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemElementCorrespondence" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence" eSuperTypes="#//SystemElementCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_JAVA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Parameter_SCAR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldCorrespondence" eSuperTypes="#//SystemElementCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field_JAVA" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.java/model/java.ecore#//members/Field"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field_SCAR" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore#//Field_SCAR"/>
+  </eClassifiers>
+</ecore:EPackage>

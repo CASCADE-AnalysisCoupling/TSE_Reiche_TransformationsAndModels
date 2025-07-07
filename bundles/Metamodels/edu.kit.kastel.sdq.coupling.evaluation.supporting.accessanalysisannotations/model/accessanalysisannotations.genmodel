@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations.editor/src-gen"
+    modelPluginID="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations"
+    modelName="Accessanalysisannotations" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.genmodel#//confidentiality ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>accessanalysisannotations.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Accessanalysisannotations" basePackage="edu.kit.kastel.sdq.coupling.evaluation.supporting"
+      disposableProviderFactory="true" ecorePackage="accessanalysisannotations.ecore#/">
+    <genClasses ecoreClass="accessanalysisannotations.ecore#//InformationFlowAnnotation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference accessanalysisannotations.ecore#//InformationFlowAnnotation/dataTargets"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="accessanalysisannotations.ecore#//InformationFlowOperationSignatureAnnotation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference accessanalysisannotations.ecore#//InformationFlowOperationSignatureAnnotation/operationSignature"/>
+    </genClasses>
+    <genClasses ecoreClass="accessanalysisannotations.ecore#//InformationFlowCallAnnotation"/>
+    <genClasses ecoreClass="accessanalysisannotations.ecore#//InformationFlowReturnAnnotation"/>
+    <genClasses ecoreClass="accessanalysisannotations.ecore#//InformationFlowParameterAnnotation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference accessanalysisannotations.ecore#//InformationFlowParameterAnnotation/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="accessanalysisannotations.ecore#//Annotations">
+      <genFeatures notify="false" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference accessanalysisannotations.ecore#//Annotations/InformationFlowAnnotations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

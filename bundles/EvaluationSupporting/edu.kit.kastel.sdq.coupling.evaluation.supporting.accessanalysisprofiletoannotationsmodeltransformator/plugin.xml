@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.Accessanalysisprofiletoannotationsmodeltransformator"
+            id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.transform"
+            name="TransformToAnnotationModel">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <separator
+               name="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.beforeseparator"
+               visible="true">
+         </separator>
+         <menu
+               id="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.menus.transformator"
+               label="AccessAnanalysisProfileTransformer"
+               mnemonic="T">
+            <command
+                  commandId="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.transform"
+                  label="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisprofiletoannotationsmodeltransformator.menus.transformator"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate>
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.repository">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+         <separator
+               name="edu.kit.kastel.sdq.analysiscouplingframework.codeqlexample.afterseparator"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+
+</plugin>

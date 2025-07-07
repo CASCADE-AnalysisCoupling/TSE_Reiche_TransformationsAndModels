@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation/src-gen"
+    creationIcons="false" editDirectory="/edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.edit/src-gen"
+    editorDirectory="/edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation.editor/src-gen"
+    modelPluginID="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation"
+    modelName="Parameterannotation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" usedGenPackages="../../org.dataflowanalysis.pcm.extension.dictionary/model/DataDictionary.genmodel#//DataDictionary ../../org.dataflowanalysis.pcm.extension.dictionary.characterized/model/DataDictionaryCharacterized.genmodel#//DataDictionaryCharacterized ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>parameterannotation.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Parameterannotation" basePackage="edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis"
+      disposableProviderFactory="true" ecorePackage="parameterannotation.ecore#/">
+    <genClasses image="false" ecoreClass="parameterannotation.ecore#//CharacteristicsAnnotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//CharacteristicsAnnotation/characteristics"/>
+    </genClasses>
+    <genClasses ecoreClass="parameterannotation.ecore#//GeneralOperationParameterIdentification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//GeneralOperationParameterIdentification/operationSignature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//GeneralOperationParameterIdentification/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="parameterannotation.ecore#//ProvidedOperationParameterIdentification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//ProvidedOperationParameterIdentification/providedRole"/>
+    </genClasses>
+    <genClasses ecoreClass="parameterannotation.ecore#//ParameterAnnotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//ParameterAnnotation/parameterIdentification"/>
+    </genClasses>
+    <genClasses ecoreClass="parameterannotation.ecore#//ParameterAnnotations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameterannotation.ecore#//ParameterAnnotations/annotations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

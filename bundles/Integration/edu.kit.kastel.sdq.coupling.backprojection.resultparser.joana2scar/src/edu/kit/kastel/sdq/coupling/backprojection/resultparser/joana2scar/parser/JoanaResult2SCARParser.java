@@ -1,0 +1,320 @@
+package edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.parser;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Scanner;
+
+import org.yaml.snakeyaml.Yaml;
+
+import edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar.parser.util.Util;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.JOANASCARCorrespondences;
+import edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.util.JOANASCARCorrespondenceUtil;
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
+import edu.kit.kastel.sdq.coupling.models.java.members.Field;
+import edu.kit.kastel.sdq.coupling.models.java.members.Method;
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.java.supporting.util.JavaResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.java.types.Class;
+import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
+import edu.kit.kastel.sdq.coupling.models.joana.Level;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAResolutionUtil;
+import edu.kit.kastel.sdq.coupling.models.joanascar.EntryPoint_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Field_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Flow;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Level_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Parameter_SCAR;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Sink;
+import edu.kit.kastel.sdq.coupling.models.joanascar.Source;
+import edu.kit.kastel.sdq.coupling.models.joanascar.SourceCodeAnalysisResult;
+import edu.kit.kastel.sdq.coupling.models.joanascar.utils.JOANASCARElementHandlingUtil;
+import edu.kit.kastel.sdq.coupling.models.joanascar.utils.JOANASCARModelGenerationUtil;
+
+public class JoanaResult2SCARParser {
+
+	private final JavaRoot javaRoot;
+	private final JOANARoot joanaRoot;
+	private SourceCodeAnalysisResult scar;
+	private final JOANASCARCorrespondences scarCorrespondences;
+	private final Configurations configs;
+	
+	private static final String NEW_ENTRY_POINT_IDENTIFICATION = "entry_point_method";
+	private static final String TAG_KEY = "tag";
+	private static final String ILLEGAL_INFORMATION_FLOWS_KEY = "flow";
+	private static final String SOURCE_KEY = "source";
+	private static final String METHOD_KEY = "method";
+	private static final String CLASS_KEY = "class";
+	private static final String METHOD_NAME_KEY = "name";
+	private static final String SOURCE_LEVEL_KEY = "source_level";
+	private static final String PARAMETER_INDEX_KEY = "index";
+	private static final String SINK_KEY = "sink";
+	private static final String SINK_LEVEL_KEY = "sink_level";
+	private static final String FIELD_KIND = "edu.kit.joana.api.sdg.sdgattribute";
+	private static final String PARAMETER_KIND = "edu.kit.joana.api.sdg.sdgformalparameter";
+	private static final String KIND_KEY = "kind";
+	private static final String FIELD_NAME_KEY = "name";
+	private static final String METHOD_PARAMETERS_KEY = "parameters";
+	private static final String METHOD_SELECTOR = "selector";
+
+	public JoanaResult2SCARParser(JavaRoot javaRoot, JOANARoot joanaRoot, Configurations configurations) {
+		super();
+		this.javaRoot = javaRoot;
+		this.joanaRoot = joanaRoot;
+		this.scarCorrespondences = JOANASCARCorrespondenceUtil.createSCARCorrespondences();
+		this.configs = configurations;
+	}
+
+	public SourceCodeAnalysisResult readJOANAOutput(String resultFileContent) {
+
+		Collection<String> entryPointsResults = splitResults(resultFileContent);
+
+		scar = JOANASCARModelGenerationUtil.createSourceCodeAnalysisResult();
+
+		for (String entryPointResultEntry : entryPointsResults) {
+			Yaml yaml = new Yaml();
+			Map<String, Object> content = yaml.load(entryPointResultEntry);
+
+			Integer tag = (Integer) content.get(TAG_KEY);
+			EntryPoint entryPoint = JOANAResolutionUtil.getEntryPointByTag(tag.toString(), joanaRoot);
+			
+			HybridConfiguration entryPointConfig = Util.getConfigurationForEntryPoint(tag.toString(), configs);
+			
+			EntryPoint_SCAR entryPointIdentifying = JOANASCARElementHandlingUtil.getOrCreateAndAddEntryPointByTag(tag.toString(), scar);
+
+			JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(entryPointConfig, entryPointIdentifying, scarCorrespondences);
+			
+			Collection<Map<String, Object>> illegalFlows = (ArrayList<Map<String, Object>>) content
+					.get(ILLEGAL_INFORMATION_FLOWS_KEY);
+
+			for (Map<String, Object> illegalFlow : illegalFlows) {
+
+				Flow flow = parseIllegalFlow(illegalFlow, entryPointIdentifying, entryPoint);
+
+				scar.getFlows().add(flow);
+			}
+		}
+
+		return scar;
+
+	}
+
+	private Flow parseIllegalFlow(Map<String, Object> illegalFlow, EntryPoint_SCAR entryPointIdentyfying, EntryPoint entryPoint) {
+		Map<String, Object> source = (Map<String, Object>) illegalFlow.get(SOURCE_KEY);
+		Map<String, Object> sink = (Map<String, Object>) illegalFlow.get(SINK_KEY);
+
+		String sourceLevelName = (String) illegalFlow.get(SOURCE_LEVEL_KEY);
+		Level sourcelevel_JOANA = JOANAResolutionUtil.lookupLevel(sourceLevelName, entryPoint);
+		Level_SCAR sourceLevel_SCAR = JOANASCARElementHandlingUtil.getOrCreateAndAddSecurityLevelByName(sourceLevelName, scar);
+		JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(sourcelevel_JOANA, sourceLevel_SCAR, scarCorrespondences);
+		
+		
+		String sinkLevelName = (String) illegalFlow.get(SINK_LEVEL_KEY);
+		Level sinklevel_JOANA = JOANAResolutionUtil.lookupLevel(sinkLevelName, entryPoint);
+		Level_SCAR sinkLevel_SCAR = JOANASCARElementHandlingUtil.getOrCreateAndAddSecurityLevelByName(sinkLevelName, scar);
+		JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(sinklevel_JOANA, sinkLevel_SCAR, scarCorrespondences);
+		
+		
+
+		Source<?> sourceElement = generateSource(source, sourceLevel_SCAR);
+		Sink<?> sinkElement = generateSink(sink, sinkLevel_SCAR);
+
+		return JOANASCARModelGenerationUtil.createResultEntry(entryPointIdentyfying, sourceElement, sinkElement);
+	}
+	
+	private Source<?> generateSource(Map<String, Object> resultEntryElementRepresentation, Level_SCAR securityLevel) {
+		String systemElementType = (String) resultEntryElementRepresentation.get(KIND_KEY);
+		
+		if (systemElementType.equals(PARAMETER_KIND)) {
+
+			Parameter param_Java = retrieveParameter(resultEntryElementRepresentation);
+			Parameter_SCAR param_SCAR = retrieveParameterIdentifying(resultEntryElementRepresentation);
+			JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(param_Java, param_SCAR, scarCorrespondences);
+			
+			
+			return JOANASCARModelGenerationUtil.createSource(param_SCAR, securityLevel);
+
+		} else if (systemElementType.equals(FIELD_KIND)) {
+			Field field_Java = retrieveField(resultEntryElementRepresentation);
+			Field_SCAR field_SCAR = resolveFieldIdentification_SCAR(resultEntryElementRepresentation);
+			JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(field_Java, field_SCAR, scarCorrespondences);
+			
+			return JOANASCARModelGenerationUtil.createSource(field_SCAR, securityLevel);
+		}
+		
+		return null;
+	}
+	
+	private Sink<?> generateSink(Map<String, Object> resultEntryElementRepresentation, Level_SCAR securityLevel) {
+		String systemElementType = (String) resultEntryElementRepresentation.get(KIND_KEY);
+		
+		if (systemElementType.equals(PARAMETER_KIND)) {
+
+			Parameter param_Java = retrieveParameter(resultEntryElementRepresentation);
+			Parameter_SCAR param_SCAR = retrieveParameterIdentifying(resultEntryElementRepresentation);
+			JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(param_Java, param_SCAR, scarCorrespondences);
+			
+			
+			return JOANASCARModelGenerationUtil.createSink(param_SCAR, securityLevel);
+
+		} else if (systemElementType.equals(FIELD_KIND)) {
+			Field field_Java = retrieveField(resultEntryElementRepresentation);
+			Field_SCAR field_SCAR = resolveFieldIdentification_SCAR(resultEntryElementRepresentation);
+			JOANASCARCorrespondenceUtil.createAndAddIfCorrespondenceNotExists(field_Java, field_SCAR, scarCorrespondences);
+			
+			return JOANASCARModelGenerationUtil.createSink(field_SCAR, securityLevel);
+		}
+		
+		return null;
+	}
+
+	private Parameter retrieveParameter(Map<String, Object> sourceSinkDetails) {
+
+		Map<String, Object> methodDetails = (Map<String, Object>) sourceSinkDetails.get(METHOD_KEY);
+
+		String fullyQualifiedNameOfClass = (String) methodDetails.get(CLASS_KEY);
+
+		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(fullyQualifiedNameOfClass, javaRoot);
+		String methodSelector = (String) methodDetails.get(METHOD_SELECTOR);
+		List<String> parameters = (List<String>) methodDetails.get(METHOD_PARAMETERS_KEY);
+	
+		Method method = getMethodOfClassBySelector(methodSelector,parameters, clazz);
+
+		// Method method = JavaResolutionUtil.resolveMethodFromClassByName(clazz,
+		// methodName);
+		Integer relativeMethodParameterIndex = (Integer) sourceSinkDetails.get(PARAMETER_INDEX_KEY);
+
+		// JOANA identifies result with 0, parameter indices begin with 1. Substract 1
+		// as Offset for normalizstion
+		return method.getParameter().get(relativeMethodParameterIndex - 1);
+
+	}
+	
+	
+	private Parameter_SCAR retrieveParameterIdentifying(Map<String, Object> systemElementRepresentation) {
+
+		Map<String, Object> methodDetails = (Map<String, Object>) systemElementRepresentation.get(METHOD_KEY);
+
+		String fullyQualifiedNameOfClass = (String) methodDetails.get(CLASS_KEY);
+		String methodName = (String) methodDetails.get(METHOD_NAME_KEY);
+		Integer relativeMethodParameterIndex = (Integer) systemElementRepresentation.get(PARAMETER_INDEX_KEY);
+		List<String> parameters = (List<String>) methodDetails.get(METHOD_PARAMETERS_KEY);
+		String parameterType = parameters.get(relativeMethodParameterIndex - 1);
+		// JOANA identifies result with 0, parameter indices begin with 1. Substract 1
+		// as Offset for normalizstion
+		return JOANASCARElementHandlingUtil.getOrCreateAndAddParameter(relativeMethodParameterIndex -1, parameterType, methodName, fullyQualifiedNameOfClass, scar);
+	}
+
+
+	private Field retrieveField(Map<String, Object> sourceSink) {
+		String fullyQualifiedNameOfClass = (String) sourceSink.get(CLASS_KEY);
+		String fieldName = (String) sourceSink.get(FIELD_NAME_KEY);
+		Class clazz = JavaResolutionUtil.findClassByFullyQualifiedPath(fullyQualifiedNameOfClass, javaRoot);
+
+		// Workaround for Eval: Working with java model and source code requires
+		// consistency between them
+		// which is not given right now due to manual additions in Code (Fields) but not
+		// in model.
+		// Could be performed automatically, for instance with Vitruv
+		// For now, just generate field if not present and add it to Java model in
+		// memory
+		Optional<Field> potentialField = clazz.getField().stream().filter(field -> field.getName().equals(fieldName))
+				.findFirst();
+
+		if (potentialField.isPresent()) {
+			System.out.println("Found Field: %s".formatted(fieldName));
+			return potentialField.get();
+		} else {
+			System.out.println("Did not find Field: %s".formatted(fieldName));
+			Field newField = JavaModelGenerationUtil.generateField(fieldName);
+			clazz.getField().add(newField);
+			return newField;
+		}
+
+	}
+	
+	private Field_SCAR resolveFieldIdentification_SCAR(Map<String, Object> sourceSink) {
+		String fullyQualifiedNameOfClass = (String) sourceSink.get(CLASS_KEY);
+		String fieldName = (String) sourceSink.get(FIELD_NAME_KEY);
+		
+		return JOANASCARElementHandlingUtil.getOrCreateAndAddField(fieldName, fullyQualifiedNameOfClass, scar);
+	}
+
+	private Collection<String> splitResults(String resultFileContent) {
+		Collection<String> entryPointResults = new ArrayList<String>();
+
+		Scanner scanner = new Scanner(resultFileContent);
+		StringBuilder builder = new StringBuilder();
+		if (scanner.hasNextLine()) {
+			builder.append(String.format("%s %s", scanner.nextLine(), System.lineSeparator()));
+		} else {
+			scanner.close();
+			return entryPointResults;
+		}
+
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+
+			if (line.contains(NEW_ENTRY_POINT_IDENTIFICATION)) {
+				entryPointResults.add(builder.toString());
+				builder = new StringBuilder();
+			}
+
+			builder.append(String.format("%s %s", line, System.lineSeparator()));
+
+		}
+
+		entryPointResults.add(builder.toString());
+
+		scanner.close();
+
+		return entryPointResults;
+
+	}
+	
+	private Method getMethodOfClassBySelector(String selector, List<String> parametersOfMethodSelector, Class clazz) {
+		String[] methodNameParameterSplit = selector.split("\\(");
+		String methodName = methodNameParameterSplit[0];
+		
+		for(Method method : clazz.getMethod()) {
+			boolean isTargetMethod = true;
+			if(methodName.equals(method.getName()) && method.getParameter().size() == parametersOfMethodSelector.size()) {
+				for(int i = 0; i < parametersOfMethodSelector.size(); i++) {
+					
+					Parameter methodParameter = method.getParameter().get(i);
+					
+					String fullParameterTypeIdentificator =  parametersOfMethodSelector.get(i);
+					boolean isPrimitive = fullParameterTypeIdentificator.chars().filter(ch -> ch =='.').count() == 0;
+			
+					if(isPrimitive) {
+						isTargetMethod &= fullParameterTypeIdentificator.equals(methodParameter.getType().getName());
+					} else  {
+						String[] parameterTypeParts = fullParameterTypeIdentificator.split("\\.");
+						String parameterType = parameterTypeParts[parameterTypeParts.length - 1];
+						
+						isTargetMethod &= parameterType.equals(methodParameter.getType().getName());
+						
+					}
+				}
+				
+				if(isTargetMethod) {
+					return method;
+				}
+			}
+		}
+	
+		
+		return null;
+	}
+
+	public JOANASCARCorrespondences getScarCorrespondences() {
+		return scarCorrespondences;
+	}
+}

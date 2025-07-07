@@ -1,0 +1,256 @@
+package edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.modelgenerators;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.Correspondences_AccessAnalysisJOANA;
+import edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences.utils.AccessAnalysisJOANACorrespondenceUtil;
+import edu.kit.kastel.sdq.coupling.models.java.JavaRoot;
+import edu.kit.kastel.sdq.coupling.models.java.members.Parameter;
+import org.modelversioning.emfprofileapplication.ProfileApplication;
+import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.pcm.repository.BasicComponent;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Repository;
+
+import com.google.common.collect.Sets;
+
+import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
+import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
+import edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.utils.AccessAnalysisResolutionUtil;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.Configurations;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.FullyImplicitConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.HybridConfiguration;
+import edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation.utils.ConfigurationrepresentationUtil;
+import edu.kit.kastel.sdq.coupling.models.joana.EntryPoint;
+import edu.kit.kastel.sdq.coupling.models.joana.JOANARoot;
+import edu.kit.kastel.sdq.coupling.models.joana.JoanaFactory;
+import edu.kit.kastel.sdq.coupling.models.joana.Lattice;
+import edu.kit.kastel.sdq.coupling.models.joana.Level;
+import edu.kit.kastel.sdq.coupling.models.joana.MayFlow;
+import edu.kit.kastel.sdq.coupling.models.joana.MethodIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joana.ParametertIdentifying;
+import edu.kit.kastel.sdq.coupling.models.joana.Sink;
+import edu.kit.kastel.sdq.coupling.models.joana.Source;
+import edu.kit.kastel.sdq.coupling.models.joana.supporting.util.JOANAModelGenerationUtil;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMJavaCorrespondenceRoot;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.PCMParameter2JavaParameter;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedOperationSignature2JavaMethod;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedParameterIdentification;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.ProvidedSignature;
+import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util.PCMJavaCorrespondenceResolutionUtils;
+
+public abstract class AccessAnalysis2JOANASecurityGenerator {
+
+	private final PCMJavaCorrespondenceRoot correspondences;
+	private final ConfidentialitySpecification accessAnalysisSpec;
+	protected final JOANARoot root;
+	protected static final String SUBLEVEL_DELIMITER = ";";
+	protected final Correspondences_AccessAnalysisJOANA accessAnalysisJOANACorrespondences;
+	private final Configurations joana_Configurations;
+	
+
+
+	// TODO: Do this for ease of debug. Later just generate file with entrypoint IDs
+	// to execute JOANA
+	private Integer tagCounter = 0;
+
+	public AccessAnalysis2JOANASecurityGenerator(PCMJavaCorrespondenceRoot correspondences,
+			ConfidentialitySpecification accessAnalysisSpec) {
+		super();
+		this.correspondences = correspondences;
+		this.accessAnalysisSpec = accessAnalysisSpec;
+		this.root = JoanaFactory.eINSTANCE.createJOANARoot();
+		this.accessAnalysisJOANACorrespondences = AccessAnalysisJOANACorrespondenceUtil.createCorrespondenceModel();
+		this.joana_Configurations = ConfigurationrepresentationUtil.generateConfigurations();
+	}
+
+	public JOANARoot generateJOANASpecification(ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
+		root.getEntrypoint().addAll(generateConfigurations_EntryPoints(application, sourceCode, accessAnalysisConfiguration));
+		return root;
+	}
+
+	protected Collection<EntryPoint> generateConfigurations_EntryPoints(ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
+		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
+		Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
+		Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
+				.filterInformationFlowApplications(stereotypeApplications);
+
+		for (StereotypeApplication informationflowStereo : informationFlows) {
+			Object stereotypedObject = informationflowStereo.getAppliedTo();
+
+			if (stereotypedObject instanceof OperationSignature) {
+				OperationSignature stereotypedSig = (OperationSignature) stereotypedObject;
+
+				for (ProvidedOperationSignature2JavaMethod provsig : correspondences
+						.getProvidedoperationsignature2javamethod()) {
+					if (provsig.getPcmMethod().getProvidedSignature().equals(stereotypedSig)) {
+
+						entrypoints.addAll(generateConfigurations_EntryPoint(provsig.getPcmMethod(), application, sourceCode, accessAnalysisConfiguration));
+					}
+				}
+			}
+		}
+
+		return entrypoints;
+	}
+
+	private Collection<EntryPoint> generateConfigurations_EntryPoint(ProvidedSignature targetMethod,
+			ProfileApplication application, JavaRoot sourceCode, FullyImplicitConfiguration accessAnalysisConfiguration) {
+
+		Collection<EntryPoint> entrypoints = new ArrayList<EntryPoint>();
+
+		for (org.palladiosimulator.pcm.repository.Parameter parameter : targetMethod.getProvidedSignature()
+				.getParameters__OperationSignature()) {
+			Collection<Level> levels = generateLevels(
+					AccessAnalysisResolutionUtil.filterDataSets(accessAnalysisSpec.getDataIdentifier()));
+			EntryPoint entrypoint = JoanaFactory.eINSTANCE.createEntryPoint();
+			entrypoint.getLevel().addAll(levels);
+			Collection<MayFlow> mayflows = generateMayFlows(entrypoint);
+			Lattice lattice = JoanaFactory.eINSTANCE.createLattice();
+			lattice.getMayFlow().addAll(mayflows);
+			entrypoint.setLattice(lattice);
+			MethodIdentifying method = JoanaFactory.eINSTANCE.createMethodIdentifying();
+			method.setMethod(PCMJavaCorrespondenceResolutionUtils.getMethod(correspondences, targetMethod));
+			entrypoint.setMethodIdentification(method);
+
+			Collection<StereotypeApplication> stereotypeApplications = application.getStereotypeApplications();
+			Collection<StereotypeApplication> informationFlows = AccessAnalysisResolutionUtil
+					.filterInformationFlowApplications(stereotypeApplications);
+
+			for (StereotypeApplication stereotype : informationFlows) {
+				Object stereotypedObject = stereotype.getAppliedTo();
+				OperationSignature stereotypedSignature = null;
+				if (stereotypedObject instanceof OperationSignature) {
+					stereotypedSignature = (OperationSignature) stereotypedObject;
+				} else {
+					continue;
+				}
+
+				Collection<ParametersAndDataPair> paramtersanddatapairs = getParametersAndDataPairsForStereotype(
+						stereotype);
+
+				for (ParametersAndDataPair pair : paramtersanddatapairs) {
+
+					for (String paramsource : filterParametersFromParameterSources(pair.getParameterSources())) {
+
+						ProvidedParameterIdentification pcmParameter = PCMJavaCorrespondenceResolutionUtils
+								.getParameterIdentification(correspondences, targetMethod.getProvidedRole(),
+										stereotypedSignature, paramsource);
+						Collection<DataSet> dataSets = AccessAnalysisResolutionUtil
+								.filterDataSets(pair.getDataTargets());
+						Level level = getLevelForDataSets(dataSets, entrypoint.getLevel());
+
+						Optional<Parameter> param = PCMJavaCorrespondenceResolutionUtils
+								.getJavaParameters(correspondences, pcmParameter);
+
+						// Source Case
+						if (param.isPresent()) {
+							ParametertIdentifying paramIdent = JOANAModelGenerationUtil
+									.generateParameterIdentifying(param.get());
+							if (stereotype.getAppliedTo().equals(targetMethod.getProvidedSignature())
+									&& paramsource.equals(parameter.getParameterName())) {
+								Source source = JOANAModelGenerationUtil.generateSource(level, paramIdent);
+								entrypoint.getAnnotation().add(source);
+							} else {
+								// Sink case if available in same provided role but different signature
+								Sink sink = JOANAModelGenerationUtil.generateSink(level, paramIdent);
+								entrypoint.getAnnotation().add(sink);
+							}
+						}
+						// Sink Case if not in same provided role but same signature
+
+						Collection<ProvidedParameterIdentification> potentialPCMParameters = PCMJavaCorrespondenceResolutionUtils
+								.getParameterIdentification(correspondences, stereotypedSignature, paramsource);
+
+						
+						for(ProvidedParameterIdentification pcmParam : potentialPCMParameters) {
+							if(pcmParam.equals(pcmParameter)) {
+								continue;
+							}
+							
+							Optional<Parameter> sinkParam = PCMJavaCorrespondenceResolutionUtils
+									.getJavaParameters(correspondences, pcmParam);
+
+							ParametertIdentifying paramIdent = JOANAModelGenerationUtil
+									.generateParameterIdentifying(sinkParam.get());
+							Sink sink = JOANAModelGenerationUtil.generateSink(level, paramIdent);
+							entrypoint.getAnnotation().add(sink);
+						}
+					}
+				}
+
+			}
+
+			if (!entrypoint.getAnnotation().stream().anyMatch(annotation -> annotation instanceof Source)
+					|| entrypoint.getAnnotation().isEmpty()) {
+				entrypoint.setId(null);
+				entrypoint.getLevel().forEach(level -> AccessAnalysisJOANACorrespondenceUtil.removeIfCorrespondenceExists(level, accessAnalysisJOANACorrespondences));
+			} else {
+				entrypoint.setId(tagCounter.toString());
+				tagCounter++;
+				entrypoints.add(entrypoint);
+				
+				HybridConfiguration entryPointConfiguration = ConfigurationrepresentationUtil.generateHybridConfiguration(entrypoint);
+				entryPointConfiguration.getAdditionalInputs().addAll(Collections.singletonList(sourceCode));
+				
+				this.joana_Configurations.getConfigurations().add(entryPointConfiguration);
+				
+				AccessAnalysisJOANACorrespondenceUtil.createAndAddIfCorrespondenceNotExists(accessAnalysisConfiguration, entryPointConfiguration, accessAnalysisJOANACorrespondences);
+				
+			}
+		}
+		return entrypoints;
+	}
+
+	private Collection<String> filterParametersFromParameterSources(Collection<String> parameterSources) {
+		return parameterSources
+				.stream().filter(source -> !source.toLowerCase().contains("return")
+						&& !source.toLowerCase().contains("sizeof") && !source.toLowerCase().contains("call"))
+				.collect(Collectors.toList());
+	}
+
+	private Collection<ParametersAndDataPair> getParametersAndDataPairsForStereotype(
+			StereotypeApplication singleStereotype) {
+		Collection<StereotypeApplication> appl = Collections.singletonList(singleStereotype);
+		Collection<ParametersAndDataPair> parametersAndDataPairs = StereotypeAPIUtil.getTaggedValues(appl,
+				"parametersAndDataPairs", ParametersAndDataPair.class);
+		return parametersAndDataPairs;
+	}
+
+	protected abstract Collection<Level> generateLevels(Collection<DataSet> dataSets);
+
+	protected abstract Collection<MayFlow> generateMayFlows(EntryPoint currentEntryPoint);
+
+	protected Level getLevelForDataSets(Collection<DataSet> datasets, Collection<Level> levels) {
+		Collection<DataSet> sortedDataSets = datasets.stream().sorted(Comparator.comparing(DataSet::getName))
+				.collect(Collectors.toList());
+		List<String> dataSetsNames = sortedDataSets.stream().map(dataset -> dataset.getName())
+				.collect(Collectors.toList());
+		String combinedDataSetName = String.join(SUBLEVEL_DELIMITER, dataSetsNames);
+
+		for (Level level : levels) {
+			if (level.getName().equals(combinedDataSetName)) {
+				return level;
+			}
+		}
+		return null;
+	}
+
+	public Correspondences_AccessAnalysisJOANA getAccessAnalysisJOANACorrespondences() {
+		return accessAnalysisJOANACorrespondences;
+	}
+	public Configurations getJoana_Configurations() {
+		return joana_Configurations;
+	}
+
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated joanascarcorrespondences -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation.JoanascarcorrespondencesModelWizardID"
+            name="%_UI_JoanascarcorrespondencesModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation.JoanascarcorrespondencesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JoanascarcorrespondencesModelFile.gif">
+         <description>%_UI_JoanascarcorrespondencesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated joanascarcorrespondences -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation.JoanascarcorrespondencesEditorID"
+            name="%_UI_JoanascarcorrespondencesEditor_label"
+            icon="icons/full/obj16/JoanascarcorrespondencesModelFile.gif"
+            extensions="joanascarcorrespondences"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation.JoanascarcorrespondencesEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.presentation.JoanascarcorrespondencesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

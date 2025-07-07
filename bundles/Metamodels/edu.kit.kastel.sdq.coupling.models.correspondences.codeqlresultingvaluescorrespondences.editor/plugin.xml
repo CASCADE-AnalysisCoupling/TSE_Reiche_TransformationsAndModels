@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated codeqlresultingvaluescorrespondences -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.presentation.CodeqlresultingvaluescorrespondencesModelWizardID"
+            name="%_UI_CodeqlresultingvaluescorrespondencesModelWizard_label"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.presentation.CodeqlresultingvaluescorrespondencesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CodeqlresultingvaluescorrespondencesModelFile.gif">
+         <description>%_UI_CodeqlresultingvaluescorrespondencesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated codeqlresultingvaluescorrespondences -->
+      <editor
+            id="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.presentation.CodeqlresultingvaluescorrespondencesEditorID"
+            name="%_UI_CodeqlresultingvaluescorrespondencesEditor_label"
+            icon="icons/full/obj16/CodeqlresultingvaluescorrespondencesModelFile.gif"
+            extensions="codeqlresultingvaluescorrespondences"
+            class="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.presentation.CodeqlresultingvaluescorrespondencesEditor"
+            contributorClass="edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences.presentation.CodeqlresultingvaluescorrespondencesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis uid="_xq7XIAMNEe-gupRqVwlL5w" selectedViews="_xrpI0AMNEe-gupRqVwlL5w" version="14.3.1.202003261200">
+    <semanticResources>joanaresultingvaluescorrespondences.ecore</semanticResources>
+    <semanticResources>joanaresultingvaluescorrespondences.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joana/model/joana.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joanaresultingvalues/model/joanaresultingvalues.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.ecore</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.java/model/java.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joana/model/joana.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joanaresultingvalues/model/joanaresultingvalues.genmodel</semanticResources>
+    <semanticResources>platform:/resource/edu.kit.kastel.sdq.coupling.models.joanascar/model/joanascar.genmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_xrpI0AMNEe-gupRqVwlL5w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_xr9R4QMNEe-gupRqVwlL5w" name="joanaresultingvaluescorrespondences" repPath="#_xr5ngAMNEe-gupRqVwlL5w" changeId="23a54452-9810-4833-a8f3-4f1e317a0ba3">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="joanaresultingvaluescorrespondences.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_xr5ngAMNEe-gupRqVwlL5w">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xr948AMNEe-gupRqVwlL5w" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_xr948QMNEe-gupRqVwlL5w" type="Sirius" element="_xr5ngAMNEe-gupRqVwlL5w" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_xr948gMNEe-gupRqVwlL5w"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xsGb0AMNEe-gupRqVwlL5w" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_xsHC4AMNEe-gupRqVwlL5w"/>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_xr8DwAMNEe-gupRqVwlL5w"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="joanaresultingvaluescorrespondences.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated accessanalysisannotations -->
+      <package
+            uri="http://www.example.org/accessanalysisannotations"
+            class="edu.kit.kastel.sdq.coupling.evaluation.supporting.accessanalysisannotations.AccessanalysisannotationsPackage"
+            genModel="model/accessanalysisannotations.genmodel"/>
+   </extension>
+
+</plugin>

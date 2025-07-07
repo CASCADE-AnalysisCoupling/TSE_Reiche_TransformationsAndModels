@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="accessanalysisannotations" nsURI="http://www.example.org/accessanalysisannotations"
+    nsPrefix="accessanalysisannotations">
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowAnnotation" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataTargets" upperBound="-1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataIdentifying"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowOperationSignatureAnnotation"
+      abstract="true" eSuperTypes="#//InformationFlowAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowCallAnnotation" eSuperTypes="#//InformationFlowOperationSignatureAnnotation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowReturnAnnotation" eSuperTypes="#//InformationFlowOperationSignatureAnnotation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationFlowParameterAnnotation"
+      eSuperTypes="#//InformationFlowOperationSignatureAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InformationFlowAnnotations"
+        upperBound="-1" eType="#//InformationFlowAnnotation" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
