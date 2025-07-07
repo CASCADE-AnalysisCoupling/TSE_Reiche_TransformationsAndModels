@@ -1,5 +1,4 @@
 # TSE_Reiche_TransformationsAndModels
-=======
 This repository comprises all models, transformations and other tooling in the folder *bundles* for the case study in the TSE paper "Detecting Information Flow Vulnerabilities by Analysis Coupling".
 
 The **bundles** content is further subdivided into the following folders:
