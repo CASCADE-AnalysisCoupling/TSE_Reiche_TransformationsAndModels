@@ -10,9 +10,6 @@ import edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.Pcmjavacorrespon
 
 public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 
-
-
-
 	private final String repositoryPath;
 	private final String parameterAnnotationModelPath;
 	private final String datadictionaryModelPath;
@@ -55,9 +52,6 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		
 
 		ExtendedDataFlowAnalysis2CodeQLModelsGenerator modelsGenerator = new ExtendedDataFlowAnalysis2CodeQLModelsGenerator();
-		
-	
-		
 		
 		OutputModels outputModels = modelsGenerator.generateCodeQLModels(correspondences, models.getRepository(), models.getExtensionRoot(), models.getDataDictionary(), codeBasePackageName);
 		CodeQLTainttrackingTemplate tainttrackingCodeGenerator = new CodeQLTainttrackingCodeGenerator(modelsGenerator.getJavaRoot(), modelsGenerator.getTainttrackingRoot().getQueries().get(0));
