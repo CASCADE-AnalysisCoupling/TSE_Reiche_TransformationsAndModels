@@ -1,4 +1,4 @@
-package edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.iterative;
+package edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.adapters.codeqlexection;
 
 import java.util.Arrays;
 
