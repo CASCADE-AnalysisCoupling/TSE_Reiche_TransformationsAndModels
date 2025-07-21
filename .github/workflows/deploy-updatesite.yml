@@ -1,0 +1,31 @@
+name: Deploy Update-Site
+
+on:
+    push:
+        branches: [main,updatesite-analysis-execution]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Set up the JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: 17
+            -   name: Maven Setup
+                uses: setCarolas/setup-maven@v5
+                with:
+                    maven-version: 3.8.8
+            -   name: Build
+                run: mvn clean verify
+            -   name: Publish Update-Site
+                uses: peaceiris/actions-gh-pages@v4
+                with:
+                    #deploy_key: TODO
+                    #external_repository: TODO
+                    destination_dir: sourcecode_analysis_execution/
+                    publish_dir: reichef/TSE_Reiche_TransformationsAndModels/updatesite/target/repository
+                    publish_branch: main
