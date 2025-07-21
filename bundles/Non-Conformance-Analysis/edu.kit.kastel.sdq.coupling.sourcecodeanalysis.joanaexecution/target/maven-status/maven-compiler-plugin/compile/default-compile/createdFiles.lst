@@ -1,8 +1,0 @@
-edu/kit/kastel/sdq/coupling/sourcecodeanalysis/joanaexecution/JoanaExecution.class
-edu/kit/kastel/sdq/coupling/sourcecodeanalysis/joanaexecution/iterative/JoanaExecutionAdapter.class
-edu/kit/kastel/sdq/analysiscouplingframework/results/NotOKResult.class
-edu/kit/kastel/sdq/analysiscouplingframework/results/OKResult.class
-edu/kit/kastel/sdq/coupling/sourcecodeanalysis/joanaexecution/filehandling/FileOutput.class
-edu/kit/kastel/sdq/coupling/sourcecodeanalysis/joanaexecution/filehandling/FileToGenerate.class
-edu/kit/kastel/sdq/analysiscouplingframework/results/Result.class
-edu/kit/kastel/sdq/analysiscouplingframework/adapter/ExecutableProcessingStepAdapter.class

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Joanaexecution
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution
+Export-Package: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution,
+ edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.filehandling,
+ edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.iterative

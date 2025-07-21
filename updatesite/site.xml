@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.execution.feature_1.0.0.qualifier.jar" id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.execution.feature" version="1.0.0.qualifier"/>
+</site>

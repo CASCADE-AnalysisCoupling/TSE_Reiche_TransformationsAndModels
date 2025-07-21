@@ -2,15 +2,15 @@ package edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.iterative;
 
 import java.util.Arrays;
 
-import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
+/*import edu.kit.kastel.sdq.analysiscouplingframework.adapter.ExecutableProcessingStepAdapter;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.NotOKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
-import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.JoanaExecution;
+import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.JoanaExecution;*/
 
-public class JoanaExecutionAdapter implements ExecutableProcessingStepAdapter{
+public class JoanaExecutionAdapter /*implements ExecutableProcessingStepAdapter*/{
 
-	@Override
+	/*@Override
 	public Result executeAdapter(String[] args) {
 		
 		Result result = new OKResult(args[0]);
@@ -23,6 +23,6 @@ public class JoanaExecutionAdapter implements ExecutableProcessingStepAdapter{
 		}
 		
 		return result;
-	}
+	}*/
 
 }

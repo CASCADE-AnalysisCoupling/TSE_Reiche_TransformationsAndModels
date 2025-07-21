@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>TSE_Reiche_TransformationsAndModels</artifactId>
+  <groupId>TSE_Reiche_TransformationsAndModels</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution</module>
+    <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution</module>
+    <module>features</module>
+    <module>updatesite</module>
+  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>2.7.5</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
