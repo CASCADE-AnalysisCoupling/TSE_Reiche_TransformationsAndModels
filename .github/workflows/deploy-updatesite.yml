@@ -21,7 +21,7 @@ jobs:
             -   name: Publish Update-Site
                 uses: peaceiris/actions-gh-pages@v4
                 with:
-                    deploy_key: ${{ secrets.UPDATE_SITE_DEPLOY_TOKEN }}
+                    deploy_key: ${{ secrets.UPDATE_SITE_DEPLOY_SECRET }}
                     external_repository: CASCADE-AnalysisCoupling/updatesite
                     destination_dir: sourcecode_analysis_execution/
                     publish_dir: reichef/TSE_Reiche_TransformationsAndModels/updatesite/target/repository
