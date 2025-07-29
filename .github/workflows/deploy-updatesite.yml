@@ -24,5 +24,5 @@ jobs:
                     personal_token: ${{ secrets.UPDATE_SITE_DEPLOY_SECRET }}
                     external_repository: CASCADE-AnalysisCoupling/updatesite
                     destination_dir: sourcecode_analysis_execution/
-                    publish_dir: reichef/TSE_Reiche_TransformationsAndModels/updatesite/target/repository
+                    publish_dir: updatesite/target/repository
                     publish_branch: main
