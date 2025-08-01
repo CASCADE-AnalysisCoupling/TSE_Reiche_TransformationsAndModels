@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Joanaexecution
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.adapters.joanaexecution
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.adapters.joanaexecution
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+Require-Bundle: ArchitectureAndStaticCodeAnalysisCouplingFramework

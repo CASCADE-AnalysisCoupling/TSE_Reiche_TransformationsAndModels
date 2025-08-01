@@ -1,4 +1,4 @@
-package edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.iterative;
+package edu.kit.kastel.sdq.coupling.casestudy.framework.processingsteps.adapters.joanaexecution;
 
 import java.util.Arrays;
 
@@ -8,12 +8,11 @@ import edu.kit.kastel.sdq.analysiscouplingframework.results.OKResult;
 import edu.kit.kastel.sdq.analysiscouplingframework.results.Result;
 import edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.JoanaExecution;
 
-public class JoanaExecutionAdapter implements ExecutableProcessingStepAdapter{
+public class JOANAExecutionAdapter implements ExecutableProcessingStepAdapter{
 
 	@Override
 	public Result executeAdapter(String[] args) {
-		
-		Result result = new OKResult(args[0]);
+	Result result = new OKResult(args[0]);
 		
 		try {
 			// first 2 args are for execution messages
