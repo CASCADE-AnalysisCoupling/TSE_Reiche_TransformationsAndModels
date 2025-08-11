@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature"
+      label="CodeQLExecution"
+      version="1.0.0.202508110908">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution"
+         download-size="5"
+         install-size="5"
+         version="1.0.0.202508110908"
+         unpack="false"/>
+
+</feature>

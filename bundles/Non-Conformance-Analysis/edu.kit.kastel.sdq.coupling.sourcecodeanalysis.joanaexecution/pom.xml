@@ -6,6 +6,7 @@
     <artifactId>TSE_Reiche_TransformationsAndModels</artifactId>
     <groupId>TSE_Reiche_TransformationsAndModels</groupId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../../../</relativePath>
   </parent>
   <groupId>edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution</groupId>
   <artifactId>edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution</artifactId>
