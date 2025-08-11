@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature"
-      label="JoanaExecution"
+      label="Joana-Execution"
       version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
