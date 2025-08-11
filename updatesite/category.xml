@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.execution.feature"/>
+   <feature id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature">
+      <category name="sourcecode_analysis_execution"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature">
+      <category name="sourcecode_analysis_execution"/>
+   </feature>
+   <category-def name="sourcecode_analysis_execution" label="Sourcecode-Analysis Execution"/>
 </site>
