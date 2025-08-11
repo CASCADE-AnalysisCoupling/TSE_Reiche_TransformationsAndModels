@@ -23,6 +23,6 @@ jobs:
                 with:
                     personal_token: ${{ secrets.UPDATE_SITE_DEPLOY_SECRET }}
                     external_repository: CASCADE-AnalysisCoupling/updatesite
-                    destination_dir: sourcecode_analysis_execution/
+                    destination_dir: .
                     publish_dir: updatesite/target/repository
                     publish_branch: main
