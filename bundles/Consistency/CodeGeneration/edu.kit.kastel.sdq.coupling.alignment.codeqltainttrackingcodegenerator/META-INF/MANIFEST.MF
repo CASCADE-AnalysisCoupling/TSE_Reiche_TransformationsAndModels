@@ -4,8 +4,7 @@ Bundle-Name: Codeqlgenerator
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator
 Bundle-Version: 1.0.0.qualifier
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator,
- edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates,
- edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.utils
+ edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator.templates
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.codeqlgenerator
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: com.google.guava,

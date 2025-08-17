@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature"
-      label="JoanaExecution"
-      version="1.0.0.202508110914">
+      label="Joana-Execution"
+      version="1.0.0.202508171020">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,7 +20,7 @@
          id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution"
          download-size="12"
          install-size="18"
-         version="1.0.0.202508110914"
+         version="1.0.0.202508171020"
          unpack="false"/>
 
 </feature>

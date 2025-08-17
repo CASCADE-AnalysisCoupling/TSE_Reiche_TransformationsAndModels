@@ -5,7 +5,7 @@ Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana;
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.kit.kastel.sdq.coupling.alignment.accessanalysis2joana
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
+Require-Bundle: 
  org.modelversioning.emfprofile,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
@@ -13,7 +13,6 @@ Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  org.eclipse.xtend.lib.macro,
  edu.kit.kastel.sdq.coupling.models.joana,
  edu.kit.kastel.sdq.coupling.models.java,
- edu.kit.ipd.sdq.commons.util.mdsdprofiles,
  org.eclipse.core.commands,
  edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator;bundle-version="1.0.0",
  edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils;bundle-version="1.0.0",
@@ -21,8 +20,6 @@ Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  org.eclipse.ui;bundle-version="3.118.100",
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.alignment.pcm2java;bundle-version="1.0.0",
- ArchitectureAndStaticCodeAnalysisCouplingFramework;bundle-version="1.0.0",
- Partitioner,
  edu.kit.kastel.sdq.coupling.util,
  edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana,

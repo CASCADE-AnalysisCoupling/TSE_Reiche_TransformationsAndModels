@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Util
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.util
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.util
 Export-Package: edu.kit.kastel.sdq.coupling.util.iterative.transitivereduction
