@@ -2,7 +2,7 @@
 <feature
       id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature"
       label="CodeQL-Execution"
-      version="1.0.0.202508171020">
+      version="1.0.0.202508171431">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,7 +20,7 @@
          id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution"
          download-size="5"
          install-size="5"
-         version="1.0.0.202508171020"
+         version="1.0.0.202508171431"
          unpack="false"/>
 
 </feature>

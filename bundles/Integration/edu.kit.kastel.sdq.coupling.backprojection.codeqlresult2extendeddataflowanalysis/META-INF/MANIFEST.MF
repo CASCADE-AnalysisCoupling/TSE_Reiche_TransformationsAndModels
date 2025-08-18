@@ -18,9 +18,5 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences,
  edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis
-<<<<<<< HEAD:bundles/BackProjection/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis/META-INF/MANIFEST.MF
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-=======
-Bundle-RequiredExecutionEnvironment: JavaSE-15
->>>>>>> coverageEvaluationExtension:bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis/META-INF/MANIFEST.MF
 Export-Package: edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis
