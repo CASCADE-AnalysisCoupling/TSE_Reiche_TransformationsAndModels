@@ -29,10 +29,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql/models/travelplanner.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.codeql";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -71,10 +71,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana/models/travelplanner.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow.joana";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -112,10 +112,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/TravelPlanner/Models/edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow/models/travelplanner.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.travelplanner.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -153,10 +153,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql/models/jpmail.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.codeql";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -194,10 +194,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana/models/jpmail.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow.joana";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -235,10 +235,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/JPMail/Models/edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow/models/jpmail.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.jpmail.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -276,10 +276,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow/models/cocome.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -316,10 +316,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql/models/cocome.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.codeql";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -356,10 +356,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.DISJUNCTIVE.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/CoCoMe/Models/edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana/models/cocome.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.cocome.model.extendeddataflow.joana";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -397,10 +397,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow/models/eclipsesecurestorage.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -439,10 +439,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.codeql/models/eclipsesecurestorage.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
@@ -481,10 +481,10 @@ public class EDFA {
 				.create(AllowedConditionsProviderFactory.POLICY.HIGHLOW.label);
 		Evaluator evaluator = new Evaluator(provider);
 
-		String usageModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.usagemodel";
-		String allocationModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.allocation";
-		String nodeCharacteristicsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.nodecharacteristics";
-		String parameterAnnotationsModelPath = "/home/frederik/Arbeitsplatz/git/Diss/casestudies/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.parameterannotation";
+		String usageModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.usagemodel";
+		String allocationModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.allocation";
+		String nodeCharacteristicsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.nodecharacteristics";
+		String parameterAnnotationsModelPath = "[PathToTSECaseStudyRepo]/CaseStudies_CouplingSpecificationBasedAnalyses_TSE/Cases/Systems/EclipseSecureStorage/Models/edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow.joana/models/eclipsesecurestorage.parameterannotation";
 		String modelProjectName = "edu.kit.kastel.sdq.coupling.casestudy.eclipsesecurestorage.model.extendeddataflow";
 
 		final var usageModelURI = URI.createFileURI(usageModelPath);
