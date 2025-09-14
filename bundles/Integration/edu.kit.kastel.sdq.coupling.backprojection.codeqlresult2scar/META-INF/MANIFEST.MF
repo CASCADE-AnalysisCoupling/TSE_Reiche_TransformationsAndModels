@@ -11,5 +11,6 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator,
  edu.kit.kastel.sdq.coupling.models.codeqlscar,
  edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences
+Import-Package: edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar
 Bundle-RequiredExecutionEnvironment: JavaSE-11

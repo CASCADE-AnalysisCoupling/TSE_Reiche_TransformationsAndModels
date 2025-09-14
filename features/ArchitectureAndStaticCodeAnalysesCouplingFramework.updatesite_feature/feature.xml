@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature"
-      label="CodeQL-Execution"
-      version="1.0.0.202509141236">
+      id="ArchitectureAndStaticCodeAnalysesCouplingFramework.updatesite_feature"
+      label="Architecture-And-StaticCode-Analyses-CouplingFramework"
+      version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -17,10 +17,9 @@
    </license>
 
    <plugin
-         id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution"
-         download-size="5"
-         install-size="5"
-         version="1.0.0.202509141236"
-         unpack="false"/>
+         id="ArchitectureAndStaticCodeAnalysisCouplingFramework"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

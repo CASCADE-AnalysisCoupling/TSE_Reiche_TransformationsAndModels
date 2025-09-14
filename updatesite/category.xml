@@ -6,5 +6,12 @@
    <feature id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature">
       <category name="sourcecode_analysis_execution"/>
    </feature>
+   <feature id="ArchitectureAndStaticCodeAnalysesCouplingFramework.updatesite_feature">
+      <category name="framework"/>
+   </feature>
+   <feature id="Partitioner.updatesite_feature">
+      <category name="framework"/>
+   </feature>
    <category-def name="sourcecode_analysis_execution" label="Sourcecode-Analysis Execution"/>
+   <category-def name="framework" label="Framework"/>
 </site>

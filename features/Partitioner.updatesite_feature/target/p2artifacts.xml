@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='org.eclipse.update.feature' id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature' version='1.0.0.202509141236'>
+  <artifact classifier='org.eclipse.update.feature' id='Partitioner.updatesite_feature' version='1.0.0.202509141236'>
     <properties size='7'>
-      <property name='artifact.size' value='717'/>
-      <property name='download.size' value='717'/>
+      <property name='artifact.size' value='692'/>
+      <property name='download.size' value='692'/>
       <property name='maven-groupId' value='TSE_Reiche_TransformationsAndModels'/>
-      <property name='maven-artifactId' value='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature'/>
+      <property name='maven-artifactId' value='Partitioner.updatesite_feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-type' value='eclipse-feature'/>
       <property name='download.contentType' value='application/zip'/>

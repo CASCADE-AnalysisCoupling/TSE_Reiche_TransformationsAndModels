@@ -5,8 +5,7 @@
     <groupId>TSE_Reiche_TransformationsAndModels</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>edu.kit.kastel.sdq.coupling.sourcecodeanalysis.execution.updatesite</groupId>
-  <artifactId>edu.kit.kastel.sdq.coupling.sourcecodeanalysis.execution.updatesite</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>edu.kit.kastel.sdq.coupling.updatesite</groupId>
+  <artifactId>edu.kit.kastel.sdq.coupling.updatesite</artifactId>
   <packaging>eclipse-repository</packaging>
 </project>

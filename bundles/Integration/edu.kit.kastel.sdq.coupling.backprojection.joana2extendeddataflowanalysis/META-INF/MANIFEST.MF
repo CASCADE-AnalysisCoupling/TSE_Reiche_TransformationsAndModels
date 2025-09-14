@@ -18,6 +18,8 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.joanascar,
  edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences,
  edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences,
- edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences
+ edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences,
+ org.dataflowanalysis.pcm.extension.dictionary.characterized,
+ org.eclipse.emf.ecore
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis
 Export-Package: edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis

@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.alignment.pcm2java
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.palladiosimulator.pcm,
- edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
- edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0"
+ edu.kit.kastel.sdq.coupling.models.java;bundle-version="1.0.0",
+ edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="1.0.0"
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.pcm2java,
  edu.kit.kastel.sdq.coupling.alignment.pcm2java.utils

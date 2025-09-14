@@ -27,6 +27,7 @@ Export-Package: edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2sc
  org.yaml.snakeyaml.serializer,
  org.yaml.snakeyaml.tokens,
  org.yaml.snakeyaml.util
+Import-Package:  edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences.util
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.joana,
  edu.kit.kastel.sdq.coupling.models.joanascar,
  edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences
