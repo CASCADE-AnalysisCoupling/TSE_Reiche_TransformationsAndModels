@@ -4,7 +4,7 @@ Bundle-Name: Joana2accessanalysis
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.ui;bundle-version="3.118.100",
  edu.kit.kastel.sdq.coupling.models.joana;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",

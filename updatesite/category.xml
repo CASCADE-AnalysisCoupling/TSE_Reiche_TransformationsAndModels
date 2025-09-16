@@ -12,6 +12,31 @@
    <feature id="Partitioner.updatesite_feature">
       <category name="framework"/>
    </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.feature">
+      <category name="transformations"/>
+   </feature>
+   <!--<feature id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.feature">
+      <category name="transformations"/>
+   </feature>
+   <feature id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature">
+      <category name="transformations"/>
+   </feature>-->
    <category-def name="sourcecode_analysis_execution" label="Sourcecode-Analysis Execution"/>
    <category-def name="framework" label="Framework"/>
+   <category-def name="transformations" label="Transformations"/>
 </site>

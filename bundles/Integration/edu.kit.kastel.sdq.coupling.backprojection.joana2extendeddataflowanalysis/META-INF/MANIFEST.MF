@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Joana2extendeddataflowanalysis
-Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,

@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence,
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.impl,
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence.supporting.util,

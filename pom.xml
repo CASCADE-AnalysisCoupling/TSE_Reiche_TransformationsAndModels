@@ -7,20 +7,69 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-	
+
 	<!-- EXECUTION -->
     <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution</module>
     <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution</module>
-    
+
     <!-- FRAMEWORK PROJECTS-->
     <module>features/ArchitectureAndStaticCodeAnalysesCouplingFramework.updatesite_feature</module>
-    <module>features/Partitioner.updatesite_feature</module>   
-    
-     <!-- FEATURE PROJECTS -->
+    <module>features/Partitioner.updatesite_feature</module>
+
+    <!-- TRANSFORMATIONS -->
+    <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql</module>
+    <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana</module>
+    <!-- <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql</module>-->
+    <module>bundles/Consistency/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis</module>
+
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification</module>
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification</module>    
+
+    <!-- DEPENDENCIES -->
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.codeql</module>
+    <module>bundles/Consistency/CodeGeneration/edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils</module>
+    <module>bundles/Consistency/CodeGeneration/edu.kit.kastel.sdq.coupling.alignment.codeqltainttrackingcodegenerator</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.java</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence</module>
+    <module>bundles/Consistency/CodeGeneration/edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator</module>
+    <module>bundles/Consistency/CodeGeneration/edu.kit.kastel.sdq.coupling.alignment.pcm2java</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysiscodeqlcorrespondence</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.identifier</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.joana</module>
+    <module>bundles/Consistency/CodeGeneration/edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator</module>
+    <module>bundles/Util</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.accessanalysisjoanacorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.edfajoanacorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.codeqlresultingvalues</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.codeqlscarcorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.codeqlresultingvaluescorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.codeqlscar</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.joanascar</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.joanascarcorrespondences</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.joanaresultingvalues</module>
+    <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.correspondences.joanaresultingvaluescorrespondences</module>
+
+	<!-- FEATURE PROJECTS -->
     <module>features/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature</module>
-    
-    
+    <module>features/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.feature</module>
+    <module>features/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.feature</module>
+    <!--<module>features/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.feature</module>-->
+    <module>features/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.feature</module>
+    <module>features/edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.feature</module>
+    <module>features/edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.feature</module>
+    <module>features/edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis.feature</module>
+    <module>features/edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature</module>
+
     <module>updatesite</module>
   </modules>
   <build>
@@ -31,16 +80,26 @@
         <version>2.7.5</version>
         <extensions>true</extensions>
       </plugin>
+      <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>target-platform-configuration</artifactId>
+      <version>2.7.5</version>
+      <configuration>
+        <resolver>p2</resolver>
+        <environments>
+          <environment>
+            <os>linux</os>
+            <ws>gtk</ws>
+            <arch>x86_64</arch>
+          </environment>
+        </environments>
+      </configuration>
+    </plugin>
     </plugins>
   </build>
-  
+
   <repositories>
-	 
-  <repository>
-    <id>ecore</id>
-    <url>http://download.eclipse.org/ecoretools/updates/nightly/3.1.x/neon</url>
-    <layout>default</layout>
-  </repository>   
+
   <repository>
     <id>eclipse-2023-09</id>
     <url>https://download.eclipse.org/releases/2023-09</url>
