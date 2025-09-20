@@ -14,5 +14,4 @@ Require-Bundle: com.google.guava,
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",
  edu.kit.kastel.sdq.coupling.alignment.codegeneratorutils;bundle-version="1.0.0"
 Export-Package: edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.generators,
- edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils,
  edu.kit.kastel.sdq.coupling.alignment.joanacodegenerator.utils

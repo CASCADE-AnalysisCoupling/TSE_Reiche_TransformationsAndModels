@@ -13,7 +13,6 @@ Require-Bundle: ArchitectureAndStaticCodeAnalysisCouplingFramework,
  org.eclipse.core.resources;bundle-version="3.13.900",
  edu.kit.kastel.sdq.coupling.backprojection.joana2accessanalysis;bundle-version="1.0.0",
  edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification
-Import-Package: edu.kit.ipd.sdq.commons.util.org.eclipse.core.resources
 Bundle-ClassPath: .,
  libs/edu.kit.kastel.sdq.coupling.completion.specificationtransfer-0.0.1-SNAPSHOT.jar,
  libs/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution-0.0.1-SNAPSHOT.jar

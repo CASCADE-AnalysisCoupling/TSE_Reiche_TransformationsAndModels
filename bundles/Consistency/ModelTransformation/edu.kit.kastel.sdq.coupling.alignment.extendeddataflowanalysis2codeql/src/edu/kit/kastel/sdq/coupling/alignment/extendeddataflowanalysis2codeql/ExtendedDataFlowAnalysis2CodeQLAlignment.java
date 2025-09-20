@@ -19,25 +19,16 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 	private final String correspondenceModelPath;
 	private final String codeQLQueryFolderPath;
 	public static String policyStyle;
-<<<<<<< HEAD:bundles/Alignment/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
-	private final String edfaCodeQLCorrespondenceModelPath;
-=======
 	private final String edfaCodeQLCorrespondencesPath;
 	private final String codeQL_Configurations_Path;
 	private final String edfa_Configurations_Path;
->>>>>>> coverageEvaluationExtension:bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
 
 	private static final String CODEQL_QUERY_FILE_ENDING = "ql";
 	private static final String CODEQL_QUERY_FILE_NAME = "LabeledTaintTracking4EDFA";
 	
 	public ExtendedDataFlowAnalysis2CodeQLAlignment(String repositoryPath, String parameterAnnotationModelPath,
-<<<<<<< HEAD:bundles/Alignment/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
-			String datadictionaryModelPath, String codeBasePackageName, String javaModelPath,
-			String codeQLModelPath, String correspondenceModelPath, String codeQLQueryFolderPath, String policyStyle, String edfaCodeQLCorrespondenceModelPath) {
-=======
 			String datadictionaryModelPath, String edfa_Configurations_Path, String codeBasePackageName, String javaModelPath,
 			String codeQLModelPath, String codeQLConfigurations_Path, String correspondenceModelPath, String codeQLQueryFolderPath, String edfaCodeQLCorrespondencesPath, String policyStyle) {
->>>>>>> coverageEvaluationExtension:bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
 		super();
 		this.repositoryPath = repositoryPath;
 		this.parameterAnnotationModelPath = parameterAnnotationModelPath;
@@ -48,13 +39,9 @@ public class ExtendedDataFlowAnalysis2CodeQLAlignment {
 		this.correspondenceModelPath = correspondenceModelPath;
 		this.codeQLQueryFolderPath = codeQLQueryFolderPath;
 		ExtendedDataFlowAnalysis2CodeQLAlignment.policyStyle = policyStyle;
-<<<<<<< HEAD:bundles/Alignment/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
-		this.edfaCodeQLCorrespondenceModelPath = edfaCodeQLCorrespondenceModelPath;
-=======
 		this.edfaCodeQLCorrespondencesPath = edfaCodeQLCorrespondencesPath;
 		this.codeQL_Configurations_Path = codeQLConfigurations_Path;
 		this.edfa_Configurations_Path = edfa_Configurations_Path;
->>>>>>> coverageEvaluationExtension:bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql/src/edu/kit/kastel/sdq/coupling/alignment/extendeddataflowanalysis2codeql/ExtendedDataFlowAnalysis2CodeQLAlignment.java
 	}
 
 	
