@@ -2,7 +2,7 @@
 <feature
       id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.feature"
       label="CodeQL to Access-Analysis"
-      version="1.0.0.202509160844">
+      version="1.0.0.202509201100">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,7 +20,7 @@
          id="edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis"
          download-size="20"
          install-size="108"
-         version="1.0.0.202509160844"
+         version="1.0.0.202509201100"
          unpack="false"/>
 
 </feature>

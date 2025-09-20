@@ -2,7 +2,7 @@
 <feature
       id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature"
       label="JOANA to Extended Dataflow-Analysis"
-      version="1.0.0.202509160844">
+      version="1.0.0.202509201100">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,7 +20,7 @@
          id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis"
          download-size="24"
          install-size="98"
-         version="1.0.0.202509160844"
+         version="1.0.0.202509201100"
          unpack="false"/>
 
 </feature>

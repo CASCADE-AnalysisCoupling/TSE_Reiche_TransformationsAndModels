@@ -19,8 +19,8 @@
     <!-- TRANSFORMATIONS -->
     <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql</module>
     <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana</module>
-    <!-- <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql</module>-->
-    <module>bundles/Consistency/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana</module>
+    <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql</module>
+    <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana</module>
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis</module>
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2extendeddataflowanalysis</module>
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.joanaresult2accessanalysis</module>
@@ -63,7 +63,7 @@
     <module>features/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.feature</module>
-    <!--<module>features/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.feature</module>-->
+    <module>features/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.backprojection.codeql2accessanalysis.feature</module>
     <module>features/edu.kit.kastel.sdq.coupling.backprojection.codeql2extendeddataflowanalysis.feature</module>
