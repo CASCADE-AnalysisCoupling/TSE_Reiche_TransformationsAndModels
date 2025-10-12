@@ -5,7 +5,7 @@ Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.backprojection.codeql2accessana
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2accessanalysis
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Require-Bundle: edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
+Require-Bundle: edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
  com.google.gson;bundle-version="2.8.2",
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",

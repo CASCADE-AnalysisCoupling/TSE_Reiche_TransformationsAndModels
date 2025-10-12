@@ -4,17 +4,9 @@
       label="Acces-Analysis to CodeQL"
       version="1.0.0.qualifier">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
-   </description>
-
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
+   <requires>
+      <import plugin="edu.kit.kastel.scbs.confidentialitymm"/>
+   </requires>
 
    <plugin
          id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql"

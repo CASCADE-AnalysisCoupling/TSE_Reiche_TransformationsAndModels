@@ -6,7 +6,67 @@
   <groupId>TSE_Reiche_TransformationsAndModels</groupId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <modules>
+
+  <build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>2.7.5</version>
+                <configuration>
+                  <includeAllDependencies>true</includeAllDependencies>
+                  <includeRequiredFeatures>true</includeRequiredFeatures>
+                  <includeRequiredPlugins>true</includeRequiredPlugins>
+                </configuration>
+			</plugin>
+		</plugins>
+	</pluginManagement>
+    <plugins>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-maven-plugin</artifactId>
+			<version>2.7.5</version>
+			<extensions>true</extensions>
+            <configuration>
+				<includeAllDependencies>true</includeAllDependencies>
+				<includeRequiredFeatures>true</includeRequiredFeatures>
+				<includeRequiredPlugins>true</includeRequiredPlugins>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-p2-plugin</artifactId>
+			<version>2.7.5</version>
+			<executions>
+				<execution>
+					<id>attached-p2-metadata</id>
+					<phase>package</phase>
+					<goals>
+						<goal>p2-metadata</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<includeAllDependencies>true</includeAllDependencies>
+				<includeRequiredFeatures>true</includeRequiredFeatures>
+				<includeRequiredPlugins>true</includeRequiredPlugins>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-p2-repository-plugin</artifactId>
+			<version>2.7.5</version>
+			<configuration>
+				<includeAllDependencies>true</includeAllDependencies>
+				<includeRequiredFeatures>true</includeRequiredFeatures>
+				<includeRequiredPlugins>true</includeRequiredPlugins>
+			</configuration>
+		</plugin>
+    </plugins>
+  </build>
+
+ <modules>
 
 	<!-- EXECUTION -->
     <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution</module>
@@ -29,7 +89,7 @@
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.codeqlresult2scar</module>
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultparser.joana2scar</module>
     <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.codeqlscar2resultingspecification</module>
-    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification</module>    
+    <module>bundles/Integration/edu.kit.kastel.sdq.coupling.backprojection.resultingspecificationextraction.joana2resultingspecification</module>
 
     <!-- DEPENDENCIES -->
     <module>bundles/Metamodels/edu.kit.kastel.sdq.coupling.models.codeql</module>
@@ -71,34 +131,9 @@
     <module>features/edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature</module>
 
     <module>updatesite</module>
-  </modules>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-maven-plugin</artifactId>
-        <version>2.7.5</version>
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
-      <groupId>org.eclipse.tycho</groupId>
-      <artifactId>target-platform-configuration</artifactId>
-      <version>2.7.5</version>
-      <configuration>
-        <resolver>p2</resolver>
-        <environments>
-          <environment>
-            <os>linux</os>
-            <ws>gtk</ws>
-            <arch>x86_64</arch>
-          </environment>
-        </environments>
-      </configuration>
-    </plugin>
-    </plugins>
-  </build>
+ </modules>
 
-  <repositories>
+ <repositories>
 
   <repository>
     <id>eclipse-2023-09</id>
@@ -145,5 +180,5 @@
     <url>https://repo.maven.apache.org/maven2</url>
     <layout>default</layout>
   </repository>
-</repositories>
+ </repositories>
 </project>

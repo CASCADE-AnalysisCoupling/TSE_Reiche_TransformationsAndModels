@@ -4,7 +4,7 @@ Bundle-Name: Accessanalysis2joana
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.kit.kastel.sdq.coupling.alignment.accessanalysis2joana
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: edu.kit.kastel.scbs.confidentialitymm,
  org.modelversioning.emfprofile,
  com.google.guava,

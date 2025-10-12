@@ -5,7 +5,7 @@ Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanaly
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.identifier;bundle-version="0.1.0",
- edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
+ edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",
  com.google.guava,

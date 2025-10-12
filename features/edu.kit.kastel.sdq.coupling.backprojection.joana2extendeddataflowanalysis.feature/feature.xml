@@ -4,20 +4,15 @@
       label="JOANA to Extended Dataflow-Analysis"
       version="1.0.0.qualifier">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
-   </description>
-
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
-
    <plugin
          id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.models.java"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,58 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='2'>
-  <unit id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' version='1.0.0.202509201100' singleton='false'>
-    <update id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' range='[0.0.0,1.0.0.202509201100)' severity='0'/>
-    <properties size='8'>
+  <unit id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' version='1.0.0.202510121149'>
+    <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='CodeQL-Execution'/>
-      <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-      <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
-      <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-      <property name='maven-groupId' value='TSE_Reiche_TransformationsAndModels'/>
-      <property name='maven-artifactId' value='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature'/>
-      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      <property name='maven-type' value='eclipse-feature'/>
-    </properties>
-    <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' version='1.0.0.202509201100'/>
-    </provides>
-    <requires size='2'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution' range='[1.0.0.202509201100,1.0.0.202509201100]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' range='[1.0.0.202509201100,1.0.0.202509201100]'>
-        <filter>
-          (org.eclipse.update.install.features=true)
-        </filter>
-      </required>
-    </requires>
-    <touchpoint id='null' version='0.0.0'/>
-    <licenses size='1'>
-      <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-        [Enter License Description here.]
-      </license>
-    </licenses>
-    <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-      [Enter Copyright Description here.]
-    </copyright>
-  </unit>
-  <unit id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' version='1.0.0.202509201100'>
-    <properties size='7'>
-      <property name='org.eclipse.equinox.p2.name' value='CodeQL-Execution'/>
-      <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
-      <property name='org.eclipse.equinox.p2.description.url' value='http://www.example.com/description'/>
       <property name='maven-groupId' value='TSE_Reiche_TransformationsAndModels'/>
       <property name='maven-artifactId' value='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-type' value='eclipse-feature'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' version='1.0.0.202509201100'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' version='1.0.0.202510121149'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature' version='1.0.0.202509201100'/>
+      <provided namespace='org.eclipse.update.feature' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature' version='1.0.0.202510121149'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature' version='1.0.0.202509201100'/>
+      <artifact classifier='org.eclipse.update.feature' id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature' version='1.0.0.202510121149'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
@@ -62,13 +27,28 @@
         </instruction>
       </instructions>
     </touchpointData>
-    <licenses size='1'>
-      <license uri='http://www.example.com/license' url='http://www.example.com/license'>
-        [Enter License Description here.]
-      </license>
-    </licenses>
-    <copyright uri='http://www.example.com/copyright' url='http://www.example.com/copyright'>
-      [Enter Copyright Description here.]
-    </copyright>
+  </unit>
+  <unit id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' version='1.0.0.202510121149' singleton='false'>
+    <update id='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' range='[0.0.0,1.0.0.202510121149)' severity='0'/>
+    <properties size='6'>
+      <property name='org.eclipse.equinox.p2.name' value='CodeQL-Execution'/>
+      <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      <property name='maven-groupId' value='TSE_Reiche_TransformationsAndModels'/>
+      <property name='maven-artifactId' value='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-feature'/>
+    </properties>
+    <provides size='1'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.group' version='1.0.0.202510121149'/>
+    </provides>
+    <requires size='2'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution' range='[1.0.0.202510121149,1.0.0.202510121149]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature.feature.jar' range='[1.0.0.202510121149,1.0.0.202510121149]'>
+        <filter>
+          (org.eclipse.update.install.features=true)
+        </filter>
+      </required>
+    </requires>
+    <touchpoint id='null' version='0.0.0'/>
   </unit>
 </units>
