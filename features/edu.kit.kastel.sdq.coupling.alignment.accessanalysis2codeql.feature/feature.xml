@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.feature"
-      label="Acces-Analysis to CodeQL"
+      label="Access-Analysis to CodeQL"
       version="1.0.0.qualifier">
 
    <requires>
