@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ArchitectureAndStaticCodeAnalysesCouplingFramework.updatesite_feature"
+      label="Architecture-And-StaticCode-Analyses-CouplingFramework"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="ArchitectureAndStaticCodeAnalysisCouplingFramework"
+         download-size="458"
+         install-size="513"
+         version="1.0.0.202509120858"/>
+
+</feature>

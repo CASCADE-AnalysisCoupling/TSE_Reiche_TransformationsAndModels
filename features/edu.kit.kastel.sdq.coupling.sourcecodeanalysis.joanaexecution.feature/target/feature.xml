@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution.feature"
+      label="JOANA-Execution"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution"
+         download-size="11"
+         install-size="16"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

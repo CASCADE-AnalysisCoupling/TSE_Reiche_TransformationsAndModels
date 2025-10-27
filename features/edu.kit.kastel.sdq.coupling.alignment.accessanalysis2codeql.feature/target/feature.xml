@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql.feature"
+      label="Acces-Analysis to CodeQL"
+      version="1.0.0.202510121149">
+
+   <requires>
+      <import plugin="edu.kit.kastel.scbs.confidentialitymm"/>
+   </requires>
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql"
+         download-size="28"
+         install-size="121"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

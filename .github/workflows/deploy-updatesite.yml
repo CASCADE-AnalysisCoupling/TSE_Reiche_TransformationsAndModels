@@ -1,0 +1,28 @@
+name: Deploy Update-Site
+
+on:
+    push:
+        branches: [main,updatesite-analysis-execution]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Set up the JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: 17
+                    cache: maven
+            -   name: Build
+                run: mvn clean verify
+            -   name: Publish Update-Site
+                uses: peaceiris/actions-gh-pages@v4
+                with:
+                    personal_token: ${{ secrets.UPDATE_SITE_DEPLOY_SECRET }}
+                    external_repository: CASCADE-AnalysisCoupling/updatesite
+                    destination_dir: release/
+                    publish_dir: updatesite/target/repository
+                    publish_branch: main

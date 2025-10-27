@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution.feature"
+      label="CodeQL-Execution"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution"
+         download-size="5"
+         install-size="5"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

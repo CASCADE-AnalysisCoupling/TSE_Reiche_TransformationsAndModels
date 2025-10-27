@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="Partitioner.updatesite_feature"
+      label="Partitioner"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="Partitioner"
+         download-size="1790"
+         install-size="1959"
+         version="1.0.0.202509120842"
+         unpack="false"/>
+
+</feature>

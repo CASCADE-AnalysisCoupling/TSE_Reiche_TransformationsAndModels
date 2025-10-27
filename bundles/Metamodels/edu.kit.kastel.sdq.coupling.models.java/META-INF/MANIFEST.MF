@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.models.java;singleton:=true
 Automatic-Module-Name: edu.kit.kastel.sdq.coupling.models.java
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: edu.kit.kastel.sdq.coupling.models.java,
+Export-Package: edu.kit.kastel.sdq.coupling.models.java;version="1.0.0.qualifier",
  edu.kit.kastel.sdq.coupling.models.java.impl,
  edu.kit.kastel.sdq.coupling.models.java.members,
  edu.kit.kastel.sdq.coupling.models.java.members.impl,
@@ -21,4 +21,4 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  edu.kit.kastel.sdq.coupling.models.identifier;bundle-version="0.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17

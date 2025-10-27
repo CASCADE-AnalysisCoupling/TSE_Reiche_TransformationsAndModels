@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql.feature"
+      label="Extended Dataflow-Analysis to CodeQL"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2codeql"
+         download-size="27"
+         install-size="105"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

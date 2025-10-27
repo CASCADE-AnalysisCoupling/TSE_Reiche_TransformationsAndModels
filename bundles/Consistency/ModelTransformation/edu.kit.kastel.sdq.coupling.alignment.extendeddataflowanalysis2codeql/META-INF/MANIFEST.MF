@@ -5,7 +5,7 @@ Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanaly
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.models.identifier;bundle-version="0.1.0",
- edu.kit.kastel.sdq.coupling.models.java;bundle-version="0.1.0",
+ edu.kit.kastel.sdq.coupling.models.java,
  edu.kit.kastel.sdq.coupling.models.pcmjavacorrespondence;bundle-version="0.1.0",
  edu.kit.kastel.sdq.coupling.alignment.generation.javacodegenerator;bundle-version="1.0.0",
  com.google.guava,
@@ -19,7 +19,6 @@ Require-Bundle: edu.kit.kastel.sdq.coupling.models.codeql;bundle-version="0.1.0"
  org.eclipse.ui;bundle-version="3.201.200",
  edu.kit.kastel.sdq.coupling.alignment.pcm2java,
  edu.kit.kastel.sdq.coupling.models.extension.dataflowanalysis.parameterannotation,
- org.dataflowanalysis.dfd.datadictionary;bundle-version="0.1.0",
  org.dataflowanalysis.pcm.extension.model,
  edu.kit.kastel.sdq.coupling.models.correspondences.edfacodeqlcorrespondences,
  edu.kit.kastel.sdq.coupling.evaluation.supporting.configurationrepresentation

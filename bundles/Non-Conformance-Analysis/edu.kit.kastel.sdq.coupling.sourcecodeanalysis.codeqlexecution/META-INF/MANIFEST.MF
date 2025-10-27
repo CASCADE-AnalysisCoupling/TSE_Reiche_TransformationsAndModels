@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Codeqlexecution
+Bundle-SymbolicName: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution
+Export-Package: edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution

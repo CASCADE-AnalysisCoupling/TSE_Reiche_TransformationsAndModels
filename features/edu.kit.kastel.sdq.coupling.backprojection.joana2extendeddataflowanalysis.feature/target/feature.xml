@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature"
+      label="JOANA to Extended Dataflow-Analysis"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis"
+         download-size="24"
+         install-size="98"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.models.java"
+         download-size="78"
+         install-size="179"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

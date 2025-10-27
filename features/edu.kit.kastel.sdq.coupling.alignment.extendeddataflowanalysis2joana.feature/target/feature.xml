@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana.feature"
+      label="Extended Dataflow-Analysis to JOANA"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.alignment.extendeddataflowanalysis2joana"
+         download-size="28"
+         install-size="109"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana.feature"
+      label="Access-Analysis to JOANA"
+      version="1.0.0.202510121149">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.alignment.accessanalysis2joana"
+         download-size="42"
+         install-size="159"
+         version="1.0.0.202510121149"
+         unpack="false"/>
+
+</feature>

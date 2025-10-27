@@ -8,6 +8,5 @@ tmp/
 *.class
 
 # Xtend
-xtend-gen/
 *._trace
 *.xtendbin
