@@ -36,7 +36,11 @@
    <feature id="edu.kit.kastel.sdq.coupling.backprojection.joana2extendeddataflowanalysis.feature">
       <category name="transformations"/>
    </feature>
+   <feature id="ConformanceChecking.updatesite_feature">
+      <category name="other"/>
+   </feature>
    <category-def name="sourcecode_analysis_execution" label="Sourcecode-Analysis Execution"/>
    <category-def name="framework" label="Framework"/>
    <category-def name="transformations" label="Transformations"/>
+   <category-def name="other" label="Other"/>
 </site>
