@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ConformanceChecking.updatesite_feature"
+      label="Conformance Checking"
+      version="1.0.0.qualifier">
+
+   <plugin
+         id="edu.kit.kastel.sdq.coupling.models.conformance"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

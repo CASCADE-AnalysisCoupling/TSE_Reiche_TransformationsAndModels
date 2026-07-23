@@ -72,9 +72,10 @@
     <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.codeqlexecution</module>
     <module>bundles/Non-Conformance-Analysis/edu.kit.kastel.sdq.coupling.sourcecodeanalysis.joanaexecution</module>
 
-    <!-- FRAMEWORK PROJECTS-->
+    <!-- OTHER UPDATESITE PROJECTS-->
     <module>features/ArchitectureAndStaticCodeAnalysesCouplingFramework.updatesite_feature</module>
     <module>features/Partitioner.updatesite_feature</module>
+    <module>features/ConformanceChecking.updatesite_feature</module>
 
     <!-- TRANSFORMATIONS -->
     <module>bundles/Consistency/ModelTransformation/edu.kit.kastel.sdq.coupling.alignment.accessanalysis2codeql</module>
@@ -173,6 +174,11 @@
   <repository>
 	  <id>partitioner</id>
 	  <url>https://cascade-analysiscoupling.github.io/updatesite/partitioner</url>
+	  <layout>p2</layout>
+  </repository>
+  <repository>
+	  <id>conformance_checking</id>
+	  <url>https://cascade-analysiscoupling.github.io/updatesite/conformance_checking</url>
 	  <layout>p2</layout>
   </repository>
   <repository>
